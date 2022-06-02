@@ -39,13 +39,12 @@ Image::make('Аватар', 'avatar')
 </x-code>
 
 <x-alert>
-    Поле в базе необходимо типа text или json<br>
-    Также необходимо добавить cast для eloquent модели - json или array или collection
+    Поле в базе необходимо типа text или json<br>.
+    Также необходимо добавить cast для eloquent модели - json или array или collection.
 </x-alert>
 
 <x-p>
-    При множественной загруки файлов, если в последующем необходимо иметь возможность
-    их удалять, то воспользуйтесь методом <code>removable</code>
+    При множественной загрузке файлов, для возможности их удаления в последующем, необходимо воспользоваться методом <code>removable</code>
 </x-p>
 
 <x-code language="php">
@@ -66,6 +65,3 @@ Image::make('Аватар', 'avatar')
 <x-next href="{{ route('section', 'fields-file') }}">Файл</x-next>
 
 </x-page>
-
-
-

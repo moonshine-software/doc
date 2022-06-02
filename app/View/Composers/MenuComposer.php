@@ -10,8 +10,8 @@ class MenuComposer
     {
         $view->with('menu', [
             'Getting started' => [
-                ['url' => route('section', 'installation'), 'label' => 'Установка'],
                 ['url' => route('section', 'concept'), 'label' => 'Концепция'],
+                ['url' => route('section', 'installation'), 'label' => 'Установка'],
                 ['url' => route('section', 'contribution'), 'label' => 'Contribution Guide'],
                 ['url' => route('section', 'releases'), 'label' => 'Обновления'],
             ],

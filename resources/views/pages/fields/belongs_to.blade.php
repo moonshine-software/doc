@@ -2,7 +2,8 @@
 
 <x-p>Поле для отношений в laravel типа belongsTo</x-p>
 
-<x-p>Отображается как select, также есть возможность добавить поиск по значениями с помощью метода <code>searchable</code></x-p>
+<x-p>Отображается как select, также есть возможность добавить поиск по значениям с помощью метода:
+<code>searchable</code></x-p>
 
 <x-code language="php">
 use Leeto\MoonShine\Fields\BelongsTo;
@@ -60,6 +61,3 @@ public string $titleField = 'name'; // [tl! focus]
 <x-next href="{{ route('section', 'fields-belongs_to_many') }}">BelongsToMany</x-next>
 
 </x-page>
-
-
-

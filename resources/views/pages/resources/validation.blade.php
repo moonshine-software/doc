@@ -1,11 +1,11 @@
 <x-page title="Валидация" :sectionMenu="$sectionMenu ?? null">
 
 <x-p>
-    Валидация выполнена также просто как и в <code>FormRequests</code> классах от Laravel
+    Валидация выполнена также просто как и в <code>FormRequests</code> классах от Laravel.
 </x-p>
 
 <x-p>
-    Достаточно в привычной нам манере добавлять правила в методе <code>rules</code> ресурса
+    Достаточно в привычной нам манере добавлять правила в методе <code>rules</code> ресурса.
 </x-p>
 
 <x-code language="php">

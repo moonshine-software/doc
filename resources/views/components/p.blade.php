@@ -1,3 +1,3 @@
-<p class="my-6">
+<p {{ $attributes->merge(['class' => 'my-6']) }}>
     {!! $slot !!}
 </p>
