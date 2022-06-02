@@ -5,13 +5,13 @@
 </x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Actions\Export;
+use Leeto\MoonShine\Actions\ExportAction;
 
 //...
 public function actions(): array
 {
     return [
-        Export::make('Экспорт'),
+        ExportAction::make('Экспорт'),
     ];
 }
 //...
@@ -22,7 +22,6 @@ public function actions(): array
 </x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Actions\Export;
 
 //...
 public function fields(): array
