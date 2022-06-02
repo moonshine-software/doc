@@ -91,7 +91,7 @@ class MenuComposer
 
             'Действия' => [
                 ['url' => route('section', 'actions-index'), 'label' => 'Основы'],
-                ['url' => route('section', 'actions-text'), 'label' => 'Экспорт'],
+                ['url' => route('section', 'actions-export'), 'label' => 'Экспорт'],
             ],
 
             'Авторизация' => [
