@@ -17,7 +17,7 @@
 <x-sub-title id="composer">Composer</x-sub-title>
 
 <x-code language="shell">
-    composer require lee-to/moonshine
+    composer require lee-to/moonshine -W
 </x-code>
 
 <x-sub-title id="install">Установка</x-sub-title>
