@@ -65,7 +65,7 @@ class PostResource extends BaseResource
 
     public static array $with = ['category']; // Eager load [tl! focus]
 
-    public static bool $withPolicy = false; // Eager load [tl! focus]
+    public static bool $withPolicy = false; // Авторизация [tl! focus]
 
     public static string $orderField = 'id'; // Поле сортировки по умолчанию [tl! focus]
 
