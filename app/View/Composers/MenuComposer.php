@@ -8,7 +8,7 @@ class MenuComposer
 {
     public function compose(View $view)
     {
-        $view->with('menu', [
+        $menu = [
             'Getting started' => [
                 ['url' => route('section', 'concept'), 'label' => 'Концепция'],
                 ['url' => route('section', 'installation'), 'label' => 'Установка'],
@@ -109,6 +109,8 @@ class MenuComposer
             'Расширения' => [
                 ['url' => route('section', 'extensions-index'), 'label' => 'Основы'],
             ],
-        ]);
+        ];
+
+        $view->with('menu', $menu);
     }
 }

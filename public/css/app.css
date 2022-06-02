@@ -755,6 +755,9 @@ select {
 .inline-flex {
   display: inline-flex;
 }
+.table {
+  display: table;
+}
 .grid {
   display: grid;
 }
@@ -818,6 +821,15 @@ select {
 .flex-shrink-0 {
   flex-shrink: 0;
 }
+.table-auto {
+  table-layout: auto;
+}
+.table-fixed {
+  table-layout: fixed;
+}
+.border-collapse {
+  border-collapse: collapse;
+}
 .translate-x-full {
   --tw-translate-x: 100%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -832,6 +844,9 @@ select {
 .cursor-default {
   cursor: default;
 }
+.cursor-pointer {
+  cursor: pointer;
+}
 .list-disc {
   list-style-type: disc;
 }
@@ -843,6 +858,9 @@ select {
 }
 .items-center {
   align-items: center;
+}
+.justify-start {
+  justify-content: flex-start;
 }
 .justify-center {
   justify-content: center;
@@ -864,6 +882,11 @@ select {
   --tw-space-x-reverse: 0;
   margin-right: calc(0.25rem * var(--tw-space-x-reverse));
   margin-left: calc(0.25rem * calc(1 - var(--tw-space-x-reverse)));
+}
+.space-x-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 .overflow-hidden {
   overflow: hidden;
@@ -904,6 +927,9 @@ select {
 .border-l-4 {
   border-left-width: 4px;
 }
+.border-b {
+  border-bottom-width: 1px;
+}
 .border-purple {
   --tw-border-opacity: 1;
   border-color: rgb(120 67 233 / var(--tw-border-opacity));
@@ -919,6 +945,10 @@ select {
 .border-gray-300 {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
+}
+.border-pink {
+  --tw-border-opacity: 1;
+  border-color: rgb(236 65 118 / var(--tw-border-opacity));
 }
 .bg-transparent {
   background-color: transparent;
@@ -957,6 +987,9 @@ select {
 }
 .p-6 {
   padding: 1.5rem;
+}
+.p-4 {
+  padding: 1rem;
 }
 .px-8 {
   padding-left: 2rem;
@@ -1009,6 +1042,18 @@ select {
 }
 .pl-4 {
   padding-left: 1rem;
+}
+.pl-8 {
+  padding-left: 2rem;
+}
+.pt-0 {
+  padding-top: 0px;
+}
+.pb-3 {
+  padding-bottom: 0.75rem;
+}
+.text-left {
+  text-align: left;
 }
 .text-center {
   text-align: center;
@@ -1109,6 +1154,10 @@ select {
 .text-pink {
   --tw-text-opacity: 1;
   color: rgb(236 65 118 / var(--tw-text-opacity));
+}
+.text-black {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 .underline {
   -webkit-text-decoration-line: underline;
