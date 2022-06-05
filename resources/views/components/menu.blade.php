@@ -20,7 +20,7 @@
             @foreach($items as $item)
                 <li class="md:pr-3">
                     <a href="{{ $item['url'] }}"
-                       class="{{ request()->url() == $item['url'] ? 'border-l-4 rounded-r border-purple text-purple pl-3 my-2' : 'text-gray-700' }} inline-block py-1 md:py-2 hover:text-purple hover:underline font-medium"
+                       class="{{ request()->url() == $item['url'] ? 'border-l-4 rounded-r border-purple text-purple pl-3 my-2' : 'text-gray-700' }} inline-block py-2 hover:text-purple hover:underline font-medium"
                     >
                         {{ $item['label'] }}
                     </a>

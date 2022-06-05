@@ -21,6 +21,7 @@
         "vue-loader": "^16.8.3"
     },
     "dependencies": {
+        "@alpinejs/focus": "^3.10.2",
         "@ryangjchandler/alpine-clipboard": "^2.2.0",
         "alpinejs": "^3.10.2",
         "vue": "^3.2.33"
