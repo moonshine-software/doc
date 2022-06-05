@@ -82,7 +82,11 @@
         <div x-on:click.stop="" x-trap.noscroll.inert="donateModal" class="relative max-w-2xl w-full bg-white rounded-xl shadow-lg p-12 overflow-y-auto">
             <h2 class="text-3xl font-bold" :id="$id('modal-title')" id="modal-title-1">Помочь проекту</h2>
 
-            <div class="mt-2 text-gray-600">
+            <p class="mt-2 text-gray-600">
+                Вы можете помочь проекту не только делом, но и финансово. Все полученные средства будут потрачены на разработку. Есть возможность перевода через ЮМани, qiwi и криптовалюту (USDT по сети BEP20)
+            </p>
+
+            <div x-data="{showCrypto: false}" class="mt-2 text-gray-600">
                 <a href="https://yoomoney.ru/to/410012996693720" class="inline-block my-4 bg-white border border-gray-200 rounded-md px-5 py-2.5">
                     YooMoney
                 </a>
@@ -91,7 +95,17 @@
                     QIWI
                 </a>
 
-                <img class="block w-48" src="/images/donate_usdt.png" alt="" />
+                <a @click="showCrypto=!showCrypto" href="#" class="inline-block my-4 bg-white border border-gray-200 rounded-md px-5 py-2.5">
+                    Криптовалюта
+                </a>
+
+                <div x-show="showCrypto">
+                    <p class="mt-2 text-pink">
+                        0x10667e83c744483e2c9c77e4b3064ca7e5b8bdf3
+                    </p>
+
+                    <img class="block w-48" src="/images/donate_usdt.png" alt="" />
+                </div>
             </div>
 
             <div class="mt-8 flex space-x-2">
