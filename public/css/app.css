@@ -1147,6 +1147,10 @@ select {
   --tw-text-opacity: 1;
   color: rgb(75 85 99 / var(--tw-text-opacity));
 }
+.text-pink {
+  --tw-text-opacity: 1;
+  color: rgb(236 65 118 / var(--tw-text-opacity));
+}
 .text-gray-200 {
   --tw-text-opacity: 1;
   color: rgb(229 231 235 / var(--tw-text-opacity));
@@ -1170,10 +1174,6 @@ select {
 .text-gray-900 {
   --tw-text-opacity: 1;
   color: rgb(17 24 39 / var(--tw-text-opacity));
-}
-.text-pink {
-  --tw-text-opacity: 1;
-  color: rgb(236 65 118 / var(--tw-text-opacity));
 }
 .text-black {
   --tw-text-opacity: 1;
@@ -1317,6 +1317,8 @@ pre code.torchlight .line-number, pre code.torchlight .summary-caret {
 .torchlight details:not([open]) .summary-hide-when-open {
     display: initial;
 }
+
+[x-cloak] { display: none !important; }
 
 .hover\:text-purple:hover {
   --tw-text-opacity: 1;

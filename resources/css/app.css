@@ -64,3 +64,5 @@ pre code.torchlight .summary-caret {
 .torchlight details:not([open]) .summary-hide-when-open {
     display: initial;
 }
+
+[x-cloak] { display: none !important; }

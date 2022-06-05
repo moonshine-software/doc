@@ -75,7 +75,7 @@
 
 <footer></footer>
 
-<div x-bind="donateModalBack" class="fixed inset-0 overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="modal-title-1">
+<div x-cloak x-bind="donateModalBack" class="fixed inset-0 overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="modal-title-1">
     <div x-show="donateModal" x-transition.opacity="" class="fixed inset-0 bg-black bg-opacity-50" aria-hidden="true" style=""></div>
 
     <div x-show="donateModal" x-transition="" x-on:click="donateModal = false" class="relative min-h-screen flex items-center justify-center p-4" style="">
