@@ -33,6 +33,27 @@ app(MoonShine::class)->registerResources([
 
 <x-image src="{{ asset('screenshots/menu.png') }}"></x-image>
 
+
+<x-p>
+    Также есть возможность менять иконку у пункта меню
+</x-p>
+
+
+<x-code language="php">
+app(MoonShine::class)->registerResources([
+    MenuGroup::make('Система', [
+        MoonShineUserResource::class,
+        MoonShineUserRoleResource::class,
+    ])->icon('app') // [tl! focus]
+]);
+</x-code>
+
+<x-p>
+    Доступные значения
+</x-p>
+
+<x-ul :items="['add', 'app', 'bookmark', 'cart', 'delete', 'edit', 'export', 'filter', 'search', 'users']"></x-ul>
+
 <x-next href="{{ route('section', 'fields-index') }}">Поля</x-next>
 
 </x-page>
