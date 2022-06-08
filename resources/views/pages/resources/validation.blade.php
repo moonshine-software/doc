@@ -20,7 +20,7 @@ class PostResource extends BaseResource
     public static string $title = 'Статьи';
     //...
 
-    public function rules(): array // [tl! focus:start]
+    public function rules($item): array // [tl! focus:start]
     {
         return [
             'title' => ['required', 'string', 'min:5']

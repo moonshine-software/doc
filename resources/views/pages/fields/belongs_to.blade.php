@@ -58,6 +58,20 @@ public string $titleField = 'name'; // [tl! focus]
 
 <x-image src="{{ asset('screenshots/belongs_to.png') }}"></x-image>
 
+<x-p>Если необходимо более сложное значение для отображения, то в третий аргумент можно передать функцию</x-p>
+<x-code language="php">
+use Leeto\MoonShine\Fields\BelongsTo;
+
+//...
+public function fields(): array
+{
+return [
+    BelongsTo::make('Страна', 'country', fn($item) => "$item->id.) $item->name")
+];
+}
+//...
+</x-code>
+
 <x-next href="{{ route('section', 'fields-belongs_to_many') }}">BelongsToMany</x-next>
 
 </x-page>
