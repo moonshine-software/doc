@@ -60,6 +60,7 @@ class MenuComposer
                 ['url' => route('section', 'fields-switch'), 'label' => 'Переключатель'],
 
                 ['url' => route('section', 'fields-wysiwyg'), 'label' => 'WYSIWYG'],
+                ['url' => route('section', 'fields-code'), 'label' => 'Код'],
 
                 ['url' => route('section', 'fields-belongs_to'), 'label' => 'BelongsTo'],
                 ['url' => route('section', 'fields-belongs_to_many'), 'label' => 'BelongsToMany'],

@@ -18,7 +18,7 @@ public function fields(): array
 
 <x-image src="{{ asset('screenshots/wysiwyg.png') }}"></x-image>
 
-<x-next href="{{ route('section', 'fields-belongs_to') }}">BelongsTo</x-next>
+<x-next href="{{ route('section', 'fields-code') }}">Код</x-next>
 
 </x-page>
 
