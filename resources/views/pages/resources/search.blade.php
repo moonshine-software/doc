@@ -29,6 +29,6 @@ class PostResource extends BaseResource
 
 <x-image src="{{ asset('screenshots/search.png') }}"></x-image>
 
-<x-next href="{{ route('section', 'menu-index') }}">Меню</x-next>
+<x-next href="{{ route('section', 'resources-scopes') }}">Scopes</x-next>
 
 </x-page>

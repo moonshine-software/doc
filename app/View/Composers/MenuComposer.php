@@ -24,6 +24,7 @@ class MenuComposer
                 ['url' => route('section', 'resources-active_actions'), 'label' => 'Доступные разделы'],
                 ['url' => route('section', 'resources-validation'), 'label' => 'Валидация'],
                 ['url' => route('section', 'resources-search'), 'label' => 'Поиск'],
+                ['url' => route('section', 'resources-scopes'), 'label' => 'Scopes'],
             ],
 
             'Меню' => [
