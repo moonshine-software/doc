@@ -22,12 +22,8 @@
 
 <x-sub-title id="install">Установка</x-sub-title>
 
-<x-p>
-    1. Для начала необходимо опубликовать все ресурсы административной панели, а именно файл с конфигурацией, миграции, локализации и т.д. Для этого выполнить команду
-</x-p>
-
 <x-code language="shell">
-    php artisan vendor:publish --provider="Leeto\MoonShine\Providers\MoonShineServiceProvider"
+    php artisan moonshine:install
 </x-code>
 
 <x-alert color="bg-darkblue">
@@ -36,36 +32,19 @@
 </x-alert>
 
 <x-p>
-    2. Предустановка директорий административной панели
-</x-p>
-
-<x-code language="shell">
-    php artisan moonshine:install
-</x-code>
-
-<x-p>
-    После выполнения будут добавлены основные директории с административной панелью на основе
-    параметра <code>dir</code> в <code>config/moonshine.php</code>
-</x-p>
-
-<x-alert color="bg-darkblue">
-    По умолчанию это <code>app/Moonshine</code>. Где также будет основная директория с разделами админ. панели <code>app/MoonShine/Resources</code>.
+    Также будет добавлена директория с административной панелью и ресурсами - app/MoonShine.
     <x-link link="{{ route('section', 'resources') }}">Подробнее о Resources</x-link>
-</x-alert>
-
-<x-p>
-    3. Выполнить миграции и создать необходимые для работы административной панели таблицы
 </x-p>
 
-<x-code language="shell">
-    php artisan migrate
-</x-code>
+<x-p>
+    При установке добавятся новые таблицы
+</x-p>
 
 <x-ul :items="['moonshine_users', 'moonshine_user_roles', 'moonshine_change_logs']"></x-ul>
 
-<x-p>
-    4. Ну и само собой необходимо создать администратора
-</x-p>
+<x-sub-title>
+    Создание администратора
+</x-sub-title>
 
 <x-code language="shell">
     php artisan moonshine:user
@@ -74,15 +53,9 @@
 <x-sub-title id="config">Конфигурация</x-sub-title>
 
 <x-code language="php">
-// [tl! collapse:start]
-use Leeto\MoonShine\Controllers\MoonShineDashboardController;
 use Leeto\MoonShine\Models\MoonshineUser;
-// [tl! collapse:end]
 
 return [
-    'dir' => 'app/MoonShine', // Директория где будет располагаться админ. панель в вашем проекте
-    'namespace' => 'App\\MoonShine', // Если меняется директория то также необходимо изменить namespace
-
     'title' => env('MOONSHINE_TITLE', 'MoonShine'),
 	'logo' => env('MOONSHINE_LOGO', ''),
 
@@ -92,7 +65,6 @@ return [
     ],
 
     'auth' => [
-        'controller' => MoonShineDashboardController::class, // Контроллер по работе с аутентификацией (login, logout)
         'guard' => 'moonshine', // Guard аутентификации
         'guards' => [
             'moonshine' => [

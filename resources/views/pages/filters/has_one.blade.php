@@ -4,7 +4,7 @@
 
 <x-p><code>Leeto\MoonShine\Filters\HasOneFilter</code></x-p>
 
-<x-next href="{{ route('section', 'actions-index') }}">Действия</x-next>
+<x-next href="{{ route('section', 'metrics-index') }}">Метрики</x-next>
 
 </x-page>
 

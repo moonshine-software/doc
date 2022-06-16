@@ -25,6 +25,7 @@ class MenuComposer
                 ['url' => route('section', 'resources-validation'), 'label' => 'Валидация'],
                 ['url' => route('section', 'resources-search'), 'label' => 'Поиск'],
                 ['url' => route('section', 'resources-scopes'), 'label' => 'Scopes'],
+                ['url' => route('section', 'resources-metrics'), 'label' => 'Метрики'],
             ],
 
             'Меню' => [
@@ -89,6 +90,16 @@ class MenuComposer
                 ['url' => route('section', 'filters-belongs_to'), 'label' => 'BelongsTo'],
                 ['url' => route('section', 'filters-belongs_to_many'), 'label' => 'BelongsToMany'],
                 ['url' => route('section', 'filters-has_one'), 'label' => 'HasOne'],
+            ],
+
+            'Метрики' => [
+                ['url' => route('section', 'metrics-index'), 'label' => 'Основы'],
+                ['url' => route('section', 'metrics-value'), 'label' => 'Значение'],
+                ['url' => route('section', 'metrics-line_chart'), 'label' => 'Line Chart'],
+            ],
+
+            'Dashboard' => [
+                ['url' => route('section', 'dashboard-index'), 'label' => 'Основы'],
             ],
 
             'Действия' => [

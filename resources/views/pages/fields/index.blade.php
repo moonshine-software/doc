@@ -45,7 +45,7 @@ Text::make(string $label = null, string $field = null, ResourceContract|string|n
 
 <x-code language="php">
 //...
-class MoonShineUserResource extends BaseResource
+class MoonShineUserResource extends Resource
 {
 public static string $model = MoonshineUser::class;
 

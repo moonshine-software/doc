@@ -79,7 +79,7 @@ namespace Leeto\MoonShine\Resources;
 
 use Leeto\MoonShine\Models\MoonshineUser;
 
-class PostResource extends BaseResource
+class PostResource extends Resource
 {
 //...
 

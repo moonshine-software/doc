@@ -22,7 +22,7 @@ namespace Leeto\MoonShine\Resources;
 
 use App\Models\Scopes\ActiveUserScope;
 
-class PostResource extends BaseResource
+class PostResource extends Resource
 {
     //...
 
@@ -37,6 +37,6 @@ class PostResource extends BaseResource
 }
 </x-code>
 
-<x-next href="{{ route('section', 'menu-index') }}">Меню</x-next>
+<x-next href="{{ route('section', 'resources-metrics') }}">Метрики</x-next>
 
 </x-page>

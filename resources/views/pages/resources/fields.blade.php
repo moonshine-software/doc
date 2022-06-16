@@ -21,7 +21,7 @@ use Leeto\MoonShine\Models\MoonshineUser;
 use Leeto\MoonShine\Fields\ID; // [tl! focus]
 use Leeto\MoonShine\Fields\Text; // [tl! focus]
 
-class PostResource extends BaseResource
+class PostResource extends Resource
 {
     public static string $model = App\Models\Post::class;
 

@@ -43,10 +43,10 @@ public function fields(): array
 <x-code language="php">
 namespace App\MoonShine\Resources;
 
-use Leeto\MoonShine\Resources\BaseResource;
+use Leeto\MoonShine\Resources\Resource;
 use App\Models\Country;
 
-class CountryResource extends BaseResource
+class CountryResource extends Resource
 {
 //...
 
