@@ -58,64 +58,6 @@
     MoonShine придерживается PSR-2 стандарта и PSR-4 autoload стандарта.
 </x-p>
 
-<x-sub-title>Цели</x-sub-title>
-
-<table class="border-collapse table-fixed w-full text-sm my-4">
-    <thead>
-        <tr>
-            <th class="border-b border-r border-purple font-medium p-4 pl-8 pt-0 pb-3 text-black text-left">Мажорные</th>
-            <th class="border-b border-purple font-medium p-4 pl-8 pt-0 pb-3 text-black text-left">Минорные</th>
-        </tr>
-    </thead>
-
-    <tbody class="bg-white">
-        <tr>
-            <td class="border-b border-r border-purple p-4 pl-8 text-black">Разгрузка больших классов</td>
-            <td class="border-b border-purple p-4 pl-8 text-black">Документация кода</td>
-        </tr>
-
-        <tr>
-            <td class="border-b border-r border-purple p-4 pl-8 text-black">Рефакторинг</td>
-            <td class="border-b border-purple p-4 pl-8 text-black">Закончить dark mode</td>
-        </tr>
-
-        <tr>
-            <td class="border-b border-r border-purple p-4 pl-8 text-black">Покрытие тестами до 60%</td>
-            <td class="border-b border-purple p-4 pl-8 text-black">Компиляция assets во время установки</td>
-        </tr>
-
-        <tr>
-            <td class="border-b border-r border-purple p-4 pl-8 text-black">Удаление лишних трейтов</td>
-            <td class="border-b border-purple p-4 pl-8 text-black"></td>
-        </tr>
-
-        <tr>
-            <td class="border-b border-r border-purple p-4 pl-8 text-black">HasMany с возможностью добавить дочерний HasMany</td>
-            <td class="border-b border-purple p-4 pl-8 text-black"></td>
-        </tr>
-
-        <tr>
-            <td class="border-b border-r border-purple p-4 pl-8 text-black">Переход от alpinejs к vue</td>
-            <td class="border-b border-purple p-4 pl-8 text-black"></td>
-        </tr>
-
-        <tr>
-            <td class="border-b border-r border-purple p-4 pl-8 text-black">Блоки с аналитикой</td>
-            <td class="border-b border-purple p-4 pl-8 text-black"></td>
-        </tr>
-
-        <tr>
-            <td class="border-b border-r border-purple p-4 pl-8 text-black">Готовые фильтр наборы</td>
-            <td class="border-b border-purple p-4 pl-8 text-black"></td>
-        </tr>
-
-        <tr>
-            <td class="border-b border-r border-purple p-4 pl-8 text-black">Реализация расширений</td>
-            <td class="border-b border-purple p-4 pl-8 text-black"></td>
-        </tr>
-    </tbody>
-</table>
-
 <x-sub-title>Возникли вопросы?</x-sub-title>
 
 <x-p>

@@ -2,13 +2,14 @@
 <ul class="list-disc my-4">
     <li class="text-purple my-2">
         <a class="underline" href="https://github.com/lee-to/moonshine/releases/tag/1.5.0">v1.5.0</a>
-        <div>
-            <div>Изменения</div>
-            <ol>
-                <li>Упрощена установа. Все заключено в команду artisan moonshine:install</li>
+        <div class="text-black">
+            <div class="font-bold">Изменения</div>
+            <ol class="list-decimal">
+                <li>Упрощена установка. Все заключено в команду artisan moonshine:install</li>
                 <li>Новый config/moonshine.php</li>
                 <li>Директория app/MoonShine/Controllers удалена</li>
                 <li>У ресурсов изменен базовый класс Leeto\MoonShine\Resources\BaseResource -> Leeto\MoonShine\Resources\Resource</li>
+                <li>В основной директории app/MoonShine добавлен Dashboard.php для кастомизации панели управления</li>
             </ol>
         </div>
     </li>
