@@ -6,6 +6,16 @@
     <title>@yield('title', env('APP_NAME'))</title>
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
     <script src="{{ mix('/js/app.js') }}" defer></script>
+
+
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ asset('site.webmanifest') }}">
+    <link rel="mask-icon" href="{{ asset('safari-pinned-tab.svg') }}" color="#7843E9">
+    <meta name="msapplication-TileColor" content="#7843E9">
+    <meta name="theme-color" content="#7843E9">
+
     <script>
       document.addEventListener('alpine:init', () => {Alpine.data('global', () => ({ mobileMenuDisplayed: false, donateModal: false }))
 
