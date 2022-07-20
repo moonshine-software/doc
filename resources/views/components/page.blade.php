@@ -11,5 +11,7 @@
 @section('content')
     <x-title>{{ $title }}</x-title>
 
-    {{ $slot }}
+    <div class="prose text-white">
+        {{ $slot }}
+    </div>
 @endsection

@@ -1,9 +1,11 @@
 <div class="relative">
-<pre>
-<x-torchlight-code language='{{ $language }}' class="text-sm rounded" theme='shades-of-purple'>
+
+<pre class="bg-transparent p-0 m-0 my-4">
+<x-torchlight-code language='{{ $language }}' class="text-sm rounded" theme="deep-purple">
 {!! $slot !!}
 </x-torchlight-code>
 </pre>
+
 
 <div x-data="{}" class="absolute top-2 right-2 text-white">
     <button type="button" x-clipboard.raw="{{ str_replace('"', "'", $slot) }}" class="md:block hidden">

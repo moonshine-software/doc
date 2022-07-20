@@ -1,5 +1,5 @@
 <a href="{{ route('home') }}">
-    <svg class="h-12 fill-current text-white hidden md:block" viewBox="0 0 1719.62 350.71" xmlns="http://www.w3.org/2000/svg">
+    <svg class="h-12 fill-current text-white hidden md:block " viewBox="0 0 1719.62 350.71" xmlns="http://www.w3.org/2000/svg">
         <circle cx="253.58" cy="100.75" r="27.62" transform="matrix(.16022575 -.9870804 .9870804 .16022575 -14.01 334.92)"/>
         <circle cx="203.67" cy="179.06" r="17.83"/>
         <circle cx="202.66" cy="268.09" r="11.17"/>

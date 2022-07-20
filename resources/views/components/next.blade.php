@@ -3,7 +3,7 @@
 <div class="w-100 clear-both">
     <a
             href="{{ $href }}"
-            class="flex space-x-3 items-center justify-between my-6 inline-block px-8 py-3 bg-transparent border border-purple rounded-sm shadow-sm text-purple float-right"
+            class="no-underline flex space-x-3 items-center justify-between my-6 inline-block px-8 py-3 bg-transparent border border-purple rounded-sm shadow-sm text-purple float-right"
     >
         <span>{{ $slot }}</span>
 

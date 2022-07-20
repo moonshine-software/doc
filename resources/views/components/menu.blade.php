@@ -1,33 +1,27 @@
-<div x-cloak>
-    @foreach($data as $group => $items)
-        @php
-            $active = false;
-            foreach ($items as $item) {
-                if(request()->url() == $item['url']) {
-                    $active = true;
+<nav class="text-base lg:text-sm w-64 pl-2 pr-8 xl:w-72 xl:pr-16">
+    <ul role="list" class="space-y-9">
+        @foreach($data as $group => $items)
+            @php
+                $active = false;
+                foreach ($items as $item) {
+                    if(request()->url() == $item['url']) {
+                        $active = true;
+                    }
                 }
-            }
-        @endphp
-
-        <div  x-data="{open: {{ $active ? 'true' : 'false' }}}">
-            <div @click="open=!open" class="flex space-x-2 items-center justify-start cursor-pointer mb-3 {{ $loop->first ? '' : 'mt-8' }} text-sm font-bold uppercase text-gray-500 tracking-widest">
-                <span>{{ $group }}</span>
-
-                <svg x-show="open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>
-                <svg x-show="!open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-            </div>
-
-            <ul x-show="open">
-                @foreach($items as $item)
-                    <li class="md:pr-3">
-                        <a href="{{ $item['url'] }}"
-                           class="{{ request()->url() == $item['url'] ? 'border-l-4 rounded-r border-purple text-purple pl-3 my-2' : 'text-gray-700' }} inline-block py-2 hover:text-purple hover:underline font-medium"
-                        >
-                            {{ $item['label'] }}
-                        </a>
-                    </li>
-                @endforeach
-            </ul>
-        </div>
-    @endforeach
-</div>
+            @endphp
+            <li>
+                <h2 class="font-display font-medium text-slate-900 dark:text-white">{{ $group }}</h2>
+                <ul role="list" class="mt-2 space-y-2 border-l-2 border-slate-100 dark:border-slate-800 lg:mt-4 lg:space-y-4 lg:border-slate-200">
+                    @foreach($items as $item)
+                        <li class="relative">
+                            <a class="{{ request()->url() == $item['url'] ? 'font-semibold text-purple before:bg-purple' : 'text-slate-500 before:hidden before:bg-slate-300 hover:text-slate-600 hover:before:block dark:text-slate-400 dark:before:bg-slate-700 dark:hover:text-slate-300'}} block w-full pl-3.5 before:pointer-events-none before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full"
+                            href="{{ $item['url'] }}">
+                                {{ $item['label'] }}
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+            </li>
+        @endforeach
+    </ul>
+</nav>

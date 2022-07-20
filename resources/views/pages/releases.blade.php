@@ -1,8 +1,12 @@
 <x-page title="Обновления" :sectionMenu="null">
 <ul class="list-disc my-4">
-    <li class="text-purple my-2">
-        <a class="underline" href="https://github.com/lee-to/moonshine/releases/tag/1.5.0">v1.5.0</a>
-        <div class="text-black">
+    <li class="my-2">
+        <x-link link="https://github.com/lee-to/moonshine/releases/tag/1.6.0">v1.6.0</x-link>
+    </li>
+
+    <li class="my-2">
+        <x-link link="https://github.com/lee-to/moonshine/releases/tag/1.5.0">v1.5.0</x-link>
+        <div class="">
             <div class="font-bold">Изменения</div>
             <ol class="list-decimal">
                 <li>Упрощена установка. Все заключено в команду artisan moonshine:install</li>
@@ -14,24 +18,24 @@
         </div>
     </li>
 
-    <li class="text-purple my-2">
-        <a class="underline" href="https://github.com/lee-to/moonshine/releases/tag/1.4.0">v1.4.0</a>
+    <li class="my-2">
+        <x-link link="https://github.com/lee-to/moonshine/releases/tag/1.4.0">v1.4.0</x-link>
     </li>
 
-    <li class="text-purple my-2">
-        <a class="underline" href="https://github.com/lee-to/moonshine/releases/tag/1.3.0">v1.3.0</a>
+    <li class="my-2">
+        <x-link link="https://github.com/lee-to/moonshine/releases/tag/1.3.0">v1.3.0</x-link>
     </li>
 
-    <li class="text-purple my-2">
-        <a class="underline" href="https://github.com/lee-to/moonshine/releases/tag/1.2.0">v1.2.0</a>
+    <li class="my-2">
+        <x-link link="https://github.com/lee-to/moonshine/releases/tag/1.2.0">v1.2.0</x-link>
     </li>
 
-    <li class="text-purple my-2">
-        <a class="underline" href="https://github.com/lee-to/moonshine/releases/tag/1.1.0">v1.1.0</a>
+    <li class="my-2">
+        <x-link link="https://github.com/lee-to/moonshine/releases/tag/1.1.0">v1.1.0</x-link>
     </li>
 
-    <li class="text-purple my-2">
-        <a class="underline" href="https://github.com/lee-to/moonshine/releases/tag/1.0.0">v1.0.0</a>
+    <li class="my-2">
+        <x-link link="https://github.com/lee-to/moonshine/releases/tag/1.0.0">v1.0.0</x-link>
     </li>
 </ul>
 

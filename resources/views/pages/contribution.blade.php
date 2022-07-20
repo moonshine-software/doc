@@ -31,7 +31,7 @@
 <x-sub-title>Где обсуждать разработку?</x-sub-title>
 
 <x-p>
-    Для активных участников проекта создан отдельный закрытый чат в telegram, если Вы готовы принять участие в разработке, то напишите мне <a class="underline" href="https://t.me/leeto_telegram">@leeto_telegram</a> и я отправлю приглашение.
+    Для активных участников проекта создан отдельный закрытый чат в telegram, если Вы готовы принять участие в разработке, то напишите мне <x-link link="https://t.me/leeto_telegram">@leeto_telegram</x-link> и я отправлю приглашение.
 </x-p>
 
 
@@ -61,7 +61,7 @@
 <x-sub-title>Возникли вопросы?</x-sub-title>
 
 <x-p>
-    Меня зовут, Данил! Пишите мне на почту <a href="mailto:info@cutcode.ru">info@cutcode.ru</a>
+    Меня зовут, Данил! Пишите мне на почту <x-link link="mailto:info@cutcode.ru">info@cutcode.ru</x-link>
 </x-p>
 
 </x-page>

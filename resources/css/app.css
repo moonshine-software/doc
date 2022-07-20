@@ -66,3 +66,16 @@ pre code.torchlight .summary-caret {
 }
 
 [x-cloak] { display: none !important; }
+
+code:not(.torchlight) {
+    --gradient-from-color: #7843E9;
+    --gradient-color-stops: var(--gradient-from-color),var(--gradient-to-color,rgba(30,31,67,0));
+    --gradient-to-color: #EC4176;
+    background-image: linear-gradient(to right,var(--gradient-color-stops));
+    border-radius: .125rem;
+    font-size: .8rem;
+    overflow-wrap: break-word;
+    padding: .25rem .5rem;
+    color: white!important;
+    margin: 0 10px;
+}

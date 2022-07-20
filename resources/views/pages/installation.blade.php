@@ -26,7 +26,7 @@
     php artisan moonshine:install
 </x-code>
 
-<x-alert color="bg-darkblue">
+<x-alert color="bg-purple">
     После выполнения будет добавлен <code>config/moonshine.php</code> с основными настройками.
     <x-link link="#config">Подробнее о config файле</x-link>
 </x-alert>
