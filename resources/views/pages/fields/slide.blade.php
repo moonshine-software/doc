@@ -18,8 +18,8 @@ public function fields(): array
 {
     return [
         SlideField::make('Стоимость', 'rating')
-            ->fromField('price_from') // Поле в базе для значения "От"
-            ->toField('price_to') // Поле в базе для значения "Да"
+            ->fromField('price_from') // Поле в таблице для значения "От"
+            ->toField('price_to') // Поле в таблице для значения "До"
             ->min(100)
             ->max(1000)
             ->step(10) // Шаг ползунка
