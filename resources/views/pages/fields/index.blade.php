@@ -131,7 +131,7 @@ public function fields(): array
 //...
 </x-code>
 
-<x-sub-title id="autocomplete">Произвольные аттрибуты</x-sub-title>
+<x-sub-title id="custom-attributes">Произвольные аттрибуты</x-sub-title>
 
 <x-code language="php">
 //...
