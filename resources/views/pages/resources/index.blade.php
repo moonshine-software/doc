@@ -43,8 +43,13 @@
 
 <x-p>
     Можно изменить привязку к модели и заголовок раздела вместе с выполнением команды
+
     <x-code language="shell">
-        php artisan moonshine:resource Post --model=App\Models\CustomPost --title="Статьи"
+        php artisan moonshine:resource Post --model=CustomPost --title="Статьи"
+    </x-code>
+
+    <x-code language="shell">
+        php artisan moonshine:resource Post --model="App\Models\CustomPost" --title="Статьи"
     </x-code>
 </x-p>
 

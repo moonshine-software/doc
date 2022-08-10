@@ -2,9 +2,11 @@
     'Разделы' => [
         ['url' => '#make', 'label' => 'Make'],
         ['url' => '#hide-show', 'label' => 'Отображение'],
+        ['url' => '#hide-show-conditions', 'label' => 'Отображение с условием'],
         ['url' => '#attributes', 'label' => 'Аттрибуты'],
-        ['url' => '#autocomplete', 'label' => 'Autocomplete'],
+        ['url' => '#custom-attributes', 'label' => 'Произвольные аттрибуты'],
         ['url' => '#required', 'label' => 'Обязательное поле'],
+        ['url' => '#dynamic', 'label' => 'Динамическое значение'],
         ['url' => '#hint', 'label' => 'Подсказка'],
         ['url' => '#link', 'label' => 'Ссылка'],
 
@@ -82,6 +84,30 @@ public function fields(): array
 //...
 </x-code>
 
+<x-sub-title id="hide-show-conditions">Отображение с условием</x-sub-title>
+
+<x-p>
+    Метод также принимает bool, либо Closure
+</x-p>
+
+<x-code language="php">
+//...
+
+public function fields(): array
+{
+    return [
+        ID::make(),
+        Text::make('Заголовок', 'title')
+        // [tl! focus:start]
+            ->hideOnIndex(auth()->check())
+        // [tl! focus:end]
+        ,
+    ];
+}
+
+//...
+</x-code>
+
 <x-sub-title id="attributes">Аттрибуты</x-sub-title>
 
 <x-p>
@@ -105,7 +131,7 @@ public function fields(): array
 //...
 </x-code>
 
-<x-sub-title id="autocomplete">Autocomplete</x-sub-title>
+<x-sub-title id="autocomplete">Произвольные аттрибуты</x-sub-title>
 
 <x-code language="php">
 //...
@@ -114,7 +140,7 @@ public function fields(): array
 {
     return [
         Password::make('Пароль', 'password')
-            ->autocomplete('off') // [tl! focus]
+            ->customAttributes(['autocomplete' => 'off']) // [tl! focus]
     ];
 }
 
@@ -135,6 +161,21 @@ public function fields(): array
     return [
         Text::make('Заголовок', 'title')
             ->required() // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
+
+<x-sub-title id="dynamic">Динамическое значение</x-sub-title>
+
+<x-code language="php">
+//...
+
+public function fields(): array
+{
+    return [
+        Text::make('Имя', 'first_name', fn($item) => $item->first_name . ' ' . $item->last_name) // [tl! focus]
     ];
 }
 

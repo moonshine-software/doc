@@ -72,6 +72,23 @@ return [
 //...
 </x-code>
 
+<x-p>Если необходимо по умолчанию значение Null</x-p>
+<x-code language="php">
+use Leeto\MoonShine\Fields\BelongsTo;
+
+//...
+public function fields(): array
+{
+    return [
+        BelongsTo::make('Страна', 'country')
+            ->nullable()
+    ];
+}
+//...
+</x-code>
+
+<x-p>Не забудьте, также на уровне таблицы в базе данных указать, что поле может быть Null</x-p>
+
 <x-next href="{{ route('section', 'fields-belongs_to_many') }}">BelongsToMany</x-next>
 
 </x-page>
