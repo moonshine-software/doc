@@ -37,6 +37,7 @@ class MenuComposer
                 ['url' => route('section', 'fields-id'), 'label' => 'ID'],
                 ['url' => route('section', 'fields-text'), 'label' => 'Текстовое поле'],
                 ['url' => route('section', 'fields-select'), 'label' => 'Select'],
+                ['url' => route('section', 'fields-enum'), 'label' => 'Enum'],
                 ['url' => route('section', 'fields-checkbox'), 'label' => 'Checkbox'],
                 ['url' => route('section', 'fields-textarea'), 'label' => 'Textarea'],
 

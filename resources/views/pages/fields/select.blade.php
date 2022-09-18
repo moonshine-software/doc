@@ -41,7 +41,7 @@ Select::make('Страна', 'country_id')
     ->searchable() // [tl! focus]
 </x-code>
 
-<x-next href="{{ route('section', 'fields-checkbox') }}">Checkbox</x-next>
+<x-next href="{{ route('section', 'fields-enum') }}">Enum</x-next>
 
 </x-page>
 

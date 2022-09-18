@@ -1,4 +1,12 @@
-<x-page title="Основы">
+<x-page title="Основы" :sectionMenu="[
+    'Разделы' => [
+        ['url' => '#register', 'label' => 'Регистрация'],
+        ['url' => '#condition', 'label' => 'Условие отображения'],
+        ['url' => '#icon', 'label' => 'Иконка'],
+    ]
+]">
+
+<x-sub-title id="register">Регистрация</x-sub-title>
 
 <x-p>
     В разделе изучения ресурсов мы уже разобрались как регистрировать разделы админ. панели,
@@ -33,6 +41,24 @@ app(MoonShine::class)->registerResources([
 
 <x-image src="{{ asset('screenshots/menu.png') }}"></x-image>
 
+<x-sub-title id="condition">Условие отображения</x-sub-title>
+
+<x-p>
+    Отображать меню по условию
+</x-p>
+
+<x-code language="php">
+app(MoonShine::class)->registerResources([
+    MenuGroup::make('Система', [
+        MoonShineUserResource::class,
+        MoonShineUserRoleResource::class,
+    ])->canSee(function(Request $request) { // [tl! focus:start]
+        return $request->user('moonshine')?->id === 1;
+    }) // [tl! focus:end]
+]);
+</x-code>
+
+<x-sub-title id="icon">Иконка</x-sub-title>
 
 <x-p>
     Также есть возможность менять иконку у пункта меню
