@@ -9,7 +9,7 @@
     Для начала создадим класс который расширяет MoonShine поля
 </x-p>
 
-<x-code lang="php">
+<x-code language="php">
 namespace App\MoonShine\Fields;
 
 use Leeto\MoonShine\Fields\Field;
@@ -30,18 +30,18 @@ class CKEditorField extends Field
     И создаем view с реализацией
 </x-p>
 
-<x-code lang="html">
-    <div id="ckeditor_{{ $field->id() }}">
-        {!! $field->formViewValue($item) ?? '' !!}
-    </div>
+<x-code language="html">
+<div id="ckeditor">
+{! $field->formViewValue($item) ?? '' !}
+</div>
 
-    <script>
-        ClassicEditor
-            .create( document.querySelector( '#ckeditor_{{ $field->id() }}' ) )
-            .catch( error => {
-                console.error( error );
-            } );
-    </script>
+<script>
+ClassicEditor
+.create( document.querySelector( '#ckeditor' ) )
+.catch( error => {
+    console.error( error );
+});
+</script>
 </x-code>
 
 <x-p>
