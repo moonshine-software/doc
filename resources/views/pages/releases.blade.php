@@ -1,6 +1,21 @@
 <x-page title="Обновления" :sectionMenu="null">
 <ul class="list-disc my-4">
     <li class="my-2">
+        <x-link link="https://github.com/lee-to/moonshine/releases/tag/1.10.0">v1.10.0</x-link>
+
+        <div class="">
+            <div class="font-bold">Изменения</div>
+            <ol class="list-decimal">
+                <li>Новый параметр config/moonshine.php</li>
+            </ol>
+        </div>
+    </li>
+
+    <li class="my-2">
+        <x-link link="https://github.com/lee-to/moonshine/releases/tag/1.9.0">v1.9.0</x-link>
+    </li>
+
+    <li class="my-2">
         <x-link link="https://github.com/lee-to/moonshine/releases/tag/1.8.0">v1.8.0</x-link>
     </li>
 

@@ -80,6 +80,10 @@ return [
         ],
     ],
 
+    'middlewares' => [
+        // Список middleware которые будут применяться в рамках MoonShine
+    ],
+
     'extensions' => [
         //
     ],

@@ -5,7 +5,28 @@
 </x-p>
 
 <x-p>
-    В Laravel есть удобный функционал scopes и его как раз можно применять в рамках админ. панели moonShine
+    В целом вы можете легко переопределить query builder в ресурсе
+</x-p>
+
+<x-code language="php">
+namespace Leeto\MoonShine\Resources;
+
+class PostResource extends Resource
+{
+//...
+
+public function query(): Builder
+{
+    return parent::query()
+        ->where('active', true);
+}
+
+//...
+}
+</x-code>
+
+<x-p>
+    Но в Laravel также есть удобный функционал scopes и его как раз можно применять в рамках админ. панели moonShine
 </x-p>
 
 <x-alert>
