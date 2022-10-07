@@ -9,7 +9,7 @@
 namespace Leeto\MoonShine\Resources;
 
 use Leeto\MoonShine\Models\MoonshineUser;
-use Leeto\MoonShine\Actions\ExportAction; // [tl! focus]
+use Leeto\MoonShine\ItemActions\ItemAction; // [tl! focus]
 
 class PostResource extends Resource
 {
