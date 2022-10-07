@@ -26,6 +26,7 @@ class MenuComposer
                 ['url' => route('section', 'resources-search'), 'label' => 'Поиск'],
                 ['url' => route('section', 'resources-scopes'), 'label' => 'Scopes'],
                 ['url' => route('section', 'resources-metrics'), 'label' => 'Метрики'],
+                ['url' => route('section', 'resources-item_actions'), 'label' => 'Кастомные действия'],
             ],
 
             'Меню' => [

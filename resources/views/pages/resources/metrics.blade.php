@@ -27,6 +27,6 @@ class PostResource extends Resource
 }
 </x-code>
 
-<x-next href="{{ route('section', 'menu-index') }}">Меню</x-next>
+<x-next href="{{ route('section', 'resources-item_actions') }}">Кастомные действия</x-next>
 
 </x-page>
