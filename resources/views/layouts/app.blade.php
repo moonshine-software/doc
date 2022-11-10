@@ -96,7 +96,7 @@
 
             @include('shared.menu')
         </div>
-        
+
     </aside>
 
     <div class="min-w-0 text-white max-w-2xl flex-auto px-4 py-16 lg:max-w-none lg:pr-0 lg:pl-8 xl:px-16">
@@ -110,8 +110,6 @@
         @yield('right-sidebar')
     </aside>
 </div>
-
-
 
 
 <div x-cloak x-bind="donateModalBack" class="fixed inset-0 overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="modal-title-1">
@@ -155,6 +153,26 @@
         </div>
     </div>
 </div>
+
+@production
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(90631105, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true
+        });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/90631105" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+@endproduction
 
 </body>
 </html>
