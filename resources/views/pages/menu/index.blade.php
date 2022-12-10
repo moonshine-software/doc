@@ -2,7 +2,9 @@
     'Разделы' => [
         ['url' => '#register', 'label' => 'Регистрация'],
         ['url' => '#condition', 'label' => 'Условие отображения'],
+        ['url' => '#link', 'label' => 'Внешняя ссылка'],
         ['url' => '#icon', 'label' => 'Иконка'],
+        ['url' => '#badge', 'label' => 'Метка']
     ]
 ]">
 
@@ -58,6 +60,18 @@ app(MoonShine::class)->registerResources([
 ]);
 </x-code>
 
+<x-sub-title id="link">Внешняя ссылка</x-sub-title>
+
+<x-p>
+    Возможность добавить кастомный линк
+</x-p>
+
+<x-code language="php">
+    app(MoonShine::class)->registerResources([
+        MenuItem('Документация Laravel', 'https://laravel.com') // [tl! focus]
+    ]);
+</x-code>
+
 <x-sub-title id="icon">Иконка</x-sub-title>
 
 <x-p>
@@ -79,6 +93,30 @@ app(MoonShine::class)->registerResources([
 </x-p>
 
 <x-ul :items="['add', 'app', 'bookmark', 'cart', 'delete', 'edit', 'export', 'filter', 'search', 'users']"></x-ul>
+
+<x-p>
+    Также есть возможность создать blade файл с вашей кастомной иконкой. Для этого необходимо в <code>resources/vendor/moonshine/shared/icons</code>
+     создать blade файл как пример my-icon.blade.php с отображением иконки внутри (например код svg)
+     и далее указать <code>icon('my-icon')</code>
+</x-p>
+
+<x-sub-title id="badge">Метка</x-sub-title>
+
+<x-p>
+    Также есть возможность добавить счетчик к пункту меню
+</x-p>
+
+<x-code language="php">
+app(MoonShine::class)->registerResources([
+    MenuGroup::make('Система', [
+        MoonShineUserResource::class,
+        MoonShineUserRoleResource::class,
+    ])->badge(fn() => cache()->rememberForever('count', fn() => User::query()->count())) // [tl! focus]
+]);
+</x-code>
+
+
+<x-image src="{{ asset('screenshots/menu_badge.png') }}"></x-image>
 
 <x-next href="{{ route('section', 'fields-index') }}">Поля</x-next>
 

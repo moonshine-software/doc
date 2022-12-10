@@ -9,7 +9,7 @@
         ['url' => '#dynamic', 'label' => 'Динамическое значение'],
         ['url' => '#hint', 'label' => 'Подсказка'],
         ['url' => '#link', 'label' => 'Ссылка'],
-
+        ['url' => '#nullable', 'label' => 'Nullable'],
         ['url' => '#sortable', 'label' => 'Сортировка'],
         ['url' => '#mask', 'label' => 'Маска'],
         ['url' => '#default', 'label' => 'Значение по умолчанию'],
@@ -62,7 +62,8 @@ public string $titleField = 'name'; // [tl! focus]
 <x-p>
     Поля отображаются на странице со списком (главная страница ресурса) и страница создания/редактирования.
     Чтобы исключить вывод поля на главной либо на странице с формой, можно воспользоваться методами
-    <code>hideOnIndex/hideOnForm</code>, обратные методы <code>showOnIndex/showOnForm</code>
+    <code>hideOnIndex/hideOnForm</code>, обратные методы <code>showOnIndex/showOnForm</code>.
+    Чтобы исключить только со страницы редактирования или добавления - <code>hideOnCreate/hideOnUpdate/showOnCreate/showOnUpdate</code>
 </x-p>
 
 <x-code language="php">
@@ -175,7 +176,16 @@ public function fields(): array
 public function fields(): array
 {
     return [
-        Text::make('Имя', 'first_name', fn($item) => $item->first_name . ' ' . $item->last_name) // [tl! focus]
+        Text::make('Имя', 'first_name', fn($item) => $item->first_name . ' ' . $item->last_name)
+
+        // Пример если нужно разделить логику для главной и для редактирования
+        Text::make('Price', resource: function ($item) {
+            if(request()->routeIs('*.index')) {
+                return $item->price;
+            }
+
+            return $item->exists ? $item->price->raw() : 0;
+        }),
     ];
 }
 
@@ -210,6 +220,12 @@ public function fields(): array
     Полю можно добавить ссылку (например с инструкциями) <code>addLink(string $name, string $link)</code>
 </x-p>
 
+<x-sub-title id="nullable">Nullable</x-sub-title>
+
+<x-p>
+    Если необходимо по умолчанию сохранять NULL <code>nullable()</code>
+</x-p>
+
 <x-code language="php">
 //...
 
@@ -218,6 +234,14 @@ public function fields(): array
     return [
         Text::make('Заголовок', 'title')
             ->addLink('YouTube', 'https://youtube.com') // [tl! focus]
+            // или с анонимной функцией
+            ->addLink('Test', function() {
+                if(!$this->getItem()) {
+                    return route('admin.brands.index');
+                }
+
+                return route('admin.brands.edit', $this->getItem()->brand_id);
+            }),
     ];
 }
 

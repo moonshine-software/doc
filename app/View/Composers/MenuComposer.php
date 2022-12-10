@@ -27,6 +27,12 @@ class MenuComposer
                 ['url' => route('section', 'resources-scopes'), 'label' => 'Scopes'],
                 ['url' => route('section', 'resources-metrics'), 'label' => 'Метрики'],
                 ['url' => route('section', 'resources-item_actions'), 'label' => 'Кастомные действия'],
+                ['url' => route('section', 'resources-bulk_actions'), 'label' => 'Массовые действия'],
+                ['url' => route('section', 'resources-table_styles'), 'label' => 'Стили для таблицы'],
+            ],
+
+            'Страницы' => [
+                ['url' => route('section', 'pages-index'), 'label' => 'Основы'],
             ],
 
             'Меню' => [

@@ -1,15 +1,15 @@
-<x-page title="Кастомные действия" :sectionMenu="$sectionMenu ?? null">
+<x-page title="Массовые действия" :sectionMenu="$sectionMenu ?? null">
 
 <x-p>
-    По умолчанию в панели moonShine в таблице всего 2 действия над элементами - редактирование и удаление.
-    Но также есть возможность добавить свои кастомные действия
+    По умолчанию в панели moonShine в таблице всего 1 массовое действие над элементами - удаление.
+    Но также есть возможность добавить свои кастомные массовые действия
 </x-p>
 
 <x-code language="php">
 namespace Leeto\MoonShine\Resources;
 
 use Leeto\MoonShine\Models\MoonshineUser;
-use Leeto\MoonShine\ItemActions\ItemAction; // [tl! focus]
+use Leeto\MoonShine\BulkActions\BulkAction; // [tl! focus]
 
 class PostResource extends Resource
 {
@@ -18,10 +18,10 @@ class PostResource extends Resource
     public static string $title = 'Статьи';
     //...
 
-    public function itemActions(): array // [tl! focus:start]
+    public function bulkActions(): array // [tl! focus:start]
     {
         return [
-            ItemAction::make('Деактивация', function (Model $item) {
+            BulkAction::make('Деактивация', function (Model $item) {
                 $item->update(['active' => false]);
             }, 'Деактивирован')->icon('app')
         ];
@@ -37,6 +37,6 @@ class PostResource extends Resource
     Третий аргумент - сообщение, которое отобразится после выполнения экшена
 </p>
 
-    <x-next href="{{ route('section', 'resources-bulk_actions') }}">Стили таблицы</x-next>
+    <x-next href="{{ route('section', 'resources-table_styles') }}">Стили таблицы</x-next>
 
 </x-page>

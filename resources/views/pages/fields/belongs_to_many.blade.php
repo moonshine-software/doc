@@ -3,6 +3,7 @@
         ['url' => '#pivot', 'label' => 'Pivot'],
         ['url' => '#select', 'label' => 'Select'],
         ['url' => '#tree', 'label' => 'Tree'],
+        ['url' => '#onlycount', 'label' => 'onlyCount'],
     ]
 ]">
 
@@ -81,6 +82,25 @@ public function fields(): array
     return [
         BelongsToMany::make('Категории', 'categories', 'name')
             ->tree('parent_id') // Поле для связи
+    ];
+}
+//...
+</x-code>
+
+<x-sub-title id="onlycount">onlyCount</x-sub-title>
+
+<x-p>По умолчанию на главной странице будут отображаться все выбранные значения через запятую,
+    но если требуется отобразить только значение количества выбранных, то следует воспользоваться методом <code>onlyCount</code></x-p>
+
+<x-code language="php">
+use Leeto\MoonShine\Fields\BelongsToMany;
+
+//...
+public function fields(): array
+{
+    return [
+        BelongsToMany::make('Категории', 'categories', 'name')
+            ->onlyCount()
     ];
 }
 //...
