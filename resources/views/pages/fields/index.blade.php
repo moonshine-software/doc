@@ -14,6 +14,8 @@
         ['url' => '#mask', 'label' => 'Маска'],
         ['url' => '#default', 'label' => 'Значение по умолчанию'],
         ['url' => '#show-when', 'label' => 'Условие отображения'],
+        ['url' => '#can-save', 'label' => 'Возможность сохранения'],
+        ['url' => '#events', 'label' => 'События'],
     ]
 ]">
 
@@ -331,6 +333,44 @@ public function fields(): array
 }
 
 //...
+</x-code>
+
+
+<x-sub-title id="can-save">Возможность сохранения</x-sub-title>
+
+<x-code language="php">
+//...
+
+public function fields(): array
+{
+    return [
+        Text::make('Заголовок', 'title')
+            ->canSave(false) // [tl! focus]
+            // или
+            ->canSave(fn() => false) // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
+
+<x-sub-title id="events">События</x-sub-title>
+
+<x-p>
+    При написании собственных Fields может возникнуть потребность взаимодействовать с событиями
+     до и после сохранения, для этого в вашем кастомном поле необходимо реализовать соответствующие методы
+</x-p>
+
+<x-code language="php">
+public function beforeSave(Model $item): void
+{
+    //
+}
+
+public function afterSave(Model $item): void
+{
+    //
+}
 </x-code>
 
 <x-next href="{{ route('section', 'fields-id') }}">ID</x-next>

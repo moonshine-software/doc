@@ -1,9 +1,13 @@
 <div class="relative">
 
 <pre class="bg-transparent p-0 m-0 my-4">
+@if(isset($file))
+<x-torchlight-code language='{{ $language }}' contents="{{ base_path($file) }}" class="text-sm rounded" theme="deep-purple" />
+@else
 <x-torchlight-code language='{{ $language }}' class="text-sm rounded" theme="deep-purple">
 {!! $slot !!}
 </x-torchlight-code>
+@endif
 </pre>
 
 
