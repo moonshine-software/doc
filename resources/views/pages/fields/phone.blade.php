@@ -7,7 +7,7 @@
 <x-code language="php">
 use Leeto\MoonShine\Fields\Phone;
 
-Phone::make('E-mail', 'email')
+Phone::make('Телефон', 'tel')
 </x-code>
 
 <x-alert>Для маски телефона воспользуйтесь методом mask('7 999 999-99-99')</x-alert>
