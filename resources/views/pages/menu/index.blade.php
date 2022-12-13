@@ -68,7 +68,7 @@ app(MoonShine::class)->registerResources([
 
 <x-code language="php">
     app(MoonShine::class)->registerResources([
-        MenuItem('Документация Laravel', 'https://laravel.com') // [tl! focus]
+        MenuItem::make('Документация Laravel', 'https://laravel.com') // [tl! focus]
     ]);
 </x-code>
 
