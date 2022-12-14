@@ -1,4 +1,11 @@
-<x-page title="Кастомные действия" :sectionMenu="$sectionMenu ?? null">
+<x-page title="Кастомные действия" :sectionMenu="[
+    'Разделы' => [
+        ['url' => '#register', 'label' => 'Регистрация'],
+        ['url' => '#condition', 'label' => 'Условие отображения'],
+    ]
+]">
+
+<x-sub-title id="register">Регистрация</x-sub-title>
 
 <x-p>
     По умолчанию в панели moonShine в таблице всего 2 действия над элементами - редактирование и удаление.
@@ -37,6 +44,26 @@ class PostResource extends Resource
     Третий аргумент - сообщение, которое отобразится после выполнения экшена
 </p>
 
-    <x-next href="{{ route('section', 'resources-bulk_actions') }}">Стили таблицы</x-next>
+<x-sub-title id="condition">Условие отображения</x-sub-title>
+
+<x-p>
+    Отображать действие по условию
+</x-p>
+
+<x-code language="php">
+...
+public function itemActions(): array
+{
+    return [
+        ItemAction::make('Восстановить', function (Model $item) {
+            $item->restore();
+        }, 'Восстановлен')
+            ->canSee(fn(Model $item) => $item->trashed()) // [tl! focus]
+    ];
+}
+...
+</x-code>
+
+<x-next href="{{ route('section', 'resources-bulk_actions') }}">Стили таблицы</x-next>
 
 </x-page>

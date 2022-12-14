@@ -36,6 +36,11 @@
     <x-link link="{{ route('section', 'resources') }}">Подробнее о Resources</x-link>
 </x-p>
 
+<x-alert color="bg-purple">
+    Также будет добавлен MoonShineServiceProvider <code>App\Providers\MoonShineServiceProvider</code>, где нужно регистрировать ресурсы.
+    <x-link link="{{ route('section', 'resources') }}">Подробнее о Resources</x-link>
+</x-alert>
+
 <x-p>
     При установке добавятся новые таблицы
 </x-p>

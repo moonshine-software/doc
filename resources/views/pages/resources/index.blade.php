@@ -100,7 +100,7 @@ use Leeto\MoonShine\Resources\MoonShineUserResource; // [tl! focus]
 use Leeto\MoonShine\Resources\MoonShineUserRoleResource; // [tl! focus]
 use App\MoonShine\Resources\PostResource; // [tl! focus]
 
-class AppServiceProvider extends ServiceProvider
+class MoonShineServiceProvider extends ServiceProvider
 {
     public function register()
     {
