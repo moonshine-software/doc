@@ -60,7 +60,7 @@
         use Leeto\MoonShine\Fields\Spatie\Translatable;
         //...
         Translatable::make('Название', 'name')
-        ->priorityLanguages([config('app.fallback_locale'), 'app.locale'), 'de', 'fr', 'uk'])
+        ->priorityLanguages([config('app.fallback_locale'), config('app.locale'), 'de', 'fr', 'uk'])
         //...
     </x-code>
 
