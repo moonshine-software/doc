@@ -67,7 +67,7 @@ public function fields(): array
 
 <x-image src="{{ asset('screenshots/json_fields.png') }}"></x-image>
 
-<x-sub-title id="fields">Удаление</x-sub-title>
+<x-sub-title id="removable">Удаление</x-sub-title>
 
 <x-code language="php">
 Json::make('Опции товара', 'options')
