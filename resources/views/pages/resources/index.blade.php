@@ -76,7 +76,7 @@ class PostResource extends Resource
 
     public static string $orderField = 'id'; // Поле сортировки по умолчанию [tl! focus]
 
-    public static string $orderType = 'DESC'; // Тип сортировки по умолчани/ [tl! focus]
+    public static string $orderType = 'DESC'; // Тип сортировки по умолчанию/ [tl! focus]
 
     public static int $itemsPerPage = 25; // Количество элементов на странице [tl! focus]
 
