@@ -68,13 +68,15 @@ class PostResource extends Resource
 
     public static string $title = 'Статьи'; // Название раздела [tl! focus]
 
+    public static string $subTitle = 'Управление статьями'; // Текст под заголовком раздела [tl! focus]
+
     public static array $with = ['category']; // Eager load [tl! focus]
 
     public static bool $withPolicy = false; // Авторизация [tl! focus]
 
     public static string $orderField = 'id'; // Поле сортировки по умолчанию [tl! focus]
 
-    public static string $orderType = 'DESC'; // Тип сортировки по умолчани/ [tl! focus]
+    public static string $orderType = 'DESC'; // Тип сортировки по умолчанию/ [tl! focus]
 
     public static int $itemsPerPage = 25; // Количество элементов на странице [tl! focus]
 

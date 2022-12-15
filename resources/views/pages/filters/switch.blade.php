@@ -4,7 +4,7 @@
 
 <x-p><code>Leeto\MoonShine\Filters\SwitchBooleanFilter</code></x-p>
 
-<x-next href="{{ route('section', 'filters-belongs_to') }}">BelongsTo</x-next>
+<x-next href="{{ route('section', 'filters-is_empty') }}">IsEmpty/IsNotEmpty</x-next>
 
 </x-page>
 
