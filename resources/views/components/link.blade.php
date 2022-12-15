@@ -1,3 +1,3 @@
-<a href="{{ $link }}" class="text-pink underline my-2">
+<a href="{{ $link }}" class="inline-block text-pink underline my-2">
     {{ $slot }}
 </a>
