@@ -79,6 +79,8 @@ class MenuComposer
                 ['url' => route('section', 'fields-has_one_through'), 'label' => 'HasOneThrough'],
                 ['url' => route('section', 'fields-morph_many'), 'label' => 'MorphMany'],
                 ['url' => route('section', 'fields-morph_one'), 'label' => 'MorphOne'],
+
+                ['url' => route('section', 'fields-spatie-translatable'), 'label' => 'Spatie\Translatable'],
             ],
 
             'Декорации' => [

@@ -6,7 +6,7 @@
 
 <x-p><code>Leeto\MoonShine\Fields\MorphOne</code></x-p>
 
-<x-next href="{{ route('section', 'decorations-index') }}">Декорации</x-next>
+<x-next href="{{ route('section', 'fields-spatie-translatable') }}">Spatie\Translatable</x-next>
 
 </x-page>
 
