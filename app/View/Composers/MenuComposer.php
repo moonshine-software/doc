@@ -95,6 +95,7 @@ class MenuComposer
                 ['url' => route('section', 'filters-date_range'), 'label' => 'Период дат'],
                 ['url' => route('section', 'filters-slide'), 'label' => 'Ползунок'],
                 ['url' => route('section', 'filters-switch'), 'label' => 'Переключатель'],
+                ['url' => route('section', 'filters-is_empty'), 'label' => 'IsEmpty/IsNotEmpty'],
                 ['url' => route('section', 'filters-belongs_to'), 'label' => 'BelongsTo'],
                 ['url' => route('section', 'filters-belongs_to_many'), 'label' => 'BelongsToMany'],
                 ['url' => route('section', 'filters-has_one'), 'label' => 'HasOne'],
