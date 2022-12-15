@@ -68,6 +68,8 @@ class PostResource extends Resource
 
     public static string $title = 'Статьи'; // Название раздела [tl! focus]
 
+    public static string $subTitle = 'Управление статьями'; // Текст под заголовком раздела [tl! focus]
+
     public static array $with = ['category']; // Eager load [tl! focus]
 
     public static bool $withPolicy = false; // Авторизация [tl! focus]
