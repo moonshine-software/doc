@@ -76,6 +76,15 @@ public function fields(): array
     Настройки <x-link link="https://github.com/UniSharp/laravel-filemanager" target="_blank">Laravel FileManager</x-link> располагаются <code>config/lfm.php</code>
 </x-p>
 
+<x-alert>
+    Если moonshine:install производился до версии 1.17.0 необходимо опубликовать конфиги самостоятельно или запустить установку
+</x-alert>
+
+<x-code language="shell">
+php artisan vendor:publish --tag=lfm_config
+php artisan vendor:publish --tag=lfm_public
+</x-code>
+
 <x-next href="{{ route('section', 'fields-code') }}">Код</x-next>
 
 </x-page>

@@ -23,10 +23,10 @@
     ]"></x-ul>
 
     <x-code language="php">
-        use Leeto\MoonShine\Fields\Spatie\Translatable;
-        //...
-        Translatable::make('Название', 'name')
-        //...
+    use Leeto\MoonShine\Fields\Spatie\Translatable;
+    //...
+    Translatable::make('Название', 'name')
+    //...
     </x-code>
 
     <x-sub-title id="required">Обязательные переводы</x-sub-title>
@@ -42,11 +42,11 @@
 
 
     <x-code language="php">
-        use Leeto\MoonShine\Fields\Spatie\Translatable;
-        //...
-        Translatable::make('Название', 'name')
+    use Leeto\MoonShine\Fields\Spatie\Translatable;
+    //...
+    Translatable::make('Название', 'name')
         ->requiredLanguages([config('app.fallback_locale'), 'ru'])
-        //...
+    //...
     </x-code>
 
     <x-sub-title id="priority">Рекомендуемые переводы</x-sub-title>
@@ -57,11 +57,11 @@
     </x-p>
 
     <x-code language="php">
-        use Leeto\MoonShine\Fields\Spatie\Translatable;
-        //...
-        Translatable::make('Название', 'name')
+    use Leeto\MoonShine\Fields\Spatie\Translatable;
+    //...
+    Translatable::make('Название', 'name')
         ->priorityLanguages([config('app.fallback_locale'), config('app.locale'), 'de', 'fr', 'uk'])
-        //...
+    //...
     </x-code>
 
     <x-sub-title id="removable">Удаление</x-sub-title>
@@ -71,7 +71,7 @@
     </x-p>
 
     <x-code language="php">
-        Translatable::make('Field', 'field')
+    Translatable::make('Field', 'field')
         ->removable() // [tl! focus]
     </x-code>
 
