@@ -45,8 +45,12 @@ public function fields(): array
         TinyMce::make('Text')
             // Переопределить набор плагинов
             ->plugins('anchor')
+            // Добавление плагинов в базовый набор
+            ->addPlugins('code codesample')
             // Переопределить набор toolbar
             ->toolbar('undo redo | blocks fontfamily fontsize')
+            // Добавление toolbar в базовый набор
+            ->addToolbar('code codesample')
             //Для измнения имени автора для плагина tinycomments
             ->commentAuthor('Danil Shutsky')
             //Теги
