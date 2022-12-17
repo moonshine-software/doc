@@ -2,6 +2,7 @@
     'Разделы' => [
         ['url' => '#pivot', 'label' => 'Pivot'],
         ['url' => '#select', 'label' => 'Select'],
+        ['url' => '#values-query', 'label' => 'Запрос для значений'],
         ['url' => '#tree', 'label' => 'Tree'],
         ['url' => '#onlycount', 'label' => 'onlyCount'],
     ]
@@ -67,6 +68,27 @@ public function fields(): array
 
 
 <x-image src="{{ asset('screenshots/belongs_to_many_select.png') }}"></x-image>
+
+<x-sub-title id="values-query">Запрос для значений</x-sub-title>
+
+<x-p>
+    Доступно для всех полей с отношениями
+</x-p>
+
+<x-code language="php">
+use Leeto\MoonShine\Fields\BelongsToMany;
+use Illuminate\Database\Eloquent\Builder;
+
+//...
+public function fields(): array
+{
+    return [
+        BelongsToMany::make('Категории', 'categories', 'name')
+            ->valuesQuery(fn(Builder $query) => $query->where('active', true))
+    ];
+}
+//...
+</x-code>
 
 <x-sub-title id="tree">Tree</x-sub-title>
 
