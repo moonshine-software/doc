@@ -1,6 +1,71 @@
 <x-page title="Обновления" :sectionMenu="null">
 <ul class="list-disc my-4">
     <li class="my-2">
+        <x-link link="https://github.com/lee-to/moonshine/releases/tag/1.17.0">v1.17.0</x-link>
+
+        <div class="">
+            <div class="font-bold">Изменения</div>
+            <ol class="list-decimal">
+                <li>Подзаголовок для ресурсов</li>
+            </ol>
+        </div>
+    </li>
+    <li class="my-2">
+        <x-link link="https://github.com/lee-to/moonshine/releases/tag/1.16.0">v1.16.0</x-link>
+    </li>
+    <li class="my-2">
+        <x-link link="https://github.com/lee-to/moonshine/releases/tag/1.15.0">v1.15.0</x-link>
+
+        <div class="">
+            <div class="font-bold">Изменения</div>
+            <ol class="list-decimal">
+                <li>Новое поле CKEditor</li>
+                <li>Новое поле Quill</li>
+                <li>Новое поле Translatable для работы с <a href="https://github.com/spatie/laravel-translatable">Laravel-translatable</a> от
+                    <a href="https://spatie.be/open-source">Spatie</a></li>
+                <li>Метки для пунктов меню</li>
+                <li>Метод onlyCount для поля BelongsToMany</li>
+                <li>Методы showOnUpdateForm/showOnCreateForm для полей</li>
+                <li>Метод autoUpdate для поля "Переключатель" который включает/отключает возможность изменения поля на главной</li>
+                <li>Метод autoUpdate для поля "Переключатель" который включает/отключает возможность изменения поля на главной</li>
+                <li>Метод addLink для добавления ссылки-подсказки полю</li>
+                <li>Кастомные массовые действия</li>
+                <li>Кастомные стили для строк и ячеек таблицы отображения данных</li>
+                <li>Страница профиля</li>
+                <li>Кастомные страницы</li>
+            </ol>
+        </div>
+    </li>
+    <li class="my-2">
+        <x-link link="https://github.com/lee-to/moonshine/releases/tag/1.14.0">v1.14.0</x-link>
+
+    </li>
+    <li class="my-2">
+        <x-link link="https://github.com/lee-to/moonshine/releases/tag/1.13.0">v1.13.0</x-link>
+
+        <div class="">
+            <div class="font-bold">Изменения</div>
+            <ol class="list-decimal">
+                <li>Новое поле MediaLibrary для работы с <a href="https://github.com/spatie/laravel-medialibrary">Laravel-medialibrary</a> от
+                    <a href="https://spatie.be/open-source">Spatie</a></li>
+            </ol>
+        </div>
+    </li>
+    <li class="my-2">
+        <x-link link="https://github.com/lee-to/moonshine/releases/tag/1.12.0">v1.12.0</x-link>
+
+        <div class="">
+            <div class="font-bold">Изменения</div>
+            <ol class="list-decimal">
+                <li>События beforeSave и afterSave для полей</li>
+            </ol>
+        </div>
+    </li>
+    <li class="my-2">
+        <x-link link="https://github.com/lee-to/moonshine/releases/tag/1.11.0">v1.11.0</x-link>
+
+    </li>
+    <li class="my-2">
         <x-link link="https://github.com/lee-to/moonshine/releases/tag/1.10.0">v1.10.0</x-link>
 
         <div class="">
