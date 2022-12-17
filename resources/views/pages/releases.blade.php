@@ -1,6 +1,18 @@
 <x-page title="Обновления" :sectionMenu="null">
 <ul class="list-disc my-4">
     <li class="my-2">
+        <x-link link="https://github.com/lee-to/moonshine/releases/tag/1.18.0">v1.18.0</x-link>
+
+        <div class="">
+            <div class="font-bold">Изменения</div>
+            <ol class="list-decimal">
+                <li>Метод canSee для полей и фильтров</li>
+                <li>Метод valuesQuery для полей отношений</li>
+                <li>Фикс аттрибутов для Json(KeyValue)</li>
+            </ol>
+        </div>
+    </li>
+    <li class="my-2">
         <x-link link="https://github.com/lee-to/moonshine/releases/tag/1.17.0">v1.17.0</x-link>
 
         <div class="">
@@ -21,8 +33,8 @@
             <ol class="list-decimal">
                 <li>Новое поле CKEditor</li>
                 <li>Новое поле Quill</li>
-                <li>Новое поле Translatable для работы с <a href="https://github.com/spatie/laravel-translatable">Laravel-translatable</a> от
-                    <a href="https://spatie.be/open-source">Spatie</a></li>
+                <li>Новое поле Translatable для работы с <x-link link="https://github.com/spatie/laravel-translatable">Laravel-translatable</x-link> от
+                    <x-link link="https://spatie.be/open-source">Spatie</x-link></li>
                 <li>Метки для пунктов меню</li>
                 <li>Метод onlyCount для поля BelongsToMany</li>
                 <li>Методы showOnUpdateForm/showOnCreateForm для полей</li>
@@ -46,8 +58,8 @@
         <div class="">
             <div class="font-bold">Изменения</div>
             <ol class="list-decimal">
-                <li>Новое поле MediaLibrary для работы с <a href="https://github.com/spatie/laravel-medialibrary">Laravel-medialibrary</a> от
-                    <a href="https://spatie.be/open-source">Spatie</a></li>
+                <li>Новое поле MediaLibrary для работы с <x-link link="https://github.com/spatie/laravel-medialibrary">Laravel-medialibrary</x-link> от
+                    <x-link link="https://spatie.be/open-source">Spatie</x-link></li>
             </ol>
         </div>
     </li>
