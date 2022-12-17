@@ -1,4 +1,16 @@
-<x-page title="Основы">
+<x-page title="Основы" :sectionMenu="[
+    'Разделы' => [
+        ['url' => '#custom-field', 'label' => 'Кастомное поле'],
+        ['url' => '#vendors', 'label' => 'Пакеты'],
+    ]
+]">
+
+<x-p>
+    MoonShine дает возможности расширения основного функционала и написания собственных пакетов которые улучшать возможности.
+    В данном разделе мы приведем список таких пакетов и пример с созданием собственного поля
+</x-p>
+
+<x-sub-title id="custom-field">Кастомное поле</x-sub-title>
 
 <x-p>
     Рассмотрим небольшой пример создания собственного поля!
@@ -34,5 +46,9 @@ final class CKEditor extends Field
 <x-p>
     Вот и все!
 </x-p>
+
+<x-sub-title id="vendors">Пакеты</x-sub-title>
+
+<x-link link="https://github.com/visual-ideas/laravel-site-settings">Менеджер настроек</x-link>
 
 </x-page>
