@@ -89,6 +89,21 @@ php artisan vendor:publish --tag=lfm_config
 php artisan vendor:publish --tag=lfm_public
 </x-code>
 
+<x-alert>
+    Обязательно установить флаг 'use_package_routes' в конфиге lfm в false, иначе кеширование роутов будет вызывать ошибку
+</x-alert>
+
+<x-code language="php">
+return [
+    // ..
+
+    'use_package_routes' => false,
+
+    // ..
+];
+
+</x-code>
+
 <x-next href="{{ route('section', 'fields-code') }}">Код</x-next>
 
 </x-page>
