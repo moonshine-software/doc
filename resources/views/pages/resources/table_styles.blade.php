@@ -41,6 +41,6 @@ class PostResource extends Resource
 }
 </x-code>
 
-<x-next href="{{ route('section', 'pages-index') }}">Страницы</x-next>
+<x-next href="{{ route('section', 'resources-changelogs') }}">История изменений</x-next>
 
 </x-page>

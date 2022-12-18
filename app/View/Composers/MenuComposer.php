@@ -29,6 +29,7 @@ class MenuComposer
                 ['url' => route('section', 'resources-item_actions'), 'label' => 'Кастомные действия'],
                 ['url' => route('section', 'resources-bulk_actions'), 'label' => 'Массовые действия'],
                 ['url' => route('section', 'resources-table_styles'), 'label' => 'Стили для таблицы'],
+                ['url' => route('section', 'resources-changelogs'), 'label' => 'История изменений'],
             ],
 
             'Страницы' => [
