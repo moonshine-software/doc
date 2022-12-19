@@ -114,8 +114,8 @@ class MenuComposer
                 ['url' => route('section', 'advanced-authorization'), 'label' => 'Авторизация'],
                 ['url' => route('section', 'advanced-events'), 'label' => 'События'],
                 ['url' => route('section', 'advanced-socialite'), 'label' => 'Socialite'],
-                ['url' => route('section', 'localization-events'), 'label' => 'Локализация'],
-                ['url' => route('section', 'extensions-events'), 'label' => 'Расширения'],
+                ['url' => route('section', 'advanced-localization'), 'label' => 'Локализация'],
+                ['url' => route('section', 'advanced-extensions'), 'label' => 'Расширения'],
             ],
         ];
 
