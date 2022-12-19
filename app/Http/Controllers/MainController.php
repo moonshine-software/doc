@@ -6,12 +6,20 @@ class MainController extends Controller
 {
     public function index()
     {
-        return view('pages.home');
+        return $this->renderIfExists(
+            "pages.".app()->getLocale().".home"
+        );
     }
 
     public function section(string $section)
     {
-        $view = str_replace('-', '.', $section);
+        return $this->renderIfExists(
+            str_replace('-', '.', $section)
+        );
+    }
+
+    private function renderIfExists(string $view)
+    {
         $path = "pages.".app()->getLocale().".$view";
 
         abort_if(!view()->exists($path), 404);
