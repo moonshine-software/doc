@@ -32,14 +32,6 @@ class MenuComposer
                 ['url' => route('section', 'resources-changelogs'), 'label' => 'История изменений'],
             ],
 
-            'Страницы' => [
-                ['url' => route('section', 'pages-index'), 'label' => 'Основы'],
-            ],
-
-            'Меню' => [
-                ['url' => route('section', 'menu-index'), 'label' => 'Основы'],
-            ],
-
             'Поля' => [
                 ['url' => route('section', 'fields-index'), 'label' => 'Основы'],
                 ['url' => route('section', 'fields-id'), 'label' => 'ID'],
@@ -84,12 +76,6 @@ class MenuComposer
                 ['url' => route('section', 'fields-spatie-translatable'), 'label' => 'Spatie\Translatable'],
             ],
 
-            'Декорации' => [
-                ['url' => route('section', 'decorations-index'), 'label' => 'Основы'],
-                ['url' => route('section', 'decorations-tab'), 'label' => 'Вкладки'],
-                ['url' => route('section', 'decorations-heading'), 'label' => 'Заголовок'],
-            ],
-
             'Фильтры' => [
                 ['url' => route('section', 'filters-index'), 'label' => 'Основы'],
                 ['url' => route('section', 'filters-text'), 'label' => 'Текстовое поле'],
@@ -104,14 +90,16 @@ class MenuComposer
                 ['url' => route('section', 'filters-has_one'), 'label' => 'HasOne'],
             ],
 
+            'Декорации' => [
+                ['url' => route('section', 'decorations-index'), 'label' => 'Основы'],
+                ['url' => route('section', 'decorations-tab'), 'label' => 'Вкладки'],
+                ['url' => route('section', 'decorations-heading'), 'label' => 'Заголовок'],
+            ],
+
             'Метрики' => [
                 ['url' => route('section', 'metrics-index'), 'label' => 'Основы'],
                 ['url' => route('section', 'metrics-value'), 'label' => 'Значение'],
                 ['url' => route('section', 'metrics-line_chart'), 'label' => 'Line Chart'],
-            ],
-
-            'Dashboard' => [
-                ['url' => route('section', 'dashboard-index'), 'label' => 'Основы'],
             ],
 
             'Действия' => [
@@ -119,20 +107,15 @@ class MenuComposer
                 ['url' => route('section', 'actions-export'), 'label' => 'Экспорт'],
             ],
 
-            'Авторизация' => [
-                ['url' => route('section', 'authorization-index'), 'label' => 'Основы'],
-            ],
-
-            'События' => [
-                ['url' => route('section', 'events-index'), 'label' => 'Основы'],
-            ],
-
-            'Локализация' => [
-                ['url' => route('section', 'localization-index'), 'label' => 'Основы'],
-            ],
-
-            'Расширения' => [
-                ['url' => route('section', 'extensions-index'), 'label' => 'Основы'],
+            'Digging Deeper' => [
+                ['url' => route('section', 'advanced-dashboard'), 'label' => 'Dashboard'],
+                ['url' => route('section', 'advanced-pages'), 'label' => 'Страницы'],
+                ['url' => route('section', 'advanced-menu'), 'label' => 'Меню'],
+                ['url' => route('section', 'advanced-authorization'), 'label' => 'Авторизация'],
+                ['url' => route('section', 'advanced-events'), 'label' => 'События'],
+                ['url' => route('section', 'advanced-socialite'), 'label' => 'Socialite'],
+                ['url' => route('section', 'localization-events'), 'label' => 'Локализация'],
+                ['url' => route('section', 'extensions-events'), 'label' => 'Расширения'],
             ],
         ];
 

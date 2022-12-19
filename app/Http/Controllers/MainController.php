@@ -12,9 +12,10 @@ class MainController extends Controller
     public function section(string $section)
     {
         $view = str_replace('-', '.', $section);
+        $path = "pages.".app()->getLocale().".$view";
 
-        abort_if(!view()->exists("pages.$view"), 404);
+        abort_if(!view()->exists($path), 404);
 
-        return view("pages.$view");
+        return view($path);
     }
 }

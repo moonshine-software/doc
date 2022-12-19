@@ -13,5 +13,7 @@
 
     <div class="prose text-white">
         {{ $slot }}
+
+        <x-next />
     </div>
 @endsection
