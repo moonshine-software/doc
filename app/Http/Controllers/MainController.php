@@ -6,9 +6,7 @@ class MainController extends Controller
 {
     public function index()
     {
-        return $this->renderIfExists(
-            "pages.".app()->getLocale().".home"
-        );
+        return $this->renderIfExists("home");
     }
 
     public function section(string $section)
