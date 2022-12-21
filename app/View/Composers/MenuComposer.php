@@ -105,6 +105,7 @@ class MenuComposer
             'Действия' => [
                 ['url' => route('section', 'actions-index'), 'label' => 'Основы'],
                 ['url' => route('section', 'actions-export'), 'label' => 'Экспорт'],
+                ['url' => route('section', 'actions-import'), 'label' => 'Импорт'],
             ],
 
             'Digging Deeper' => [
@@ -113,6 +114,7 @@ class MenuComposer
                 ['url' => route('section', 'advanced-menu'), 'label' => 'Меню'],
                 ['url' => route('section', 'advanced-authorization'), 'label' => 'Авторизация'],
                 ['url' => route('section', 'advanced-events'), 'label' => 'События'],
+                ['url' => route('section', 'advanced-notifications'), 'label' => 'Уведомления'],
                 ['url' => route('section', 'advanced-socialite'), 'label' => 'Socialite'],
                 ['url' => route('section', 'advanced-localization'), 'label' => 'Локализация'],
                 ['url' => route('section', 'advanced-extensions'), 'label' => 'Расширения'],

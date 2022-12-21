@@ -1,4 +1,4 @@
-<x-page title="Основы" :sectionMenu="[
+<x-page title="Расширения" :sectionMenu="[
     'Разделы' => [
         ['url' => '#custom-field', 'label' => 'Кастомное поле'],
         ['url' => '#vendors', 'label' => 'Пакеты'],

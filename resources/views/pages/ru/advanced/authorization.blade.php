@@ -1,4 +1,4 @@
-<x-page title="Основы">
+<x-page title="Авторизация">
 
 <x-p>
     Мы не отходим от концепции laravel и с помощью laravel policy можем работать с

@@ -1,4 +1,4 @@
-<x-page title="Основы" :sectionMenu="[
+<x-page title="Меню" :sectionMenu="[
     'Разделы' => [
         ['url' => '#register', 'label' => 'Регистрация'],
         ['url' => '#condition', 'label' => 'Условие отображения'],

@@ -1,7 +1,7 @@
 <x-page title="Экспорт">
 
 <x-p>
-    Экспортирует все данные с учетом фильтрации в csv файл
+    Экспортирует все данные с учетом фильтрации
 </x-p>
 
 <x-code language="php">
@@ -11,7 +11,15 @@ use Leeto\MoonShine\Actions\ExportAction;
 public function actions(): array
 {
     return [
-        ExportAction::make('Экспорт'),
+        ExportAction::make('Экспорт')
+            // Опциональные методы
+            // Если необходимо запускать в фоне
+            ->queue()
+            // Выбор диска
+            ->disk('public')
+            // Выбор директории сохранения
+            ->dir('/exports')
+        ,
     ];
 }
 //...
