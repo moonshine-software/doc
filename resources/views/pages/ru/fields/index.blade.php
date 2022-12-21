@@ -16,6 +16,7 @@
         ['url' => '#show-when', 'label' => 'Условие отображения'],
         ['url' => '#can-save', 'label' => 'Возможность сохранения'],
         ['url' => '#events', 'label' => 'События'],
+        ['url' => '#custom-view', 'label' => 'Смена view'],
     ]
 ]">
 
@@ -371,6 +372,19 @@ public function afterSave(Model $item): void
 {
     //
 }
+</x-code>
+
+<x-sub-title id="custom-view">Смена view</x-sub-title>
+
+<x-p>
+    Иногда имеет смысл изменить view с помощью fluent interface (Как пример если используете фильтры или поля
+    вне moonShine)
+</x-p>
+
+<x-code language="php">
+Text::make('Title')
+    ->customView('fields.my-custom-input')
+,
 </x-code>
 
 </x-page>
