@@ -219,7 +219,7 @@ public function fields(): array
 <x-sub-title id="link">Ссылка</x-sub-title>
 
 <x-p>
-    Полю можно добавить ссылку (например с инструкциями) <code>addLink(string $name, string $link)</code>
+    Полю можно добавить ссылку (например с инструкциями) <code>addLink(string $name, string $link, bool $blank = false)</code>
 </x-p>
 
 <x-sub-title id="nullable">Nullable</x-sub-title>
