@@ -5,7 +5,7 @@
     воспользуйтесь классом <code>Leeto\MoonShine\Notifications\MoonShineNotification</code>
 </x-p>
 
-<x-code>
+<x-code language="php">
 use Leeto\MoonShine\Notifications\MoonShineNotification;
 
 MoonShineNotification::send(
