@@ -18,6 +18,23 @@ public function fields(): array
 
 //...
 </x-code>
+    <x-p>
+        Для отображения в поле не только даты, но и времени используйте метод <code>withTime</code>
+    </x-p>
+    <x-code language="php">
+        use Leeto\MoonShine\Fields\Date;
+
+        //...
+        public function fields(): array
+        {
+            return [
+                Date::make('Дата и время создания', 'created_at')
+                    ->withTime()
+            ];
+        }
+
+        //...
+    </x-code>
 
 </x-page>
 
