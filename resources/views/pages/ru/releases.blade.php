@@ -1,6 +1,35 @@
 <x-page title="Обновления" :sectionMenu="null">
 <ul class="list-disc my-4">
     <li class="my-2">
+        <x-link link="https://github.com/lee-to/moonshine/releases/tag/1.20.0">v1.20.0</x-link>
+
+        <div class="">
+            <div class="font-bold">Изменения</div>
+            <ol class="list-decimal">
+                <li>Добавлены уведомления</li>
+                <li>Импорт</li>
+                <li>Очереди для импорта и экспорта</li>
+                <li>Storage диск и директория для импорта и экспорта</li>
+                <li>Произвольные view</li>
+                <li>AddLink метод с пустым параметром</li>
+                <li>Заменен пакет phpoffice/phpspreadsheet на легковесный и производительный rap2hpoutre/fast-excel</li>
+            </ol>
+        </div>
+    </li>
+    <li class="my-2">
+        <x-link link="https://github.com/lee-to/moonshine/releases/tag/1.19.0">v1.19.0</x-link>
+
+        <div class="">
+            <div class="font-bold">Изменения</div>
+            <ol class="list-decimal">
+                <li>Вход через соц.сети на основе socialite</li>
+                <li>Метод withTime для поля Date</li>
+                <li>История изменений пользователями для ресурсов (для отслеживания что и кем менялось)</li>
+                <li>Fulltext поиск</li>
+            </ol>
+        </div>
+    </li>
+    <li class="my-2">
         <x-link link="https://github.com/lee-to/moonshine/releases/tag/1.18.0">v1.18.0</x-link>
 
         <div class="">
