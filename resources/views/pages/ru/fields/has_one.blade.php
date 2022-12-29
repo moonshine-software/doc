@@ -33,6 +33,10 @@ public function fields(): array
 <x-image src="{{ asset('screenshots/has_one_1.png') }}"></x-image>
 <x-image src="{{ asset('screenshots/has_one_2.png') }}"></x-image>
 
+<x-p>
+    Также доступен <code>resourceMode</code>, подробности в поле HasMany
+</x-p>
+
 </x-page>
 
 

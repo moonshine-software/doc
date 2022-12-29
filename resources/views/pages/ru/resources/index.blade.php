@@ -3,6 +3,7 @@
         ['url' => '#variables', 'label' => 'Основные свойства'],
         ['url' => '#create', 'label' => 'Создание'],
         ['url' => '#define', 'label' => 'Объявление'],
+        ['url' => '#modal', 'label' => 'Модальные окна'],
     ]
 ]">
 
@@ -129,6 +130,32 @@ class MoonShineServiceProvider extends ServiceProvider
 </x-alert>
 
 <x-image src="{{ asset('screenshots/main.png') }}"></x-image>
+
+<x-sub-title id="modal">Модальные окна</x-sub-title>
+
+<x-p>
+    Возможность добавлять записи и редактировать прямо на странице со списком в модальном окне
+</x-p>
+
+<x-code language="php">
+namespace App\MoonShine\Resources;
+
+use App\Models\Post;
+
+use Leeto\MoonShine\Resources\Resource;
+
+class PostResource extends Resource
+{
+    public static string $model = Post::class;
+
+    public static string $title = 'Posts';
+
+    protected bool $createInModal = true; // [tl! focus]
+
+    protected bool $editInModal = true; // [tl! focus]
+
+    // ...
+</x-code>
 
 </x-page>
 

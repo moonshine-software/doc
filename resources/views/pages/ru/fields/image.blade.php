@@ -58,8 +58,17 @@ Image::make('Аватар', 'avatar')
 </x-p>
 
 <x-code language="php">
-    Image::make('Аватар', 'avatar')
+Image::make('Аватар', 'avatar')
     ->disableDownload() // [tl! focus]
+</x-code>
+
+<x-p>
+    Если необходимо сохранять оригинальное имя файла от клиента воспользуйтесь методом <code>keepOriginalFileName</code>
+</x-p>
+
+<x-code language="php">
+Image::make('Аватар', 'avatar')
+    ->keepOriginalFileName() // [tl! focus]
 </x-code>
 
 </x-page>
