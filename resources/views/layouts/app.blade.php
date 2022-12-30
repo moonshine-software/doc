@@ -67,6 +67,7 @@
             <div class="mt-8 flex gap-4 md:justify-center lg:justify-start">
                 <x-button href="{{ route('section', 'concept') }}" :transparent="false">Начать</x-button>
                 <x-button target="_blank" href="https://github.com/lee-to/moonshine" :transparent="true">GitHub</x-button>
+                <x-button target="_blank" href="https://github.com/CutCodeRu/moonshine-demo-project" :transparent="true">Demo project</x-button>
                 <x-button @click="donateModal = true" :transparent="true">Donate</x-button>
             </div>
         </div>
