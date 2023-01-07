@@ -75,13 +75,15 @@ public string $titleField = 'name'; // [tl! focus]
 public function fields(): array
 {
     return [
-        ID::make(),
-        Text::make('Заголовок', 'title')
-        // [tl! focus:start]
-            ->hideOnIndex()
-            ->hideOnForm()
-        // [tl! focus:end]
-        ,
+        Block::make('form', [
+            ID::make(),
+            Text::make('Заголовок', 'title')
+            // [tl! focus:start]
+                ->hideOnIndex()
+                ->hideOnForm()
+            // [tl! focus:end]
+            ,
+        ])
     ];
 }
 
@@ -100,12 +102,14 @@ public function fields(): array
 public function fields(): array
 {
     return [
-        ID::make(),
-        Text::make('Заголовок', 'title')
-        // [tl! focus:start]
-            ->hideOnIndex(auth()->check())
-        // [tl! focus:end]
-        ,
+        Block::make('form', [
+            ID::make(),
+            Text::make('Заголовок', 'title')
+            // [tl! focus:start]
+                ->hideOnIndex(auth()->check())
+            // [tl! focus:end]
+            ,
+        ])
     ];
 }
 
@@ -125,11 +129,13 @@ public function fields(): array
 public function fields(): array
 {
     return [
-        Text::make('Заголовок', 'title')
-            ->disabled() // [tl! focus]
-            ->hidden() // [tl! focus]
-            ->readonly(), // [tl! focus]
-        ];
+        Block::make('form', [
+            Text::make('Заголовок', 'title')
+                ->disabled() // [tl! focus]
+                ->hidden() // [tl! focus]
+                ->readonly(), // [tl! focus]
+            ];
+        ])
     }
 
 //...
@@ -143,8 +149,10 @@ public function fields(): array
 public function fields(): array
 {
     return [
-        Password::make('Пароль', 'password')
-            ->customAttributes(['autocomplete' => 'off']) // [tl! focus]
+        Block::make('form', [
+            Password::make('Пароль', 'password')
+                ->customAttributes(['autocomplete' => 'off']) // [tl! focus]
+        ])
     ];
 }
 
@@ -163,8 +171,10 @@ public function fields(): array
 public function fields(): array
 {
     return [
-        Text::make('Заголовок', 'title')
-            ->required() // [tl! focus]
+        Block::make('form', [
+            Text::make('Заголовок', 'title')
+                ->required() // [tl! focus]
+        ])
     ];
 }
 
@@ -179,16 +189,18 @@ public function fields(): array
 public function fields(): array
 {
     return [
-        Text::make('Имя', 'first_name', fn($item) => $item->first_name . ' ' . $item->last_name)
+        Block::make('form', [
+            Text::make('Имя', 'first_name', fn($item) => $item->first_name . ' ' . $item->last_name)
 
-        // Пример если нужно разделить логику для главной и для редактирования
-        Text::make('Price', resource: function ($item) {
-            if(request()->routeIs('*.index')) {
-                return $item->price;
-            }
+            // Пример если нужно разделить логику для главной и для редактирования
+            Text::make('Price', resource: function ($item) {
+                if(request()->routeIs('*.index')) {
+                    return $item->price;
+                }
 
-            return $item->exists ? $item->price->raw() : 0;
-        }),
+                return $item->exists ? $item->price->raw() : 0;
+            }),
+        ])
     ];
 }
 

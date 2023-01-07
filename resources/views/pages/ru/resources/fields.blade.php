@@ -20,6 +20,7 @@ namespace Leeto\MoonShine\Resources;
 use Leeto\MoonShine\Models\MoonshineUser;
 use Leeto\MoonShine\Fields\ID; // [tl! focus]
 use Leeto\MoonShine\Fields\Text; // [tl! focus]
+use Leeto\MoonShine\Decorations\Block;
 
 class PostResource extends Resource
 {
@@ -31,8 +32,10 @@ class PostResource extends Resource
     public function fields(): array // [tl! focus:start]
     {
         return [
-            ID::make(),
-            Text::make('Заголовок', 'title'),
+            Block::make('form', [
+                ID::make(),
+                Text::make('Заголовок', 'title'),
+            ])
         ];
     } // [tl! focus:end]
 

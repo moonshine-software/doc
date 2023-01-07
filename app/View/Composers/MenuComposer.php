@@ -92,8 +92,11 @@ class MenuComposer
 
             'Декорации' => [
                 ['url' => route('section', 'decorations-index'), 'label' => 'Основы'],
-                ['url' => route('section', 'decorations-tab'), 'label' => 'Вкладки'],
+                ['url' => route('section', 'decorations-tabs'), 'label' => 'Вкладки'],
                 ['url' => route('section', 'decorations-heading'), 'label' => 'Заголовок'],
+                ['url' => route('section', 'decorations-block'), 'label' => 'Block'],
+                ['url' => route('section', 'decorations-flex'), 'label' => 'Flex'],
+                ['url' => route('section', 'decorations-button'), 'label' => 'Button'],
             ],
 
             'Метрики' => [
