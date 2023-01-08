@@ -1,7 +1,7 @@
 <x-page title="Обновления" :sectionMenu="null">
 <ul class="list-disc my-4">
     <li class="my-2">
-        <x-link link="https://github.com/lee-to/moonshine/releases/tag/1.22.0">v1.22.0</x-link>
+        <x-link link="https://github.com/lee-to/moonshine/releases/tag/1.23.0">v1.23.0</x-link>
 
         <div class="">
             <div class="font-bold">Изменения</div>
@@ -12,13 +12,25 @@
         </div>
     </li>
     <li class="my-2">
-        <x-link link="https://github.com/lee-to/moonshine/releases/tag/1.21.0">v1.21.0</x-link>
+        <x-link link="https://github.com/lee-to/moonshine/releases/tag/1.22.0">v1.22.0</x-link>
 
         <div class="">
             <div class="font-bold">Изменения</div>
             <ol class="list-decimal">
                 <li>Добавлен Dashboard block - ResourcePreview</li>
                 <li>Исправлен режим select для BelongsToMany</li>
+            </ol>
+        </div>
+    </li>
+    <li class="my-2">
+        <x-link link="https://github.com/lee-to/moonshine/releases/tag/1.21.0">v1.21.0</x-link>
+
+        <div class="">
+            <div class="font-bold">Изменения</div>
+            <ol class="list-decimal">
+                <li>ResourceMode для полей HasOne/HasMany</li>
+                <li>Precognition</li>
+                <li>Редактирование и добавление в модальных окнах</li>
             </ol>
         </div>
     </li>
