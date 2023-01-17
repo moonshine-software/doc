@@ -1,6 +1,17 @@
 <x-page title="Обновления" :sectionMenu="null">
 <ul class="list-disc my-4">
     <li class="my-2">
+        <x-link link="https://github.com/lee-to/moonshine/releases/tag/1.24.0">v1.24.0</x-link>
+
+        <div class="">
+            <div class="font-bold">Изменения</div>
+            <ol class="list-decimal">
+                <li>FormActions</li>
+                <li>FieldContainer</li>
+            </ol>
+        </div>
+    </li>
+    <li class="my-2">
         <x-link link="https://github.com/lee-to/moonshine/releases/tag/1.23.0">v1.23.0</x-link>
 
         <div class="">

@@ -11,6 +11,7 @@
         ['url' => '#link', 'label' => 'Ссылка'],
         ['url' => '#nullable', 'label' => 'Nullable'],
         ['url' => '#sortable', 'label' => 'Сортировка'],
+        ['url' => '#label', 'label' => 'Скрыть label'],
         ['url' => '#mask', 'label' => 'Маска'],
         ['url' => '#default', 'label' => 'Значение по умолчанию'],
         ['url' => '#show-when', 'label' => 'Условие отображения'],
@@ -279,6 +280,27 @@ public function fields(): array
     return [
         Text::make('Заголовок', 'title')
             ->sortable() // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
+
+<x-sub-title id="label">Скрыть label</x-sub-title>
+
+<x-p>
+    Метод <code>fieldContainer</code> скроет Label поля для экономии места, особенно удобно
+    использовать совместо с декорацией <code>Flex</code>
+</x-p>
+
+<x-code language="php">
+//...
+
+public function fields(): array
+{
+    return [
+        Text::make('Заголовок', 'title')
+            ->fieldContainer(false) // [tl! focus]
     ];
 }
 
