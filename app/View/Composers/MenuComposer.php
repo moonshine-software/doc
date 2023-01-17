@@ -75,6 +75,7 @@ class MenuComposer
                 ['url' => route('section', 'fields-morph_one'), 'label' => 'MorphOne'],
 
                 ['url' => route('section', 'fields-spatie-translatable'), 'label' => 'Spatie\Translatable'],
+                ['url' => route('section', 'fields-spatie-medialibrary'), 'label' => 'Spatie\MediaLibrary'],
             ],
 
             'Фильтры' => [
