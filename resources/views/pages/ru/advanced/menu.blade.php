@@ -95,7 +95,7 @@ app(MoonShine::class)->registerResources([
 <x-ul :items="['add', 'app', 'bookmark', 'cart', 'delete', 'edit', 'export', 'filter', 'search', 'users']"></x-ul>
 
 <x-p>
-    Также есть возможность создать blade файл с вашей кастомной иконкой. Для этого необходимо в <code>resources/vendor/moonshine/shared/icons</code>
+    Также есть возможность создать blade файл с вашей кастомной иконкой. Для этого необходимо в <code>resources/views/vendor/moonshine/shared/icons</code>
      создать blade файл как пример my-icon.blade.php с отображением иконки внутри (например код svg)
      и далее указать <code>icon('my-icon')</code>
 </x-p>

@@ -9,6 +9,7 @@
                 <li>Resource query tags</li>
                 <li>Form components</li>
                 <li>User permissions</li>
+                <li>Resource show action</li>
             </ol>
         </div>
     </li>

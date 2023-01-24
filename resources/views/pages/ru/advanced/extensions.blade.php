@@ -49,6 +49,13 @@ final class CKEditor extends Field
 
 <x-sub-title id="vendors">Пакеты</x-sub-title>
 
-<x-link link="https://github.com/visual-ideas/laravel-site-settings">Менеджер настроек</x-link>
+<ul class="list-disc my-4">
+    <li class="my-2">
+        <x-link link="https://github.com/visual-ideas/laravel-site-settings">Менеджер настроек</x-link>
+    </li>
+    <li class="my-2">
+        <x-link link="https://github.com/lee-to/laravel-seo-by-url">Менеджер SEO</x-link>
+    </li>
+</ul>
 
 </x-page>
