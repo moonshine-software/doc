@@ -78,6 +78,8 @@ class MenuComposer
 
                 ['url' => route('section', 'fields-spatie-translatable'), 'label' => 'Spatie\Translatable'],
                 ['url' => route('section', 'fields-spatie-medialibrary'), 'label' => 'Spatie\MediaLibrary'],
+
+                ['url' => route('section', 'fields-no_input'), 'label' => 'NoInput'],
             ],
 
             'Фильтры' => [
