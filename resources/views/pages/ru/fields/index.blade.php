@@ -18,6 +18,7 @@
         ['url' => '#can-save', 'label' => 'Возможность сохранения'],
         ['url' => '#events', 'label' => 'События'],
         ['url' => '#custom-view', 'label' => 'Смена view'],
+        ['url' => '#full-width', 'label' => 'Во всю ширину'],
     ]
 ]">
 
@@ -416,12 +417,24 @@ public function afterSave(Model $item): void
 </x-p>
 
 <x-code language="php">
-Text::make('Title')
+    Text::make('Title')
     ->customView('fields.my-custom-input')
-,
+    ,
 </x-code>
 
+<x-sub-title id="full-width">Во всю ширину</x-sub-title>
+
+<x-p>
+    Для более удобного редактирования поля вы можете назначить ему свойство <code>fullWidth</code>, для того чтобы элемент ввода занимал
+    всю доступную ширину родительского элемента, label и link, при этом, будут над полем ввода.
+</x-p>
+
+<x-code language="php">
+    Text::make('Slug')
+    ->fullWidth()
+    ,
+</x-code>
+
+<x-image src="{{ asset('screenshots/full-width.png') }}"></x-image>
+
 </x-page>
-
-
-
