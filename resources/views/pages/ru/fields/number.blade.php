@@ -1,4 +1,4 @@
-<x-page title="Url">
+<x-page title="Число">
 
 <x-p>
     Input с типом number и дополнительными методами  <code>stars</code>, <code>min</code>, <code>min</code>
