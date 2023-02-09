@@ -103,6 +103,7 @@ class MenuComposer
                 ['url' => route('section', 'decorations-block'), 'label' => 'Block'],
                 ['url' => route('section', 'decorations-flex'), 'label' => 'Flex'],
                 ['url' => route('section', 'decorations-button'), 'label' => 'Button'],
+                ['url' => route('section', 'decorations-collapse'), 'label' => 'Collapse'],
             ],
 
             'Метрики' => [
