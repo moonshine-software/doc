@@ -1,12 +1,36 @@
 <x-page title="Обновления" :sectionMenu="null">
 <ul class="list-disc my-4">
     <li class="my-2">
+        <x-link link="https://github.com/lee-to/moonshine/releases/tag/1.27.0">v1.27.0</x-link>
+
+        <div class="">
+            <div class="font-bold">Изменения</div>
+            <ol class="list-decimal">
+                <li>MorphTo,MorphToMany fields</li>
+                <li>Detail page</li>
+            </ol>
+        </div>
+    </li>
+    <li class="my-2">
+        <x-link link="https://github.com/lee-to/moonshine/releases/tag/1.26.0">v1.26.0</x-link>
+
+        <div class="">
+            <div class="font-bold">Изменения</div>
+            <ol class="list-decimal">
+                <li>Collapse decoration</li>
+                <li>Design fixes</li>
+            </ol>
+        </div>
+    </li>
+    <li class="my-2">
         <x-link link="https://github.com/lee-to/moonshine/releases/tag/1.25.0">v1.25.0</x-link>
 
         <div class="">
             <div class="font-bold">Изменения</div>
             <ol class="list-decimal">
                 <li>Resource query tags</li>
+                <li>NoInput field</li>
+                <li>Fields fullWidth method</li>
                 <li>Form components</li>
                 <li>User permissions</li>
                 <li>Resource show action</li>

@@ -73,8 +73,11 @@ class MenuComposer
                 ['url' => route('section', 'fields-has_many_through'), 'label' => 'HasManyThrough'],
                 ['url' => route('section', 'fields-has_one'), 'label' => 'HasOne'],
                 ['url' => route('section', 'fields-has_one_through'), 'label' => 'HasOneThrough'],
-                ['url' => route('section', 'fields-morph_many'), 'label' => 'MorphMany'],
+
+                ['url' => route('section', 'fields-morph_to'), 'label' => 'MorphTo'],
                 ['url' => route('section', 'fields-morph_one'), 'label' => 'MorphOne'],
+                ['url' => route('section', 'fields-morph_many'), 'label' => 'MorphMany'],
+                ['url' => route('section', 'fields-morph_to_many'), 'label' => 'MorphToMany'],
 
                 ['url' => route('section', 'fields-spatie-translatable'), 'label' => 'Spatie\Translatable'],
                 ['url' => route('section', 'fields-spatie-medialibrary'), 'label' => 'Spatie\MediaLibrary'],
