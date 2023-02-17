@@ -67,8 +67,9 @@ public string $titleField = 'name'; // [tl! focus]
 <x-p>
     Поля отображаются на странице со списком (главная страница ресурса) и страница создания/редактирования.
     Чтобы исключить вывод поля на главной либо на странице с формой, можно воспользоваться методами
-    <code>hideOnIndex/hideOnForm</code>, обратные методы <code>showOnIndex/showOnForm</code>.
-    Чтобы исключить только со страницы редактирования или добавления - <code>hideOnCreate/hideOnUpdate/showOnCreate/showOnUpdate</code>
+    <code>hideOnIndex/hideOnForm/hideOnDetail</code>, обратные методы <code>showOnIndex/showOnForm/showOnDetail</code>.
+    Чтобы исключить только со страницы редактирования или добавления -
+    <code>hideOnCreate/hideOnUpdate/showOnCreate/showOnUpdate</code>
 </x-p>
 
 <x-code language="php">
@@ -234,7 +235,8 @@ public function fields(): array
 <x-sub-title id="link">Ссылка</x-sub-title>
 
 <x-p>
-    Полю можно добавить ссылку (например с инструкциями) <code>addLink(string $name, string $link, bool $blank = false)</code>
+    Полю можно добавить ссылку (например с инструкциями)
+    <code>addLink(string $name, string $link, bool $blank = false)</code>
 </x-p>
 
 <x-sub-title id="nullable">Nullable</x-sub-title>
@@ -425,7 +427,8 @@ public function afterSave(Model $item): void
 <x-sub-title id="full-width">Во всю ширину</x-sub-title>
 
 <x-p>
-    Для более удобного редактирования поля вы можете назначить ему свойство <code>fullWidth</code>, для того чтобы элемент ввода занимал
+    Для более удобного редактирования поля вы можете назначить
+    ему свойство <code>fullWidth</code>, для того чтобы элемент ввода занимал
     всю доступную ширину родительского элемента, label и link, при этом, будут над полем ввода.
 </x-p>
 
