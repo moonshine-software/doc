@@ -22,6 +22,7 @@
                     'Выручка' => Order::query()
                         ->selectRaw('SUM(price) as sum, DATE_FORMAT(created_at, "%d.%m.%Y") as date')
                         ->groupBy('date')
+                        ->get()
                         ->pluck('sum', 'date')
                         ->toArray()
                 ]),
