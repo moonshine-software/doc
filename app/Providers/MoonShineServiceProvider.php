@@ -29,7 +29,7 @@ class MoonShineServiceProvider extends ServiceProvider
                         fn() => $this->getPageView($item['slug'])
                     ),
                     'heroicons.hashtag'
-                );
+                )->badge(fn() => $item['badge'] ?? null);
             }
 
             $moonShineMenu[] = MenuGroup::make(

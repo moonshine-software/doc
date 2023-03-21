@@ -97,7 +97,7 @@ return [
         ['slug' => 'decorations-tabs', 'label' => 'Вкладки'],
         ['slug' => 'decorations-heading', 'label' => 'Заголовок'],
         ['slug' => 'decorations-block', 'label' => 'Block'],
-        ['slug' => 'decorations-layout', 'label' => 'Layout'],
+        ['slug' => 'decorations-layout', 'label' => 'Layout', 'badge' => 'new'],
         ['slug' => 'decorations-button', 'label' => 'Button'],
         ['slug' => 'decorations-collapse', 'label' => 'Collapse'],
     ],
