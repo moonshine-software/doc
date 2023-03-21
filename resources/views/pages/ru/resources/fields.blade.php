@@ -3,7 +3,7 @@
 <x-p>
     Поля в большинстве случаев относятся к полям таблицы из базы данных. В рамках CRUD будут выводиться
     на главной странице раздела (ресурса) со списком и на странице создания и редактирования записей.
-    В административной панеле moonShine существует множество видов полей которые покрывают все возможные требования!
+    В административной панеле MoonShine существует множество видов полей которые покрывают все возможные требования!
     Также охватывают и все возможные связи в Laravel и для удобства называются также как и методы отношений
     <code>BelongsTo</code>, <code>BelongsToMany</code>, <code>HasOne</code>, <code>HasMany</code>,
     <code>HasOneThrough</code>, <code>HasManyThrough</code>, <code>MorphOne</code>, <code>MorphMany</code>
@@ -11,7 +11,7 @@
 
 <x-p>
     Добавлять новые поля крайне просто! Досточно в методе <code>fields</code> который возвращает массив,
-    вернуть все необходимые поля, а как устроенны поля мы рассмотрим в разделе <x-link link="{{ route('section', 'fields-index') }}">"Поля"</x-link>.
+    вернуть все необходимые поля, а как устроенны поля мы рассмотрим в разделе <x-link link="{{ route('moonshine.custom_page', 'fields-index') }}">"Поля"</x-link>.
 </x-p>
 
 <x-code language="php">
@@ -32,7 +32,7 @@ class PostResource extends Resource
     public function fields(): array // [tl! focus:start]
     {
         return [
-            Block::make('form', [
+            Block::make('Block title', [
                 ID::make(),
                 Text::make('Заголовок', 'title'),
             ])

@@ -76,22 +76,25 @@ public function fields(): array
     //...
 </x-code>
 
+<x-sub-title>Laravel File manager</x-sub-title>
+<x-link link="https://github.com/UniSharp/laravel-filemanager" target="_blank">Laravel FileManager</x-link>
+
 <x-p>
-    Настройки <x-link link="https://github.com/UniSharp/laravel-filemanager" target="_blank">Laravel FileManager</x-link> располагаются <code>config/lfm.php</code>
+    Если вы хотите использовать файловый менеджер в tinymce, то вам необходимо установить пакет Laravel FileManager
 </x-p>
 
-<x-alert>
-    Если moonshine:install производился до версии 1.17.0 необходимо опубликовать конфиги самостоятельно или запустить установку
-</x-alert>
+<x-sub-title hashtag="1">Установка</x-sub-title>
 
 <x-code language="shell">
-php artisan vendor:publish --tag=lfm_config
-php artisan vendor:publish --tag=lfm_public
+    composer require unisharp/laravel-filemanager
+
+    php artisan vendor:publish --tag=lfm_config
+    php artisan vendor:publish --tag=lfm_public
 </x-code>
 
-<x-alert>
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
     Обязательно установить флаг 'use_package_routes' в конфиге lfm в false, иначе кеширование роутов будет вызывать ошибку
-</x-alert>
+</x-moonshine::alert>
 
 <x-code language="php">
 return [
@@ -102,6 +105,25 @@ return [
     // ..
 ];
 
+</x-code>
+
+<x-sub-title hashtag="2">Добавьте роуты в routes/web.php</x-sub-title>
+
+<x-code language="php">
+    Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'moonshine']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
+    });
+</x-code>
+
+<x-sub-title hashtag="3">Добавьте префикс в config/moonshine.php</x-sub-title>
+    
+<x-code language="php">
+    //...
+    'tinymce' => [
+        'file_manager' => 'laravel-filemanager',
+        // ..
+    ]
+    //...
 </x-code>
 
 </x-page>

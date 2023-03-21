@@ -1,1 +1,0 @@
-<x-menu :data="$menu"></x-menu>

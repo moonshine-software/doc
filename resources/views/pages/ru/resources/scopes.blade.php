@@ -26,12 +26,12 @@ public function query(): Builder
 </x-code>
 
 <x-p>
-    Но в Laravel также есть удобный функционал scopes и его как раз можно применять в рамках админ. панели moonShine
+    Но в Laravel также есть удобный функционал scopes и его как раз можно применять в рамках админ. панели MoonShine
 </x-p>
 
-<x-alert>
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
     Для начала необходимо создать нужные scopes
-</x-alert>
+</x-moonshine::alert>
 
 <x-code language="shell">
 php artisan make:scope ActiveUserScope

@@ -18,7 +18,6 @@
         ['url' => '#can-save', 'label' => 'Возможность сохранения'],
         ['url' => '#events', 'label' => 'События'],
         ['url' => '#custom-view', 'label' => 'Смена view'],
-        ['url' => '#full-width', 'label' => 'Во всю ширину'],
     ]
 ]">
 
@@ -45,10 +44,10 @@ Text::make(string $label = null, string $field = null, ResourceContract|string|n
     в связанной таблице которое будет отображаться во view
 </x-p>
 
-<x-alert>
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
     $resource также может быть Resource классом в котором если будет указано свойство
     <code>$titleField</code>, то поле у отношения будет определено через него
-</x-alert>
+</x-moonshine::alert>
 
 <x-code language="php">
 //...
@@ -78,7 +77,7 @@ public string $titleField = 'name'; // [tl! focus]
 public function fields(): array
 {
     return [
-        Block::make('form', [
+        Block::make('Block title', [
             ID::make(),
             Text::make('Заголовок', 'title')
             // [tl! focus:start]
@@ -105,7 +104,7 @@ public function fields(): array
 public function fields(): array
 {
     return [
-        Block::make('form', [
+        Block::make('Block title', [
             ID::make(),
             Text::make('Заголовок', 'title')
             // [tl! focus:start]
@@ -132,7 +131,7 @@ public function fields(): array
 public function fields(): array
 {
     return [
-        Block::make('form', [
+        Block::make('Block title', [
             Text::make('Заголовок', 'title')
                 ->disabled() // [tl! focus]
                 ->hidden() // [tl! focus]
@@ -152,7 +151,7 @@ public function fields(): array
 public function fields(): array
 {
     return [
-        Block::make('form', [
+        Block::make('Block title', [
             Password::make('Пароль', 'password')
                 ->customAttributes(['autocomplete' => 'off']) // [tl! focus]
         ])
@@ -174,7 +173,7 @@ public function fields(): array
 public function fields(): array
 {
     return [
-        Block::make('form', [
+        Block::make('Block title', [
             Text::make('Заголовок', 'title')
                 ->required() // [tl! focus]
         ])
@@ -192,7 +191,7 @@ public function fields(): array
 public function fields(): array
 {
     return [
-        Block::make('form', [
+        Block::make('Block title', [
             Text::make('Имя', 'first_name', fn($item) => $item->first_name . ' ' . $item->last_name)
 
             // Пример если нужно разделить логику для главной и для редактирования
@@ -415,7 +414,7 @@ public function afterSave(Model $item): void
 
 <x-p>
     Иногда имеет смысл изменить view с помощью fluent interface (Как пример если используете фильтры или поля
-    вне moonShine)
+    вне MoonShine)
 </x-p>
 
 <x-code language="php">
@@ -423,21 +422,4 @@ public function afterSave(Model $item): void
     ->customView('fields.my-custom-input')
     ,
 </x-code>
-
-<x-sub-title id="full-width">Во всю ширину</x-sub-title>
-
-<x-p>
-    Для более удобного редактирования поля вы можете назначить
-    ему свойство <code>fullWidth</code>, для того чтобы элемент ввода занимал
-    всю доступную ширину родительского элемента, label и link, при этом, будут над полем ввода.
-</x-p>
-
-<x-code language="php">
-    Text::make('Slug')
-    ->fullWidth()
-    ,
-</x-code>
-
-<x-image src="{{ asset('screenshots/full-width.png') }}"></x-image>
-
 </x-page>

@@ -1,7 +1,7 @@
 <x-page title="Стили таблицы" :sectionMenu="$sectionMenu ?? null">
 
 <x-p>
-    Через ресурсы есть возможность кастомизировать стили для tr/td для таблиц отображения данных
+    Через ресурсы есть возможность кастомизировать цвет для tr/td для таблиц отображения данных
 </x-p>
 
 <x-code language="php">
@@ -21,24 +21,28 @@ class PostResource extends Resource
     public function trStyles(Model $item, int $index): string
     {
         if($item->id === 1 || $index === 2) {
-            return 'background: gray;';
+            return 'green';
         }
 
-        return '';
+        return parent::trStyles($item, $index);
     }
 
     public function tdStyles(Model $item, int $index, int $cell): string
     {
         if($cell === 6) {
-            return 'background: red; color: gray;';
+            return 'red';
         }
 
-        return '';
+        return parent::trStyles($item, $index);
     }
     // [tl! focus:end]
 
     //...
 }
 </x-code>
+
+<x-p>
+    Доступные цвета: green, blue, red, pink, gray, purple, yellow
+</x-p>
 
 </x-page>

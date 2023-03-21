@@ -5,9 +5,9 @@
     Для этого необходимо их перечислить в возвращаемом массиве в методе search
 </x-p>
 
-<x-alert>
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
     Если метод отсутствует, либо возвращает пустой массив то поисковая строка не будет отображаться
-</x-alert>
+</x-moonshine::alert>
 
 <x-code language="php">
 namespace Leeto\MoonShine\Resources;
@@ -50,9 +50,9 @@ class PostResource extends Resource
     }
 </x-code>
 
-<x-alert>
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
     Не забудьте добавить fulltext индекс
-</x-alert>
+</x-moonshine::alert>
 
 <x-image src="{{ asset('screenshots/search.png') }}"></x-image>
 

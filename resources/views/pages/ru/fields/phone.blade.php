@@ -10,7 +10,7 @@ use Leeto\MoonShine\Fields\Phone;
 Phone::make('Телефон', 'tel')
 </x-code>
 
-<x-alert>Для маски телефона воспользуйтесь методом mask('7 999 999-99-99')</x-alert>
+<x-moonshine::alert type="default" icon="heroicons.information-circle">Для маски телефона воспользуйтесь методом mask('7 999 999-99-99')</x-moonshine::alert>
 
 </x-page>
 

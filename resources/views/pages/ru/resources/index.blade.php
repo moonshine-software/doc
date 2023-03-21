@@ -12,7 +12,7 @@
 </x-p>
 
 <x-p>
-    В основе moonShine стандартные Laravel ресурс контроллеры и ресурс роуты
+    В основе MoonShine стандартные Laravel ресурс контроллеры и ресурс роуты
 
     <x-code language="shell">
         php artisan make:controller Controller --resource
@@ -26,7 +26,7 @@
 </x-p>
 
 <x-p>
-    Поэтому в основе ресурсов moonShine (разделов админ. панели) eloquent модель.
+    Поэтому в основе ресурсов MoonShine (разделов админ. панели) eloquent модель.
 </x-p>
 
 <x-sub-title id="create">Создание раздела админ. панели</x-sub-title>
@@ -39,7 +39,7 @@
     В результате будет создан Resource класс, который будет основой нового раздела в панели.
     Располагается он по умолчанию в директории <code>app/MoonShine/Resources/PostResource</code>.
     И будет автоматически привязан к моделе <code>app/Models/Post</code>.
-    Заголовок раздела останется с названием Post.
+    Заголовок раздела останется с названием Posts.
 </x-p>
 
 <x-p>
@@ -77,7 +77,7 @@ class PostResource extends Resource
 
     public static string $orderField = 'id'; // Поле сортировки по умолчанию [tl! focus]
 
-    public static string $orderType = 'DESC'; // Тип сортировки по умолчанию/ [tl! focus]
+    public static string $orderType = 'DESC'; // Тип сортировки по умолчанию [tl! focus]
 
     public static int $itemsPerPage = 25; // Количество элементов на странице [tl! focus]
 
@@ -125,9 +125,9 @@ class MoonShineServiceProvider extends ServiceProvider
 }
 </x-code>
 
-<x-alert>
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
     После разделы появятся в меню и будут доступны в панели
-</x-alert>
+</x-moonshine::alert>
 
 <x-image src="{{ asset('screenshots/main.png') }}"></x-image>
 

@@ -10,44 +10,38 @@
 <x-sub-title id="requirements">Требования</x-sub-title>
 
 <x-p>
-    Для использования moonShine на своём проекте необходимо выполнение следующих требований перед установкой:
+    Для использования MoonShine необходимо выполнение следующих требований перед установкой:
 </x-p>
 
 <x-ul :items="['php >=8.0', 'laravel >= 9.0', 'composer']"></x-ul>
-<x-sub-title id="composer">Composer</x-sub-title>
+<x-sub-title id="composer" hashtag="1">Composer</x-sub-title>
 
 <x-code language="shell">
-    composer require lee-to/moonshine -W
+    composer require lee-to/moonshine
 </x-code>
 
-<x-sub-title id="install">Установка</x-sub-title>
+<x-sub-title id="install" hashtag="2">Установка</x-sub-title>
 
 <x-code language="shell">
     php artisan moonshine:install
 </x-code>
 
-<x-alert color="bg-purple">
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
     После выполнения будет добавлен <code>config/moonshine.php</code> с основными настройками.
-    <x-link link="#config">Подробнее о config файле</x-link>
-</x-alert>
+    <x-link link="#config">Подробнее о файле конфигурации</x-link>
+</x-moonshine::alert>
 
-<x-p>
-    Также будет добавлена директория с административной панелью и ресурсами - app/MoonShine.
-    <x-link link="{{ route('section', 'resources-index') }}">Подробнее о Resources</x-link>
-</x-p>
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    Также будет добавлена директория с административной панелью и ресурсами - <code>app/MoonShine</code>.
+    <x-link link="{{ route('moonshine.custom_page', 'resources-index') }}">Подробнее о Ресурсах</x-link>
+</x-moonshine::alert>
 
-<x-alert color="bg-purple">
-    Также будет добавлен MoonShineServiceProvider <code>App\Providers\MoonShineServiceProvider</code>, где нужно регистрировать ресурсы.
-    <x-link link="{{ route('section', 'resources-index') }}">Подробнее о Resources</x-link>
-</x-alert>
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    А также будет добавлен MoonShineServiceProvider <code>App\Providers\MoonShineServiceProvider</code>, где нужно регистрировать ресурсы.
+    <x-link link="{{ route('moonshine.custom_page', 'resources-index') }}">Подробнее о Ресурсах</x-link>
+</x-moonshine::alert>
 
-<x-p>
-    При установке добавятся новые таблицы
-</x-p>
-
-<x-ul :items="['moonshine_users', 'moonshine_user_roles', 'moonshine_change_logs']"></x-ul>
-
-<x-sub-title>
+<x-sub-title hashtag="3">
     Создание администратора
 </x-sub-title>
 
@@ -55,68 +49,42 @@
     php artisan moonshine:user
 </x-code>
 
-<x-sub-title id="config">Конфигурация</x-sub-title>
-
-<x-code language="php">
-use Leeto\MoonShine\Models\MoonshineUser;
-
-return [
-    'title' => env('MOONSHINE_TITLE', 'MoonShine'),
-	'logo' => env('MOONSHINE_LOGO', ''),
-
-    'route' => [
-        'prefix' => env('MOONSHINE_ROUTE_PREFIX', 'moonshine'), // Route префикс
-        'middleware' => ['web', 'moonshine'],
-    ],
-
-    'auth' => [
-        'guard' => 'moonshine', // Guard аутентификации
-        'guards' => [
-            'moonshine' => [
-                'driver'   => 'session',
-                'provider' => 'moonshine',
-            ],
-        ],
-        'providers' => [
-            'moonshine' => [
-                'driver' => 'eloquent',
-                'model'  => MoonshineUser::class,
-            ],
-        ],
-    ],
-
-    'middlewares' => [
-        // Список middleware которые будут применяться в рамках MoonShine
-    ],
-
-    'tinymce' => [
-        'token' => env('MOONSHINE_TINYMCE_TOKEN', ''),
-        'version' => env('MOONSHINE_TINYMCE_VERSION', '6')
-    ],
-    'extensions' => [
-        //
-    ],
-    'socialite' => [
-        // 'driver' => 'path_to_image_for_button'
-    ]
-];
-</x-code>
+<x-sub-title hashtag="4">
+    Регистрация ресурсов и конфигурация меню
+</x-sub-title>
 
 <x-p>
-    В 99% случаев изменять под себя нужно следующие параметры
+    Для регистрации новых ресурсов в MoonShine и формирования меню, нам потребуется <code>app/Providers/MoonShineServiceProvider.php</code>
 </x-p>
 
 <x-code language="php">
-return [
-    'title' => env('MOONSHINE_TITLE', 'MoonShine'), // [tl! focus]
-    'logo' => env('MOONSHINE_LOGO', ''), // [tl! focus]
+namespace App\Providers;
 
-    'route' => [
-        'prefix' => env('MOONSHINE_ROUTE_PREFIX', 'moonshine'), // [tl! focus]
-    ],
+use Illuminate\Support\ServiceProvider;
+use Leeto\MoonShine\MoonShine;
+use Leeto\MoonShine\Menu\MenuItem;
+use Leeto\MoonShine\Resources\MoonShineUserResource;
+
+class MoonShineServiceProvider extends ServiceProvider
+{
+    public function boot(): void
+    {
+        // [tl! focus:start]
+        app(MoonShine::class)->registerResources([
+            MenuItem::make('Admins', new MoonShineUserResource()),
+        ]);
+        // [tl! focus:end]
+    }
+}
 </x-code>
 
 <x-p>
+    В данном примере мы добавили пункт меню с администраторами панели
+    <x-link link="{{ route('moonshine.custom_page', 'advanced-menu') }}">Подробнее о Меню</x-link>
+</x-p>
+
+<x-p>
     Отлично! Теперь можно создавать и регистрировать разделы будущей админ. панели и приступать к работе!
+    Но не забудьте ознакомиться с документацией до конца!
 </x-p>
 </x-page>

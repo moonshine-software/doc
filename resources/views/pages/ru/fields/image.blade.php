@@ -38,10 +38,10 @@ Image::make('Аватар', 'avatar')
     ->multiple()
 </x-code>
 
-<x-alert>
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
     Поле в базе необходимо типа text или json<br>.
     Также необходимо добавить cast для eloquent модели - json или array или collection.
-</x-alert>
+</x-moonshine::alert>
 
 <x-p>
     При множественной загрузке файлов, для возможности их удаления в последующем, необходимо воспользоваться методом <code>removable</code>

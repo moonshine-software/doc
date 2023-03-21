@@ -27,8 +27,7 @@ app(MoonShine::class)->registerResources([
     Четвертный аргумент - данные необходимые для view
 </x-p>
 
-<x-alert>
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
     Как пример с использованием собственных роутов и контроллеров добавлять логику
-</x-alert>
-
+</x-moonshine::alert>
 </x-page>

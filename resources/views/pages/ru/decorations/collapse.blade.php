@@ -12,7 +12,7 @@ use Leeto\MoonShine\Decorations\Block;
 public function fields(): array
 {
     return [
-        Block::make('Block', [
+        Block::make('Block title', [
             Collapse::make('СЕО', [  // [tl! focus]
                 Text::make('Seo title')
                 ->fieldContainer(false),

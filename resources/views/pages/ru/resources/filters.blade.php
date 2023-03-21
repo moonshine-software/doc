@@ -7,12 +7,12 @@
 
 <x-p>
     Добавлять новые фильтры просто! Досточно в методе <code>filters</code>, который возвращает массив,
-    вернуть все необходимые фильтры, а как устроенны фильтры мы рассмотрим в разделе <x-link link="{{ route('section', 'filters-index') }}">"Фильтры"</x-link>.
+    вернуть все необходимые фильтры, а как устроенны фильтры мы рассмотрим в разделе <x-link link="{{ route('moonshine.custom_page', 'filters-index') }}">"Фильтры"</x-link>.
 </x-p>
 
-<x-alert>
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
     Если метод отсутствует, либо возвращает пустой массив, то фильтры не будут отображаться
-</x-alert>
+</x-moonshine::alert>
 
 <x-code language="php">
 namespace Leeto\MoonShine\Resources;
@@ -27,12 +27,23 @@ class PostResource extends Resource
     public static string $title = 'Статьи';
     //...
 
-    public function filters(): array // [tl! focus:start]
+    // [tl! focus:start]
+    public function filters(): array
     {
         return [
             TextFilter::make('Заголовок', 'title')
         ];
-    } // [tl! focus:end]
+    }
+
+    // Не забудьте подключить фильтры к ресурсу
+    public function actions(): array
+    {
+        return [
+            FiltersAction::make(trans('moonshine::ui.filters')),
+        ];
+    }
+
+    // [tl! focus:end]
 
     //...
 }

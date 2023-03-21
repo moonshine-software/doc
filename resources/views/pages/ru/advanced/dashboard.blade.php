@@ -1,7 +1,8 @@
 <x-page title="Dashboard" :sectionMenu="[
     'Разделы' => [
         ['url' => '#basic', 'label' => 'Основы'],
-        ['url' => '#resource-preview', 'label' => 'Блок с записями ресурса']
+        ['url' => '#resource-preview', 'label' => 'Блок с записями ресурса'],
+        ['url' => '#text-block', 'label' => 'Текстовый блок']
     ]
 ]">
 
@@ -11,12 +12,17 @@
 </x-p>
 
 <x-p>
-    На текущий момент в панели управления можно отобразить <x-link link="{{ route('section', 'metrics-index') }}">метрики</x-link>
+    На текущий момент в панели управления можно отобразить <x-link link="{{ route('moonshine.custom_page', 'metrics-index') }}">метрики</x-link>
 </x-p>
 
 <x-p>
     Необходимые метрики регистрируются в методе blocks и располагаются в обвертка DashboardBlock
     для удобства построенния блоков панели
+</x-p>
+
+<x-p>
+    Элементам также доступны методы декораций
+    <x-link link="{{ route('moonshine.custom_page', 'decorations-layout#grid-column') }}">Layout (columnSpan)</x-link>
 </x-p>
 
 <x-code language="php">
@@ -74,4 +80,34 @@ class Dashboard extends DashboardScreen
 </x-code>
 
 <x-image src="{{ asset('screenshots/resource_preview.png') }}"></x-image>
+
+
+<x-sub-title id="text-block">Текстовый блок</x-sub-title>
+
+<x-p>
+    Для отображения простого текста
+</x-p>
+
+<x-code language="php">
+namespace App\MoonShine;
+
+use Leeto\MoonShine\Dashboard\DashboardBlock;
+use Leeto\MoonShine\Dashboard\DashboardScreen;
+use Leeto\MoonShine\Dashboard\TextBlock;
+
+class Dashboard extends DashboardScreen
+{
+    public function blocks(): array
+    {
+        return [
+            DashboardBlock::make([
+                TextBlock::make(
+                    'Добро пожаловать',
+                    view('welcome')->render()
+                )
+            ])
+        ];
+    }
+}
+</x-code>
 </x-page>
