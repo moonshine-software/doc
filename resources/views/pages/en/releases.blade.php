@@ -1,4 +1,4 @@
-<x-page title="Обновления" :sectionMenu="null">
+<x-page title="Updates" :sectionMenu="null">
 <ul class="tree-list">
     <li class="my-2">
         <x-moonshine::link href="https://github.com/lee-to/moonshine/releases/tag/1.50.0">v1.50.0</x-moonshine::link>
