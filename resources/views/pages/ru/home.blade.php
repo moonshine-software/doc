@@ -1,5 +1,6 @@
 <x-page title="MoonShine">
-    <x-image src="{{ asset('screenshots/main.png') }}"></x-image>
+    <x-image theme="light" src="{{ asset('screenshots/main.png') }}"></x-image>
+    <x-image theme="dark" src="{{ asset('screenshots/main_dark.png') }}"></x-image>
 
     <x-sub-title>Привет пользователь Laravel!</x-sub-title>
     <x-p>
