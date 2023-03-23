@@ -11,20 +11,20 @@
 
 <x-code language="php">
 //...
-Textarea::make('Отзыв', 'content'), // Обычное поле ввода
+use Leeto\MoonShine\Fields\NoInput;
 
-NoInput::make('Отзыв', 'content'), // Выведет текст поля ->content из текущей модели
+public function fields(): array
+{
+    return [
+        NoInput::make('No input field', 'no_input', static fn() => fake()->realText()),
+    ];
+}
 
-NoInput::make('Отзыв', 'content',
-    fn(Model $item) => sprintf('<div style="background-color: red;">%s</div>'.
-        '<div style="background-color: black;">%s</div>',
-        $item->content,
-        $item->created_at->isoFormat('LL'),
-)), // Выведет сгенерированный контент
 //...
 </x-code>
 
-<x-image src="{{ asset('screenshots/no-input.png') }}"></x-image>
+<x-image theme="light" src="{{ asset('screenshots/no-input.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/no-input_dark.png') }}"></x-image>
 
 
 </x-page>

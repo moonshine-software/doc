@@ -56,7 +56,8 @@ public string $titleField = 'name'; // [tl! focus]
 }
 </x-code>
 
-<x-image src="{{ asset('screenshots/belongs_to.png') }}"></x-image>
+<x-image theme="light" src="{{ asset('screenshots/belongs_to.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/belongs_to_dark.png') }}"></x-image>
 
 <x-p>Если необходимо более сложное значение для отображения, то в третий аргумент можно передать функцию</x-p>
 <x-code language="php">
@@ -65,9 +66,9 @@ use Leeto\MoonShine\Fields\BelongsTo;
 //...
 public function fields(): array
 {
-return [
-    BelongsTo::make('Страна', 'country', fn($item) => "$item->id.) $item->name")
-];
+    return [
+        BelongsTo::make('Страна', 'country', fn($item) => "$item->id.) $item->name")
+    ];
 }
 //...
 </x-code>

@@ -1,33 +1,65 @@
 <x-page title="WYSIWYG" :sectionMenu="[
 'Разделы' => [
-    ['url' => '#start', 'label' => 'Trix/CKEditor/Quill'],
+    ['url' => '#trix', 'label' => 'Trix'],
+    ['url' => '#ckeditor', 'label' => 'CKEditor'],
+    ['url' => '#quill', 'label' => 'Quill'],
     ['url' => '#tinymce', 'label' => 'TinyMce'],
 ]
 ]">
 
-<x-sub-title id="start">Trix/CKEditor/Quill</x-sub-title>
+<x-sub-title id="trix">Trix</x-sub-title>
 
 <x-code language="php">
 use Leeto\MoonShine\Fields\WYSIWYG;
+
+//...
+public function fields(): array
+{
+    return [
+        WYSIWYG::make('Описание', 'description'),
+    ];
+}
+//...
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/wysiwyg.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/wysiwyg_dark.png') }}"></x-image>
+
+<x-sub-title id="ckeditor">CKEditor</x-sub-title>
+
+<x-code language="php">
 use Leeto\MoonShine\Fields\CKEditor;
+
+//...
+public function fields(): array
+{
+    return [
+        CKEditor::make('Описание', 'description'),
+    ];
+}
+//...
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/ckeditor.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/ckeditor_dark.png') }}"></x-image>
+
+<x-sub-title id="quill">Quill</x-sub-title>
+
+<x-code language="php">
 use Leeto\MoonShine\Fields\Quill;
 
 //...
 public function fields(): array
 {
     return [
-        WYSIWYG::make('Описание', 'description'), // Trix
-        // или
-        CKEditor::make('Описание', 'description'), // CKEditor
-        // или
-        Quill::make('Описание', 'description'), // Quill
+        Quill::make('Описание', 'description'),
     ];
 }
-
 //...
 </x-code>
 
-<x-image src="{{ asset('screenshots/wysiwyg.png') }}"></x-image>
+<x-image theme="light" src="{{ asset('screenshots/quill.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/quill_dark.png') }}"></x-image>
 
 <x-sub-title id="tinymce">TinyMce</x-sub-title>
 
@@ -59,9 +91,11 @@ public function fields(): array
             ]),
     ];
 }
-
 //...
 </x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/tinymce.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/tinymce_dark.png') }}"></x-image>
 
 <x-p>
     Зарегистрируйтесь на <x-link link="https://www.tiny.cloud" target="_blank">Tiny.Cloud</x-link> и получите токен.
@@ -111,12 +145,12 @@ return [
 
 <x-code language="php">
     Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'moonshine']], function () {
-    \UniSharp\LaravelFilemanager\Lfm::routes();
+        \UniSharp\LaravelFilemanager\Lfm::routes();
     });
 </x-code>
 
 <x-sub-title hashtag="3">Добавьте префикс в config/moonshine.php</x-sub-title>
-    
+
 <x-code language="php">
     //...
     'tinymce' => [

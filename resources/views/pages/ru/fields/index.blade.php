@@ -221,15 +221,19 @@ public function fields(): array
 public function fields(): array
 {
     return [
-        Text::make('Заголовок', 'title')
-            ->hint('Подсказка для поля заголовок') // [tl! focus]
+        Number::make('Rating')
+            ->hint('From 0 to 5') // [tl! focus]
+            ->min(0)
+            ->max(5)
+            ->stars()
     ];
 }
 
 //...
 </x-code>
 
-<x-image src="{{ asset('screenshots/hint.png') }}"></x-image>
+<x-image theme="light" src="{{ asset('screenshots/hint.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/hint_dark.png') }}"></x-image>
 
 <x-sub-title id="link">Ссылка</x-sub-title>
 
@@ -238,20 +242,14 @@ public function fields(): array
     <code>addLink(string $name, string $link, bool $blank = false)</code>
 </x-p>
 
-<x-sub-title id="nullable">Nullable</x-sub-title>
-
-<x-p>
-    Если необходимо по умолчанию сохранять NULL <code>nullable()</code>
-</x-p>
-
 <x-code language="php">
 //...
 
 public function fields(): array
 {
     return [
-        Text::make('Заголовок', 'title')
-            ->addLink('YouTube', 'https://youtube.com') // [tl! focus]
+        Text::make('Link')
+            ->addLink('CutCode', 'https://cutcode.dev', true) // [tl! focus]
             // или с анонимной функцией
             ->addLink('Test', function() {
                 if(!$this->getItem()) {
@@ -266,7 +264,15 @@ public function fields(): array
 //...
 </x-code>
 
-<x-image src="{{ asset('screenshots/link.png') }}"></x-image>
+<x-image theme="light" src="{{ asset('screenshots/link.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/link_dark.png') }}"></x-image>
+
+
+<x-sub-title id="nullable">Nullable</x-sub-title>
+
+<x-p>
+    Если необходимо по умолчанию сохранять NULL <code>nullable()</code>
+</x-p>
 
 <x-sub-title id="sortable">Сортировка</x-sub-title>
 
