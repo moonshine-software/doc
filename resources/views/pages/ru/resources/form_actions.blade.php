@@ -31,6 +31,7 @@ class PostResource extends Resource
 }
 </x-code>
 
-<x-image src="{{ asset('screenshots/form_actions.png') }}"></x-image>
+<x-image theme="light" src="{{ asset('screenshots/form_actions.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/form_actions_dark.png') }}"></x-image>
 
 </x-page>

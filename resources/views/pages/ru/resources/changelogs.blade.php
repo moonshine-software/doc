@@ -19,6 +19,7 @@ class Article extends Model
 }
 </x-code>
 
-<x-image src="{{ asset('screenshots/changelogs.png') }}"></x-image>
+<x-image theme="light" src="{{ asset('screenshots/changelogs.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/changelogs_dark.png') }}"></x-image>
 
 </x-page>
