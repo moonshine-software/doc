@@ -17,6 +17,7 @@ MoonShineNotification::send(
 );
 </x-code>
 
-<x-image src="{{ asset('screenshots/notifications.png') }}"></x-image>
+<x-image theme="light" src="{{ asset('screenshots/notifications.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/notifications_dark.png') }}"></x-image>
 
 </x-page>
