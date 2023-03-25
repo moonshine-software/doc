@@ -21,7 +21,7 @@ class MoonShineServiceProvider extends ServiceProvider
             $moonShineItems = [];
 
             foreach ($items as $item) {
-                $moonShineItems[] = MenuItem::make(
+                $menuItem = MenuItem::make(
                     $item['label'],
                     CustomPage::make(
                         $item['label'],
@@ -29,7 +29,13 @@ class MoonShineServiceProvider extends ServiceProvider
                         fn() => $this->getPageView($item['slug'])
                     ),
                     'heroicons.hashtag'
-                )->badge(fn() => $item['badge'] ?? null);
+                );
+
+                if ($item['badge'] ?? false) {
+                    $menuItem->badge(fn() => $item['badge']);
+                }
+
+                $moonShineItems[] = $menuItem;
             }
 
             $moonShineMenu[] = MenuGroup::make(
