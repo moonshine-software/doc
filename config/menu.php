@@ -119,6 +119,7 @@ return [
         ['slug' => 'advanced-dashboard', 'label' => 'Dashboard'],
         ['slug' => 'advanced-pages', 'label' => 'Страницы'],
         ['slug' => 'advanced-menu', 'label' => 'Меню'],
+        ['slug' => 'advanced-assets', 'label' => 'Ресурсы'],
         ['slug' => 'advanced-authorization', 'label' => 'Авторизация'],
         ['slug' => 'advanced-events', 'label' => 'События'],
         ['slug' => 'advanced-notifications', 'label' => 'Уведомления'],
