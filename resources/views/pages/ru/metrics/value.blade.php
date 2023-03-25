@@ -26,6 +26,9 @@ return [
 }
 </x-code>
 
+<x-image theme="light" src="{{ asset('screenshots/metrics.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/metrics_dark.png') }}"></x-image>
+
 <x-p>
     Также есть возможность отобразить в виде прогресса достижения цели
 </x-p>
@@ -43,8 +46,8 @@ class PostResource extends Resource
 public function metrics(): array // [tl! focus:start]
 {
     return [
-        ValueMetric::make('Осталось открытых заказов')
-            ->value(Orders::completed()->count())
+        ValueMetric::make('Open tasks')
+            ->value(Task::opened()->count())
             ->progress(200) // Конечная цель
     ];
 } // [tl! focus:end]
@@ -53,7 +56,8 @@ public function metrics(): array // [tl! focus:start]
 }
 </x-code>
 
-<x-image src="{{ asset('screenshots/metrics_value_progress.png') }}"></x-image>
+<x-image theme="light" src="{{ asset('screenshots/metrics_value_progress.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/metrics_value_progress_dark.png') }}"></x-image>
 
 <x-p>
 Выводимое значение можно отформатировать и добавить префикс и суффик
@@ -72,9 +76,9 @@ class PostResource extends Resource
 public function metrics(): array // [tl! focus:start]
 {
     return [
-        ValueMetric::make('Выручка')
+        ValueMetric::make('Profit')
             ->value(Orders::completed()->sum('price'))
-            ->valueFormat('за сегодня {value} руб.')
+            ->valueFormat('Today ${value}')
     ];
 } // [tl! focus:end]
 
@@ -82,5 +86,7 @@ public function metrics(): array // [tl! focus:start]
 }
 </x-code>
 
-<x-image src="{{ asset('screenshots/metrics_value_format.png') }}"></x-image>
+<x-image theme="light" src="{{ asset('screenshots/metrics_value_format.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/metrics_value_format_dark.png') }}"></x-image>
+
 </x-page>

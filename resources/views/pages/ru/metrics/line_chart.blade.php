@@ -5,21 +5,21 @@
 </x-p>
 
 <x-code language="php">
-    namespace Leeto\MoonShine\Resources;
+namespace Leeto\MoonShine\Resources;
 
 
-    use Leeto\MoonShine\Metrics\LineChartMetric;
+use Leeto\MoonShine\Metrics\LineChartMetric;
 
-    class PostResource extends Resource
-    {
+class PostResource extends Resource
+{
     //...
 
     public function metrics(): array // [tl! focus:start]
     {
         return [
-            LineChartMetric::make('Заказы')
+            LineChartMetric::make('Orders')
                 ->line([
-                    'Выручка' => Order::query()
+                    'Profit' => Order::query()
                         ->groupBy('created_at')
                         ->selectRaw('SUM(price) as sum, created_at')
                         ->pluck('sum','created_at')
@@ -30,8 +30,10 @@
     } // [tl! focus:end]
 
     //...
-    }
+}
 </x-code>
 
-<x-image src="{{ asset('screenshots/metrics_line_chart.png') }}"></x-image>
+<x-image theme="light" src="{{ asset('screenshots/metrics_line_chart.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/metrics_line_chart_dark.png') }}"></x-image>
+
 </x-page>
