@@ -3,11 +3,6 @@
     'theme' => null,
 ])
 
-<style>
-    .dark .dark\:block {display: block}
-    .dark .dark\:hidden {display: none}
-</style>
-
 <img
     src="{{ $src }}"
     alt="{{ $slot }}"
