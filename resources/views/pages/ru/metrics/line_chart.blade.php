@@ -20,12 +20,18 @@ class PostResource extends Resource
             LineChartMetric::make('Orders')
                 ->line([
                     'Profit' => Order::query()
-                        ->groupBy('created_at')
-                        ->selectRaw('SUM(price) as sum, created_at')
-                        ->pluck('sum','created_at')
-                        ->mapWithKeys(fn($value, $key) => [date('d.m.Y', strtotime($key)) => $value])
+                        ->selectRaw('SUM(price) as sum, DATE_FORMAT(created_at, "%d.%m.%Y") as date')
+                        ->groupBy('date')
+                        ->pluck('sum','date')
                         ->toArray()
-                ]),
+                ])
+                ->line([
+                    'Avg' => Order::query()
+                        ->selectRaw('AVG(price) as avg, DATE_FORMAT(created_at, "%d.%m.%Y") as date')
+                        ->groupBy('date')
+                        ->pluck('avg','date')
+                        ->toArray()
+                ], '#EC4176'),
         ];
     } // [tl! focus:end]
 
