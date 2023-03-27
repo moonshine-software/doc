@@ -47,6 +47,9 @@ class Dashboard extends DashboardScreen
 }
 </x-code>
 
+<x-image theme="light" src="{{ asset('screenshots/dashboard.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/dashboard_dark.png') }}"></x-image>
+
 <x-sub-title id="resource-preview">Блок с записями ресурса</x-sub-title>
 
 <x-p>
@@ -79,8 +82,8 @@ class Dashboard extends DashboardScreen
 }
 </x-code>
 
-<x-image src="{{ asset('screenshots/resource_preview.png') }}"></x-image>
-
+<x-image theme="light" src="{{ asset('screenshots/resource_preview.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/resource_preview_dark.png') }}"></x-image>
 
 <x-sub-title id="text-block">Текстовый блок</x-sub-title>
 

@@ -9,6 +9,7 @@ use Leeto\MoonShine\Menu\MenuItem;
 use Leeto\MoonShine\Resources\CustomPage;
 use Leeto\MoonShine\Resources\MoonShineUserResource;
 use Leeto\MoonShine\Resources\MoonShineUserRoleResource;
+use Leeto\MoonShine\Utilities\AssetManager;
 
 class MoonShineServiceProvider extends ServiceProvider
 {
@@ -21,7 +22,7 @@ class MoonShineServiceProvider extends ServiceProvider
             $moonShineItems = [];
 
             foreach ($items as $item) {
-                $moonShineItems[] = MenuItem::make(
+                $menuItem = MenuItem::make(
                     $item['label'],
                     CustomPage::make(
                         $item['label'],
@@ -29,7 +30,13 @@ class MoonShineServiceProvider extends ServiceProvider
                         fn() => $this->getPageView($item['slug'])
                     ),
                     'heroicons.hashtag'
-                )->badge(fn() => $item['badge'] ?? null);
+                );
+
+                if ($item['badge'] ?? false) {
+                    $menuItem->badge(fn() => $item['badge']);
+                }
+
+                $moonShineItems[] = $menuItem;
             }
 
             $moonShineMenu[] = MenuGroup::make(
@@ -42,6 +49,8 @@ class MoonShineServiceProvider extends ServiceProvider
         }
 
         app(MoonShine::class)->registerResources($moonShineMenu);
+
+        app(AssetManager::class)->add(['/assets/css/style.css']);
     }
 
     private function getPageView(string $slug): string

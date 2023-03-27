@@ -17,18 +17,18 @@ use Leeto\MoonShine\Fields\SlideField;
 public function fields(): array
 {
     return [
-        SlideField::make('Стоимость', 'rating')
+        SlideField::make('Age')
             ->fromField('price_from') // Поле в таблице для значения "От"
             ->toField('price_to') // Поле в таблице для значения "До"
-            ->min(100)
-            ->max(1000)
-            ->step(10) // Шаг ползунка
+            ->min(0)
+            ->max(60)
+            ->step(1) // Шаг ползунка
     ];
 }
-
 //...
 </x-code>
 
-<x-image src="{{ asset('screenshots/slide.png') }}"></x-image>
+<x-image theme="light" src="{{ asset('screenshots/slide.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/slide_dark.png') }}"></x-image>
 
 </x-page>

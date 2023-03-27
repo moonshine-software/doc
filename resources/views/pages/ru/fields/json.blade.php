@@ -21,7 +21,6 @@
 use Leeto\MoonShine\Fields\Json;
 
 //...
-
 public function fields(): array
 {
     return [
@@ -29,11 +28,11 @@ public function fields(): array
             ->keyValue('Характиристика', 'Значение') // Первый аргумент Лейбл ключа, второй лейбл Значения
     ];
 }
-
 //...
 </x-code>
 
-<x-image src="{{ asset('screenshots/json_key_value.png') }}"></x-image>
+<x-image theme="light" src="{{ asset('screenshots/json_fields.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/json_fields_dark.png') }}"></x-image>
 
 <x-sub-title id="fields">С набором полей</x-sub-title>
 
@@ -43,29 +42,28 @@ public function fields(): array
 </x-p>
 
 <x-code language="php">
-    use Leeto\MoonShine\Fields\Json;
+use Leeto\MoonShine\Fields\Json;
 
-    //...
-
-    public function fields(): array
-    {
-        return [
-            Json::make('Опции товара', 'options')
-                ->fields([
-                    Text::make('Заголовок', 'title'),
-                    Text::make('Значение', 'value')
-                ])
-        ];
-    }
-
-    //...
+//...
+public function fields(): array
+{
+    return [
+        Json::make('Опции товара', 'options')
+            ->fields([
+                Text::make('Заголовок', 'title'),
+                Text::make('Значение', 'value')
+            ])
+    ];
+}
+//...
 </x-code>
 
 <x-p>
     json [{title: 'value', value: 'value'}]
 </x-p>
 
-<x-image src="{{ asset('screenshots/json_fields.png') }}"></x-image>
+<x-image theme="light" src="{{ asset('screenshots/json_key_value.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/json_key_value_dark.png') }}"></x-image>
 
 <x-sub-title id="removable">Удаление</x-sub-title>
 
@@ -75,7 +73,8 @@ Json::make('Опции товара', 'options')
     ->removable() // [tl! focus]
 </x-code>
 
-<x-image src="{{ asset('screenshots/json_removable.png') }}"></x-image>
+<x-image theme="light" src="{{ asset('screenshots/json_removable.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/json_removable_dark.png') }}"></x-image>
 
 </x-page>
 

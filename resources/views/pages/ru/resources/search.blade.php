@@ -54,6 +54,7 @@ class PostResource extends Resource
     Не забудьте добавить fulltext индекс
 </x-moonshine::alert>
 
-<x-image src="{{ asset('screenshots/search.png') }}"></x-image>
+<x-image theme="light" src="{{ asset('screenshots/search.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/search_dark.png') }}"></x-image>
 
 </x-page>

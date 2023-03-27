@@ -30,8 +30,11 @@ public function fields(): array
     методом <code>fullPage()</code> и поля примут стандартный вид
 </x-p>
 
-<x-image src="{{ asset('screenshots/has_one_1.png') }}"></x-image>
-<x-image src="{{ asset('screenshots/has_one_2.png') }}"></x-image>
+<x-image theme="light" src="{{ asset('screenshots/has_one_1.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/has_one_1_dark.png') }}"></x-image>
+
+<x-image theme="light" src="{{ asset('screenshots/has_one_2.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/has_one_2_dark.png') }}"></x-image>
 
 <x-p>
     Также доступен <code>resourceMode</code>, подробности в поле HasMany

@@ -15,14 +15,15 @@
 public function filters(): array
 {
     return [
-        TextFilter::make('Имя', 'name')
+        TextFilter::make('Title', title)
     ];
 }
 
 //...
 </x-code>
 
-<x-image src="{{ asset('screenshots/filters.png') }}"></x-image>
+<x-image theme="light" src="{{ asset('screenshots/filters.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/filters_dark.png') }}"></x-image>
 
 </x-page>
 

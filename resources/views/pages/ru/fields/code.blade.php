@@ -14,11 +14,11 @@ public function fields(): array
             ->lineNumbers()
     ];
 }
-
 //...
 </x-code>
 
-<x-image src="{{ asset('screenshots/code.png') }}"></x-image>
+<x-image theme="light" src="{{ asset('screenshots/code.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/code_dark.png') }}"></x-image>
 
 </x-page>
 

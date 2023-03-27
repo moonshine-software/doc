@@ -26,5 +26,7 @@ public function metrics(): array // [tl! focus:start]
 }
 </x-code>
 
-<x-image src="{{ asset('screenshots/metrics_donut_chart.png') }}"></x-image>
+<x-image theme="light" src="{{ asset('screenshots/metrics_donut_chart.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/metrics_donut_chart_dark.png') }}"></x-image>
+
 </x-page>
