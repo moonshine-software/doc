@@ -20,10 +20,9 @@
             LineChartMetric::make('Заказы')
                 ->line([
                     'Выручка' => Order::query()
-                        ->groupBy('created_at')
-                        ->selectRaw('SUM(price) as sum, created_at')
-                        ->pluck('sum','created_at')
-                        ->mapWithKeys(fn($value, $key) => [date('d.m.Y', strtotime($key)) => $value])
+                        ->selectRaw('SUM(price) as sum, DATE_FORMAT(created_at, "%d.%m.%Y") as date')
+                        ->groupBy('date')
+                        ->pluck('sum', 'date')
                         ->toArray()
                 ]),
         ];
