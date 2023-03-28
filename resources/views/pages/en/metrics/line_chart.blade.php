@@ -1,7 +1,7 @@
 <x-page title="LineChart">
 
 <x-p>
-   Линейный график
+   Linear chart
 </x-p>
 
 <x-code language="php">
@@ -17,9 +17,9 @@
     public function metrics(): array // [tl! focus:start]
     {
         return [
-            LineChartMetric::make('Заказы')
+            LineChartMetric::make('Orders')
                 ->line([
-                    'Выручка' => Order::query()
+                    'Revenue' => Order::query()
                         ->groupBy('created_at')
                         ->selectRaw('SUM(price) as sum, created_at')
                         ->pluck('sum','created_at')

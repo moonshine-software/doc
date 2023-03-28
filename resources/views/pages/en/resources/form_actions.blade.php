@@ -1,8 +1,8 @@
-<x-page title="Действия форм" :sectionMenu="[]">
+<x-page title="Form Actions" :sectionMenu="[]">
 
 <x-p>
-    По умолчанию в панели MoonShine в формах всего 1 действие - сохранение.
-    Но также есть возможность добавить свои кастомные действия
+    By default, there is only 1 action in the MoonShine panel in forms - saving.
+     But it is also possible to add your own custom actions
 </x-p>
 
 <x-code language="php">
@@ -15,15 +15,15 @@ class PostResource extends Resource
 {
     public static string $model = App\Models\Post::class;
 
-    public static string $title = 'Статьи';
+    public static string $title = 'Articles';
     //...
 
     public function formActions(): array // [tl! focus:start]
     {
         return [
-            FormAction::make('Удалить', function (Model $item) {
+            FormAction::make('Delete', function (Model $item) {
                 $item->delete();
-            }, 'Удален')->icon('delete')
+            }, 'Removed')->icon('delete')
         ];
     } // [tl! focus:end]
 

@@ -1,12 +1,12 @@
-<x-page title="Поиск" :sectionMenu="$sectionMenu ?? null">
+<x-page title="Search" :sectionMenu="$sectionMenu ?? null">
 
 <x-p>
-    Здесь все просто! Для полнотекстового поиска необходимо указать какие поля будут участвовать в поиске.
-    Для этого необходимо их перечислить в возвращаемом массиве в методе search
+    Everything is simple here! For a full-text search, you need to specify which fields will participate in the search.
+    To do this, you need to list them in the returned array in the search method
 </x-p>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-    Если метод отсутствует, либо возвращает пустой массив то поисковая строка не будет отображаться
+    If the method is missing or returns an empty array, the search string will not be displayed
 </x-moonshine::alert>
 
 <x-code language="php">
@@ -28,7 +28,7 @@ class PostResource extends Resource
 </x-code>
 
 <x-p>
-    Если требуется fulltext поиск, то необходимо воспользоваться аттрибутом <code>Leeto\MoonShine\Attributes\SearchUsingFullText</code>
+    If fulltext searching is required, you must use the <code>Leeto>Leeto\MoonShine\Attributes\SearchUsingFullText</code>
 </x-p>
 
 <x-code language="php">
@@ -51,7 +51,7 @@ class PostResource extends Resource
 </x-code>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-    Не забудьте добавить fulltext индекс
+    Don't forget to add the fulltext index
 </x-moonshine::alert>
 
 <x-image src="{{ asset('screenshots/search.png') }}"></x-image>

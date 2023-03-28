@@ -1,5 +1,5 @@
 <x-page title="BelongsToMany" :sectionMenu="[
-    'Разделы' => [
+    'Sections' => [
         ['url' => '#pivot', 'label' => 'Pivot'],
         ['url' => '#select', 'label' => 'Select'],
         ['url' => '#values-query', 'label' => 'Query for values'],

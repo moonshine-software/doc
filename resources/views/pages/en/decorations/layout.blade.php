@@ -53,7 +53,7 @@ public function fields(): array
                 Block::make('Main information', [
                     // Fields here
                 ])
-            ])->columnSpan(6), // 6 из 12 - half screen
+            ])->columnSpan(6), // 6 from 12 - half screen
 
             Column::make([
                 Block::make('Contact information', [

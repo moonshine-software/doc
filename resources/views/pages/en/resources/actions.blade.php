@@ -1,18 +1,18 @@
-<x-page title="Действия" :sectionMenu="$sectionMenu ?? null">
+<x-page title="Action" :sectionMenu="$sectionMenu ?? null">
 
 <x-p>
-    Часто необходимо что-либо сделать со списком раздела и для этих целей служат "Действия".
-    На данный момент в MoonShine всего один Action класс, который отвечает за экспорт данных,
-    но действия расширяются и вы можете легко написать собственные.
+    Often it is necessary to do something with the list of the section and "Actions" serve for this purpose.
+     At the moment, there is only one Action class in MoonShine, which is responsible for exporting data,
+     but the actions are extensible and you can easily write your own.
 </x-p>
 
 <x-p>
-    Добавлять новые действия также крайне просто и все выполнено в единном стиле! Досточно в методе <code>actions</code> который возвращает массив,
-    вернуть все необходимые действия, а как устроенны действия мы рассмотрим в разделе <x-link link="{{ route('moonshine.custom_page', 'actions-index') }}">"Действия"</x-link>.
+    Adding new actions is also extremely easy and everything is done in the same style! Enough in the <code>actions</code> method which returns an array,
+     return all the necessary actions, and how actions are arranged, we will consider in the <x-link link="{{ route('moonshine.custom_page', 'actions-index') }}">"Actions"</x-link> section.
 </x-p>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-    Если метод отсутствует, либо возвращает пустой массив, то действия не будут отображаться
+    If the method is absent or returns an empty array, then the actions will not be displayed
 </x-moonshine::alert>
 
 <x-code language="php">
@@ -25,13 +25,13 @@ class PostResource extends Resource
 {
     public static string $model = App\Models\Post::class;
 
-    public static string $title = 'Статьи';
+    public static string $title = 'Articles';
     //...
 
     public function actions(): array // [tl! focus:start]
     {
         return [
-            ExportAction::make('Экспорт')
+            ExportAction::make('Export')
         ];
     } // [tl! focus:end]
 

@@ -13,7 +13,7 @@ public function fields(): array
 {
     return [
         Block::make('Block title', [
-            Collapse::make('СЕО', [  // [tl! focus]
+            Collapse::make('SEO', [  // [tl! focus]
                 Text::make('Seo title')
                 ->fieldContainer(false),
 

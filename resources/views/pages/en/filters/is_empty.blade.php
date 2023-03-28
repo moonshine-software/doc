@@ -1,8 +1,8 @@
 <x-page title="IsEmpty/IsNotEmpty">
 
-    <x-p>Позволяет отображать только строки, имеющие пустые (не пустые для IsNotEmptyFilter) значения поля</x-p>
+    <x-p>Allows displaying only rows that have empty (not empty for IsNotEmptyFilter) field values</x-p>
 
-    <x-p>Пустыми значениями считаются:</x-p>
+    <x-p>Empty values are:</x-p>
     <x-ul :items="['NULL', '\'\'', 0]"></x-ul>
 
 

@@ -1,8 +1,8 @@
-<x-page title="История изменений" :sectionMenu="$sectionMenu ?? null">
+<x-page title="History of changes" :sectionMenu="$sectionMenu ?? null">
 
 <x-p>
-    Чтобы в админ. панеле отображалась история редактирования записей на основе пользователя необходимо
-    модели которая используется в ресурсе добавить трейт <code>Leeto\MoonShine\Traits\Models\HasMoonShineChangeLog</code>
+    To the admin. the panel displayed the post editing history based on the user needed
+     the model that is used in the resource add a trait <code>Leeto\MoonShine\Traits\Models\HasMoonShineChangeLog</code>
 </x-p>
 
 <x-code language="php">

@@ -1,5 +1,5 @@
 <x-page title="Spatie\Translatable" :sectionMenu="[
-    'Разделы' => [
+    'Sections' => [
         ['url' => '#fields', 'label' => 'With a set of fields'],
         ['url' => '#required', 'label' => 'Mandatory translations'],
         ['url' => '#priority', 'label' => 'Recommended translations'],

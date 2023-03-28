@@ -1,12 +1,12 @@
-<x-page title="Компоненты форм" :sectionMenu="[]">
+<x-page title="Form Components" :sectionMenu="[]">
 
 <x-p>
-    Для расширения возможностей можно добавлять собственные компоненты на основе абстрактного класс
-     <code>FormComponent</code>, они будут отображаться под основной формой
+    You can add your own components based on the abstract class to extend the possibilities
+     <code>FormComponent</code>, they will be displayed below the main form
 </x-p>
 
 <x-p>
-    Пример добавления компонента <code>PermissionFormComponent</code>
+    Example of adding a <code>PermissionFormComponent</code> component
 </x-p>
 
 <x-code language="php">

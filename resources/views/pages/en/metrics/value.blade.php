@@ -1,7 +1,7 @@
-<x-page title="Значение">
+<x-page title="Value">
 
 <x-p>
-    Отображение простого значения, например сколько всего в таблице определенных записей
+    Display a simple value, such as how many total records there are in a table
 </x-p>
 
 <x-code language="php">
@@ -17,7 +17,7 @@ class PostResource extends Resource
 public function metrics(): array // [tl! focus:start]
 {
 return [
-    ValueMetric::make('Завершенных заказов')
+    ValueMetric::make('Completed orders')
         ->value(Orders::completed()->count())
     ];
 } // [tl! focus:end]
@@ -27,7 +27,7 @@ return [
 </x-code>
 
 <x-p>
-    Также есть возможность отобразить в виде прогресса достижения цели
+    It is also possible to display as a progress of the goal
 </x-p>
 
 <x-code language="php">
@@ -43,9 +43,9 @@ class PostResource extends Resource
 public function metrics(): array // [tl! focus:start]
 {
     return [
-        ValueMetric::make('Осталось открытых заказов')
+        ValueMetric::make('Open orders left')
             ->value(Orders::completed()->count())
-            ->progress(200) // Конечная цель
+            ->progress(200) // Ultimate goal
     ];
 } // [tl! focus:end]
 
@@ -56,7 +56,7 @@ public function metrics(): array // [tl! focus:start]
 <x-image src="{{ asset('screenshots/metrics_value_progress.png') }}"></x-image>
 
 <x-p>
-Выводимое значение можно отформатировать и добавить префикс и суффик
+The output value can be formatted and a prefix and suffix added
 </x-p>
 
 <x-code language="php">
@@ -72,9 +72,9 @@ class PostResource extends Resource
 public function metrics(): array // [tl! focus:start]
 {
     return [
-        ValueMetric::make('Выручка')
+        ValueMetric::make('Revenue')
             ->value(Orders::completed()->sum('price'))
-            ->valueFormat('за сегодня {value} руб.')
+            ->valueFormat('for today {value} rub.')
     ];
 } // [tl! focus:end]
 

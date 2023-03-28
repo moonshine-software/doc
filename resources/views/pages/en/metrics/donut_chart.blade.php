@@ -1,7 +1,7 @@
 <x-page title="DonutChart">
 
 <x-p>
-   Donut график
+   Donut Timeline
 </x-p>
 
 <x-code language="php">
@@ -17,7 +17,7 @@ class PostResource extends Resource
 public function metrics(): array // [tl! focus:start]
 {
     return [
-        DonutChartMetric::make('Подписчики')
+        DonutChartMetric::make('Subscribers')
             ->values(['CutCode' => 10000, 'Apple' => 9999]),
     ];
 } // [tl! focus:end]
