@@ -14,14 +14,14 @@ class PostResource extends Resource
 {
     public static string $model = App\Models\Post::class;
 
-    public static string $title = 'Статьи';
+    public static string $title = 'Articles';
     //...
 
     public function queryTags(): array // [tl! focus:start]
     {
         return [
             QueryTag::make(
-                'Post with author', // Заголовок тега
+                'Post with author', // Tag Title
                 Post::query()->whereNotNull('author_id') // Query builder
             ),
 

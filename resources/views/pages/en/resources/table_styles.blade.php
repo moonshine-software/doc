@@ -14,7 +14,7 @@ class PostResource extends Resource
 {
     public static string $model = App\Models\Post::class;
 
-    public static string $title = 'Статьи';
+    public static string $title = 'Articles';
     //...
 
     // [tl! focus:start]

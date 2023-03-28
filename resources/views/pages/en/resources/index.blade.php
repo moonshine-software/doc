@@ -37,7 +37,7 @@
 
 <x-p>
     This will create a Resource class that will be the basis of the new section in the panel.
-    Рit is located by default in the <code>app/MoonShine/Resources/PostResource</code> directory.
+    It is located by default in the <code>app/MoonShine/Resources/PostResource</code> directory.
      And it will be automatically bound to the <code>app/Models/Post</code> model.
      The section title will remain Posts.
 </x-p>
@@ -65,7 +65,7 @@ use Leeto\MoonShine\Models\MoonshineUser;
 
 class PostResource extends Resource
 {
-    public static string $model = App\Models\Post::class; // Модель [tl! focus]
+    public static string $model = App\Models\Post::class; // Model [tl! focus]
 
     public static string $title = 'Articles'; // Section name [tl! focus]
 

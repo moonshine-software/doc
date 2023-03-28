@@ -17,9 +17,9 @@ public function fields(): array
 {
     return [
         WYSIWYG::make('Description', 'description'), // Trix
-        // или
+        // or
         CKEditor::make('Description', 'description'), // CKEditor
-        // или
+        // or
         Quill::make('Description', 'description'), // Quill
     ];
 }

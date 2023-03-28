@@ -74,7 +74,7 @@ public function metrics(): array // [tl! focus:start]
     return [
         ValueMetric::make('Revenue')
             ->value(Orders::completed()->sum('price'))
-            ->valueFormat('for today {value} руб.')
+            ->valueFormat('for today {value} rub.')
     ];
 } // [tl! focus:end]
 

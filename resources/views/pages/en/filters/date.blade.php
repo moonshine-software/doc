@@ -1,6 +1,6 @@
-<x-page title="Дата">
+<x-page title="date">
 
-<x-p>Все теже методы и свойства что и у поля <code>Leeto\MoonShine\Fields\Date</code></x-p>
+<x-p>All the same methods and properties as the field <code>Leeto\MoonShine\Fields\Date</code></x-p>
 
 <x-p><code>Leeto\MoonShine\Filters\DateFilter</code></x-p>
 

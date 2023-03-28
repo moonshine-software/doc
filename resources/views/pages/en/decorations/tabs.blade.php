@@ -19,7 +19,7 @@ public function fields(): array
                     Text::make('Name', 'first_name'),
                 ]),
                 Tab::make('Contact info', [
-                    Text::make('Телефон', 'phone'),
+                    Text::make('Telephone', 'phone'),
                     Text::make('E-mail', 'email'),
                 ])
             ])

@@ -1,7 +1,7 @@
 <x-page title="Number">
 
 <x-p>
-    Input с типом number and additional methods  <code>stars</code>, <code>min</code>, <code>min</code>
+    Input with type number and additional methods  <code>stars</code>, <code>min</code>, <code>min</code>
 </x-p>
 
 <x-code language="php">

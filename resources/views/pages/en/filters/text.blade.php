@@ -1,6 +1,6 @@
-<x-page title="Текстовое поле">
+<x-page title="Text field">
 
-<x-p>Все теже методы и свойства что и у поля <code>Leeto\MoonShine\Fields\Text</code></x-p>
+<x-p>All the same methods and properties as the field <code>Leeto\MoonShine\Fields\Text</code></x-p>
 
 <x-p><code>Leeto\MoonShine\Filters\TextFilter</code></x-p>
 
