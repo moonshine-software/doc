@@ -10,9 +10,9 @@
 'Front-end code',
 'Front-end development',
 'Submit bug reports',
-Help other users understand the details',
-Take care of writing documentation',
-'Doing advocacy'.
+'Help other users understand the details',
+'Take care of writing documentation',
+'Doing advocacy'
 ]"></x-ul>
 
 <x-sub-title>Where do we start?</x-sub-title>

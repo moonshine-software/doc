@@ -13,7 +13,7 @@ class Dashboard extends DashboardScreen
 		return [
             DashboardBlock::make([
                 TextBlock::make(
-                    'Добро пожаловать',
+                    __('Welcome'),
                     view($this->getPageView('home'))->render()
                 )
             ])

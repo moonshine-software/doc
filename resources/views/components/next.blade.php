@@ -22,6 +22,6 @@
     href="{{ route('moonshine.custom_page', $next['slug']) }}"
     icon="heroicons.arrow-right"
 >
-    {{ strtok($next['label'], ':') }}
+    {{ __(strtok($next['label'], ':')) }}
 </x-moonshine::link>
 @endif

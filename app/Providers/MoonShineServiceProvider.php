@@ -28,9 +28,9 @@ class MoonShineServiceProvider extends ServiceProvider
                         $item['label'],
                         $item['slug'],
                         fn() => $this->getPageView($item['slug'])
-                    ),
+                    )->translatable(),
                     'heroicons.hashtag'
-                );
+                )->translatable();
 
                 if ($item['badge'] ?? false) {
                     $menuItem->badge(fn() => $item['badge']);
@@ -45,7 +45,7 @@ class MoonShineServiceProvider extends ServiceProvider
                 $title->contains(':') ? $title->after(':')
                     ->prepend('heroicons.')
                     ->value() : 'heroicons.squares-2x2'
-            );
+            )->translatable();
         }
 
         app(MoonShine::class)->registerResources($moonShineMenu);

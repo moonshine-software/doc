@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "61d1a8a7a2c2f94de3dbd93ea1e93cf9",
+    "content-hash": "d08a67c7e189d9424ffb46b5e80dcaf8",
     "packages": [
         {
             "name": "brick/math",
@@ -983,16 +983,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v10.4.1",
+            "version": "v10.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "7d15f7eef442633cff108f83d9fe43d8c3b8b76f"
+                "reference": "56dd3b190ec1b8ad5ae8efd6fea65bc272f2dd52"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/7d15f7eef442633cff108f83d9fe43d8c3b8b76f",
-                "reference": "7d15f7eef442633cff108f83d9fe43d8c3b8b76f",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/56dd3b190ec1b8ad5ae8efd6fea65bc272f2dd52",
+                "reference": "56dd3b190ec1b8ad5ae8efd6fea65bc272f2dd52",
                 "shasum": ""
             },
             "require": {
@@ -1179,7 +1179,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2023-03-18T11:34:02+00:00"
+            "time": "2023-03-28T14:40:18+00:00"
         },
         {
             "name": "laravel/serializable-closure",
@@ -1624,16 +1624,16 @@
         },
         {
             "name": "lee-to/moonshine",
-            "version": "1.50.0-rc3",
+            "version": "1.50.0-rc4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/lee-to/moonshine.git",
-                "reference": "0b45049dce9cb81ac2ec87a8657601406c05fb0f"
+                "reference": "0858ced71e7331f12578737d65e6c0f640d770cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lee-to/moonshine/zipball/0b45049dce9cb81ac2ec87a8657601406c05fb0f",
-                "reference": "0b45049dce9cb81ac2ec87a8657601406c05fb0f",
+                "url": "https://api.github.com/repos/lee-to/moonshine/zipball/0858ced71e7331f12578737d65e6c0f640d770cb",
+                "reference": "0858ced71e7331f12578737d65e6c0f640d770cb",
                 "shasum": ""
             },
             "require": {
@@ -1693,7 +1693,7 @@
                 "issues": "https://github.com/lee-to/moonshine/issues",
                 "source": "https://github.com/lee-to/moonshine"
             },
-            "time": "2023-03-25T11:56:13+00:00"
+            "time": "2023-03-28T20:33:08+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -6545,16 +6545,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "10.0.18",
+            "version": "10.0.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "582563ed2edc62d1455cdbe00ea49fe09428eef3"
+                "reference": "20c23e85c86e5c06d63538ba464e8054f4744e62"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/582563ed2edc62d1455cdbe00ea49fe09428eef3",
-                "reference": "582563ed2edc62d1455cdbe00ea49fe09428eef3",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/20c23e85c86e5c06d63538ba464e8054f4744e62",
+                "reference": "20c23e85c86e5c06d63538ba464e8054f4744e62",
                 "shasum": ""
             },
             "require": {
@@ -6626,7 +6626,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.0.18"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.0.19"
             },
             "funding": [
                 {
@@ -6642,7 +6642,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-03-22T06:15:31+00:00"
+            "time": "2023-03-27T11:46:33+00:00"
         },
         {
             "name": "sebastian/cli-parser",
