@@ -1,7 +1,7 @@
-<x-page title="Стили таблицы" :sectionMenu="$sectionMenu ?? null">
+<x-page title="Table styles" :sectionMenu="$sectionMenu ?? null">
 
 <x-p>
-    Через ресурсы есть возможность кастомизировать цвет для tr/td для таблиц отображения данных
+    Through resources it is possible to customize the color for tr/td for data display tables
 </x-p>
 
 <x-code language="php">
@@ -42,7 +42,7 @@ class PostResource extends Resource
 </x-code>
 
 <x-p>
-    Доступные цвета: green, blue, red, pink, gray, purple, yellow
+    Available colors: green, blue, red, pink, gray, purple, yellow
 </x-p>
 
 </x-page>

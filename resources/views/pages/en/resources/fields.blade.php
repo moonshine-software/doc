@@ -1,17 +1,17 @@
-<x-page title="Поля" :sectionMenu="$sectionMenu ?? null">
+<x-page title="Fields" :sectionMenu="$sectionMenu ?? null">
 
 <x-p>
-    Поля в большинстве случаев относятся к полям таблицы из базы данных. В рамках CRUD будут выводиться
-    на главной странице раздела (ресурса) со списком и на странице создания и редактирования записей.
-    В административной панеле MoonShine существует множество видов полей которые покрывают все возможные требования!
-    Также охватывают и все возможные связи в Laravel и для удобства называются также как и методы отношений
+    Fields in most cases refer to table fields from the database. Within CRUD will be displayed
+     on the main page of the section (resource) with a list and on the page for creating and editing records.
+     In the MoonShine admin panel, there are many types of fields that cover all possible requirements!
+     They also cover all possible relationships in Laravel and are named the same as relationship methods for convenience.
     <code>BelongsTo</code>, <code>BelongsToMany</code>, <code>HasOne</code>, <code>HasMany</code>,
     <code>HasOneThrough</code>, <code>HasManyThrough</code>, <code>MorphOne</code>, <code>MorphMany</code>
 </x-p>
 
 <x-p>
-    Добавлять новые поля крайне просто! Досточно в методе <code>fields</code> который возвращает массив,
-    вернуть все необходимые поля, а как устроенны поля мы рассмотрим в разделе <x-link link="{{ route('moonshine.custom_page', 'fields-index') }}">"Поля"</x-link>.
+    Adding new fields is extremely easy! Enough in the <code>fields</code> method which returns an array,
+     return all the required fields, and how the fields are arranged, we will consider in the <x-link link="{{ route('moonshine.custom_page', 'fields-index') }}">"Fields"</x-link> section.
 </x-p>
 
 <x-code language="php">
@@ -26,7 +26,7 @@ class PostResource extends Resource
 {
     public static string $model = App\Models\Post::class;
 
-    public static string $title = 'Статьи';
+    public static string $title = 'Articles';
     //...
 
     public function fields(): array // [tl! focus:start]
@@ -34,7 +34,7 @@ class PostResource extends Resource
         return [
             Block::make('Block title', [
                 ID::make(),
-                Text::make('Заголовок', 'title'),
+                Text::make('header', 'title'),
             ])
         ];
     } // [tl! focus:end]

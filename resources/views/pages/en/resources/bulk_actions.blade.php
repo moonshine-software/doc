@@ -1,8 +1,8 @@
-<x-page title="Массовые действия" :sectionMenu="$sectionMenu ?? null">
+<x-page title="Mass actions" :sectionMenu="$sectionMenu ?? null">
 
 <x-p>
-    По умолчанию в панели MoonShine в таблице всего 1 массовое действие над элементами - удаление.
-    Но также есть возможность добавить свои кастомные массовые действия
+    By default, in the MoonShine panel in the table, there is only 1 mass action on elements - deletion.
+     But it is also possible to add your own custom bulk actions
 </x-p>
 
 <x-code language="php">
@@ -15,15 +15,15 @@ class PostResource extends Resource
 {
     public static string $model = App\Models\Post::class;
 
-    public static string $title = 'Статьи';
+    public static string $title = 'Articles';
     //...
 
     public function bulkActions(): array // [tl! focus:start]
     {
         return [
-            BulkAction::make('Деактивация', function (Model $item) {
+            BulkAction::make('Deactivation', function (Model $item) {
                 $item->update(['active' => false]);
-            }, 'Деактивирован')->icon('app')
+            }, 'Deactivated')->icon('app')
         ];
     } // [tl! focus:end]
 
@@ -32,9 +32,9 @@ class PostResource extends Resource
 </x-code>
 
 <p>
-    Первый аргумент - Наименование экшена,
-    Второй аргумент callback с параметром текущего элемента,
-    Третий аргумент - сообщение, которое отобразится после выполнения экшена
+    The first argument is the name of the action,
+     The second callback argument with the current element parameter,
+     The third argument is the message that will be displayed after the action is executed.
 </p>
 
 </x-page>

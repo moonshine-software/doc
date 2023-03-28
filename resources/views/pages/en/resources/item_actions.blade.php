@@ -1,15 +1,15 @@
-<x-page title="Кастомные действия" :sectionMenu="[
-    'Разделы' => [
-        ['url' => '#register', 'label' => 'Регистрация'],
-        ['url' => '#condition', 'label' => 'Условие отображения'],
+<x-page title="Custom actions" :sectionMenu="[
+    'Sections' => [
+        ['url' => '#register', 'label' => 'Registration'],
+        ['url' => '#condition', 'label' => 'Display condition'],
     ]
 ]">
 
-<x-sub-title id="register">Регистрация</x-sub-title>
+<x-sub-title id="register">Registration</x-sub-title>
 
 <x-p>
-    По умолчанию в панели MoonShine в таблице всего 2 действия над элементами - редактирование и удаление.
-    Но также есть возможность добавить свои кастомные действия
+    By default, there are only 2 actions on items in the MoonShine panel - edit and delete.
+    But you can also add your own custom actions
 </x-p>
 
 <x-code language="php">
@@ -22,15 +22,15 @@ class PostResource extends Resource
 {
     public static string $model = App\Models\Post::class;
 
-    public static string $title = 'Статьи';
+    public static string $title = 'Articles';
     //...
 
     public function itemActions(): array // [tl! focus:start]
     {
         return [
-            ItemAction::make('Деактивация', function (Model $item) {
+            ItemAction::make('Deactivating', function (Model $item) {
                 $item->update(['active' => false]);
-            }, 'Деактивирован')->icon('app')
+            }, 'Deactivated')->icon('app')
         ];
     } // [tl! focus:end]
 
@@ -39,15 +39,15 @@ class PostResource extends Resource
 </x-code>
 
 <p>
-    Первый аргумент - Наименование экшена,
-    Второй аргумент callback с параметром текущего элемента,
-    Третий аргумент - сообщение, которое отобразится после выполнения экшена
+    The first argument is the name of the action,
+    The second argument is the callback with the current item parameter,
+    The third argument - the message that will be displayed after the action is executed
 </p>
 
-<x-sub-title id="condition">Условие отображения</x-sub-title>
+<x-sub-title id="condition">Display condition</x-sub-title>
 
 <x-p>
-    Отображать действие по условию
+    Display action by condition
 </x-p>
 
 <x-code language="php">
@@ -55,9 +55,9 @@ class PostResource extends Resource
 public function itemActions(): array
 {
     return [
-        ItemAction::make('Восстановить', function (Model $item) {
+        ItemAction::make('Restore', function (Model $item) {
             $item->restore();
-        }, 'Восстановлен')
+        }, 'Retrieved')
             ->canSee(fn(Model $item) => $item->trashed()) // [tl! focus]
     ];
 }

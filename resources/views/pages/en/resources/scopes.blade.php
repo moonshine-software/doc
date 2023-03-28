@@ -1,11 +1,11 @@
 <x-page title="Scopes" :sectionMenu="$sectionMenu ?? null">
 
 <x-p>
-    Часто необходимо изначально отфильтровать выдачу со списком записей
+    It is often necessary to initially filter the output with a list of records
 </x-p>
 
 <x-p>
-    В целом вы можете легко переопределить query builder в ресурсе
+    In general, you can easily override the query builder in the resource
 </x-p>
 
 <x-code language="php">
@@ -26,11 +26,11 @@ public function query(): Builder
 </x-code>
 
 <x-p>
-    Но в Laravel также есть удобный функционал scopes и его как раз можно применять в рамках админ. панели MoonShine
+    But Laravel also has a handy scopes functionality and can be used within the MoonShine admin panel
 </x-p>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-    Для начала необходимо создать нужные scopes
+    First, you need to create the necessary scopes
 </x-moonshine::alert>
 
 <x-code language="shell">

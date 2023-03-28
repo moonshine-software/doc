@@ -1,17 +1,17 @@
-<x-page title="Фильтры" :sectionMenu="$sectionMenu ?? null">
+<x-page title="Filters" :sectionMenu="$sectionMenu ?? null">
 
 <x-p>
-    Фильтры не многим отличаются от полей и наследуют их свойства и методы!
-    Отображаются на главной странице раздела для фильтрации списка данных.
+    Filters are not much different from fields and inherit their properties and methods!
+     Displayed on the main page of the section to filter the list of data.
 </x-p>
 
 <x-p>
-    Добавлять новые фильтры просто! Досточно в методе <code>filters</code>, который возвращает массив,
-    вернуть все необходимые фильтры, а как устроенны фильтры мы рассмотрим в разделе <x-link link="{{ route('moonshine.custom_page', 'filters-index') }}">"Фильтры"</x-link>.
+    Adding new filters is easy! Enough in the <code>filters</code> method, which returns an array,
+     return all the necessary filters, and how filters are arranged, we will consider in the <x-link link="{{ route('moonshine.custom_page', 'filters-index') }}">"Filters"</x-link> section.
 </x-p>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-    Если метод отсутствует, либо возвращает пустой массив, то фильтры не будут отображаться
+    If the method is absent or returns an empty array, then the filters will not be displayed
 </x-moonshine::alert>
 
 <x-code language="php">
@@ -24,18 +24,18 @@ class PostResource extends Resource
 {
     public static string $model = App\Models\Post::class;
 
-    public static string $title = 'Статьи';
+    public static string $title = 'Articles';
     //...
 
     // [tl! focus:start]
     public function filters(): array
     {
         return [
-            TextFilter::make('Заголовок', 'title')
+            TextFilter::make('header', 'title')
         ];
     }
 
-    // Не забудьте подключить фильтры к ресурсу
+    // Don't forget to connect filters to the resource
     public function actions(): array
     {
         return [

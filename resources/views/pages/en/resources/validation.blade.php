@@ -1,11 +1,11 @@
-<x-page title="Валидация" :sectionMenu="$sectionMenu ?? null">
+<x-page title="Validation" :sectionMenu="$sectionMenu ?? null">
 
 <x-p>
-    Валидация выполнена также просто как и в <code>FormRequests</code> классах от Laravel.
+    Validation is as simple as in the <code>FormRequests</code> classes from Laravel.
 </x-p>
 
 <x-p>
-    Достаточно в привычной нам манере добавлять правила в методе <code>rules</code> ресурса.
+    It is enough to add rules in the <code>rules</code> method of the resource in the usual way.
 </x-p>
 
 <x-code language="php">
@@ -17,7 +17,7 @@ class PostResource extends Resource
 {
     public static string $model = App\Models\Post::class;
 
-    public static string $title = 'Статьи';
+    public static string $title = 'Articles';
     //...
 
     public function rules($item): array // [tl! focus:start]

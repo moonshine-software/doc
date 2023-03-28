@@ -1,8 +1,7 @@
-<x-page title="Быстрые фильтры/Теги" :sectionMenu="[]">
+<x-page title="Quick Filters/Tags" :sectionMenu="[]">
 
 <x-p>
-    Иногда возникает потребность создать набор фильтров, скажем так подборку результатов и отобразить
-    ее на листинге. Для таких ситуаций созданы теги
+    Sometimes there is a need to create a set of filters, let's say a selection of results and display it on the listing. For such situations there are created tags
 </x-p>
 
 <x-code language="php">
