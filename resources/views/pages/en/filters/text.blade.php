@@ -5,6 +5,3 @@
 <x-p><code>Leeto\MoonShine\Filters\TextFilter</code></x-p>
 
 </x-page>
-
-
-

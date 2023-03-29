@@ -5,6 +5,3 @@
 <x-p><code>Leeto\MoonShine\Filters\DateRangeFilter</code></x-p>
 
 </x-page>
-
-
-

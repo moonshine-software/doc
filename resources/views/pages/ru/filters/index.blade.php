@@ -5,7 +5,7 @@
 </x-p>
 
 <x-p>
-    Фильтры работают абсолютно также как и поля, за тем исключением что объявляется в
+    Фильтры работают абсолютно так же как и поля, за тем исключением, что объявляется в
     методе ресурса <code>filters</code>
 </x-p>
 
@@ -26,6 +26,3 @@ public function filters(): array
 <x-image theme="dark" src="{{ asset('screenshots/filters_dark.png') }}"></x-image>
 
 </x-page>
-
-
-

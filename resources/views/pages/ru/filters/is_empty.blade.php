@@ -10,6 +10,3 @@
     <x-p><code>Leeto\MoonShine\Filters\IsNotEmptyFilter</code></x-p>
 
 </x-page>
-
-
-
