@@ -4,9 +4,10 @@
 </x-p>
 
 <x-code language="php">
+use Leeto\MoonShine\Decorations\Block;
 use Leeto\MoonShine\Decorations\Tabs;
 use Leeto\MoonShine\Decorations\Tab;
-use Leeto\MoonShine\Decorations\Block;
+use Leeto\MoonShine\Fields\Text;
 
 //...
 public function fields(): array
@@ -14,13 +15,13 @@ public function fields(): array
     return [
         Block::make('Main', [
             Tabs::make([
-                Tab::make('Main', [
-                    Text::make('Surname', 'last_name'),
-                    Text::make('Name', 'first_name'),
+                Tab::make('Seo', [
+                    Text::make('Seo title')
+                        ->fieldContainer(false),
+                    //...
                 ]),
-                Tab::make('Contact info', [
-                    Text::make('Telephone', 'phone'),
-                    Text::make('E-mail', 'email'),
+                Tab::make('Categories', [
+                    //...
                 ])
             ])
         ]),
@@ -29,5 +30,7 @@ public function fields(): array
 //...
 </x-code>
 
-<x-image src="{{ asset('screenshots/tabs.png') }}"></x-image>
+<x-image theme="light" src="{{ asset('screenshots/tabs.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/tabs_dark.png') }}"></x-image>
+
 </x-page>
