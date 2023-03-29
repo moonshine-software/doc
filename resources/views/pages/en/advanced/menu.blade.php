@@ -40,7 +40,8 @@ app(MoonShine::class)->registerResources([
     Well, the first parameter is the name of the group!
 </x-p>
 
-<x-image src="{{ asset('screenshots/menu.png') }}"></x-image>
+<x-image theme="light" src="{{ asset('screenshots/menu.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/menu_dark.png') }}"></x-image>
 
 <x-sub-title id="condition">Display condition</x-sub-title>
 
@@ -118,15 +119,15 @@ app(MoonShine::class)->registerResources([
 
 <x-code language="php">
 app(MoonShine::class)->registerResources([
-    MenuGroup::make('System', [
-        MoonShineUserResource::class,
-        MoonShineUserRoleResource::class,
-    ])->badge(fn() => cache()->rememberForever('count', fn() => User::query()->count())) // [tl! focus]
+    MenuGroup::make('Blog', [
+        MenuItem::make('Comments', new CommentResource(), 'heroicons.chat-bubble-left')
+            ->badge(fn() => Comment::query()->count()),
+    ], 'heroicons.newspaper') // [tl! focus]
 ]);
 </x-code>
 
-
-<x-image src="{{ asset('screenshots/menu_badge.png') }}"></x-image>
+<x-image theme="light" src="{{ asset('screenshots/menu_badge.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/menu_badge_dark.png') }}"></x-image>
 
 </x-page>
 
