@@ -1,6 +1,6 @@
 <x-page title="MoonShine">
-    <x-image theme="light" src="{{ asset('screenshots/main.png') }}"></x-image>
-    <x-image theme="dark" src="{{ asset('screenshots/main_dark.png') }}"></x-image>
+    <x-image theme="light" src="{{ asset('moon-promo.svg') }}"></x-image>
+    <x-image theme="dark" src="{{ asset('moon-promo-dark.svg') }}"></x-image>
 
     <x-sub-title>Привет пользователь Laravel!</x-sub-title>
     <x-p>
@@ -20,4 +20,7 @@
     <x-p class="font-bold">
         Предлагаю заинтересованным пользователям использовать и развивать Moonshine вместе.
     </x-p>
+
+    <x-image theme="light" src="{{ asset('screenshots/main.png') }}"></x-image>
+    <x-image theme="dark" src="{{ asset('screenshots/main_dark.png') }}"></x-image>
 </x-page>
