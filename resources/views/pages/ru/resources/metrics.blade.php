@@ -18,7 +18,7 @@ class PostResource extends Resource
     public function metrics(): array // [tl! focus:start]
     {
         return [
-            ValueMetric::make('Comments')
+            ValueMetric::make('Completed orders')
                 ->value(Orders::completed()->count())
         ];
     } // [tl! focus:end]

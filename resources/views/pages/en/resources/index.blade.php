@@ -129,7 +129,8 @@ class MoonShineServiceProvider extends ServiceProvider
     After the sections will appear in the menu and will be available in the panel
 </x-moonshine::alert>
 
-<x-image src="{{ asset('screenshots/main.png') }}"></x-image>
+<x-image theme="light" src="{{ asset('screenshots/resource.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/resource_dark.png') }}"></x-image>
 
 <x-sub-title id="modal">Modal windows</x-sub-title>
 
@@ -158,6 +159,3 @@ class PostResource extends Resource
 </x-code>
 
 </x-page>
-
-
-
