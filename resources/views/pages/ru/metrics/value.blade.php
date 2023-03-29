@@ -66,7 +66,6 @@ public function metrics(): array // [tl! focus:start]
 <x-code language="php">
 namespace Leeto\MoonShine\Resources;
 
-
 use Leeto\MoonShine\Metrics\ValueMetric;
 
 class PostResource extends Resource
