@@ -161,6 +161,3 @@ return [
 </x-code>
 
 </x-page>
-
-
-

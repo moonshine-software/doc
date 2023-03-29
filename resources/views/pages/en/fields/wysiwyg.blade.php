@@ -1,33 +1,65 @@
 <x-page title="WYSIWYG" :sectionMenu="[
 'Sections' => [
-    ['url' => '#start', 'label' => 'Trix/CKEditor/Quill'],
+    ['url' => '#trix', 'label' => 'Trix'],
+    ['url' => '#ckeditor', 'label' => 'CKEditor'],
+    ['url' => '#quill', 'label' => 'Quill'],
     ['url' => '#tinymce', 'label' => 'TinyMce'],
 ]
 ]">
 
-<x-sub-title id="start">Trix/CKEditor/Quill</x-sub-title>
+<x-sub-title id="trix">Trix</x-sub-title>
 
 <x-code language="php">
 use Leeto\MoonShine\Fields\WYSIWYG;
+
+//...
+public function fields(): array
+{
+    return [
+        WYSIWYG::make('Description', 'description'),
+    ];
+}
+//...
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/wysiwyg.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/wysiwyg_dark.png') }}"></x-image>
+
+<x-sub-title id="ckeditor">CKEditor</x-sub-title>
+
+<x-code language="php">
 use Leeto\MoonShine\Fields\CKEditor;
+
+//...
+public function fields(): array
+{
+    return [
+        CKEditor::make('Description', 'description'),
+    ];
+}
+//...
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/ckeditor.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/ckeditor_dark.png') }}"></x-image>
+
+<x-sub-title id="quill">Quill</x-sub-title>
+
+<x-code language="php">
 use Leeto\MoonShine\Fields\Quill;
 
 //...
 public function fields(): array
 {
     return [
-        WYSIWYG::make('Description', 'description'), // Trix
-        // or
-        CKEditor::make('Description', 'description'), // CKEditor
-        // or
-        Quill::make('Description', 'description'), // Quill
+        Quill::make('Description', 'description'),
     ];
 }
-
 //...
 </x-code>
 
-<x-image src="{{ asset('screenshots/wysiwyg.png') }}"></x-image>
+<x-image theme="light" src="{{ asset('screenshots/quill.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/quill_dark.png') }}"></x-image>
 
 <x-sub-title id="tinymce">TinyMce</x-sub-title>
 
@@ -59,9 +91,11 @@ public function fields(): array
             ]),
     ];
 }
-
 //...
 </x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/tinymce.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/tinymce_dark.png') }}"></x-image>
 
 <x-p>
     Sign up at <x-link link="https://www.tiny.cloud" target="_blank">Tiny.Cloud</x-link> and get a token. Then add it to config <code>config/moonshine.php</code>
@@ -115,7 +149,7 @@ return [
 </x-code>
 
 <x-sub-title hashtag="3">Add the prefix to config/moonshine.php</x-sub-title>
-    
+
 <x-code language="php">
     //...
     'tinymce' => [
@@ -126,6 +160,3 @@ return [
 </x-code>
 
 </x-page>
-
-
-

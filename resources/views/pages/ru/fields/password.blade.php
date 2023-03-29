@@ -1,7 +1,7 @@
 <x-page title="Пароль">
 
 <x-p>
-    Все тоже самое как и "Текстовое поле", меняется только input type = password
+    Все то же самое как и "Текстовое поле", меняется только input type = password
 </x-p>
 
 <x-p>
@@ -27,6 +27,3 @@ public function fields(): array
 </x-code>
 
 </x-page>
-
-
-

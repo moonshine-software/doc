@@ -9,10 +9,9 @@ use Leeto\MoonShine\Fields\HasMany;
 public function fields(): array
 {
     return [
-
         HasMany::make('Comments')
             ->fields([
-                ID::make()->sortable(),
+                ID::make(),
                 BelongsTo::make('Article'),
                 BelongsTo::make('User'),
                 Text::make('Text')->required(),
@@ -58,13 +57,10 @@ public function fields(): array
 </x-code>
 
 <x-p>
-    Обратите внимание наличие ресурса в таком режиме обязательный критерий. Хотя его можно и не указывать если он не нарушает конвенцию наименований. то будет найден автоматически
+    Обратите внимание наличие ресурса в таком режиме обязательный критерий. Хотя его можно не указывать, если он не нарушает конвенцию наименований. то будет найден автоматически
 </x-p>
 
 <x-image theme="light" src="{{ asset('screenshots/resource_mode.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/resource_mode_dark.png') }}"></x-image>
 
 </x-page>
-
-
-

@@ -27,14 +27,14 @@ public function fields(): array
     It often happens that there are a lot of fields for communication and in the table they are displayed small and not convenient. In many cases it is necessary to remove such a link to a separate resource, but if you want to leave it within the current resource, but display fields fully, then use the method <code>fullPage()</code> and fields will take the standard form
 </x-p>
 
-<x-image src="{{ asset('screenshots/has_one_1.png') }}"></x-image>
-<x-image src="{{ asset('screenshots/has_one_2.png') }}"></x-image>
+<x-image theme="light" src="{{ asset('screenshots/has_one_1.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/has_one_1_dark.png') }}"></x-image>
+
+<x-image theme="light" src="{{ asset('screenshots/has_one_2.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/has_one_2_dark.png') }}"></x-image>
 
 <x-p>
     Also available <code>resourceMode</code>, details in the HasMany field
 </x-p>
 
 </x-page>
-
-
-

@@ -42,6 +42,3 @@ Select::make('Страна', 'country_id')
 </x-code>
 
 </x-page>
-
-
-

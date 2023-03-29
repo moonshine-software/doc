@@ -1,7 +1,7 @@
 <x-page title="E-mail">
 
 <x-p>
-    Все тоже самое как и "Текстовое поле", меняется только input type = email
+    Все то же самое как и "Текстовое поле", меняется только input type = email
 </x-p>
 
 <x-code language="php">
@@ -11,6 +11,3 @@ Email::make('E-mail', 'email')
 </x-code>
 
 </x-page>
-
-
-

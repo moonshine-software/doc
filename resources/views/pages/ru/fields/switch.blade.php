@@ -52,6 +52,3 @@ public function fields(): array
 <x-image theme="dark" src="{{ asset('screenshots/switch_dark.png') }}"></x-image>
 
 </x-page>
-
-
-

@@ -9,12 +9,12 @@ use Leeto\MoonShine\Fields\HasMany;
 public function fields(): array
 {
     return [
-        HasMany::make('Rates', 'prices')
+        HasMany::make('Comments')
             ->fields([
                 ID::make(),
-                BelongsTo::make('Service', 'service_id', 'name'),
-                Number::make('Cost', 'price'),
-                Number::make('Duration', 'duration'),
+                BelongsTo::make('Article'),
+                BelongsTo::make('User'),
+                Text::make('Text')->required(),,
             ])
             ->removable()
     ];
@@ -29,7 +29,8 @@ public function fields(): array
      using the <code>fullPage()</code> method and the fields will take the standard form
 </x-p>
 
-<x-image src="{{ asset('screenshots/has_many.png') }}"></x-image>
+<x-image theme="light" src="{{ asset('screenshots/has_many.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/has_many_dark.png') }}"></x-image>
 
 <x-p>
     Still, the table and fullPage modes are more suitable for relations with primitive fields, such modes
@@ -41,25 +42,24 @@ public function fields(): array
 </x-p>
 
 <x-code language="php">
-    use Leeto\MoonShine\Fields\HasMany;
+use Leeto\MoonShine\Fields\HasMany;
 
-    //...
-    public function fields(): array
-    {
+//...
+public function fields(): array
+{
     return [
         HasMany::make('Rates', 'prices', new PriceResource())
             ->resourceMode()
     ];
-    }
-    //...
+}
+//...
 </x-code>
 
 <x-p>
     Pay attention to the presence of a resource in this mode is a mandatory criterion. Although it can be omitted if it does not violate the naming convention. it will be found automatically
 </x-p>
 
-<x-image src="{{ asset('screenshots/resource_mode.png') }}"></x-image>
+<x-image theme="light" src="{{ asset('screenshots/resource_mode.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/resource_mode_dark.png') }}"></x-image>
+
 </x-page>
-
-
-

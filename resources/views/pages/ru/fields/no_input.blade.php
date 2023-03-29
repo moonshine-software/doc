@@ -26,5 +26,4 @@ public function fields(): array
 <x-image theme="light" src="{{ asset('screenshots/no-input.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/no-input_dark.png') }}"></x-image>
 
-
 </x-page>

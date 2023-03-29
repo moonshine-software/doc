@@ -25,7 +25,7 @@ public function fields(): array
 {
     return [
         Json::make('Опции товара', 'options')
-            ->keyValue('Характиристика', 'Значение') // Первый аргумент Лейбл ключа, второй лейбл Значения
+            ->keyValue('Характеристика', 'Значение') // Первый аргумент Лейбл ключа, второй лейбл Значения
     ];
 }
 //...
@@ -77,6 +77,3 @@ Json::make('Опции товара', 'options')
 <x-image theme="dark" src="{{ asset('screenshots/json_removable_dark.png') }}"></x-image>
 
 </x-page>
-
-
-

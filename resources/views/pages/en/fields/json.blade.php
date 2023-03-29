@@ -28,11 +28,11 @@ public function fields(): array
             ->keyValue('Characteristic', 'Value') // First argument Key label, second argument Value label
     ];
 }
-
 //...
 </x-code>
 
-<x-image src="{{ asset('screenshots/json_key_value.png') }}"></x-image>
+<x-image theme="light" src="{{ asset('screenshots/json_fields.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/json_fields_dark.png') }}"></x-image>
 
 <x-sub-title id="fields">With a set of fields</x-sub-title>
 
@@ -41,29 +41,29 @@ public function fields(): array
 </x-p>
 
 <x-code language="php">
-    use Leeto\MoonShine\Fields\Json;
+use Leeto\MoonShine\Fields\Json;
 
-    //...
+//...
 
-    public function fields(): array
-    {
-        return [
-            Json::make('Product Options', 'options')
-                ->fields([
-                    Text::make('Title', 'title'),
-                    Text::make('Value', 'value')
-                ])
-        ];
-    }
-
-    //...
+public function fields(): array
+{
+    return [
+        Json::make('Product Options', 'options')
+            ->fields([
+                Text::make('Title', 'title'),
+                Text::make('Value', 'value')
+            ])
+    ];
+}
+//...
 </x-code>
 
 <x-p>
     json [{title: 'value', value: 'value'}]
 </x-p>
 
-<x-image src="{{ asset('screenshots/json_fields.png') }}"></x-image>
+<x-image theme="light" src="{{ asset('screenshots/json_key_value.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/json_key_value_dark.png') }}"></x-image>
 
 <x-sub-title id="removable">Deleting</x-sub-title>
 
@@ -73,6 +73,7 @@ Json::make('Product Options', 'options')
     ->removable() // [tl! focus]
 </x-code>
 
-<x-image src="{{ asset('screenshots/json_removable.png') }}"></x-image>
+<x-image theme="light" src="{{ asset('screenshots/json_removable.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/json_removable_dark.png') }}"></x-image>
 
 </x-page>

@@ -10,20 +10,19 @@
 
 <x-code language="php">
 //...
-Textarea::make('Review', 'content'), // Ordinary input field
+use Leeto\MoonShine\Fields\NoInput;
 
-NoInput::make('Review', 'content'), // Print the text of the field ->content from the current model
+public function fields(): array
+{
+    return [
+        NoInput::make('No input field', 'no_input', static fn() => fake()->realText()),
+    ];
+}
 
-NoInput::make('Testimonial', 'content',
-    fn(Model $item) => sprintf('<div style="background-color: red;">%s</div>'.
-        '<div style="background-color: black;">%s</div>',
-        $item->content,
-        $item->created_at->isoFormat('LL'),
-)), // Outputs the generated content
 //...
 </x-code>
 
-<x-image src="{{ asset('screenshots/no-input.png') }}"></x-image>
-
+<x-image theme="light" src="{{ asset('screenshots/no-input.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/no-input_dark.png') }}"></x-image>
 
 </x-page>

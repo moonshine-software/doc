@@ -41,6 +41,3 @@ public function fields(): array
 </x-p>
 
 </x-page>
-
-
-
