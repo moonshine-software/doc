@@ -26,6 +26,9 @@ return [
 }
 </x-code>
 
+<x-image theme="light" src="{{ asset('screenshots/metrics.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/metrics_dark.png') }}"></x-image>
+
 <x-p>
     It is also possible to display as a progress of the goal
 </x-p>
@@ -53,7 +56,8 @@ public function metrics(): array // [tl! focus:start]
 }
 </x-code>
 
-<x-image src="{{ asset('screenshots/metrics_value_progress.png') }}"></x-image>
+<x-image theme="light" src="{{ asset('screenshots/metrics_value_progress.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/metrics_value_progress_dark.png') }}"></x-image>
 
 <x-p>
 The output value can be formatted and a prefix and suffix added
@@ -61,7 +65,6 @@ The output value can be formatted and a prefix and suffix added
 
 <x-code language="php">
 namespace Leeto\MoonShine\Resources;
-
 
 use Leeto\MoonShine\Metrics\ValueMetric;
 
@@ -82,5 +85,7 @@ public function metrics(): array // [tl! focus:start]
 }
 </x-code>
 
-<x-image src="{{ asset('screenshots/metrics_value_format.png') }}"></x-image>
+<x-image theme="light" src="{{ asset('screenshots/metrics_value_format.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/metrics_value_format_dark.png') }}"></x-image>
+
 </x-page>

@@ -1,7 +1,7 @@
 <x-page title="Url">
 
 <x-p>
-    Все тоже самое как и "Текстовое поле", меняется только input type = url
+    Все то же самое как и "Текстовое поле", меняется только input type = url
 </x-p>
 
 <x-code language="php">
@@ -11,6 +11,3 @@ Url::make('Url', 'url')
 </x-code>
 
 </x-page>
-
-
-

@@ -226,7 +226,8 @@ public function fields(): array
 //...
 </x-code>
 
-<x-image src="{{ asset('screenshots/hint.png') }}"></x-image>
+<x-image theme="light" src="{{ asset('screenshots/hint.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/hint_dark.png') }}"></x-image>
 
 <x-sub-title id="link">Link</x-sub-title>
 
@@ -263,7 +264,8 @@ public function fields(): array
 //...
 </x-code>
 
-<x-image src="{{ asset('screenshots/link.png') }}"></x-image>
+<x-image theme="light" src="{{ asset('screenshots/link.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/link_dark.png') }}"></x-image>
 
 <x-sub-title id="sortable">Sorting</x-sub-title>
 

@@ -1,7 +1,7 @@
 <x-page title="Дата">
 
 <x-p>
-    Input с типом date и дополнительным методом  <code>format</code>
+    Input с типом date и дополнительным методом <code>format</code>
 </x-p>
 
 <x-code language="php">
@@ -37,6 +37,3 @@ public function fields(): array
     </x-code>
 
 </x-page>
-
-
-

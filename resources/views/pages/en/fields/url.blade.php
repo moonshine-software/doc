@@ -11,6 +11,3 @@ Url::make('Url', 'url')
 </x-code>
 
 </x-page>
-
-
-

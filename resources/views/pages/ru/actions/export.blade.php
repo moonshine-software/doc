@@ -41,6 +41,7 @@ public function fields(): array
 //...
 </x-code>
 
-<x-image src="{{ asset('screenshots/export.png') }}"></x-image>
+<x-image theme="light" src="{{ asset('screenshots/export.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/export_dark.png') }}"></x-image>
 
 </x-page>

@@ -164,7 +164,7 @@ public function fields(): array
 <x-sub-title id="required">Обязательное поле</x-sub-title>
 
 <x-p>
-    Чтобы сделать поле обязательным к заполнению, необходимо воспользоватсья методом <code>required</code>
+    Чтобы сделать поле обязательным к заполнению, необходимо воспользоваться методом <code>required</code>
 </x-p>
 
 <x-code language="php">
@@ -360,7 +360,7 @@ public function fields(): array
 <x-p>
     Может возникнуть потребность отображать поле только в том случае, если значение у
     другого поля в форме имеет определенное значение (Скажем отображать телефон, только если
-    стоит галочка что телефон есть). Метод <code>showWhen(string $field_name, string $item_value)</code>
+    стоит галочка, что телефон есть). Метод <code>showWhen(string $field_name, string $item_value)</code>
 </x-p>
 
 

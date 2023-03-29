@@ -28,6 +28,6 @@ app(MoonShine::class)->registerResources([
 </x-p>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-    As an example using your own rotas and controllers to add logic
+    As an example using your own routes and controllers to add logic
 </x-moonshine::alert>
 </x-page>

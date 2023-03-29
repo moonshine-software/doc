@@ -48,9 +48,7 @@ public function fields(): array
 //...
 </x-code>
 
-<x-image src="{{ asset('screenshots/switch.png') }}"></x-image>
+<x-image theme="light" src="{{ asset('screenshots/switch.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/switch_dark.png') }}"></x-image>
 
 </x-page>
-
-
-

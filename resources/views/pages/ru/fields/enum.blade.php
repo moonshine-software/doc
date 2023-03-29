@@ -1,7 +1,7 @@
 <x-page title="Enum поле">
 
 <x-p>
-    Работает также как и Select поле но принимает Enum
+    Работает так же как и Select поле но принимает Enum
 </x-p>
 
 <x-p>
@@ -24,6 +24,3 @@ public function fields(): array
 </x-code>
 
 </x-page>
-
-
-

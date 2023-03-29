@@ -11,6 +11,3 @@ File::make('File', 'file')
 </x-code>
 
 </x-page>
-
-
-

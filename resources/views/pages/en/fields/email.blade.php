@@ -11,6 +11,3 @@ Email::make('E-mail', 'email')
 </x-code>
 
 </x-page>
-
-
-

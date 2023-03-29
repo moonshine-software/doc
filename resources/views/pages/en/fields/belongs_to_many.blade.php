@@ -19,11 +19,14 @@ use Leeto\MoonShine\Fields\BelongsToMany;
 public function fields(): array
 {
     return [
-        BelongsToMany::make('Social media', 'socials', 'name')
+        BelongsToMany::make('Categories', 'categories', 'name')
     ];
 }
 //...
 </x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/belongs_to_many.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/belongs_to_many_dark.png') }}"></x-image>
 
 <x-sub-title id="pivot">Pivot</x-sub-title>
 
@@ -36,17 +39,17 @@ use Leeto\MoonShine\Fields\BelongsToMany;
 public function fields(): array
 {
     return [
-        BelongsToMany::make('Social media', 'socials', 'name')
+        BelongsToMany::make('Contacts', 'contacts', 'name')
             ->fields([
-                Text::make('Link', 'link'),
+                Text::make('Contact', 'text'),
             ])
     ];
 }
 //...
 </x-code>
 
-
-<x-image src="{{ asset('screenshots/belongs_to_many_pivot.png') }}"></x-image>
+<x-image theme="light" src="{{ asset('screenshots/belongs_to_many_pivot.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/belongs_to_many_pivot_dark.png') }}"></x-image>
 
 <x-sub-title id="select">Select</x-sub-title>
 
@@ -59,15 +62,15 @@ use Leeto\MoonShine\Fields\BelongsToMany;
 public function fields(): array
 {
     return [
-        BelongsToMany::make('Social media', 'socials', 'name')
+        BelongsToMany::make('Categories', 'categories', 'name')
             ->select()
     ];
 }
 //...
 </x-code>
 
-
-<x-image src="{{ asset('screenshots/belongs_to_many_select.png') }}"></x-image>
+<x-image theme="light" src="{{ asset('screenshots/belongs_to_many_select.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/belongs_to_many_select_dark.png') }}"></x-image>
 
 <x-sub-title id="values-query">Query for values</x-sub-title>
 
@@ -127,6 +130,3 @@ public function fields(): array
 </x-code>
 
 </x-page>
-
-
-

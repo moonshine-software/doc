@@ -8,7 +8,7 @@
 
 <x-sub-title id="basic">Основы</x-sub-title>
 <x-p>
-    Кастомизация главной страницы админ. панели осуществляется через класс <code>app/MoonShine/Dashboard.php</code>.
+    Кастомизация главной страницы админ панели осуществляется через класс <code>app/MoonShine/Dashboard.php</code>.
 </x-p>
 
 <x-p>

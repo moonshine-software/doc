@@ -12,16 +12,13 @@ use Leeto\MoonShine\Decorations\Block;
 public function fields(): array
 {
     return [
-        Block::make('Block title', [
-            Collapse::make('SEO', [  // [tl! focus]
-                Text::make('Seo title')
-                ->fieldContainer(false),
-
-                Text::make('Seo description')
+        Block::make([
+            Collapse::make('Title/Slug', [  // [tl! focus]
+                Text::make('Title')
                     ->fieldContainer(false),
 
-                TinyMce::make('Description')
-                    ->fullWidth(),
+                Text::make('Slug')
+                    ->fieldContainer(false),
             ])  // [tl! focus]
             ->show() // Display expanded (optional) [tl! focus]
         ]);
@@ -30,5 +27,7 @@ public function fields(): array
 //...
 </x-code>
 
-<x-image src="{{ asset('screenshots/collapse.png') }}"></x-image>
+<x-image theme="light" src="{{ asset('screenshots/collapse.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/collapse_dark.png') }}"></x-image>
+
 </x-page>

@@ -13,6 +13,3 @@ Phone::make('Phone', 'tel')
 <x-moonshine::alert type="default" icon="heroicons.information-circle">To mask the phone, use the method mask('7 999 999-99-99')</x-moonshine::alert>
 
 </x-page>
-
-
-

@@ -121,8 +121,6 @@ app(MoonShine::class)->registerResources([
 <x-code language="php">
 app(MoonShine::class)->registerResources([
     MenuGroup::make('Blog', [
-        MenuItem::make('Categories', new CategoryResource(), 'heroicons.document'),
-        MenuItem::make('Articles', new ArticleResource(), 'heroicons.newspaper'),
         MenuItem::make('Comments', new CommentResource(), 'heroicons.chat-bubble-left')
             ->badge(fn() => Comment::query()->count()),
     ], 'heroicons.newspaper') // [tl! focus]

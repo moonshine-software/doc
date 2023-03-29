@@ -7,7 +7,6 @@
 <x-code language="php">
 namespace Leeto\MoonShine\Resources;
 
-
 use Leeto\MoonShine\Metrics\LineChartMetric;
 
 class PostResource extends Resource

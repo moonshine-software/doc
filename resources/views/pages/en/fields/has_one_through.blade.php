@@ -7,6 +7,3 @@
 <x-p><code>Leeto\MoonShine\Fields\HasOne</code></x-p>
 
 </x-page>
-
-
-

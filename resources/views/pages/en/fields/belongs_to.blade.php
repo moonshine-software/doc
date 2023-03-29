@@ -56,7 +56,8 @@ public string $titleField = 'name'; // [tl! focus]
 }
 </x-code>
 
-<x-image src="{{ asset('screenshots/belongs_to.png') }}"></x-image>
+<x-image theme="light" src="{{ asset('screenshots/belongs_to.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/belongs_to_dark.png') }}"></x-image>
 
 <x-p>If you need a more complex value to display, you can pass a function to the third argument</x-p>
 <x-code language="php">

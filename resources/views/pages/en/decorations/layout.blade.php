@@ -34,6 +34,9 @@ public function fields(): array
 //...
 </x-code>
 
+<x-image theme="light" src="{{ asset('screenshots/flex.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/flex_dark.png') }}"></x-image>
+
 <x-sub-title id="grid-column">Grid/Column</x-sub-title>
 
 <x-p>
@@ -69,4 +72,8 @@ public function fields(): array
 <x-p>
     The result is two columns with blocks
 </x-p>
+
+<x-image theme="light" src="{{ asset('screenshots/grid.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/grid_dark.png') }}"></x-image>
+
 </x-page>

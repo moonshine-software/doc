@@ -38,7 +38,7 @@
 <x-p>
     В результате будет создан Resource класс, который будет основой нового раздела в панели.
     Располагается он по умолчанию в директории <code>app/MoonShine/Resources/PostResource</code>.
-    И будет автоматически привязан к моделе <code>app/Models/Post</code>.
+    И будет автоматически привязан к модели <code>app/Models/Post</code>.
     Заголовок раздела останется с названием Posts.
 </x-p>
 
@@ -159,6 +159,3 @@ class PostResource extends Resource
 </x-code>
 
 </x-page>
-
-
-
