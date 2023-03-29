@@ -1,7 +1,7 @@
 ### MoonShine Documentation
 
 #### Register menu
-- array in src/app/View/Composers/MenuComposer.php
+- config/menu.php
 
 #### Pages
-- src/resources/views
+- src/resources/views/pages/(en|ru|ua)
