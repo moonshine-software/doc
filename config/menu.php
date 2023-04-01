@@ -4,7 +4,7 @@ return [
     'Getting started:play' => [
         ['slug' => 'concept', 'label' => 'Conception'],
         ['slug' => 'installation', 'label' => 'Installation'],
-        ['slug' => 'configuration', 'label' => 'Configuration'],
+        ['slug' => 'configuration', 'label' => 'Configuration', 'badge' => 'new'],
         ['slug' => 'contribution', 'label' => 'Contribution Guide'],
         ['slug' => 'releases', 'label' => 'Releases'],
     ],
@@ -106,7 +106,7 @@ return [
         ['slug' => 'metrics-index', 'label' => 'Basic'],
         ['slug' => 'metrics-value', 'label' => 'Value'],
         ['slug' => 'metrics-line_chart', 'label' => 'Line Chart'],
-        ['slug' => 'metrics-donut_chart', 'label' => 'Donut Chart'],
+        ['slug' => 'metrics-donut_chart', 'label' => 'Donut Chart', 'badge' => 'new'],
     ],
 
     'Actions:hand-raised' => [
@@ -116,7 +116,7 @@ return [
     ],
 
     'Digging Deeper:moon' => [
-        ['slug' => 'advanced-dashboard', 'label' => 'Dashboard'],
+        ['slug' => 'advanced-dashboard', 'label' => 'Dashboard', 'badge' => 'new'],
         ['slug' => 'advanced-pages', 'label' => 'Pages'],
         ['slug' => 'advanced-menu', 'label' => 'Menu'],
         ['slug' => 'advanced-assets', 'label' => 'Assets'],
