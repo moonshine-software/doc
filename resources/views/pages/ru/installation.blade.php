@@ -70,7 +70,7 @@ class MoonShineServiceProvider extends ServiceProvider
     public function boot(): void
     {
         // [tl! focus:start]
-        app(MoonShine::class)->registerResources([
+        app(MoonShine::class)->menu([
             MenuItem::make('Admins', new MoonShineUserResource()),
         ]);
         // [tl! focus:end]
