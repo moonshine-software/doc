@@ -1,6 +1,7 @@
 <x-page title="BelongsToMany" :sectionMenu="[
     'Sections' => [
         ['url' => '#pivot', 'label' => 'Pivot'],
+		['url' => '#only-selected', 'label' => 'Searching for values'],
         ['url' => '#select', 'label' => 'Select'],
         ['url' => '#values-query', 'label' => 'Query for values'],
         ['url' => '#tree', 'label' => 'Tree'],
@@ -50,6 +51,51 @@ public function fields(): array
 
 <x-image theme="light" src="{{ asset('screenshots/belongs_to_many_pivot.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/belongs_to_many_pivot_dark.png') }}"></x-image>
+
+
+
+<x-sub-title id="only-selected">Searching for values</x-sub-title>
+
+<x-p>To implement a search for values, use the <code>onlySelected</code> method</x-p>
+
+<x-p>The <code>searchQuery</code> parameter is used to filter values,
+    and <code>searchValueCallback</code> to customize the output</x-p>
+
+<x-code language="php">
+use Leeto\MoonShine\Fields\BelongsToMany;
+
+//...
+public function fields(): array
+{
+    return [
+        BelongsToMany::make('Contacts')
+            ->onlySelected(
+                'users',
+                'title',
+                searchQuery: function (Builder $query) {
+                    return $query->where('id', '!=', 2);
+                },
+                searchValueCallback: function ($contact) {
+                    return $contact->id . ' | ' . $contact->title;
+                }
+            )
+            ->fields([
+                Text::make('Contact', 'text'),
+            ])
+    ];
+}
+//...
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/belongs_to_many_select_pivot.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/belongs_to_many_select_pivot_dark.png') }}"></x-image>
+
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    Requests must be customized via the <code>onlySelected</code> method,
+     don't use <code>valuesQuery</code>!
+</x-moonshine::alert>
+
+
 
 <x-sub-title id="select">Select</x-sub-title>
 
