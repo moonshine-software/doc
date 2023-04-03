@@ -89,7 +89,7 @@ class PostResource extends Resource
 
 <x-p>
     New resources are added to the system in the <code>service provider</code> using the singleton class
-     <code>Leeto\MoonShine\MoonShine</code> and <code>registerResources</code> method
+     <code>Leeto\MoonShine\MoonShine</code> and <code>menu</code> method
 </x-p>
 <x-code language="php">
 namespace App\Providers;
@@ -115,7 +115,7 @@ class MoonShineServiceProvider extends ServiceProvider
         Model::preventLazyLoading(!app()->isProduction());
 
         // [tl! focus:start]
-        app(MoonShine::class)->registerResources([
+        app(MoonShine::class)->menu([
             MoonShineUserResource::class, // System partition with administrators
             MoonShineUserRoleResource::class, // System partition with administrator roles
             PostResource::class, // Our new section

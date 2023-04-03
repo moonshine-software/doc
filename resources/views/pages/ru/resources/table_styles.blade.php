@@ -18,22 +18,22 @@ class PostResource extends Resource
     //...
 
     // [tl! focus:start]
-    public function trStyles(Model $item, int $index): string
+    public function trClass(Model $item, int $index): string
     {
         if($item->id === 1 || $index === 2) {
             return 'green';
         }
 
-        return parent::trStyles($item, $index);
+        return parent::trClass($item, $index);
     }
 
-    public function tdStyles(Model $item, int $index, int $cell): string
+    public function tdClass(Model $item, int $index, int $cell): string
     {
         if($cell === 6) {
             return 'red';
         }
 
-        return parent::trStyles($item, $index);
+        return parent::tdClass($item, $index);
     }
     // [tl! focus:end]
 
@@ -44,5 +44,32 @@ class PostResource extends Resource
 <x-p>
     Доступные цвета: green, blue, red, pink, gray, purple, yellow
 </x-p>
+
+
+<x-p>
+    Также можно дополнять и кастомные стили
+</x-p>
+
+<x-code language="php">
+// [tl! focus:start]
+public function trStyles(Model $item, int $index): string
+{
+    if($item->id === 1 || $index === 2) {
+        return 'background: red;';
+    }
+
+    return parent::trStyles($item, $index);
+}
+
+public function tdStyles(Model $item, int $index, int $cell): string
+{
+    if($cell === 6) {
+        return 'background: red;';
+    }
+
+    return parent::tdStyles($item, $index);
+}
+// [tl! focus:end]
+</x-code>
 
 </x-page>

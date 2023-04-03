@@ -5,7 +5,7 @@
 </x-p>
 
 <x-code language="php">
-app(MoonShine::class)->registerResources([
+app(MoonShine::class)->menu([
     CustomPage::make('Название страницы', 'slug', 'view', fn() => [])
 ]);
 </x-code>

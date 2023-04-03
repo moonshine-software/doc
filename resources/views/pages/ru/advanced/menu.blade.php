@@ -16,7 +16,7 @@
 </x-p>
 
 <x-code language="php">
-app(MoonShine::class)->registerResources([
+app(MoonShine::class)->menu([
     MoonShineUserResource::class,
     MoonShineUserRoleResource::class,
     PostResource::class,
@@ -28,7 +28,7 @@ app(MoonShine::class)->registerResources([
 </x-p>
 
 <x-code language="php">
-app(MoonShine::class)->registerResources([
+app(MoonShine::class)->menu([
     MenuGroup::make('Система', [
         MoonShineUserResource::class,
         MoonShineUserRoleResource::class,
@@ -51,7 +51,7 @@ app(MoonShine::class)->registerResources([
 </x-p>
 
 <x-code language="php">
-app(MoonShine::class)->registerResources([
+app(MoonShine::class)->menu([
     MenuGroup::make('Система', [
         MoonShineUserResource::class,
         MoonShineUserRoleResource::class,
@@ -68,7 +68,7 @@ app(MoonShine::class)->registerResources([
 </x-p>
 
 <x-code language="php">
-    app(MoonShine::class)->registerResources([
+    app(MoonShine::class)->menu([
         MenuItem::make('Документация Laravel', 'https://laravel.com') // [tl! focus]
     ]);
 </x-code>
@@ -81,7 +81,7 @@ app(MoonShine::class)->registerResources([
 
 
 <x-code language="php">
-app(MoonShine::class)->registerResources([
+app(MoonShine::class)->menu([
     MenuGroup::make('Система', [
         MoonShineUserResource::class,
         MoonShineUserRoleResource::class,
@@ -97,11 +97,15 @@ app(MoonShine::class)->registerResources([
 
     <x-p>
         Кроме стандартных иконок, в папке <code>resources/views/vendor/moonshine/shared/icons/heroicons</code> предустановлены
-        иконки из коллекции Heroicons (набор <b>Solid</b>),
+        иконки из коллекции <a href="https://heroicons.com">Heroicons</a> (набор <b>Solid</b> по умолчанию и <b>Outline</b>),
         вы можете использовать их в любом месте, где используется метод <code>->icon(...)</code>, например:
         <x-code language="php">
             MenuItem::make('Документация Laravel', 'https://laravel.com')
-                ->icon('heroicons.link'),
+                ->icon('heroicons.link'), //solid
+        </x-code>
+        <x-code language="php">
+            MenuItem::make('Документация Laravel', 'https://laravel.com')
+            ->icon('heroicons.outline.link'), //outline
         </x-code>
         Полный список иконок и поиск по ним доступен на сайте <x-link link="https://heroicons.com/" target="_blank">Heroicons</x-link>
     </x-p>
@@ -119,7 +123,7 @@ app(MoonShine::class)->registerResources([
 </x-p>
 
 <x-code language="php">
-app(MoonShine::class)->registerResources([
+app(MoonShine::class)->menu([
     MenuGroup::make('Blog', [
         MenuItem::make('Comments', new CommentResource(), 'heroicons.chat-bubble-left')
             ->badge(fn() => Comment::query()->count()),
