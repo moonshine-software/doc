@@ -1624,16 +1624,16 @@
         },
         {
             "name": "lee-to/moonshine",
-            "version": "1.50.0",
+            "version": "1.50.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/lee-to/moonshine.git",
-                "reference": "e3cd45ca8469b10d577f7ef8d1af528af52a68ee"
+                "reference": "0f309d3e87f47dedac628cf9472e659844568fef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lee-to/moonshine/zipball/e3cd45ca8469b10d577f7ef8d1af528af52a68ee",
-                "reference": "e3cd45ca8469b10d577f7ef8d1af528af52a68ee",
+                "url": "https://api.github.com/repos/lee-to/moonshine/zipball/0f309d3e87f47dedac628cf9472e659844568fef",
+                "reference": "0f309d3e87f47dedac628cf9472e659844568fef",
                 "shasum": ""
             },
             "require": {
@@ -1693,7 +1693,7 @@
                 "issues": "https://github.com/lee-to/moonshine/issues",
                 "source": "https://github.com/lee-to/moonshine"
             },
-            "time": "2023-04-02T18:55:59+00:00"
+            "time": "2023-04-03T19:43:15+00:00"
         },
         {
             "name": "monolog/monolog",
