@@ -14,6 +14,7 @@
 				<li>Component approach in blade</li>
 				<li>Text Dashboard block</li>
 				<li>Improvements for custom pages</li>
+                <li>New mode onlySelected for BelongsToMany</li>
 				<li>Laravel file manager is excluded from the box</li>
 				<li>and much more ...</li>
             </ul>

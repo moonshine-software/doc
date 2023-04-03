@@ -7,6 +7,7 @@ return [
         ['slug' => 'configuration', 'label' => 'Configuration', 'badge' => 'new'],
         ['slug' => 'contribution', 'label' => 'Contribution Guide'],
         ['slug' => 'releases', 'label' => 'Releases'],
+        ['slug' => 'upgrade_guide', 'label' => 'Upgrade guide', 'badge' => 'new'],
     ],
 
     'Resources:document-duplicate' => [

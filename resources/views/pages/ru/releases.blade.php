@@ -14,6 +14,7 @@
                 <li>Компонентный подход в blade</li>
                 <li>Text Dashboard block</li>
                 <li>Улучшения для кастомных страниц</li>
+                <li>Новый режим onlySelected для BelongsToMany</li>
                 <li>Laravel file manager исключен из коробки</li>
                 <li>и многое другое ...</li>
             </ul>
