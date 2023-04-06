@@ -43,6 +43,7 @@ return [
 
         ['slug' => 'fields-json', 'label' => 'Json'],
 
+        ['slug' => 'fields-slug', 'label' => 'Slug'],
         ['slug' => 'fields-color', 'label' => 'Color'],
         ['slug' => 'fields-url', 'label' => 'Url'],
         ['slug' => 'fields-email', 'label' => 'E-mail'],
