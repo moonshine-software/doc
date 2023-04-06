@@ -99,4 +99,8 @@ public function fields(): array
 
 //...
 </x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/no-input_all.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/no-input_all_dark.png') }}"></x-image>
+
 </x-page>
