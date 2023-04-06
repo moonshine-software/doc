@@ -3,6 +3,7 @@
         ['url' => '#basic', 'label' => 'Базовое использование'],
         ['url' => '#badge', 'label' => 'Badge'],
         ['url' => '#boolean', 'label' => 'Boolean'],
+        ['url' => '#link', 'label' => 'Link'],
     ]
 ]">
 
@@ -77,4 +78,25 @@ public function fields(): array
 //...
 </x-code>
 
+<x-sub-title id="link">Link</x-sub-title>
+
+<x-p>
+    Отображение в виде ссылки
+    Выведем значение и укажем ссылку через параметр (строка либо замыкание с текущим элементов)
+</x-p>
+
+<x-code language="php">
+//...
+use Leeto\MoonShine\Fields\NoInput;
+
+public function fields(): array
+{
+    return [
+        NoInput::make('Link')->link('https://cutcode.dev', blank: false),
+        NoInput::make('Link')->link(fn($item) => $item->link, blank: true),
+    ];
+}
+
+//...
+</x-code>
 </x-page>

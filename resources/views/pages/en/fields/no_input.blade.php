@@ -3,6 +3,7 @@
         ['url' => '#basic', 'label' => 'Basic'],
         ['url' => '#badge', 'label' => 'Badge'],
         ['url' => '#boolean', 'label' => 'Boolean'],
+        ['url' => '#link', 'label' => 'Link'],
     ]
 ]">
 
@@ -71,6 +72,28 @@ public function fields(): array
 {
     return [
         NoInput::make('Active')->boolean(hideTrue: false, hideFalse: false),
+    ];
+}
+
+//...
+</x-code>
+
+<x-sub-title id="link">Link</x-sub-title>
+
+<x-p>
+    Display as a link
+    Output the value and specify the link through the parameter (string or closure with the current element)
+</x-p>
+
+<x-code language="php">
+//...
+use Leeto\MoonShine\Fields\NoInput;
+
+public function fields(): array
+{
+    return [
+        NoInput::make('Link')->link('https://cutcode.dev', blank: false),
+        NoInput::make('Link')->link(fn($item) => $item->link, blank: true),
     ];
 }
 
