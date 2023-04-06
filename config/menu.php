@@ -77,6 +77,7 @@ return [
         ['slug' => 'fields-spatie-medialibrary', 'label' => 'Spatie\MediaLibrary'],
 
         ['slug' => 'fields-no_input', 'label' => 'NoInput'],
+        ['slug' => 'fields-no_input_boolean', 'label' => 'NoInputBoolean'],
     ],
 
     'Filters:adjustments-vertical' => [
