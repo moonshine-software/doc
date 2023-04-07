@@ -1,6 +1,7 @@
 <x-page title="Configuration" :sectionMenu="[]">
 
 <x-code language="php">
+use Leeto\MoonShine\Exceptions\MoonShineNotFoundException;
 use Leeto\MoonShine\Models\MoonshineUser;
 
 return [
@@ -22,6 +23,8 @@ return [
         'middleware' => ['web', 'moonshine'],
         # Slug of the formation of the url for custom pages
         'custom_page_slug' => 'custom_page',
+        # You can change 404 error exception (for ModelNotFound you need to implement it yourself)
+        'notFoundHandler' => MoonShineNotFoundException::class
     ],
 
     'auth' => [
@@ -59,6 +62,14 @@ return [
     # Authenticate via social networks and socialite, list the drivers and specify the logo
     'socialite' => [
         // 'driver' => 'path_to_image_for_button'
+    ],
+    'footer' => [
+        'copyright' => 'Made with ❤️ by <a href="https://cutcode.dev" class="font-semibold text-purple hover:text-pink" target="_blank">CutCode</a>',
+        'nav' => [
+            'https://github.com/lee-to/moonshine/blob/1.x/LICENSE.md' => 'License',
+            'https://moonshine.cutcode.dev' => 'Documentation',
+            'https://github.com/lee-to/moonshine' => 'GitHub',
+        ],
     ]
 ];
 </x-code>
