@@ -33,7 +33,7 @@ class PostResource extends Resource
             return 'red';
         }
 
-        return parent::tdClass($item, $index);
+        return parent::tdClass($item, $index, $cell);
     }
     // [tl! focus:end]
 
@@ -67,7 +67,7 @@ public function tdStyles(Model $item, int $index, int $cell): string
         return 'background: red;';
     }
 
-    return parent::tdStyles($item, $index);
+    return parent::tdStyles($item, $index, $cell);
 }
 // [tl! focus:end]
 </x-code>

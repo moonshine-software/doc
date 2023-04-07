@@ -11,6 +11,8 @@
 <x-code language="php">
 namespace Leeto\MoonShine\Resources;
 
+use Illuminate\Contracts\Database\Eloquent\Builder;
+
 class PostResource extends Resource
 {
 //...
