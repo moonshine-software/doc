@@ -4,14 +4,15 @@
         ['url' => '#condition', 'label' => 'Display condition'],
         ['url' => '#link', 'label' => 'External link'],
         ['url' => '#icon', 'label' => 'Icon'],
-        ['url' => '#badge', 'label' => 'Tag']
+        ['url' => '#badge', 'label' => 'Tag'],
+        ['url' => '#translation', 'label' => 'Translation']
     ]
 ]">
 
 <x-sub-title id="register">Registration</x-sub-title>
 
 <x-p>
-    We have already figured out how to register sections of the admin. panel, after which they also appear in the menu
+    We have already figured out how to register sections of the admin panel, after which they also appear in the menu
 </x-p>
 
 <x-code language="php">
@@ -92,7 +93,7 @@ app(MoonShine::class)->menu([
     Available values
 </x-p>In addition to the standard icons, in the folder
 
-<x-ul :items="['add', 'app', 'bookmark', 'cart', 'delete', 'edit', 'setexport', 'filter', 'search', 'users']"></x-ul>
+<x-ul :items="['add', 'app', 'bookmark', 'cart', 'delete', 'edit', 'export', 'filter', 'search', 'users']"></x-ul>
 
 <x-p>
     In addition to the standard icons, in the folder <code>resources/views/vendor/moonshine/shared/icons/heroicons</code> preinstalled
@@ -133,7 +134,40 @@ app(MoonShine::class)->menu([
 <x-image theme="light" src="{{ asset('screenshots/menu_badge.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/menu_badge_dark.png') }}"></x-image>
 
+<x-sub-title id="translation">Translation</x-sub-title>
+
+<x-p>
+    To translate menu items, you need to pass the translation key as the name
+    and add the method <code>translatable()</code>
+</x-p>
+
+<x-code language="php">
+app(MoonShine::class)->menu([
+    MenuItem::make('menu.Comments', new CommentResource())
+        ->translatable() // [tl! focus]
+    // or
+    MenuItem::make('Comments', new CommentResource())
+        ->translatable('menu') // [tl! focus]
+]);
+</x-code>
+
+<x-code language="php">
+// lang/ru/menu.php
+
+return [
+    'Comments' => 'Комментарии',
+]; // [tl! focus]
+</x-code>
+
+<x-p>
+    To translate menu labels, you can use Laravel's translation tools
+</x-p>
+
+<x-code language="php">
+app(MoonShine::class)->menu([
+    MenuItem::make('Comments', new CommentResource())
+        ->badge(fn() => __('menu.badge.new')) // [tl! focus]
+]);
+</x-code>
+
 </x-page>
-
-
-
