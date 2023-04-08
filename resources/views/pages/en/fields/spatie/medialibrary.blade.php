@@ -1,5 +1,13 @@
 <x-page title="Spatie\MediaLibrary">
 
+    <x-p class="font-bold text-pink">
+        The field is placed in a separate package, before use it is necessary to perform the installation
+    </x-p>
+
+    <x-code language="shell">
+        php composer require visual-ideas/moonshine-spatie-medialibrary
+    </x-code>
+
     <x-p>
         The field is intended for work with the package
         <x-link link="https://github.com/spatie/laravel-medialibrary" target="_blank">Laravel-medialibrary</x-link>
@@ -13,6 +21,7 @@
 
     <x-ul :items="[
 'The spatie/laravel-medialibrary package is installed and configured',
+'The visual-ideas/moonshine-spatie-medialibrary package is installed',
 'The field passed to Spatie\MediaLibrary is added as the name of the collection via ->addMediaCollection(\'Field\')'
 ]"></x-ul>
 
@@ -39,7 +48,7 @@ class ModelClass extends Model implements HasMedia
         In MoonShine-resource:
     </x-p>
     <x-code language="php">
-        use Leeto\MoonShine\Fields\Spatie\MediaLibrary;
+        use VI\MoonShineSpatieMediaLibrary\Fields\MediaLibrary;
         //...
         MediaLibrary::make('Cover', 'cover'),
         //...
