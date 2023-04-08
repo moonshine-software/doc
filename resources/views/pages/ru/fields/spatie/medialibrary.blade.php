@@ -1,5 +1,13 @@
 <x-page title="Spatie\MediaLibrary">
 
+    <x-p class="font-bold text-pink">
+        Поле вынесено в отдельный пакет, перед использованием необходимо выполнить установку
+    </x-p>
+
+    <x-code language="shell">
+        php composer require visual-ideas/moonshine-spatie-medialibrary
+    </x-code>
+
     <x-p>
         Поле предназначено для работы с пакетом
         <x-link link="https://github.com/spatie/laravel-medialibrary" target="_blank">Laravel-medialibrary</x-link>
@@ -13,6 +21,7 @@
 
     <x-ul :items="[
 'Пакет spatie/laravel-medialibrary установлен и настроен',
+'Пакет visual-ideas/moonshine-spatie-medialibrary установлен',
 'Поле, передаваемое в Spatie\MediaLibrary, добавлено как название коллекции через ->addMediaCollection(\'Поле\')'
 ]"></x-ul>
 
@@ -39,7 +48,7 @@ class ModelClass extends Model implements HasMedia
         В MoonShine-ресурсе:
     </x-p>
     <x-code language="php">
-        use Leeto\MoonShine\Fields\Spatie\MediaLibrary;
+        use VI\MoonShineSpatieMediaLibrary\Fields\MediaLibrary;
         //...
         MediaLibrary::make('Обложка', 'cover'),
         //...
