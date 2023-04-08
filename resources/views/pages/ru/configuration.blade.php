@@ -1,6 +1,7 @@
 <x-page title="Конфигурация" :sectionMenu="[]">
 
 <x-code language="php">
+use Leeto\MoonShine\Exceptions\MoonShineNotFoundException;
 use Leeto\MoonShine\Models\MoonshineUser;
 
 return [
@@ -22,6 +23,8 @@ return [
         'middleware' => ['web', 'moonshine'],
         # Slug формирования урл для кастомных страниц
         'custom_page_slug' => 'custom_page',
+        # Можно поменять исключение для 404 (для ModelNotFound нужно реализовать самостоятельно)
+        'notFoundHandler' => MoonShineNotFoundException::class
     ],
 
     'auth' => [
@@ -59,6 +62,14 @@ return [
     # Аутентификация через соц. сети и socialite, перечисляем драйверы и указываем логотип
     'socialite' => [
         // 'driver' => 'path_to_image_for_button'
+    ],
+    'footer' => [
+        'copyright' => 'Made with ❤️ by <a href="https://cutcode.dev" class="font-semibold text-purple hover:text-pink" target="_blank">CutCode</a>',
+        'nav' => [
+            'https://github.com/lee-to/moonshine/blob/1.x/LICENSE.md' => 'License',
+            'https://moonshine.cutcode.dev' => 'Documentation',
+            'https://github.com/lee-to/moonshine' => 'GitHub',
+        ],
     ]
 ];
 </x-code>

@@ -22,12 +22,12 @@ class PostResource extends Resource
         return [
             QueryTag::make(
                 'Post with author', // Tag Title
-                Post::query()->whereNotNull('author_id') // Query builder
+                fn() => Post::query()->whereNotNull('author_id') // Query builder
             ),
 
             QueryTag::make(
                 'Post without an author',
-                Post::query()->whereNull('author_id')
+                fn() => Post::query()->whereNull('author_id')
             )->icon('users')
         ];
     } // [tl! focus:end]

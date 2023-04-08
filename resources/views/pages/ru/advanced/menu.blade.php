@@ -4,14 +4,15 @@
         ['url' => '#condition', 'label' => 'Условие отображения'],
         ['url' => '#link', 'label' => 'Внешняя ссылка'],
         ['url' => '#icon', 'label' => 'Иконка'],
-        ['url' => '#badge', 'label' => 'Метка']
+        ['url' => '#badge', 'label' => 'Метка'],
+        ['url' => '#translation', 'label' => 'Перевод']
     ]
 ]">
 
 <x-sub-title id="register">Регистрация</x-sub-title>
 
 <x-p>
-    В разделе изучения ресурсов мы уже разобрались как регистрировать разделы админ. панели,
+    В разделе изучения ресурсов мы уже разобрались как регистрировать разделы админ панели,
     после чего они также появляются в меню
 </x-p>
 
@@ -134,7 +135,40 @@ app(MoonShine::class)->menu([
 <x-image theme="light" src="{{ asset('screenshots/menu_badge.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/menu_badge_dark.png') }}"></x-image>
 
+<x-sub-title id="translation">Перевод</x-sub-title>
+
+<x-p>
+    Для перевода пунктов меню, необходимо в качестве названия передать ключ перевода
+    и добавить метод <code>translatable()</code>
+</x-p>
+
+<x-code language="php">
+app(MoonShine::class)->menu([
+    MenuItem::make('menu.Comments', new CommentResource())
+        ->translatable() // [tl! focus]
+    // or
+    MenuItem::make('Comments', new CommentResource())
+        ->translatable('menu') // [tl! focus]
+]);
+</x-code>
+
+<x-code language="php">
+// lang/ru/menu.php
+
+return [
+    'Comments' => 'Комментарии',
+]; // [tl! focus]
+</x-code>
+
+<x-p>
+    Для перевода меток меню, можно воспользоваться средствами перевода Laravel
+</x-p>
+
+<x-code language="php">
+app(MoonShine::class)->menu([
+    MenuItem::make('Comments', new CommentResource())
+        ->badge(fn() => __('menu.badge.new')) // [tl! focus]
+]);
+</x-code>
+
 </x-page>
-
-
-
