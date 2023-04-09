@@ -17,7 +17,7 @@
 <x-sub-title id="composer" hashtag="1">Composer</x-sub-title>
 
 <x-code language="shell">
-    composer require lee-to/moonshine
+    composer require moonshine/moonshine
 </x-code>
 
 <x-sub-title id="install" hashtag="2">Установка</x-sub-title>
@@ -61,9 +61,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Leeto\MoonShine\MoonShine;
-use Leeto\MoonShine\Menu\MenuItem;
-use Leeto\MoonShine\Resources\MoonShineUserResource;
+use MoonShine\MoonShine;
+use MoonShine\Menu\MenuItem;
+use MoonShine\Resources\MoonShineUserResource;
 
 class MoonShineServiceProvider extends ServiceProvider
 {

@@ -1,12 +1,16 @@
 <x-page title="BelongsTo">
 
-<x-p>Поле для отношений в laravel типа belongsTo</x-p>
+<x-extendby :href="route('moonshine.custom_page', 'fields-select')">
+    Select
+</x-extendby>
+
+<x-p>Поле для отношений в Laravel типа belongsTo</x-p>
 
 <x-p>Отображается как select, также есть возможность добавить поиск по значениям с помощью метода:
 <code>searchable</code></x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Fields\BelongsTo;
+use MoonShine\Fields\BelongsTo;
 
 //...
 public function fields(): array
@@ -26,7 +30,7 @@ public function fields(): array
 <x-p>Также третьим параметром можно передать ресурс у которого указано поле для отображения</x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Fields\BelongsTo;
+use MoonShine\Fields\BelongsTo;
 use App\MoonShine\Resources\CountryResource;
 
 //...
@@ -43,7 +47,7 @@ public function fields(): array
 <x-code language="php">
 namespace App\MoonShine\Resources;
 
-use Leeto\MoonShine\Resources\Resource;
+use MoonShine\Resources\Resource;
 use App\Models\Country;
 
 class CountryResource extends Resource
@@ -61,7 +65,7 @@ public string $titleField = 'name'; // [tl! focus]
 
 <x-p>Если необходимо более сложное значение для отображения, то в третий аргумент можно передать функцию</x-p>
 <x-code language="php">
-use Leeto\MoonShine\Fields\BelongsTo;
+use MoonShine\Fields\BelongsTo;
 
 //...
 public function fields(): array
@@ -75,7 +79,7 @@ public function fields(): array
 
 <x-p>Если необходимо по умолчанию значение Null</x-p>
 <x-code language="php">
-use Leeto\MoonShine\Fields\BelongsTo;
+use MoonShine\Fields\BelongsTo;
 
 //...
 public function fields(): array

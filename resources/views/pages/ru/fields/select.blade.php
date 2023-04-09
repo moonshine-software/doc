@@ -1,11 +1,11 @@
-<x-page title="Селект поле">
+<x-page title="Select">
 
 <x-p>
     Текстовое поле включает в себя все базовые методы и дополнительные для селект полей
 </x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Fields\Select;
+use MoonShine\Fields\Select;
 
 //...
 

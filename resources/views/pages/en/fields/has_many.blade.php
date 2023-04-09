@@ -3,7 +3,7 @@
 <x-p>The relationship field in laravel like hasMany</x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Fields\HasMany;
+use MoonShine\Fields\HasMany;
 
 //...
 public function fields(): array
@@ -42,7 +42,7 @@ public function fields(): array
 </x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Fields\HasMany;
+use MoonShine\Fields\HasMany;
 
 //...
 public function fields(): array

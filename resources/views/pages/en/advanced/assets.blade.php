@@ -6,7 +6,7 @@
 </x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Utilities\AssetManager;
+use MoonShine\Utilities\AssetManager;
 
 class MoonShineServiceProvider extends ServiceProvider
 {

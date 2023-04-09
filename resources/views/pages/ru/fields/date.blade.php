@@ -1,11 +1,15 @@
 <x-page title="Дата">
 
+<x-extendby :href="route('moonshine.custom_page', 'fields-text')">
+    Text
+</x-extendby>
+
 <x-p>
     Input с типом date и дополнительным методом <code>format</code>
 </x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Fields\Date;
+use MoonShine\Fields\Date;
 
 //...
 public function fields(): array
@@ -22,7 +26,7 @@ public function fields(): array
         Для отображения в поле не только даты, но и времени используйте метод <code>withTime</code>
     </x-p>
     <x-code language="php">
-        use Leeto\MoonShine\Fields\Date;
+        use MoonShine\Fields\Date;
 
         //...
         public function fields(): array

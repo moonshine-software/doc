@@ -243,7 +243,7 @@
                  <li>Simplified installation. Everything is wrapped in the artisan moonshine:install</li> command
                  <li>New config/moonshine.php</li>
                  <li>App/MoonShine/Controllers directory removed</li>
-                 <li>Resource base class changed Leeto\MoonShine\Resources\BaseResource -> Leeto\MoonShine\Resources\Resource</li>
+                 <li>Resource base class changed MoonShine\Resources\BaseResource -> MoonShine\Resources\Resource</li>
                  <li>Dashboard.php added to the main app/MoonShine directory to customize the control panel</li>
             </ul>
         </div>

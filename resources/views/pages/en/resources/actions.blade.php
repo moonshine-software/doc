@@ -16,10 +16,10 @@
 </x-moonshine::alert>
 
 <x-code language="php">
-namespace Leeto\MoonShine\Resources;
+namespace MoonShine\Resources;
 
-use Leeto\MoonShine\Models\MoonshineUser;
-use Leeto\MoonShine\Actions\ExportAction; // [tl! focus]
+use MoonShine\Models\MoonshineUser;
+use MoonShine\Actions\ExportAction; // [tl! focus]
 
 class PostResource extends Resource
 {

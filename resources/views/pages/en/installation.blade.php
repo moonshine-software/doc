@@ -61,9 +61,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Leeto\MoonShine\MoonShine;
-use Leeto\MoonShine\Menu\MenuItem;
-use Leeto\MoonShine\Resources\MoonShineUserResource;
+use MoonShine\MoonShine;
+use MoonShine\Menu\MenuItem;
+use MoonShine\Resources\MoonShineUserResource;
 
 class MoonShineServiceProvider extends ServiceProvider
 {

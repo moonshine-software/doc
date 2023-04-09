@@ -1,5 +1,9 @@
 <x-page title="ID">
 
+<x-extendby :href="route('moonshine.custom_page', 'fields-text')">
+    Text
+</x-extendby>
+
 <x-p>
     Присутствует почти всегда и будет скрыто по умолчанию на странице добавления/редактирования.
     Если primary key имеет наименование отличное от id, то свое наименование указываем первым
@@ -7,7 +11,7 @@
 </x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Fields\ID; // [tl! focus]
+use MoonShine\Fields\ID; // [tl! focus]
 
 //...
 
@@ -22,7 +26,7 @@ public function fields(): array
 </x-code>
 
 <x-code language="php">
-use Leeto\MoonShine\Fields\ID; // [tl! focus]
+use MoonShine\Fields\ID; // [tl! focus]
 
 //...
 

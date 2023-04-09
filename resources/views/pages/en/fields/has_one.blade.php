@@ -1,5 +1,9 @@
 <x-page title="HasOne">
 
+<x-extendby :href="route('moonshine.custom_page', 'fields-has_many')">
+    HasMany
+</x-extendby>
+
 <x-p>The relationship field in laravel of type hasOne</x-p>
 
 <x-p>Creates a new record in the linked table and binds it to the current record</x-p>
@@ -7,7 +11,7 @@
 <x-p>If there is a connection, the record is edited</x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Fields\HasOne;
+use MoonShine\Fields\HasOne;
 
 //...
 public function fields(): array

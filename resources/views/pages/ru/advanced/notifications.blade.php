@@ -2,11 +2,11 @@
 
 <x-p>
     Если есть необходимость добавить уведомления в центр уведомлений MoonShine, тогда
-    воспользуйтесь классом <code>Leeto\MoonShine\Notifications\MoonShineNotification</code>
+    воспользуйтесь классом <code>MoonShine\Notifications\MoonShineNotification</code>
 </x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Notifications\MoonShineNotification;
+use MoonShine\Notifications\MoonShineNotification;
 
 MoonShineNotification::send(
     message: 'Notification message',

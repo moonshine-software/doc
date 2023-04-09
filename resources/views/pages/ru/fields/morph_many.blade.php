@@ -1,10 +1,14 @@
 <x-page title="MorphMany">
 
+<x-extendby :href="route('moonshine.custom_page', 'fields-has_many')">
+    HasMany
+</x-extendby>
+
 <x-p>Поле для отношений в laravel типа morphMany</x-p>
 
-<x-p>То же самое что и <code>Leeto\MoonShine\Fields\HasMany</code> только для отношений morphMany</x-p>
+<x-p>То же самое что и <code>MoonShine\Fields\HasMany</code> только для отношений morphMany</x-p>
 
-<x-p><code>Leeto\MoonShine\Fields\MorphMany</code></x-p>
+<x-p><code>MoonShine\Fields\MorphMany</code></x-p>
 
 </x-page>
 

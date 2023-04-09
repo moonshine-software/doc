@@ -15,10 +15,10 @@
 </x-moonshine::alert>
 
 <x-code language="php">
-namespace Leeto\MoonShine\Resources;
+namespace MoonShine\Resources;
 
-use Leeto\MoonShine\Models\MoonshineUser;
-use Leeto\MoonShine\Filters\TextFilter; // [tl! focus]
+use MoonShine\Models\MoonshineUser;
+use MoonShine\Filters\TextFilter; // [tl! focus]
 
 class PostResource extends Resource
 {

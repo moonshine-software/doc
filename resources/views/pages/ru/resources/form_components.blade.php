@@ -10,9 +10,9 @@
 </x-p>
 
 <x-code language="php">
-namespace Leeto\MoonShine\Resources;
+namespace MoonShine\Resources;
 
-use Leeto\MoonShine\Models\MoonshineUser;
+use MoonShine\Models\MoonshineUser;
 
 class MoonShineUserResource extends Resource
 {

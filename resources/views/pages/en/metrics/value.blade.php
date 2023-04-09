@@ -5,10 +5,10 @@
 </x-p>
 
 <x-code language="php">
-namespace Leeto\MoonShine\Resources;
+namespace MoonShine\Resources;
 
 
-use Leeto\MoonShine\Metrics\ValueMetric;
+use MoonShine\Metrics\ValueMetric;
 
 class PostResource extends Resource
 {
@@ -34,10 +34,10 @@ return [
 </x-p>
 
 <x-code language="php">
-namespace Leeto\MoonShine\Resources;
+namespace MoonShine\Resources;
 
 
-use Leeto\MoonShine\Metrics\ValueMetric;
+use MoonShine\Metrics\ValueMetric;
 
 class PostResource extends Resource
 {
@@ -64,9 +64,9 @@ The output value can be formatted and a prefix and suffix added
 </x-p>
 
 <x-code language="php">
-namespace Leeto\MoonShine\Resources;
+namespace MoonShine\Resources;
 
-use Leeto\MoonShine\Metrics\ValueMetric;
+use MoonShine\Metrics\ValueMetric;
 
 class PostResource extends Resource
 {

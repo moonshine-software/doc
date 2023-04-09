@@ -6,7 +6,7 @@
     <x-ul :items="['NULL', '\'\'', 0]"></x-ul>
 
 
-    <x-p><code>Leeto\MoonShine\Filters\IsEmptyFilter</code></x-p>
-    <x-p><code>Leeto\MoonShine\Filters\IsNotEmptyFilter</code></x-p>
+    <x-p><code>MoonShine\Filters\IsEmptyFilter</code></x-p>
+    <x-p><code>MoonShine\Filters\IsNotEmptyFilter</code></x-p>
 
 </x-page>

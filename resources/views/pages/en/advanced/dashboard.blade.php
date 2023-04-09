@@ -28,9 +28,9 @@
 namespace App\MoonShine;
 
 use App\Models\User;
-use Leeto\MoonShine\Dashboard\DashboardBlock;
-use Leeto\MoonShine\Dashboard\DashboardScreen;
-use Leeto\MoonShine\Metrics\ValueMetric;
+use MoonShine\Dashboard\DashboardBlock;
+use MoonShine\Dashboard\DashboardScreen;
+use MoonShine\Metrics\ValueMetric;
 
 class Dashboard extends DashboardScreen
 {
@@ -60,9 +60,9 @@ class Dashboard extends DashboardScreen
 namespace App\MoonShine;
 
 use App\Models\Article;
-use Leeto\MoonShine\Dashboard\DashboardBlock;
-use Leeto\MoonShine\Dashboard\DashboardScreen;
-use Leeto\MoonShine\Dashboard\ResourcePreview;
+use MoonShine\Dashboard\DashboardBlock;
+use MoonShine\Dashboard\DashboardScreen;
+use MoonShine\Dashboard\ResourcePreview;
 
 class Dashboard extends DashboardScreen
 {
@@ -93,9 +93,9 @@ class Dashboard extends DashboardScreen
 <x-code language="php">
 namespace App\MoonShine;
 
-use Leeto\MoonShine\Dashboard\DashboardBlock;
-use Leeto\MoonShine\Dashboard\DashboardScreen;Welcome
-use Leeto\MoonShine\Dashboard\TextBlock;
+use MoonShine\Dashboard\DashboardBlock;
+use MoonShine\Dashboard\DashboardScreen;Welcome
+use MoonShine\Dashboard\TextBlock;
 
 class Dashboard extends DashboardScreen
 {

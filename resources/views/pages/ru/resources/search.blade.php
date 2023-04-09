@@ -10,9 +10,9 @@
 </x-moonshine::alert>
 
 <x-code language="php">
-namespace Leeto\MoonShine\Resources;
+namespace MoonShine\Resources;
 
-use Leeto\MoonShine\Models\MoonshineUser;
+use MoonShine\Models\MoonshineUser;
 
 class PostResource extends Resource
 {
@@ -28,13 +28,13 @@ class PostResource extends Resource
 </x-code>
 
 <x-p>
-    Если требуется fulltext поиск, то необходимо воспользоваться аттрибутом <code>Leeto\MoonShine\Attributes\SearchUsingFullText</code>
+    Если требуется fulltext поиск, то необходимо воспользоваться аттрибутом <code>MoonShine\Attributes\SearchUsingFullText</code>
 </x-p>
 
 <x-code language="php">
-    namespace Leeto\MoonShine\Resources;
+    namespace MoonShine\Resources;
 
-    use Leeto\MoonShine\Attributes\SearchUsingFullText; // [tl! focus]
+    use MoonShine\Attributes\SearchUsingFullText; // [tl! focus]
 
     class PostResource extends Resource
     {

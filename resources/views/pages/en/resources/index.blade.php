@@ -59,9 +59,9 @@
     The main parameters that can be changed for a resource in order to customize its work
 </x-p>
 <x-code language="php">
-namespace Leeto\MoonShine\Resources;
+namespace MoonShine\Resources;
 
-use Leeto\MoonShine\Models\MoonshineUser;
+use MoonShine\Models\MoonshineUser;
 
 class PostResource extends Resource
 {
@@ -89,7 +89,7 @@ class PostResource extends Resource
 
 <x-p>
     New resources are added to the system in the <code>service provider</code> using the singleton class
-     <code>Leeto\MoonShine\MoonShine</code> and <code>menu</code> method
+     <code>MoonShine\MoonShine</code> and <code>menu</code> method
 </x-p>
 <x-code language="php">
 namespace App\Providers;
@@ -97,10 +97,10 @@ namespace App\Providers;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
 
-use Leeto\MoonShine\MoonShine;
+use MoonShine\MoonShine;
 
-use Leeto\MoonShine\Resources\MoonShineUserResource; // [tl! focus]
-use Leeto\MoonShine\Resources\MoonShineUserRoleResource; // [tl! focus]
+use MoonShine\Resources\MoonShineUserResource; // [tl! focus]
+use MoonShine\Resources\MoonShineUserRoleResource; // [tl! focus]
 use App\MoonShine\Resources\PostResource; // [tl! focus]
 
 class MoonShineServiceProvider extends ServiceProvider
@@ -143,7 +143,7 @@ namespace App\MoonShine\Resources;
 
 use App\Models\Post;
 
-use Leeto\MoonShine\Resources\Resource;
+use MoonShine\Resources\Resource;
 
 class PostResource extends Resource
 {

@@ -1,5 +1,9 @@
 <x-page title="Диапазон">
 
+<x-extendby :href="route('moonshine.custom_page', 'fields-text')">
+    Text
+</x-extendby>
+
 <x-p>
     Имеет такие же методы как и поле "Число" с дополнительными методами <code>step</code>,
      <code>fromField</code>, <code>toField</code>
@@ -11,7 +15,7 @@
 </x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Fields\SlideField;
+use MoonShine\Fields\SlideField;
 
 //...
 public function fields(): array

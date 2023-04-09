@@ -1,7 +1,11 @@
 <x-page title="Переключатель">
 
+<x-extendby :href="route('moonshine.custom_page', 'fields-checkbox')">
+    Checkbox
+</x-extendby>
+
 <x-code language="php">
-use Leeto\MoonShine\Fields\SwitchBoolean;
+use MoonShine\Fields\SwitchBoolean;
 
 //...
 public function fields(): array
@@ -15,7 +19,7 @@ public function fields(): array
 </x-code>
 
 <x-code language="php">
-use Leeto\MoonShine\Fields\SwitchBoolean;
+use MoonShine\Fields\SwitchBoolean;
 
 //...
 public function fields(): array
@@ -32,7 +36,7 @@ public function fields(): array
 
 
 <x-code language="php">
-use Leeto\MoonShine\Fields\SwitchBoolean;
+use MoonShine\Fields\SwitchBoolean;
 
 //...
 public function fields(): array

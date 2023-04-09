@@ -30,5 +30,7 @@
     "Events": "События",
     "Notifications": "Уведомления",
     "Localization": "Локализация",
-    "Extensions": "Расширения"
+    "Extensions": "Расширения",
+    "Extends": "Наследует",
+    "has the same features": "имеет те же возможности"
 }

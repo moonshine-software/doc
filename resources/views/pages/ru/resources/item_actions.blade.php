@@ -13,10 +13,10 @@
 </x-p>
 
 <x-code language="php">
-namespace Leeto\MoonShine\Resources;
+namespace MoonShine\Resources;
 
-use Leeto\MoonShine\Models\MoonshineUser;
-use Leeto\MoonShine\ItemActions\ItemAction; // [tl! focus]
+use MoonShine\Models\MoonshineUser;
+use MoonShine\ItemActions\ItemAction; // [tl! focus]
 
 class PostResource extends Resource
 {

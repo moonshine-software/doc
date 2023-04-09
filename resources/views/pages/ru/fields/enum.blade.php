@@ -1,5 +1,9 @@
 <x-page title="Enum поле">
 
+<x-extendby :href="route('moonshine.custom_page', 'fields-select')">
+    Select
+</x-extendby>
+
 <x-p>
     Работает так же как и Select поле но принимает Enum
 </x-p>
@@ -9,7 +13,7 @@
 </x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Fields\Enum;
+use MoonShine\Fields\Enum;
 
 //...
 

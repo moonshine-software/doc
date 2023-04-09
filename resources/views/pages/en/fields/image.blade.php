@@ -1,5 +1,9 @@
 <x-page title="Image">
 
+<x-extendby :href="route('moonshine.custom_page', 'fields-file')">
+    File
+</x-extendby>
+
 <x-p>
     Before using the file field, make sure that a symbolic link is set to the storage directory
 </x-p>
@@ -9,7 +13,7 @@ php artisan storage:link
 </x-code>
 
 <x-code language="php">
-use Leeto\MoonShine\Fields\Image;
+use MoonShine\Fields\Image;
 
 //...
 

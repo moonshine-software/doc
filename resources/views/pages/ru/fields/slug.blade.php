@@ -1,12 +1,16 @@
 <x-page title="Slug">
 
+<x-extendby :href="route('moonshine.custom_page', 'fields-text')">
+    Text
+</x-extendby>
+
 <x-p>
     С помощью данного поля вы можете генерировать slug на основе выбранного поля, а также сохранять его уникальным
 </x-p>
 
 <x-code language="php">
 //...
-use Leeto\MoonShine\Fields\Slug;
+use MoonShine\Fields\Slug;
 
 public function fields(): array
 {

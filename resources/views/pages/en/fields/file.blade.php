@@ -5,7 +5,7 @@
 </x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Fields\File;
+use MoonShine\Fields\File;
 
 File::make('File', 'file')
 </x-code>

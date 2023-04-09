@@ -2,14 +2,14 @@
 
 <x-p>
     To the admin. the panel displayed the post editing history based on the user needed
-     the model that is used in the resource add a trait <code>Leeto\MoonShine\Traits\Models\HasMoonShineChangeLog</code>
+     the model that is used in the resource add a trait <code>MoonShine\Traits\Models\HasMoonShineChangeLog</code>
 </x-p>
 
 <x-code language="php">
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Leeto\MoonShine\Traits\Models\HasMoonShineChangeLog; // [tl! focus]
+use MoonShine\Traits\Models\HasMoonShineChangeLog; // [tl! focus]
 
 class Article extends Model
 {

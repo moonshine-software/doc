@@ -5,7 +5,7 @@
 </x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Fields\Textarea;
+use MoonShine\Fields\Textarea;
 
 //...
 

@@ -18,7 +18,7 @@
 </x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Fields\Json;
+use MoonShine\Fields\Json;
 
 //...
 public function fields(): array
@@ -42,7 +42,7 @@ public function fields(): array
 </x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Fields\Json;
+use MoonShine\Fields\Json;
 
 //...
 public function fields(): array

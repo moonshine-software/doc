@@ -1,11 +1,15 @@
 <x-page title="Число">
 
+<x-extendby :href="route('moonshine.custom_page', 'fields-text')">
+    Text
+</x-extendby>
+
 <x-p>
     Input с типом number и дополнительными методами  <code>stars</code>, <code>min</code>, <code>min</code>
 </x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Fields\Number;
+use MoonShine\Fields\Number;
 
 //...
 public function fields(): array
@@ -25,7 +29,7 @@ public function fields(): array
 </x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Fields\Number;
+use MoonShine\Fields\Number;
 
 //...
 public function fields(): array

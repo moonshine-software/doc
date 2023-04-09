@@ -1,9 +1,13 @@
 <x-page title="Код">
 
+<x-extendby :href="route('moonshine.custom_page', 'fields-textarea')">
+    Textarea
+</x-extendby>
+
 <x-p>Редактор кода</x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Fields\Code;
+use MoonShine\Fields\Code;
 
 //...
 public function fields(): array

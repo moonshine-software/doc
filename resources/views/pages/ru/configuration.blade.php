@@ -1,8 +1,8 @@
 <x-page title="Конфигурация" :sectionMenu="[]">
 
 <x-code language="php">
-use Leeto\MoonShine\Exceptions\MoonShineNotFoundException;
-use Leeto\MoonShine\Models\MoonshineUser;
+use MoonShine\Exceptions\MoonShineNotFoundException;
+use MoonShine\Models\MoonshineUser;
 
 return [
     # Директория, где располагаются ресурсы

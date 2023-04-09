@@ -38,7 +38,7 @@ app(MoonShine::class)->menu([
 </x-code>
 
 <x-p>
-    Всего лишь необходимо добавить ресурсы вторым параметром в класс <code>Leeto\MoonShine\Menu\MenuGroup</code>.
+    Всего лишь необходимо добавить ресурсы вторым параметром в класс <code>MoonShine\Menu\MenuGroup</code>.
     Ну а первый параметр название группы!
 </x-p>
 

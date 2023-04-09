@@ -1,11 +1,15 @@
 <x-page title="Цвет">
 
+<x-extendby :href="route('moonshine.custom_page', 'fields-text')">
+    Text
+</x-extendby>
+
 <x-p>
     Все тоже самое как и "Текстовое поле", меняется только input type = color
 </x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Fields\Color;
+use MoonShine\Fields\Color;
 
 Color::make('Цвет', 'color')
 </x-code>

@@ -31,37 +31,41 @@ return [
 
     'Fields:bars-3' => [
         ['slug' => 'fields-index', 'label' => 'Basic'],
-        ['slug' => 'fields-id', 'label' => 'ID'],
+        // Text
         ['slug' => 'fields-text', 'label' => 'Text'],
-        ['slug' => 'fields-select', 'label' => 'Select'],
-        ['slug' => 'fields-enum', 'label' => 'Enum'],
-        ['slug' => 'fields-checkbox', 'label' => 'Checkbox'],
-        ['slug' => 'fields-textarea', 'label' => 'Textarea'],
-
-        ['slug' => 'fields-image', 'label' => 'Image'],
-        ['slug' => 'fields-file', 'label' => 'File'],
-
-        ['slug' => 'fields-json', 'label' => 'Json'],
-
+        ['slug' => 'fields-id', 'label' => 'ID'],
         ['slug' => 'fields-slug', 'label' => 'Slug'],
         ['slug' => 'fields-color', 'label' => 'Color'],
         ['slug' => 'fields-url', 'label' => 'Url'],
         ['slug' => 'fields-email', 'label' => 'E-mail'],
         ['slug' => 'fields-phone', 'label' => 'Phone'],
-
         ['slug' => 'fields-password', 'label' => 'Password'],
-
         ['slug' => 'fields-number', 'label' => 'Number'],
-
         ['slug' => 'fields-slide', 'label' => 'Slide'],
-
         ['slug' => 'fields-date', 'label' => 'Date'],
 
-        ['slug' => 'fields-switch', 'label' => 'Switch'],
 
+        // Textarea
+        ['slug' => 'fields-textarea', 'label' => 'Textarea'],
         ['slug' => 'fields-wysiwyg', 'label' => 'WYSIWYG'],
         ['slug' => 'fields-code', 'label' => 'Code'],
 
+        // Select
+        ['slug' => 'fields-select', 'label' => 'Select'],
+        ['slug' => 'fields-enum', 'label' => 'Enum'],
+
+        // Checkbox
+        ['slug' => 'fields-checkbox', 'label' => 'Checkbox'],
+        ['slug' => 'fields-switch', 'label' => 'Switch'],
+
+        // File
+        ['slug' => 'fields-file', 'label' => 'File'],
+        ['slug' => 'fields-image', 'label' => 'Image'],
+
+        // Table
+        ['slug' => 'fields-json', 'label' => 'Json'],
+
+        // Relations
         ['slug' => 'fields-belongs_to', 'label' => 'BelongsTo'],
         ['slug' => 'fields-belongs_to_many', 'label' => 'BelongsToMany'],
         ['slug' => 'fields-has_many', 'label' => 'HasMany'],
@@ -74,21 +78,30 @@ return [
         ['slug' => 'fields-morph_many', 'label' => 'MorphMany'],
         ['slug' => 'fields-morph_to_many', 'label' => 'MorphToMany'],
 
+        ['slug' => 'fields-no_input', 'label' => 'NoInput'],
+
+        // Packages
         ['slug' => 'fields-spatie-translatable', 'label' => 'Spatie\Translatable'],
         ['slug' => 'fields-spatie-medialibrary', 'label' => 'Spatie\MediaLibrary'],
-
-        ['slug' => 'fields-no_input', 'label' => 'NoInput'],
     ],
 
     'Filters:adjustments-vertical' => [
         ['slug' => 'filters-index', 'label' => 'Basic'],
+        // Text
         ['slug' => 'filters-text', 'label' => 'Text'],
-        ['slug' => 'filters-select', 'label' => 'Select'],
         ['slug' => 'filters-date', 'label' => 'Date'],
         ['slug' => 'filters-date_range', 'label' => 'DateRange'],
         ['slug' => 'filters-slide', 'label' => 'Slide'],
+
+        // Select
+        ['slug' => 'filters-select', 'label' => 'Select'],
+
+        // Checkbox
         ['slug' => 'filters-switch', 'label' => 'Switch'],
+
         ['slug' => 'filters-is_empty', 'label' => 'IsEmpty/IsNotEmpty'],
+
+        // Relations
         ['slug' => 'filters-belongs_to', 'label' => 'BelongsTo'],
         ['slug' => 'filters-belongs_to_many', 'label' => 'BelongsToMany'],
         ['slug' => 'filters-has_one', 'label' => 'HasOne'],

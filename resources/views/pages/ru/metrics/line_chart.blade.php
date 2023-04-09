@@ -5,9 +5,9 @@
 </x-p>
 
 <x-code language="php">
-namespace Leeto\MoonShine\Resources;
+namespace MoonShine\Resources;
 
-use Leeto\MoonShine\Metrics\LineChartMetric;
+use MoonShine\Metrics\LineChartMetric;
 
 class PostResource extends Resource
 {

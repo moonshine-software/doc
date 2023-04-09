@@ -23,7 +23,7 @@
 ]"></x-ul>
 
 <x-code language="php">
-use Leeto\MoonShine\Fields\Spatie\Translatable;
+use MoonShine\Fields\Spatie\Translatable;
 //...
 Translatable::make('Title', 'name')
 //...
@@ -41,7 +41,7 @@ Translatable::make('Title', 'name')
 
 
 <x-code language="php">
-use Leeto\MoonShine\Fields\Spatie\Translatable;
+use MoonShine\Fields\Spatie\Translatable;
 //...
 Translatable::make('Title', 'name')
     ->requiredLanguages([config('app.fallback_locale'), 'ru'])
@@ -55,7 +55,7 @@ Translatable::make('Title', 'name')
 </x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Fields\Spatie\Translatable;
+use MoonShine\Fields\Spatie\Translatable;
 //...
 Translatable::make('Title', 'name')
     ->priorityLanguages([config('app.fallback_locale'), config('app.locale'), 'de', 'fr', 'uk'])

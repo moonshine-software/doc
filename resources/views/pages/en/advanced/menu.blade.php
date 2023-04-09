@@ -37,7 +37,7 @@ app(MoonShine::class)->menu([
 </x-code>
 
 <x-p>
-    You just need to add the resources as a second parameter to the class <code>Leeto\MoonShine\Menu\MenuGroup</code>.
+    You just need to add the resources as a second parameter to the class <code>MoonShine\Menu\MenuGroup</code>.
     Well, the first parameter is the name of the group!
 </x-p>
 

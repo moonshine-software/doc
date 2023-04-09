@@ -5,7 +5,7 @@
 </x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Actions\ImportAction;
+use MoonShine\Actions\ImportAction;
 
 //...
 public function actions(): array

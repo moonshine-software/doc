@@ -5,7 +5,7 @@
 </x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Decorations\Heading;
+use MoonShine\Decorations\Heading;
 
 //...
 public function fields(): array

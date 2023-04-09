@@ -12,7 +12,6 @@
         ['url' => '#nullable', 'label' => 'Nullable'],
         ['url' => '#sortable', 'label' => 'Сортировка'],
         ['url' => '#label', 'label' => 'Скрыть label'],
-        ['url' => '#mask', 'label' => 'Маска'],
         ['url' => '#default', 'label' => 'Значение по умолчанию'],
         ['url' => '#show-when', 'label' => 'Условие отображения'],
         ['url' => '#can-save', 'label' => 'Возможность сохранения'],
@@ -309,26 +308,6 @@ public function fields(): array
     return [
         Text::make('Заголовок', 'title')
             ->fieldContainer(false) // [tl! focus]
-    ];
-}
-
-//...
-</x-code>
-
-<x-sub-title id="mask">Маска</x-sub-title>
-
-<x-p>
-    Метод <code>mask</code> если необходимо добавить маску для поля
-</x-p>
-
-<x-code language="php">
-//...
-
-public function fields(): array
-{
-    return [
-        Text::make('Заголовок', 'title')
-            ->mask('7 (999) 999-99-99') // [tl! focus]
     ];
 }
 

@@ -2,14 +2,14 @@
 
 <x-p>
     Чтобы в админ панели отображалась история редактирования записей на основе пользователя необходимо
-    модели которая используется в ресурсе добавить трейт <code>Leeto\MoonShine\Traits\Models\HasMoonShineChangeLog</code>
+    модели которая используется в ресурсе добавить трейт <code>MoonShine\Traits\Models\HasMoonShineChangeLog</code>
 </x-p>
 
 <x-code language="php">
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Leeto\MoonShine\Traits\Models\HasMoonShineChangeLog; // [tl! focus]
+use MoonShine\Traits\Models\HasMoonShineChangeLog; // [tl! focus]
 
 class Article extends Model
 {

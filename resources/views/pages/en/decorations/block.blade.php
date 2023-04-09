@@ -5,7 +5,7 @@
 </x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Decorations\Block;
+use MoonShine\Decorations\Block;
 
 //...
 public function fields(): array
@@ -24,7 +24,7 @@ public function fields(): array
 </x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Decorations\Block;
+use MoonShine\Decorations\Block;
 
 //...
 public function fields(): array

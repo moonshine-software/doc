@@ -4,10 +4,10 @@
 </x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Decorations\Block;
-use Leeto\MoonShine\Decorations\Tabs;
-use Leeto\MoonShine\Decorations\Tab;
-use Leeto\MoonShine\Fields\Text;
+use MoonShine\Decorations\Block;
+use MoonShine\Decorations\Tabs;
+use MoonShine\Decorations\Tab;
+use MoonShine\Fields\Text;
 
 //...
 public function fields(): array

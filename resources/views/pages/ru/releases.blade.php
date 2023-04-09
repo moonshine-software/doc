@@ -243,7 +243,7 @@
                 <li>Упрощена установка. Все заключено в команду artisan moonshine:install</li>
                 <li>Новый config/moonshine.php</li>
                 <li>Директория app/MoonShine/Controllers удалена</li>
-                <li>У ресурсов изменен базовый класс Leeto\MoonShine\Resources\BaseResource -> Leeto\MoonShine\Resources\Resource</li>
+                <li>У ресурсов изменен базовый класс MoonShine\Resources\BaseResource -> MoonShine\Resources\Resource</li>
                 <li>В основной директории app/MoonShine добавлен Dashboard.php для кастомизации панели управления</li>
             </ul>
         </div>

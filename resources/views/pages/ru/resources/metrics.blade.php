@@ -6,10 +6,10 @@
 </x-p>
 
 <x-code language="php">
-namespace Leeto\MoonShine\Resources;
+namespace MoonShine\Resources;
 
 
-use Leeto\MoonShine\Metrics\ValueMetric;
+use MoonShine\Metrics\ValueMetric;
 
 class PostResource extends Resource
 {

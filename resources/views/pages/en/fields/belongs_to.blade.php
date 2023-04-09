@@ -1,12 +1,16 @@
 <x-page title="BelongsTo">
 
+<x-extendby :href="route('moonshine.custom_page', 'fields-select')">
+    Select
+</x-extendby>
+
 <x-p>Relationship field in laravel like belongsTo</x-p>
 
 <x-p>Displayed as select, it is also possible to add a value search using the method:
 <code>searchable</code></x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Fields\BelongsTo;
+use MoonShine\Fields\BelongsTo;
 
 //...
 public function fields(): array
@@ -26,7 +30,7 @@ public function fields(): array
 <x-p>You can also pass a resource with a field to display as a third parameter</x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Fields\BelongsTo;
+use MoonShine\Fields\BelongsTo;
 use App\MoonShine\Resources\CountryResource;
 
 //...
@@ -43,7 +47,7 @@ public function fields(): array
 <x-code language="php">
 namespace App\MoonShine\Resources;
 
-use Leeto\MoonShine\Resources\Resource;
+use MoonShine\Resources\Resource;
 use App\Models\Country;
 
 class CountryResource extends Resource
@@ -61,7 +65,7 @@ public string $titleField = 'name'; // [tl! focus]
 
 <x-p>If you need a more complex value to display, you can pass a function to the third argument</x-p>
 <x-code language="php">
-use Leeto\MoonShine\Fields\BelongsTo;
+use MoonShine\Fields\BelongsTo;
 
 //...
 public function fields(): array
@@ -75,7 +79,7 @@ return [
 
 <x-p>If the default value is necessary Null</x-p>
 <x-code language="php">
-use Leeto\MoonShine\Fields\BelongsTo;
+use MoonShine\Fields\BelongsTo;
 
 //...
 public function fields(): array

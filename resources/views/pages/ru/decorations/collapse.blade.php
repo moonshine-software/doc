@@ -5,8 +5,8 @@
 </x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Decorations\Collapse;  // [tl! focus]
-use Leeto\MoonShine\Decorations\Block;
+use MoonShine\Decorations\Collapse;  // [tl! focus]
+use MoonShine\Decorations\Block;
 
 //...
 public function fields(): array

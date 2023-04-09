@@ -15,12 +15,12 @@
 </x-p>
 
 <x-code language="php">
-namespace Leeto\MoonShine\Resources;
+namespace MoonShine\Resources;
 
-use Leeto\MoonShine\Models\MoonshineUser;
-use Leeto\MoonShine\Fields\ID; // [tl! focus]
-use Leeto\MoonShine\Fields\Text; // [tl! focus]
-use Leeto\MoonShine\Decorations\Block;
+use MoonShine\Models\MoonshineUser;
+use MoonShine\Fields\ID; // [tl! focus]
+use MoonShine\Fields\Text; // [tl! focus]
+use MoonShine\Decorations\Block;
 
 class PostResource extends Resource
 {

@@ -6,10 +6,10 @@
 </x-p>
 
 <x-code language="php">
-namespace Leeto\MoonShine\Resources;
+namespace MoonShine\Resources;
 
-use Leeto\MoonShine\Models\MoonshineUser;
-use Leeto\MoonShine\BulkActions\BulkAction; // [tl! focus]
+use MoonShine\Models\MoonshineUser;
+use MoonShine\BulkActions\BulkAction; // [tl! focus]
 
 class PostResource extends Resource
 {

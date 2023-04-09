@@ -5,7 +5,7 @@
 </x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Decorations\Button;
+use MoonShine\Decorations\Button;
 
 //...
 public function fields(): array

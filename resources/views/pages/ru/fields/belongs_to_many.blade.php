@@ -14,7 +14,7 @@
 <x-p>Отображается как группа чекбоксов, также есть возможность трансформировать отображение в select multiple</x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Fields\BelongsToMany;
+use MoonShine\Fields\BelongsToMany;
 
 //...
 public function fields(): array
@@ -34,7 +34,7 @@ public function fields(): array
 <x-p>Для реализации pivot полей, воспользуйтесь методом <code>fields</code></x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Fields\BelongsToMany;
+use MoonShine\Fields\BelongsToMany;
 
 //...
 public function fields(): array
@@ -60,7 +60,7 @@ public function fields(): array
     а <code>searchValueCallback</code> для кастомизации вывода</x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Fields\BelongsToMany;
+use MoonShine\Fields\BelongsToMany;
 
 //...
 public function fields(): array
@@ -98,7 +98,7 @@ public function fields(): array
 <x-p>Для трансформации отображения в select, воспользуйтесь методом <code>select</code></x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Fields\BelongsToMany;
+use MoonShine\Fields\BelongsToMany;
 
 //...
 public function fields(): array
@@ -121,7 +121,7 @@ public function fields(): array
 </x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Fields\BelongsToMany;
+use MoonShine\Fields\BelongsToMany;
 use Illuminate\Database\Eloquent\Builder;
 
 //...
@@ -141,7 +141,7 @@ public function fields(): array
     которые имеют вложенность, для таких целей есть метод <code>tree</code></x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Fields\BelongsToMany;
+use MoonShine\Fields\BelongsToMany;
 
 //...
 public function fields(): array
@@ -160,7 +160,7 @@ public function fields(): array
     но если требуется отобразить только значение количества выбранных, то следует воспользоваться методом <code>onlyCount</code></x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Fields\BelongsToMany;
+use MoonShine\Fields\BelongsToMany;
 
 //...
 public function fields(): array

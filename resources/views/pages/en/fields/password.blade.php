@@ -1,5 +1,9 @@
 <x-page title="Password">
 
+<x-extendby :href="route('moonshine.custom_page', 'fields-text')">
+    Text
+</x-extendby>
+
 <x-p>
     Everything is the same as the "Text Box", only the input type = password
 </x-p>
@@ -9,8 +13,8 @@
 </x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Fields\Password;
-use Leeto\MoonShine\Fields\PasswordRepeat;
+use MoonShine\Fields\Password;
+use MoonShine\Fields\PasswordRepeat;
 
 //...
 

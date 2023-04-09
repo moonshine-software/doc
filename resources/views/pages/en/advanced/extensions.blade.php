@@ -23,7 +23,7 @@
 <x-code language="php">
 namespace App\MoonShine\Fields;
 
-use Leeto\MoonShine\Fields\Field;
+use MoonShine\Fields\Field;
 
 final class CKEditor extends Field
 {

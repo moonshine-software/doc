@@ -20,7 +20,7 @@
 
 <x-code language="php">
 //...
-use Leeto\MoonShine\Fields\NoInput;
+use MoonShine\Fields\NoInput;
 
 public function fields(): array
 {
@@ -45,7 +45,7 @@ public function fields(): array
 
 <x-code language="php">
 //...
-use Leeto\MoonShine\Fields\NoInput;
+use MoonShine\Fields\NoInput;
 
 public function fields(): array
 {
@@ -66,7 +66,7 @@ public function fields(): array
 
 <x-code language="php">
 //...
-use Leeto\MoonShine\Fields\NoInput;
+use MoonShine\Fields\NoInput;
 
 public function fields(): array
 {
@@ -87,7 +87,7 @@ public function fields(): array
 
 <x-code language="php">
 //...
-use Leeto\MoonShine\Fields\NoInput;
+use MoonShine\Fields\NoInput;
 
 public function fields(): array
 {

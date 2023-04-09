@@ -3,7 +3,7 @@
 <x-p>Поле для отношений в laravel типа hasMany</x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Fields\HasMany;
+use MoonShine\Fields\HasMany;
 
 //...
 public function fields(): array
@@ -42,7 +42,7 @@ public function fields(): array
 </x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Fields\HasMany;
+use MoonShine\Fields\HasMany;
 
 //...
 public function fields(): array

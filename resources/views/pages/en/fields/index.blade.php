@@ -12,7 +12,6 @@
         ['url' => '#nullable', 'label' => 'Nullable'],
         ['url' => '#sortable', 'label' => 'Sorting'],
         ['url' => '#label', 'label' => 'Hide label'],
-        ['url' => '#mask', 'label' => 'Mask'],
         ['url' => '#default', 'label' => 'Default value'],
         ['url' => '#show-when', 'label' => 'Display condition'],
         ['url' => '#can-save', 'label' => 'Ability to save'],
@@ -301,26 +300,6 @@ public function fields(): array
     return [
         Text::make('Title', 'title')
             ->fieldContainer(false) // [tl! focus]
-    ];
-}
-
-//...
-</x-code>
-
-<x-sub-title id="mask">Mask</x-sub-title>
-
-<x-p>
-    The method <code>mask</code> if you want to add a mask to the field
-</x-p>
-
-<x-code language="php">
-//...
-
-public function fields(): array
-{
-    return [
-        Text::make('Title', 'title')
-            ->mask('7 (999) 999-99-99') // [tl! focus]
     ];
 }
 

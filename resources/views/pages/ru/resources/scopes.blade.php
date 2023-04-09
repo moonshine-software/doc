@@ -9,7 +9,7 @@
 </x-p>
 
 <x-code language="php">
-namespace Leeto\MoonShine\Resources;
+namespace MoonShine\Resources;
 
 use Illuminate\Contracts\Database\Eloquent\Builder;
 
@@ -40,7 +40,7 @@ php artisan make:scope ActiveUserScope
 </x-code>
 
 <x-code language="php">
-namespace Leeto\MoonShine\Resources;
+namespace MoonShine\Resources;
 
 
 use App\Models\Scopes\ActiveUserScope;

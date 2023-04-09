@@ -1,70 +1,20 @@
 <x-page title="WYSIWYG" :sectionMenu="[
 'Разделы' => [
+    ['url' => '#tinymce', 'label' => 'TinyMce'],
     ['url' => '#trix', 'label' => 'Trix'],
     ['url' => '#ckeditor', 'label' => 'CKEditor'],
     ['url' => '#quill', 'label' => 'Quill'],
-    ['url' => '#tinymce', 'label' => 'TinyMce'],
 ]
 ]">
 
-<x-sub-title id="trix">Trix</x-sub-title>
-
-<x-code language="php">
-use Leeto\MoonShine\Fields\WYSIWYG;
-
-//...
-public function fields(): array
-{
-    return [
-        WYSIWYG::make('Описание', 'description'),
-    ];
-}
-//...
-</x-code>
-
-<x-image theme="light" src="{{ asset('screenshots/wysiwyg.png') }}"></x-image>
-<x-image theme="dark" src="{{ asset('screenshots/wysiwyg_dark.png') }}"></x-image>
-
-<x-sub-title id="ckeditor">CKEditor</x-sub-title>
-
-<x-code language="php">
-use Leeto\MoonShine\Fields\CKEditor;
-
-//...
-public function fields(): array
-{
-    return [
-        CKEditor::make('Описание', 'description'),
-    ];
-}
-//...
-</x-code>
-
-<x-image theme="light" src="{{ asset('screenshots/ckeditor.png') }}"></x-image>
-<x-image theme="dark" src="{{ asset('screenshots/ckeditor_dark.png') }}"></x-image>
-
-<x-sub-title id="quill">Quill</x-sub-title>
-
-<x-code language="php">
-use Leeto\MoonShine\Fields\Quill;
-
-//...
-public function fields(): array
-{
-    return [
-        Quill::make('Описание', 'description'),
-    ];
-}
-//...
-</x-code>
-
-<x-image theme="light" src="{{ asset('screenshots/quill.png') }}"></x-image>
-<x-image theme="dark" src="{{ asset('screenshots/quill_dark.png') }}"></x-image>
+<x-extendby :href="route('moonshine.custom_page', 'fields-textarea')">
+    Textarea
+</x-extendby>
 
 <x-sub-title id="tinymce">TinyMce</x-sub-title>
 
 <x-code language="php">
-use Leeto\MoonShine\Fields\TinyMce;
+use MoonShine\Fields\TinyMce;
 
 //...
 public function fields(): array
@@ -159,5 +109,83 @@ return [
     ]
     //...
 </x-code>
+
+<x-sub-title id="trix">Trix</x-sub-title>
+
+<x-p class="font-bold text-pink">
+    Поле вынесено в отдельный пакет, перед использованием необходимо выполнить установку
+</x-p>
+
+<x-code language="shell">
+    php composer require moonshine/trix
+</x-code>
+
+<x-code language="php">
+use MoonShine\Trix\Fields\Trix;
+
+//...
+public function fields(): array
+{
+    return [
+        Trix::make('Описание', 'description'),
+    ];
+}
+//...
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/wysiwyg.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/wysiwyg_dark.png') }}"></x-image>
+
+<x-sub-title id="ckeditor">CKEditor</x-sub-title>
+
+<x-p class="font-bold text-pink">
+    Поле вынесено в отдельный пакет, перед использованием необходимо выполнить установку
+</x-p>
+
+<x-code language="shell">
+    php composer require moonshine/ckeditor
+</x-code>
+
+<x-code language="php">
+use MoonShine\CKEditor\Fields\CKEditor;
+
+//...
+public function fields(): array
+{
+    return [
+        CKEditor::make('Описание', 'description'),
+    ];
+}
+//...
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/ckeditor.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/ckeditor_dark.png') }}"></x-image>
+
+<x-sub-title id="quill">Quill</x-sub-title>
+
+<x-p class="font-bold text-pink">
+    Поле вынесено в отдельный пакет, перед использованием необходимо выполнить установку
+</x-p>
+
+<x-code language="shell">
+    php composer require moonshine/quill
+</x-code>
+
+<x-code language="php">
+use MoonShine\Quill\Fields\Quill;
+
+//...
+public function fields(): array
+{
+    return [
+        Quill::make('Описание', 'description'),
+    ];
+}
+//...
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/quill.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/quill_dark.png') }}"></x-image>
 
 </x-page>

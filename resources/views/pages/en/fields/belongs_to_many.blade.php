@@ -14,7 +14,7 @@
 <x-p>Displayed as a group of checkboxes, it is also possible to transform the display into select multiple</x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Fields\BelongsToMany;
+use MoonShine\Fields\BelongsToMany;
 
 //...
 public function fields(): array
@@ -34,7 +34,7 @@ public function fields(): array
 <x-p>To implement pivot fields, use the method <code>fields</code></x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Fields\BelongsToMany;
+use MoonShine\Fields\BelongsToMany;
 
 //...
 public function fields(): array
@@ -62,7 +62,7 @@ public function fields(): array
     and <code>searchValueCallback</code> to customize the output</x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Fields\BelongsToMany;
+use MoonShine\Fields\BelongsToMany;
 
 //...
 public function fields(): array
@@ -102,7 +102,7 @@ public function fields(): array
 <x-p>To transform the display into select, use the method <code>select</code></x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Fields\BelongsToMany;
+use MoonShine\Fields\BelongsToMany;
 
 //...
 public function fields(): array
@@ -125,7 +125,7 @@ public function fields(): array
 </x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Fields\BelongsToMany;
+use MoonShine\Fields\BelongsToMany;
 use Illuminate\Database\Eloquent\Builder;
 
 //...
@@ -144,7 +144,7 @@ public function fields(): array
 <x-p>Sometimes it makes sense to display checkboxes with a hierarchy, say for categories that have nesting, for this purpose there is a method <code>tree</code></x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Fields\BelongsToMany;
+use MoonShine\Fields\BelongsToMany;
 
 //...
 public function fields(): array
@@ -162,7 +162,7 @@ public function fields(): array
 <x-p>By default the main page will display all the selected values separated by commas, but if you want to display only the number of selected values, you should use the <code>onlyCount</code></x-p>
 
 <x-code language="php">
-use Leeto\MoonShine\Fields\BelongsToMany;
+use MoonShine\Fields\BelongsToMany;
 
 //...
 public function fields(): array
