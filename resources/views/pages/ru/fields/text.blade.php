@@ -24,6 +24,8 @@ public function fields(): array
 //...
 </x-code>
 
+<x-image theme="light" src="{{ asset('screenshots/input.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/input_dark.png') }}"></x-image>
 
 <x-sub-title id="mask">Маска</x-sub-title>
 
@@ -45,6 +47,9 @@ public function fields(): array
 //...
 </x-code>
 
+<x-image theme="light" src="{{ asset('screenshots/mask.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/mask_dark.png') }}"></x-image>
+
 <x-sub-title id="extensions">Расширения</x-sub-title>
 
 <x-code language="php">
@@ -57,7 +62,7 @@ return [
         // Возможность скопировать значение по кнопке
         ->copy()
         // Замок с блокировкой изменений
-        ->lock()
+        ->locked()
         // Подсказка формата
         ->expansion('kg')
         // Отключение отображения значения
@@ -67,5 +72,8 @@ return [
 
 //...
 </x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/expansion.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/expansion_dark.png') }}"></x-image>
 
 </x-page>
