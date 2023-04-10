@@ -48,7 +48,7 @@ return [
         'copyright' => 'Made with ❤️ by <a href="https://cutcode.dev" class="font-semibold text-purple hover:text-pink" target="_blank">CutCode</a>',
         'nav' => [
             'https://github.com/moonshine-software/moonshine/blob/1.x/LICENSE.md' => 'License',
-            'https://github.com/moonshine-software/moonshine/demo' => 'Demo project',
+            'https://github.com/moonshine-software/demo-project' => 'Demo project',
             'https://github.com/moonshine-software/moonshine' => 'GitHub',
         ],
     ]
