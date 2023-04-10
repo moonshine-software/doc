@@ -79,14 +79,14 @@ return [
 
 <x-p>
     To change the welcome text on the authentication page,
-    you need to create a language file <code>lang/vendor/moonshine/ru/ui.php</code>
+    you need to create a language file <code>lang/vendor/moonshine/en/ui.php</code>
 </x-p>
 
 <x-code language="php">
 return [
     'login' => [
-        'title' => 'Добро пожаловать в :moonshine_title!',
-        'description' => 'Пожалуйста, войдите в свою учетную запись',
+        'title' => 'Welcome to :moonshine_title!',
+        'description' => 'Please sign-in to your account',
     ],
 ];
 </x-code>
