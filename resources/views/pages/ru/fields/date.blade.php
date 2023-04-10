@@ -22,22 +22,30 @@ public function fields(): array
 
 //...
 </x-code>
-    <x-p>
-        Для отображения в поле не только даты, но и времени используйте метод <code>withTime</code>
-    </x-p>
-    <x-code language="php">
-        use MoonShine\Fields\Date;
 
-        //...
-        public function fields(): array
-        {
-            return [
-                Date::make('Дата и время создания', 'created_at')
-                    ->withTime()
-            ];
-        }
+<x-image theme="light" src="{{ asset('screenshots/date.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/date_dark.png') }}"></x-image>
 
-        //...
-    </x-code>
+<x-p>
+    Для отображения в поле не только даты, но и времени используйте метод <code>withTime</code>
+</x-p>
+
+<x-code language="php">
+use MoonShine\Fields\Date;
+
+//...
+public function fields(): array
+{
+    return [
+        Date::make('Дата и время создания', 'created_at')
+            ->withTime()
+    ];
+}
+
+//...
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/date_time.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/date_time_dark.png') }}"></x-image>
 
 </x-page>
