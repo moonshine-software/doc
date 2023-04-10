@@ -135,6 +135,7 @@ return [
         ['slug' => 'advanced-pages', 'label' => 'Pages'],
         ['slug' => 'advanced-menu', 'label' => 'Menu'],
         ['slug' => 'advanced-assets', 'label' => 'Assets'],
+        ['slug' => 'advanced-authentication', 'label' => 'Authentication'],
         ['slug' => 'advanced-authorization', 'label' => 'Authorization'],
         ['slug' => 'advanced-events', 'label' => 'Events'],
         ['slug' => 'advanced-notifications', 'label' => 'Notifications'],
