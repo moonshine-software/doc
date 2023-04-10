@@ -1,6 +1,6 @@
 <?php
 
-use Leeto\MoonShine\Models\MoonshineUser;
+use MoonShine\Models\MoonshineUser;
 
 return [
     'dir' => 'app/MoonShine',

@@ -2,9 +2,9 @@
 
 namespace App\MoonShine;
 
-use Leeto\MoonShine\Dashboard\DashboardBlock;
-use Leeto\MoonShine\Dashboard\DashboardScreen;
-use Leeto\MoonShine\Dashboard\TextBlock;
+use MoonShine\Dashboard\DashboardBlock;
+use MoonShine\Dashboard\DashboardScreen;
+use MoonShine\Dashboard\TextBlock;
 
 class Dashboard extends DashboardScreen
 {
