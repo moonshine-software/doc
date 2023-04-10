@@ -27,6 +27,10 @@ public function fields(): array
 //...
 </x-code>
 
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    ID in fields is required
+</x-moonshine::alert>
+
 <x-p>
     It often happens that there are a lot of fields for communication and in the table they are displayed small and not convenient. In many cases it is necessary to remove such a link to a separate resource, but if you want to leave it within the current resource, but display fields fully, then use the method <code>fullPage()</code> and fields will take the standard form
 </x-p>

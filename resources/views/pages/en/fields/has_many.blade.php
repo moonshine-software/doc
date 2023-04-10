@@ -22,6 +22,10 @@ public function fields(): array
 //...
 </x-code>
 
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    ID in fields is required
+</x-moonshine::alert>
+
 <x-p>
     It often happens that there are a lot of fields for communication and in the table they are displayed small and not convenient.
      In many cases, it is necessary to move such a link to a separate resource, but if necessary

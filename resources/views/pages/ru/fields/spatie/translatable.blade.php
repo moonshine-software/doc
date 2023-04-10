@@ -6,6 +6,14 @@
     ]
 ]">
 
+<x-p class="font-bold text-pink">
+    Поле вынесено в отдельный пакет, перед использованием необходимо выполнить установку
+</x-p>
+
+<x-code language="shell">
+    php composer require visual-ideas/moonshine-spatie-translatable
+</x-code>
+
 <x-p>
     Поле предназначено для работы с пакетом
     <x-link link="https://github.com/spatie/laravel-translatable" target="_blank">Laravel-translatable</x-link>

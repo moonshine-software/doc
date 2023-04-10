@@ -6,6 +6,14 @@
     ]
 ]">
 
+<x-p class="font-bold text-pink">
+    The field is placed in a separate package, before use it is necessary to perform the installation
+</x-p>
+
+<x-code language="shell">
+    php composer require visual-ideas/moonshine-spatie-translatable
+</x-code>
+
 <x-p>
     The field is intended for work with the package
     <x-link link="https://github.com/spatie/laravel-translatable" target="_blank">Laravel-translatable</x-link>

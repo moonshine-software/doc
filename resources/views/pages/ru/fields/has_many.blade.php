@@ -22,6 +22,10 @@ public function fields(): array
 //...
 </x-code>
 
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    Поле ID в методе fields обязательно
+</x-moonshine::alert>
+
 <x-p>
     Часто бывает что полей для связи крайне много и в таблице они отображаются мелко и не удобно.
     Во многих случаях необходимо выносить такую связь в отдельный ресурс, но если необходимо
