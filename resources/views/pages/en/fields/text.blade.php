@@ -24,6 +24,9 @@ public function fields(): array
 //...
 </x-code>
 
+<x-image theme="light" src="{{ asset('screenshots/input.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/input_dark.png') }}"></x-image>
+
 <x-sub-title id="mask">Mask</x-sub-title>
 
 <x-p>
@@ -44,6 +47,9 @@ public function fields(): array
 //...
 </x-code>
 
+<x-image theme="light" src="{{ asset('screenshots/mask.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/mask_dark.png') }}"></x-image>
+
 <x-sub-title id="extensions">Extensions</x-sub-title>
 
 <x-code language="php">
@@ -56,7 +62,7 @@ public function fields(): array
             // Copy input value to clipboard
             ->copy()
             // Disable/enable input
-            ->lock()
+            ->locked()
             // Expansion
             ->expansion('kg')
             // Switch type password/text
@@ -66,4 +72,8 @@ public function fields(): array
 
 //...
 </x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/expansion.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/expansion_dark.png') }}"></x-image>
+
 </x-page>
