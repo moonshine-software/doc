@@ -28,7 +28,7 @@ class PostResource extends Resource
 </x-code>
 
 <x-p>
-    If fulltext searching is required, you must use the <code>Leeto>MoonShine\Attributes\SearchUsingFullText</code>
+    If fulltext searching is required, you must use the <code>MoonShine\Attributes\SearchUsingFullText</code>
 </x-p>
 
 <x-code language="php">

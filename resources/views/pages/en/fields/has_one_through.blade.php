@@ -6,7 +6,7 @@
 
 <x-p>The relationship field in laravel of type hasOneThrough</x-p>
 
-<x-p>Same as <code>Leeto>MoonShine\Fields\HasOne</code> but for hasOneThrough relationships</x-p>
+<x-p>Same as <code>MoonShine\Fields\HasOne</code> but for hasOneThrough relationships</x-p>
 
 <x-p><code>MoonShine\Fields\HasOne</code></x-p>
 

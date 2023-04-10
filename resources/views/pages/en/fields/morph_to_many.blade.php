@@ -6,7 +6,7 @@
 
 <x-p>Relationship field in laravel like MorphToMany</x-p>
 
-<x-p>Same as <code>Leeto>MoonShine\Fields\BelongsToMany</code> only for MorphToMany</x-p> relationships
+<x-p>Same as <code>MoonShine\Fields\BelongsToMany</code> only for MorphToMany</x-p> relationships
 
 <x-p><code>MoonShine\Fields\MorphToMany</code></x-p>
 

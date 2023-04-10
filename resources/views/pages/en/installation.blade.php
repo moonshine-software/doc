@@ -17,7 +17,7 @@
 <x-sub-title id="composer" hashtag="1">Composer</x-sub-title>
 
 <x-code language="shell">
-    composer require lee-to/moonshine
+    composer require moonshine/moonshine
 </x-code>
 
 <x-sub-title id="install" hashtag="2">Installation</x-sub-title>
