@@ -1,7 +1,12 @@
 <x-page title="Basics">
 
+<x-extendby :href="route('moonshine.custom_page', 'fields-index')">
+    Fields
+</x-extendby>
+
 <x-p>
-    Filters are displayed on the main page of the resource to filter data
+    Filters are displayed on the main page of the resource to filter data.
+    They implement from the corresponding fields, so all methods of these fields are available to them.
 </x-p>
 
 <x-p>
@@ -10,12 +15,38 @@
 </x-p>
 
 <x-code language="php">
+use MoonShine\Filters\BelongsToFilter;
+use MoonShine\Filters\BelongsToManyFilter;
+use MoonShine\Filters\DateRangeFilter;
+use MoonShine\Filters\SlideFilter;
+use MoonShine\Filters\SwitchBooleanFilter;
+use MoonShine\Filters\TextFilter;
+
 //...
 
 public function filters(): array
 {
     return [
-        TextFilter::make('Name', 'name')
+        TextFilter::make('Title'),
+
+        BelongsToFilter::make('Author', resource: 'name')
+            ->nullable()
+            ->canSee(fn() => auth('moonshine')->user()->moonshine_user_role_id === 1),
+
+        TextFilter::make('Slug'),
+
+        BelongsToManyFilter::make('Categories')
+            ->select(),
+
+        DateRangeFilter::make('Created at'),
+
+        SlideFilter::make('Age')
+            ->fromField('age_from')
+            ->toField('age_to')
+            ->min(0)
+            ->max(60),
+
+        SwitchBooleanFilter::make('Active')
     ];
 }
 
