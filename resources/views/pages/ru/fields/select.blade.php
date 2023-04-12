@@ -23,6 +23,21 @@ public function fields(): array
 //...
 </x-code>
 
+<x-image theme="light" src="{{ asset('screenshots/select.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/select_dark.png') }}"></x-image>
+
+<x-p>
+    Если необходимо сохранять NULL, то нужно добавить метод <code>nullable</code>
+</x-p>
+
+<x-code language="php">
+    Select::make('Страна', 'country_id')
+    ->nullable() // [tl! focus]
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/select_nullable.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/select_nullable_dark.png') }}"></x-image>
+
 <x-p>
     Для выбора нескольких значений необходим метод <code>multiple</code>
 </x-p>
@@ -32,6 +47,9 @@ Select::make('Страна', 'country_id')
     ->multiple() // [tl! focus]
 </x-code>
 
+<x-image theme="light" src="{{ asset('screenshots/select_multiple.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/select_multiple_dark.png') }}"></x-image>
+
 <x-p>
     Если необходимо добавить поиск среди значений, то нужно добавить метод <code>searchable</code>
 </x-p>
@@ -40,5 +58,8 @@ Select::make('Страна', 'country_id')
     Select::make('Страна', 'country_id')
     ->searchable() // [tl! focus]
 </x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/select_searchable.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/select_searchable_dark.png') }}"></x-image>
 
 </x-page>
