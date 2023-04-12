@@ -88,23 +88,23 @@ return [
     'Filters:adjustments-vertical' => [
         ['slug' => 'filters-index', 'label' => 'Basic'],
         // Text
-        ['slug' => 'filters-text', 'label' => 'Text'],
-        ['slug' => 'filters-date', 'label' => 'Date'],
-        ['slug' => 'filters-date_range', 'label' => 'DateRange'],
-        ['slug' => 'filters-slide', 'label' => 'Slide'],
+        ['slug' => 'filters-text', 'label' => 'TextFilter'],
+        ['slug' => 'filters-date', 'label' => 'DateFilter'],
+        ['slug' => 'filters-date_range', 'label' => 'DateRangeFilter'],
+        ['slug' => 'filters-slide', 'label' => 'SlideFilter'],
 
         // Select
-        ['slug' => 'filters-select', 'label' => 'Select'],
+        ['slug' => 'filters-select', 'label' => 'SelectFilter'],
 
         // Checkbox
-        ['slug' => 'filters-switch', 'label' => 'Switch'],
+        ['slug' => 'filters-switch', 'label' => 'SwitchFilter'],
 
-        ['slug' => 'filters-is_empty', 'label' => 'IsEmpty/IsNotEmpty'],
+        ['slug' => 'filters-is_empty', 'label' => 'IsEmptyFilter/IsNotEmptyFilter'],
 
         // Relations
-        ['slug' => 'filters-belongs_to', 'label' => 'BelongsTo'],
-        ['slug' => 'filters-belongs_to_many', 'label' => 'BelongsToMany'],
-        ['slug' => 'filters-has_one', 'label' => 'HasOne'],
+        ['slug' => 'filters-belongs_to', 'label' => 'BelongsToFilter'],
+        ['slug' => 'filters-belongs_to_many', 'label' => 'BelongsToManyFilter'],
+        ['slug' => 'filters-has_one', 'label' => 'HasOneFilter'],
     ],
 
     'Decorations:rocket-launch' => [
