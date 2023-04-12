@@ -50,7 +50,7 @@ Translatable::make('Название', 'name')
 
 
 <x-code language="php">
-use MoonShine\Fields\Spatie\Translatable;
+use VI\MoonShineSpatieTranslatable\Fields\Translatable;
 //...
 Translatable::make('Название', 'name')
     ->requiredLanguages([config('app.fallback_locale'), 'ru'])
@@ -65,7 +65,7 @@ Translatable::make('Название', 'name')
 </x-p>
 
 <x-code language="php">
-use MoonShine\Fields\Spatie\Translatable;
+use VI\MoonShineSpatieTranslatable\Fields\Translatable;
 //...
 Translatable::make('Название', 'name')
     ->priorityLanguages([config('app.fallback_locale'), config('app.locale'), 'de', 'fr', 'uk'])
