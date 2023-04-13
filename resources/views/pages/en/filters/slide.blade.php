@@ -1,7 +1,29 @@
-<x-page title="Slider">
+<x-page title="SlideFilter">
 
-<x-p>All the same methods and properties as the field <code>MoonShine\Fields\Slide</code></x-p>
+<x-extendby :href="route('moonshine.custom_page', 'fields-slide')">
+    Slide
+</x-extendby>
 
-<x-p><code>MoonShine\Filters\SlideFilter</code></x-p>
+<x-code language="php">
+use MoonShine\Filters\SlideFilter;
+
+//...
+
+public function filters(): array
+{
+    return [
+        SlideFilter::make('Age')
+            ->fromField('age_from')
+            ->toField('age_to')
+            ->min(0)
+            ->max(60)
+    ];
+}
+
+//...
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/filter_slide.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/filter_slide_dark.png') }}"></x-image>
 
 </x-page>
