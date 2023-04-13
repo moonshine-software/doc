@@ -1,7 +1,25 @@
-<x-page title="BelongsToMany">
+<x-page title="BelongsToManyFilter">
 
-<x-p>All the same methods and properties as the field <code>MoonShine\Fields\BelongsToMany</code></x-p>
+<x-extendby :href="route('moonshine.custom_page', 'fields-belongs_to_many')">
+    BelongsToMany
+</x-extendby>
 
-<x-p><code>MoonShine\Filters\BelongsToManyFilter</code></x-p>
+<x-code language="php">
+use MoonShine\Filters\BelongsToManyFilter;
+
+//...
+
+public function filters(): array
+{
+    return [
+        BelongsToManyFilter::make('Categories')
+    ];
+}
+
+//...
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/filter_belongs_to_many.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/filter_belongs_to_many_dark.png') }}"></x-image>
 
 </x-page>
