@@ -42,4 +42,6 @@ class PostResource extends Resource
 <x-image theme="light" src="{{ asset('screenshots/export.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/export_dark.png') }}"></x-image>
 
+@include('pages.ru.resources.shared.actions_config')
+
 </x-page>

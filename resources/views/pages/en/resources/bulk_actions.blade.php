@@ -37,4 +37,6 @@ class PostResource extends Resource
      The third argument is the message that will be displayed after the action is executed.
 </p>
 
+@include('pages.en.resources.shared.actions_config')
+
 </x-page>
