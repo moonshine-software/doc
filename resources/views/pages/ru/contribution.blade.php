@@ -125,7 +125,7 @@ MSProvider::class,
 <x-moonshine::badge color="green">5</x-moonshine::badge> Создайте .env из .env.example (не забудьте создать базу данных) и выполните установку ниже
 
 <x-code language="shell">
-composer require lee-to/laravel-package-command && composer install && npm install
+composer require lee-to/laravel-package-command && composer require rap2hpoutre/fast-excel &&  composer install && npm install
 </x-code>
 
 <x-code language="shell">
