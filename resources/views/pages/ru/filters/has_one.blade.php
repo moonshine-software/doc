@@ -1,7 +1,26 @@
-<x-page title="HasOne">
+<x-page title="HasOneFilter">
 
-<x-p>Все те же методы и свойства, что и у поля <code>MoonShine\Fields\HasOne</code></x-p>
+<x-extendby :href="route('moonshine.custom_page', 'fields-has_one')">
+    HasOne
+</x-extendby>
 
-<x-p><code>MoonShine\Filters\HasOneFilter</code></x-p>
+<x-code language="php">
+use MoonShine\Filters\HasOneFilter;
+
+//...
+
+public function filters(): array
+{
+    return [
+        HasOne::make('Phone', resource: 'number')
+            ->nullable()
+    ];
+}
+
+//...
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/filter_has_one.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/filter_has_one_dark.png') }}"></x-image>
 
 </x-page>
