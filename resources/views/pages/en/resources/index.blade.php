@@ -4,6 +4,7 @@
         ['url' => '#create', 'label' => 'Creating'],
         ['url' => '#define', 'label' => 'Announcement'],
         ['url' => '#modal', 'label' => 'Modal windows'],
+        ['url' => '#after', 'label' => 'Route after save'],
     ]
 ]">
 
@@ -156,6 +157,31 @@ class PostResource extends Resource
     protected bool $editInModal = true; // [tl! focus]
 
     // ...
+</x-code>
+
+<x-sub-title id="after">Route after save</x-sub-title>
+
+<x-p>
+    After saving the resource, you can specify which route to go to:
+    the list page, the detail page, or the edit page.
+</x-p>
+
+<x-p>Default <code>index</code></x-p>
+
+<x-code language="php">
+namespace App\MoonShine\Resources;
+
+use App\Models\Post;
+use MoonShine\Resources\Resource;
+
+class PostResource extends Resource
+{
+    public static string $model = Post::class;
+
+    protected string $routeAfterSave = 'index'; // index, show, edit [tl! focus]
+
+    // ...
+}
 </x-code>
 
 </x-page>

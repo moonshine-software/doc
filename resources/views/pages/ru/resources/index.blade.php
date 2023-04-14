@@ -4,6 +4,7 @@
         ['url' => '#create', 'label' => 'Создание'],
         ['url' => '#define', 'label' => 'Объявление'],
         ['url' => '#modal', 'label' => 'Модальные окна'],
+        ['url' => '#after', 'label' => 'Переход после сохранения'],
     ]
 ]">
 
@@ -156,6 +157,31 @@ class PostResource extends Resource
     protected bool $editInModal = true; // [tl! focus]
 
     // ...
+</x-code>
+
+<x-sub-title id="after">Переход после сохранения</x-sub-title>
+
+<x-p>
+    После сохранения ресурса, можно указать по какому маршруту сделать переход:
+    на страницу списка, детальную страницу или же на страницу редактирования.
+</x-p>
+
+<x-p>По умолчанию <code>index</code></x-p>
+
+<x-code language="php">
+namespace App\MoonShine\Resources;
+
+use App\Models\Post;
+use MoonShine\Resources\Resource;
+
+class PostResource extends Resource
+{
+    public static string $model = Post::class;
+
+    protected string $routeAfterSave = 'index'; // index, show, edit [tl! focus]
+
+    // ...
+}
 </x-code>
 
 </x-page>
