@@ -1,7 +1,25 @@
-<x-page title="date">
+<x-page title="DateFilter">
 
-<x-p>All the same methods and properties as the field <code>MoonShine\Fields\Date</code></x-p>
+<x-extendby :href="route('moonshine.custom_page', 'fields-date')">
+    Date
+</x-extendby>
 
-<x-p><code>MoonShine\Filters\DateFilter</code></x-p>
+<x-code language="php">
+use MoonShine\Filters\DateFilter;
+
+//...
+
+public function filters(): array
+{
+    return [
+        DateFilter::make('Created at')
+    ];
+}
+
+//...
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/filter_date.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/filter_date_dark.png') }}"></x-image>
 
 </x-page>
