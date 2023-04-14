@@ -1,7 +1,25 @@
-<x-page title="Text field">
+<x-page title="TextFilter">
 
-<x-p>All the same methods and properties as the field <code>MoonShine\Fields\Text</code></x-p>
+<x-extendby :href="route('moonshine.custom_page', 'fields-text')">
+    Text
+</x-extendby>
 
-<x-p><code>MoonShine\Filters\TextFilter</code></x-p>
+<x-code language="php">
+use MoonShine\Filters\TextFilter;
+
+//...
+
+public function filters(): array
+{
+    return [
+        TextFilter::make('Title')
+    ];
+}
+
+//...
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/filter_text.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/filter_text_dark.png') }}"></x-image>
 
 </x-page>
