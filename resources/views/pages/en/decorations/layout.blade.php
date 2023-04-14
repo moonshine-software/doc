@@ -17,8 +17,8 @@
 <x-code language="php">
 use MoonShine\Decorations\Flex;
 
-//...
-public function fields(): array
+    //...
+    public function fields(): array
 {
     return [
         Flex::make([
@@ -33,6 +33,21 @@ public function fields(): array
 }
 //...
 </x-code>
+
+<x-moonshine::table
+    :columns="['param', 'justifyAlign()', 'itemsAlign()']"
+    :values="[
+        ['normal', 'justify-content: normal;', null],
+        ['start', 'justify-content: flex-start;', 'align-items: flex-start;'],
+        ['end', 'justify-content: flex-end;', 'align-items: flex-end;'],
+        ['center', 'justify-content: center;', 'align-items: center;'],
+        ['between', 'justify-content: space-between;', null],
+        ['around', 'justify-content: space-around;', null],
+        ['evenly', 'justify-content: space-evenly;', null],
+        ['baseline', null, 'align-items: baseline;'],
+        ['stretch', 'justify-content: stretch;', 'align-items: stretch;'],
+    ]"
+/>
 
 <x-image theme="light" src="{{ asset('screenshots/flex.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/flex_dark.png') }}"></x-image>
