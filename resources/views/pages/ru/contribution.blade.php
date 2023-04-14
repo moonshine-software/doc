@@ -1,4 +1,9 @@
-<x-page title="Contribution Guide" :sectionMenu="null">
+<x-page title="Contribution Guide" :sectionMenu="[
+     'Sections' => [
+         ['url' => '#dev-guide', 'label' => 'Инструкция для разработчиков'],
+         ['url' => '#pr', 'label' => 'Как сделать pull request'],
+     ]
+]">
 
 <x-sub-title>Чем можно помогать?</x-sub-title>
 
@@ -13,6 +18,14 @@
 'Помогать другим пользователям разобраться в деталях',
 'Заниматься написанием документации',
 'Заниматься пропагандой'
+]"></x-ul>
+
+<x-sub-title>Используем</x-sub-title>
+
+<x-ul :items="[
+'Blade',
+'Tailwindcss',
+'AlpineJs',
 ]"></x-ul>
 
 <x-sub-title>С чего мы начнем?</x-sub-title>
@@ -57,6 +70,85 @@
 <x-p>
     MoonShine придерживается PSR-12 стандарта и PSR-4 autoload стандарта.
 </x-p>
+
+<x-sub-title id="dev-guide">Инструкция для разработчиков</x-sub-title>
+
+<x-moonshine::badge color="green">1</x-moonshine::badge> Создайте директорию для проекта и клонируйте демо
+
+<x-code language="shell">
+    git clone git@github.com:moonshine-software/demo-project.git .
+</x-code>
+
+<x-moonshine::badge color="green">2</x-moonshine::badge> Добавьте директория packages и выполните команду ниже
+
+<x-code language="shell">
+    cd packages && git clone git@github.com:moonshine-software/moonshine.git && cd moonshine && composer install && npm install
+</x-code>
+
+<x-moonshine::badge color="green">3</x-moonshine::badge> Вернитесь в директорию проекта и в  composer.json удалите зависимость moonshine/moonshine
+
+<x-code language="shell">
+    "moonshine/moonshine": "^1.50",
+</x-code>
+
+<x-moonshine::badge color="green">3</x-moonshine::badge> Добавьте загрузку MoonShine из директории packages в autoload секцию в composer.json
+
+<x-code language="shell">
+"autoload": {
+    "psr-4": {
+        "App\\": "app/",
+        "Database\\Factories\\": "database/factories/",
+        "Database\\Seeders\\": "database/seeders/",
+        "MoonShine\\": "packages/moonshine/src"
+    }
+},
+</x-code>
+
+<x-moonshine::badge color="green">4</x-moonshine::badge> Добавьте MoonShineServiceProvider в config/app.php
+
+<x-code language="php">
+use App\Providers\MoonShineServiceProvider;
+// Import vendor provider
+use MoonShine\Providers\MoonShineServiceProvider as MSProvider;
+
+// ..
+
+/*
+* Package Service Providers...
+*/
+// Add vendor provider
+MSProvider::class,
+
+// ..
+</x-code>
+
+<x-moonshine::badge color="green">5</x-moonshine::badge> Создайте .env из .env.example (не забудьте создать базу данных) и выполните установку ниже
+
+<x-code language="shell">
+composer require lee-to/laravel-package-command && composer install && npm install
+</x-code>
+
+<x-code language="shell">
+php artisan key:generate
+php artisan storage:link
+php artisan migrate --seed
+php artisan moonshine:user
+php artisan serve
+</x-code>
+
+<x-moonshine::badge color="green">#</x-moonshine::badge> Создайте что-нибудь полезное
+
+<x-sub-title id="pr">Как делать pull request?</x-sub-title>
+<x-ul :items="[
+'Перейдите в MoonShine репозиторий и нажмите Fork',
+'Сделайте git clone вашего fork',
+'Создайте новую ветку для ваших изменений',
+'Делайте commits полагаясь на конвенцию https://www.conventionalcommits.org',
+'Сделайте push ваших изменений в ваш fork',
+'Снова перейдите в репозиторий MoonShine и нажмите New pull request.',
+'Опишите ваши изменения в описании',
+'Ожидайте ревью',
+]"></x-ul>
 
 <x-sub-title>Возникли вопросы?</x-sub-title>
 
