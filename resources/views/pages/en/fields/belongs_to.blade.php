@@ -2,6 +2,7 @@
     'Sections' => [
         ['url' => '#searchable', 'label' => 'Searching for values'],
 		['url' => '#async-search', 'label' => 'Async searching for values'],
+        ['url' => '#values-query', 'label' => 'Query for values'],
         ['url' => '#nullable', 'label' => 'Empty value'],
     ]
 ]">
@@ -86,6 +87,8 @@ return [
 }
 //...
 </x-code>
+
+@include('pages.en.fields.shared.values_query', ['field' => 'BelongsTo'])
 
 <x-sub-title id="nullable">Empty value</x-sub-title>
 <x-p>If the default value is necessary Null</x-p>

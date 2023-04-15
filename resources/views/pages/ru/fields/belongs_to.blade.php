@@ -2,6 +2,7 @@
     'Sections' => [
         ['url' => '#searchable', 'label' => 'Поиск значений'],
 		['url' => '#async-search', 'label' => 'Асинхронный поиск'],
+        ['url' => '#values-query', 'label' => 'Запрос для значений'],
         ['url' => '#nullable', 'label' => 'Пустое значение'],
     ]
 ]">
@@ -86,6 +87,8 @@ public function fields(): array
 }
 //...
 </x-code>
+
+@include('pages.ru.fields.shared.values_query', ['field' => 'BelongsTo'])
 
 <x-sub-title id="nullable">Пустое значение</x-sub-title>
 <x-p>Если необходимо по умолчанию значение Null</x-p>
