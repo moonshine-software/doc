@@ -39,6 +39,6 @@ class PostResource extends Resource
 <x-image theme="light" src="{{ asset('screenshots/form_actions.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/form_actions_dark.png') }}"></x-image>
 
-@include('pages.ru.resources.shared.actions_config')
+@include('pages.ru.resources.shared.actions_config', ['action' => 'FormAction'])
 
 </x-page>

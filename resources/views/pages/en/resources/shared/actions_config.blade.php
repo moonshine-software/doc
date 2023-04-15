@@ -1,11 +1,27 @@
 <x-sub-title id="view">Display method</x-sub-title>
 
 <x-p>
-    To display actions in the form of a drop-down list, you can use the <code>showInDropdown</code> method
+    To display actions in the form of a dropdown list, you can use the <code>showInDropdown</code> method
 </x-p>
 
 <x-code language="php">
-->showInDropdown()
+use MoonShine\{!! ($action === 'ExportAction' ||  $action === 'ImportAction') ? 'Action' : $action !!}s\{{ $action }};
+
+//...
+public function {!! ($action === 'ExportAction' ||  $action === 'ImportAction') ? 'action' : str($action)->camel() !!}s(): array
+{
+    return [
+    @if ( $action === 'ExportAction' ||  $action === 'ImportAction')
+    {!! $action !!}::make('{!! str($action)->replace('Action', '') !!}')
+    @else
+    {{ $action }}::make('Deactivation', function (Model $item) {
+            $item->update(['active' => false]);
+        }, 'Deactivated')
+    @endif
+        ->showInDropdown()
+    ];
+}
+//...
 </x-code>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
@@ -20,7 +36,23 @@
 </x-p>
 
 <x-code language="php">
-->showInLine()
+use MoonShine\{!! ($action === 'ExportAction' ||  $action === 'ImportAction') ? 'Action' : $action !!}s\{{ $action }};
+
+//...
+public function {!! ($action === 'ExportAction' ||  $action === 'ImportAction') ? 'action' : str($action)->camel() !!}s(): array
+{
+    return [
+    @if ( $action === 'ExportAction' ||  $action === 'ImportAction')
+    {!! $action !!}::make('{!! str($action)->replace('Action', '') !!}')
+    @else
+    {{ $action }}::make('Deactivation', function (Model $item) {
+            $item->update(['active' => false]);
+        }, 'Deactivated')
+    @endif
+        ->showInLine()
+    ];
+}
+//...
 </x-code>
 
 <x-image theme="light" src="{{ asset('screenshots/actions_line.png') }}"></x-image>
@@ -33,7 +65,23 @@
 </x-p>
 
 <x-code language="php">
-    ->withConfirm()
+use MoonShine\{!! ($action === 'ExportAction' ||  $action === 'ImportAction') ? 'Action' : $action !!}s\{{ $action }};
+
+//...
+public function {!! ($action === 'ExportAction' ||  $action === 'ImportAction') ? 'action' : str($action)->camel() !!}s(): array
+{
+    return [
+    @if ( $action === 'ExportAction' ||  $action === 'ImportAction')
+    {!! $action !!}::make('{!! str($action)->replace('Action', '') !!}')
+    @else
+    {{ $action }}::make('Deactivation', function (Model $item) {
+            $item->update(['active' => false]);
+        }, 'Deactivated')
+    @endif
+        ->withConfirm()
+    ];
+}
+//...
 </x-code>
 
 <x-image theme="light" src="{{ asset('screenshots/actions_confirm.png') }}"></x-image>
