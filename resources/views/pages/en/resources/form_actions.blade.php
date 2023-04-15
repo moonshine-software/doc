@@ -1,4 +1,9 @@
-<x-page title="Form Actions" :sectionMenu="[]">
+<x-page title="Form Actions" :sectionMenu="[
+    'Sections' => [
+        ['url' => '#view', 'label' => 'Display method'],
+        ['url' => '#confirm', 'label' => 'Action confirmation'],
+    ]
+]">
 
 <x-p>
     By default, there is only 1 action in the MoonShine panel in forms - saving.

@@ -1,4 +1,4 @@
-<x-sub-title>Способ отображения</x-sub-title>
+<x-sub-title id="view">Способ отображения</x-sub-title>
 
 <x-p>
     Для отображения действий в виде выпадающего списка можно воспользоваться методом <code>showInDropdown</code>
@@ -26,7 +26,7 @@
 <x-image theme="light" src="{{ asset('screenshots/actions_line.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/actions_line_dark.png') }}"></x-image>
 
-<x-sub-title>Подтверждение действия</x-sub-title>
+<x-sub-title id="confirm">Подтверждение действия</x-sub-title>
 
 <x-p>
     Для подтверждения действия необходимо воспользоваться методом <code>withConfirm</code>
