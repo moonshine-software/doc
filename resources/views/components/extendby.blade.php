@@ -1,4 +1,4 @@
-<div class="text-sm">
+<div class="text-sm my-4">
     @lang('Extends')
 
     <x-moonshine::badge color="green">

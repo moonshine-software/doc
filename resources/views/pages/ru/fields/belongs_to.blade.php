@@ -1,4 +1,10 @@
-<x-page title="BelongsTo">
+<x-page title="BelongsTo" :sectionMenu="[
+    'Sections' => [
+        ['url' => '#searchable', 'label' => 'Поиск значений'],
+		['url' => '#async-search', 'label' => 'Асинхронный поиск'],
+        ['url' => '#nullable', 'label' => 'Пустое значение'],
+    ]
+]">
 
 <x-extendby :href="route('moonshine.custom_page', 'fields-select')">
     Select
@@ -26,6 +32,8 @@ public function fields(): array
 </x-code>
 
 <x-p>Третий аргумент со значением "name" является полем в связанной таблице countries для отображения значений</x-p>
+
+<x-sub-title id="searchable">Поиск значений</x-sub-title>
 
 <x-p>Также третьим параметром можно передать ресурс у которого указано поле для отображения</x-p>
 
@@ -60,6 +68,8 @@ public string $titleField = 'name'; // [tl! focus]
 }
 </x-code>
 
+@include('pages.ru.fields.shared.async_search', ['field' => 'BelongsTo'])
+
 <x-image theme="light" src="{{ asset('screenshots/belongs_to.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/belongs_to_dark.png') }}"></x-image>
 
@@ -77,6 +87,7 @@ public function fields(): array
 //...
 </x-code>
 
+<x-sub-title id="nullable">Пустое значение</x-sub-title>
 <x-p>Если необходимо по умолчанию значение Null</x-p>
 <x-code language="php">
 use MoonShine\Fields\BelongsTo;

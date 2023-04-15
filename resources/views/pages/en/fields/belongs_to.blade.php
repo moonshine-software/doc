@@ -1,4 +1,10 @@
-<x-page title="BelongsTo">
+<x-page title="BelongsTo" :sectionMenu="[
+    'Sections' => [
+        ['url' => '#searchable', 'label' => 'Searching for values'],
+		['url' => '#async-search', 'label' => 'Async searching for values'],
+        ['url' => '#nullable', 'label' => 'Empty value'],
+    ]
+]">
 
 <x-extendby :href="route('moonshine.custom_page', 'fields-select')">
     Select
@@ -26,6 +32,8 @@ public function fields(): array
 </x-code>
 
 <x-p>The third argument with the value "name" is a field in the linked table to display the values</x-p>
+
+<x-sub-title id="searchable">Searching for values</x-sub-title>
 
 <x-p>You can also pass a resource with a field to display as a third parameter</x-p>
 
@@ -60,6 +68,8 @@ public string $titleField = 'name'; // [tl! focus]
 }
 </x-code>
 
+@include('pages.en.fields.shared.async_search', ['field' => 'BelongsTo'])
+
 <x-image theme="light" src="{{ asset('screenshots/belongs_to.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/belongs_to_dark.png') }}"></x-image>
 
@@ -77,6 +87,7 @@ return [
 //...
 </x-code>
 
+<x-sub-title id="nullable">Empty value</x-sub-title>
 <x-p>If the default value is necessary Null</x-p>
 <x-code language="php">
 use MoonShine\Fields\BelongsTo;

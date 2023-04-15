@@ -1,7 +1,7 @@
 <x-page title="BelongsToMany" :sectionMenu="[
     'Разделы' => [
         ['url' => '#pivot', 'label' => 'Pivot'],
-        ['url' => '#only-selected', 'label' => 'Поиск значений'],
+        ['url' => '#async-search', 'label' => 'Асинхронный поиск'],
         ['url' => '#select', 'label' => 'Select'],
         ['url' => '#values-query', 'label' => 'Запрос для значений'],
         ['url' => '#tree', 'label' => 'Tree'],
@@ -52,38 +52,7 @@ public function fields(): array
 <x-image theme="light" src="{{ asset('screenshots/belongs_to_many_pivot.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/belongs_to_many_pivot_dark.png') }}"></x-image>
 
-<x-sub-title id="only-selected">Поиск значений</x-sub-title>
-
-<x-p>Для реализации поиска значений, воспользуйтесь методом <code>onlySelected</code></x-p>
-
-<x-p>Параметр <code>searchQuery</code> используется для фильтрации значений,
-    а <code>searchValueCallback</code> для кастомизации вывода</x-p>
-
-<x-code language="php">
-use MoonShine\Fields\BelongsToMany;
-
-//...
-public function fields(): array
-{
-    return [
-        BelongsToMany::make('Contacts')
-            ->onlySelected(
-                'users',
-                'title',
-                searchQuery: function (Builder $query) {
-                    return $query->where('id', '!=', 2);
-                },
-                searchValueCallback: function ($contact) {
-                    return $contact->id . ' | ' . $contact->title;
-                }
-            )
-            ->fields([
-                Text::make('Contact', 'text'),
-            ])
-    ];
-}
-//...
-</x-code>
+@include('pages.ru.fields.shared.async_search', ['field' => 'BelongsToMany'])
 
 <x-image theme="light" src="{{ asset('screenshots/belongs_to_many_select_pivot.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/belongs_to_many_select_pivot_dark.png') }}"></x-image>
