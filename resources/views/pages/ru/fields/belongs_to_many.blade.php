@@ -83,26 +83,7 @@ public function fields(): array
 <x-image theme="light" src="{{ asset('screenshots/belongs_to_many_select.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/belongs_to_many_select_dark.png') }}"></x-image>
 
-<x-sub-title id="values-query">Запрос для значений</x-sub-title>
-
-<x-p>
-    Доступно для всех полей с отношениями
-</x-p>
-
-<x-code language="php">
-use MoonShine\Fields\BelongsToMany;
-use Illuminate\Database\Eloquent\Builder;
-
-//...
-public function fields(): array
-{
-    return [
-        BelongsToMany::make('Категории', 'categories', 'name')
-            ->valuesQuery(fn(Builder $query) => $query->where('active', true))
-    ];
-}
-//...
-</x-code>
+@include('pages.ru.fields.shared.values_query', ['field' => 'BelongsToMany'])
 
 <x-sub-title id="tree">Tree</x-sub-title>
 
