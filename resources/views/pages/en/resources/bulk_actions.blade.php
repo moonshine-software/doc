@@ -1,4 +1,9 @@
-<x-page title="Mass actions" :sectionMenu="$sectionMenu ?? null">
+<x-page title="Mass actions" :sectionMenu="[
+    'Sections' => [
+        ['url' => '#view', 'label' => 'Display method'],
+        ['url' => '#confirm', 'label' => 'Action confirmation'],
+    ]
+]">
 
 <x-p>
     By default, in the MoonShine panel in the table, there is only 1 mass action on elements - deletion.

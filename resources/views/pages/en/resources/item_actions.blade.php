@@ -2,6 +2,8 @@
     'Sections' => [
         ['url' => '#register', 'label' => 'Registration'],
         ['url' => '#condition', 'label' => 'Display condition'],
+        ['url' => '#view', 'label' => 'Display method'],
+        ['url' => '#confirm', 'label' => 'Action confirmation'],
     ]
 ]">
 

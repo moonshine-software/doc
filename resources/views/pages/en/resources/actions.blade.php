@@ -1,4 +1,9 @@
-<x-page title="Action" :sectionMenu="$sectionMenu ?? null">
+<x-page title="Action" :sectionMenu="[
+    'Sections' => [
+        ['url' => '#view', 'label' => 'Display method'],
+        ['url' => '#confirm', 'label' => 'Action confirmation'],
+    ]
+]">
 
 <x-p>
     Often it is necessary to do something with the list of the section and "Actions" serve for this purpose.
