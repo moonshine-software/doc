@@ -1,2 +1,14 @@
 .dark .dark\:block {display: block}
 .dark .dark\:hidden {display: none}
+
+code:not(.torchlight) {
+    color: #28334D;
+    background-color: #C8D3F5;
+    padding: .15rem .5rem;
+    border-radius: 0.25rem;
+}
+
+.dark code:not(.torchlight) {
+    color: #FFFFFF;
+    background-color: rgba(255, 255, 255, .075);
+}
