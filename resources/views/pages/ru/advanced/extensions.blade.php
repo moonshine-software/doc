@@ -10,6 +10,18 @@
     В данном разделе мы приведем список таких пакетов и пример с созданием собственного поля
 </x-p>
 
+<x-p>
+    Если у вас сложности с тем как должен выглядеть ваш пакет для MoonShine, то мы приготовили для вас готовый шаблон.
+    <x-moonshine::link href="https://github.com/moonshine-software/moonshine-package-template">
+        Шаблон
+    </x-moonshine::link>
+</x-p>
+
+<x-p>
+    Созданы для расширения:
+    <x-ul :items="['Fields', 'Filters', 'Decorations', 'Actions', 'Metrics', 'InputExtension', 'FormComponent', 'Resource']"></x-ul>
+</x-p>
+
 <x-sub-title id="custom-field">Кастомное поле</x-sub-title>
 
 <x-p>

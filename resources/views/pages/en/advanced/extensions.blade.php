@@ -9,6 +9,19 @@
     MoonShine provides opportunities to extend the basic functionality and write your own packages that improve the features. In this section we will give a list of such packages and an example with the creation of your own field
 </x-p>
 
+
+<x-p>
+    If you're having trouble with how your MoonShine package should look, we've prepared a ready-made template for you.
+    <x-moonshine::link href="https://github.com/moonshine-software/moonshine-package-template">
+        Package template
+    </x-moonshine::link>
+</x-p>
+
+<x-p>
+    Entities created for expansion:
+    <x-ul :items="['Fields', 'Filters', 'Decorations', 'Actions', 'Metrics', 'InputExtension', 'FormComponent', 'Resource']"></x-ul>
+</x-p>
+
 <x-sub-title id="custom-field">Custom field</x-sub-title>
 
 <x-p>
