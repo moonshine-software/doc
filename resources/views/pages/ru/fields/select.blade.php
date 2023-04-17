@@ -47,6 +47,11 @@ Select::make('Страна', 'country_id')
     ->multiple() // [tl! focus]
 </x-code>
 
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    Поле в базе необходимо типа text или json.<br>
+    Также необходимо добавить cast для eloquent модели - json или array или collection.
+</x-moonshine::alert>
+
 <x-image theme="light" src="{{ asset('screenshots/select_multiple.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/select_multiple_dark.png') }}"></x-image>
 

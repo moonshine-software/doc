@@ -47,6 +47,11 @@ Select::make('Country', 'country_id')
     ->multiple() // [tl! focus]
 </x-code>
 
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    The field in the database must be of type text or json.<br>
+    You also need to add cast for eloquent model - json or array or collection.
+</x-moonshine::alert>
+
 <x-image theme="light" src="{{ asset('screenshots/select_multiple.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/select_multiple_dark.png') }}"></x-image>
 

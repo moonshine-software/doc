@@ -9,6 +9,10 @@
     ]
 ]">
 
+<x-extendby :href="route('moonshine.custom_page', 'fields-select')">
+    Select
+</x-extendby>
+
 <x-p>Поле для отношений в laravel типа belongsToMany</x-p>
 
 <x-p>Отображается как группа чекбоксов, также есть возможность трансформировать отображение в select multiple</x-p>

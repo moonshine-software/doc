@@ -71,13 +71,13 @@ public function fields(): array
                 Block::make('Main information', [
                     // Fields here
                 ])
-            ])->columnSpan(6), // 6 from 12 - half screen
+            ])->columnSpan(6), // 6 out of 12 is half of the screen
 
             Column::make([
                 Block::make('Contact information', [
                     // Fields here
                 ])
-            ])->columnSpan(6), // 6 of 12 - half of the screen
+            ])->columnSpan(6), // 6 out of 12 is half of the screen
         ])
     ];
 }
