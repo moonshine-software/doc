@@ -6,7 +6,7 @@
     and <code>asyncSearchValueCallback</code> to customize the output</x-p>
 
 <x-code language="php">
-use MoonShine\Fields\BelongsToMany;
+use MoonShine\Fields\{{ $field }};
 
 //...
 public function fields(): array

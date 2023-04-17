@@ -42,6 +42,6 @@ class PostResource extends Resource
     Третий аргумент - сообщение, которое отобразится после выполнения экшена
 </p>
 
-@include('pages.ru.resources.shared.actions_config')
+@include('pages.ru.resources.shared.actions_config', ['action' => 'BulkAction'])
 
 </x-page>

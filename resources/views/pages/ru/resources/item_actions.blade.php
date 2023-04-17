@@ -66,6 +66,6 @@ public function itemActions(): array
 ...
 </x-code>
 
-@include('pages.ru.resources.shared.actions_config')
+@include('pages.ru.resources.shared.actions_config', ['action' => 'ItemAction'])
 
 </x-page>
