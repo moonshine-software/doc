@@ -130,6 +130,11 @@ return [
         ['slug' => 'actions-import', 'label' => 'Import'],
     ],
 
+    'Icons:trophy' => [
+        ['slug' => 'icons-index', 'label' => 'Basic'],
+        ['slug' => 'icons-heroicons', 'label' => 'Heroicons'],
+    ],
+
     'Digging Deeper:moon' => [
         ['slug' => 'advanced-dashboard', 'label' => 'Dashboard', 'badge' => 'new'],
         ['slug' => 'advanced-pages', 'label' => 'Pages'],
@@ -142,10 +147,5 @@ return [
         ['slug' => 'advanced-socialite', 'label' => 'Socialite'],
         ['slug' => 'advanced-localization', 'label' => 'Localization'],
         ['slug' => 'advanced-extensions', 'label' => 'Extensions'],
-    ],
-
-    'Icons:trophy' => [
-        ['slug' => 'icons-index', 'label' => 'Basic'],
-        ['slug' => 'icons-heroicons', 'label' => 'Heroicons'],
     ],
 ];

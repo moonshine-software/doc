@@ -10,7 +10,7 @@
     you can use one of the proposed icon sets or create your own set
 </x-p>
 
-<x-sub-title id="system">СSystem icons</x-sub-title>
+<x-sub-title id="system">System icons</x-sub-title>
 
 <x-code language="php">
     ->icon('add') // [tl! focus]
