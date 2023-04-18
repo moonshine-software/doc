@@ -143,4 +143,9 @@ return [
         ['slug' => 'advanced-localization', 'label' => 'Localization'],
         ['slug' => 'advanced-extensions', 'label' => 'Extensions'],
     ],
+
+    'Icons:trophy' => [
+        ['slug' => 'icons-index', 'label' => 'Basic'],
+        ['slug' => 'icons-heroicons', 'label' => 'Heroicons'],
+    ],
 ];
