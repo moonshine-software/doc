@@ -1,5 +1,9 @@
 <x-page title="Spatie\MediaLibrary">
 
+    <x-extendby :href="route('moonshine.custom_page', 'fields-image')">
+        Image
+    </x-extendby>
+
     <x-p class="font-bold text-pink">
         The field is placed in a separate package, before use it is necessary to perform the installation
     </x-p>
