@@ -12,3 +12,35 @@ code:not(.torchlight) {
     color: #FFFFFF;
     background-color: rgba(255, 255, 255, .075);
 }
+
+.card {
+    background-color: rgba(200, 211, 245, 0.2);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.dark .card {
+    background-color: #293552;
+}
+.card:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(27, 37, 59, .8);
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+.card:active:before {
+    content: "copied";
+    background-color: rgb(120, 67,233);
+}
+@media (hover: hover) and (pointer: fine) {
+    .card:hover:before {
+        content: "click to copy";
+    }
+}
