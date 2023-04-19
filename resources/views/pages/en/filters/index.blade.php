@@ -1,4 +1,11 @@
-<x-page title="Basics">
+<x-page title="Basics" :sectionMenu="[
+    'Sections' => [
+        ['url' => '#filters', 'label' => 'Adding a filter'],
+        ['url' => '#custom-query', 'label' => 'Custom query'],
+    ]
+]">
+
+<x-sub-title id="filters">Adding a filter</x-sub-title>
 
 <x-extendby :href="route('moonshine.custom_page', 'fields-index')">
     Fields
@@ -55,5 +62,39 @@ public function filters(): array
 
 <x-image theme="light" src="{{ asset('screenshots/filters.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/filters_dark.png') }}"></x-image>
+
+<x-sub-title id="custom-query">Custom query</x-sub-title>
+
+<x-p>
+    Using the <code>customQuery</code> method, you can create a custom query for the filter
+</x-p>
+
+<x-code language="php">
+use MoonShine\Filters\DateRangeFilter;
+use MoonShine\Filters\TextFilter;
+
+//...
+
+public function filters(): array
+{
+    return [
+        TextFilter::make('Title')
+            ->customQuery(fn(Builder $query, $value) => $query->where('title', 'LIKE', "%${value}%")), // [tl! focus]
+
+        DateRangeFilter::make('Created at')
+            ->customQuery(function (Builder $query, $values) {
+                return $query
+                    ->when($values['from'] ?? null, function ($query, $fromDate) {
+                        $query->whereDate('created_at', '>=', Carbon::parse($fromDate));
+                    })
+                    ->when($values['to'] ?? null, function ($query, $toDate) {
+                        $query->whereDate('created_at', '<=', Carbon::parse($toDate));
+                    });
+            }), // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
 
 </x-page>
