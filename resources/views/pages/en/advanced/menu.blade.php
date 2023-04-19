@@ -90,30 +90,7 @@ app(MoonShine::class)->menu([
 </x-code>
 
 <x-p>
-    Available values
-</x-p>In addition to the standard icons, in the folder
-
-<x-ul :items="['add', 'app', 'bookmark', 'cart', 'delete', 'edit', 'export', 'filter', 'search', 'users']"></x-ul>
-
-<x-p>
-    In addition to the standard icons, in the folder <code>resources/views/vendor/moonshine/shared/icons/heroicons</code> preinstalled
-    icons from the collection <a href="https://heroicons.com">Heroicons</a> (set <b>Solid</b> by default and <b>Outline</b>),
-    you can use them wherever you use the <code>->icon(...)</code>, e.g.:
-    <x-code language="php">
-        MenuItem::make('Documentation Laravel', 'https://laravel.com')
-            ->icon('heroicons.link'), //solid
-    </x-code>
-    <x-code language="php">
-        MenuItem::make('Documentation Laravel', 'https://laravel.com')
-        ->icon('heroicons.outline.link'), //outline
-    </x-code>
-    A complete list of icons and a search for them is available on the site <x-link link="https://heroicons.com/" target="_blank">Heroicons</x-link>
-</x-p>
-
-<x-p>
-    It is also possible to create blade file with your custom icon. To do this, you need to in <code>resources/views/vendor/moonshine/shared/icons</code>
-    create blade example file my-icon.blade.php with displaying an icon inside (e.g. code svg)
-    and then specify <code>icon('my-icon')</code>
+    For more information, see <x-link link="{{ route('moonshine.custom_page', 'icons-index') }}">Icons</x-link>
 </x-p>
 
 <x-sub-title id="badge">Tag</x-sub-title>
