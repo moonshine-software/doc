@@ -7,7 +7,7 @@
 
 <x-p>
     In addition to the standard icons, in the folder <code>resources/views/vendor/moonshine/shared/icons/heroicons</code> preinstalled
-    icons from the collection <a href="https://heroicons.com" target="_blank">Heroicons</a>
+    icons from the collection <x-link link="https://heroicons.com" target="_blank">Heroicons</x-link>
     (set <b>Solid</b> by default and <b>Outline</b>),
     you can use them wherever you use the <code>icon()</code>
 </x-p>

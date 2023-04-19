@@ -91,31 +91,8 @@ app(MoonShine::class)->menu([
 </x-code>
 
 <x-p>
-    Доступные значения
+    За более подробной информацией, обратитесь к разделу <x-link link="{{ route('moonshine.custom_page', 'icons-index') }}">Icons</x-link>
 </x-p>
-
-<x-ul :items="['add', 'app', 'bookmark', 'cart', 'delete', 'edit', 'export', 'filter', 'search', 'users']"></x-ul>
-
-    <x-p>
-        Кроме стандартных иконок, в папке <code>resources/views/vendor/moonshine/shared/icons/heroicons</code> предустановлены
-        иконки из коллекции <a href="https://heroicons.com">Heroicons</a> (набор <b>Solid</b> по умолчанию и <b>Outline</b>),
-        вы можете использовать их в любом месте, где используется метод <code>->icon(...)</code>, например:
-        <x-code language="php">
-            MenuItem::make('Документация Laravel', 'https://laravel.com')
-                ->icon('heroicons.link'), //solid
-        </x-code>
-        <x-code language="php">
-            MenuItem::make('Документация Laravel', 'https://laravel.com')
-            ->icon('heroicons.outline.link'), //outline
-        </x-code>
-        Полный список иконок и поиск по ним доступен на сайте <x-link link="https://heroicons.com/" target="_blank">Heroicons</x-link>
-    </x-p>
-
-    <x-p>
-        Также есть возможность создать blade файл с вашей кастомной иконкой. Для этого необходимо в <code>resources/views/vendor/moonshine/shared/icons</code>
-        создать blade файл как пример my-icon.blade.php с отображением иконки внутри (например код svg)
-        и далее указать <code>icon('my-icon')</code>
-    </x-p>
 
 <x-sub-title id="badge">Метка</x-sub-title>
 
