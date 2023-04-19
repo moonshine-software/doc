@@ -5,6 +5,7 @@
         ['url' => '#define', 'label' => 'Объявление'],
         ['url' => '#modal', 'label' => 'Модальные окна'],
         ['url' => '#after', 'label' => 'Переход после сохранения'],
+        ['url' => '#simple-pagination', 'label' => 'Simple pagination'],
     ]
 ]">
 
@@ -86,6 +87,9 @@ class PostResource extends Resource
 }
 </x-code>
 
+<x-image theme="light" src="{{ asset('screenshots/resource_paginate.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/resource_paginate_dark.png') }}"></x-image>
+
 <x-sub-title id="define">Объявление раздела в системе</x-sub-title>
 
 <x-p>
@@ -130,8 +134,8 @@ class MoonShineServiceProvider extends ServiceProvider
     После разделы появятся в меню и будут доступны в панели
 </x-moonshine::alert>
 
-<x-image theme="light" src="{{ asset('screenshots/resource.png') }}"></x-image>
-<x-image theme="dark" src="{{ asset('screenshots/resource_dark.png') }}"></x-image>
+<x-image theme="light" src="{{ asset('screenshots/menu.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/menu_dark.png') }}"></x-image>
 
 <x-sub-title id="modal">Модальные окна</x-sub-title>
 
@@ -183,5 +187,31 @@ class PostResource extends Resource
     // ...
 }
 </x-code>
+
+<x-sub-title id="simple-pagination">Simple pagination</x-sub-title>
+
+<x-p>
+    Если вы не планируете отображать общее количество страниц, воспользуйтесь <code>Simple Pagination</code>.
+    Это позволит избежать дополнительные запросы на общее количество записей в базе данных.
+</x-p>
+
+<x-code language="php">
+namespace App\MoonShine\Resources;
+
+use App\Models\Post;
+use MoonShine\Resources\Resource;
+
+class PostResource extends Resource
+{
+    public static string $model = Post::class;
+
+    public static bool $simplePaginate = true; // [tl! focus]
+
+    // ...
+}
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/resource_simple_paginate.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/resource_simple_paginate_dark.png') }}"></x-image>
 
 </x-page>
