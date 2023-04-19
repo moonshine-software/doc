@@ -86,6 +86,9 @@ class PostResource extends Resource
 }
 </x-code>
 
+<x-image theme="light" src="{{ asset('screenshots/resource_paginate.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/resource_paginate_dark.png') }}"></x-image>
+
 <x-sub-title id="define">Объявление раздела в системе</x-sub-title>
 
 <x-p>
