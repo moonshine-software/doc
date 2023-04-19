@@ -36,7 +36,7 @@ code:not(.torchlight) {
     align-content: center;
 }
 .card:active:before {
-    content: "copied";
+    content: "copied" !important;
     background-color: rgb(120, 67,233);
 }
 @media (hover: hover) and (pointer: fine) {
