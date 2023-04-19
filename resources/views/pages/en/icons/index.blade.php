@@ -6,7 +6,7 @@
 ]">
 
 <x-p>
-    For all entities that have the <code>->icon()</code> method,
+    For all entities that have the <code>icon()</code> method,
     you can use one of the proposed icon sets or create your own set
 </x-p>
 

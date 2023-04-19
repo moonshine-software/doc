@@ -9,7 +9,7 @@
     Кроме стандартных иконок, в папке <code>resources/views/vendor/moonshine/shared/icons/heroicons</code> предустановлены
     иконки из коллекции <a href="https://heroicons.com" target="_blank">Heroicons</a>
     (набор <b>Solid</b> по умолчанию и <b>Outline</b>),
-    вы можете использовать их в любом месте, где используется метод <code>->icon()</code>
+    вы можете использовать их в любом месте, где используется метод <code>icon()</code>
 </x-p>
 
 <x-sub-title id="solid">Solid</x-sub-title>
