@@ -62,7 +62,7 @@ public function fields(): array
 <x-image theme="dark" src="{{ asset('screenshots/belongs_to_many_select_pivot_dark.png') }}"></x-image>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-    Запросы необходимо кастомизировать через метод <code>onlySelected</code>,
+    Запросы необходимо кастомизировать через метод <code>asyncSearch</code>,
     не используйте <code>valuesQuery</code>!
 </x-moonshine::alert>
 
