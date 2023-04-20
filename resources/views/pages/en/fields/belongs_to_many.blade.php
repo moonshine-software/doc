@@ -62,7 +62,7 @@ public function fields(): array
 <x-image theme="dark" src="{{ asset('screenshots/belongs_to_many_select_pivot_dark.png') }}"></x-image>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-    Requests must be customized via the <code>onlySelected</code> method,
+    Requests must be customized via the <code>asyncSearch</code> method,
      don't use <code>valuesQuery</code>!
 </x-moonshine::alert>
 
