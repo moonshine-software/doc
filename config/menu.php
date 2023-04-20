@@ -115,6 +115,7 @@ return [
         ['slug' => 'decorations-layout', 'label' => 'Layout', 'badge' => 'new'],
         ['slug' => 'decorations-button', 'label' => 'Button'],
         ['slug' => 'decorations-collapse', 'label' => 'Collapse'],
+        ['slug' => 'decorations-divider', 'label' => 'Divider', 'badge' => 'new'],
     ],
 
     'Metrics:chart-bar' => [
