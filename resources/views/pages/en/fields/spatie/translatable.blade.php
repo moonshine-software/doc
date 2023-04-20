@@ -35,7 +35,7 @@
 ]"></x-ul>
 
 <x-code language="php">
-use MoonShine\Fields\Spatie\Translatable;
+use VI\MoonShineSpatieTranslatable\Fields\Translatable;
 //...
 Translatable::make('Title', 'name')
 //...
