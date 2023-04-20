@@ -33,16 +33,22 @@ public function fields(): array
             ->toolbar('undo redo | blocks fontfamily fontsize')
             // Adding a toolbar to the base set
             ->addToolbar('code codesample')
-            //To change the author name for a plugin tinycomments
+            // To change the author name for a plugin tinycomments
             ->commentAuthor('Danil Shutsky')
-            //Tags
+            // Tags
             ->mergeTags([
                 ['value' => 'tag', 'title' => 'Title']
-            ]),
+            ])
+            // Override the current locale
+            ->locale('en'),
     ];
 }
 //...
 </x-code>
+
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    Translation files are placed in the directory <code>public/vendor/moonshine/libs/tinymce/langs</code>
+</x-moonshine::alert>
 
 <x-image theme="light" src="{{ asset('screenshots/tinymce.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/tinymce_dark.png') }}"></x-image>
