@@ -33,5 +33,6 @@
     "Localization": "Локализация",
     "Extensions": "Расширения",
     "Extends": "Наследует",
-    "has the same features": "имеет те же возможности"
+    "has the same features": "имеет те же возможности",
+    "Divider": "Разделитель"
 }
