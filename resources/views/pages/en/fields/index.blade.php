@@ -22,7 +22,9 @@
 ]">
 
 <x-p>
-    Fields is one of the most important sections along with resources. In the resources section we have already looked at how to register fields, but now let's figure out how to customize them to your needs! The fluent interface is used for convenience
+    Fields is one of the most important sections along with resources.
+    In the resources section we have already looked at how to register fields,
+    but now let's figure out how to customize them to your needs! The fluent interface is used for convenience
 </x-p>
 
 <x-sub-title id="make">Make</x-sub-title>
@@ -62,7 +64,8 @@ public string $titleField = 'name'; // [tl! focus]
 <x-sub-title id="hide-show">Displaying</x-sub-title>
 
 <x-p>
-    The fields are displayed on the list page (the main page of the resource) and the create/edit page. To exclude the field from the main page or the page with the form, you can use the methods
+    The fields are displayed on the list page (the main page of the resource) and the create/edit page.
+    To exclude the field from the main page or the page with the form, you can use the methods
     <code>hideOnIndex/hideOnForm/hideOnDetail</code>, reverse methods <code>showOnIndex/showOnForm/showOnDetail</code>.
     To exclude only from the edit or add page -
     <code>hideOnCreate/hideOnUpdate/showOnCreate/showOnUpdate</code>
@@ -218,8 +221,11 @@ public function fields(): array
 public function fields(): array
 {
     return [
-        Text::make('Title', 'title')
-            ->hint('Hint for the header field') // [tl! focus]
+        Number::make('Rating')
+            ->hint('From 0 to 5') // [tl! focus]
+            ->min(0)
+            ->max(5)
+            ->stars()
     ];
 }
 
@@ -234,12 +240,6 @@ public function fields(): array
 <x-p>
     You can add a link to the field (e.g. with instructions)
     <code>addLink(string $name, string $link, bool $blank = false)</code>
-</x-p>
-
-<x-sub-title id="nullable">Nullable</x-sub-title>
-
-<x-p>
-    If you want to save by default NULL <code>nullable()</code>
 </x-p>
 
 <x-code language="php">
@@ -267,6 +267,12 @@ public function fields(): array
 <x-image theme="light" src="{{ asset('screenshots/link.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/link_dark.png') }}"></x-image>
 
+<x-sub-title id="nullable">Nullable</x-sub-title>
+
+<x-p>
+    If you want to save by default NULL <code>nullable()</code>
+</x-p>
+
 <x-sub-title id="sortable">Sorting</x-sub-title>
 
 <x-p>
@@ -290,7 +296,8 @@ public function fields(): array
 <x-sub-title id="label">Hide label</x-sub-title>
 
 <x-p>
-    The <code>fieldContainer</code> method hides Label fields to save space, especially useful in conjunction with the <code>Flex</code> decoration
+    The <code>fieldContainer</code> method hides Label fields to save space,
+    especially useful in conjunction with the <code>Flex</code> decoration
 </x-p>
 
 <x-code language="php">
@@ -330,7 +337,9 @@ public function fields(): array
 <x-sub-title id="show-when">Display condition</x-sub-title>
 
 <x-p>
-    There may be a need to display a field only if the value of another field in the form has a certain value (say, display the phone only if there is a check mark for it). Method <code>showWhen(string $field_name, string $item_value)</code>
+    There may be a need to display a field only if the value of
+    another field in the form has a certain value (say, display the phone only if there is
+    a check mark for it). Method <code>showWhen(string $field_name, string $item_value)</code>
 </x-p>
 
 
@@ -347,7 +356,6 @@ public function fields(): array
 
 //...
 </x-code>
-
 
 <x-sub-title id="can-save">Ability to save</x-sub-title>
 
@@ -389,7 +397,8 @@ public function afterSave(Model $item): void
 <x-sub-title id="custom-view">Change view</x-sub-title>
 
 <x-p>
-    Sometimes it makes sense to change the view with a fluent interface (For example, if you use filters or fields outside of MoonShine)
+    Sometimes it makes sense to change the view with a fluent interface (For example, if you use filters or fields
+    outside of MoonShine)
 </x-p>
 
 <x-code language="php">

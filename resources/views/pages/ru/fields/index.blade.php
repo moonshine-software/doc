@@ -267,7 +267,6 @@ public function fields(): array
 <x-image theme="light" src="{{ asset('screenshots/link.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/link_dark.png') }}"></x-image>
 
-
 <x-sub-title id="nullable">Nullable</x-sub-title>
 
 <x-p>
@@ -298,7 +297,7 @@ public function fields(): array
 
 <x-p>
     Метод <code>fieldContainer</code> скроет Label поля для экономии места, особенно удобно
-    использовать совместо с декорацией <code>Flex</code>
+    использовать совместно с декорацией <code>Flex</code>
 </x-p>
 
 <x-code language="php">
@@ -357,7 +356,6 @@ public function fields(): array
 
 //...
 </x-code>
-
 
 <x-sub-title id="can-save">Возможность сохранения</x-sub-title>
 
