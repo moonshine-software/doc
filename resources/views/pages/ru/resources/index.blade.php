@@ -1,13 +1,19 @@
-<x-page title="Основы" :sectionMenu="[
-    'Разделы' => [
-        ['url' => '#variables', 'label' => 'Основные свойства'],
-        ['url' => '#create', 'label' => 'Создание'],
-        ['url' => '#define', 'label' => 'Объявление'],
-        ['url' => '#modal', 'label' => 'Модальные окна'],
-        ['url' => '#after', 'label' => 'Переход после сохранения'],
-        ['url' => '#simple-pagination', 'label' => 'Simple pagination'],
-    ]
-]">
+<x-page
+    title="Основы"
+    :sectionMenu="[
+        'Разделы' => [
+            ['url' => '#variables', 'label' => 'Основные свойства'],
+            ['url' => '#create', 'label' => 'Создание'],
+            ['url' => '#define', 'label' => 'Объявление'],
+            ['url' => '#modal', 'label' => 'Модальные окна'],
+            ['url' => '#after', 'label' => 'Переход после сохранения'],
+            ['url' => '#simple-pagination', 'label' => 'Simple pagination'],
+        ]
+    ]"
+    :videos="[
+        ['url' => 'https://www.youtube.com/embed/pHSaMeBjVDk', 'title' => 'Screencasts: Ресурсы и меню'],
+    ]"
+>
 
 <x-p>
     Что есть административная панель? Само собой это разделы, основанные на данных из базы, на основе eloquent моделей.

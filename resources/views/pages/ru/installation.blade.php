@@ -1,11 +1,17 @@
-<x-page title="Установка" :sectionMenu="[
-    'Разделы' => [
-        ['url' => '#requirements', 'label' => 'Требования'],
-        ['url' => '#composer', 'label' => 'Composer'],
-        ['url' => '#install', 'label' => 'Установка'],
-        ['url' => '#config', 'label' => 'Конфигурация'],
-    ]
-]">
+<x-page
+    title="Установка"
+    :sectionMenu="[
+        'Разделы' => [
+            ['url' => '#requirements', 'label' => 'Требования'],
+            ['url' => '#composer', 'label' => 'Composer'],
+            ['url' => '#install', 'label' => 'Установка'],
+            ['url' => '#config', 'label' => 'Конфигурация'],
+        ]
+    ]"
+    :videos="[
+        ['url' => 'https://www.youtube.com/embed/GjW6vyBsuhc', 'title' => 'Screencasts: Установка и настройка'],
+    ]"
+>
 
 <x-sub-title id="requirements">Требования</x-sub-title>
 

@@ -44,3 +44,7 @@ code:not(.torchlight) {
         content: "click to copy";
     }
 }
+
+.aspect-video {
+    aspect-ratio: 16/9;
+}
