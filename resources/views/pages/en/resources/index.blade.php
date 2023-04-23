@@ -130,12 +130,14 @@ class MoonShineServiceProvider extends ServiceProvider
 }
 </x-code>
 
-<x-moonshine::alert type="default" icon="heroicons.information-circle">
-    After the sections will appear in the menu and will be available in the panel
-</x-moonshine::alert>
+<x-p>After the sections will appear in the menu and will be available in the panel</x-p>
 
 <x-image theme="light" src="{{ asset('screenshots/menu.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/menu_dark.png') }}"></x-image>
+
+<x-moonshine::alert type="default" icon="heroicons.book-open">
+    For advanced settings, see <x-link :link="route('moonshine.custom_page', 'advanced-menu')" ><code>Digging Deeper > Menu</code></x-link>
+</x-moonshine::alert>
 
 <x-sub-title id="modal">Modal windows</x-sub-title>
 
