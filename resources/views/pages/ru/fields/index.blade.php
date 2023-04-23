@@ -17,6 +17,7 @@
         ['url' => '#can-save', 'label' => 'Возможность сохранения'],
         ['url' => '#events', 'label' => 'События'],
         ['url' => '#custom-view', 'label' => 'Смена view'],
+        ['url' => '#when-unless', 'label' => 'Методы по условию'],
     ]
 ]">
 
@@ -403,8 +404,52 @@ public function afterSave(Model $item): void
 </x-p>
 
 <x-code language="php">
-    Text::make('Title')
-    ->customView('fields.my-custom-input')
-    ,
+Text::make('Title')
+    ->customView('fields.my-custom-input'),
 </x-code>
+
+<x-sub-title id="when-unless">Методы по условию</x-sub-title>
+
+<x-p>
+    Метод <code>when</code> реализует <code>fluent interface</code>
+    и выполнит callback, когда первый аргумент, переданный методу, имеет значение true.
+</x-p>
+
+<x-code language="php">
+Text::make('Slug')
+    ->when(isset($this->getItem()->id), fn(Text $field) => $field->locked()),
+</x-code>
+
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    Экземпляр поля, будет передан в функции callback.
+</x-moonshine::alert>
+
+<x-p>
+    Методу <code>when</code> может быть передан второй callback, он будет выполнен,
+    когда первый аргумент, переданный методу, имеет значение false.
+</x-p>
+
+<x-code language="php">
+Text::make('Slug')
+    ->when(
+        isset($this->getItem()->id),
+        fn(Text $field) => $field->locked(),
+        fn(Text $field) => $field->hidden()
+    ),
+</x-code>
+
+<x-p>
+    Метод <code>unless</code> обратный методу <code>when</code> и выполнит первый callback,
+    когда первый аргумент имеет значение false, иначе будет выполнен второй callback, если он передан методу.
+</x-p>
+
+<x-code language="php">
+Text::make('Slug')
+    ->unless(
+        auth('moonshine')->user()->moonshine_user_role_id === 1,
+        fn(Text $field) => $field->readonly()->hideOnCreate(),
+        fn(Text $field) => $field->locked()
+    ),
+</x-code>
+
 </x-page>

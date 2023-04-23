@@ -17,6 +17,7 @@
         ['url' => '#can-save', 'label' => 'Ability to save'],
         ['url' => '#events', 'label' => 'Events'],
         ['url' => '#custom-view', 'label' => 'Change view'],
+        ['url' => '#when-unless', 'label' => 'Methods by condition'],
     ]
 ]">
 
@@ -392,8 +393,52 @@ public function afterSave(Model $item): void
 </x-p>
 
 <x-code language="php">
-    Text::make('Title')
-    ->customView('fields.my-custom-input')
-    ,
+Text::make('Title')
+    ->customView('fields.my-custom-input'),
 </x-code>
+
+<x-sub-title id="when-unless">Methods by condition</x-sub-title>
+
+<x-p>
+    The <code>when</code> method implements the <code>fluent interface</code>
+    and will execute a callback when the first argument, passed to the method is true.
+</x-p>
+
+<x-code language="php">
+Text::make('Slug')
+    ->when(isset($this->getItem()->id), fn(Text $field) => $field->locked()),
+</x-code>
+
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    The field instance will be passed to the callback function.
+</x-moonshine::alert>
+
+<x-p>
+    The second callback can be passed to the <code>when</code> method, it will be executed,
+    when the first argument passed to the method is false.
+</x-p>
+
+<x-code language="php">
+Text::make('Slug')
+    ->when(
+        isset($this->getItem()->id),
+        fn(Text $field) => $field->locked(),
+        fn(Text $field) => $field->hidden()
+    ),
+</x-code>
+
+<x-p>
+    The <code>unless</code> method is the reverse of the <code>when</code> method and will execute the first callback,
+    when the first argument is false, otherwise the second callback will be executed if it is passed to the method.
+</x-p>
+
+<x-code language="php">
+Text::make('Slug')
+    ->unless(
+        auth('moonshine')->user()->moonshine_user_role_id === 1,
+        fn(Text $field) => $field->readonly()->hideOnCreate(),
+        fn(Text $field) => $field->locked()
+    ),
+</x-code>
+
 </x-page>
