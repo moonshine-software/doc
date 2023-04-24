@@ -1,6 +1,6 @@
 <x-page title="Basics">
 <x-p>
-    Decorations, as well as fields, are set in the <code>fields</code> resource method.
+    Decorations are set in the <code>fields</code> or <code>filters</code> resource methods.
 </x-p>
 
 <x-p>
