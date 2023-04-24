@@ -1,6 +1,6 @@
 <x-page title="Основы">
 <x-p>
-    Декорации, так же как и поля, задаются в методе ресурса <code>fields</code>.
+    Декорации задаются в методах ресурса <code>fields</code> или <code>filters</code>.
 </x-p>
 
 <x-p>
