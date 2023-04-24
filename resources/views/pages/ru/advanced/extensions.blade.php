@@ -47,7 +47,6 @@ final class CKEditor extends Field
         'https://cdn.ckeditor.com/ckeditor5/35.3.0/super-build/ckeditor.js'
     ];
 }
-
 </x-code>
 
 <x-p>
@@ -69,14 +68,11 @@ final class CKEditor extends Field
     но вы также можете создавать свои собственные действия.
 </x-p>
 
-
 <x-p>
     Для этого вам нужно создать класс, который расширяет класс действия MoonShine и определить метод handle.
 </x-p>
 
-
 <x-code language="php">
-
 namespace App\MoonShine\Actions;
 
 use MoonShine\Actions\Action;
@@ -95,7 +91,6 @@ class CustomAction extends Action
     Однако, давайте рассмотрим, что еще можно определить в нашем классе действия.
 </x-p>
 
-
 <x-code language="php">
 class CustomAction extends Action
 {
@@ -108,7 +103,6 @@ class CustomAction extends Action
     protected ?string $icon = 'heroicons.outline.table-cells'; // Иконка для кнопки
 }
 </x-code>
-
 
 <x-p>
     Затем зарегистрируйте действие в методе actions ресурса, в котором вы хотите отобразить его.
@@ -123,20 +117,42 @@ public function actions(): array
 }
 </x-code>
 
-
 <x-p>
     Готово!
 </x-p>
 
-
 <x-sub-title id="vendors">Пакеты</x-sub-title>
 
-<ul class="list-disc my-4">
-    <li class="my-2">
-        <x-link link="https://github.com/visual-ideas/laravel-site-settings">Менеджер настроек</x-link>
+<ul class="col-list my-4">
+    <li>
+        <x-link link="https://github.com/visual-ideas/laravel-site-settings" target="_blank">
+            Менеджер настроек
+        </x-link>
     </li>
-    <li class="my-2">
-        <x-link link="https://github.com/lee-to/laravel-seo-by-url">Менеджер SEO</x-link>
+    <li>
+        <x-link link="https://github.com/lee-to/laravel-seo-by-url" target="_blank">
+            Менеджер SEO
+        </x-link>
+    </li>
+    <li>
+        <x-link link="https://github.com/visual-ideas/moonshine-spatie-medialibrary" target="_blank">
+            Moonshine Spatie Medialibrary
+        </x-link>
+    </li>
+    <li>
+        <x-link link="https://github.com/visual-ideas/moonshine-spatie-translatable" target="_blank">
+            Moonshine Spatie Translatable
+        </x-link>
+    </li>
+    <li>
+        <x-link link="https://github.com/JekaSylar/MoonShine-Language-Ukrainian.git" target="_blank">
+            Moonshine Language Ukrainian
+        </x-link>
+    </li>
+    <li>
+        <x-link link="https://github.com/lee-to/moonshine-input-extension-char-count" target="_blank">
+            Счетчик символов
+        </x-link>
     </li>
 </ul>
 

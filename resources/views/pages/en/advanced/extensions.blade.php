@@ -10,7 +10,6 @@
     MoonShine provides opportunities to extend the basic functionality and write your own packages that improve the features. In this section, we will provide a list of such packages, an example with creating your own field and action.
 </x-p>
 
-
 <x-p>
     If you're having trouble with how your MoonShine package should look, we've prepared a ready-made template for you.
     <x-moonshine::link href="https://github.com/moonshine-software/moonshine-package-template">
@@ -47,7 +46,6 @@ final class CKEditor extends Field
         'https://cdn.ckeditor.com/ckeditor5/35.3.0/super-build/ckeditor.js'
     ];
 }
-
 </x-code>
 
 <x-p>
@@ -69,11 +67,9 @@ final class CKEditor extends Field
     but you can also create your own custom actions.
 </x-p>
 
-
 <x-p>
     To do this, you need to create a class that extends the MoonShine action class and define the handle method.
 </x-p>
-
 
 <x-code language="php">
 namespace App\MoonShine\Actions;
@@ -94,7 +90,6 @@ class CustomAction extends Action
     However, let's take a look at what else we can define in our action class.
 </x-p>
 
-
 <x-code language="php">
 class CustomAction extends Action
 {
@@ -107,7 +102,6 @@ class CustomAction extends Action
     protected ?string $icon = 'heroicons.outline.table-cells'; // Icon for the button.
 }
 </x-code>
-
 
 <x-p>
     Next, register the action in the actions method of the resource where you want to display it.
@@ -122,20 +116,42 @@ public function actions(): array
 }
 </x-code>
 
-
 <x-p>
     That's it!
 </x-p>
 
-
 <x-sub-title id="vendors">Packages</x-sub-title>
 
-<ul class="list-disc my-4">
-    <li class="my-2">
-        <x-link link="https://github.com/visual-ideas/laravel-site-settings">Settings Manager</x-link>
+<ul class="col-list my-4">
+    <li>
+        <x-link link="https://github.com/visual-ideas/laravel-site-settings" target="_blank">
+            Settings Manager
+        </x-link>
     </li>
-    <li class="my-2">
-        <x-link link="https://github.com/lee-to/laravel-seo-by-url">Manager SEO</x-link>
+    <li>
+        <x-link link="https://github.com/lee-to/laravel-seo-by-url" target="_blank">
+            Manager SEO
+        </x-link>
+    </li>
+    <li>
+        <x-link link="https://github.com/visual-ideas/moonshine-spatie-medialibrary" target="_blank">
+            Moonshine Spatie Medialibrary
+        </x-link>
+    </li>
+    <li>
+        <x-link link="https://github.com/visual-ideas/moonshine-spatie-translatable" target="_blank">
+            Moonshine Spatie Translatable
+        </x-link>
+    </li>
+    <li>
+        <x-link link="https://github.com/JekaSylar/MoonShine-Language-Ukrainian.git" target="_blank">
+            Moonshine Language Ukrainian
+        </x-link>
+    </li>
+    <li>
+        <x-link link="https://github.com/lee-to/moonshine-input-extension-char-count" target="_blank">
+            Char Count
+        </x-link>
     </li>
 </ul>
 

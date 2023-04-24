@@ -48,3 +48,9 @@ code:not(.torchlight) {
 .aspect-video {
     aspect-ratio: 16/9;
 }
+
+.col-list {
+    columns: 10.8em 3;
+    -moz-columns: 10.8em 3;
+    -webkit-columns: 10.8em 3;
+}
