@@ -50,7 +50,7 @@ class MoonShineServiceProvider extends ServiceProvider
 
         app(MoonShine::class)->registerResources($moonShineMenu);
 
-        app(AssetManager::class)->add(['/assets/css/style.css']);
+        app(AssetManager::class)->add(['/assets/css/style.css', '/assets/js/app.js']);
     }
 
     private function getPageView(string $slug): string
