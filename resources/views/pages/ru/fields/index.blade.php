@@ -1,25 +1,31 @@
-<x-page title="Основы" :sectionMenu="[
-    'Разделы' => [
-        ['url' => '#make', 'label' => 'Make'],
-        ['url' => '#hide-show', 'label' => 'Отображение'],
-        ['url' => '#hide-show-conditions', 'label' => 'Отображение с условием'],
-        ['url' => '#attributes', 'label' => 'Аттрибуты'],
-        ['url' => '#custom-attributes', 'label' => 'Произвольные аттрибуты'],
-        ['url' => '#required', 'label' => 'Обязательное поле'],
-        ['url' => '#dynamic', 'label' => 'Динамическое значение'],
-        ['url' => '#hint', 'label' => 'Подсказка'],
-        ['url' => '#link', 'label' => 'Ссылка'],
-        ['url' => '#nullable', 'label' => 'Nullable'],
-        ['url' => '#sortable', 'label' => 'Сортировка'],
-        ['url' => '#label', 'label' => 'Скрыть label'],
-        ['url' => '#default', 'label' => 'Значение по умолчанию'],
-        ['url' => '#show-when', 'label' => 'Условие отображения'],
-        ['url' => '#can-save', 'label' => 'Возможность сохранения'],
-        ['url' => '#events', 'label' => 'События'],
-        ['url' => '#custom-view', 'label' => 'Смена view'],
-        ['url' => '#when-unless', 'label' => 'Методы по условию'],
-    ]
-]">
+<x-page
+    title="Основы"
+    :sectionMenu="[
+        'Разделы' => [
+            ['url' => '#make', 'label' => 'Make'],
+            ['url' => '#hide-show', 'label' => 'Отображение'],
+            ['url' => '#hide-show-conditions', 'label' => 'Отображение с условием'],
+            ['url' => '#attributes', 'label' => 'Аттрибуты'],
+            ['url' => '#custom-attributes', 'label' => 'Произвольные аттрибуты'],
+            ['url' => '#required', 'label' => 'Обязательное поле'],
+            ['url' => '#dynamic', 'label' => 'Динамическое значение'],
+            ['url' => '#hint', 'label' => 'Подсказка'],
+            ['url' => '#link', 'label' => 'Ссылка'],
+            ['url' => '#nullable', 'label' => 'Nullable'],
+            ['url' => '#sortable', 'label' => 'Сортировка'],
+            ['url' => '#label', 'label' => 'Скрыть label'],
+            ['url' => '#default', 'label' => 'Значение по умолчанию'],
+            ['url' => '#show-when', 'label' => 'Условие отображения'],
+            ['url' => '#can-save', 'label' => 'Возможность сохранения'],
+            ['url' => '#events', 'label' => 'События'],
+            ['url' => '#custom-view', 'label' => 'Смена view'],
+            ['url' => '#when-unless', 'label' => 'Методы по условию'],
+        ]
+    ]"
+    :videos="[
+        ['url' => 'https://www.youtube.com/embed/1WxCBvejwqw', 'title' => 'Screencasts: Поля'],
+    ]"
+>
 
 <x-p>
     Поля один из важнейших разделов вместе с ресурсами.
