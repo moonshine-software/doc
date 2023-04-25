@@ -15,14 +15,12 @@ use MoonShine\Fields\Image;
 public function fields(): array
 {
     return [
-        //...
-        // [tl! focus:start]
-        File::make('Thumbnail', 'thumbnail')
+        //... [tl! focus:start]
+        Image::make('Thumbnail', 'thumbnail')
             ->dir('/') // Директория где будут хранится файлы в storage (по умолчанию /)
             ->disk('public') // Filesystems disk
             ->allowedExtensions(['jpg', 'gif', 'png']) // Допустимые расширения
-        // [tl! focus:end]
-        //...
+        //... [tl! focus:end]
     ];
 }
 //...
