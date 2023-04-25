@@ -1,9 +1,12 @@
-<textarea id='ckeditor_{{ $field->id() }}' name="{{ $field->name() }}">
-    {!! $field->formViewValue($item) ?? '' !!}
-</textarea>
+<x-moonshine::form.textarea
+    :attributes="$element->attributes()->merge([
+        'id' => 'ckeditor_' . $item->getKey() . '_' . $element->id(),
+        'name' => $element->name()
+    ])"
+>{!! $element->formViewValue($item) ?? '' !!}</x-moonshine::form.textarea>
 
 <script>
-    CKEDITOR.ClassicEditor.create(document.getElementById("ckeditor_{{ $field->id() }}"), {
+    CKEDITOR.ClassicEditor.create(document.getElementById("ckeditor_{{ $item->getKey() }}_{{ $element->id() }}"), {
         // https://ckeditor.com/docs/ckeditor5/latest/features/toolbar/toolbar.html#extended-toolbar-configuration-format
         toolbar: {
             items: [
@@ -20,7 +23,7 @@
                 'link', 'insertImage', 'blockQuote', 'insertTable', 'mediaEmbed', 'codeBlock', 'htmlEmbed', '|',
                 'specialCharacters', 'horizontalLine', 'sourceEditing'
             ],
-            shouldNotGroupWhenFull: false
+            shouldNotGroupWhenFull: true
         },
         // Changing the language of the interface requires loading the language file using the <script> tag.
         // language: 'es',
@@ -119,7 +122,7 @@
         },
         simpleUpload: {
             // The URL that the images are uploaded to.
-            uploadUrl: '{{ route('admin.attachments') }}',
+            uploadUrl: '{{ route('moonshine.attachments') }}',
         },
         // The "super-build" contains more premium features that require additional configuration, disable them below.
         // Do not turn them on unless you read the documentation and know how to configure them and setup the editor.
@@ -156,5 +159,7 @@
 <style>
     .ck-editor__editable {
         max-height: 400px;
+        background-color: white!important;
+        color: black!important;
     }
 </style>
