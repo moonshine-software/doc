@@ -66,6 +66,9 @@ Select::make('City')->options([
 ]),
 </x-code>
 
+<x-image theme="light" src="{{ asset('screenshots/select_group.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/select_group_dark.png') }}"></x-image>
+
 <x-sub-title id="multiple">Multiple select</x-sub-title>
 
 <x-p>
