@@ -6,6 +6,7 @@ code:not(.torchlight) {
     background-color: #C8D3F5;
     padding: .15rem .5rem;
     border-radius: 0.25rem;
+    word-break: break-word;
 }
 
 .dark code:not(.torchlight) {
