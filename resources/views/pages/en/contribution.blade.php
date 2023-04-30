@@ -153,7 +153,7 @@ php artisan serve
 <x-sub-title>Questions?</x-sub-title>
 
 <x-p>
-    My name is Danil! Email me at <x-link link="mailto:info@cutcode.ru">info@cutcode.ru</x-link>
+    My name is Danil! Email me at <x-link link="mailto:thecutcode@gmail.com">thecutcode@gmail.com</x-link>
 </x-p>
 
 </x-page>

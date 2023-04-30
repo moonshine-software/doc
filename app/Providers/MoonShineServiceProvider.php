@@ -48,7 +48,7 @@ class MoonShineServiceProvider extends ServiceProvider
             )->translatable();
         }
 
-        app(MoonShine::class)->registerResources($moonShineMenu);
+        app(MoonShine::class)->menu($moonShineMenu);
 
         app(AssetManager::class)->add(['/assets/css/style.css', '/assets/js/app.js']);
     }

@@ -79,7 +79,7 @@
     git clone git@github.com:moonshine-software/demo-project.git .
 </x-code>
 
-<x-moonshine::badge color="green">2</x-moonshine::badge> Добавьте директория packages и выполните команду ниже
+<x-moonshine::badge color="green">2</x-moonshine::badge> Добавьте директорию packages и выполните команду ниже
 
 <x-code language="shell">
     cd packages && git clone git@github.com:moonshine-software/moonshine.git && cd moonshine && composer install && npm install
@@ -153,7 +153,7 @@ php artisan serve
 <x-sub-title>Возникли вопросы?</x-sub-title>
 
 <x-p>
-    Меня зовут, Данил! Пишите мне на почту <x-link link="mailto:info@cutcode.ru">info@cutcode.ru</x-link>
+    Меня зовут, Данил! Пишите мне на почту <x-link link="mailto:thecutcode@gmail.com">thecutcode@gmail.com</x-link>
 </x-p>
 
 </x-page>

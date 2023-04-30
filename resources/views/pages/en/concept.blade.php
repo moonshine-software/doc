@@ -1,6 +1,6 @@
 <x-page title="The concept" :sectionMenu="null">
     <x-p>
-    The idea of Moonshine project is to create a versatile and customizable admin panel for Laravel projects. Almost all serious projects require an admin panel and it takes a lot of time to create it. So I had the idea to make my own admin panel, but it's a huge job and in a few years I managed to create a working version for the most common tasks. But there are a number of serious drawbacks.
+    The idea of Moonshine project is to create a versatile and customizable admin panel for Laravel projects. Almost all serious projects require an admin panel and it takes a lot of time to create it. So I had the idea to make my own admin panel, but it's a huge job and in a few years I managed to create a working version for the most common tasks.
     </x-p>
 
     <x-p>

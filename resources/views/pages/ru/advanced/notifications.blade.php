@@ -11,7 +11,7 @@ use MoonShine\Notifications\MoonShineNotification;
 MoonShineNotification::send(
     message: 'Notification message',
     // Опционально button
-    button: ['link' => 'https://moonshine.cutcode.ru', 'label' => 'Click me'],
+    button: ['link' => 'https://moonshine.cutcode.dev', 'label' => 'Click me'],
     // Опционально id администраторов (по умолчанию всем)
     ids: [1,2,3]
 );
