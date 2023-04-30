@@ -15,7 +15,7 @@
 </x-p>
 
 <x-code language="shell">
-    php composer require visual-ideas/moonshine-spatie-translatable
+    composer require visual-ideas/moonshine-spatie-translatable
 </x-code>
 
 <x-p>

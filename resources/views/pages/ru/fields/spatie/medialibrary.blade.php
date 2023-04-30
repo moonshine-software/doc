@@ -9,7 +9,7 @@
     </x-p>
 
     <x-code language="shell">
-        php composer require visual-ideas/moonshine-spatie-medialibrary
+        composer require visual-ideas/moonshine-spatie-medialibrary
     </x-code>
 
     <x-p>

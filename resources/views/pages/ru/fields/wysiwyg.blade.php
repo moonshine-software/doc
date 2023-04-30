@@ -123,7 +123,7 @@ return [
 </x-p>
 
 <x-code language="shell">
-    php composer require moonshine/trix
+    composer require moonshine/trix
 </x-code>
 
 <x-code language="php">
@@ -149,7 +149,7 @@ public function fields(): array
 </x-p>
 
 <x-code language="shell">
-    php composer require moonshine/ckeditor
+    composer require moonshine/ckeditor
 </x-code>
 
 <x-code language="php">
@@ -175,7 +175,7 @@ public function fields(): array
 </x-p>
 
 <x-code language="shell">
-    php composer require moonshine/quill
+    composer require moonshine/quill
 </x-code>
 
 <x-code language="php">
