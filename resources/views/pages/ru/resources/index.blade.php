@@ -12,6 +12,7 @@
     ]"
     :videos="[
         ['url' => 'https://www.youtube.com/embed/pHSaMeBjVDk', 'title' => 'Screencasts: Ресурсы и меню'],
+        ['url' => 'https://www.youtube.com/embed/jMsH8hTkPI4', 'title' => 'Screencasts: Кастомизация'],
     ]"
 >
 
