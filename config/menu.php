@@ -27,6 +27,7 @@ return [
         ['slug' => 'resources-form_components', 'label' => 'Form components'],
         ['slug' => 'resources-table_styles', 'label' => 'Table styles'],
         ['slug' => 'resources-changelogs', 'label' => 'Changelog'],
+        ['slug' => 'resources-singleton', 'label' => 'SingletonResource'],
     ],
 
     'Fields:bars-3' => [
