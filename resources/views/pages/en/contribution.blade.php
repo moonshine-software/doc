@@ -8,16 +8,16 @@
 <x-sub-title>What can you do to help?</x-sub-title>
 
 <x-p>
-    The community needs active users. You can help in many ways
+    The community needs active users. You can help in many ways:
 </x-p>
 
 <x-ul :items="[
-'Front-end code',
+'Supplement the code',
 'Front-end development',
 'Submit bug reports',
 'Help other users understand the details',
 'Take care of writing documentation',
-'Doing advocacy'
+'Engage in the popularization of the project'
 ]"></x-ul>
 
 <x-sub-title>We are using a technology stack</x-sub-title>
@@ -31,20 +31,22 @@
 <x-sub-title>Where do we start?</x-sub-title>
 
 <x-p>
-There is already a functioning product, fully functional and testable. Working doesn't mean great, so the goal is to make the project just that.
+    There is already a functioning product, fully functional and testable. Working doesn't mean great,
+    so the goal is to make the project better.
 </x-p>
 
 <x-sub-title>Pull requests</x-sub-title>
 
 <x-p>
-    You can suggest new features or improvements to MoonShine! Bugs and bugs - all this can be fixed and sent for improvement.
-    I'm also glad to meet new open source project development specialists
+    You can suggest new features or improvements to MoonShine! Errors and bugs - all this can be fixed and sent for improvement.
+    I'm also glad to meet new open source project development specialists.
 </x-p>
 
 <x-sub-title>Where to discuss development?</x-sub-title>
 
 <x-p>
-    For active participants in the project created a separate chat in telegram, if you are ready to participate in the development, then join - <x-link link="https://t.me/laravel_chat/24568">MoonShine</x-link>.
+    For active participants in the project created a separate chat in telegram. If you are ready to participate in the development,
+    then join - <x-link link="https://t.me/laravel_chat/24568">MoonShine</x-link>.
 </x-p>
 
 
@@ -56,7 +58,8 @@ There is already a functioning product, fully functional and testable. Working d
     <br>
     2. If you don't know how to solve the problem, create github issues and we will fix the problem soon.
 
-    <div class="text-sm my-4">* It is important that your pr passed all the tests of the platform and had a detailed description, so that all participants in the development was clear what exactly happened.</div>
+    <div class="text-sm my-4">* It is important that your pr passed all the tests of the platform and had a detailed description,
+        so that all participants in the development was clear what exactly happened.</div>
 </x-p>
 
 <x-sub-title>Main branch</x-sub-title>
