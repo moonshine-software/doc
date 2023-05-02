@@ -1,4 +1,6 @@
-<x-page title="Installation" :sectionMenu="[
+<x-page
+    title="Installation"
+    :sectionMenu="[
      'Sections' => [
          ['url' => '#requirements', 'label' => 'Requirements'],
          ['url' => '#composer', 'label' => 'Composer'],
