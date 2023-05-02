@@ -1,11 +1,14 @@
-<x-page title="Installation" :sectionMenu="[
-     'Sections' => [
-         ['url' => '#requirements', 'label' => 'Requirements'],
-         ['url' => '#composer', 'label' => 'Composer'],
-         ['url' => '#install', 'label' => 'Install'],
-         ['url' => '#config', 'label' => 'Configuration'],
-     ]
-]">
+<x-page
+    title="Installation"
+    :sectionMenu="[
+        'Sections' => [
+            ['url' => '#requirements', 'label' => 'Requirements'],
+            ['url' => '#composer', 'label' => 'Composer'],
+            ['url' => '#install', 'label' => 'Install'],
+            ['url' => '#config', 'label' => 'Configuration'],
+        ]
+    ]"
+>
 
 <x-sub-title id="requirements">Requirements</x-sub-title>
 

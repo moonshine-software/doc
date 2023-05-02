@@ -60,7 +60,7 @@
 </x-sub-title>
 
 <x-p>
-    Для регистрации новых ресурсов в MoonShine и формирования меню, нам потребуется <code>app/Providers/MoonShineServiceProvider.php</code>
+    Для регистрации новых ресурсов в MoonShine и формирования меню нам потребуется <code>app/Providers/MoonShineServiceProvider.php</code>
 </x-p>
 
 <x-code language="php">
@@ -90,7 +90,7 @@ class MoonShineServiceProvider extends ServiceProvider
 </x-p>
 
 <x-p>
-    Отлично! Теперь можно создавать и регистрировать разделы будущей админ. панели и приступать к работе!
+    Отлично! Теперь можно создавать и регистрировать разделы будущей админ-панели и приступать к работе!
     Но не забудьте ознакомиться с документацией до конца!
 </x-p>
 </x-page>
