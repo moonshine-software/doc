@@ -17,18 +17,18 @@ return [
 
     'route' => [
         # Which url will be available for the control panel (as a rule admin)
-        # If the value is left blank, the panel will be accessible from /
+        # If the value is left empty, the panel will be accessible from /
         'prefix' => env('MOONSHINE_ROUTE_PREFIX', 'moonshine'),
         # Groups of middlewares in the panel
         'middleware' => ['web', 'moonshine'],
-        # Slug of the formation of the url for custom pages
+        # Slug of the url formation for custom pages
         'custom_page_slug' => 'custom_page',
         # You can change 404 error exception (for ModelNotFound you need to implement it yourself)
         'notFoundHandler' => MoonShineNotFoundException::class
     ],
 
     'auth' => [
-        # On/Off authentication, if false the panel will be available to all
+        # On/Off authentication. If false, the panel will be available to all
         'enable' => true,
         # If you use your own guard, provider
         'guard' => 'moonshine',
