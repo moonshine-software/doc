@@ -6,11 +6,11 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
-        "algolia/algoliasearch-client-php": "^3.3",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.0",
         "moonshine/moonshine": "^1.52",
-        "torchlight/torchlight-laravel": "^0.5.11"
+        "torchlight/torchlight-laravel": "^0.5.11",
+        "lee-to/moonshine-algolia-search": "^1.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.8",

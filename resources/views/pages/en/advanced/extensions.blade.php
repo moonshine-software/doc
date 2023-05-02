@@ -153,6 +153,11 @@ public function actions(): array
             Char Count
         </x-link>
     </li>
+    <li>
+        <x-link link="https://github.com/lee-to/moonshine-algolia-search">
+            Global search (Algolia)
+        </x-link>
+    </li>
 </ul>
 
 </x-page>

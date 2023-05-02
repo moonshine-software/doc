@@ -154,6 +154,11 @@ public function actions(): array
             Счетчик символов
         </x-link>
     </li>
+    <li>
+        <x-link link="https://github.com/lee-to/moonshine-algolia-search">
+            Global search (Algolia)
+        </x-link>
+    </li>
 </ul>
 
 </x-page>
