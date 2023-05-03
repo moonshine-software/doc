@@ -7,26 +7,27 @@
 ]">
 
 <x-p>
-    MoonShine provides opportunities to extend the basic functionality and write your own packages that improve the features. In this section, we will provide a list of such packages, an example with creating your own field and action.
+    MoonShine provides opportunities to extend the basic functionality and write your own packages that improve the features.
+    In this section, we will provide a list of such packages, an example with creating your own field and action.
 </x-p>
 
 <x-p>
-    If you're having trouble with how your MoonShine package should look, we've prepared a ready-made template for you.
+    If you can't figure out how your MoonShine package should look like, we've prepared a ready-made template for you.
     <x-moonshine::link href="https://github.com/moonshine-software/moonshine-package-template">
         Package template
     </x-moonshine::link>
 </x-p>
 
 <x-p>
-    Entities created for expansion:
+    The following entities could be extended:
     <x-ul :items="['Fields', 'Filters', 'Decorations', 'Actions', 'Metrics', 'InputExtension', 'FormComponent', 'Resource']"></x-ul>
 </x-p>
 
 <x-sub-title id="custom-field">Custom field</x-sub-title>
 
 <x-p>
-    Consider a small example of creating your own field!
-    Let's say it is a visual editor based on the js plugin CKEditor
+    Here is a small example of creating your own field!
+    It is a visual editor based on the CKEditor js plugin
 </x-p>
 
 <x-p>
@@ -49,7 +50,7 @@ final class CKEditor extends Field
 </x-code>
 
 <x-p>
-    And create a view with implementation
+    Then, create a view with implementation
 </x-p>
 
 <x-code language="blade" file="examples/extensions/ckeditor.blade.php"></x-code>
