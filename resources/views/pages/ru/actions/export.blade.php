@@ -26,7 +26,7 @@ public function actions(): array
 </x-code>
 
 <x-p>
-    Экспортируются только те поля, у которых установлен флаг для отображения в экспорте
+    Экспортируются только те поля, у которых установлен флаг <code>showOnExport</code>
 </x-p>
 
 <x-code language="php">
