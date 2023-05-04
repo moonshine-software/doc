@@ -1,7 +1,7 @@
 <x-page title="Export">
 
 <x-p>
-    Exports all data including filtering
+    Exports all data considering filters
 </x-p>
 
 <x-code language="php">
@@ -26,7 +26,7 @@ public function actions(): array
 </x-code>
 
 <x-p>
-    Only those fields are exported that have the flag to display in the export
+    Only fields having a <code>showOnExport</code> flag will be exported
 </x-p>
 
 <x-code language="php">

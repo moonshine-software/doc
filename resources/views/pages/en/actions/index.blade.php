@@ -1,10 +1,10 @@
 <x-page title="Basics">
 <x-p>
-    The actions are set in the resource method <code>actions</code>.
+    The actions are set in the <code>actions</code> resource method.
 </x-p>
 
 <x-p>
-    The purpose of adding additional processes for the main page of the resource
+    Could be used to append additional processes for the main page of the resource.
 </x-p>
 
 </x-page>

@@ -7,19 +7,19 @@
 ]">
 
 <x-p>
-    MoonShine дает возможности расширения основного функционала и написания собственных пакетов которые улучшать возможности.
+    MoonShine дает возможности расширения основного функционала и написания собственных пакетов, которые улучшат возможности.
     В данном разделе мы приведем список таких пакетов, пример с созданием собственного поля и действия.
 </x-p>
 
 <x-p>
-    Если у вас сложности с тем как должен выглядеть ваш пакет для MoonShine, то мы приготовили для вас готовый шаблон.
+    Если у вас сложности с тем, как должен выглядеть ваш пакет для MoonShine, то мы приготовили для вас готовый шаблон.
     <x-moonshine::link href="https://github.com/moonshine-software/moonshine-package-template">
         Шаблон
     </x-moonshine::link>
 </x-p>
 
 <x-p>
-    Созданы для расширения:
+    Следующие сущности могут быть расширены:
     <x-ul :items="['Fields', 'Filters', 'Decorations', 'Actions', 'Metrics', 'InputExtension', 'FormComponent', 'Resource']"></x-ul>
 </x-p>
 
@@ -27,11 +27,11 @@
 
 <x-p>
     Рассмотрим небольшой пример создания собственного поля!
-    Скажем пусть это будет визуальный редактор на основе js плагина CKEditor
+    Это будет визуальный редактор на основе js плагина CKEditor
 </x-p>
 
 <x-p>
-    Для начала создадим класс который расширяет MoonShine поля
+    Для начала создадим класс, который расширяет MoonShine поля
 </x-p>
 
 <x-code language="php">
@@ -64,7 +64,7 @@ final class CKEditor extends Field
 <x-p>
     В MoonShine уже есть несколько встроенных действий, таких как
     <x-link :link="route('moonshine.custom_page', 'actions-export')">Экспорт</x-link> и
-    <x-link :link="route('moonshine.custom_page', 'actions-import')">Импорт</x-link>
+    <x-link :link="route('moonshine.custom_page', 'actions-import')">Импорт</x-link>,
     но вы также можете создавать свои собственные действия.
 </x-p>
 

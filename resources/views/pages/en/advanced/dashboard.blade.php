@@ -12,16 +12,16 @@
 </x-p>
 
 <x-p>
-    Currently in the control panel you can display <x-link link="{{ route('moonshine.custom_page', 'metrics-index') }}">metrics</x-link>
+    Currently you can display <x-link link="{{ route('moonshine.custom_page', 'metrics-index') }}">metrics</x-link> in the control panel
 </x-p>
 
 <x-p>
-    The required metrics are registered in the blocks method and placed in the DashboardBlock wrapper for convenient panel building
+    The required metrics are registered in the blocks method and placed in the DashboardBlock wrapper for a convenient arrangement of the panel
 </x-p>
 
 <x-p>
-    Decorating methods are also available to the elements
     <x-link link="{{ route('moonshine.custom_page', 'decorations-layout#grid-column') }}">Layout (columnSpan)</x-link>
+    decorating methods are also available for the elements
 </x-p>
 
 <x-code language="php">
