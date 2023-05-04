@@ -137,6 +137,10 @@ return [
         ['slug' => 'icons-heroicons', 'label' => 'Heroicons'],
     ],
 
+    'Components:code-bracket-square' => [
+        ['slug' => 'components-badges', 'label' => 'Badges'],
+    ],
+
     'Digging Deeper:moon' => [
         ['slug' => 'advanced-dashboard', 'label' => 'Dashboard', 'badge' => 'new'],
         ['slug' => 'advanced-pages', 'label' => 'Pages'],
