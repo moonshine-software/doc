@@ -34,5 +34,7 @@
     "Extensions": "Расширения",
     "Extends": "Наследует",
     "has the same features": "имеет те же возможности",
-    "Divider": "Разделитель"
+    "Divider": "Разделитель",
+    "Alerts" : "Уведомления",
+    "Badges": "Значки"
 }
