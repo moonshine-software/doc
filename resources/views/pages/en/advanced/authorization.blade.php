@@ -1,20 +1,22 @@
 <x-page title="Authorization">
 
 <x-p>
-    We do not deviate from the concept of laravel and with the help of laravel policy can work with access rights within the MoonShine admin panel
+    We stick to the Laravel concept, so using the Laravel policy we can operate
+    access rights from the MoonShine admin panel
 </x-p>
 
 <x-p>
-    In MoonShine resource controllers, each method will be checked for permissions. If difficulties arise, check the official Laravel documentation
+    MoonShine resource controllers check each method for permissions.
+    If difficulties arise, check the official Laravel documentation
 </x-p>
 
 <x-p>
-    By default, permission checking is disabled for resources. To enable it, you must add the property
-    <code>$withPolicy</code>
+    By default, permission checking is disabled for resources. To enable it, you must add the
+    <code>$withPolicy</code> property
 </x-p>
 
 <x-p>
-    Available methods Policy:
+    Available Policy methods:
 </x-p>
 
 <x-ul :items="['viewAny', 'view', 'create', 'update', 'delete', 'massDelete', 'restore', 'forceDelete']"></x-ul>
