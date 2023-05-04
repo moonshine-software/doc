@@ -56,7 +56,7 @@
     1. У вас достаточно опыта, чтобы предложить её решение.
     Я буду крайне рад вашему PR с описанием ошибки и вариантом её исправления.
     <br>
-    2. Если не знаете как решить проблему - создавайте github issues и в ближайшее время мы исправим эту проблему.
+    2. Если не знаете, как решить проблему - создавайте GitHub issues, и в ближайшее время мы исправим эту проблему.
 
     <div class="text-sm my-4">* Важно, чтобы ваш pr прошел все тесты платформы и имел подробное описание,
         чтобы всем участникам разработки было понятно, что именно произошло.</div>
@@ -128,7 +128,7 @@ MSProvider::class,
 <x-moonshine::badge color="green">5</x-moonshine::badge> Создайте .env из .env.example (не забудьте создать базу данных) и выполните установку ниже
 
 <x-code language="shell">
-composer require lee-to/laravel-package-command && composer require rap2hpoutre/fast-excel &&  composer install && npm install
+composer require lee-to/laravel-package-command && composer require rap2hpoutre/fast-excel && composer install && npm install
 </x-code>
 
 <x-code language="shell">

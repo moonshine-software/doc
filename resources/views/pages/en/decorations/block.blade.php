@@ -1,7 +1,7 @@
 <x-page title="Block">
 
 <x-p>
-    Header substrate for form elements
+    Substrate with header for form features
 </x-p>
 
 <x-code language="php">
@@ -20,7 +20,7 @@ public function fields(): array
 </x-code>
 
 <x-p>
-    If you don't need a headline
+    If you don't need a header
 </x-p>
 
 <x-code language="php">

@@ -1,12 +1,12 @@
 <x-page title="Authentication" :sectionMenu="[
     'Sections' => [
-        ['url' => '#base', 'label' => 'Base'],
-        ['url' => '#extension', 'label' => 'Extension scope'],
+        ['url' => '#basics', 'label' => 'Basics'],
+        ['url' => '#extending', 'label' => 'Extending capabilities'],
         ['url' => '#greetings', 'label' => 'Greetings']
     ]
 ]">
 
-<x-sub-title id="base">Base</x-sub-title>
+<x-sub-title id="basics">Basics</x-sub-title>
 
 <x-p>
     The Moonshine admin panel implements an authentication system that is enabled by default,
@@ -28,11 +28,11 @@ return [
 <x-image theme="light" src="{{ asset('screenshots/login.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/login_dark.png') }}"></x-image>
 
-<x-sub-title id="extension">Extension scope</x-sub-title>
+<x-sub-title id="extending">Extending capabilities</x-sub-title>
 
 <x-p>
-    If you use your own guard, provider, then they can be overridden in the configuration,
-    as well as the model <code>MoonshineUser</code>
+    If you use your own guard, provider, then they can be redefined in the configuration,
+    as well as the <code>MoonshineUser</code> model
 </x-p>
 
 <x-code language="php">
