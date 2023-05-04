@@ -1,8 +1,8 @@
 <x-page title="Notifications">
 
 <x-p>
-    If there is a need to add notifications to the notification center MoonShine, then
-    use the class <code>MoonShine\Notifications\MoonShineNotification</code>
+    If you need to add notifications to the MoonShine notification center,
+    you can use the class: <code>MoonShine\Notifications\MoonShineNotification</code>
 </x-p>
 
 <x-code language="php">
