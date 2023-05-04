@@ -8,16 +8,16 @@
 <x-sub-title>What can you do to help?</x-sub-title>
 
 <x-p>
-    The community needs active users. You can help in many ways:
+    Our community needs active users. You can help in many ways
 </x-p>
 
 <x-ul :items="[
-'Supplement the code',
+'Add new code',
 'Front-end development',
 'Submit bug reports',
 'Help other users understand the details',
-'Take care of writing documentation',
-'Engage in the popularization of the project'
+'Writing documentation',
+'Engage new participants'
 ]"></x-ul>
 
 <x-sub-title>We are using a technology stack</x-sub-title>
@@ -31,18 +31,18 @@
 <x-sub-title>Where do we start?</x-sub-title>
 
 <x-p>
-    There is already a functioning product, fully functional and testable. Working doesn't mean great,
-    so the goal is to make the project better.
+    The product is working already, fully functional and testable.
+    But working doesn't mean great, so the goal is to make the project better.
 </x-p>
 
 <x-sub-title>Pull requests</x-sub-title>
 
 <x-p>
-    You can suggest new features or improvements to MoonShine! Errors and bugs - all this can be fixed and sent for improvement.
-    I'm also glad to meet new open source project development specialists.
+    You can suggest new features or improvements to MoonShine! Bugs and errors - all this could be documented and sent for improvement.
+    I'm also glad to meet new open source project development specialists
 </x-p>
 
-<x-sub-title>Where to discuss development?</x-sub-title>
+<x-sub-title>Where shall we discuss development?</x-sub-title>
 
 <x-p>
     For active participants in the project created a separate chat in telegram. If you are ready to participate in the development,
@@ -56,10 +56,10 @@
     1. You have enough experience to offer a solution.
     I would be very happy to receive your PR with a description of the error and a way to fix it.
     <br>
-    2. If you don't know how to solve the problem, create github issues and we will fix the problem soon.
+    2. If you don't know how to solve the problem, create GitHub issues, and we will fix the problem soon.
 
-    <div class="text-sm my-4">* It is important that your pr passed all the tests of the platform and had a detailed description,
-        so that all participants in the development was clear what exactly happened.</div>
+    <div class="text-sm my-4">* It is important that your pr passed all the tests of the platform and had a detailed description
+        so that all participants of the development process understand what exactly happened.</div>
 </x-p>
 
 <x-sub-title>Main branch</x-sub-title>
@@ -82,19 +82,19 @@
     git clone git@github.com:moonshine-software/demo-project.git .
 </x-code>
 
-<x-moonshine::badge color="green">2</x-moonshine::badge> Add packages folder and execute command
+<x-moonshine::badge color="green">2</x-moonshine::badge> Add packages directory and execute the command below
 
 <x-code language="shell">
     cd packages && git clone git@github.com:moonshine-software/moonshine.git && cd moonshine && composer install && npm install
 </x-code>
 
-<x-moonshine::badge color="green">3</x-moonshine::badge> Back to the root and remove moonshine/moonshine dependency from composer.json
+<x-moonshine::badge color="green">3</x-moonshine::badge> Go back to the project directory and remove moonshine/moonshine dependency from the composer.json
 
 <x-code language="shell">
     "moonshine/moonshine": "^1.50",
 </x-code>
 
-<x-moonshine::badge color="green">3</x-moonshine::badge> Add MoonShine to autoload section in composer.json
+<x-moonshine::badge color="green">3</x-moonshine::badge> Add MoonShine from the packages directory to autoload section in the composer.json
 
 <x-code language="shell">
 "autoload": {
@@ -107,7 +107,7 @@
 },
 </x-code>
 
-<x-moonshine::badge color="green">4</x-moonshine::badge> Add vendor MoonShineServiceProvider to config/app.php
+<x-moonshine::badge color="green">4</x-moonshine::badge> Add MoonShineServiceProvider to config/app.php
 
 <x-code language="php">
 use App\Providers\MoonShineServiceProvider;
@@ -125,10 +125,10 @@ MSProvider::class,
 // ..
 </x-code>
 
-<x-moonshine::badge color="green">5</x-moonshine::badge> Make and configure .env (don't forget to create a database) and install
+<x-moonshine::badge color="green">5</x-moonshine::badge> Create .env from .env.example (don't forget to create a database) and complete the install below
 
 <x-code language="shell">
-composer require lee-to/laravel-package-command && composer require rap2hpoutre/fast-excel &&  composer install && npm install
+composer require lee-to/laravel-package-command && composer require rap2hpoutre/fast-excel && composer install && npm install
 </x-code>
 
 <x-code language="shell">
@@ -143,17 +143,17 @@ php artisan serve
 
 <x-sub-title id="pr">How to make a pull request?</x-sub-title>
 <x-ul :items="[
-'Fork the MoonShine official repository',
-'Clone your forked repository to your local machine.',
-'Create a new branch for your changes/feature.',
-'Make your changes and commit them with descriptive commit messages. Use https://www.conventionalcommits.org',
-'Push your changes to your forked repository on the new branch.',
-'Go to the original repository (MoonShine) and create a new pull request.',
-'Describe the changes you made and explain why they are valuable.',
+'Go to the MoonShine repository and press Fork',
+'Make a git clone of your fork',
+'Create a new branch for your changes',
+'Make commits following the convention. Use https://www.conventionalcommits.org',
+'Push your changes to your fork',
+'Go to the MoonShine repository again and press New pull request',
+'Describe the changes you made and explain why they are valuable',
 'Wait for review',
 ]"></x-ul>
 
-<x-sub-title>Questions?</x-sub-title>
+<x-sub-title>Any questions?</x-sub-title>
 
 <x-p>
     My name is Danil! Email me at <x-link link="mailto:thecutcode@gmail.com">thecutcode@gmail.com</x-link>
