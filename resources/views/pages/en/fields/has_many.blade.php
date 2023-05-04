@@ -14,7 +14,7 @@ public function fields(): array
                 ID::make(),
                 BelongsTo::make('Article'),
                 BelongsTo::make('User'),
-                Text::make('Text')->required(),,
+                Text::make('Text')->required(),
             ])
             ->removable()
     ];
