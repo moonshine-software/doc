@@ -138,6 +138,7 @@ return [
     ],
 
     'Components:code-bracket-square' => [
+        ['slug' => 'components-alerts', 'label' => 'Alerts'],
         ['slug' => 'components-badges', 'label' => 'Badges'],
     ],
 
