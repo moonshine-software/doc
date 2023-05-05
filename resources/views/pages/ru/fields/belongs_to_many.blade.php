@@ -35,7 +35,7 @@ public function fields(): array
 
 <x-sub-title id="pivot">Pivot</x-sub-title>
 
-<x-p>Для реализации pivot полей, воспользуйтесь методом <code>fields</code></x-p>
+<x-p>Для реализации pivot полей воспользуйтесь методом <code>fields</code></x-p>
 
 <x-code language="php">
 use MoonShine\Fields\BelongsToMany;
@@ -68,7 +68,7 @@ public function fields(): array
 
 <x-sub-title id="select">Select</x-sub-title>
 
-<x-p>Для трансформации отображения в select, воспользуйтесь методом <code>select</code></x-p>
+<x-p>Для трансформации отображения в select воспользуйтесь методом <code>select</code></x-p>
 
 <x-code language="php">
 use MoonShine\Fields\BelongsToMany;
