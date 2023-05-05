@@ -1,4 +1,9 @@
-<x-page title="Число">
+<x-page
+    title="Число"
+    :videos="[
+        ['url' => 'https://www.youtube.com/embed/7HGaebxlcFM?start=827&end=913', 'title' => 'Screencasts: Поле Number'],
+    ]"
+>
 
 <x-extendby :href="route('moonshine.custom_page', 'fields-text')">
     Text
