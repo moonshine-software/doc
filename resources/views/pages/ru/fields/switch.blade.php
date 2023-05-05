@@ -1,4 +1,9 @@
-<x-page title="Переключатель">
+<x-page
+    title="Переключатель"
+    :videos="[
+        ['url' => 'https://www.youtube.com/embed/7HGaebxlcFM?start=1278&end=1357', 'title' => 'Screencasts: Поле SwitchBoolean'],
+    ]"
+>
 
 <x-extendby :href="route('moonshine.custom_page', 'fields-checkbox')">
     Checkbox
