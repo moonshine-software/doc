@@ -1,11 +1,17 @@
-<x-page title="Файл" :sectionMenu="[
-    'Разделы' => [
-        ['url' => '#multiple', 'label' => 'Мультизагрузка'],
-        ['url' => '#removable', 'label' => 'Удаление файлов'],
-        ['url' => '#download', 'label' => 'Запрет на скачивание'],
-        ['url' => '#filename', 'label' => 'Оригинальное имя файла'],
-    ]
-]">
+<x-page
+    title="Файл"
+    :sectionMenu="[
+        'Разделы' => [
+            ['url' => '#multiple', 'label' => 'Мультизагрузка'],
+            ['url' => '#removable', 'label' => 'Удаление файлов'],
+            ['url' => '#download', 'label' => 'Запрет на скачивание'],
+            ['url' => '#filename', 'label' => 'Оригинальное имя файла'],
+        ]
+    ]"
+    :videos="[
+        ['url' => 'https://www.youtube.com/embed/7HGaebxlcFM?start=1429&end=1604', 'title' => 'Screencasts: Поле File'],
+    ]"
+>
 
 <x-p>
     Прежде чем использовать файловое поле, необходимо убедиться что на директорию storage
