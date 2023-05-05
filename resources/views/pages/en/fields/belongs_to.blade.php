@@ -1,8 +1,8 @@
 <x-page title="BelongsTo" :sectionMenu="[
     'Sections' => [
-        ['url' => '#searchable', 'label' => 'Searching for values'],
-		['url' => '#async-search', 'label' => 'Async searching for values'],
-        ['url' => '#values-query', 'label' => 'Query for values'],
+        ['url' => '#searchable', 'label' => 'Searching values'],
+		['url' => '#async-search', 'label' => 'Async search'],
+        ['url' => '#values-query', 'label' => 'Values query'],
         ['url' => '#nullable', 'label' => 'Empty value'],
     ]
 ]">
@@ -11,9 +11,9 @@
     Select
 </x-extendby>
 
-<x-p>Relationship field in laravel like belongsTo</x-p>
+<x-p>Field for relationships in Laravel, belongsTo type</x-p>
 
-<x-p>Displayed as select, it is also possible to add a value search using the method:
+<x-p>Displayed as select, you can also add a value search using this method:
 <code>searchable</code></x-p>
 
 <x-code language="php">
@@ -32,9 +32,9 @@ public function fields(): array
 //...
 </x-code>
 
-<x-p>The third argument with the value "name" is a field in the linked table to display the values</x-p>
+<x-p>The third argument with the "name" value is a field in the linked "countries" table to display the values</x-p>
 
-<x-sub-title id="searchable">Searching for values</x-sub-title>
+<x-sub-title id="searchable">Searching values</x-sub-title>
 
 <x-p>You can also pass a resource with a field to display as a third parameter</x-p>
 
@@ -91,7 +91,7 @@ return [
 @include('pages.en.fields.shared.values_query', ['field' => 'BelongsTo'])
 
 <x-sub-title id="nullable">Empty value</x-sub-title>
-<x-p>If the default value is necessary Null</x-p>
+<x-p>If you need the default value Null</x-p>
 <x-code language="php">
 use MoonShine\Fields\BelongsTo;
 
@@ -106,6 +106,6 @@ public function fields(): array
 //...
 </x-code>
 
-<x-p>Don't forget, also at the table level in the database, to specify that the field can be Null</x-p>
+<x-p>Don't forget to specify that the field can be Null at the table level in the database as well</x-p>
 
 </x-page>
