@@ -87,7 +87,7 @@ public function fields(): array
 </x-code>
 
 <x-p>
-    Результат две колонки с блоками
+    Результат: две колонки с блоками
 </x-p>
 
 <x-image theme="light" src="{{ asset('screenshots/grid.png') }}"></x-image>
