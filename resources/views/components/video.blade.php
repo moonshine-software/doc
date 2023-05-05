@@ -10,7 +10,7 @@
                     <div x-init="$watch('open', () => stopVideo('.modal-video'))">
                         <iframe
                             class="w-full aspect-video modal-video"
-                            src="{{ $video['url'] }}{{ str($video['url'])->contains('?') ? '&' : '?' }}enablejsapi=1"
+                            src="{{ $video['url'] }}{{ str($video['url'])->contains('?') ? '&' : '?' }}enablejsapi=1&rel=0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowfullscreen>
                         </iframe>
