@@ -11,23 +11,23 @@ app(MoonShine::class)->menu([
 </x-code>
 
 <x-p>
-    The first argument - Title pages
+    The first argument - page Title
 </x-p>
 
 <x-p>
-    The second argument - slug pages to form url
+    The second argument - page slug to generate url
 </x-p>
 
 
 <x-p>
-    The third argument is your custom blade view, which is located in the resources/views
+    The third argument is your custom blade view, which could be found in the resources/views
 </x-p>
 
 <x-p>
-    The fourth argument is the data needed to view
+    The fourth argument is the data required for view
 </x-p>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-    As an example using your own routes and controllers to add logic
+    For example, you can add logic using your own routes and controllers
 </x-moonshine::alert>
 </x-page>
