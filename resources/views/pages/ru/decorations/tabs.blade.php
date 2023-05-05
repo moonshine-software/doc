@@ -1,4 +1,10 @@
-<x-page title="Вкладки">
+<x-page
+    title="Вкладки"
+    :videos="[
+        ['url' => 'https://www.youtube.com/embed/7HGaebxlcFM?start=713&end=819', 'title' => 'Screencasts: Декорация Tabs'],
+    ]"
+>
+
 <x-p>
     На форму для удобства можно добавить вкладки и сгруппировать поля
 </x-p>
