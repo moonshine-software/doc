@@ -11,7 +11,15 @@
 <x-code language="php">
 use MoonShine\Fields\Color;
 
-Color::make('Colour', 'color')
+//...
+public function fields(): array
+{
+    return [
+        Color::make('Color')
+    ];
+}
+
+//...
 </x-code>
 
 <x-image theme="light" src="{{ asset('screenshots/color.png') }}"></x-image>

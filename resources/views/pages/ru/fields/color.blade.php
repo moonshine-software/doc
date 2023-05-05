@@ -1,4 +1,9 @@
-<x-page title="Цвет">
+<x-page
+    title="Цвет"
+    :videos="[
+        ['url' => 'https://www.youtube.com/embed/7HGaebxlcFM?start=1375&end=1425', 'title' => 'Screencasts: Поле Color'],
+    ]"
+>
 
 <x-extendby :href="route('moonshine.custom_page', 'fields-text')">
     Text
@@ -11,7 +16,15 @@
 <x-code language="php">
 use MoonShine\Fields\Color;
 
-Color::make('Цвет', 'color')
+//...
+public function fields(): array
+{
+    return [
+        Color::make('Цвет', 'color')
+    ];
+}
+
+//...
 </x-code>
 
 <x-image theme="light" src="{{ asset('screenshots/color.png') }}"></x-image>
