@@ -1,9 +1,16 @@
-<x-page title="Layout" :sectionMenu="[
-    'Разделы' => [
-        ['url' => '#flex', 'label' => 'Flex'],
-        ['url' => '#grid-column', 'label' => 'Grid/Column'],
-    ]
-]">
+<x-page
+    title="Layout"
+    :sectionMenu="[
+        'Разделы' => [
+            ['url' => '#flex', 'label' => 'Flex'],
+            ['url' => '#grid-column', 'label' => 'Grid/Column'],
+        ]
+    ]"
+    :videos="[
+        ['url' => 'https://www.youtube.com/embed/7HGaebxlcFM?start=305&end=359', 'title' => 'Screencasts: Декорация Flex'],
+    ]"
+>
+
 <x-p>
     Иногда для удобства необходимо разделить форму на несколько блоков, по умолчанию они
     идут друг под другом, но с помощью

@@ -1,4 +1,9 @@
-<x-page title="Код">
+<x-page
+    title="Код"
+    :videos="[
+        ['url' => 'https://www.youtube.com/embed/7HGaebxlcFM?start=1798&end=1843', 'title' => 'Screencasts: Поле Code'],
+    ]"
+>
 
 <x-extendby :href="route('moonshine.custom_page', 'fields-textarea')">
     Textarea

@@ -1,11 +1,17 @@
-<x-page title="WYSIWYG" :sectionMenu="[
-'Разделы' => [
-    ['url' => '#tinymce', 'label' => 'TinyMce'],
-    ['url' => '#trix', 'label' => 'Trix'],
-    ['url' => '#ckeditor', 'label' => 'CKEditor'],
-    ['url' => '#quill', 'label' => 'Quill'],
-]
-]">
+<x-page
+    title="WYSIWYG"
+    :sectionMenu="[
+        'Разделы' => [
+            ['url' => '#tinymce', 'label' => 'TinyMce'],
+            ['url' => '#trix', 'label' => 'Trix'],
+            ['url' => '#ckeditor', 'label' => 'CKEditor'],
+            ['url' => '#quill', 'label' => 'Quill'],
+        ]
+    ]"
+    :videos="[
+        ['url' => 'https://www.youtube.com/embed/7HGaebxlcFM?start=360&end=479', 'title' => 'Screencasts: Поле TinyMce'],
+    ]"
+>
 
 <x-extendby :href="route('moonshine.custom_page', 'fields-textarea')">
     Textarea

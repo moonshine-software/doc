@@ -1,4 +1,9 @@
-<x-page title="Collapse">
+<x-page
+    title="Collapse"
+    :videos="[
+        ['url' => 'https://www.youtube.com/embed/7HGaebxlcFM?start=251&end=306', 'title' => 'Screencasts: Декорация Collapse'],
+    ]"
+>
 
 <x-p>
     Декоратор Collapse позволяет сворачивать <code>fields</code> и <code>blocks</code> с сохранением состояния
