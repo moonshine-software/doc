@@ -1,6 +1,6 @@
 <x-page title="Tabs">
 <x-p>
-    You can add tabs and group fields on the form for convenience
+    You can add tabs and group fields in the form for convenience
 </x-p>
 
 <x-code language="php">
