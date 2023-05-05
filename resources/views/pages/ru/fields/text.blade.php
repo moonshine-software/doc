@@ -1,9 +1,15 @@
-<x-page title="Текстовое поле" :sectionMenu="[
-    'Разделы' => [
-        ['url' => '#mask', 'label' => 'Маска'],
-        ['url' => '#extensions', 'label' => 'Расширения'],
-    ]
-]">
+<x-page
+    title="Текстовое поле"
+    :sectionMenu="[
+        'Разделы' => [
+            ['url' => '#mask', 'label' => 'Маска'],
+            ['url' => '#extensions', 'label' => 'Расширения'],
+        ]
+    ]"
+    :videos="[
+        ['url' => 'https://www.youtube.com/embed/7HGaebxlcFM?start=0&end=56', 'title' => 'Screencasts: Поле Text'],
+    ]"
+>
 
 <x-p>
     Текстовое поле включает в себя все базовые методы
