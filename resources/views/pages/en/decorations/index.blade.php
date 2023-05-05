@@ -4,7 +4,7 @@
 </x-p>
 
 <x-p>
-    To improve the appearance of the fields and the quality of the interface
+    Improve the appearance of the fields and the quality of the interface
 </x-p>
 
 </x-page>
