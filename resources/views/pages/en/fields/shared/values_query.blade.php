@@ -1,4 +1,4 @@
-<x-sub-title id="values-query">Query for values</x-sub-title>
+<x-sub-title id="values-query">Values query</x-sub-title>
 
 To filter values, use the <code>valuesQuery</code> method
 
