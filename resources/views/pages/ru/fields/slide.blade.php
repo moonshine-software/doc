@@ -1,4 +1,9 @@
-<x-page title="Диапазон">
+<x-page
+    title="Диапазон"
+    :videos="[
+        ['url' => 'https://www.youtube.com/embed/7HGaebxlcFM?start=1167&end=1274', 'title' => 'Screencasts: Поле Slide'],
+    ]"
+>
 
 <x-extendby :href="route('moonshine.custom_page', 'fields-text')">
     Text
