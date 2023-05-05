@@ -1,4 +1,9 @@
-<x-page title="Slug">
+<x-page
+    title="Slug"
+    :videos="[
+        ['url' => 'https://www.youtube.com/embed/7HGaebxlcFM?start=104&end=236', 'title' => 'Screencasts: Поле Slug'],
+    ]"
+>
 
 <x-extendby :href="route('moonshine.custom_page', 'fields-text')">
     Text
