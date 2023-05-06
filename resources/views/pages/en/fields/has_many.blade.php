@@ -30,7 +30,7 @@ public function fields(): array
     It often happens that there are a lot of fields for relations and they look small in the table, and this is inconvenient.
     In many cases, you have to move this relation to a separate resource, however if you must leave it within the current resource,
     but display the fields completely,
-    you can use the fullPage() method, and the fields will get a standard shape
+    you can use the <code>fullPage()</code> method, and the fields will get a standard shape
 </x-p>
 
 <x-image theme="light" src="{{ asset('screenshots/has_many.png') }}"></x-image>
