@@ -35,6 +35,8 @@
     "Extends": "Наследует",
     "has the same features": "имеет те же возможности",
     "Divider": "Разделитель",
+    "UI components": "UI компоненты",
     "Alerts" : "Уведомления",
-    "Badges": "Значки"
+    "Badges": "Значки",
+    "Icons": "Иконки"
 }
