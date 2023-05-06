@@ -1,8 +1,8 @@
 {
-    "Basic": "Основы",
+    "Basics": "Основы",
     "Welcome": "Добро пожаловать",
     "Translation is not ready yet": "Перевод еще не готов",
-    "Conception": "Концепция",
+    "Concept": "Концепция",
     "Configuration": "Конфигурация",
     "Installation": "Установка",
     "Releases": "Обновления",
@@ -34,5 +34,7 @@
     "Extensions": "Расширения",
     "Extends": "Наследует",
     "has the same features": "имеет те же возможности",
-    "Divider": "Разделитель"
+    "Divider": "Разделитель",
+    "Alerts" : "Уведомления",
+    "Badges": "Значки"
 }

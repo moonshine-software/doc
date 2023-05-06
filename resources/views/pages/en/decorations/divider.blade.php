@@ -1,7 +1,7 @@
 <x-page title="Divider">
 
 <x-p>
-    To divide into areas, you can use the decor <code>Divider</code>
+    To divide into areas, you can use the <code>Divider</code> decorator
 </x-p>
 
 <x-code language="php">

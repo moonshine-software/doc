@@ -1,10 +1,16 @@
-<x-page title="Json" :sectionMenu="[
-    'Разделы' => [
-        ['url' => '#key-value', 'label' => 'Ключ/Значение'],
-        ['url' => '#fields', 'label' => 'С набором полей'],
-        ['url' => '#removable', 'label' => 'Удаление'],
-    ]
-]">
+<x-page
+    title="Json"
+    :sectionMenu="[
+        'Разделы' => [
+            ['url' => '#key-value', 'label' => 'Ключ/Значение'],
+            ['url' => '#fields', 'label' => 'С набором полей'],
+            ['url' => '#removable', 'label' => 'Удаление'],
+        ]
+    ]"
+    :videos="[
+        ['url' => 'https://www.youtube.com/embed/7HGaebxlcFM?start=1607&end=1789', 'title' => 'Screencasts: Поле Json'],
+    ]"
+>
 
 <x-sub-title id="key-value">Ключ/Значение</x-sub-title>
 

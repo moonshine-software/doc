@@ -1,4 +1,9 @@
-<x-page title="Textarea">
+<x-page
+    title="Textarea"
+    :videos="[
+        ['url' => 'https://www.youtube.com/embed/7HGaebxlcFM?start=776&end=819', 'title' => 'Screencasts: Поле Textarea'],
+    ]"
+>
 
 <x-p>
     Textarea поле включает в себя все базовые методы

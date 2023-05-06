@@ -1,9 +1,16 @@
-<x-page title="Текстовое поле" :sectionMenu="[
-    'Разделы' => [
-        ['url' => '#mask', 'label' => 'Маска'],
-        ['url' => '#extensions', 'label' => 'Расширения'],
-    ]
-]">
+<x-page
+    title="Текстовое поле"
+    :sectionMenu="[
+        'Разделы' => [
+            ['url' => '#mask', 'label' => 'Маска'],
+            ['url' => '#extensions', 'label' => 'Расширения'],
+        ]
+    ]"
+    :videos="[
+        ['url' => 'https://www.youtube.com/embed/7HGaebxlcFM?start=0&end=56', 'title' => 'Screencasts: Поле Text'],
+        ['url' => 'https://www.youtube.com/embed/7HGaebxlcFM?start=978&end=1159', 'title' => 'Screencasts: Расширение поля'],
+    ]"
+>
 
 <x-p>
     Текстовое поле включает в себя все базовые методы
@@ -57,18 +64,18 @@ public function fields(): array
 
 public function fields(): array
 {
-return [
-    Text::make('Title', 'title')
-        // Возможность скопировать значение по кнопке
-        ->copy()
-        // Замок с блокировкой изменений
-        ->locked()
-        // Подсказка формата
-        ->expansion('kg')
-        // Отключение отображения значения
-        ->eye()
-    ];
-}
+    return [
+        Text::make('Title', 'title')
+            // Возможность скопировать значение по кнопке
+            ->copy()
+            // Замок с блокировкой изменений
+            ->locked()
+            // Подсказка формата
+            ->expansion('kg')
+            // Отключение отображения значения
+            ->eye()
+        ];
+    }
 
 //...
 </x-code>

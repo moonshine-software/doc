@@ -1,7 +1,7 @@
 <x-page title="Collapse">
 
 <x-p>
-    The Collapse decorator allows you to collapse <code>fields</code> and <code>blocks</code>, preserving their state
+    The Collapse decorator allows you to minimize <code>fields</code> and <code>blocks</code> while keeping their state
 </x-p>
 
 <x-code language="php">

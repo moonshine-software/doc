@@ -2,7 +2,7 @@
 
 return [
     'Getting started:play' => [
-        ['slug' => 'concept', 'label' => 'Conception'],
+        ['slug' => 'concept', 'label' => 'Concept'],
         ['slug' => 'installation', 'label' => 'Installation'],
         ['slug' => 'configuration', 'label' => 'Configuration', 'badge' => 'new'],
         ['slug' => 'contribution', 'label' => 'Contribution Guide'],
@@ -11,7 +11,7 @@ return [
     ],
 
     'Resources:document-duplicate' => [
-        ['slug' => 'resources-index', 'label' => 'Basic'],
+        ['slug' => 'resources-index', 'label' => 'Basics'],
         ['slug' => 'resources-fields', 'label' => 'Fields'],
         ['slug' => 'resources-filters', 'label' => 'Filters'],
         ['slug' => 'resources-actions', 'label' => 'Actions'],
@@ -31,7 +31,7 @@ return [
     ],
 
     'Fields:bars-3' => [
-        ['slug' => 'fields-index', 'label' => 'Basic'],
+        ['slug' => 'fields-index', 'label' => 'Basics'],
         // Text
         ['slug' => 'fields-text', 'label' => 'Text'],
         ['slug' => 'fields-id', 'label' => 'ID'],
@@ -87,7 +87,7 @@ return [
     ],
 
     'Filters:adjustments-vertical' => [
-        ['slug' => 'filters-index', 'label' => 'Basic'],
+        ['slug' => 'filters-index', 'label' => 'Basics'],
         // Text
         ['slug' => 'filters-text', 'label' => 'TextFilter'],
         ['slug' => 'filters-date', 'label' => 'DateFilter'],
@@ -109,7 +109,7 @@ return [
     ],
 
     'Decorations:rocket-launch' => [
-        ['slug' => 'decorations-index', 'label' => 'Basic'],
+        ['slug' => 'decorations-index', 'label' => 'Basics'],
         ['slug' => 'decorations-tabs', 'label' => 'Tabs'],
         ['slug' => 'decorations-heading', 'label' => 'Heading'],
         ['slug' => 'decorations-block', 'label' => 'Block'],
@@ -120,21 +120,26 @@ return [
     ],
 
     'Metrics:chart-bar' => [
-        ['slug' => 'metrics-index', 'label' => 'Basic'],
+        ['slug' => 'metrics-index', 'label' => 'Basics'],
         ['slug' => 'metrics-value', 'label' => 'Value'],
         ['slug' => 'metrics-line_chart', 'label' => 'Line Chart'],
         ['slug' => 'metrics-donut_chart', 'label' => 'Donut Chart', 'badge' => 'new'],
     ],
 
     'Actions:hand-raised' => [
-        ['slug' => 'actions-index', 'label' => 'Basic'],
+        ['slug' => 'actions-index', 'label' => 'Basics'],
         ['slug' => 'actions-export', 'label' => 'Export'],
         ['slug' => 'actions-import', 'label' => 'Import'],
     ],
 
     'Icons:trophy' => [
-        ['slug' => 'icons-index', 'label' => 'Basic'],
+        ['slug' => 'icons-index', 'label' => 'Basics'],
         ['slug' => 'icons-heroicons', 'label' => 'Heroicons'],
+    ],
+
+    'Components:code-bracket-square' => [
+        ['slug' => 'components-alerts', 'label' => 'Alerts'],
+        ['slug' => 'components-badges', 'label' => 'Badges'],
     ],
 
     'Digging Deeper:moon' => [

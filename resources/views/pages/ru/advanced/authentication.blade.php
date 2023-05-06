@@ -1,17 +1,17 @@
 <x-page title="Аутентификации" :sectionMenu="[
     'Разделы' => [
-        ['url' => '#base', 'label' => 'Основы'],
-        ['url' => '#extension', 'label' => 'Расширение возможностей'],
+        ['url' => '#basics', 'label' => 'Основы'],
+        ['url' => '#extending', 'label' => 'Расширение возможностей'],
         ['url' => '#greetings', 'label' => 'Приветствие']
     ]
 ]">
 
-<x-sub-title id="base">Основы</x-sub-title>
+<x-sub-title id="basics">Основы</x-sub-title>
 
 <x-p>
-    В админ панели Moonshine реализована система аутентификации, которая по умолчанию включена,
+    В админ-панели Moonshine реализована система аутентификации, которая по умолчанию включена,
     но если нужно разрешить доступ для всех пользователей,
-    ее можно отключить в файле конфигурации <code>config/moonshine.php</code>
+    то ее можно отключить в файле конфигурации <code>config/moonshine.php</code>
 </x-p>
 
 <x-code language="php">
@@ -28,7 +28,7 @@ return [
 <x-image theme="light" src="{{ asset('screenshots/login.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/login_dark.png') }}"></x-image>
 
-<x-sub-title id="extension">Расширение возможностей</x-sub-title>
+<x-sub-title id="extending">Расширение возможностей</x-sub-title>
 
 <x-p>
     Если используете собственный guard, provider, то их можно переопределить в конфигурации,
@@ -78,7 +78,7 @@ return [
 <x-sub-title id="greetings">Приветствие</x-sub-title>
 
 <x-p>
-    Для изменения текста приветствия на странице аутентификации,
+    Для изменения текста приветствия на странице аутентификации
     необходимо создать языковой файл <code>lang/vendor/moonshine/ru/ui.php</code>
 </x-p>
 

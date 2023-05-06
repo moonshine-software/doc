@@ -1,7 +1,7 @@
 <x-page title="Checkbox">
 
 <x-p>
-    Checkbox The field includes all the basic methods
+    The Checkbox field includes all the basic methods
 </x-p>
 
 <x-code language="php">

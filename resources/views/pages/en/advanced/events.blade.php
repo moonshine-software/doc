@@ -8,7 +8,8 @@
 
 
 <x-p>
-    But there is also a need to bind exactly to the events within the MoonShine resources! To do this, you need to implement the events you want in the resource
+    But sometimes you need to snap exactly to the events within the MoonShine resources!
+    To do this, you need to implement the events you want in the resource
 </x-p>
 
 <x-code language="php">

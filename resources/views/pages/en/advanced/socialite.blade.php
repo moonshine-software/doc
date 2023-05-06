@@ -5,7 +5,7 @@
 </x-p>
 
 <x-p>
-    The process is based on a package of Laravel - Socialite
+    The process is based on a Laravel package - Socialite
 </x-p>
 
 <x-link link="https://laravel.com/docs/socialite">Socialite</x-link>
@@ -15,7 +15,7 @@
 </x-p>
 
 <x-p>
-    Next, in the configure moonshine <code>config/moonshine.php</code> install the available drivers (you should already have them set up) and the image for the button
+    Next, in the moonshine config <code>config/moonshine.php</code> install the available drivers (you should already have them set up) and the image for the button
 </x-p>
 
 <x-code language="php">

@@ -1,7 +1,7 @@
 <x-page title="Menu" :sectionMenu="[
     'Sections' => [
         ['url' => '#register', 'label' => 'Registration'],
-        ['url' => '#condition', 'label' => 'Display condition'],
+        ['url' => '#condition', 'label' => 'Condition-based display'],
         ['url' => '#link', 'label' => 'External link'],
         ['url' => '#icon', 'label' => 'Icon'],
         ['url' => '#badge', 'label' => 'Tag'],
@@ -12,7 +12,8 @@
 <x-sub-title id="register">Registration</x-sub-title>
 
 <x-p>
-    We have already figured out how to register sections of the admin panel, after which they also appear in the menu
+    We have already figured out how to register sections of the admin panel
+    to make them appear in the menu
 </x-p>
 
 <x-code language="php">
@@ -24,7 +25,7 @@ app(MoonShine::class)->menu([
 </x-code>
 
 <x-p>
-    But for the convenience of the interface we can also group menu items
+    But to make our interface convenient we can also group menu items
 </x-p>
 
 <x-code language="php">
@@ -37,17 +38,17 @@ app(MoonShine::class)->menu([
 </x-code>
 
 <x-p>
-    You just need to add the resources as a second parameter to the class <code>MoonShine\Menu\MenuGroup</code>.
-    Well, the first parameter is the name of the group!
+    You just need to add the resources as a second parameter to the <code>MoonShine\Menu\MenuGroup</code> class.
+    And the first parameter is the name of the group!
 </x-p>
 
 <x-image theme="light" src="{{ asset('screenshots/menu.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/menu_dark.png') }}"></x-image>
 
-<x-sub-title id="condition">Display condition</x-sub-title>
+<x-sub-title id="condition">Condition-based display</x-sub-title>
 
 <x-p>
-    Display menu by condition
+    Displays menu based on the condition
 </x-p>
 
 <x-code language="php">
@@ -64,7 +65,7 @@ app(MoonShine::class)->menu([
 <x-sub-title id="link">External link</x-sub-title>
 
 <x-p>
-    Ability to add a custom link
+    Adding a custom link
 </x-p>
 
 <x-code language="php">
@@ -76,7 +77,7 @@ app(MoonShine::class)->menu([
 <x-sub-title id="icon">Icon</x-sub-title>
 
 <x-p>
-    It is also possible to change the icon of the menu item
+    You can also change the icon of the menu item
 </x-p>
 
 
@@ -96,7 +97,7 @@ app(MoonShine::class)->menu([
 <x-sub-title id="badge">Tag</x-sub-title>
 
 <x-p>
-    It is also possible to add a counter to the menu item
+    You can add a counter to the menu item
 </x-p>
 
 <x-code language="php">
@@ -114,8 +115,8 @@ app(MoonShine::class)->menu([
 <x-sub-title id="translation">Translation</x-sub-title>
 
 <x-p>
-    To translate menu items, you need to pass the translation key as the name
-    and add the method <code>translatable()</code>
+    To translate menu items, you need to add the translation key as the name
+    and add the <code>translatable()</code> method
 </x-p>
 
 <x-code language="php">
