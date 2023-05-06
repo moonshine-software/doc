@@ -1,8 +1,8 @@
 <x-page title="File" :sectionMenu="[
     'Sections' => [
         ['url' => '#multiple', 'label' => 'Multiple'],
-        ['url' => '#removable', 'label' => 'Remove files'],
-        ['url' => '#download', 'label' => 'Download disabled'],
+        ['url' => '#removable', 'label' => 'Removing files'],
+        ['url' => '#download', 'label' => 'Disabling download'],
         ['url' => '#filename', 'label' => 'Original filename'],
     ]
 ]">
@@ -62,11 +62,11 @@ public function fields(): array
 </x-code>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-    The field in the database must be of type text or json.<br>
+    The field in the database must be of text or json type.<br>
     You also need to add cast for eloquent model - json or array or collection.
 </x-moonshine::alert>
 
-<x-sub-title id="removable">Remove files</x-sub-title>
+<x-sub-title id="removable">Removing files</x-sub-title>
 
 <x-p>
     To be able to delete files, you must use the <code>removable</code> method
@@ -88,10 +88,10 @@ public function fields(): array
 //...
 </x-code>
 
-<x-sub-title id="download">Download disabled</x-sub-title>
+<x-sub-title id="download">Disabling download</x-sub-title>
 
 <x-p>
-    If you download multiple files, you must use the <code>removable</code> method to be able to delete them later
+    If you want to protect the file from download, you must use the <code>disableDownload</code> method
 </x-p>
 
 <x-code language="php">
@@ -113,7 +113,7 @@ public function fields(): array
 <x-sub-title id="filename">Original filename</x-sub-title>
 
 <x-p>
-    If you want to exclude the possibility of downloading a file, use the method <code>disableDownload</code>
+    If you want to keep the original filename received from the client, use the <code>keepOriginalFileName</code> method
 </x-p>
 
 <x-code language="php">
