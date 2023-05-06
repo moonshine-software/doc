@@ -44,7 +44,7 @@ return [
     'socialite' => [
         // 'driver' => 'path_to_image_for_button'
     ],
-    'header' => 'algolia-search::global-search',
+    'header' => 'doc-search',
     'footer' => [
         'copyright' => 'Made with ❤️ by <a href="https://cutcode.dev" class="font-semibold text-purple hover:text-pink" target="_blank">CutCode</a>',
         'nav' => [
