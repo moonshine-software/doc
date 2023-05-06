@@ -12,8 +12,8 @@
 
 <script type="text/javascript">
     docsearch({
-        appId: '{{ env('DOC_SEARCH_API_ID', '') }}',
-        apiKey: '{{ env('DOC_SEARCH_API_KEY', '') }}',
+        appId: '{{ config('algolia.doc.id') }}',
+        apiKey: '{{ config('algolia.doc.key')  }}',
         indexName: 'moonshine',
         container: '#doc-search',
         debug: false,
