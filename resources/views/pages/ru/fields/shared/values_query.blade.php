@@ -1,6 +1,6 @@
 <x-sub-title id="values-query">Запрос для значений</x-sub-title>
 
-<x-p>Для фильтрации значений, воспользуйтесь методом <code>valuesQuery</code></x-p>
+<x-p>Для фильтрации значений воспользуйтесь методом <code>valuesQuery</code></x-p>
 
 <x-code language="php">
 use MoonShine\Fields\{{ $field }};
