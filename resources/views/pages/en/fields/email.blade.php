@@ -5,7 +5,7 @@
 </x-extendby>
 
 <x-p>
-    Everything is the same as "Text Box", the only difference is input type = email
+    Everything is the same as "Text field", the only difference is input type = email
 </x-p>
 
 <x-code language="php">

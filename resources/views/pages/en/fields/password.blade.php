@@ -5,7 +5,7 @@
 </x-extendby>
 
 <x-p>
-    Everything is the same as the "Text Box", only the input type = password
+    Everything is the same as the "Text field", the only difference is input type = password
 </x-p>
 
 <x-p>
