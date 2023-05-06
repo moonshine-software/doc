@@ -14,7 +14,7 @@
 >
 
 <x-p>
-    Прежде чем использовать файловое поле, необходимо убедиться что на директорию storage
+    Прежде чем использовать файловое поле необходимо убедиться, что на директорию storage
     установлена символическая ссылка
 </x-p>
 
@@ -69,13 +69,13 @@ public function fields(): array
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     Поле в базе необходимо типа text или json.<br>
-    Также необходимо добавить cast для eloquent модели - json или array или collection.
+    Также необходимо добавить cast для eloquent модели - json, или array, или collection.
 </x-moonshine::alert>
 
 <x-sub-title id="removable">Удаление файлов</x-sub-title>
 
 <x-p>
-    Для возможности удаления файлов, необходимо воспользоваться методом <code>removable</code>
+    Для возможности удаления файлов необходимо воспользоваться методом <code>removable</code>
 </x-p>
 
 <x-code language="php">

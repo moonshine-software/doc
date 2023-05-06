@@ -5,7 +5,7 @@
 </x-extendby>
 
 <x-p>
-    Everything is the same as the "Text Box", only the input type = url
+    Everything is the same as the "Text field", the only difference is input type = url
 </x-p>
 
 <x-code language="php">

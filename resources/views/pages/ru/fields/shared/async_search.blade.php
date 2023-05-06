@@ -1,6 +1,6 @@
 <x-sub-title id="async-search">Асинхронный поиск</x-sub-title>
 
-<x-p>Для реализации поиска значений, воспользуйтесь методом <code>asyncSearch</code></x-p>
+<x-p>Для реализации поиска значений воспользуйтесь методом <code>asyncSearch</code></x-p>
 
 <x-p>Параметр <code>asyncSearchQuery</code> используется для фильтрации значений,
     а <code>asyncSearchValueCallback</code> для кастомизации вывода</x-p>

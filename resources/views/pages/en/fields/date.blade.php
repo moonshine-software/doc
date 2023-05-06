@@ -5,7 +5,7 @@
 </x-extendby>
 
 <x-p>
-    Input with date type and additional method <code>format</code>
+    Input has date type and additional method - <code>format</code>
 </x-p>
 
 <x-code language="php">
