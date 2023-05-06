@@ -141,6 +141,7 @@ return [
         ['slug' => 'components-alerts', 'label' => 'Alerts'],
         ['slug' => 'components-badges', 'label' => 'Badges'],
         ['slug' => 'components-icons', 'label' => 'Icons'],
+        ['slug' => 'components-thumbnails', 'label' => 'Thumbnails'],
     ],
 
     'Digging Deeper:moon' => [
