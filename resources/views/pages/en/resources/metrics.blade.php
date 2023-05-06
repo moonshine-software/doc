@@ -1,7 +1,7 @@
 <x-page title="Metrics" :sectionMenu="$sectionMenu ?? null">
 
 <x-p>
-    As with <x-link link="{{ route('moonshine.custom_page', 'dashboard-index') }}">control panel</x-link> you can
+    As with <x-link link="{{ route('moonshine.custom_page', 'advanced-dashboard') }}">control panel</x-link> you can
     display <x-link link="{{ route('moonshine.custom_page', 'metrics-index') }}">metrics</x-link>
 </x-p>
 
