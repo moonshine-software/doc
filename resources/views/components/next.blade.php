@@ -17,11 +17,13 @@
 @endphp
 
 @if(isset($next['slug']))
-<x-moonshine::link
-    :filled="true"
-    href="{{ route('moonshine.custom_page', $next['slug']) }}"
-    icon="heroicons.arrow-right"
->
-    {{ __(strtok($next['label'], ':')) }}
-</x-moonshine::link>
+<x-p>
+    <x-moonshine::link
+        :filled="true"
+        href="{{ route('moonshine.custom_page', $next['slug']) }}"
+        icon="heroicons.arrow-right"
+    >
+        {{ __(strtok($next['label'], ':')) }}
+    </x-moonshine::link>
+</x-p>
 @endif

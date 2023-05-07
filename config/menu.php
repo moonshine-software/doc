@@ -142,6 +142,7 @@ return [
         ['slug' => 'components-badges', 'label' => 'Badges'],
         ['slug' => 'components-icons', 'label' => 'Icons'],
         ['slug' => 'components-thumbnails', 'label' => 'Thumbnails'],
+        ['slug' => 'components-link', 'label' => 'Link'],
         ['slug' => 'components-modal', 'label' => 'Modal'],
     ],
 
