@@ -46,6 +46,8 @@ return [
     // Global options to control blocks-level settings.
     // https://torchlight.dev/docs/options
     'options' => [
+        'copyable' => true,
+
         // Turn line numbers on or off globally.
         'lineNumbers' => false,
 
