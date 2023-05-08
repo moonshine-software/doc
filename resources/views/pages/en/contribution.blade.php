@@ -58,7 +58,7 @@
     <br>
     2. If you don't know how to solve the problem, create GitHub issues, and we will fix the problem soon.
 
-    <div class="text-sm my-4">* It is important that your pr passed all the tests of the platform and had a detailed description
+    <div class="text-sm my-4">* It is important that your pr passed all the tests of the platform and had a detailed description,
         so that all participants of the development process understand what exactly happened.</div>
 </x-p>
 
