@@ -83,4 +83,8 @@ public function fields(): array
 <x-image theme="light" src="{{ asset('screenshots/expansion.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/expansion_dark.png') }}"></x-image>
 
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    Метод <code>copy</code> использует <code>Clipboard API</code> который доступен только для HTTPS или localhost
+</x-moonshine::alert>
+
 </x-page>
