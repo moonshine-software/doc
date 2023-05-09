@@ -39,6 +39,16 @@ public function fields(): array
 <x-image theme="light" src="{{ asset('screenshots/file.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/file_dark.png') }}"></x-image>
 
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    To correctly generate the file URL, you must define the environment variable <code>APP_URL</code> in this way,
+    to match your app's URL.
+</x-moonshine::alert>
+
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    When using the <code>local</code> driver, the return value of <code>url</code> is not URL encoded.
+    For this reason, we recommend always storing your files using names that will create valid URLs.
+</x-moonshine::alert>
+
 <x-sub-title id="multiple">Multiple</x-sub-title>
 
 <x-p>
