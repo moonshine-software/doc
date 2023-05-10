@@ -145,6 +145,7 @@ return [
         ['slug' => 'components-link', 'label' => 'Link'],
         ['slug' => 'components-modal', 'label' => 'Modal'],
         ['slug' => 'components-table', 'label' => 'Table'],
+        ['slug' => 'components-tabs', 'label' => 'Tabs'],
     ],
 
     'Digging Deeper:moon' => [
