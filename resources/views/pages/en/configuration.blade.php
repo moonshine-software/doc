@@ -27,6 +27,11 @@ return [
         'notFoundHandler' => MoonShineNotFoundException::class
     ],
 
+    # If you want to replace MoonshineUser with your own model, you can disable default migrations
+    'use_migrations' => true,
+    # On/Off notifications
+    'use_notifications' => true,
+
     'auth' => [
         # On/Off authentication. If false, the panel will be available to all
         'enable' => true,

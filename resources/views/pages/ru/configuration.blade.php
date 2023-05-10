@@ -27,6 +27,11 @@ return [
         'notFoundHandler' => MoonShineNotFoundException::class
     ],
 
+    # Если вы хотите заменить MoonshineUser на свою модель, то можно отключить дефолтные миграции
+    'use_migrations' => true,
+    # Вкл/Выкл уведомления
+    'use_notifications' => true,
+
     'auth' => [
         # Вкл/Выкл аутентификацию. Если false, то панель будет доступна всем
         'enable' => true,
