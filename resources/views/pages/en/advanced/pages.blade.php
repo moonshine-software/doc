@@ -41,7 +41,7 @@ app(MoonShine::class)->menu([
 <x-sub-title id="without-title">Without title</x-sub-title>
 
 <x-p>
-    Sometimes it is not necessary to enter a title on a custom page, so it can be hidden using the <code>withoutTitle</code> method
+    Sometimes it is not required to display the title on a custom page, so it can be hidden using the <code>withoutTitle</code> method
 </x-p>
 
 <x-code language="php">

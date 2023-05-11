@@ -41,7 +41,7 @@ app(MoonShine::class)->menu([
 <x-sub-title id="without-title">Без заголовка</x-sub-title>
 
 <x-p>
-    Иногда не требуется ввод заголовка на кастомной странице, поэтому его можно скрыть используя метод <code>withoutTitle</code>
+    Иногда не требуется вывод заголовка на кастомной странице, поэтому его можно скрыть используя метод <code>withoutTitle</code>
 </x-p>
 
 <x-code language="php">
