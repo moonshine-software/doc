@@ -19,6 +19,30 @@ class Article extends Model
 }
 </x-code>
 
+<x-p>
+    А также добавить компонент в ресурсе <code>ChangeLogFormComponent</code>
+</x-p>
+
+<x-code language="php">
+namespace MoonShine\Resources;
+
+use MoonShine\FormComponents\ChangeLogFormComponent; // [tl! focus]
+use MoonShine\Resources\Resource;
+
+class ArticleResource extends Resource
+{
+    // ...
+    public function components(): array
+    {
+        return [
+            ChangeLogFormComponent::make('Change log') // [tl! focus]
+                ->canSee(fn ($user) => $user->moonshine_user_role_id === MoonshineUserRole::DEFAULT_ROLE_ID),
+        ];
+    }
+    // ...
+}
+</x-code>
+
 <x-image theme="light" src="{{ asset('screenshots/changelogs.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/changelogs_dark.png') }}"></x-image>
 
