@@ -9,7 +9,7 @@
 </x-p>
 
 <x-p>
-    And as a rule it can go together with the password confirmation field
+    And usually it could be accompanied with the password confirmation field
 </x-p>
 
 <x-code language="php">
