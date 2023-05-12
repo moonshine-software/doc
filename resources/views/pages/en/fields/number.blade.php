@@ -5,7 +5,7 @@
 </x-extendby>
 
 <x-p>
-    Input with type number and additional methods  <code>stars</code>, <code>min</code>, <code>max</code>
+    Input with the number type and additional methods: <code>stars</code>, <code>min</code>, <code>max</code>
 </x-p>
 
 <x-code language="php">
@@ -25,7 +25,7 @@ public function fields(): array
 </x-code>
 
 <x-p>
-    To display a numerical value in the form of stars (e.g. for rating), you need the method  <code>stars</code>
+    To display a numerical value as stars (e.g. for rating), you need the <code>stars</code> method
 </x-p>
 
 <x-code language="php">

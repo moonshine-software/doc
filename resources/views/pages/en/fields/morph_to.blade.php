@@ -25,7 +25,7 @@ public function fields(): array
 </x-code>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-    Required <code>types</code> method with available classes.<br/>
+    Required <code>types</code> method specifying the classes available.<br/>
     The key is a reference to the model, and the value is the field to display.
 </x-moonshine::alert>
 

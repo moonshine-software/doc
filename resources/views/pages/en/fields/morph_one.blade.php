@@ -4,7 +4,7 @@
     HasOne
 </x-extendby>
 
-<x-p>Relationship field in laravel like morphOne</x-p>
+<x-p>Field for relationships in Laravel, morphOne type</x-p>
 
 <x-p>Same as <code>MoonShine\Fields\HasOne</code> but for MorphOne relations</x-p>
 
