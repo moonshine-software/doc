@@ -1,6 +1,6 @@
 <x-page title="NoInput" :sectionMenu="[
-    'Разделы' => [
-        ['url' => '#basic', 'label' => 'Basic'],
+    'Sections' => [
+        ['url' => '#basic', 'label' => 'Basic application'],
         ['url' => '#badge', 'label' => 'Badge'],
         ['url' => '#boolean', 'label' => 'Boolean'],
         ['url' => '#link', 'label' => 'Link'],
@@ -8,10 +8,10 @@
 ]">
 
 <x-p>
-    <b>The field is not intended for input/changing data!</b>
+    <b>The field is not for data input/amendment!</b>
 </x-p>
 
-<x-sub-title id="basic">Basic</x-sub-title>
+<x-sub-title id="basic">Basic application</x-sub-title>
 
 <x-p>
     With this default field, you can display text data from any field in the model,
@@ -38,7 +38,7 @@ public function fields(): array
 <x-sub-title id="badge">Badge</x-sub-title>
 
 <x-p>
-    Display as a label, as an example, suitable for order status!
+    Displays a label, could be used for order status, as an example!
     We use the badge method with a color parameter,
     which can be either a string or a closure with the current element in the parameter
 </x-p>
@@ -60,8 +60,8 @@ public function fields(): array
 <x-sub-title id="boolean">Boolean</x-sub-title>
 
 <x-p>
-    Display as a label (green or red) for boolean values.
-    The hideTrue and hideFalse options allow you to hide the label for values
+    Display a label (green or red) for boolean values.
+    Using the hideTrue and hideFalse options you can hide the label for values input
 </x-p>
 
 <x-code language="php">
@@ -81,8 +81,8 @@ public function fields(): array
 <x-sub-title id="link">Link</x-sub-title>
 
 <x-p>
-    Display as a link
-    Output the value and specify the link through the parameter (string or closure with the current element)
+    Displays a link.
+    We can show the value and specify the link using the parameter (string or closure with the current element)
 </x-p>
 
 <x-code language="php">
