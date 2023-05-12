@@ -5,7 +5,7 @@
 </x-extendby>
 
 <x-p>
-    Input with type number and additional methods  <code>stars</code>, <code>min</code>, <code>min</code>
+    Input with type number and additional methods  <code>stars</code>, <code>min</code>, <code>max</code>
 </x-p>
 
 <x-code language="php">
