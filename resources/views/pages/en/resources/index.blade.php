@@ -1,13 +1,20 @@
-<x-page title="Basics" :sectionMenu="[
-    'Sections' => [
-        ['url' => '#variables', 'label' => 'Main features'],
-        ['url' => '#create', 'label' => 'Creating'],
-        ['url' => '#define', 'label' => 'Announcement'],
-        ['url' => '#modal', 'label' => 'Modal windows'],
-        ['url' => '#after', 'label' => 'Route after save'],
-        ['url' => '#simple-pagination', 'label' => 'Simple pagination'],
+<x-page
+    title="Basics"
+    :sectionMenu="[
+        'Sections' => [
+            ['url' => '#basics', 'label' => 'Basics'],
+            ['url' => '#variables', 'label' => 'Main features'],
+            ['url' => '#create', 'label' => 'Creating'],
+            ['url' => '#define', 'label' => 'Announcement'],
+            ['url' => '#modal', 'label' => 'Modal windows'],
+            ['url' => '#after', 'label' => 'Route after save'],
+            ['url' => '#simple-pagination', 'label' => 'Simple pagination'],
+            ['url' => '#items-view', 'label' => 'Items view'],
+        ]
     ]
-]">
+">
+
+<x-sub-title id="basics">Basics</x-sub-title>
 
 <x-p>
     What is an administrative panel? Of course these are partitions based on data from the database, based on eloquent models.
@@ -215,5 +222,50 @@ class PostResource extends Resource
 
 <x-image theme="light" src="{{ asset('screenshots/resource_simple_paginate.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/resource_simple_paginate_dark.png') }}"></x-image>
+
+<x-sub-title id="items-view">Items view</x-sub-title>
+
+<x-p>
+    You can customize the display of the list of items through the property <code>itemsView</code>
+</x-p>
+
+<x-code language="php">
+namespace App\MoonShine\Resources;
+
+use App\Models\Post;
+use MoonShine\Resources\Resource;
+
+class PostResource extends Resource
+{
+    public static string $model = Post::class;
+
+    protected string $itemsView = 'moonshine::crud.shared.table'; // [tl! focus]
+
+    // ...
+}
+</x-code>
+
+<x-p>
+    Or by overriding the appropriate <code>itemsView</code> method
+</x-p>
+
+<x-code language="php">
+namespace App\MoonShine\Resources;
+
+use App\Models\Post;
+use MoonShine\Resources\Resource;
+
+class PostResource extends Resource
+{
+    public static string $model = Post::class;
+
+    public function itemsView(): string
+    {
+        return $this->itemsView;
+    } // [tl! focus:-3]
+
+    // ...
+}
+</x-code>
 
 </x-page>
