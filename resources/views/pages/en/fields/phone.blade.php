@@ -14,6 +14,6 @@ use MoonShine\Fields\Phone;
 Phone::make('Phone', 'tel')
 </x-code>
 
-<x-moonshine::alert type="default" icon="heroicons.information-circle">To mask the phone, use the method mask('7 999 999-99-99')</x-moonshine::alert>
+<x-moonshine::alert type="default" icon="heroicons.information-circle">To mask the telephone number, use the mask('7 999 999-99-99') method</x-moonshine::alert>
 
 </x-page>
