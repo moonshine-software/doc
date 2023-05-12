@@ -23,14 +23,14 @@
 
 <x-p>
     Fields is one of the most important sections along with resources.
-    In the resources section we have already looked at how to register fields,
-    but now let's figure out how to customize them to your needs! The fluent interface is used for convenience
+    We have already discussed the process of Fields registration in the Resource section,
+    but let's figure out how to customize them to your needs! The fluent interface is used for convenience
 </x-p>
 
 <x-sub-title id="make">Make</x-sub-title>
 
 <x-p>
-    First, let's understand the method <code>make</code> When creating an instance of a field
+    First of all, let's understand how the <code>make</code> method works when creating an instance of a field
 </x-p>
 
 <x-code language="php">
@@ -45,8 +45,8 @@ Text::make(string $label = null, string $field = null, ResourceContract|string|n
 </x-p>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-    $resource can also be a Resource class in which, if the property
-    <code>$titleField</code>, then the field of the relation will be defined through it
+    $resource can also be a Resource class. In this case, if the
+    <code>$titleField</code> property is specified, the field of the relation will be defined through it
 </x-moonshine::alert>
 
 <x-code language="php">
@@ -64,11 +64,11 @@ public string $titleField = 'name'; // [tl! focus]
 <x-sub-title id="hide-show">Displaying</x-sub-title>
 
 <x-p>
-    The fields are displayed on the list page (the main page of the resource) and the create/edit page.
-    To exclude the field from the main page or the page with the form, you can use the methods
-    <code>hideOnIndex/hideOnForm/hideOnDetail</code>, reverse methods <code>showOnIndex/showOnForm/showOnDetail</code>.
-    To exclude only from the edit or add page -
-    <code>hideOnCreate/hideOnUpdate/showOnCreate/showOnUpdate</code>
+    The fields are displayed at the page (the main page of the resource) and at the create/edit page.
+    To exclude the field from the main page or the page with the form, you can use
+    <code>hideOnIndex/hideOnForm/hideOnDetail</code> methods and <code>showOnIndex/showOnForm/showOnDetail</code> reverse methods.
+    To exclude it from the edit or add page only -
+    use <code>hideOnCreate/hideOnUpdate/showOnCreate/showOnUpdate</code>
 </x-p>
 
 <x-code language="php">
@@ -95,7 +95,7 @@ public function fields(): array
 <x-sub-title id="hide-show-conditions">Conditional display</x-sub-title>
 
 <x-p>
-    The method also takes bool, or Closure
+    This method also accepts bool, or Closure
 </x-p>
 
 <x-code language="php">
@@ -121,7 +121,7 @@ public function fields(): array
 <x-sub-title id="attributes">Attributes</x-sub-title>
 
 <x-p>
-    As the form is rendered html element, it is also possible to manage basic html attributes.
+    As the form renders the html element, you can use basic html attributes as well.
     Such as <code>disabled</code>, <code>autocomplete</code>, <code>readonly</code>, <code>multiple</code> etc.
 </x-p>
 
@@ -212,7 +212,7 @@ public function fields(): array
 <x-sub-title id="hint">Hint</x-sub-title>
 
 <x-p>
-    A hint with a description can be added to the field by calling the <code>hint</code>
+    You can add a hint with a description to the field by calling the <code>hint</code>
 </x-p>
 
 <x-code language="php">
@@ -270,7 +270,7 @@ public function fields(): array
 <x-sub-title id="nullable">Nullable</x-sub-title>
 
 <x-p>
-    If you want to save by default NULL <code>nullable()</code>
+    If you want to save NULL <code>nullable()</code> by default
 </x-p>
 
 <x-sub-title id="sortable">Sorting</x-sub-title>
@@ -317,7 +317,7 @@ public function fields(): array
 <x-sub-title id="default">Default value</x-sub-title>
 
 <x-p>
-    The method <code>default</code> if you want to specify a default value for the field
+    Use the <code>default</code> method if you want to specify a default value for the field
 </x-p>
 
 <x-code language="php">
@@ -378,8 +378,8 @@ public function fields(): array
 <x-sub-title id="events">Events</x-sub-title>
 
 <x-p>
-    When writing your own Fields, you may need to interact with events
-     before and after saving, for this in your custom field you need to implement the corresponding methods
+    When writing your own Fields, you may need to interact with events before and after saving.
+    To do this, you have to implement the relevant methods in your custom field
 </x-p>
 
 <x-code language="php">
@@ -397,8 +397,8 @@ public function afterSave(Model $item): void
 <x-sub-title id="custom-view">Change view</x-sub-title>
 
 <x-p>
-    Sometimes it makes sense to change the view with a fluent interface (For example, if you use filters or fields
-    outside of MoonShine)
+    Sometimes it makes sense to change the view using a fluent interface
+    (For example, if you use filters or fields outside of MoonShine)
 </x-p>
 
 <x-code language="php">
@@ -424,7 +424,7 @@ Text::make('Slug')
 
 <x-p>
     The second callback can be passed to the <code>when</code> method, it will be executed,
-    when the first argument passed to the method is false.
+    when the first argument passed to the method has a false value.
 </x-p>
 
 <x-code language="php">
@@ -438,7 +438,7 @@ Text::make('Slug')
 
 <x-p>
     The <code>unless</code> method is the reverse of the <code>when</code> method and will execute the first callback,
-    when the first argument is false, otherwise the second callback will be executed if it is passed to the method.
+    when the first argument has a false value, otherwise the second callback will be executed if it was passed to the method.
 </x-p>
 
 <x-code language="php">
