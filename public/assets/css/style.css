@@ -14,16 +14,12 @@ code:not(.torchlight) {
     background-color: rgba(255, 255, 255, .075);
 }
 
-.card {
-    background-color: rgba(200, 211, 245, 0.2);
+.card-copy {
+    cursor: pointer;
     position: relative;
     overflow: hidden;
-    cursor: pointer;
 }
-.dark .card {
-    background-color: #293552;
-}
-.card:before {
+.card-copy:before {
     position: absolute;
     top: 0;
     left: 0;
@@ -35,13 +31,14 @@ code:not(.torchlight) {
     flex-direction: column;
     justify-content: center;
     align-content: center;
+    text-align: center;
 }
-.card:active:before {
+.card-copy:active:before {
     content: "copied" !important;
     background-color: rgb(120, 67,233);
 }
 @media (hover: hover) and (pointer: fine) {
-    .card:hover:before {
+    .card-copy:hover:before {
         content: "click to copy";
     }
 }

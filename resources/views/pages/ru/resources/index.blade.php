@@ -2,12 +2,14 @@
     title="Основы"
     :sectionMenu="[
         'Разделы' => [
+            ['url' => '#basics', 'label' => 'Основы'],
             ['url' => '#variables', 'label' => 'Основные свойства'],
             ['url' => '#create', 'label' => 'Создание'],
             ['url' => '#define', 'label' => 'Объявление'],
             ['url' => '#modal', 'label' => 'Модальные окна'],
             ['url' => '#after', 'label' => 'Переход после сохранения'],
             ['url' => '#simple-pagination', 'label' => 'Simple pagination'],
+            ['url' => '#items-view', 'label' => 'Отображение элементов'],
         ]
     ]"
     :videos="[
@@ -15,6 +17,8 @@
         ['url' => 'https://www.youtube.com/embed/jMsH8hTkPI4', 'title' => 'Screencasts: Кастомизация'],
     ]"
 >
+
+<x-sub-title id="basics">Основы</x-sub-title>
 
 <x-p>
     Что есть административная панель? Само собой это разделы, основанные на данных из базы, на основе eloquent моделей.
@@ -222,5 +226,50 @@ class PostResource extends Resource
 
 <x-image theme="light" src="{{ asset('screenshots/resource_simple_paginate.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/resource_simple_paginate_dark.png') }}"></x-image>
+
+<x-sub-title id="items-view">Отображение элементов</x-sub-title>
+
+<x-p>
+    Можно кастомизировать отображение списка элементов через свойство <code>itemsView</code>
+</x-p>
+
+<x-code language="php">
+namespace App\MoonShine\Resources;
+
+use App\Models\Post;
+use MoonShine\Resources\Resource;
+
+class PostResource extends Resource
+{
+    public static string $model = Post::class;
+
+    protected string $itemsView = 'moonshine::crud.shared.table'; // [tl! focus]
+
+    // ...
+}
+</x-code>
+
+<x-p>
+    Или переопределив соответствующий метод <code>itemsView</code>
+</x-p>
+
+<x-code language="php">
+namespace App\MoonShine\Resources;
+
+use App\Models\Post;
+use MoonShine\Resources\Resource;
+
+class PostResource extends Resource
+{
+    public static string $model = Post::class;
+
+    public function itemsView(): string
+    {
+        return $this->itemsView;
+    } // [tl! focus:-3]
+
+    // ...
+}
+</x-code>
 
 </x-page>
