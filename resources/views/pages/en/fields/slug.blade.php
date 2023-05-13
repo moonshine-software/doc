@@ -5,7 +5,7 @@
 </x-extendby>
 
 <x-p>
-    With this field you can generate a slug based on the selected field and also keep it unique
+    Using this field you can generate a slug based on the selected field and keep it unique too
 </x-p>
 
 <x-code language="php">
