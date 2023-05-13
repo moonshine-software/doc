@@ -29,4 +29,8 @@ return [
 ];
 </x-code>
 
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    Если вы используете свою модель для аутентификации то вам нужно добавить в нее трейт <code>HasMoonShineSocialite</code>
+</x-moonshine::alert>
+
 </x-page>
