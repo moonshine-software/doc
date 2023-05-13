@@ -11,7 +11,7 @@
 </x-extendby>
 
 <x-p class="font-bold text-pink">
-    The field is placed in a separate package, before use it is necessary to perform the installation
+    This field belongs to a separate package, you have to complete the installation before using it
 </x-p>
 
 <x-code language="shell">
@@ -19,9 +19,9 @@
 </x-code>
 
 <x-p>
-    The field is intended for work with the package
+    The field is purposed for work with the
     <x-link link="https://github.com/spatie/laravel-translatable" target="_blank">Laravel-translatable</x-link>
-    from
+    package made by
     <x-link link="https://spatie.be/open-source" target="_blank">Spatie</x-link>
 </x-p>
 
@@ -31,7 +31,7 @@
 
 <x-ul :items="[
 'The spatie/laravel-translatable package is installed and configured',
-'The field passed in Spatie\Translatable is added to the $translatable array of the model'
+'The field passed to the Spatie\Translatable is added to the $translatable array of the model'
 ]"></x-ul>
 
 <x-code language="php">
@@ -44,11 +44,11 @@ Translatable::make('Title', 'name')
 <x-sub-title id="required">Mandatory translations</x-sub-title>
 
 <x-p>
-    The method ->requiredLanguages(array $languages) is used to specify the languages without which the validator will not allow you to create/save a record..
+    The ->requiredLanguages(array $languages) method is used to specify the languages required by the validator for creating/saving a record.
 </x-p>
 
 <x-p>
-    It is recommended to pass the value config('app.fallback_locale') to this method
+    It is recommended to pass the config('app.fallback_locale') value to this method
 </x-p>
 
 
@@ -63,7 +63,7 @@ Translatable::make('Title', 'name')
 <x-sub-title id="priority">Recommended translations</x-sub-title>
 
 <x-p>
-    If you specify this array, the language codes in the forms for adding/modifying a specific translation will go at the beginning of the list of all possible languages.
+    If you specify this array, the language codes in the forms for adding/modifying a specific translation will be placed at the beginning of the list of all possible languages.
 </x-p>
 
 <x-code language="php">
@@ -77,7 +77,7 @@ Translatable::make('Title', 'name')
 <x-sub-title id="removable">Deleting</x-sub-title>
 
 <x-p>
-    Allows you to delete specific translations from the entered
+    You can delete specific translations from out of the entered ones
 </x-p>
 
 <x-code language="php">
@@ -90,7 +90,7 @@ Translatable::make('Field', 'field')
 </x-p>
 
 <x-p>
-    If there are two translations in the same language, the translation that comes first will be deleted (replaced)!
+    If there are two translations into the same language, the translation that comes first will be deleted (replaced)!
 </x-p>
 
 </x-page>
