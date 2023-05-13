@@ -2,7 +2,8 @@
     'Разделы' => [
         ['url' => '#basics', 'label' => 'Основы'],
         ['url' => '#extending', 'label' => 'Расширение возможностей'],
-        ['url' => '#greetings', 'label' => 'Приветствие']
+        ['url' => '#greetings', 'label' => 'Приветствие'],
+        ['url' => '#profile', 'label' => 'Профиль']
     ]
 ]">
 
@@ -16,13 +17,13 @@
 
 <x-code language="php">
 return [
-// ..
-'auth' => [
-    // ..
-    'enable' => true, // [tl! focus]
-    // ..
-],
-// ..
+    // ...
+    'auth' => [
+        'enable' => true, // [tl! focus]
+        // ...
+    ],
+    // ...
+];
 </x-code>
 
 <x-image theme="light" src="{{ asset('screenshots/login.png') }}"></x-image>
@@ -37,25 +38,26 @@ return [
 
 <x-code language="php">
 return [
-// ..
-'auth' => [
-    // ..
-    'guard' => 'moonshine',
-    'guards' => [
-        'moonshine' => [
-            'driver' => 'session',
-            'provider' => 'moonshine',
+    // ...
+    'auth' => [
+        // ...
+        'guard' => 'moonshine', // [tl! focus:start]
+        'guards' => [
+            'moonshine' => [
+                'driver' => 'session',
+                'provider' => 'moonshine',
+            ],
         ],
+        'providers' => [
+            'moonshine' => [
+                'driver' => 'eloquent',
+                'model' => MoonshineUser::class,
+            ],
+        ], // [tl! focus:end]
+        // ...
     ],
-    'providers' => [
-        'moonshine' => [
-            'driver' => 'eloquent',
-            'model' => MoonshineUser::class,
-        ],
-    ],
-    // ..
-],
-// ..
+    // ...
+];
 </x-code>
 
 <x-p>
@@ -65,14 +67,15 @@ return [
 
 <x-code language="php">
 return [
-// ..
-'auth' => [
-    // ..
-        'footer' => '<a href="https://cutcode.dev/" target="_blank">CutCode</a>'
+    // ...
+    'auth' => [
+        // ...
+            'footer' => '<a href="https://cutcode.dev/" target="_blank">CutCode</a>' // [tl! focus]
+        ],
+        // ...
     ],
-    // ..
-],
-// ..
+    // ...
+];
 </x-code>
 
 <x-sub-title id="greetings">Приветствие</x-sub-title>
@@ -84,11 +87,42 @@ return [
 
 <x-code language="php">
 return [
-    'login' => [
+    // ...
+    'login' => [ // [tl! focus:start]
         'title' => 'Добро пожаловать в :moonshine_title!',
         'description' => 'Пожалуйста, войдите в свою учетную запись',
-    ],
+    ], // [tl! focus:end]
+    // ...
 ];
 </x-code>
+
+<x-sub-title id="profile">Профиль</x-sub-title>
+
+<x-p>
+    Переопределить поля для профиля можно в файле конфигурации <code>config/moonshine.php</code>
+</x-p>
+
+<x-code language="php">
+return [
+    // ...
+    'auth' => [
+        'enable' => true,
+        'fields' => [ // [tl! focus:start]
+            'username' => 'email',
+            'password' => 'password',
+            'name' => 'name',
+            'avatar' => 'avatar'
+        ], // [tl! focus:end]
+        'guard' => 'moonshine',
+        // ...
+    ],
+    // ...
+];
+</x-code>
+
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    Если вы хотите изменить вид страницы профиля,
+    то создайте файл <code>resources/views/vendor/moonshine/profile.blade.php</code>
+</x-moonshine::alert>
 
 </x-page>
