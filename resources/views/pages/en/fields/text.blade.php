@@ -30,7 +30,7 @@ public function fields(): array
 <x-sub-title id="mask">Mask</x-sub-title>
 
 <x-p>
-    The method <code>mask</code> if you want to add a mask to the field
+    Use the <code>mask</code> method if you want to add a mask to the field
 </x-p>
 
 <x-code language="php">

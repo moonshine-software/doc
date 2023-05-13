@@ -5,7 +5,7 @@
     </x-extendby>
 
     <x-p class="font-bold text-pink">
-        The field is placed in a separate package, before use it is necessary to perform the installation
+        This field belongs to a separate package, you have to complete the installation before using it
     </x-p>
 
     <x-code language="shell">
@@ -13,9 +13,9 @@
     </x-code>
 
     <x-p>
-        The field is intended for work with the package
+        The field is purposed for work with the
         <x-link link="https://github.com/spatie/laravel-medialibrary" target="_blank">Laravel-medialibrary</x-link>
-        from
+        package made by
         <x-link link="https://spatie.be/open-source" target="_blank">Spatie</x-link>
     </x-p>
 
@@ -49,7 +49,7 @@ class ModelClass extends Model implements HasMedia
     </x-code>
 
     <x-p>
-        In MoonShine-resource:
+        In the MoonShine-resource:
     </x-p>
     <x-code language="php">
         use VI\MoonShineSpatieMediaLibrary\Fields\MediaLibrary;
@@ -59,7 +59,7 @@ class ModelClass extends Model implements HasMedia
     </x-code>
 
     <x-p>
-        By default, the field works in single image mode
+        By default, the field works in a single image mode
     </x-p>
     <x-code language="php">
 use Spatie\MediaLibrary\HasMedia;
@@ -76,7 +76,7 @@ public function registerMediaCollections(): void
 //...
     </x-code>
     <x-p>
-        If you want to use a field to load multiple images, add the method ->multiple() to the field declaration
+        If you want to use a field to load multiple images, add the ->multiple() method when declaring the field
     </x-p>
     <x-code language="php">
 //...

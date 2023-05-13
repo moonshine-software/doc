@@ -1,5 +1,5 @@
 <x-page title="Select field" :sectionMenu="[
-    'Разделы' => [
+    'Sections' => [
         ['url' => '#nullable', 'label' => 'Nullable'],
         ['url' => '#groups', 'label' => 'Groups'],
         ['url' => '#multiple', 'label' => 'Multiple select'],
@@ -36,7 +36,7 @@ public function fields(): array
 <x-sub-title id="nullable">Nullable</x-sub-title>
 
 <x-p>
-    If you need to save NULL, then you need to add a method <code>nullable</code>
+    If you need to save NULL, then you need to add a <code>nullable</code> method
 </x-p>
 
 <x-code language="php">
@@ -72,7 +72,7 @@ Select::make('City')->options([
 <x-sub-title id="multiple">Multiple select</x-sub-title>
 
 <x-p>
-    To select multiple values, you need the method <code>multiple</code>
+    To select multiple values, you need the <code>multiple</code> method
 </x-p>
 
 <x-code language="php">
@@ -81,8 +81,8 @@ Select::make('Country', 'country_id')
 </x-code>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-    The field in the database must be of type text or json.<br>
-    You also need to add cast for eloquent model - json or array or collection.
+    The field in the database must be of the text or json type.<br>
+    You also need to add a cast for the eloquent model - json or array or collection.
 </x-moonshine::alert>
 
 <x-image theme="light" src="{{ asset('screenshots/select_multiple.png') }}"></x-image>
@@ -91,7 +91,7 @@ Select::make('Country', 'country_id')
 <x-sub-title id="searchable">Search</x-sub-title>
 
 <x-p>
-    If you want to add a search among values, you need to add the method <code>searchable</code>
+    If you want to add a search among values, you need to add the <code>searchable</code> method
 </x-p>
 
 <x-code language="php">
