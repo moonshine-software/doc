@@ -29,4 +29,8 @@ return [
 ];
 </x-code>
 
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    If you use your model for authentication, then you need to add the trait <code>HasMoonShineSocialite</code> to it
+</x-moonshine::alert>
+
 </x-page>
