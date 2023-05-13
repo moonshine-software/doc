@@ -30,10 +30,10 @@ app(MoonShine::class)->menu([
 
 <x-code language="php">
 app(MoonShine::class)->menu([
-    MenuGroup::make('Система', [
+    MenuGroup::make('Система', [ // [tl! focus]
         MoonShineUserResource::class,
         MoonShineUserRoleResource::class,
-    ])
+    ]) // [tl! focus]
 ]);
 </x-code>
 
@@ -69,9 +69,22 @@ app(MoonShine::class)->menu([
 </x-p>
 
 <x-code language="php">
-    app(MoonShine::class)->menu([
-        MenuItem::make('Документация Laravel', 'https://laravel.com') // [tl! focus]
-    ]);
+app(MoonShine::class)->menu([
+    MenuItem::make('Документация Laravel', 'https://laravel.com') // [tl! focus]
+]);
+</x-code>
+
+<x-p>
+    Ссылки можно передавать через функцию
+</x-p>
+
+<x-code language="php">
+app(MoonShine::class)->menu([
+    MenuItem::make('Admins', function () { // [tl! focus:start]
+        return (new MoonShineUserResource())->route('index');
+    }),
+    MenuItem::make('Home', fn() => route('home')) // [tl! focus:end]
+]);
 </x-code>
 
 <x-sub-title id="icon">Иконка</x-sub-title>
@@ -79,7 +92,6 @@ app(MoonShine::class)->menu([
 <x-p>
     Также есть возможность менять иконку у пункта меню
 </x-p>
-
 
 <x-code language="php">
 app(MoonShine::class)->menu([
@@ -104,8 +116,8 @@ app(MoonShine::class)->menu([
 app(MoonShine::class)->menu([
     MenuGroup::make('Blog', [
         MenuItem::make('Comments', new CommentResource(), 'heroicons.chat-bubble-left')
-            ->badge(fn() => Comment::query()->count()),
-    ], 'heroicons.newspaper') // [tl! focus]
+            ->badge(fn() => Comment::query()->count()), // [tl! focus]
+    ], 'heroicons.newspaper')
 ]);
 </x-code>
 
@@ -134,7 +146,7 @@ app(MoonShine::class)->menu([
 
 return [
     'Comments' => 'Комментарии',
-]; // [tl! focus]
+];
 </x-code>
 
 <x-p>
