@@ -20,7 +20,7 @@ return [
         # Если оставить значение пустым, то панель будет доступна от /
         'prefix' => env('MOONSHINE_ROUTE_PREFIX', 'moonshine'),
         # Группы middlewares в панеле
-        'middleware' => ['web', 'moonshine'],
+        'middleware' => ['moonshine'],
         # Slug формирования url для кастомных страниц
         'custom_page_slug' => 'custom_page',
         # Можно поменять исключение для 404 (для ModelNotFound нужно реализовать самостоятельно)
