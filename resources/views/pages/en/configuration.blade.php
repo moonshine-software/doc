@@ -20,7 +20,7 @@ return [
         # If the value is left empty, the panel will be accessible from /
         'prefix' => env('MOONSHINE_ROUTE_PREFIX', 'moonshine'),
         # Groups of middlewares in the panel
-        'middleware' => ['web', 'moonshine'],
+        'middleware' => ['moonshine'],
         # Slug of the url formation for custom pages
         'custom_page_slug' => 'custom_page',
         # You can change 404 error exception (for ModelNotFound you need to implement it yourself)
