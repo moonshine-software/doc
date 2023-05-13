@@ -1,7 +1,7 @@
 <x-page title="Textarea">
 
 <x-p>
-    Textarea The field includes all the basic methods
+    The Textarea field includes all the basic methods
 </x-p>
 
 <x-code language="php">
