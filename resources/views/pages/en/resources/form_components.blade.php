@@ -43,6 +43,10 @@ class MoonShineUserResource extends Resource
 <x-image theme="light" src="{{ asset('screenshots/form_components.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/form_components_dark.png') }}"></x-image>
 
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    If you use your model for authentication, then you need to add the trait <code>HasMoonShinePermissions</code> to it
+</x-moonshine::alert>
+
 <x-sub-title id="changelog">Change log</x-sub-title>
 
 <x-p>
