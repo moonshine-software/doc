@@ -5,13 +5,12 @@
 </x-extendby>
 
 <x-p>
-    Has the same methods as the "Number" field with additional methods <code>step</code>,
+    Has the same methods as the "Number" field, plus additional methods: <code>step</code>,
      <code>fromField</code>, <code>toField</code>
 </x-p>
 
 <x-p>
-    Since the range has two values, it is necessary to specify these two fields in the database by methods
-    <code>fromField</code> and <code>toField</code>
+    Since the range has two values, you have to specify these two fields in the database by means of <code>fromField</code> and <code>toField</code> methods
 </x-p>
 
 <x-code language="php">
