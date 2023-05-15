@@ -6,6 +6,7 @@
             ['url' => '#removable', 'label' => 'Удаление файлов'],
             ['url' => '#download', 'label' => 'Запрет на скачивание'],
             ['url' => '#filename', 'label' => 'Оригинальное имя файла'],
+            ['url' => '#customname', 'label' => 'Произвольное имя файла'],
         ]
     ]"
     :videos="[
@@ -142,6 +143,30 @@ public function fields(): array
         //...
         File::make('File', 'file')
             ->keepOriginalFileName(), // [tl! focus]
+        //...
+    ];
+}
+//...
+</x-code>
+
+<x-sub-title id="customname">Произвольное имя файла</x-sub-title>
+
+<x-p>
+    Если необходимо сохранять произвольное имя файла воспользуйтесь методом <code>customName</code>
+</x-p>
+
+<x-code language="php">
+use MoonShine\Fields\File;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Str;
+
+//...
+public function fields(): array
+{
+    return [
+        //...
+        File::make('File', 'file')
+            ->customName(fn(UploadedFile $file) =>  Str::random(10) . '.' . $file->extension()), // [tl! focus]
         //...
     ];
 }

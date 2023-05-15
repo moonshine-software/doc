@@ -3,12 +3,10 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use MoonShine\MoonShine;
 use MoonShine\Menu\MenuGroup;
 use MoonShine\Menu\MenuItem;
+use MoonShine\MoonShine;
 use MoonShine\Resources\CustomPage;
-use MoonShine\Resources\MoonShineUserResource;
-use MoonShine\Resources\MoonShineUserRoleResource;
 use MoonShine\Utilities\AssetManager;
 
 class MoonShineServiceProvider extends ServiceProvider
@@ -44,7 +42,8 @@ class MoonShineServiceProvider extends ServiceProvider
                 $moonShineItems,
                 $title->contains(':') ? $title->after(':')
                     ->prepend('heroicons.')
-                    ->value() : 'heroicons.squares-2x2'
+                    ->value() : 'heroicons.squares-2x2',
+                link: isset($items[0]['slug']) ? '/section/'.$items[0]['slug'] : '#'
             )->translatable();
         }
 

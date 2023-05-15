@@ -1,6 +1,7 @@
 <?php
 
 use MoonShine\Models\MoonshineUser;
+use Torchlight\Middleware\RenderTorchlight;
 
 return [
     'dir' => 'app/MoonShine',
@@ -14,7 +15,8 @@ return [
         'middleware' => ['web', 'moonshine'],
         'custom_page_slug' => 'section',
     ],
-
+    'use_migrations' => false,
+    'use_notifications' => false,
     'auth' => [
         'enable' => false,
         'guard' => 'moonshine',
@@ -35,7 +37,9 @@ return [
     'locales' => [
         'en', 'ru'
     ],
-    'middlewares' => [],
+    'middlewares' => [
+        RenderTorchlight::class
+    ],
     'tinymce' => [
         'file_manager' => false, // or 'laravel-filemanager' prefix for lfm
         'token' => env('MOONSHINE_TINYMCE_TOKEN', ''),

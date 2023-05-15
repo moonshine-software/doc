@@ -4,6 +4,7 @@
         ['url' => '#removable', 'label' => 'Removing files'],
         ['url' => '#download', 'label' => 'Disabling download'],
         ['url' => '#filename', 'label' => 'Original filename'],
+        ['url' => '#customname', 'label' => 'Custom filename']
     ]
 ]">
 
@@ -136,6 +137,30 @@ public function fields(): array
         //...
         File::make('File', 'file')
             ->keepOriginalFileName(), // [tl! focus]
+        //...
+    ];
+}
+//...
+</x-code>
+
+<x-sub-title id="customname">Custom file name</x-sub-title>
+
+<x-p>
+    If you need to save a custom file name, use the method <code>customName</code>
+</x-p>
+
+<x-code language="php">
+use MoonShine\Fields\File;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Str;
+
+//...
+public function fields(): array
+{
+    return [
+        //...
+        File::make('File', 'file')
+            ->customName(fn(UploadedFile $file) =>  Str::random(10) . '.' . $file->extension()), // [tl! focus]
         //...
     ];
 }
