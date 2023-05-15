@@ -6,6 +6,7 @@
             ['url' => '#variables', 'label' => 'Основные свойства'],
             ['url' => '#create', 'label' => 'Создание'],
             ['url' => '#define', 'label' => 'Объявление'],
+            ['url' => '#item', 'label' => 'Текущий элемент/модель'],
             ['url' => '#modal', 'label' => 'Модальные окна'],
             ['url' => '#after', 'label' => 'Переход после сохранения'],
             ['url' => '#simple-pagination', 'label' => 'Simple pagination'],
@@ -148,6 +149,22 @@ class MoonShineServiceProvider extends ServiceProvider
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
     О расширенных настройках можно узнать в разделе <x-link :link="route('moonshine.custom_page', 'advanced-menu')" ><code>Digging Deeper > Меню</code></x-link>
+</x-moonshine::alert>
+
+<x-sub-title id="item">Текущий элемент/модель</x-sub-title>
+
+<x-p>В ресурсе вы имеете доступ к текущему элементу и модели через соответствующие методы</x-p>
+
+<x-code language="php">
+    $this->getItem();
+</x-code>
+
+<x-code language="php">
+    $this->getModel();
+</x-code>
+
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    Если элемента еще не существует (action create), то метод <code>getItem</code> вернет <code>NULL</code>
 </x-moonshine::alert>
 
 <x-sub-title id="modal">Модальные окна</x-sub-title>
