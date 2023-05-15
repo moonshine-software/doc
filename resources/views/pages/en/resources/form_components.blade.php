@@ -44,14 +44,20 @@ class MoonShineUserResource extends Resource
 <x-image theme="dark" src="{{ asset('screenshots/form_components_dark.png') }}"></x-image>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-    If you use your model for authentication, then you need to add the trait <code>HasMoonShinePermissions</code> to it
+    If you use your model for authentication,
+    then you need to add the <code>MoonShine\Traits\Models\HasMoonShinePermissions</code> trait to it
+</x-moonshine::alert>
+
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    If you use your resource with admin output,
+    you need to add the <code>MoonShine\Traits\Resource\WithUserPermissions</code> trait to the resource
 </x-moonshine::alert>
 
 <x-sub-title id="changelog">Change log</x-sub-title>
 
 <x-p>
     To the admin panel displayed the post editing history based on the user needed
-    the model that is used in the resource add a trait <code>MoonShine\Traits\Models\HasMoonShineChangeLog</code>
+    the model that is used in the resource add the <code>MoonShine\Traits\Models\HasMoonShineChangeLog</code> trait
 </x-p>
 
 <x-code language="php">

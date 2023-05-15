@@ -44,7 +44,13 @@ class MoonShineUserResource extends Resource
 <x-image theme="dark" src="{{ asset('screenshots/form_components_dark.png') }}"></x-image>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-    Если вы используете свою модель для аутентификации то вам нужно добавить в нее трейт <code>HasMoonShinePermissions</code>
+    Если вы используете свою модель для аутентификации,
+    то вам нужно добавить в нее трейт <code>MoonShine\Traits\Models\HasMoonShinePermissions</code>
+</x-moonshine::alert>
+
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    Если вы используете свой ресурс с выводом администраторов,
+    необходимо ресурсу добавить трейт <code>>MoonShine\Traits\Resource\WithUserPermissions</code>
 </x-moonshine::alert>
 
 <x-sub-title id="changelog">История изменений</x-sub-title>
