@@ -40,7 +40,7 @@ Text::make(string $label = null, string $field = null, ResourceContract|string|n
 <x-p>
     $label - Label, field header<br>
     $field - A field in the database (e.g. name) or a relation (e.g. countries)<br>
-    $resource - In the case of $field The field must be specified in this parameter
+    $resource - If $field is a relation, then in this parameter you need to specify a field
     in the linked table that will be displayed in the view
 </x-p>
 

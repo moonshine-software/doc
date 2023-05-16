@@ -46,8 +46,8 @@ Text::make(string $label = null, string $field = null, ResourceContract|string|n
 <x-p>
     $label - Лейбл, заголовок поля<br>
     $field - Поле в базе (например name) или отношение (например countries)<br>
-    $resource - В случае если $field отношение в этом параметре необходимо указать поле
-    в связанной таблице которое будет отображаться во view
+    $resource - В случае если $field - отношение, то в этом параметре необходимо указать поле
+    в связанной таблице, которое будет отображаться во view
 </x-p>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
