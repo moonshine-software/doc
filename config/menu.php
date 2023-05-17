@@ -159,6 +159,10 @@ return [
         ['slug' => 'advanced-notifications', 'label' => 'Notifications'],
         ['slug' => 'advanced-socialite', 'label' => 'Socialite'],
         ['slug' => 'advanced-localization', 'label' => 'Localization'],
-        ['slug' => 'advanced-extensions', 'label' => 'Extensions'],
+        ['slug' => 'advanced-development', 'label' => 'Development'],
+    ],
+
+    'Packages:cube' => [
+        ['slug' => 'packages', 'label' => 'Packages', 'badge' => 'new'],
     ],
 ];

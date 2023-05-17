@@ -1,8 +1,7 @@
-<x-page title="Extensions" :sectionMenu="[
+<x-page title="Development" :sectionMenu="[
     'Sections' => [
         ['url' => '#custom-field', 'label' => 'Custom field'],
         ['url' => '#custom-action', 'label' => 'Custom action'],
-        ['url' => '#vendors', 'label' => 'Packages'],
     ]
 ]">
 
@@ -120,45 +119,4 @@ public function actions(): array
 <x-p>
     That's it!
 </x-p>
-
-<x-sub-title id="vendors">Packages</x-sub-title>
-
-<ul class="col-list my-4">
-    <li>
-        <x-link link="https://github.com/visual-ideas/laravel-site-settings" target="_blank">
-            Settings Manager
-        </x-link>
-    </li>
-    <li>
-        <x-link link="https://github.com/lee-to/laravel-seo-by-url" target="_blank">
-            Manager SEO
-        </x-link>
-    </li>
-    <li>
-        <x-link link="https://github.com/visual-ideas/moonshine-spatie-medialibrary" target="_blank">
-            Moonshine Spatie Medialibrary
-        </x-link>
-    </li>
-    <li>
-        <x-link link="https://github.com/visual-ideas/moonshine-spatie-translatable" target="_blank">
-            Moonshine Spatie Translatable
-        </x-link>
-    </li>
-    <li>
-        <x-link link="https://github.com/JekaSylar/MoonShine-Language-Ukrainian.git" target="_blank">
-            Moonshine Language Ukrainian
-        </x-link>
-    </li>
-    <li>
-        <x-link link="https://github.com/lee-to/moonshine-input-extension-char-count" target="_blank">
-            Char Count
-        </x-link>
-    </li>
-    <li>
-        <x-link link="https://github.com/lee-to/moonshine-algolia-search">
-            Global search (Algolia)
-        </x-link>
-    </li>
-</ul>
-
 </x-page>
