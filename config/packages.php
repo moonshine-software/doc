@@ -35,5 +35,10 @@ return [
         'title' => 'Global search (Algolia)',
         'url' => 'lee-to/moonshine-algolia-search',
         'category' => 'Search'
+    ],
+    [
+        'title' => 'Sortable tree resource',
+        'url' => 'lee-to/moonshine-tree-resource',
+        'category' => 'Resources'
     ]
 ];
