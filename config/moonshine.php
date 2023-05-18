@@ -57,6 +57,7 @@ return [
             'https://github.com/moonshine-software/moonshine/blob/1.x/LICENSE.md' => 'License',
             'https://github.com/moonshine-software/demo-project' => 'Demo project',
             'https://github.com/moonshine-software/moonshine' => 'GitHub',
+            'https://t.me/laravel_chat/24568' => 'Telegram chat',
         ],
     ]
 ];
