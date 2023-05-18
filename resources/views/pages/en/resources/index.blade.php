@@ -6,6 +6,7 @@
             ['url' => '#variables', 'label' => 'Main features'],
             ['url' => '#create', 'label' => 'Creating'],
             ['url' => '#define', 'label' => 'Announcement'],
+            ['url' => '#item', 'label' => 'Current item/model'],
             ['url' => '#modal', 'label' => 'Modal windows'],
             ['url' => '#after', 'label' => 'Route after save'],
             ['url' => '#simple-pagination', 'label' => 'Simple pagination'],
@@ -144,6 +145,22 @@ class MoonShineServiceProvider extends ServiceProvider
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
     For advanced settings, see <x-link :link="route('moonshine.custom_page', 'advanced-menu')" ><code>Digging Deeper > Menu</code></x-link>
+</x-moonshine::alert>
+
+<x-sub-title id="item">Current item/model</x-sub-title>
+
+<x-p>In a resource, you have access to the current element and model through the appropriate methods</x-p>
+
+<x-code language="php">
+    $this->getItem();
+</x-code>
+
+<x-code language="php">
+    $this->getModel();
+</x-code>
+
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    If the element does not yet exist (action create), then the <code>getItem</code> method will return <code>NULL</code>
 </x-moonshine::alert>
 
 <x-sub-title id="modal">Modal windows</x-sub-title>
