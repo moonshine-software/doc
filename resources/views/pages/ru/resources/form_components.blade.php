@@ -56,8 +56,8 @@ class MoonShineUserResource extends Resource
 <x-sub-title id="changelog">История изменений</x-sub-title>
 
 <x-p>
-    Чтобы в админ панели отображалась история редактирования записей на основе пользователя необходимо
-    модели которая используется в ресурсе добавить трейт <code>MoonShine\Traits\Models\HasMoonShineChangeLog</code>
+    Чтобы в админ-панели отображалась история редактирования записей на основе пользователя, необходимо
+    модели, которая используется в ресурсе, добавить трейт <code>MoonShine\Traits\Models\HasMoonShineChangeLog</code>
 </x-p>
 
 <x-code language="php">
