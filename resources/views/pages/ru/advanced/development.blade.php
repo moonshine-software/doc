@@ -2,7 +2,6 @@
     'Разделы' => [
         ['url' => '#custom-field', 'label' => 'Кастомное поле'],
         ['url' => '#custom-action', 'label' => 'Кастомное действие'],
-        ['url' => '#vendors', 'label' => 'Пакеты'],
     ]
 ]">
 
@@ -120,45 +119,4 @@ public function actions(): array
 <x-p>
     Готово!
 </x-p>
-
-<x-sub-title id="vendors">Пакеты</x-sub-title>
-
-<ul class="col-list my-4">
-    <li>
-        <x-link link="https://github.com/visual-ideas/laravel-site-settings" target="_blank">
-            Менеджер настроек
-        </x-link>
-    </li>
-    <li>
-        <x-link link="https://github.com/lee-to/laravel-seo-by-url" target="_blank">
-            Менеджер SEO
-        </x-link>
-    </li>
-    <li>
-        <x-link link="https://github.com/visual-ideas/moonshine-spatie-medialibrary" target="_blank">
-            Moonshine Spatie Medialibrary
-        </x-link>
-    </li>
-    <li>
-        <x-link link="https://github.com/visual-ideas/moonshine-spatie-translatable" target="_blank">
-            Moonshine Spatie Translatable
-        </x-link>
-    </li>
-    <li>
-        <x-link link="https://github.com/JekaSylar/MoonShine-Language-Ukrainian.git" target="_blank">
-            Moonshine Language Ukrainian
-        </x-link>
-    </li>
-    <li>
-        <x-link link="https://github.com/lee-to/moonshine-input-extension-char-count" target="_blank">
-            Счетчик символов
-        </x-link>
-    </li>
-    <li>
-        <x-link link="https://github.com/lee-to/moonshine-algolia-search">
-            Global search (Algolia)
-        </x-link>
-    </li>
-</ul>
-
 </x-page>

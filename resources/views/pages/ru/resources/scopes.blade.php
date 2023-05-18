@@ -5,7 +5,7 @@
 </x-p>
 
 <x-p>
-    В целом вы можете легко переопределить query builder в ресурсе
+    В целом, вы можете легко переопределить query builder в ресурсе
 </x-p>
 
 <x-code language="php">
@@ -28,7 +28,7 @@ public function query(): Builder
 </x-code>
 
 <x-p>
-    Но в Laravel также есть удобный функционал scopes и его как раз можно применять в рамках админ. панели MoonShine
+    Но в Laravel также есть удобный функционал scopes, и его как раз можно применять в рамках админ-панели MoonShine
 </x-p>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">

@@ -37,14 +37,20 @@ class MoonShineServiceProvider extends ServiceProvider
                 $moonShineItems[] = $menuItem;
             }
 
-            $moonShineMenu[] = MenuGroup::make(
-                $title->before(':')->value(),
-                $moonShineItems,
-                $title->contains(':') ? $title->after(':')
-                    ->prepend('heroicons.')
-                    ->value() : 'heroicons.squares-2x2',
-                link: isset($items[0]['slug']) ? '/section/'.$items[0]['slug'] : '#'
-            )->translatable();
+            $icon = $title->contains(':') ? $title->after(':')
+                ->prepend('heroicons.')
+                ->value() : 'heroicons.squares-2x2';
+
+            if (count($moonShineItems) === 1) {
+                $moonShineMenu[] = $moonShineItems[0]->icon($icon);
+            } else {
+                $moonShineMenu[] = MenuGroup::make(
+                    $title->before(':')->value(),
+                    $moonShineItems,
+                    $icon,
+                    link: isset($items[0]['slug']) ? '/section/'.$items[0]['slug'] : '#'
+                )->translatable();
+            }
         }
 
         app(MoonShine::class)->menu($moonShineMenu);
