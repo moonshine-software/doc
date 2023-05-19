@@ -1,6 +1,10 @@
 .dark .dark\:block {display: block}
 .dark .dark\:hidden {display: none}
 
+.mt-8 {
+    margin-top: 2rem;
+}
+
 code:not(.torchlight) {
     color: #28334D;
     background-color: #C8D3F5;
