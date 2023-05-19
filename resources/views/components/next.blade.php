@@ -17,7 +17,7 @@
 @endphp
 
 @if(isset($next['slug']))
-<x-p>
+<x-p class="mt-8">
     <x-moonshine::link
         :filled="true"
         href="{{ route('moonshine.custom_page', $next['slug']) }}"
