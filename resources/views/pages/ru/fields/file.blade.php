@@ -59,7 +59,7 @@ public function fields(): array
 <x-sub-title id="multiple">Мультизагрузка</x-sub-title>
 
 <x-p>
-    Для загрузки нескольких файлов используется метод <code>multiple</code>
+    Для загрузки нескольких файлов используется метод <code>multiple()</code>
 </x-p>
 
 <x-code language="php">
@@ -86,7 +86,7 @@ public function fields(): array
 <x-sub-title id="removable">Удаление файлов</x-sub-title>
 
 <x-p>
-    Для возможности удаления файлов необходимо воспользоваться методом <code>removable</code>
+    Для возможности удаления файлов необходимо воспользоваться методом <code>removable()</code>
 </x-p>
 
 <x-code language="php">
@@ -105,10 +105,54 @@ public function fields(): array
 //...
 </x-code>
 
+<x-p>
+    Метод <code>disableDeleteFiles()</code> позволят удалить только запись в базе данных,
+    но не удалять сам файл
+</x-p>
+
+<x-code language="php">
+use MoonShine\Fields\File;
+
+//...
+public function fields(): array
+{
+    return [
+        //...
+        File::make('File', 'file')
+            ->removable()
+            ->disableDeleteFiles(), // [tl! focus]
+        //...
+    ];
+}
+//...
+</x-code>
+
+<x-p>
+    Метод <code>isDeleteDir()</code> удаляет директорию указанную в методе <code>dir()</code>, если она пуста
+</x-p>
+
+<x-code language="php">
+use MoonShine\Fields\File;
+
+//...
+public function fields(): array
+{
+    return [
+        //...
+        File::make('File', 'file')
+            ->dir('/images/')
+            ->removable()
+            ->isDeleteDir(), // [tl! focus]
+        //...
+    ];
+}
+//...
+</x-code>
+
 <x-sub-title id="download">Запрет на скачивание</x-sub-title>
 
 <x-p>
-    Если необходимо исключить возможность скачивания файла воспользуйтесь методом <code>disableDownload</code>
+    Если необходимо исключить возможность скачивания файла воспользуйтесь методом <code>disableDownload()</code>
 </x-p>
 
 <x-code language="php">
@@ -130,7 +174,7 @@ public function fields(): array
 <x-sub-title id="filename">Оригинальное имя файла</x-sub-title>
 
 <x-p>
-    Если необходимо сохранять оригинальное имя файла от клиента воспользуйтесь методом <code>keepOriginalFileName</code>
+    Если необходимо сохранять оригинальное имя файла от клиента воспользуйтесь методом <code>keepOriginalFileName()</code>
 </x-p>
 
 <x-code language="php">
@@ -152,7 +196,7 @@ public function fields(): array
 <x-sub-title id="customname">Произвольное имя файла</x-sub-title>
 
 <x-p>
-    Если необходимо сохранять произвольное имя файла воспользуйтесь методом <code>customName</code>
+    Если необходимо сохранять произвольное имя файла воспользуйтесь методом <code>customName('file_name'))</code>
 </x-p>
 
 <x-code language="php">
