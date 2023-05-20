@@ -10,6 +10,7 @@
             ['url' => '#modal', 'label' => 'Modal windows'],
             ['url' => '#after', 'label' => 'Route after save'],
             ['url' => '#simple-pagination', 'label' => 'Simple pagination'],
+            ['url' => '#disable-pagination', 'label' => 'Disable pagination'],
             ['url' => '#items-view', 'label' => 'Items view'],
         ]
     ]
@@ -102,7 +103,7 @@ class PostResource extends Resource
 
 <x-p>
     New resources are added to the system in the <code>service provider</code> using the singleton class
-     <code>MoonShine\MoonShine</code> and <code>menu</code> method
+     <code>MoonShine\MoonShine</code> and <code>menu()</code> method
 </x-p>
 <x-code language="php">
 namespace App\Providers;
@@ -127,13 +128,11 @@ class MoonShineServiceProvider extends ServiceProvider
     {
         Model::preventLazyLoading(!app()->isProduction());
 
-        // [tl! focus:start]
         app(MoonShine::class)->menu([
             MoonShineUserResource::class, // System partition with administrators
             MoonShineUserRoleResource::class, // System partition with administrator roles
             PostResource::class, // Our new section
-        ]);
-        // [tl! focus:end]
+        ]); // [tl! focus:-4]
     }
 }
 </x-code>
@@ -160,7 +159,7 @@ class MoonShineServiceProvider extends ServiceProvider
 </x-code>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-    If the element does not yet exist (action create), then the <code>getItem</code> method will return <code>NULL</code>
+    If the element does not yet exist (action create), then the <code>getItem()</code> method will return <code>NULL</code>
 </x-moonshine::alert>
 
 <x-sub-title id="modal">Modal windows</x-sub-title>
@@ -240,6 +239,28 @@ class PostResource extends Resource
 <x-image theme="light" src="{{ asset('screenshots/resource_simple_paginate.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/resource_simple_paginate_dark.png') }}"></x-image>
 
+<x-sub-title id="disable-pagination">Disable pagination</x-sub-title>
+
+<x-p>
+    If you do not plan to use pagination, then you can turn it off.
+</x-p>
+
+<x-code language="php">
+namespace App\MoonShine\Resources;
+
+use App\Models\Post;
+use MoonShine\Resources\Resource;
+
+class PostResource extends Resource
+{
+    public static string $model = Post::class;
+
+    protected bool $usePagination = false; // [tl! focus]
+
+    // ...
+}
+</x-code>
+
 <x-sub-title id="items-view">Items view</x-sub-title>
 
 <x-p>
@@ -263,7 +284,7 @@ class PostResource extends Resource
 </x-code>
 
 <x-p>
-    Or by overriding the appropriate <code>itemsView</code> method
+    Or by overriding the appropriate <code>itemsView()</code> method
 </x-p>
 
 <x-code language="php">

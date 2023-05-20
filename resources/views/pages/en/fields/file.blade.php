@@ -1,12 +1,15 @@
-<x-page title="File" :sectionMenu="[
-    'Sections' => [
-        ['url' => '#multiple', 'label' => 'Multiple'],
-        ['url' => '#removable', 'label' => 'Removing files'],
-        ['url' => '#download', 'label' => 'Disabling download'],
-        ['url' => '#filename', 'label' => 'Original filename'],
-        ['url' => '#customname', 'label' => 'Custom filename']
-    ]
-]">
+<x-page
+    title="File"
+    :sectionMenu="[
+        'Sections' => [
+            ['url' => '#multiple', 'label' => 'Multiple'],
+            ['url' => '#removable', 'label' => 'Removing files'],
+            ['url' => '#download', 'label' => 'Disabling download'],
+            ['url' => '#filename', 'label' => 'Original filename'],
+            ['url' => '#customname', 'label' => 'Custom filename']
+        ]
+    ]"
+>
 
 <x-p>
     Before using the file field,
@@ -53,7 +56,7 @@ public function fields(): array
 <x-sub-title id="multiple">Multiple</x-sub-title>
 
 <x-p>
-    The <code>multiple</code> method is used to upload multiple files
+    The <code>multiple()</code> method is used to upload multiple files
 </x-p>
 
 <x-code language="php">
@@ -80,7 +83,7 @@ public function fields(): array
 <x-sub-title id="removable">Removing files</x-sub-title>
 
 <x-p>
-    To be able to delete files, you must use the <code>removable</code> method
+    To be able to delete files, you must use the <code>removable()</code> method
 </x-p>
 
 <x-code language="php">
@@ -99,10 +102,54 @@ public function fields(): array
 //...
 </x-code>
 
+<x-p>
+    The <code>disableDeleteFiles()</code> method will allow you to delete only the record in the database,
+    but not delete the file itself
+</x-p>
+
+<x-code language="php">
+use MoonShine\Fields\File;
+
+//...
+public function fields(): array
+{
+    return [
+        //...
+        File::make('File', 'file')
+            ->removable()
+            ->disableDeleteFiles(), // [tl! focus]
+        //...
+    ];
+}
+//...
+</x-code>
+
+<x-p>
+    The <code>isDeleteDir()</code> method deletes the directory specified in the <code>dir()</code> method if it is empty
+</x-p>
+
+<x-code language="php">
+use MoonShine\Fields\File;
+
+//...
+public function fields(): array
+{
+    return [
+        //...
+        File::make('File', 'file')
+            ->dir('/images/')
+            ->removable()
+            ->isDeleteDir(), // [tl! focus]
+        //...
+    ];
+}
+//...
+</x-code>
+
 <x-sub-title id="download">Disabling download</x-sub-title>
 
 <x-p>
-    If you want to protect the file from download, you must use the <code>disableDownload</code> method
+    If you want to protect the file from download, you must use the <code>disableDownload()</code> method
 </x-p>
 
 <x-code language="php">
@@ -124,7 +171,7 @@ public function fields(): array
 <x-sub-title id="filename">Original filename</x-sub-title>
 
 <x-p>
-    If you want to keep the original filename received from the client, use the <code>keepOriginalFileName</code> method
+    If you want to keep the original filename received from the client, use the <code>keepOriginalFileName()</code> method
 </x-p>
 
 <x-code language="php">
@@ -146,7 +193,7 @@ public function fields(): array
 <x-sub-title id="customname">Custom file name</x-sub-title>
 
 <x-p>
-    If you need to save a custom file name, use the method <code>customName</code>
+    If you need to save a custom file name, use the method <code>customName('file_name'))</code>
 </x-p>
 
 <x-code language="php">

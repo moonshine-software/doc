@@ -10,6 +10,7 @@
             ['url' => '#modal', 'label' => 'Модальные окна'],
             ['url' => '#after', 'label' => 'Переход после сохранения'],
             ['url' => '#simple-pagination', 'label' => 'Simple pagination'],
+            ['url' => '#disable-pagination', 'label' => 'Отключение пагинации'],
             ['url' => '#items-view', 'label' => 'Отображение элементов'],
         ]
     ]"
@@ -106,7 +107,7 @@ class PostResource extends Resource
 
 <x-p>
     Добавляются новые ресурсы к системе в <code>service provider</code> с помощью singleton класса
-    <code>MoonShine\MoonShine</code> и метода <code>menu</code>
+    <code>MoonShine\MoonShine</code> и метода <code>menu()</code>
 </x-p>
 <x-code language="php">
 namespace App\Providers;
@@ -131,13 +132,11 @@ class MoonShineServiceProvider extends ServiceProvider
     {
         Model::preventLazyLoading(!app()->isProduction());
 
-        // [tl! focus:start]
         app(MoonShine::class)->menu([
             MoonShineUserResource::class, // Системный раздел с администраторами
             MoonShineUserRoleResource::class, // Системный раздел с ролями администраторов
             PostResource::class, // Наш новый раздел
-        ]);
-        // [tl! focus:end]
+        ]); // [tl! focus:-4]
     }
 }
 </x-code>
@@ -164,7 +163,7 @@ class MoonShineServiceProvider extends ServiceProvider
 </x-code>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-    Если элемента еще не существует (action create), то метод <code>getItem</code> вернет <code>NULL</code>
+    Если элемента еще не существует (action create), то метод <code>getItem()</code> вернет <code>NULL</code>
 </x-moonshine::alert>
 
 <x-sub-title id="modal">Модальные окна</x-sub-title>
@@ -244,6 +243,28 @@ class PostResource extends Resource
 <x-image theme="light" src="{{ asset('screenshots/resource_simple_paginate.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/resource_simple_paginate_dark.png') }}"></x-image>
 
+<x-sub-title id="disable-pagination">Отключение пагинации</x-sub-title>
+
+<x-p>
+    Если вы не планируете использовать разбиение на страницы, то его можно отключить.
+</x-p>
+
+<x-code language="php">
+namespace App\MoonShine\Resources;
+
+use App\Models\Post;
+use MoonShine\Resources\Resource;
+
+class PostResource extends Resource
+{
+    public static string $model = Post::class;
+
+    protected bool $usePagination = false; // [tl! focus]
+
+    // ...
+}
+</x-code>
+
 <x-sub-title id="items-view">Отображение элементов</x-sub-title>
 
 <x-p>
@@ -267,7 +288,7 @@ class PostResource extends Resource
 </x-code>
 
 <x-p>
-    Или переопределив соответствующий метод <code>itemsView</code>
+    Или переопределив соответствующий метод <code>itemsView()</code>
 </x-p>
 
 <x-code language="php">
