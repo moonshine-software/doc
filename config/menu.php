@@ -9,7 +9,7 @@ return [
         ['slug' => 'releases', 'label' => 'Releases'],
         ['slug' => 'upgrade_guide', 'label' => 'Upgrade guide', 'badge' => 'new'],
     ],
-
+    ':_divider_',
     'Resources:document-duplicate' => [
         ['slug' => 'resources-index', 'label' => 'Basics'],
         ['slug' => 'resources-fields', 'label' => 'Fields'],
@@ -32,6 +32,7 @@ return [
     'Fields:bars-3' => [
         ['slug' => 'fields-index', 'label' => 'Basics'],
         // Text
+        'Text:_divider_',
         ['slug' => 'fields-text', 'label' => 'Text'],
         ['slug' => 'fields-id', 'label' => 'ID'],
         ['slug' => 'fields-slug', 'label' => 'Slug'],
@@ -44,28 +45,33 @@ return [
         ['slug' => 'fields-slide', 'label' => 'Slide'],
         ['slug' => 'fields-date', 'label' => 'Date'],
 
-
         // Textarea
+        'Textarea:_divider_',
         ['slug' => 'fields-textarea', 'label' => 'Textarea'],
         ['slug' => 'fields-wysiwyg', 'label' => 'WYSIWYG'],
         ['slug' => 'fields-code', 'label' => 'Code'],
 
         // Select
+        'Select:_divider_',
         ['slug' => 'fields-select', 'label' => 'Select'],
         ['slug' => 'fields-enum', 'label' => 'Enum'],
 
         // Checkbox
+        'Checkbox:_divider_',
         ['slug' => 'fields-checkbox', 'label' => 'Checkbox'],
         ['slug' => 'fields-switch', 'label' => 'Switch'],
 
         // File
+        'File:_divider_',
         ['slug' => 'fields-file', 'label' => 'File'],
         ['slug' => 'fields-image', 'label' => 'Image'],
 
-        // Table
+        // Json
+        'Json:_divider_',
         ['slug' => 'fields-json', 'label' => 'Json'],
 
-        // Relations
+        // Relationships
+        'Relationships:_divider_',
         ['slug' => 'fields-belongs_to', 'label' => 'BelongsTo'],
         ['slug' => 'fields-belongs_to_many', 'label' => 'BelongsToMany'],
         ['slug' => 'fields-has_many', 'label' => 'HasMany'],
@@ -78,9 +84,11 @@ return [
         ['slug' => 'fields-morph_many', 'label' => 'MorphMany'],
         ['slug' => 'fields-morph_to_many', 'label' => 'MorphToMany'],
 
+        'Other:_divider_',
         ['slug' => 'fields-no_input', 'label' => 'NoInput'],
 
         // Packages
+        'Packages:_divider_',
         ['slug' => 'fields-spatie-translatable', 'label' => 'Spatie\Translatable'],
         ['slug' => 'fields-spatie-medialibrary', 'label' => 'Spatie\MediaLibrary'],
     ],
@@ -88,20 +96,24 @@ return [
     'Filters:adjustments-vertical' => [
         ['slug' => 'filters-index', 'label' => 'Basics'],
         // Text
+        'Text:_divider_',
         ['slug' => 'filters-text', 'label' => 'TextFilter'],
         ['slug' => 'filters-date', 'label' => 'DateFilter'],
         ['slug' => 'filters-date_range', 'label' => 'DateRangeFilter'],
         ['slug' => 'filters-slide', 'label' => 'SlideFilter'],
 
         // Select
+        'Select:_divider_',
         ['slug' => 'filters-select', 'label' => 'SelectFilter'],
 
         // Checkbox
+        'Checkbox:_divider_',
         ['slug' => 'filters-switch', 'label' => 'SwitchFilter'],
 
         ['slug' => 'filters-is_empty', 'label' => 'IsEmptyFilter/IsNotEmptyFilter'],
 
-        // Relations
+        // Relationships
+        'Relationships:_divider_',
         ['slug' => 'filters-belongs_to', 'label' => 'BelongsToFilter'],
         ['slug' => 'filters-belongs_to_many', 'label' => 'BelongsToManyFilter'],
         ['slug' => 'filters-has_one', 'label' => 'HasOneFilter'],
@@ -164,6 +176,7 @@ return [
         ['slug' => 'advanced-development', 'label' => 'Development'],
     ],
 
+    ':_divider_',
     'Packages:cube' => [
         ['slug' => 'packages', 'label' => 'Packages', 'badge' => 'new'],
     ],
