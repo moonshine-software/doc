@@ -147,6 +147,7 @@ return [
         ['slug' => 'components-tabs', 'label' => 'Tabs'],
         ['slug' => 'components-card', 'label' => 'Card'],
         ['slug' => 'components-boolean', 'label' => 'Boolean'],
+        ['slug' => 'components-collapse', 'label' => 'Collapse'],
     ],
 
     'Digging Deeper:moon' => [
