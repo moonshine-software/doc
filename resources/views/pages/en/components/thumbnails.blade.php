@@ -1,12 +1,25 @@
-<x-page title="Thumbnails" :sectionMenu="[]">
+<x-page title="Thumbnails" :sectionMenu="[
+    'Sections' => [
+        ['url' => '#basics', 'label' => 'Basics'],
+        ['url' => '#multiple', 'label' => 'Group of images'],
+    ]
+]">
+
+<x-sub-title id="basics">Basics</x-sub-title>
 
 <x-p>
-    To create thumbnails, you can use the <code>x-moonshine::thumbnails</code> component
+    To create thumbnails, you can use the <code>moonshine::thumbnails</code> component
 </x-p>
 
-@include("examples/components/thumbnails")
-
 <x-code language="blade" file="resources/views/examples/components/thumbnails.blade.php"></x-code>
+
+<x-moonshine::grid>
+    <x-moonshine::column adaptiveColSpan="12" colSpan="4">
+        <x-moonshine::card>
+            @include("examples/components/thumbnails")
+        </x-moonshine::card>
+    </x-moonshine::column>
+</x-moonshine::grid>
 
 <x-p>
     You can also specify the attribute <code>alt</code>
@@ -14,14 +27,20 @@
 
 <x-code language="blade" file="resources/views/examples/components/thumbnails-alt.blade.php"></x-code>
 
-<x-sub-title>Group of images</x-sub-title>
+<x-sub-title id="multiple">Group of images</x-sub-title>
 
 <x-p>
     Component can be passed an array of images
 </x-p>
 
-@include("examples/components/thumbnails-multiple")
-
 <x-code language="blade" file="resources/views/examples/components/thumbnails-multiple.blade.php"></x-code>
+
+<x-moonshine::grid>
+    <x-moonshine::column adaptiveColSpan="12" colSpan="4">
+        <x-moonshine::card>
+            @include("examples/components/thumbnails-multiple")
+        </x-moonshine::card>
+    </x-moonshine::column>
+</x-moonshine::grid>
 
 </x-page>
