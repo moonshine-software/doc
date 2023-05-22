@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use MoonShine\Menu\MenuDivider;
 use MoonShine\Menu\MenuGroup;
 use MoonShine\Menu\MenuItem;
 use MoonShine\MoonShine;
@@ -19,7 +20,19 @@ class MoonShineServiceProvider extends ServiceProvider
             $title = str($group);
             $moonShineItems = [];
 
+            if (is_string($items) && str($items)->contains('_divider_')) {
+                $moonShineMenu[] = MenuDivider::make(str($items)->before(':')->value());
+
+                continue;
+            }
+
             foreach ($items as $item) {
+                if (is_string($item) && str($item)->contains('_divider_')) {
+                    $moonShineItems[] = MenuDivider::make(str($item)->before(':')->value());
+
+                   continue;
+                }
+
                 $menuItem = MenuItem::make(
                     $item['label'],
                     CustomPage::make(

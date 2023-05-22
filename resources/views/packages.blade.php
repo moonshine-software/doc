@@ -17,7 +17,7 @@
                 x-show="active === null || active === '{{ $package['category'] }}'"
             >
                 <x-moonshine::card class="mt-4"
-                                   :url="$package['url']"
+                                   :url="'https://github.com/' . $package['url']"
                                    :title="$package['title']"
                 >
                     <x-slot:header>
