@@ -1,4 +1,4 @@
-<x-page title="Link" :sectionMenu="[
+<x-page title="Collapse" :sectionMenu="[
     'Разделы' => [
         ['url' => '#basics', 'label' => 'Основы'],
         ['url' => '#show', 'label' => 'Отобразить развернутым'],
