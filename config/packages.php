@@ -40,5 +40,10 @@ return [
         'title' => 'Sortable tree resource',
         'url' => 'lee-to/moonshine-tree-resource',
         'category' => 'Resources'
+    ],
+    [
+        'title' => 'Kanban board resource',
+        'url' => 'lee-to/moonshine-kanban-board-resource',
+        'category' => 'Resources'
     ]
 ];
