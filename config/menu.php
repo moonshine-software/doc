@@ -161,6 +161,7 @@ return [
         ['slug' => 'components-boolean', 'label' => 'Boolean'],
         ['slug' => 'components-collapse', 'label' => 'Collapse'],
         ['slug' => 'components-divider', 'label' => 'Divider'],
+        ['slug' => 'components-rating', 'label' => 'Rating'],
     ],
 
     'Digging Deeper:moon' => [
