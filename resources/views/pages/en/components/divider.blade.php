@@ -1,4 +1,4 @@
-<x-page title="Link" :sectionMenu="[
+<x-page title="Divider" :sectionMenu="[
     'Sections' => [
         ['url' => '#basics', 'label' => 'Basics'],
         ['url' => '#text', 'label' => 'Text divider'],
