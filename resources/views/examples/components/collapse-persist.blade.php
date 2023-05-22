@@ -1,3 +1,3 @@
-<x-moonshine::collapse title="Hide / Show" :persist="true">
+<x-moonshine::collapse title="Hide / Show" :persist="true"><!-- [tl! focus] -->
     {{ fake()->text() }}
-</x-moonshine::collapse>
+</x-moonshine::collapse><!-- [tl! focus] -->

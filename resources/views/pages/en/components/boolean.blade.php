@@ -1,4 +1,4 @@
-<x-page title="Link" :sectionMenu="[]">
+<x-page title="Boolean" :sectionMenu="[]">
 
 <x-p>
     A simple <code>moonshine::boolean</code> component allows you to create an indicator <code>TRUE</code> / <code>FALSE</code>
