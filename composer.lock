@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "17140683b5019e96025fdb6680a26a97",
+    "content-hash": "a753bc94d5413c3590e670554a725d9b",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1914,16 +1914,16 @@
         },
         {
             "name": "moonshine/moonshine",
-            "version": "1.57.0",
+            "version": "1.57.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/moonshine-software/moonshine.git",
-                "reference": "160ec7ed873fb6e87a59a85700957e5a6d29d7ba"
+                "reference": "5018661b7340bf5355853eee0e3bc16e00837ab8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moonshine-software/moonshine/zipball/160ec7ed873fb6e87a59a85700957e5a6d29d7ba",
-                "reference": "160ec7ed873fb6e87a59a85700957e5a6d29d7ba",
+                "url": "https://api.github.com/repos/moonshine-software/moonshine/zipball/5018661b7340bf5355853eee0e3bc16e00837ab8",
+                "reference": "5018661b7340bf5355853eee0e3bc16e00837ab8",
                 "shasum": ""
             },
             "require": {
@@ -1990,7 +1990,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2023-05-22T07:58:24+00:00"
+            "time": "2023-05-22T13:46:30+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -6423,16 +6423,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "10.1.1",
+            "version": "10.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "884a0da7f9f46f28b2cb69134217fd810b793974"
+                "reference": "db1497ec8dd382e82c962f7abbe0320e4882ee4e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/884a0da7f9f46f28b2cb69134217fd810b793974",
-                "reference": "884a0da7f9f46f28b2cb69134217fd810b793974",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/db1497ec8dd382e82c962f7abbe0320e4882ee4e",
+                "reference": "db1497ec8dd382e82c962f7abbe0320e4882ee4e",
                 "shasum": ""
             },
             "require": {
@@ -6489,7 +6489,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
                 "security": "https://github.com/sebastianbergmann/php-code-coverage/security/policy",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/10.1.1"
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/10.1.2"
             },
             "funding": [
                 {
@@ -6497,7 +6497,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-04-17T12:15:40+00:00"
+            "time": "2023-05-22T09:04:27+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
