@@ -162,6 +162,7 @@ return [
         ['slug' => 'components-table', 'label' => 'Table'],
         ['slug' => 'components-tabs', 'label' => 'Tabs'],
         ['slug' => 'components-thumbnails', 'label' => 'Thumbnails'],
+        ['slug' => 'components-title', 'label' => 'Title'],
     ],
 
     'Digging Deeper:moon' => [
