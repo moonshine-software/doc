@@ -160,6 +160,7 @@ return [
         ['slug' => 'components-card', 'label' => 'Card'],
         ['slug' => 'components-boolean', 'label' => 'Boolean'],
         ['slug' => 'components-collapse', 'label' => 'Collapse'],
+        ['slug' => 'components-divider', 'label' => 'Divider'],
     ],
 
     'Digging Deeper:moon' => [
