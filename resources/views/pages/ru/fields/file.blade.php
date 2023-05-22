@@ -128,7 +128,7 @@ public function fields(): array
 </x-code>
 
 <x-p>
-    Метод <code>isDeleteDir()</code> удаляет директорию указанную в методе <code>dir()</code>, если она пуста
+    Метод <code>enableDeleteDir()</code> удаляет директорию указанную в методе <code>dir()</code>, если она пуста
 </x-p>
 
 <x-code language="php">
@@ -142,7 +142,7 @@ public function fields(): array
         File::make('File', 'file')
             ->dir('/images/')
             ->removable()
-            ->isDeleteDir(), // [tl! focus]
+            ->enableDeleteDir(), // [tl! focus]
         //...
     ];
 }
