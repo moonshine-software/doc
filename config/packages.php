@@ -45,5 +45,10 @@ return [
         'title' => 'Kanban board resource',
         'url' => 'lee-to/moonshine-kanban-board-resource',
         'category' => 'Resources'
+    ],
+    [
+        'title' => 'User Impersonation',
+        'url' => 'Jampire/moonshine-impersonate',
+        'category' => 'Auth'
     ]
 ];
