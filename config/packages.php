@@ -40,5 +40,10 @@ return [
         'title' => 'Sortable tree resource',
         'url' => 'lee-to/moonshine-tree-resource',
         'category' => 'Resources'
+    ],
+    [
+        'title' => 'User Impersonation',
+        'url' => 'Jampire/moonshine-impersonate',
+        'category' => 'Auth'
     ]
 ];
