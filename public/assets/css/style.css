@@ -5,6 +5,9 @@
     margin-top: 2rem;
 }
 
+code {
+    font-size: .875rem;
+}
 code:not(.torchlight) {
     color: #28334D;
     background-color: #C8D3F5;
@@ -57,9 +60,6 @@ code:not(.torchlight) {
     -webkit-columns: 10.8em 3;
 }
 
-.torchlight {
-    font-size: .875rem;
-}
 .torchlight.has-focus-lines .line:not(.line-focus) {
     transition: filter 0.35s, opacity 0.35s;
     filter: blur(.095rem);
