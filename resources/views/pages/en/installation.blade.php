@@ -44,7 +44,7 @@
      <x-link link="{{ route('moonshine.custom_page', 'resources-index') }}">More about Resources</x-link>
 </x-moonshine::alert>
 
-<x-sub-title hashtag="3">
+<x-sub-title id="admin" hashtag="3">
     Create an Administrator
 </x-sub-title>
 
@@ -52,7 +52,7 @@
     php artisan moonshine:user
 </x-code>
 
-<x-sub-title hashtag="4">
+<x-sub-title id="config" hashtag="4">
    Resource registration and menu configuration
 </x-sub-title>
 
