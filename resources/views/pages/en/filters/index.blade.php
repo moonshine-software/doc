@@ -12,12 +12,12 @@
 </x-extendby>
 
 <x-p>
-    Filters are displayed on the main page of the resource to filter data.
-    They implement from the corresponding fields, so all methods of these fields are available to them.
+    Filters are shown on the main page of the resource to filter data.
+    They implement from the corresponding fields, so all methods of these fields are available here as well.
 </x-p>
 
 <x-p>
-    Filters work in exactly the same way as fields, except that they are declared in
+    Filters work in exactly the same way as fields, except that they are declared in the
      <code>filters</code> resource method
 </x-p>
 
