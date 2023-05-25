@@ -4,9 +4,9 @@
     SwitchBooleanFilter
 </x-extendby>
 
-<x-p>Allows displaying only rows that have empty (not empty for IsNotEmptyFilter) field values</x-p>
+<x-p>Enables displaying only rows with empty (not empty for IsNotEmptyFilter) field values</x-p>
 
-<x-p>Empty values are:</x-p>
+<x-p>Empty values are the following:</x-p>
 <x-ul :items="['NULL', '\'\'', 0]"></x-ul>
 
 <x-code language="php">

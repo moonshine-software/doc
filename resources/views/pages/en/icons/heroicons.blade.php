@@ -6,10 +6,10 @@
 ]">
 
 <x-p>
-    In addition to the standard icons, in the folder <code>resources/views/vendor/moonshine/shared/icons/heroicons</code> preinstalled
-    icons from the collection <x-link link="https://heroicons.com" target="_blank">Heroicons</x-link>
-    (set <b>Solid</b> by default and <b>Outline</b>),
-    you can use them wherever you use the <code>icon()</code>
+    In addition to the standard icons, you can find preinstalled
+    icons from the <x-link link="https://heroicons.com" target="_blank">Heroicons</x-link> collection
+    (<b>Solid</b> set is the default one, plus <b>Outline</b>) in the <code>resources/views/vendor/moonshine/shared/icons/heroicons</code> folder.
+    You can use them wherever you use the <code>icon()</code> method
 </x-p>
 
 <x-sub-title id="solid">Solid</x-sub-title>

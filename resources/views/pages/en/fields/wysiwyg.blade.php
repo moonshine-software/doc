@@ -47,14 +47,14 @@ public function fields(): array
 </x-code>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-    Translation files are placed in the directory <code>public/vendor/moonshine/libs/tinymce/langs</code>
+    Translation files are placed in the <code>public/vendor/moonshine/libs/tinymce/langs</code> directory
 </x-moonshine::alert>
 
 <x-image theme="light" src="{{ asset('screenshots/tinymce.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/tinymce_dark.png') }}"></x-image>
 
 <x-p>
-    Sign up at <x-link link="https://www.tiny.cloud" target="_blank">Tiny.Cloud</x-link> and get a token. Then add it to config <code>config/moonshine.php</code>
+    Sign up at <x-link link="https://www.tiny.cloud" target="_blank">Tiny.Cloud</x-link> and get a token. Then add it to <code>config/moonshine.php</code> config
 </x-p>
 
 <x-code language="php">
@@ -82,7 +82,7 @@ public function fields(): array
 </x-code>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-    Be sure to set the 'use_package_routes' flag in the lfm config to false, otherwise the caching of routers will cause an error
+    Be sure to set the 'use_package_routes' flag in the lfm config to false, otherwise the route caching will cause an error
 </x-moonshine::alert>
 
 <x-code language="php">
@@ -96,7 +96,7 @@ return [
 
 </x-code>
 
-<x-sub-title hashtag="2">Add routers to the routes/web.php</x-sub-title>
+<x-sub-title hashtag="2">Add routes to the routes/web.php</x-sub-title>
 
 <x-code language="php">
     Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'moonshine']], function () {
@@ -118,7 +118,7 @@ return [
 <x-sub-title id="trix">Trix</x-sub-title>
 
 <x-p class="font-bold text-pink">
-    The field is placed in a separate package, before use it is necessary to perform the installation
+    This field belongs to a separate package, complete the installation before use
 </x-p>
 
 <x-code language="shell">
