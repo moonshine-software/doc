@@ -4,7 +4,7 @@
         'Sections' => [
             ['url' => '#requirements', 'label' => 'Requirements'],
             ['url' => '#composer', 'label' => 'Composer'],
-            ['url' => '#install', 'label' => 'Install'],
+            ['url' => '#install', 'label' => 'Installation'],
             ['url' => '#config', 'label' => 'Configuration'],
         ]
     ]"
@@ -30,13 +30,13 @@
 </x-code>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-     After execution, <code>config/moonshine.php</code> with basic settings will be added.
-     <x-link link="#config">More about the config file</x-link>
+    This command will add <code>config/moonshine.php</code> with the basic settings.
+    <x-link link="#config">More about the config file</x-link>
 </x-moonshine::alert>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-     A directory with the administrative panel and resources will also be added - <code>app/MoonShine</code>.
-     <x-link link="{{ route('moonshine.custom_page', 'resources-index') }}">More about Resources</x-link>
+    A directory containing the admin panel and resources will also be added - <code>app/MoonShine</code>.
+    <x-link link="{{ route('moonshine.custom_page', 'resources-index') }}">More about Resources</x-link>
 </x-moonshine::alert>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
@@ -57,7 +57,7 @@
 </x-sub-title>
 
 <x-p>
-     To register new resources in MoonShine and form a menu, we need <code>app/Providers/MoonShineServiceProvider.php</code>
+    To register new resources in the MoonShine and configure a menu, we need <code>app/Providers/MoonShineServiceProvider.php</code>
 </x-p>
 
 <x-code language="php">
@@ -82,12 +82,12 @@ class MoonShineServiceProvider extends ServiceProvider
 </x-code>
 
 <x-p>
-     In this example, we have added a menu item with panel administrators
-     <x-link link="{{ route('moonshine.custom_page', 'advanced-menu') }}">More about Menu</x-link>
+    In this example, we have added a menu item with panel admins.
+    <x-link link="{{ route('moonshine.custom_page', 'advanced-menu') }}">More about Menu</x-link>
 </x-p>
 
 <x-p>
-     Great! Now you can create and register sections of the future admin panels and get to work!
-     But don't forget to read the documentation all the way through!
+    Great! Now you can create and register sections of the future admin panel and proceed with the real work!
+    But don't forget to read the documentation all the way through!
 </x-p>
 </x-page>
