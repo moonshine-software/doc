@@ -162,6 +162,7 @@ return [
         ['slug' => 'components-popover', 'label' => 'Popover'],
         ['slug' => 'components-progress_bar', 'label' => 'Progress bar'],
         ['slug' => 'components-rating', 'label' => 'Rating'],
+        ['slug' => 'components-spinner', 'label' => 'Spinner'],
         ['slug' => 'components-table', 'label' => 'Table'],
         ['slug' => 'components-tabs', 'label' => 'Tabs'],
         ['slug' => 'components-thumbnails', 'label' => 'Thumbnails'],
