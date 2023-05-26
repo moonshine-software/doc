@@ -157,6 +157,7 @@ return [
         ['slug' => 'components-card', 'label' => 'Card'],
         ['slug' => 'components-collapse', 'label' => 'Collapse'],
         ['slug' => 'components-divider', 'label' => 'Divider'],
+        ['slug' => 'components-dropdown', 'label' => 'Dropdown'],
         ['slug' => 'components-icons', 'label' => 'Icons'],
         ['slug' => 'components-link', 'label' => 'Link'],
         ['slug' => 'components-loader', 'label' => 'Loader'],
