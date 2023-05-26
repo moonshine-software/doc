@@ -34,18 +34,5 @@
     "Extensions": "Расширения",
     "Extends": "Наследует",
     "has the same features": "имеет те же возможности",
-    "Divider": "Разделитель",
-    "UI components": "UI компоненты",
-    "Alerts" : "Уведомления",
-    "Badges": "Значки",
-    "Icons": "Иконки",
-    "Thumbnails": "Миниатюры",
-    "Modal": "Модальное окно",
-    "Link": "Ссылка",
-    "Table": "Таблица",
-    "Tabs": "Вкладки",
-    "Card": "Карточка",
-    "Rating": "Рейтинг",
-    "Title": "Заголовок",
-    "Progress bar": "Индикатор прогресса"
+    "UI components": "UI компоненты"
 }
