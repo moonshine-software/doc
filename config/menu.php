@@ -159,6 +159,7 @@ return [
         ['slug' => 'components-icons', 'label' => 'Icons'],
         ['slug' => 'components-link', 'label' => 'Link'],
         ['slug' => 'components-modal', 'label' => 'Modal'],
+        ['slug' => 'components-popover', 'label' => 'Popover'],
         ['slug' => 'components-progress_bar', 'label' => 'Progress bar'],
         ['slug' => 'components-rating', 'label' => 'Rating'],
         ['slug' => 'components-table', 'label' => 'Table'],
