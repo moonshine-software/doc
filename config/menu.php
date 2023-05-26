@@ -152,6 +152,7 @@ return [
         ['slug' => 'components-alerts', 'label' => 'Alerts'],
         ['slug' => 'components-badges', 'label' => 'Badges'],
         ['slug' => 'components-boolean', 'label' => 'Boolean'],
+        ['slug' => 'components-box', 'label' => 'Box'],
         ['slug' => 'components-breadcrumbs', 'label' => 'Breadcrumbs'],
         ['slug' => 'components-card', 'label' => 'Card'],
         ['slug' => 'components-collapse', 'label' => 'Collapse'],
