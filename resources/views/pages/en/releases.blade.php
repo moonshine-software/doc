@@ -8,14 +8,14 @@
             <ul class="list-decimal">
 				<li>New unique design</li>
 				<li>A new approach to grid customization (Grid, Grid Column, Flex)</li>
-				<li>Ability to disable authentication</li>
-				<li>Localization change</li>
-				<li>Improving the scenery interface</li>
-				<li>Component approach in blade</li>
+				<li>An option to disable authentication</li>
+				<li>Changing localization</li>
+				<li>Improvements for the decorator interface</li>
+				<li>Component approach for blade</li>
 				<li>Text Dashboard block</li>
 				<li>Improvements for custom pages</li>
-                <li>New mode onlySelected for BelongsToMany</li>
-				<li>Laravel file manager is excluded from the box</li>
+                <li>New onlySelected mode for BelongsToMany</li>
+				<li>Laravel file manager is excluded from the package</li>
 				<li>and much more ...</li>
             </ul>
         </div>
@@ -75,7 +75,7 @@
         <div class="">
             <div class="font-bold">Changes</div>
             <ul class="list-decimal">
-                <li>New scenery added - Block,Flex,Button</li>
+                <li>New decoration added - Block, Flex, Button</li>
                 <li>Changed structure Tabs</li>
             </ul>
         </div>
@@ -97,9 +97,9 @@
         <div class="">
             <div class="font-bold">Changes</div>
             <ul class="list-decimal">
-                <li>ResourceMode for fields HasOne/HasMany</li>
+                <li>ResourceMode for HasOne/HasMany fields</li>
                 <li>Precognition</li>
-                <li>Editing and adding in modal windows</li>
+                <li>Enabling adding and editing content in modal windows</li>
             </ul>
         </div>
     </li>
@@ -115,7 +115,7 @@
 				<li>Storage disk and directory for import and export</li>
 				<li>Arbitrary Views</li>
 				<li>AddLink method with empty parameter</li>
-				<li>Replaced phpoffice/phpspreadsheet package with lightweight and efficient rap2hpoutre/fast-excel</li>
+				<li>phpoffice/phpspreadsheet package was replaced with a lightweight and efficient rap2hpoutre/fast-excel</li>
             </ul>
         </div>
     </li>
@@ -125,9 +125,9 @@
         <div class="">
             <div class="font-bold">Changes</div>
             <ul class="list-decimal">
-				 <li>Socialite based login</li>
-                 <li>withTime method for Date field</li>
-                 <li>History of changes by users for resources (to keep track of what was changed by whom)</li>
+				 <li>Login via social networks based on the Socialite login</li>
+                 <li>withTime method for the Date field</li>
+                 <li>History of changes in resources made by user (to keep track of the author and subject of amendments)</li>
                  <li>Fulltext search</li>
             </ul>
         </div>
@@ -139,7 +139,7 @@
             <div class="font-bold">Changes</div>
             <ul class="list-decimal">
 				 <li>canSee method for fields and filters</li>
-                 <li>ValuesQuery Method for Relationship Fields</li>
+                 <li>ValuesQuery method for Relationship fields</li>
                  <li>Fix attributes for Json(KeyValue)</li>
             </ul>
         </div>
@@ -150,7 +150,7 @@
         <div class="">
             <div class="font-bold">Changes</div>
             <ul class="list-decimal">
-                <li>Subtitle for resources</li>
+                <li>Subheader for resources</li>
             </ul>
         </div>
     </li>
@@ -164,17 +164,16 @@
             <div class="font-bold">Changes</div>
             <ul class="list-decimal">
                 <li>New CKEditor field</li>
-                <li>New Quill</li>
-                <li>New Translatable field to work with <x-moonshine::link href="https://github.com/spatie/laravel-translatable">Laravel-translatable</x-moonshine::link> from
+                <li>New Quill field</li>
+                <li>New Translatable field to work with <x-moonshine::link href="https://github.com/spatie/laravel-translatable">Laravel-translatable</x-moonshine::link> made by
                      <x-moonshine::link href="https://spatie.be/open-source">Spatie</x-moonshine::link></li>
                 <li>Labels for menu items</li>
                 <li>onlyCount method for the BelongsToMany field</li>
                 <li>ShowOnUpdateForm/showOnCreateForm methods for fields</li>
-                <li>The autoUpdate method for the "Switch" field that enables/disables the Changes feature of the field on the main page</li>
-                <li>The autoUpdate method for the "Switch" field that enables/disables the Changes feature of the field on the main page</li>
+                <li>The autoUpdate method for the "Switch" field that enables/disables the option to change the field on the main page</li>
                 <li>The addLink method for adding a hint link to a field</li>
-                <li>Custom Bulk Actions</li>
-                <li>Custom styles for rows and cells of the data display table</li>
+                <li>Custom bulk actions</li>
+                <li>Custom styles for rows and cells of the table for displaying data</li>
                 <li>Profile page</li>
                 <li>Custom pages</li>
             </ul>
@@ -189,7 +188,7 @@
         <div class="">
             <div class="font-bold">Changes</div>
             <ul class="list-decimal">
-                <li>New MediaLibrary field to work with <x-moonshine::link href="https://github.com/spatie/laravel-medialibrary">Laravel-medialibrary</x-moonshine::link> from
+                <li>New MediaLibrary field to work with <x-moonshine::link href="https://github.com/spatie/laravel-medialibrary">Laravel-medialibrary</x-moonshine::link> made by
                      <x-moonshine::link href="https://spatie.be/open-source">Spatie</x-moonshine::link></li>
             </ul>
         </div>
@@ -214,7 +213,7 @@
         <div class="">
             <div class="font-bold">Changes</div>
             <ul class="list-decimal">
-                <li>New parameter config/moonshine.php</li>
+                <li>New parameter: config/moonshine.php</li>
             </ul>
         </div>
     </li>
@@ -240,11 +239,11 @@
         <div class="">
             <div class="font-bold">Changes</div>
             <ul class="list-decimal">
-                 <li>Simplified installation. Everything is wrapped in the artisan moonshine:install</li> command
+                 <li>Simplified installation. Everything is wrapped in the artisan moonshine:install command</li>
                  <li>New config/moonshine.php</li>
                  <li>App/MoonShine/Controllers directory removed</li>
-                 <li>Resource base class changed MoonShine\Resources\BaseResource -> MoonShine\Resources\Resource</li>
-                 <li>Dashboard.php added to the main app/MoonShine directory to customize the control panel</li>
+                 <li>Changing the resource base class: MoonShine\Resources\BaseResource -> MoonShine\Resources\Resource</li>
+                 <li>Dashboard.php added to the main app/MoonShine directory to customize the admin panel</li>
             </ul>
         </div>
     </li>
