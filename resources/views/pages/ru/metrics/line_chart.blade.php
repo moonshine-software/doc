@@ -1,7 +1,7 @@
 <x-page title="LineChart">
 
 <x-p>
-   Линейный график
+   Позволяет создавать линейный график для метрик
 </x-p>
 
 <x-code language="php">

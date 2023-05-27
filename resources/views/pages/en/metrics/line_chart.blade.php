@@ -1,7 +1,7 @@
 <x-page title="LineChart">
 
 <x-p>
-   Linear chart
+    Provides the ability to create a line chart for metric
 </x-p>
 
 <x-code language="php">
@@ -39,7 +39,7 @@ class PostResource extends Resource
 </x-code>
 
 <x-p>
-    or using one method <code>line</code>
+    or using one <code>line</code> method
 </x-p>
 
 <x-code language="php">
