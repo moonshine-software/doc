@@ -1,7 +1,7 @@
 <x-page title="DonutChart">
 
 <x-p>
-   Donut Timeline
+    Provides the ability to create a donut chart for metric
 </x-p>
 
 <x-code language="php">

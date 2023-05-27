@@ -1,7 +1,7 @@
 <x-page title="DonutChart">
 
 <x-p>
-   Donut график
+   Позволяет создавать Donut график для метрик
 </x-p>
 
 <x-code language="php">
