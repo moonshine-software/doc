@@ -1,7 +1,7 @@
 <x-page title="Value">
 
 <x-p>
-    Display a simple value, such as how many total records there are in a table
+    Displays a simple value, such as how many specific records a table contains
 </x-p>
 
 <x-code language="php">
@@ -30,7 +30,7 @@ return [
 <x-image theme="dark" src="{{ asset('screenshots/metrics_dark.png') }}"></x-image>
 
 <x-p>
-    It is also possible to display as a progress of the goal
+    You can also display a value as a goal progress indicator
 </x-p>
 
 <x-code language="php">
@@ -60,7 +60,7 @@ public function metrics(): array // [tl! focus:start]
 <x-image theme="dark" src="{{ asset('screenshots/metrics_value_progress_dark.png') }}"></x-image>
 
 <x-p>
-The output value can be formatted and a prefix and suffix added
+    You can add formatting, prefix, and suffix to the output value
 </x-p>
 
 <x-code language="php">
