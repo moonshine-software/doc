@@ -18,7 +18,7 @@ public function {!! ($action === 'ExportAction' ||  $action === 'ImportAction') 
             $item->update(['active' => false]);
         }, 'Deactivated')
     @endif
-        ->showInDropdown()
+        ->showInDropdown() // [tl! focus]
     ];
 }
 //...
@@ -49,7 +49,7 @@ public function {!! ($action === 'ExportAction' ||  $action === 'ImportAction') 
             $item->update(['active' => false]);
         }, 'Deactivated')
     @endif
-        ->showInLine()
+        ->showInLine() // [tl! focus]
     ];
 }
 //...
@@ -78,7 +78,7 @@ public function {!! ($action === 'ExportAction' ||  $action === 'ImportAction') 
             $item->update(['active' => false]);
         }, 'Deactivated')
     @endif
-        ->withConfirm()
+        ->withConfirm() // [tl! focus]
     ];
 }
 //...
