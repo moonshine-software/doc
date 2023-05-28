@@ -13,9 +13,18 @@
 </x-p>
 
 <x-code language="php">
-app(MoonShine::class)->menu([
-    CustomPage::make('Название страницы', 'slug', 'view', fn() => [])  // [tl! focus]
-]);
+use Illuminate\Support\ServiceProvider;
+use MoonShine\Resources\CustomPage; // [tl! focus]
+
+class MoonShineServiceProvider extends ServiceProvider
+{
+    public function boot(): void
+    {
+        app(MoonShine::class)->menu([
+            CustomPage::make('Page title', 'slug', 'view', fn() => []) // [tl! focus]
+        ]);
+    }
+}
 </x-code>
 
 <x-p>
@@ -45,10 +54,19 @@ app(MoonShine::class)->menu([
 </x-p>
 
 <x-code language="php">
-app(MoonShine::class)->menu([
-    CustomPage::make('Название страницы', 'slug', 'view', fn() => [])
-        ->withoutTitle()  // [tl! focus]
-]);
+use Illuminate\Support\ServiceProvider;
+use MoonShine\Resources\CustomPage;
+
+class MoonShineServiceProvider extends ServiceProvider
+{
+    public function boot(): void
+    {
+        app(MoonShine::class)->menu([
+            CustomPage::make('Page title', 'slug', 'view', fn() => [])
+                ->withoutTitle()  // [tl! focus]
+        ]);
+    }
+}
 </x-code>
 
 <x-sub-title id="layout">Layout</x-sub-title>
@@ -58,10 +76,19 @@ app(MoonShine::class)->menu([
 </x-p>
 
 <x-code language="php">
-app(MoonShine::class)->menu([
-    CustomPage::make('Название страницы', 'slug', 'view', fn() => [])
-        ->layout('path') // [tl! focus]
-]);
+use Illuminate\Support\ServiceProvider;
+use MoonShine\Resources\CustomPage;
+
+class MoonShineServiceProvider extends ServiceProvider
+{
+    public function boot(): void
+    {
+        app(MoonShine::class)->menu([
+            CustomPage::make('Page title', 'slug', 'view', fn() => [])
+                ->layout('path') // [tl! focus]
+        ]);
+    }
+}
 </x-code>
 
 </x-page>
