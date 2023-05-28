@@ -24,15 +24,15 @@ class PostResource extends Resource
 {
     public static string $model = App\Models\Post::class;
 
-    public static string $title = 'Статьи';
+    public static string $title = 'Articles';
     //...
 
     public function itemActions(): array // [tl! focus:start]
     {
         return [
-            ItemAction::make('Деактивация', function (Model $item) {
+            ItemAction::make('Deactivating', function (Model $item) {
                 $item->update(['active' => false]);
-            }, 'Деактивирован')->icon('app')
+            }, 'Deactivated')->icon('app')
         ];
     } // [tl! focus:end]
 
@@ -57,9 +57,9 @@ class PostResource extends Resource
 public function itemActions(): array
 {
     return [
-        ItemAction::make('Восстановить', function (Model $item) {
+        ItemAction::make('Restore', function (Model $item) {
             $item->restore();
-        }, 'Восстановлен')
+        }, 'Retrieved')
             ->canSee(fn(Model $item) => $item->trashed()) // [tl! focus]
     ];
 }

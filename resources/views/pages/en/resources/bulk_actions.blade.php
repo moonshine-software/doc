@@ -7,7 +7,7 @@
 
 <x-p>
     By default, in the MoonShine panel in the table, there is only 1 mass action on elements - deletion.
-     But it is also possible to add your own custom bulk actions
+    But it is also possible to add your own custom bulk actions
 </x-p>
 
 <x-code language="php">
@@ -38,8 +38,8 @@ class PostResource extends Resource
 
 <p>
     The first argument is the name of the action,
-     The second callback argument with the current element parameter,
-     The third argument is the message that will be displayed after the action is executed.
+    The second callback argument with the current element parameter,
+    The third argument is the message that will be displayed after the action is executed.
 </p>
 
 @include('pages.en.resources.shared.actions_config', ['action' => 'BulkAction'])
