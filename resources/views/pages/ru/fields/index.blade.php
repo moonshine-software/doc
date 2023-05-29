@@ -343,11 +343,29 @@ public function fields(): array
 <x-sub-title id="show-when">Условие отображения</x-sub-title>
 
 <x-p>
-    Может возникнуть потребность отображать поле только в том случае, если значение у
-    другого поля в форме имеет определенное значение (Скажем отображать телефон, только если
-    стоит галочка, что телефон есть). Метод <code>showWhen(string $field_name, string $item_value)</code>
+    Может возникнуть потребность отображать поле только в том случае, если значение у другого поля
+    в форме имеет определенное значение (Например: отображать телефон, только если стоит галочка, что телефон есть).
+    Для этих целей используется метод <code>showWhen($column, $operator, $value)</code>
 </x-p>
 
+<x-p>
+    Доступные операторы:
+</x-p>
+
+<x-p>
+    <x-moonshine::badge color="gray">=</x-moonshine::badge>
+    <x-moonshine::badge color="gray"><</x-moonshine::badge>
+    <x-moonshine::badge color="gray">></x-moonshine::badge>
+    <x-moonshine::badge color="gray"><=</x-moonshine::badge>
+    <x-moonshine::badge color="gray">>=</x-moonshine::badge>
+    <x-moonshine::badge color="gray">!=</x-moonshine::badge>
+    <x-moonshine::badge color="gray">in</x-moonshine::badge>
+    <x-moonshine::badge color="gray">not in</x-moonshine::badge>
+</x-p>
+
+<x-moonshine::alert type="default" icon="heroicons.book-open">
+    Если оператор не указан, то будет использоваться <code>=</code>
+</x-moonshine::alert>
 
 <x-code language="php">
 //...
@@ -355,8 +373,39 @@ public function fields(): array
 public function fields(): array
 {
     return [
-        Text::make('Заголовок', 'title')
+        Phone::make('Phone', 'phone')
+            ->showWhen('has_phone','=', 1) // [tl! focus]
+        // или
+        Phone::make('Phone', 'phone')
             ->showWhen('has_phone', 1) // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
+
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    Если оператор имеет значение <code>in</code> или <code>not in</code>,
+    то в <code>$value</code> необходимо передать массив
+</x-moonshine::alert>
+
+<x-code language="php">
+//...
+
+public function fields(): array
+{
+    return [
+        Select::make('List', 'list')->options([
+            'value 1' => 'Option Label 1',
+            'value 2' => 'Option Label 2',
+            'value 3' => 'Option Label 3',
+        ]),
+
+        Text::make('Name', 'name')
+            ->showWhen('list', 'not in', ['value 1', 'value 3']), // [tl! focus]
+
+        Textarea::make('Content', 'content')
+            ->showWhen('list', 'in', ['value 2', 'value 3']) // [tl! focus]
     ];
 }
 
@@ -385,7 +434,7 @@ public function fields(): array
 
 <x-p>
     При написании собственных Fields может возникнуть потребность взаимодействовать с событиями
-     до и после сохранения, для этого в вашем кастомном поле необходимо реализовать соответствующие методы
+    до и после сохранения, для этого в вашем кастомном поле необходимо реализовать соответствующие методы
 </x-p>
 
 <x-code language="php">

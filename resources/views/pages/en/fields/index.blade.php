@@ -337,11 +337,29 @@ public function fields(): array
 <x-sub-title id="show-when">Display condition</x-sub-title>
 
 <x-p>
-    There may be a need to display a field only if the value of
-    another field in the form has a certain value (say, display the phone only if there is
-    a check mark for it). Method <code>showWhen(string $field_name, string $item_value)</code>
+    There may be a need to display a field only if the value of another field
+    in the form has a certain value (For example: display the phone only if there is a check mark for it).
+    For these purposes, the <code>showWhen($column, $operator, $value)</code> method is used
 </x-p>
 
+<x-p>
+    Available operators:
+</x-p>
+
+<x-p>
+    <x-moonshine::badge color="gray">=</x-moonshine::badge>
+    <x-moonshine::badge color="gray"><</x-moonshine::badge>
+    <x-moonshine::badge color="gray">></x-moonshine::badge>
+    <x-moonshine::badge color="gray"><=</x-moonshine::badge>
+    <x-moonshine::badge color="gray">>=</x-moonshine::badge>
+    <x-moonshine::badge color="gray">!=</x-moonshine::badge>
+    <x-moonshine::badge color="gray">in</x-moonshine::badge>
+    <x-moonshine::badge color="gray">not in</x-moonshine::badge>
+</x-p>
+
+<x-moonshine::alert type="default" icon="heroicons.book-open">
+    If the operator is not specified, then <code>=</code> will be used
+</x-moonshine::alert>
 
 <x-code language="php">
 //...
@@ -349,8 +367,39 @@ public function fields(): array
 public function fields(): array
 {
     return [
-        Text::make('Title', 'title')
+        Phone::make('Phone', 'phone')
+            ->showWhen('has_phone','=', 1) // [tl! focus]
+        // или
+        Phone::make('Phone', 'phone')
             ->showWhen('has_phone', 1) // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
+
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    If the statement is <code>in</code> or <code>not in</code>,
+    then in <code>$value</code> you need to pass an array
+</x-moonshine::alert>
+
+<x-code language="php">
+//...
+
+public function fields(): array
+{
+    return [
+        Select::make('List', 'list')->options([
+            'value 1' => 'Option Label 1',
+            'value 2' => 'Option Label 2',
+            'value 3' => 'Option Label 3',
+        ]),
+
+        Text::make('Name', 'name')
+            ->showWhen('list', 'not in', ['value 1', 'value 3']), // [tl! focus]
+
+        Textarea::make('Content', 'content')
+            ->showWhen('list', 'in', ['value 2', 'value 3']) // [tl! focus]
     ];
 }
 
