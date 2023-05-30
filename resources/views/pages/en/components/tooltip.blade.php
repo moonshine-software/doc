@@ -4,6 +4,7 @@
         ['url' => '#without', 'label' => 'Without use component'],
     ]
 ]">
+
 <x-sub-title id="basics">Basics</x-sub-title>
 
 <x-p>
@@ -16,9 +17,9 @@
 
 <x-moonshine::grid>
     <x-moonshine::column adaptiveColSpan="12" colSpan="4">
-        <x-moonshine::card>
+        <x-moonshine::box>
             @include("examples/components/tooltip")
-        </x-moonshine::card>
+        </x-moonshine::box>
     </x-moonshine::column>
 </x-moonshine::grid>
 
@@ -28,9 +29,9 @@
 
 <x-moonshine::grid>
     <x-moonshine::column adaptiveColSpan="12" colSpan="4">
-        <x-moonshine::card>
+        <x-moonshine::box>
             @include("examples/components/tooltip-without")
-        </x-moonshine::card>
+        </x-moonshine::box>
     </x-moonshine::column>
 </x-moonshine::grid>
 
