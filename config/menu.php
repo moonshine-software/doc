@@ -158,7 +158,7 @@ return [
         ['slug' => 'components-collapse', 'label' => 'Collapse'],
         ['slug' => 'components-divider', 'label' => 'Divider'],
         ['slug' => 'components-dropdown', 'label' => 'Dropdown'],
-        ['slug' => 'components-icons', 'label' => 'Icons'],
+        ['slug' => 'components-icon', 'label' => 'Icon'],
         ['slug' => 'components-link', 'label' => 'Link'],
         ['slug' => 'components-loader', 'label' => 'Loader'],
         ['slug' => 'components-modal', 'label' => 'Modal'],
