@@ -170,6 +170,7 @@ return [
         ['slug' => 'components-tabs', 'label' => 'Tabs'],
         ['slug' => 'components-thumbnails', 'label' => 'Thumbnails'],
         ['slug' => 'components-title', 'label' => 'Title'],
+        ['slug' => 'components-toast', 'label' => 'Toast'],
         ['slug' => 'components-tooltip', 'label' => 'Tooltip'],
     ],
 
