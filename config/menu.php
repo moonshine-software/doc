@@ -24,7 +24,7 @@ return [
         ['slug' => 'resources-bulk_actions', 'label' => 'Bulk actions'],
         ['slug' => 'resources-form_actions', 'label' => 'Form actions'],
         ['slug' => 'resources-query_tags', 'label' => 'Query filters/tags'],
-        ['slug' => 'resources-form_components', 'label' => 'Form components'],
+        ['slug' => 'resources-components', 'label' => 'Components'],
         ['slug' => 'resources-table_styles', 'label' => 'Table styles'],
         ['slug' => 'resources-singleton', 'label' => 'SingletonResource'],
     ],
