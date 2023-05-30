@@ -8,9 +8,9 @@
 
 <x-moonshine::grid>
     <x-moonshine::column adaptiveColSpan="12" colSpan="6">
-        <x-moonshine::card>
+        <x-moonshine::box>
             @include("examples/components/tabs")
-        </x-moonshine::card>
+        </x-moonshine::box>
     </x-moonshine::column>
 </x-moonshine::grid>
 

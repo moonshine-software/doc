@@ -18,9 +18,9 @@
 
 <x-moonshine::grid>
     <x-moonshine::column adaptiveColSpan="12" colSpan="8">
-        <x-moonshine::card>
+        <x-moonshine::box>
             @include("examples/components/table")
-        </x-moonshine::card>
+        </x-moonshine::box>
     </x-moonshine::column>
 </x-moonshine::grid>
 
@@ -34,9 +34,7 @@
 
 <x-moonshine::grid>
     <x-moonshine::column adaptiveColSpan="12" colSpan="8">
-        <x-moonshine::card>
-            @include("examples/components/table-crud")
-        </x-moonshine::card>
+        @include("examples/components/table-crud")
     </x-moonshine::column>
 </x-moonshine::grid>
 
@@ -50,9 +48,9 @@
 
 <x-moonshine::grid>
     <x-moonshine::column adaptiveColSpan="12" colSpan="8">
-        <x-moonshine::card>
+        <x-moonshine::box>
             @include("examples/components/table-notfound")
-        </x-moonshine::card>
+        </x-moonshine::box>
     </x-moonshine::column>
 </x-moonshine::grid>
 
@@ -66,30 +64,39 @@
 
 <x-moonshine::grid>
     <x-moonshine::column adaptiveColSpan="12" colSpan="8">
-        <x-moonshine::card>
+        <x-moonshine::box>
             @include("examples/components/table-slots")
-        </x-moonshine::card>
+        </x-moonshine::box>
     </x-moonshine::column>
 </x-moonshine::grid>
 
 <x-sub-title id="styles">Styles</x-sub-title>
 
 <x-p>
-    To style the table, there are predefined classes that can be used for tr/td
+    To style the table, there are predefined classes that can be used for <code>tr</code> / <code>td</code>
 </x-p>
 
 <x-p>
-    Available classes: <code>bgc-green</code>, <code>bgc-blue</code>, <code>bgc-red</code>, <code>bgc-pink</code>,
-    <code>bgc-gray</code>, <code>bgc-purple</code>, <code>bgc-yellow</code>
+    Available classes:
+</x-p>
+
+<x-p class="flex flex-wrap gap-2">
+    <x-moonshine::badge color="purple">bgc-purple</x-moonshine::badge>
+    <x-moonshine::badge color="pink">bgc-pink</x-moonshine::badge>
+    <x-moonshine::badge color="blue">bgc-blue</x-moonshine::badge>
+    <x-moonshine::badge color="green">bgc-green</x-moonshine::badge>
+    <x-moonshine::badge color="yellow">bgc-yellow</x-moonshine::badge>
+    <x-moonshine::badge color="red">bgc-red</x-moonshine::badge>
+    <x-moonshine::badge color="gray">bgc-gray</x-moonshine::badge>
 </x-p>
 
 <x-code language="blade" file="resources/views/examples/components/table-slots-color.blade.php"></x-code>
 
 <x-moonshine::grid>
     <x-moonshine::column adaptiveColSpan="12" colSpan="8">
-        <x-moonshine::card>
+        <x-moonshine::box>
             @include("examples/components/table-slots-color")
-        </x-moonshine::card>
+        </x-moonshine::box>
     </x-moonshine::column>
 </x-moonshine::grid>
 

@@ -16,9 +16,9 @@
 
 <x-moonshine::grid>
     <x-moonshine::column adaptiveColSpan="12" colSpan="6">
-        <x-moonshine::card>
+        <x-moonshine::box>
             @include("examples/components/collapse")
-        </x-moonshine::card>
+        </x-moonshine::box>
     </x-moonshine::column>
 </x-moonshine::grid>
 
@@ -32,9 +32,9 @@
 
 <x-moonshine::grid>
     <x-moonshine::column adaptiveColSpan="12" colSpan="6">
-        <x-moonshine::card>
+        <x-moonshine::box>
             @include("examples/components/collapse-show")
-        </x-moonshine::card>
+        </x-moonshine::box>
     </x-moonshine::column>
 </x-moonshine::grid>
 
@@ -48,9 +48,9 @@
 
 <x-moonshine::grid>
     <x-moonshine::column adaptiveColSpan="12" colSpan="6">
-        <x-moonshine::card>
+        <x-moonshine::box>
             @include("examples/components/collapse-persist")
-        </x-moonshine::card>
+        </x-moonshine::box>
     </x-moonshine::column>
 </x-moonshine::grid>
 

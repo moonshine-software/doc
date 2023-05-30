@@ -149,8 +149,8 @@ return [
     ],
 
     'UI components:code-bracket-square' => [
-        ['slug' => 'components-alerts', 'label' => 'Alerts'],
-        ['slug' => 'components-badges', 'label' => 'Badges'],
+        ['slug' => 'components-alert', 'label' => 'Alert'],
+        ['slug' => 'components-badge', 'label' => 'Badge'],
         ['slug' => 'components-boolean', 'label' => 'Boolean'],
         ['slug' => 'components-box', 'label' => 'Box'],
         ['slug' => 'components-breadcrumbs', 'label' => 'Breadcrumbs'],
@@ -158,7 +158,7 @@ return [
         ['slug' => 'components-collapse', 'label' => 'Collapse'],
         ['slug' => 'components-divider', 'label' => 'Divider'],
         ['slug' => 'components-dropdown', 'label' => 'Dropdown'],
-        ['slug' => 'components-icons', 'label' => 'Icons'],
+        ['slug' => 'components-icon', 'label' => 'Icon'],
         ['slug' => 'components-link', 'label' => 'Link'],
         ['slug' => 'components-loader', 'label' => 'Loader'],
         ['slug' => 'components-modal', 'label' => 'Modal'],
@@ -168,7 +168,7 @@ return [
         ['slug' => 'components-spinner', 'label' => 'Spinner'],
         ['slug' => 'components-table', 'label' => 'Table'],
         ['slug' => 'components-tabs', 'label' => 'Tabs'],
-        ['slug' => 'components-thumbnails', 'label' => 'Thumbnails'],
+        ['slug' => 'components-thumbnail', 'label' => 'Thumbnail'],
         ['slug' => 'components-title', 'label' => 'Title'],
         ['slug' => 'components-toast', 'label' => 'Toast'],
         ['slug' => 'components-tooltip', 'label' => 'Tooltip'],

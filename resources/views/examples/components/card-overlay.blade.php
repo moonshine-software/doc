@@ -6,13 +6,13 @@
     :subtitle="date('d.m.Y')"
     :values="['ID' => 1, 'Author' => fake()->name()]"
 >
-    <x-slot:header>
+    <x-slot:header><!-- [tl! focus:-8] -->
         <x-moonshine::badge color="green">new</x-moonshine::badge>
-    </x-slot:header>
+    </x-slot:header><!-- [tl! focus] -->
 
     {{ fake()->text() }}
 
-    <x-slot:actions>
+    <x-slot:actions><!-- [tl! focus] -->
         <x-moonshine::link href="#">Read more</x-moonshine::link>
-    </x-slot:actions>
+    </x-slot:actions><!-- [tl! focus:1] -->
 </x-moonshine::card>
