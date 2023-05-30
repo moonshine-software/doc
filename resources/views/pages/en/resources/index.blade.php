@@ -165,7 +165,7 @@ class MoonShineServiceProvider extends ServiceProvider
 <x-sub-title id="modal">Modal windows</x-sub-title>
 
 <x-p>
-    Ability to add entries and edit directly on the list page in a modal window
+    Ability to add, edit and view entries directly on the list page in a modal window
 </x-p>
 
 <x-code language="php">
@@ -184,6 +184,8 @@ class PostResource extends Resource
     protected bool $createInModal = true; // [tl! focus]
 
     protected bool $editInModal = true; // [tl! focus]
+
+    protected bool $showInModal = true; // [tl! focus]
 
     // ...
 </x-code>

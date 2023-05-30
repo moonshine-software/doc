@@ -169,7 +169,7 @@ class MoonShineServiceProvider extends ServiceProvider
 <x-sub-title id="modal">Модальные окна</x-sub-title>
 
 <x-p>
-    Возможность добавлять записи и редактировать прямо на странице со списком в модальном окне
+    Возможность добавлять, редактировать и просматривать записи прямо на странице со списком в модальном окне
 </x-p>
 
 <x-code language="php">
@@ -188,6 +188,8 @@ class PostResource extends Resource
     protected bool $createInModal = true; // [tl! focus]
 
     protected bool $editInModal = true; // [tl! focus]
+
+    protected bool $showInModal = true; // [tl! focus]
 
     // ...
 </x-code>
