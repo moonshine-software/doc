@@ -1,45 +1,45 @@
 <x-page title="Thumbnails" :sectionMenu="[
-    'Sections' => [
-        ['url' => '#basics', 'label' => 'Basics'],
-        ['url' => '#multiple', 'label' => 'Group of images'],
+    'Разделы' => [
+        ['url' => '#basics', 'label' => 'Основы'],
+        ['url' => '#multiple', 'label' => 'Группа изображений'],
     ]
 ]">
 
-<x-sub-title id="basics">Basics</x-sub-title>
+<x-sub-title id="basics">Основы</x-sub-title>
 
 <x-p>
-    To create thumbnails, you can use the <code>moonshine::thumbnails</code> component
+    Для создания миниатюр можно воспользоваться компонентом <code>moonshine::thumbnails</code>
 </x-p>
 
 <x-code language="blade" file="resources/views/examples/components/thumbnails.blade.php"></x-code>
 
 <x-moonshine::grid>
     <x-moonshine::column adaptiveColSpan="12" colSpan="4">
-        <x-moonshine::card>
+        <x-moonshine::box>
             @include("examples/components/thumbnails")
-        </x-moonshine::card>
+        </x-moonshine::box>
     </x-moonshine::column>
 </x-moonshine::grid>
 
 <x-p>
-    You can also specify the attribute <code>alt</code>
+    Также можно указать аттрибут <code>alt</code>
 </x-p>
 
 <x-code language="blade" file="resources/views/examples/components/thumbnails-alt.blade.php"></x-code>
 
-<x-sub-title id="multiple">Group of images</x-sub-title>
+<x-sub-title id="multiple">Группа изображений</x-sub-title>
 
 <x-p>
-    Component can be passed an array of images
+    Компоненту можно передать массив изображений
 </x-p>
 
 <x-code language="blade" file="resources/views/examples/components/thumbnails-multiple.blade.php"></x-code>
 
 <x-moonshine::grid>
     <x-moonshine::column adaptiveColSpan="12" colSpan="4">
-        <x-moonshine::card>
+        <x-moonshine::box>
             @include("examples/components/thumbnails-multiple")
-        </x-moonshine::card>
+        </x-moonshine::box>
     </x-moonshine::column>
 </x-moonshine::grid>
 

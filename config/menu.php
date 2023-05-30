@@ -168,7 +168,7 @@ return [
         ['slug' => 'components-spinner', 'label' => 'Spinner'],
         ['slug' => 'components-table', 'label' => 'Table'],
         ['slug' => 'components-tabs', 'label' => 'Tabs'],
-        ['slug' => 'components-thumbnails', 'label' => 'Thumbnails'],
+        ['slug' => 'components-thumbnail', 'label' => 'Thumbnail'],
         ['slug' => 'components-title', 'label' => 'Title'],
         ['slug' => 'components-toast', 'label' => 'Toast'],
         ['slug' => 'components-tooltip', 'label' => 'Tooltip'],
