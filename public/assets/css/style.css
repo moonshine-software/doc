@@ -1,6 +1,9 @@
 .dark .dark\:block {display: block}
 .dark .dark\:hidden {display: none}
 
+.m-4 {
+    margin: 1rem;
+}
 .mt-8 {
     margin-top: 2rem;
 }
