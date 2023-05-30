@@ -1,17 +1,43 @@
 <x-page
-    title="Form Components"
+    title="Components"
     :sectionMenu="[
         'Sections' => [
+            ['url' => '#basics', 'label' => 'Basics'],
             ['url' => '#permissions', 'label' => 'Permissions'],
             ['url' => '#changelog', 'label' => 'Change log'],
         ]
     ]
 ">
 
+<x-sub-title id="basics">Basics</x-sub-title>
+
 <x-p>
-    You can add your own components based on the abstract class to extend the possibilities
-     <code>FormComponent</code>, they will be displayed below the main form
+    You can add your own components based on the <code>MoonShine\FormComponent</code>
+    or <code>MoonShine\DetailComponent</code> abstract classes to extend the possibilities,
+    they will be displayed below the main form or below detailed information respectively
 </x-p>
+
+<x-p>
+    All custom components must be registered in the <code>components()</code> method
+</x-p>
+
+<x-code language="php">
+namespace MoonShine\Resources;
+
+class ArticleResource extends Resource
+{
+    //...
+
+    public function components(): array // [tl! focus:2]
+    {
+        return [
+            // ...
+        ];
+    } // [tl! focus:-1]
+
+    //...
+}
+</x-code>
 
 <x-sub-title id="permissions">Permissions</x-sub-title>
 
@@ -22,7 +48,9 @@
 <x-code language="php">
 namespace MoonShine\Resources;
 
-use MoonShine\Models\MoonshineUser;
+use MoonShine\FormComponents\PermissionFormComponent; // [tl! focus]
+use MoonShine\Models\MoonshineUserRole;
+use MoonShine\Resources\Resource;
 
 class MoonShineUserResource extends Resource
 {
@@ -82,6 +110,7 @@ class Article extends Model
 namespace MoonShine\Resources;
 
 use MoonShine\FormComponents\ChangeLogFormComponent; // [tl! focus]
+use MoonShine\Models\MoonshineUserRole;
 use MoonShine\Resources\Resource;
 
 class ArticleResource extends Resource

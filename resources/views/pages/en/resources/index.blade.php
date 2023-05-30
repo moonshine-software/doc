@@ -11,7 +11,7 @@
             ['url' => '#after', 'label' => 'Route after save'],
             ['url' => '#simple-pagination', 'label' => 'Simple pagination'],
             ['url' => '#disable-pagination', 'label' => 'Disable pagination'],
-            ['url' => '#items-view', 'label' => 'Items view'],
+            ['url' => '#views', 'label' => 'Customization of views'],
         ]
     ]
 ">
@@ -165,7 +165,7 @@ class MoonShineServiceProvider extends ServiceProvider
 <x-sub-title id="modal">Modal windows</x-sub-title>
 
 <x-p>
-    Ability to add entries and edit directly on the list page in a modal window
+    Ability to add, edit and view entries directly on the list page in a modal window
 </x-p>
 
 <x-code language="php">
@@ -184,6 +184,8 @@ class PostResource extends Resource
     protected bool $createInModal = true; // [tl! focus]
 
     protected bool $editInModal = true; // [tl! focus]
+
+    protected bool $showInModal = true; // [tl! focus]
 
     // ...
 </x-code>
@@ -261,10 +263,11 @@ class PostResource extends Resource
 }
 </x-code>
 
-<x-sub-title id="items-view">Items view</x-sub-title>
+<x-sub-title id="views">Customization of views</x-sub-title>
 
 <x-p>
-    You can customize the display of the list of items through the property <code>itemsView</code>
+    You can customize the display of the list and form through
+    the properties <code>itemsView</code> and <code>formView</code>
 </x-p>
 
 <x-code language="php">
@@ -279,12 +282,14 @@ class PostResource extends Resource
 
     protected string $itemsView = 'moonshine::crud.shared.table'; // [tl! focus]
 
+    protected string $formView = 'moonshine::crud.shared.form'; // [tl! focus]
+
     // ...
 }
 </x-code>
 
 <x-p>
-    Or by overriding the appropriate <code>itemsView()</code> method
+    Or by overriding the appropriate methods
 </x-p>
 
 <x-code language="php">
@@ -300,6 +305,11 @@ class PostResource extends Resource
     public function itemsView(): string
     {
         return $this->itemsView;
+    } // [tl! focus:-3]
+
+    public function formView(): string
+    {
+        return $this->formView;
     } // [tl! focus:-3]
 
     // ...

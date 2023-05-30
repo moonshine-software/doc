@@ -1,17 +1,43 @@
 <x-page
-    title="Компоненты форм"
+    title="Компоненты"
     :sectionMenu="[
         'Разделы' => [
+            ['url' => '#basics', 'label' => 'Основы'],
             ['url' => '#permissions', 'label' => 'Разрешения'],
             ['url' => '#changelog', 'label' => 'История изменений'],
         ]
     ]
 ">
 
+<x-sub-title id="basics">Основы</x-sub-title>
+
 <x-p>
-    Для расширения возможностей можно добавлять собственные компоненты на основе абстрактного класс
-    <code>FormComponent</code>, они будут отображаться под основной формой
+    Для расширения возможностей можно добавлять собственные компоненты на основе абстрактных классов
+    <code>MoonShine\FormComponent</code> или <code>MoonShine\DetailComponent</code>,
+    они будут отображаться под основной формой или под детальной информацией соответственно
 </x-p>
+
+<x-p>
+    Все кастомные компоненты необходимо зарегистрировать в методе <code>components()</code>
+</x-p>
+
+<x-code language="php">
+namespace MoonShine\Resources;
+
+class ArticleResource extends Resource
+{
+    //...
+
+    public function components(): array // [tl! focus:2]
+    {
+        return [
+            // ...
+        ];
+    } // [tl! focus:-1]
+
+    //...
+}
+</x-code>
 
 <x-sub-title id="permissions">Разрешения</x-sub-title>
 
@@ -22,7 +48,9 @@
 <x-code language="php">
 namespace MoonShine\Resources;
 
-use MoonShine\Models\MoonshineUser;
+use MoonShine\FormComponents\PermissionFormComponent; // [tl! focus]
+use MoonShine\Models\MoonshineUserRole;
+use MoonShine\Resources\Resource;
 
 class MoonShineUserResource extends Resource
 {
@@ -50,7 +78,7 @@ class MoonShineUserResource extends Resource
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     Если вы используете свой ресурс с выводом администраторов,
-    необходимо ресурсу добавить трейт <code>>MoonShine\Traits\Resource\WithUserPermissions</code>
+    необходимо ресурсу добавить трейт <code>MoonShine\Traits\Resource\WithUserPermissions</code>
 </x-moonshine::alert>
 
 <x-sub-title id="changelog">История изменений</x-sub-title>
@@ -82,6 +110,7 @@ class Article extends Model
 namespace MoonShine\Resources;
 
 use MoonShine\FormComponents\ChangeLogFormComponent; // [tl! focus]
+use MoonShine\Models\MoonshineUserRole;
 use MoonShine\Resources\Resource;
 
 class ArticleResource extends Resource

@@ -11,7 +11,7 @@
             ['url' => '#after', 'label' => 'Переход после сохранения'],
             ['url' => '#simple-pagination', 'label' => 'Simple pagination'],
             ['url' => '#disable-pagination', 'label' => 'Отключение пагинации'],
-            ['url' => '#items-view', 'label' => 'Отображение элементов'],
+            ['url' => '#views', 'label' => 'Кастомизация отображений'],
         ]
     ]"
     :videos="[
@@ -169,7 +169,7 @@ class MoonShineServiceProvider extends ServiceProvider
 <x-sub-title id="modal">Модальные окна</x-sub-title>
 
 <x-p>
-    Возможность добавлять записи и редактировать прямо на странице со списком в модальном окне
+    Возможность добавлять, редактировать и просматривать записи прямо на странице со списком в модальном окне
 </x-p>
 
 <x-code language="php">
@@ -188,6 +188,8 @@ class PostResource extends Resource
     protected bool $createInModal = true; // [tl! focus]
 
     protected bool $editInModal = true; // [tl! focus]
+
+    protected bool $showInModal = true; // [tl! focus]
 
     // ...
 </x-code>
@@ -265,10 +267,11 @@ class PostResource extends Resource
 }
 </x-code>
 
-<x-sub-title id="items-view">Отображение элементов</x-sub-title>
+<x-sub-title id="views">Кастомизация отображений</x-sub-title>
 
 <x-p>
-    Можно кастомизировать отображение списка элементов через свойство <code>itemsView</code>
+    Можно кастомизировать отображение списка и формы через
+    свойства <code>itemsView</code> и <code>formView</code>
 </x-p>
 
 <x-code language="php">
@@ -283,12 +286,14 @@ class PostResource extends Resource
 
     protected string $itemsView = 'moonshine::crud.shared.table'; // [tl! focus]
 
+    protected string $formView = 'moonshine::crud.shared.form'; // [tl! focus]
+
     // ...
 }
 </x-code>
 
 <x-p>
-    Или переопределив соответствующий метод <code>itemsView()</code>
+    Или переопределив соответствующие методы
 </x-p>
 
 <x-code language="php">
@@ -304,6 +309,11 @@ class PostResource extends Resource
     public function itemsView(): string
     {
         return $this->itemsView;
+    } // [tl! focus:-3]
+
+    public function formView(): string
+    {
+        return $this->formView;
     } // [tl! focus:-3]
 
     // ...
