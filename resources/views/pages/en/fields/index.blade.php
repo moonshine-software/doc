@@ -389,7 +389,7 @@ public function fields(): array
 public function fields(): array
 {
     return [
-        Select::make('List', 'list')->options([
+        Select::make('List', 'list')->multiple()->options([
             'value 1' => 'Option Label 1',
             'value 2' => 'Option Label 2',
             'value 3' => 'Option Label 3',
