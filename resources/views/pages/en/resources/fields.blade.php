@@ -1,17 +1,17 @@
 <x-page title="Fields" :sectionMenu="$sectionMenu ?? null">
 
 <x-p>
-    Fields in most cases refer to table fields from the database. Within CRUD will be displayed
-     on the main page of the section (resource) with a list and on the page for creating and editing records.
-     In the MoonShine admin panel, there are many types of fields that cover all possible requirements!
-     They also cover all possible relationships in Laravel and are named the same as relationship methods for convenience.
+    Fields in most cases refer to table fields from the database. Within CRUD they will be displayed
+    with a list on the main page of the section (resource) and on the page for creating and editing records.
+    There are many types of fields in the MoonShine admin panel to cover all possible requirements!
+    They also cover all possible relationships in Laravel and are named in the same way as relationship methods for convenience:
     <code>BelongsTo</code>, <code>BelongsToMany</code>, <code>HasOne</code>, <code>HasMany</code>,
     <code>HasOneThrough</code>, <code>HasManyThrough</code>, <code>MorphOne</code>, <code>MorphMany</code>
 </x-p>
 
 <x-p>
-    Adding new fields is extremely easy! Enough in the <code>fields</code> method which returns an array,
-     return all the required fields, and how the fields are arranged, we will consider in the <x-link link="{{ route('moonshine.custom_page', 'fields-index') }}">"Fields"</x-link> section.
+    Adding new fields is extremely easy! You can simply return all the required fields in the <code>fields</code> method which returns an array.
+    And we will talk about fields structure in the <x-link link="{{ route('moonshine.custom_page', 'fields-index') }}">"Fields"</x-link> section.
 </x-p>
 
 <x-code language="php">
