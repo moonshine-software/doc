@@ -1,7 +1,7 @@
 <x-sub-title id="view">Display method</x-sub-title>
 
 <x-p>
-    To display actions in the form of a dropdown list, you can use the <code>showInDropdown</code> method
+    To display actions as a dropdown list, you can use the <code>showInDropdown</code> method
 </x-p>
 
 <x-code language="php">
