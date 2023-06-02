@@ -1,9 +1,9 @@
 <x-page title="Available sections" :sectionMenu="$sectionMenu ?? null">
 
 <x-p>
-    It often happens that it is necessary to create a resource in which the ability to delete
-    or add or edit. And here we are not talking about authorization, but about the global exclusion of these sections.
-    This is done very simply due to the property <code>activeActions</code> in the resource
+    Quite often you need to create a resource with the disabled delete
+    or add or edit section. And we are not talking about authorization here, but about the global exclusion of these sections.
+    This could be done very easy by using the <code>activeActions</code> property in the resource
 </x-p>
 
 <x-code language="php">
@@ -22,7 +22,7 @@ class PostResource extends Resource
 }
 </x-code>
 
-<x-p>It is enough to eliminate the excess</x-p>
+<x-p>Just eliminate the needless one</x-p>
 
 <x-code language="php">
     public static array $activeActions = ['create']; // [tl! focus]
