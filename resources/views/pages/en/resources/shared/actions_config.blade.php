@@ -58,7 +58,7 @@ public function {!! ($action === 'ExportAction' ||  $action === 'ImportAction') 
 <x-image theme="light" src="{{ asset('screenshots/actions_line.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/actions_line_dark.png') }}"></x-image>
 
-<x-sub-title id="confirm">Action confirmation</x-sub-title>
+<x-sub-title id="confirm">Confirm the action</x-sub-title>
 
 <x-p>
     To confirm the action, you must use the <code>withConfirm</code> method
