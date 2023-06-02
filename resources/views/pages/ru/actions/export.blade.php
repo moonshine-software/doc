@@ -19,6 +19,10 @@ public function actions(): array
             ->disk('public')
             // Выбор директории сохранения
             ->dir('/exports')
+            // Если необходимо экспортировать в формате csv
+            ->csv()
+            // Разделитель для csv
+            ->delimiter(',')
         ,
     ];
 }

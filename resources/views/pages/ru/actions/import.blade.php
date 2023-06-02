@@ -21,6 +21,8 @@ public function actions(): array
             ->dir('/exports')
             // Удалять после импорта
             ->deleteAfter()
+            // Разделитель для csv
+            ->delimiter(',')
         ,
     ];
 }

@@ -19,6 +19,10 @@ public function actions(): array
             ->disk('public')
             // Selecting a save directory
             ->dir('/exports')
+            // If you want to use csv format
+            ->csv()
+            // If you use csv
+            ->delimiter(',')
         ,
     ];
 }

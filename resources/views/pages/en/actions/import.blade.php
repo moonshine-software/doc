@@ -21,6 +21,8 @@ public function actions(): array
             ->dir('/exports')
             // Delete after importing
             ->deleteAfter()
+            // If you use csv
+            ->delimiter(',')
         ,
     ];
 }

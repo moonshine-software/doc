@@ -43,7 +43,7 @@ class ModelClass extends Model implements HasMedia
     //...
     public function registerMediaCollections(): void
     {
-        $this ->addMediaCollection('cover');
+        $this->addMediaCollection('cover');
     }
     //...
     </x-code>
@@ -71,7 +71,7 @@ use InteractsWithMedia;
 //...
 public function registerMediaCollections(): void
 {
-    $this ->addMediaCollection('cover')->singleFile();
+    $this->addMediaCollection('cover')->singleFile();
 }
 //...
     </x-code>
