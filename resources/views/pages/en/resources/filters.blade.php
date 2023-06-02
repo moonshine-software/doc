@@ -2,12 +2,12 @@
 
 <x-p>
     Filters are not much different from fields and inherit their properties and methods!
-     Displayed on the main page of the section to filter the list of data.
+    They are displayed on the main page of the section to filter the list of data.
 </x-p>
 
 <x-p>
-    Adding new filters is easy! Enough in the <code>filters</code> method, which returns an array,
-     return all the necessary filters, and how filters are arranged, we will consider in the <x-link link="{{ route('moonshine.custom_page', 'filters-index') }}">"Filters"</x-link> section.
+    Adding new filters is easy! You can simply return all the necessary filters in the <code>filters</code> method which returns an array.
+    And we will talk about filters structure in the <x-link link="{{ route('moonshine.custom_page', 'filters-index') }}">"Filters"</x-link> section.
 </x-p>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
