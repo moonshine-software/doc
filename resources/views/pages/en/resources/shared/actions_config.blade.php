@@ -1,7 +1,7 @@
 <x-sub-title id="view">Display method</x-sub-title>
 
 <x-p>
-    To display actions in the form of a dropdown list, you can use the <code>showInDropdown</code> method
+    To display actions as a dropdown list, you can use the <code>showInDropdown</code> method
 </x-p>
 
 <x-code language="php">
@@ -58,7 +58,7 @@ public function {!! ($action === 'ExportAction' ||  $action === 'ImportAction') 
 <x-image theme="light" src="{{ asset('screenshots/actions_line.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/actions_line_dark.png') }}"></x-image>
 
-<x-sub-title id="confirm">Action confirmation</x-sub-title>
+<x-sub-title id="confirm">Confirm the action</x-sub-title>
 
 <x-p>
     To confirm the action, you must use the <code>withConfirm</code> method

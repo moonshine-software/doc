@@ -1,19 +1,19 @@
 <x-page title="Action" :sectionMenu="[
     'Sections' => [
         ['url' => '#view', 'label' => 'Display method'],
-        ['url' => '#confirm', 'label' => 'Action confirmation'],
+        ['url' => '#confirm', 'label' => 'Confirm the action'],
     ]
 ]">
 
 <x-p>
     Often it is necessary to do something with the list of the section and "Actions" serve for this purpose.
     At the moment, there is only one Action class in MoonShine, which is responsible for exporting data,
-    but the actions are extensible and you can easily write your own.
+    but actions could be extended and you can easily write your own.
 </x-p>
 
 <x-p>
-    Adding new actions is also extremely easy and everything is done in the same style! Enough in the <code>actions</code> method which returns an array,
-    return all the necessary actions, and how actions are arranged, we will consider in the <x-link link="{{ route('moonshine.custom_page', 'actions-index') }}">"Actions"</x-link> section.
+    You can simply return all the necessary actions in the <code>actions</code> method which returns an array.
+    And we will talk about actions structure in the <x-link link="{{ route('moonshine.custom_page', 'actions-index') }}">"Actions"</x-link> section.
 </x-p>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
