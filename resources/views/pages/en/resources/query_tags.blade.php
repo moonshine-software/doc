@@ -1,8 +1,8 @@
-<x-page title="Quick Filters/Tags" :sectionMenu="[]">
+<x-page title="Quick filters (tags)" :sectionMenu="[]">
 
 <x-p>
-    Sometimes there is a need to create a set of filters (selection of results)
-    and display it on the listing. For such situations there are created tags.
+    Sometimes you may need to create a set of filters (collection of results)
+    and display it in the listing. Tags have been created for these cases.
 </x-p>
 
 <x-code language="php">

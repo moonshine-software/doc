@@ -1,8 +1,8 @@
 <x-page title="Search" :sectionMenu="$sectionMenu ?? null">
 
 <x-p>
-    Everything is simple here! For a full-text search, you need to specify which fields will participate in the search.
-    To do this, you need to list them in the returned array in the search method
+    Everything is simple here! For a full-text search, you need to specify which fields will be included into the search.
+    To do this, you need to list them in the return array in the <code>search()</code> method
 </x-p>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
@@ -28,7 +28,7 @@ class PostResource extends Resource
 </x-code>
 
 <x-p>
-    If fulltext searching is required, you must use the <code>MoonShine\Attributes\SearchUsingFullText</code>
+    If a fulltext search is required, you must use the <code>MoonShine\Attributes\SearchUsingFullText</code>
 </x-p>
 
 <x-code language="php">

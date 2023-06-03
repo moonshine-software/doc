@@ -19,11 +19,11 @@
 <x-sub-title id="basics">Basics</x-sub-title>
 
 <x-p>
-    What is an administrative panel? Of course these are partitions based on data from the database, based on eloquent models.
+    What is an administrative panel? Basically, these are partitions based on data from the database, based on eloquent models.
 </x-p>
 
 <x-p>
-    MoonShine is based on standard Laravel resource controllers and resource routers
+    MoonShine is based on standard Laravel resource controllers and resource routes
 
     <x-code language="shell">
         php artisan make:controller Controller --resource
@@ -33,14 +33,14 @@
         Route::resources('resources', Controller::class);
     </x-code>
 
-    But the system will generate and announce them independently.
+    But system will generate and declare them independently.
 </x-p>
 
 <x-p>
     Therefore, the MoonShine resources (admin panel sections) are based on the eloquent model.
 </x-p>
 
-<x-sub-title id="create">Creating a section of the admin panel</x-sub-title>
+<x-sub-title id="create">Creating a section in the admin panel</x-sub-title>
 
 <x-code language="shell">
     php artisan moonshine:resource Post
@@ -48,9 +48,9 @@
 
 <x-p>
     This will create a Resource class that will be the basis of the new section in the panel.
-    It is located by default in the <code>app/MoonShine/Resources/PostResource</code> directory.
-     And it will be automatically bound to the <code>app/Models/Post</code> model.
-     The section title will remain Posts.
+    By default, it is located in the <code>app/MoonShine/Resources/PostResource</code> directory.
+    And it will be automatically bound to the <code>app/Models/Post</code> model.
+    The section title will keep the Posts name
 </x-p>
 
 <x-p>
@@ -65,9 +65,9 @@
     </x-code>
 </x-p>
 
-<x-sub-title id="variables">Main section properties</x-sub-title>
+<x-sub-title id="variables">Main properties of the section</x-sub-title>
 <x-p>
-    The main parameters that can be changed for a resource in order to customize its work
+    The main parameters of the resource that could be changed in order to customize its work
 </x-p>
 <x-code language="php">
 namespace MoonShine\Resources;
@@ -103,7 +103,7 @@ class PostResource extends Resource
 
 <x-p>
     New resources are added to the system in the <code>service provider</code> using the singleton class
-     <code>MoonShine\MoonShine</code> and <code>menu()</code> method
+    <code>MoonShine\MoonShine</code> and <code>menu()</code> method
 </x-p>
 <x-code language="php">
 namespace App\Providers;
@@ -137,7 +137,7 @@ class MoonShineServiceProvider extends ServiceProvider
 }
 </x-code>
 
-<x-p>After the sections will appear in the menu and will be available in the panel</x-p>
+<x-p>Then sections will appear in the menu and will be available in the panel</x-p>
 
 <x-image theme="light" src="{{ asset('screenshots/menu.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/menu_dark.png') }}"></x-image>
@@ -148,7 +148,7 @@ class MoonShineServiceProvider extends ServiceProvider
 
 <x-sub-title id="item">Current item/model</x-sub-title>
 
-<x-p>In a resource, you have access to the current element and model through the appropriate methods</x-p>
+<x-p>In the resource you have access to the current element and model via the relevant methods</x-p>
 
 <x-code language="php">
     $this->getItem();

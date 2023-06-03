@@ -3,14 +3,14 @@
         ['url' => '#register', 'label' => 'Registration'],
         ['url' => '#condition', 'label' => 'Display condition'],
         ['url' => '#view', 'label' => 'Display method'],
-        ['url' => '#confirm', 'label' => 'Action confirmation'],
+        ['url' => '#confirm', 'label' => 'Confirm the action'],
     ]
 ]">
 
 <x-sub-title id="register">Registration</x-sub-title>
 
 <x-p>
-    By default, there are only 2 actions on items in the MoonShine panel - edit and delete.
+    By default, the table in the MoonShine panel contains only 2 actions for items - edit and delete.
     But you can also add your own custom actions
 </x-p>
 
@@ -41,8 +41,8 @@ class PostResource extends Resource
 </x-code>
 
 <p>
-    The first argument is the name of the action,
-    The second argument is the callback with the current item parameter,
+    The first argument is the name of the action.
+    The second argument is the callback with the current item parameter.
     The third argument - the message that will be displayed after the action is executed
 </p>
 
