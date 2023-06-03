@@ -1,7 +1,7 @@
 <x-page title="Table styles" :sectionMenu="$sectionMenu ?? null">
 
 <x-p>
-    Through resources it is possible to customize the color for <code>tr</code> and <code>td</code> for data display tables
+    Using resources you can customize the color for <code>tr</code> and <code>td</code> for tables with data
 </x-p>
 
 <x-code language="php">
