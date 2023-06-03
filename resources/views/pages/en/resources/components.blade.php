@@ -13,7 +13,7 @@
 
 <x-p>
     You can add your own components based on the <code>MoonShine\FormComponent</code>
-    or <code>MoonShine\DetailComponent</code> abstract classes to extend the possibilities,
+    or <code>MoonShine\DetailComponent</code> abstract classes to extend the functionality,
     they will be displayed below the main form or below detailed information respectively
 </x-p>
 
@@ -84,8 +84,8 @@ class MoonShineUserResource extends Resource
 <x-sub-title id="changelog">Change log</x-sub-title>
 
 <x-p>
-    To the admin panel displayed the post editing history based on the user needed
-    the model that is used in the resource add the <code>MoonShine\Traits\Models\HasMoonShineChangeLog</code> trait
+    To display the log of edits in the admin panel based on the user you must add
+    the <code>MoonShine\Traits\Models\HasMoonShineChangeLog</code> trait to the model being used in the resource
 </x-p>
 
 <x-code language="php">
@@ -103,7 +103,7 @@ class Article extends Model
 </x-code>
 
 <x-p>
-    And also add a component in the resource <code>ChangeLogFormComponent</code>
+    And also add a component in the <code>ChangeLogFormComponent</code> resource
 </x-p>
 
 <x-code language="php">
