@@ -1,7 +1,7 @@
 <x-page title="Scopes" :sectionMenu="$sectionMenu ?? null">
 
 <x-p>
-    It is often necessary to initially filter the output with a list of records
+    Quite often you have to filter the output with a list of records from the very start
 </x-p>
 
 <x-p>
@@ -28,11 +28,11 @@ public function query(): Builder
 </x-code>
 
 <x-p>
-    But Laravel also has a handy scopes functionality and can be used within the MoonShine admin panel
+    But Laravel also has a handy scopes functionality that could be used within the MoonShine admin panel
 </x-p>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-    First, you need to create the necessary scopes
+    At first, you need to create the scopes required
 </x-moonshine::alert>
 
 <x-code language="shell">
