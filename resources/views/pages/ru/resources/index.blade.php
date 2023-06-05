@@ -267,7 +267,7 @@ class PostResource extends Resource
 
 <x-p>
     Можно кастомизировать отображение списка и формы через
-    свойства <code>itemsView</code> и <code>formView</code>
+    свойства <code>itemsView</code>, <code>formView</code> и <code>detailView</code>
 </x-p>
 
 <x-code language="php">
@@ -283,6 +283,8 @@ class PostResource extends Resource
     protected string $itemsView = 'moonshine::crud.shared.table'; // [tl! focus]
 
     protected string $formView = 'moonshine::crud.shared.form'; // [tl! focus]
+
+    protected string $detailView = 'moonshine::crud.shared.detail-card'; // [tl! focus]
 
     // ...
 }
@@ -310,6 +312,11 @@ class PostResource extends Resource
     public function formView(): string
     {
         return $this->formView;
+    } // [tl! focus:-3]
+
+    public function detailView(): string
+    {
+        return $this->detailView;
     } // [tl! focus:-3]
 
     // ...

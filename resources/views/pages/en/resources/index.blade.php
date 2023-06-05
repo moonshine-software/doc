@@ -263,7 +263,7 @@ class PostResource extends Resource
 
 <x-p>
     You can customize the display of the list and form through
-    the properties <code>itemsView</code> and <code>formView</code>
+    the properties <code>itemsView</code>, <code>formView</code> and <code>detailView</code>
 </x-p>
 
 <x-code language="php">
@@ -279,6 +279,8 @@ class PostResource extends Resource
     protected string $itemsView = 'moonshine::crud.shared.table'; // [tl! focus]
 
     protected string $formView = 'moonshine::crud.shared.form'; // [tl! focus]
+
+    protected string $detailView = 'moonshine::crud.shared.detail-card'; // [tl! focus]
 
     // ...
 }
@@ -306,6 +308,11 @@ class PostResource extends Resource
     public function formView(): string
     {
         return $this->formView;
+    } // [tl! focus:-3]
+
+    public function detailView(): string
+    {
+        return $this->detailView;
     } // [tl! focus:-3]
 
     // ...
