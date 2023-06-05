@@ -86,6 +86,7 @@ return [
 
         'Other:_divider_',
         ['slug' => 'fields-no_input', 'label' => 'NoInput'],
+        ['slug' => 'fields-stack_fields', 'label' => 'StackFields'],
 
         // Packages
         'Packages:_divider_',
