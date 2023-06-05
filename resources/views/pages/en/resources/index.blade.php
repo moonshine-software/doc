@@ -105,34 +105,30 @@ class PostResource extends Resource
     New resources are added to the system in the <code>service provider</code> using the singleton class
     <code>MoonShine\MoonShine</code> and <code>menu()</code> method
 </x-p>
+
 <x-code language="php">
 namespace App\Providers;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\ServiceProvider;
-
-use MoonShine\MoonShine;
-
-use MoonShine\Resources\MoonShineUserResource; // [tl! focus]
-use MoonShine\Resources\MoonShineUserRoleResource; // [tl! focus]
 use App\MoonShine\Resources\PostResource; // [tl! focus]
+use Illuminate\Support\ServiceProvider;
+use MoonShine\Menu\MenuItem;
+use MoonShine\MoonShine; // [tl! focus]
+use MoonShine\Resources\MoonShineUserResource;
+use MoonShine\Resources\MoonShineUserRoleResource;
 
 class MoonShineServiceProvider extends ServiceProvider
 {
-    public function register()
-    {
-
-    }
+    //...
 
     public function boot()
     {
         Model::preventLazyLoading(!app()->isProduction());
 
-        app(MoonShine::class)->menu([
-            MoonShineUserResource::class, // System partition with administrators
-            MoonShineUserRoleResource::class, // System partition with administrator roles
-            PostResource::class, // Our new section
-        ]); // [tl! focus:-4]
+        app(MoonShine::class)->menu([ // [tl! focus]
+            MenuItem::make('Admins', new MoonShineUserResource()),
+            MenuItem::make('Roles', new MoonShineUserRoleResource()),
+            MenuItem::make('Posts', new PostResource()), // [tl! focus]
+        ]); // [tl! focus]
     }
 }
 </x-code>

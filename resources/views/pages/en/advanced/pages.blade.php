@@ -14,6 +14,8 @@
 
 <x-code language="php">
 use Illuminate\Support\ServiceProvider;
+use MoonShine\Menu\MenuItem;
+use MoonShine\MoonShine;
 use MoonShine\Resources\CustomPage; // [tl! focus]
 
 class MoonShineServiceProvider extends ServiceProvider
@@ -21,7 +23,10 @@ class MoonShineServiceProvider extends ServiceProvider
     public function boot(): void
     {
         app(MoonShine::class)->menu([
-            CustomPage::make('Page title', 'slug', 'view', fn() => []) // [tl! focus]
+            MenuItem::make(
+                'Page title',
+                CustomPage::make('Page title', 'slug', 'view', fn() => []) // [tl! focus]
+            )
         ]);
     }
 }
@@ -55,6 +60,8 @@ class MoonShineServiceProvider extends ServiceProvider
 
 <x-code language="php">
 use Illuminate\Support\ServiceProvider;
+use MoonShine\Menu\MenuItem;
+use MoonShine\MoonShine;
 use MoonShine\Resources\CustomPage;
 
 class MoonShineServiceProvider extends ServiceProvider
@@ -62,8 +69,11 @@ class MoonShineServiceProvider extends ServiceProvider
     public function boot(): void
     {
         app(MoonShine::class)->menu([
-            CustomPage::make('Page title', 'slug', 'view', fn() => [])
-                ->withoutTitle() // [tl! focus]
+            MenuItem::make(
+                'Page title',
+                CustomPage::make('Page title', 'slug', 'view', fn() => [])
+                    ->withoutTitle()  // [tl! focus]
+            )
         ]);
     }
 }
@@ -84,8 +94,11 @@ class MoonShineServiceProvider extends ServiceProvider
     public function boot(): void
     {
         app(MoonShine::class)->menu([
-            CustomPage::make('Page title', 'slug', 'view', fn() => [])
-                ->layout('path') // [tl! focus]
+            MenuItem::make(
+                'Page title',
+                CustomPage::make('Page title', 'slug', 'view', fn() => [])
+                    ->layout('path') // [tl! focus]
+            )
         ]);
     }
 }

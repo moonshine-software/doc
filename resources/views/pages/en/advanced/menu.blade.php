@@ -18,11 +18,26 @@
 </x-p>
 
 <x-code language="php">
-app(MoonShine::class)->menu([
-    MoonShineUserResource::class,
-    MoonShineUserRoleResource::class,
-    PostResource::class,
-]);
+namespace App\Providers;
+
+use Illuminate\Support\ServiceProvider;
+use MoonShine\Menu\MenuItem; // [tl! focus]
+use MoonShine\MoonShine; // [tl! focus]
+use MoonShine\Resources\MoonShineUserResource;
+use MoonShine\Resources\MoonShineUserRoleResource;
+
+class MoonShineServiceProvider extends ServiceProvider
+{
+    //...
+
+    public function boot()
+    {
+        app(MoonShine::class)->menu([ // [tl! focus:start]
+            MenuItem::make('Admins', new MoonShineUserResource()),
+            MenuItem::make('Roles', new MoonShineUserRoleResource()),
+        ]); // [tl! focus:end]
+    }
+}
 </x-code>
 
 <x-p>
@@ -30,16 +45,29 @@ app(MoonShine::class)->menu([
 </x-p>
 
 <x-code language="php">
-use MoonShine\Menu\MenuGroup; // [tl! focus]
+namespace App\Providers;
 
-/...
-app(MoonShine::class)->menu([
-    MenuGroup::make('System', [ // [tl! focus]
-        MoonShineUserResource::class,
-        MoonShineUserRoleResource::class,
-    ]) // [tl! focus]
-]);
-/...
+use Illuminate\Support\ServiceProvider;
+use MoonShine\Menu\MenuItem;
+use MoonShine\Menu\MenuGroup; // [tl! focus]
+use MoonShine\MoonShine;
+use MoonShine\Resources\MoonShineUserResource;
+use MoonShine\Resources\MoonShineUserRoleResource;
+
+class MoonShineServiceProvider extends ServiceProvider
+{
+    //...
+
+    public function boot()
+    {
+        app(MoonShine::class)->menu([
+            MenuGroup::make('System', [ // [tl! focus]
+                MenuItem::make('Admins', new MoonShineUserResource()),
+                MenuItem::make('Roles', new MoonShineUserRoleResource()),
+            ]) // [tl! focus]
+        ]);
+    }
+}
 </x-code>
 
 <x-p>
@@ -57,19 +85,16 @@ app(MoonShine::class)->menu([
 </x-p>
 
 <x-code language="php">
-use MoonShine\Menu\MenuGroup;
-use MoonShine\Menu\MenuItem;
-
-/...
+//...
 app(MoonShine::class)->menu([
     MenuGroup::make('System', [
-        MoonShineUserResource::class,
-        MoonShineUserRoleResource::class,
+        MenuItem::make('Admins', new MoonShineUserResource()),
+        MenuItem::make('Roles', new MoonShineUserRoleResource()),
     ])->canSee(function(Request $request) { // [tl! focus:start]
         return $request->user('moonshine')?->id === 1;
     }) // [tl! focus:end]
 ]);
-/...
+//...
 </x-code>
 
 <x-sub-title id="link">External link</x-sub-title>
@@ -79,13 +104,11 @@ app(MoonShine::class)->menu([
 </x-p>
 
 <x-code language="php">
-use MoonShine\Menu\MenuItem; // [tl! focus]
-
-/...
+//...
 app(MoonShine::class)->menu([
-    MenuItem::make('Documentation Laravel', 'https://laravel.com') // [tl! focus]
+    MenuItem::make('Документация Laravel', 'https://laravel.com') // [tl! focus]
 ]);
-/...
+//...
 </x-code>
 
 <x-p>
@@ -93,16 +116,14 @@ app(MoonShine::class)->menu([
 </x-p>
 
 <x-code language="php">
-use MoonShine\Menu\MenuItem; // [tl! focus]
-
-/...
+//...
 app(MoonShine::class)->menu([
     MenuItem::make('Admins', function () { // [tl! focus:start]
         return (new MoonShineUserResource())->route('index');
     }),
     MenuItem::make('Home', fn() => route('home')) // [tl! focus:end]
 ]);
-/...
+//...
 </x-code>
 
 <x-sub-title id="icon">Icon</x-sub-title>
@@ -112,16 +133,18 @@ app(MoonShine::class)->menu([
 </x-p>
 
 <x-code language="php">
-use MoonShine\Menu\MenuGroup;
-
-/...
+//...
 app(MoonShine::class)->menu([
-    MenuGroup::make('System', [
-        MoonShineUserResource::class,
-        MoonShineUserRoleResource::class,
-    ])->icon('app') // [tl! focus]
+    MenuGroup::make('Система', [ // [tl! focus:start]
+        MenuItem::make('Admins', new MoonShineUserResource())->icon('heroicons.hashtag'),
+        MenuItem::make('Roles', new MoonShineUserRoleResource())->icon('heroicons.hashtag'),
+    ])->icon('app') // [tl! focus:end]
+    // or
+    MenuGroup::make('Blog', [ // [tl! focus:start]
+        MenuItem::make('Comments', new CommentResource(), 'heroicons.chat-bubble-left')
+    ], 'heroicons.newspaper') // [tl! focus:end]
 ]);
-/...
+//...
 </x-code>
 
 <x-p>
@@ -135,17 +158,12 @@ app(MoonShine::class)->menu([
 </x-p>
 
 <x-code language="php">
-use MoonShine\Menu\MenuGroup;
-use MoonShine\Menu\MenuItem;
-
-/...
+//...
 app(MoonShine::class)->menu([
-    MenuGroup::make('Blog', [
-        MenuItem::make('Comments', new CommentResource(), 'heroicons.chat-bubble-left')
-            ->badge(fn() => Comment::query()->count()), // [tl! focus]
-    ], 'heroicons.newspaper')
+    MenuItem::make('Comments', new CommentResource())
+        ->badge(fn() => Comment::query()->count()), // [tl! focus]
 ]);
-/...
+//...
 </x-code>
 
 <x-image theme="light" src="{{ asset('screenshots/menu_badge.png') }}"></x-image>
@@ -159,9 +177,7 @@ app(MoonShine::class)->menu([
 </x-p>
 
 <x-code language="php">
-use MoonShine\Menu\MenuItem;
-
-/...
+//...
 app(MoonShine::class)->menu([
     MenuItem::make('menu.Comments', new CommentResource())
         ->translatable() // [tl! focus]
@@ -169,7 +185,7 @@ app(MoonShine::class)->menu([
     MenuItem::make('Comments', new CommentResource())
         ->translatable('menu') // [tl! focus]
 ]);
-/...
+//...
 </x-code>
 
 <x-code language="php">
@@ -185,14 +201,12 @@ return [
 </x-p>
 
 <x-code language="php">
-use MoonShine\Menu\MenuItem;
-
-/...
+//...
 app(MoonShine::class)->menu([
     MenuItem::make('Comments', new CommentResource())
         ->badge(fn() => __('menu.badge.new')) // [tl! focus]
 ]);
-/...
+//...
 </x-code>
 
 <x-sub-title id="divider">Divider</x-sub-title>
@@ -203,15 +217,14 @@ app(MoonShine::class)->menu([
 
 <x-code language="php">
 use MoonShine\Menu\MenuDivider; // [tl! focus]
-use MoonShine\Menu\MenuItem;
 
-/...
+//...
 app(MoonShine::class)->menu([
     MenuItem::make('Categories', new CategoryResource()),
     MenuDivider::make(), // [tl! focus]
     MenuItem::make('Articles', new ArticleResource()),
 ]);
-/...
+//...
 </x-code>
 
 <x-image theme="light" src="{{ asset('screenshots/menu_divider.png') }}"></x-image>
@@ -223,15 +236,14 @@ app(MoonShine::class)->menu([
 
 <x-code language="php">
 use MoonShine\Menu\MenuDivider; // [tl! focus]
-use MoonShine\Menu\MenuItem;
 
-/...
+//...
 app(MoonShine::class)->menu([
     MenuItem::make('Categories', new CategoryResource()),
     MenuDivider::make('Divider'), // [tl! focus]
     MenuItem::make('Articles', new ArticleResource()),
 ]);
-/...
+//...
 </x-code>
 
 <x-image theme="light" src="{{ asset('screenshots/menu_divider_label.png') }}"></x-image>
