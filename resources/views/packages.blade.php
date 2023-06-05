@@ -17,8 +17,8 @@
                 x-show="active === null || active === '{{ $package['category'] }}'"
             >
                 <x-moonshine::card class="mt-4"
-                                   :url="'https://github.com/' . $package['url']"
                                    :title="$package['title']"
+                                   @click.prevent="toggleModal;"
                 >
                     <x-slot:header>
                         <x-moonshine::badge color="green">
@@ -26,11 +26,16 @@
                         </x-moonshine::badge>
 
                         <x-moonshine::badge color="purple">
-                            {{ str($package['url'])->before('/') }}
+                            {{ $package['owner'] }}
                         </x-moonshine::badge>
 
                         <hr class="divider" />
                     </x-slot:header>
+
+                    <x-package-info-modal
+                        :title="$package['title']"
+                        :route="route('packages', ['url' => $package['url']])"
+                    />
                 </x-moonshine::card>
             </x-moonshine::column>
         @endforeach

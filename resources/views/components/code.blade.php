@@ -1,3 +1,8 @@
+@props([
+    'language' => 'shell',
+    'file'
+])
+
 <div
     x-data="{
         copied: false,

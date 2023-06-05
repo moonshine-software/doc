@@ -70,6 +70,7 @@ class MoonShineServiceProvider extends ServiceProvider
 
         app(AssetManager::class)->add([
             '/assets/css/style.css',
+            '/assets/css/markdown.css',
             '/assets/js/app.js',
         ]);
     }
