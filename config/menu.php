@@ -149,6 +149,7 @@ return [
     ],
 
     'UI components:code-bracket-square' => [
+        ['slug' => 'components-index', 'label' => 'Basics'],
         ['slug' => 'components-alert', 'label' => 'Alert'],
         ['slug' => 'components-badge', 'label' => 'Badge'],
         ['slug' => 'components-boolean', 'label' => 'Boolean'],
