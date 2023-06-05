@@ -105,34 +105,30 @@ class PostResource extends Resource
     New resources are added to the system in the <code>service provider</code> using the singleton class
     <code>MoonShine\MoonShine</code> and <code>menu()</code> method
 </x-p>
+
 <x-code language="php">
 namespace App\Providers;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\ServiceProvider;
-
-use MoonShine\MoonShine;
-
-use MoonShine\Resources\MoonShineUserResource; // [tl! focus]
-use MoonShine\Resources\MoonShineUserRoleResource; // [tl! focus]
 use App\MoonShine\Resources\PostResource; // [tl! focus]
+use Illuminate\Support\ServiceProvider;
+use MoonShine\Menu\MenuItem;
+use MoonShine\MoonShine; // [tl! focus]
+use MoonShine\Resources\MoonShineUserResource;
+use MoonShine\Resources\MoonShineUserRoleResource;
 
 class MoonShineServiceProvider extends ServiceProvider
 {
-    public function register()
-    {
-
-    }
+    //...
 
     public function boot()
     {
         Model::preventLazyLoading(!app()->isProduction());
 
-        app(MoonShine::class)->menu([
-            MoonShineUserResource::class, // System partition with administrators
-            MoonShineUserRoleResource::class, // System partition with administrator roles
-            PostResource::class, // Our new section
-        ]); // [tl! focus:-4]
+        app(MoonShine::class)->menu([ // [tl! focus]
+            MenuItem::make('Admins', new MoonShineUserResource()),
+            MenuItem::make('Roles', new MoonShineUserRoleResource()),
+            MenuItem::make('Posts', new PostResource()), // [tl! focus]
+        ]); // [tl! focus]
     }
 }
 </x-code>
@@ -267,7 +263,7 @@ class PostResource extends Resource
 
 <x-p>
     You can customize the display of the list and form through
-    the properties <code>itemsView</code> and <code>formView</code>
+    the properties <code>itemsView</code>, <code>formView</code> and <code>detailView</code>
 </x-p>
 
 <x-code language="php">
@@ -283,6 +279,8 @@ class PostResource extends Resource
     protected string $itemsView = 'moonshine::crud.shared.table'; // [tl! focus]
 
     protected string $formView = 'moonshine::crud.shared.form'; // [tl! focus]
+
+    protected string $detailView = 'moonshine::crud.shared.detail-card'; // [tl! focus]
 
     // ...
 }
@@ -310,6 +308,11 @@ class PostResource extends Resource
     public function formView(): string
     {
         return $this->formView;
+    } // [tl! focus:-3]
+
+    public function detailView(): string
+    {
+        return $this->detailView;
     } // [tl! focus:-3]
 
     // ...

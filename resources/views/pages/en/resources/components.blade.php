@@ -12,7 +12,7 @@
 <x-sub-title id="basics">Basics</x-sub-title>
 
 <x-p>
-    You can add your own components based on the <code>MoonShine\FormComponent</code>
+    You can add your own components based on the <code>MoonShine\IndexComponent</code>, <code>MoonShine\FormComponent</code>
     or <code>MoonShine\DetailComponent</code> abstract classes to extend the functionality,
     they will be displayed below the main form or below detailed information respectively
 </x-p>

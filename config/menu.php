@@ -86,6 +86,7 @@ return [
 
         'Other:_divider_',
         ['slug' => 'fields-no_input', 'label' => 'NoInput'],
+        ['slug' => 'fields-stack_fields', 'label' => 'StackFields'],
 
         // Packages
         'Packages:_divider_',
@@ -149,6 +150,7 @@ return [
     ],
 
     'UI components:code-bracket-square' => [
+        ['slug' => 'components-index', 'label' => 'Basics'],
         ['slug' => 'components-alert', 'label' => 'Alert'],
         ['slug' => 'components-badge', 'label' => 'Badge'],
         ['slug' => 'components-boolean', 'label' => 'Boolean'],

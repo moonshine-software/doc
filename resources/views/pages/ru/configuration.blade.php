@@ -13,7 +13,8 @@ return [
     # Заголовок админ-панели
     'title' => env('MOONSHINE_TITLE', 'MoonShine'),
     # Вы можете изменить логотип, указав путь (пример - /images/logo.svg)
-    'logo' => env('MOONSHINE_LOGO', ''),
+    'logo' => env('MOONSHINE_LOGO', '/images/logo.svg'),
+    'logo_small' => env('MOONSHINE_LOGO_SMALL', '/images/logo-icon.svg'),
 
     'route' => [
         # По какому url будет доступна панель управления (как правило admin)
