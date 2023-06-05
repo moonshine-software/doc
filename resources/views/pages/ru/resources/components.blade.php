@@ -13,7 +13,7 @@
 
 <x-p>
     Для расширения возможностей можно добавлять собственные компоненты на основе абстрактных классов
-    <code>MoonShine\FormComponent</code> или <code>MoonShine\DetailComponent</code>,
+    <code>MoonShine\IndexComponent</code>, <code>MoonShine\FormComponent</code> или <code>MoonShine\DetailComponent</code>,
     они будут отображаться под основной формой или под детальной информацией соответственно
 </x-p>
 
