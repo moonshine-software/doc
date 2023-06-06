@@ -6,6 +6,7 @@
         ['url' => '#radio', 'label' => 'Radio'],
         ['url' => '#color', 'label' => 'Color'],
         ['url' => '#button', 'label' => 'Button'],
+        ['url' => '#hint', 'label' => 'Hint'],
     ]
 ]">
 
@@ -96,6 +97,18 @@
     <x-moonshine::column adaptiveColSpan="12" colSpan="4">
         <x-moonshine::box>
             @include("examples/components/form/button")
+        </x-moonshine::box>
+    </x-moonshine::column>
+</x-moonshine::grid>
+
+<x-sub-title id="hint">Hint</x-sub-title>
+
+<x-code language="blade" file="resources/views/examples/components/form/hint.blade.php"></x-code>
+
+<x-moonshine::grid>
+    <x-moonshine::column adaptiveColSpan="12" colSpan="4">
+        <x-moonshine::box>
+            @include("examples/components/form/hint")
         </x-moonshine::box>
     </x-moonshine::column>
 </x-moonshine::grid>
