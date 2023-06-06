@@ -7,6 +7,7 @@
         ['url' => '#color', 'label' => 'Color'],
         ['url' => '#button', 'label' => 'Button'],
         ['url' => '#hint', 'label' => 'Hint'],
+        ['url' => '#file', 'label' => 'File'],
     ]
 ]">
 
@@ -109,6 +110,57 @@
     <x-moonshine::column adaptiveColSpan="12" colSpan="4">
         <x-moonshine::box>
             @include("examples/components/form/hint")
+        </x-moonshine::box>
+    </x-moonshine::column>
+</x-moonshine::grid>
+
+<x-sub-title id="file">File</x-sub-title>
+
+<x-code language="blade" file="resources/views/examples/components/form/file.blade.php"></x-code>
+
+<x-moonshine::grid>
+    <x-moonshine::column adaptiveColSpan="12" colSpan="6">
+        <x-moonshine::box>
+            @include("examples/components/form/file")
+        </x-moonshine::box>
+    </x-moonshine::column>
+</x-moonshine::grid>
+
+<x-p>
+    Using the component, you can display previously uploaded files.
+</x-p>
+
+<x-code language="blade" file="resources/views/examples/components/form/file-files.blade.php"></x-code>
+
+<x-moonshine::grid>
+    <x-moonshine::column adaptiveColSpan="12" colSpan="6">
+        <x-moonshine::box>
+            @include("examples/components/form/file-files")
+        </x-moonshine::box>
+    </x-moonshine::column>
+</x-moonshine::grid>
+
+<x-p>
+    <x-moonshine::alert type="default" icon="heroicons.book-open">
+        Additionally, hidden fields will be created with the values passed in the <code>files[]</code> array.
+    </x-moonshine::alert>
+</x-p>
+
+<x-p>
+    You can pass additional parameters to the component:
+</x-p>
+<x-p>
+    <code>download</code> - download downloaded file <br>
+    <code>removable</code> - removal from the list of downloaded files <br>
+    <code>imageable</code> - display image previews
+</x-p>
+
+<x-code language="blade" file="resources/views/examples/components/form/file-full.blade.php"></x-code>
+
+<x-moonshine::grid>
+    <x-moonshine::column adaptiveColSpan="12" colSpan="6">
+        <x-moonshine::box>
+            @include("examples/components/form/file-full")
         </x-moonshine::box>
     </x-moonshine::column>
 </x-moonshine::grid>
