@@ -6,8 +6,9 @@
         ['url' => '#radio', 'label' => 'Radio'],
         ['url' => '#color', 'label' => 'Color'],
         ['url' => '#button', 'label' => 'Button'],
-        ['url' => '#hint', 'label' => 'Подсказка'],
+        ['url' => '#hint', 'label' => 'Hint'],
         ['url' => '#file', 'label' => 'File'],
+        ['url' => '#range', 'label' => 'Range'],
     ]
 ]">
 
@@ -102,7 +103,7 @@
     </x-moonshine::column>
 </x-moonshine::grid>
 
-<x-sub-title id="hint">Подсказка</x-sub-title>
+<x-sub-title id="hint">Hint</x-sub-title>
 
 <x-code language="blade" file="resources/views/examples/components/form/hint.blade.php"></x-code>
 
@@ -161,6 +162,18 @@
     <x-moonshine::column adaptiveColSpan="12" colSpan="6">
         <x-moonshine::box>
             @include("examples/components/form/file-full")
+        </x-moonshine::box>
+    </x-moonshine::column>
+</x-moonshine::grid>
+
+<x-sub-title id="range">Range</x-sub-title>
+
+<x-code language="blade" file="resources/views/examples/components/form/range.blade.php"></x-code>
+
+<x-moonshine::grid>
+    <x-moonshine::column adaptiveColSpan="12" colSpan="4">
+        <x-moonshine::box>
+            @include("examples/components/form/range")
         </x-moonshine::box>
     </x-moonshine::column>
 </x-moonshine::grid>
