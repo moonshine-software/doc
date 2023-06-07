@@ -9,6 +9,7 @@
         ['url' => '#hint', 'label' => 'Hint'],
         ['url' => '#file', 'label' => 'File'],
         ['url' => '#range', 'label' => 'Range'],
+        ['url' => '#select', 'label' => 'Select'],
     ]
 ]">
 
@@ -41,7 +42,6 @@
         </x-moonshine::box>
     </x-moonshine::column>
 </x-moonshine::grid>
-
 
 <x-sub-title id="input">Input</x-sub-title>
 
@@ -177,5 +177,62 @@
         </x-moonshine::box>
     </x-moonshine::column>
 </x-moonshine::grid>
+
+<x-sub-title id="select">Select</x-sub-title>
+
+<x-code language="blade" file="resources/views/examples/components/form/select.blade.php"></x-code>
+
+<x-p>
+    или через <code>slot:options</code>
+</x-p>
+
+<x-code language="blade" file="resources/views/examples/components/form/select-slot.blade.php"></x-code>
+
+<x-moonshine::grid>
+    <x-moonshine::column adaptiveColSpan="12" colSpan="4">
+        <x-moonshine::box>
+            @include("examples/components/form/select")
+        </x-moonshine::box>
+    </x-moonshine::column>
+</x-moonshine::grid>
+
+<x-p>
+    Можно объединять значения в группы.
+</x-p>
+
+<x-code language="blade" file="resources/views/examples/components/form/select-groups.blade.php"></x-code>
+
+<x-moonshine::grid>
+    <x-moonshine::column adaptiveColSpan="12" colSpan="4">
+        <x-moonshine::box>
+            @include("examples/components/form/select-groups")
+        </x-moonshine::box>
+    </x-moonshine::column>
+</x-moonshine::grid>
+
+<x-p>
+    Компоненту можно передать дополнительные параметры:
+</x-p>
+<x-p>
+    <code>searchable</code> - поиск по значениям <br>
+    <code>nullable</code> - может иметь значение NULL
+</x-p>
+
+<x-code language="blade" file="resources/views/examples/components/form/select-full.blade.php"></x-code>
+
+<x-moonshine::grid>
+    <x-moonshine::column adaptiveColSpan="12" colSpan="4">
+        <x-moonshine::box>
+            @include("examples/components/form/select-full")
+        </x-moonshine::box>
+    </x-moonshine::column>
+</x-moonshine::grid>
+
+<x-p>
+    Для асинхронной загрузки значений необходимо атрибуту <code>asyncRoute</code> указать url,
+    который вернет данные в формате json.
+</x-p>
+
+<x-code language="blade" file="resources/views/examples/components/form/select-async.blade.php"></x-code>
 
 </x-page>
