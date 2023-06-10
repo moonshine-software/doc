@@ -3,15 +3,15 @@
 To filter values, use the <code>valuesQuery</code> method
 
 <x-code language="php">
+use Illuminate\Contracts\Database\Eloquent\Builder; // [tl! focus]
 use MoonShine\Fields\{{ $field }};
-use Illuminate\Database\Eloquent\Builder;
 
 //...
 public function fields(): array
 {
     return [
         {{ $field }}::make('Categories', 'categories', 'name')
-            ->valuesQuery(fn(Builder $query) => $query->where('active', true))
+            ->valuesQuery(fn(Builder $query) => $query->where('active', true)) // [tl! focus]
     ];
 }
 //...
