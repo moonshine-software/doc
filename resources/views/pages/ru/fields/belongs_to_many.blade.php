@@ -1,5 +1,6 @@
 <x-page title="BelongsToMany" :sectionMenu="[
     'Разделы' => [
+        ['url' => '#basics', 'label' => 'Основы'],
         ['url' => '#pivot', 'label' => 'Pivot'],
         ['url' => '#async-search', 'label' => 'Асинхронный поиск'],
         ['url' => '#select', 'label' => 'Select'],
@@ -13,18 +14,20 @@
     Select
 </x-extendby>
 
-<x-p>Поле для отношений в laravel типа belongsToMany</x-p>
+<x-sub-title id="basics">Основы</x-sub-title>
 
-<x-p>Отображается как группа чекбоксов, также есть возможность трансформировать отображение в select multiple</x-p>
+<x-p>Поле для отношений в laravel типа <code>BelongsToMany</code>.</x-p>
+
+<x-p>Отображается как группа чекбоксов, также есть возможность трансформировать отображение в select multiple.</x-p>
 
 <x-code language="php">
-use MoonShine\Fields\BelongsToMany;
+use MoonShine\Fields\BelongsToMany; // [tl! focus]
 
 //...
 public function fields(): array
 {
     return [
-        BelongsToMany::make('Categories', 'categories', 'name')
+        BelongsToMany::make('Categories', 'categories', 'name') // [tl! focus]
     ];
 }
 //...
@@ -35,7 +38,7 @@ public function fields(): array
 
 <x-sub-title id="pivot">Pivot</x-sub-title>
 
-<x-p>Для реализации pivot полей воспользуйтесь методом <code>fields</code></x-p>
+<x-p>Для реализации pivot полей воспользуйтесь методом <code>fields()</code>.</x-p>
 
 <x-code language="php">
 use MoonShine\Fields\BelongsToMany;
@@ -47,7 +50,7 @@ public function fields(): array
         BelongsToMany::make('Contacts', 'contacts', 'name')
             ->fields([
                 Text::make('Contact', 'text'),
-            ])
+            ]) // [tl! focus:-2]
     ];
 }
 //...
@@ -58,17 +61,14 @@ public function fields(): array
 
 @include('pages.ru.fields.shared.async_search', ['field' => 'BelongsToMany'])
 
-<x-image theme="light" src="{{ asset('screenshots/belongs_to_many_select_pivot.png') }}"></x-image>
-<x-image theme="dark" src="{{ asset('screenshots/belongs_to_many_select_pivot_dark.png') }}"></x-image>
-
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-    Запросы необходимо кастомизировать через метод <code>asyncSearch</code>,
-    не используйте <code>valuesQuery</code>!
+    Запросы необходимо кастомизировать через метод <code>asyncSearch()</code>,
+    не используйте <code>valuesQuery()</code>!
 </x-moonshine::alert>
 
 <x-sub-title id="select">Select</x-sub-title>
 
-<x-p>Для трансформации отображения в select воспользуйтесь методом <code>select</code></x-p>
+<x-p>Для трансформации отображения в select воспользуйтесь методом <code>select()</code></x-p>
 
 <x-code language="php">
 use MoonShine\Fields\BelongsToMany;
@@ -78,7 +78,7 @@ public function fields(): array
 {
     return [
         BelongsToMany::make('Categories', 'categories', 'name')
-            ->select()
+            ->select() // [tl! focus]
     ];
 }
 //...
@@ -91,8 +91,10 @@ public function fields(): array
 
 <x-sub-title id="tree">Tree</x-sub-title>
 
-<x-p>Иногда имеет смысл отобразить чекбоксы с иерархией, скажем для категорий,
-    которые имеют вложенность, для таких целей есть метод <code>tree</code></x-p>
+<x-p>
+    Иногда имеет смысл отобразить чекбоксы с иерархией, например для категорий,
+    которые имеют вложенность, для таких целей есть метод <code>tree()</code>.
+</x-p>
 
 <x-code language="php">
 use MoonShine\Fields\BelongsToMany;
@@ -102,7 +104,7 @@ public function fields(): array
 {
     return [
         BelongsToMany::make('Категории', 'categories', 'name')
-            ->tree('parent_id') // Поле для связи
+            ->tree('parent_id') // Поле для связи // [tl! focus]
     ];
 }
 //...
@@ -110,8 +112,11 @@ public function fields(): array
 
 <x-sub-title id="onlycount">onlyCount</x-sub-title>
 
-<x-p>По умолчанию на главной странице будут отображаться все выбранные значения через запятую,
-    но если требуется отобразить только значение количества выбранных, то следует воспользоваться методом <code>onlyCount</code></x-p>
+<x-p>
+    По умолчанию на главной странице будут отображаться все выбранные значения через запятую,
+    но если требуется отобразить только значение количества выбранных,
+    то следует воспользоваться методом <code>onlyCount()</code>.
+</x-p>
 
 <x-code language="php">
 use MoonShine\Fields\BelongsToMany;
@@ -121,7 +126,7 @@ public function fields(): array
 {
     return [
         BelongsToMany::make('Категории', 'categories', 'name')
-            ->onlyCount()
+            ->onlyCount() // [tl! focus]
     ];
 }
 //...

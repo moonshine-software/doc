@@ -1,6 +1,8 @@
 <x-sub-title id="async-search">Async search</x-sub-title>
 
-<x-p>Async search for values is provided by the <code>asyncSearch()</code> method</x-p>
+<x-p>
+    Async search for values is provided by the <code>asyncSearch()</code> method.
+</x-p>
 
 <x-p>
     The <code>asyncSearchQuery()</code> parameter is used to filter values,
