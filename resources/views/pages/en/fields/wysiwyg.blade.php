@@ -96,12 +96,18 @@ return [
 
 </x-code>
 
-<x-sub-title hashtag="2">Add routes to the routes/web.php</x-sub-title>
+<x-sub-title hashtag="2">Add routes to the app/Providers/RouteServiceProvider.php</x-sub-title>
 
 <x-code language="php">
-    Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['moonshine']], function () {
+// ..
+Route::middleware('web')
+->group(base_path('routes/web.php'));
+
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['moonshine']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
-    });
+});
+
+// ..
 </x-code>
 
 <x-sub-title hashtag="3">Add the prefix to config/moonshine.php</x-sub-title>
