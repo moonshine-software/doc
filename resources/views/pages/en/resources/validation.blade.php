@@ -8,11 +8,11 @@
 <x-sub-title id="basics">Basics</x-sub-title>
 
 <x-p>
-    Validation is as simple as in the <code>FormRequests</code> classes from Laravel.
+    Validation is as simple as in the <code>FormRequests</code> classes provided by Laravel.
 </x-p>
 
 <x-p>
-    It is enough to add rules in the <code>rules()</code> method of the resource in the usual way.
+    You can simply add rules to the <code>rules()</code> method of the resource in the usual way.
 </x-p>
 
 <x-code language="php">

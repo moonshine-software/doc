@@ -1,13 +1,13 @@
 <x-page title="Mass actions" :sectionMenu="[
     'Sections' => [
         ['url' => '#view', 'label' => 'Display method'],
-        ['url' => '#confirm', 'label' => 'Action confirmation'],
+        ['url' => '#confirm', 'label' => 'Confirm the action'],
     ]
 ]">
 
 <x-p>
-    By default, in the MoonShine panel in the table, there is only 1 mass action on elements - deletion.
-    But it is also possible to add your own custom bulk actions
+    By default, the table in the MoonShine panel contains only 1 mass action for the elements - deletion.
+    But you can also add your own custom bulk actions
 </x-p>
 
 <x-code language="php">
@@ -37,9 +37,9 @@ class PostResource extends Resource
 </x-code>
 
 <p>
-    The first argument is the name of the action,
-    The second callback argument with the current element parameter,
-    The third argument is the message that will be displayed after the action is executed.
+    The first argument is the name of the action.
+    The second argument is a callback with the current element parameter.
+    The third argument is the message that will be displayed after the execution of the action.
 </p>
 
 @include('pages.en.resources.shared.actions_config', ['action' => 'BulkAction'])

@@ -1,8 +1,15 @@
-<x-page title="Search" :sectionMenu="$sectionMenu ?? null">
+<x-page title="Search" :sectionMenu="[
+    'Sections' => [
+        ['url' => '#basics', 'label' => 'Basics'],
+        ['url' => '#global', 'label' => 'Global search'],
+    ]
+]">
+
+<x-sub-title id="basics">Основы</x-sub-title>
 
 <x-p>
-    Everything is simple here! For a full-text search, you need to specify which fields will participate in the search.
-    To do this, you need to list them in the returned array in the search method
+    Everything is simple here! For a full-text search, you need to specify which fields will be included into the search.
+    To do this, you need to list them in the return array in the <code>search()</code> method
 </x-p>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
@@ -28,7 +35,7 @@ class PostResource extends Resource
 </x-code>
 
 <x-p>
-    If fulltext searching is required, you must use the <code>MoonShine\Attributes\SearchUsingFullText</code>
+    If a fulltext search is required, you must use the <code>MoonShine\Attributes\SearchUsingFullText</code>
 </x-p>
 
 <x-code language="php">
@@ -56,5 +63,17 @@ class PostResource extends Resource
 
 <x-image theme="light" src="{{ asset('screenshots/search.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/search_dark.png') }}"></x-image>
+
+<x-sub-title id="global">Global search</x-sub-title>
+
+<x-p>
+    To organize a global search, you can use the package
+    <x-link link="https://github.com/lee-to/moonshine-algolia-search" target="_blank">Algolias search for MoonShine</x-link>
+</x-p>
+
+<x-p>
+    This package uses the <code>Algolia</code> search engine, which takes context and query type into account,
+    possible typos, synonyms and word forms, entering a query in different languages and much more.
+</x-p>
 
 </x-page>

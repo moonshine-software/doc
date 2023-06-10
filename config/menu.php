@@ -23,7 +23,7 @@ return [
         ['slug' => 'resources-item_actions', 'label' => 'Item actions'],
         ['slug' => 'resources-bulk_actions', 'label' => 'Bulk actions'],
         ['slug' => 'resources-form_actions', 'label' => 'Form actions'],
-        ['slug' => 'resources-query_tags', 'label' => 'Query filters/tags'],
+        ['slug' => 'resources-query_tags', 'label' => 'Quick filters (tags)'],
         ['slug' => 'resources-components', 'label' => 'Components'],
         ['slug' => 'resources-table_styles', 'label' => 'Table styles'],
         ['slug' => 'resources-singleton', 'label' => 'SingletonResource'],
@@ -86,6 +86,7 @@ return [
 
         'Other:_divider_',
         ['slug' => 'fields-no_input', 'label' => 'NoInput'],
+        ['slug' => 'fields-stack_fields', 'label' => 'StackFields'],
 
         // Packages
         'Packages:_divider_',
@@ -149,6 +150,7 @@ return [
     ],
 
     'UI components:code-bracket-square' => [
+        ['slug' => 'components-index', 'label' => 'Basics'],
         ['slug' => 'components-alert', 'label' => 'Alert'],
         ['slug' => 'components-badge', 'label' => 'Badge'],
         ['slug' => 'components-boolean', 'label' => 'Boolean'],

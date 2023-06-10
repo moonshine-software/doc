@@ -33,6 +33,6 @@ app(MoonShine::class)->menu([
 </x-sub-title>
 
 <x-sub-title>
-    Laravel filemanager исключен из базовой поставки, необходимо ставить отдельно
+    Laravel filemanager исключен из базового пакета, необходимо ставить отдельно
 </x-sub-title>
 </x-page>

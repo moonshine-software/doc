@@ -13,7 +13,8 @@ return [
     # Admin panel header
     'title' => env('MOONSHINE_TITLE', 'MoonShine'),
     # You can change the logo by specifying the path (example - /images/logo.svg)
-    'logo' => env('MOONSHINE_LOGO', ''),
+    'logo' => env('MOONSHINE_LOGO', '/images/logo.svg'),
+    'logo_small' => env('MOONSHINE_LOGO_SMALL', '/images/logo-icon.svg'),
 
     'route' => [
         # Which url will be available for the control panel (as a rule admin)

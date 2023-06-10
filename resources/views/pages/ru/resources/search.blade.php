@@ -1,8 +1,15 @@
-<x-page title="Поиск" :sectionMenu="$sectionMenu ?? null">
+<x-page title="Поиск" :sectionMenu="[
+    'Разделы' => [
+        ['url' => '#basics', 'label' => 'Основы'],
+        ['url' => '#global', 'label' => 'Глобальный поиск'],
+    ]
+]">
+
+<x-sub-title id="basics">Основы</x-sub-title>
 
 <x-p>
     Здесь все просто! Для полнотекстового поиска необходимо указать, какие поля будут участвовать в поиске.
-    Для этого необходимо их перечислить в возвращаемом массиве в методе search
+    Для этого необходимо их перечислить в возвращаемом массиве в методе <code>search()</code>
 </x-p>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
@@ -56,5 +63,17 @@ class PostResource extends Resource
 
 <x-image theme="light" src="{{ asset('screenshots/search.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/search_dark.png') }}"></x-image>
+
+<x-sub-title id="global">Глобальный поиск</x-sub-title>
+
+<x-p>
+    Для организации глобального поиска можно воспользоваться пакетом
+    <x-link link="https://github.com/lee-to/moonshine-algolia-search" target="_blank">Algolias search for MoonShine</x-link>
+</x-p>
+
+<x-p>
+    Данный пакет использует поисковый движок <code>Algolia</code>, который учитывает контекст и тип запроса,
+    возможные опечатки, синонимы и словоформы, ввод запроса на разных языках и многое другое.
+</x-p>
 
 </x-page>

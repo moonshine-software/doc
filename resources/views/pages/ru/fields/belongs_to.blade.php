@@ -1,5 +1,6 @@
 <x-page title="BelongsTo" :sectionMenu="[
-    'Sections' => [
+    'Разделы' => [
+        ['url' => '#basics', 'label' => 'Основы'],
         ['url' => '#searchable', 'label' => 'Поиск значений'],
 		['url' => '#async-search', 'label' => 'Асинхронный поиск'],
         ['url' => '#values-query', 'label' => 'Запрос для значений'],
@@ -11,43 +12,42 @@
     Select
 </x-extendby>
 
-<x-p>Поле для отношений в Laravel типа belongsTo</x-p>
+<x-sub-title id="basics">Основы</x-sub-title>
 
-<x-p>Отображается как select, также есть возможность добавить поиск по значениям с помощью метода:
-<code>searchable</code></x-p>
+<x-p>Поле для отношений в Laravel типа <code>BelongsTo</code>. Отображается как поле select.</x-p>
 
 <x-code language="php">
-use MoonShine\Fields\BelongsTo;
+use MoonShine\Fields\BelongsTo; // [tl! focus]
 
 //...
 public function fields(): array
 {
     return [
         // с указанием отношения
-        BelongsTo::make('Страна', 'country', 'name')
+        BelongsTo::make('Country', 'country', 'name') // [tl! focus]
         // или можно поле
-        BelongsTo::make('Страна', 'country_id', 'name')
+        BelongsTo::make('Country', 'country_id', 'name') // [tl! focus]
     ];
 }
 //...
 </x-code>
 
-<x-p>Третий аргумент со значением "name" является полем в связанной таблице countries для отображения значений</x-p>
+<x-p>Третий аргумент со значением "name" является полем в связанной таблице countries для отображения значений.</x-p>
 
-<x-sub-title id="searchable">Поиск значений</x-sub-title>
+<x-image theme="light" src="{{ asset('screenshots/belongs_to.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/belongs_to_dark.png') }}"></x-image>
 
-<x-p>Также третьим параметром можно передать ресурс, у которого указано поле для отображения</x-p>
+<x-p>Также третьим параметром можно передать ресурс, у которого указано поле для отображения.</x-p>
 
 <x-code language="php">
 use MoonShine\Fields\BelongsTo;
-use App\MoonShine\Resources\CountryResource;
+use App\MoonShine\Resources\CountryResource;  // [tl! focus]
 
 //...
 public function fields(): array
 {
     return [
-        BelongsTo::make('Страна', 'country', new CountryResource())
-            ->searchable()
+        BelongsTo::make('Country', 'country', new CountryResource()) // [tl! focus]
     ];
 }
 //...
@@ -61,37 +61,64 @@ use App\Models\Country;
 
 class CountryResource extends Resource
 {
-//...
+    //...
 
-public string $titleField = 'name'; // [tl! focus]
+    public string $titleField = 'name'; // [tl! focus]
 
-//...
+    //...
 }
+</x-code>
+
+<x-p>Если необходимо более сложное значение для отображения, то в третий аргумент можно передать функцию.</x-p>
+
+<x-code language="php">
+use MoonShine\Fields\BelongsTo;
+
+//...
+public function fields(): array
+{
+    return [
+        BelongsTo::make(
+            'Country',
+            'country',
+            fn($item) => "$item->id.) $item->name" // [tl! focus]
+        )
+    ];
+}
+//...
+</x-code>
+
+<x-sub-title id="searchable">Поиск значений</x-sub-title>
+
+<x-p>
+    Если необходим поиск среди значений, то нужно добавить метод <code>searchable()</code>.
+</x-p>
+
+<x-code language="php">
+use MoonShine\Fields\BelongsTo;
+use App\MoonShine\Resources\CountryResource;
+
+//...
+public function fields(): array
+{
+    return [
+        BelongsTo::make('Country', 'country', new CountryResource())
+            ->searchable() // [tl! focus]
+    ];
+}
+//...
 </x-code>
 
 @include('pages.ru.fields.shared.async_search', ['field' => 'BelongsTo'])
 
-<x-image theme="light" src="{{ asset('screenshots/belongs_to.png') }}"></x-image>
-<x-image theme="dark" src="{{ asset('screenshots/belongs_to_dark.png') }}"></x-image>
-
-<x-p>Если необходимо более сложное значение для отображения, то в третий аргумент можно передать функцию</x-p>
-<x-code language="php">
-use MoonShine\Fields\BelongsTo;
-
-//...
-public function fields(): array
-{
-    return [
-        BelongsTo::make('Страна', 'country', fn($item) => "$item->id.) $item->name")
-    ];
-}
-//...
-</x-code>
-
 @include('pages.ru.fields.shared.values_query', ['field' => 'BelongsTo'])
 
 <x-sub-title id="nullable">Пустое значение</x-sub-title>
-<x-p>Если необходимо по умолчанию значение Null</x-p>
+
+<x-p>
+    Если необходимо по умолчанию значение <code>Null</code>
+</x-p>
+
 <x-code language="php">
 use MoonShine\Fields\BelongsTo;
 
@@ -99,13 +126,15 @@ use MoonShine\Fields\BelongsTo;
 public function fields(): array
 {
     return [
-        BelongsTo::make('Страна', 'country')
-            ->nullable()
+        BelongsTo::make('Country', 'country')
+            ->nullable() // [tl! focus]
     ];
 }
 //...
 </x-code>
 
-<x-p>Не забудьте также на уровне таблицы в базе данных указать, что поле может быть Null</x-p>
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    Не забудьте также в таблице базы данных указать, что поле может быть <code>Null</code>.
+</x-moonshine::alert>
 
 </x-page>

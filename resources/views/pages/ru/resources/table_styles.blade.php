@@ -1,7 +1,7 @@
 <x-page title="Стили таблицы" :sectionMenu="$sectionMenu ?? null">
 
 <x-p>
-    Через ресурсы есть возможность кастомизировать цвет для <code>tr</code> и <code>td</code> для таблиц отображения данных
+    Через ресурсы есть возможность кастомизировать цвет для <code>tr</code> и <code>td</code> для таблиц с данными
 </x-p>
 
 <x-code language="php">
