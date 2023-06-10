@@ -1,5 +1,6 @@
 <x-page title="BelongsToMany" :sectionMenu="[
     'Sections' => [
+        ['url' => '#basics', 'label' => 'Basics'],
         ['url' => '#pivot', 'label' => 'Pivot'],
 		['url' => '#async-search', 'label' => 'Async search'],
         ['url' => '#select', 'label' => 'Select'],
@@ -13,18 +14,20 @@
     Select
 </x-extendby>
 
-<x-p>Field for relationships in Laravel, belongsToMany type</x-p>
+<x-sub-title id="basics">Basics</x-sub-title>
 
-<x-p>Displayed as a group of checkboxes, you can also transform into select multiple</x-p>
+<x-p>Field for relationships in Laravel, <code>BelongsToMany</code> type.</x-p>
+
+<x-p>Displayed as a group of checkboxes, you can also transform into select multiple.</x-p>
 
 <x-code language="php">
-use MoonShine\Fields\BelongsToMany;
+use MoonShine\Fields\BelongsToMany; // [tl! focus]
 
 //...
 public function fields(): array
 {
     return [
-        BelongsToMany::make('Categories', 'categories', 'name')
+        BelongsToMany::make('Categories', 'categories', 'name') // [tl! focus]
     ];
 }
 //...
@@ -35,7 +38,7 @@ public function fields(): array
 
 <x-sub-title id="pivot">Pivot</x-sub-title>
 
-<x-p>To implement pivot fields, use the <code>fields</code> method</x-p>
+<x-p>To implement pivot fields, use the <code>fields()</code> method.</x-p>
 
 <x-code language="php">
 use MoonShine\Fields\BelongsToMany;
@@ -47,7 +50,7 @@ public function fields(): array
         BelongsToMany::make('Contacts', 'contacts', 'name')
             ->fields([
                 Text::make('Contact', 'text'),
-            ])
+            ]) // [tl! focus:-2]
     ];
 }
 //...
@@ -58,19 +61,16 @@ public function fields(): array
 
 @include('pages.en.fields.shared.async_search', ['field' => 'BelongsToMany'])
 
-<x-image theme="light" src="{{ asset('screenshots/belongs_to_many_select_pivot.png') }}"></x-image>
-<x-image theme="dark" src="{{ asset('screenshots/belongs_to_many_select_pivot_dark.png') }}"></x-image>
-
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-    Requests must be customized via the <code>asyncSearch</code> method,
-     don't use <code>valuesQuery</code>!
+    Requests must be customized via the <code>asyncSearch()</code> method,
+     don't use <code>valuesQuery()</code>!
 </x-moonshine::alert>
 
 
 
 <x-sub-title id="select">Select</x-sub-title>
 
-<x-p>To transform the display into select, use the <code>select</code> method</x-p>
+<x-p>To transform the display into select, use the <code>select()</code> method.</x-p>
 
 <x-code language="php">
 use MoonShine\Fields\BelongsToMany;
@@ -80,7 +80,7 @@ public function fields(): array
 {
     return [
         BelongsToMany::make('Categories', 'categories', 'name')
-            ->select()
+            ->select() // [tl! focus]
     ];
 }
 //...
@@ -93,7 +93,9 @@ public function fields(): array
 
 <x-sub-title id="tree">Tree</x-sub-title>
 
-<x-p>Sometimes it makes sense to display checkboxes with a hierarchy, say for categories that have nesting, there is a <code>tree</code> method for this</x-p>
+<x-p>
+    Sometimes it makes sense to display checkboxes with a hierarchy, example for categories that have nesting,
+    there is a <code>tree()</code> method for this.</x-p>
 
 <x-code language="php">
 use MoonShine\Fields\BelongsToMany;
@@ -103,7 +105,7 @@ public function fields(): array
 {
     return [
         BelongsToMany::make('Categories', 'categories', 'name')
-            ->tree('parent_id') // Contact field
+            ->tree('parent_id') // Contact field // [tl! focus]
     ];
 }
 //...
@@ -112,7 +114,9 @@ public function fields(): array
 <x-sub-title id="onlycount">onlyCount</x-sub-title>
 
 <x-p>By default the main page will display all the selected values separated by commas,
-    but if you want to display only the number of selected values, you should use the <code>onlyCount</code> method</x-p>
+    but if you want to display only the number of selected values,
+    you should use the <code>onlyCount()</code> method
+</x-p>
 
 <x-code language="php">
 use MoonShine\Fields\BelongsToMany;
@@ -122,7 +126,7 @@ public function fields(): array
 {
     return [
         BelongsToMany::make('Categories', 'categories', 'name')
-            ->onlyCount()
+            ->onlyCount() // [tl! focus]
     ];
 }
 //...
