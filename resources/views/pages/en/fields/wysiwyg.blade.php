@@ -99,7 +99,7 @@ return [
 <x-sub-title hashtag="2">Add routes to the routes/web.php</x-sub-title>
 
 <x-code language="php">
-    Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'moonshine']], function () {
+    Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['moonshine']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
     });
 </x-code>
