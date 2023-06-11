@@ -10,6 +10,7 @@ namespace MoonShine\Resources;
 
 use MoonShine\Models\MoonshineUser;
 use MoonShine\QueryTags\QueryTag; // [tl! focus]
+use Illuminate\Contracts\Database\Eloquent\Builder;
 
 class PostResource extends Resource
 {
@@ -23,12 +24,12 @@ class PostResource extends Resource
         return [
             QueryTag::make(
                 'Post with author', // Заголовок тега
-                fn() => Post::query()->whereNotNull('author_id') // Query builder
+                fn(Builder $query) => $query->whereNotNull('author_id') // Query builder
             ),
 
             QueryTag::make(
                 'Post without an author',
-                fn() => Post::query()->whereNull('author_id')
+                fn(Builder $query) => $query->whereNull('author_id')
             )->icon('users')
         ];
     } // [tl! focus:end]
