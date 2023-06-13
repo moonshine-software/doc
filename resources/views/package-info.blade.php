@@ -3,7 +3,7 @@
         adaptiveColSpan="12"
         colSpan="8"
     >
-        <div class="markdown-body">{!! $packageInfo->getReadme() !!}</div>
+        <div class="markdown-body">{!! $readme !!}</div>
     </x-moonshine::column>
 
     <x-moonshine::column

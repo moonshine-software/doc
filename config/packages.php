@@ -3,72 +3,72 @@
 return [
     [
         'title' => 'Settings Manager',
-        'owner' => 'visual-ideas',
+        'slug' => 'laravel-site-settings',
         'url' => 'https://packagist.org/packages/visual-ideas/laravel-site-settings',
+        'owner' => 'visual-ideas',
         'category' => 'GUI',
-        'service' => 'packagist'
     ],
     [
         'title' => 'Manager Seo',
-        'owner' => 'lee-to',
+        'slug' => 'laravel-seo-by-url',
         'url' => 'https://packagist.org/packages/lee-to/laravel-seo-by-url',
+        'owner' => 'lee-to',
         'category' => 'GUI',
-        'service' => 'packagist'
     ],
     [
         'title' => 'Moonshine Spatie Medialibrary',
-        'owner' => 'visual-ideas',
+        'slug' => 'moonshine-spatie-medialibrary',
         'url' => 'https://packagist.org/packages/visual-ideas/moonshine-spatie-medialibrary',
+        'owner' => 'visual-ideas',
         'category' => 'Fields',
-        'service' => 'packagist'
     ],
     [
         'title' => 'Moonshine Spatie Translatable',
-        'owner' => 'visual-ideas',
+        'slug' => 'moonshine-spatie-translatable',
         'url' => 'https://packagist.org/packages/visual-ideas/moonshine-spatie-translatable',
+        'owner' => 'visual-ideas',
         'category' => 'Fields',
-        'service' => 'packagist'
     ],
     [
         'title' => 'Moonshine Language Ukrainian',
-        'owner' => 'JekaSylar',
+        'slug' => 'MoonShine-Language-Ukrainian',
         'url' => 'https://github.com/JekaSylar/MoonShine-Language-Ukrainian',
+        'owner' => 'JekaSylar',
         'category' => 'Localizations',
-        'service' => 'packagist'
     ],
     [
         'title' => 'Char Count',
-        'owner' => 'lee-to',
+        'slug' => 'moonshine-input-extension-char-count',
         'url' => 'https://packagist.org/packages/lee-to/moonshine-input-extension-char-count',
+        'owner' => 'lee-to',
         'category' => 'Input extensions',
-        'service' => 'packagist'
     ],
     [
         'title' => 'Global search (Algolia)',
-        'owner' => 'lee-to',
+        'slug' => 'moonshine-algolia-search',
         'url' => 'https://packagist.org/packages/lee-to/moonshine-algolia-search',
+        'owner' => 'lee-to',
         'category' => 'Search',
-        'service' => 'packagist'
     ],
     [
         'title' => 'Sortable tree resource',
-        'owner' => 'lee-to',
+        'slug' => 'moonshine-tree-resource',
         'url' => 'https://packagist.org/packages/lee-to/moonshine-tree-resource',
+        'owner' => 'lee-to',
         'category' => 'Resources',
-        'service' => 'packagist'
     ],
     [
         'title' => 'Kanban board resource',
-        'owner' => 'lee-to',
+        'slug' => 'moonshine-kanban-board-resource',
         'url' => 'https://packagist.org/packages/lee-to/moonshine-kanban-board-resource',
+        'owner' => 'lee-to',
         'category' => 'Resources',
-        'service' => 'packagist'
     ],
     [
         'title' => 'User Impersonation',
-        'owner' => 'Jampire',
+        'slug' => 'moonshine-impersonate',
         'url' => 'https://packagist.org/packages/Jampire/moonshine-impersonate',
+        'owner' => 'Jampire',
         'category' => 'Auth',
-        'service' => 'packagist'
     ]
 ];

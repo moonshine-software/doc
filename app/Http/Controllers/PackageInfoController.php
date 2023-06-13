@@ -2,25 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\PackageInfo\Contracts\PackageInfoServiceManagerContract;
-use Exception;
+use App\Actions\ReadmeConversion;
+use App\Support\PackageInfo\Contracts\PackageInfoContract;
+use App\Support\PackageInfo\Exception\RepositoryNotAvailableException;
+use App\Support\PackageInfo\Exception\RepositoryNotFoundException;
+use Illuminate\Support\Arr;
 
 class PackageInfoController extends Controller
 {
-    public function __invoke()
+    public function __invoke(PackageInfoContract $packageInfo, ReadmeConversion $convert, string $slug)
     {
-        $serviceManager = app(PackageInfoServiceManagerContract::class);
+        $packages = Arr::pluck(config('packages'), 'url', 'slug');
 
         try {
-            $service = $serviceManager->make(request('url', ''));
-        } catch (Exception $e) {
-            abort(400, $e->getMessage());
+            if (!isset($packages[$slug])) {
+                throw new RepositoryNotFoundException("Repository is not found");
+            }
+
+            $info = $packageInfo->get($packages[$slug]);
+        } catch (RepositoryNotAvailableException|RepositoryNotFoundException $e) {
+            abort(404, $e->getMessage());
         }
 
-//        dump($service->getPackageInfo());
-
         return view('package-info', [
-            'packageInfo' => $service->getPackageInfo()
+            'packageInfo' => $info,
+            'readme' => $convert->handle($info->getReadme())
         ]);
     }
 }

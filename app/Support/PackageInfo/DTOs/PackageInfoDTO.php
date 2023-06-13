@@ -1,13 +1,9 @@
 <?php
 
-namespace App\Services\PackageInfo\DTOs;
+namespace App\Support\PackageInfo\DTOs;
 
-use MoonShine\Traits\Makeable;
-
-class PackageInfo
+class PackageInfoDTO
 {
-    use Makeable;
-
     public function __construct(
         private readonly ?string $name,
         private readonly ?string $description,
@@ -15,9 +11,11 @@ class PackageInfo
         private readonly ?string $repoUrl,
         private readonly ?string $package,
         private readonly ?string $readme
-    ) {}
+    )
+    {
+    }
 
-    public static function fromArray(Array $data): PackageInfo
+    public static function fromArray(array $data): PackageInfoDTO
     {
         return new static(
             name: $data['name'] ?? null,

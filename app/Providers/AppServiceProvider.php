@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
-use App\Services\PackageInfo\Contracts\PackageInfoServiceManagerContract;
-use App\Services\PackageInfo\PackageInfoServiceManager;
+use App\Actions\Readme;
+use App\Actions\Readme\Contracts\ReadmeContract;
+use App\Support\PackageInfo\Contracts\PackageInfoContract;
+use App\Support\PackageInfo\PackageInfo;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -15,9 +17,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->bind(PackageInfoServiceManagerContract::class, function () {
-            return new PackageInfoServiceManager();
-        });
+        $this->app->bind(PackageInfoContract::class, PackageInfo::class);
     }
 
     /**

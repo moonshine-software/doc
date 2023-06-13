@@ -92,7 +92,7 @@
     visibility: visible
 }
 
-.markdown-body h1 tt,.markdown-body h1 code,.markdown-body h2 tt,.markdown-body h2 code,.markdown-body h3 tt,.markdown-body h3 code,.markdown-body h4 tt,.markdown-body h4 code,.markdown-body h5 tt,.markdown-body h5 code,.markdown-body h6 tt,.markdown-body h6 code {
+.markdown-body h1 tt,.markdown-body h2 tt,.markdown-body h3 tt,.markdown-body h4 tt,.markdown-body h5 tt,.markdown-body h6 tt {
     padding: 0 .2em;
     font-size: inherit
 }
@@ -344,7 +344,7 @@
     text-align: right
 }
 
-.markdown-body code,.markdown-body tt {
+.markdown-body tt {
     padding: .2em .4em;
     margin: 0;
     font-size: 85%;
@@ -353,12 +353,8 @@
     border-radius: 6px
 }
 
-.markdown-body code br,.markdown-body tt br {
+.markdown-body tt br {
     display: none
-}
-
-.markdown-body del code {
-    text-decoration: inherit
 }
 
 .markdown-body samp {

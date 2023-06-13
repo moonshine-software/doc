@@ -34,7 +34,7 @@
 
                     <x-package-info-modal
                         :title="$package['title']"
-                        :route="route('packages', ['url' => $package['url']])"
+                        :route="route('packages', ['package' => $package['slug']])"
                     />
                 </x-moonshine::card>
             </x-moonshine::column>
