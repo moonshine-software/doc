@@ -8,6 +8,10 @@
     Методу <code>fields()</code> необходимо передать массив полей для группировки.
 </x-p>
 
+<x-p>
+    Метод <code>withLabels()</code> можно использовать для отображения лейблов на индексной странице
+</x-p>
+
 <x-code language="php">
 use MoonShine\Fields\BelongsTo;
 use MoonShine\Fields\StackFields; // [tl! focus]

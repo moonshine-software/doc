@@ -8,6 +8,10 @@
     The <code>fields()</code> method needs to pass an array of fields for grouping.
 </x-p>
 
+<x-p>
+    The <code>withLabels()</code> method can be used to display labels on the index page
+</x-p>
+
 <x-code language="php">
 use MoonShine\Fields\BelongsTo;
 use MoonShine\Fields\StackFields; // [tl! focus]
