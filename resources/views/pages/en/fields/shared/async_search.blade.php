@@ -84,3 +84,7 @@ public function fields(): array
 }
 //...
 </x-code>
+
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    Relations that use async search in their fields are recommended to be used in <code>ResourceMode</code>.
+</x-moonshine::alert>

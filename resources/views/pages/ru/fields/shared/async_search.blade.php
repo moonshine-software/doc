@@ -84,3 +84,7 @@ public function fields(): array
 }
 //...
 </x-code>
+
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    Отношения, которые применяют в своих полях асинхронный поиск, рекомендуется использовать в режиме <code>ResourceMode</code>.
+</x-moonshine::alert>
