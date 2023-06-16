@@ -7,6 +7,7 @@
             ['url' => '#create', 'label' => 'Creating'],
             ['url' => '#define', 'label' => 'Announcement'],
             ['url' => '#item', 'label' => 'Current item/model'],
+            ['url' => '#routes', 'label' => 'Resource routes'],
             ['url' => '#modal', 'label' => 'Modal windows'],
             ['url' => '#after', 'label' => 'Route after save'],
             ['url' => '#simple-pagination', 'label' => 'Simple pagination'],
@@ -176,6 +177,20 @@ class MoonShineServiceProvider extends ServiceProvider
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     If the element does not yet exist (action create), then the <code>getItem()</code> method will return <code>NULL</code>.
 </x-moonshine::alert>
+
+<x-sub-title id="routes">Resource routes</x-sub-title>
+
+<x-code language="php">
+$this->route('index'); // GET|HEAD - list of items
+$this->route('create'); // GET|HEAD - create a new item
+$this->route('store'); // POST - save a new item
+$this->route('edit', $resourceItem); // GET|HEAD - edit an item
+$this->route('update', $resourceItem); // PUT|PATCH - save an item
+$this->route('destroy', $resourceItem); // DELETE - delete an item
+$this->route('show', $resourceItem); // GET|HEAD - view an item
+$this->route('query-tag', $queryTag); // GET|HEAD - filtered list of items by query filter / tag
+$this->route('update-column', $resourceItem); // PUT - save an item`s field
+</x-code>
 
 <x-sub-title id="modal">Modal windows</x-sub-title>
 

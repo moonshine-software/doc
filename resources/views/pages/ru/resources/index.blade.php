@@ -7,6 +7,7 @@
             ['url' => '#create', 'label' => 'Создание'],
             ['url' => '#define', 'label' => 'Объявление'],
             ['url' => '#item', 'label' => 'Текущий элемент/модель'],
+            ['url' => '#routes', 'label' => 'Маршруты ресурса'],
             ['url' => '#modal', 'label' => 'Модальные окна'],
             ['url' => '#after', 'label' => 'Переход после сохранения'],
             ['url' => '#simple-pagination', 'label' => 'Simple pagination'],
@@ -180,6 +181,20 @@ class MoonShineServiceProvider extends ServiceProvider
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     Если элемента еще не существует (action create), то метод <code>getItem()</code> вернет <code>NULL</code>.
 </x-moonshine::alert>
+
+<x-sub-title id="routes">Маршруты ресурса</x-sub-title>
+
+<x-code language="php">
+$this->route('index'); // GET|HEAD - список записей
+$this->route('create'); // GET|HEAD - создание новой записи
+$this->route('store'); // POST - сохранение новой записи
+$this->route('edit', $resourceItem); // GET|HEAD - редактирование записи
+$this->route('update', $resourceItem); // PUT|PATCH - сохранение записи
+$this->route('destroy', $resourceItem); // DELETE - удаление записи
+$this->route('show', $resourceItem); // GET|HEAD - просмотр записи
+$this->route('query-tag', $queryTag); // GET|HEAD - список записей с применением быстрого фильтра / тега
+$this->route('update-column', $resourceItem); // PUT - сохранение поля записи
+</x-code>
 
 <x-sub-title id="modal">Модальные окна</x-sub-title>
 
