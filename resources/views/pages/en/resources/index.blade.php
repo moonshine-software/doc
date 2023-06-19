@@ -7,6 +7,7 @@
             ['url' => '#create', 'label' => 'Creating'],
             ['url' => '#define', 'label' => 'Announcement'],
             ['url' => '#item', 'label' => 'Current item/model'],
+            ['url' => '#routes', 'label' => 'Resource routes'],
             ['url' => '#modal', 'label' => 'Modal windows'],
             ['url' => '#after', 'label' => 'Route after save'],
             ['url' => '#simple-pagination', 'label' => 'Simple pagination'],
@@ -103,7 +104,28 @@ class PostResource extends Resource
 
 <x-p>
     New resources are added to the system in the <code>service provider</code> using the singleton class
-    <code>MoonShine\MoonShine</code> and <code>menu()</code> method
+    <code>MoonShine\MoonShine</code>.
+</x-p>
+
+<x-code language="php">
+namespace App\Providers;
+
+use App\MoonShine\Resources\PostResource; // [tl! focus]
+
+class MoonShineServiceProvider extends ServiceProvider
+{
+    //...
+
+    public function boot()
+    {
+        app(MoonShine::class)->resources([
+            new PostResource(),
+        ])  // [tl! focus: -2]
+    }
+</x-code>
+
+<x-p>
+    To add a resource link to the navigation menu, the resource can be registered using the <code>menu()</code> method.
 </x-p>
 
 <x-code language="php">
@@ -111,7 +133,7 @@ namespace App\Providers;
 
 use App\MoonShine\Resources\PostResource; // [tl! focus]
 use Illuminate\Support\ServiceProvider;
-use MoonShine\Menu\MenuItem;
+use MoonShine\Menu\MenuItem; // [tl! focus]
 use MoonShine\MoonShine; // [tl! focus]
 use MoonShine\Resources\MoonShineUserResource;
 use MoonShine\Resources\MoonShineUserRoleResource;
@@ -122,8 +144,6 @@ class MoonShineServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        Model::preventLazyLoading(!app()->isProduction());
-
         app(MoonShine::class)->menu([ // [tl! focus]
             MenuItem::make('Admins', new MoonShineUserResource()),
             MenuItem::make('Roles', new MoonShineUserRoleResource()),
@@ -133,18 +153,18 @@ class MoonShineServiceProvider extends ServiceProvider
 }
 </x-code>
 
-<x-p>Then sections will appear in the menu and will be available in the panel</x-p>
-
 <x-image theme="light" src="{{ asset('screenshots/menu.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/menu_dark.png') }}"></x-image>
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
-    For advanced settings, see <x-link :link="route('moonshine.custom_page', 'advanced-menu')" ><code>Digging Deeper > Menu</code></x-link>
+    For advanced settings, see <x-link :link="route('moonshine.custom_page', 'advanced-menu')" ><code>Digging Deeper > Menu</code></x-link>.
 </x-moonshine::alert>
 
 <x-sub-title id="item">Current item/model</x-sub-title>
 
-<x-p>In the resource you have access to the current element and model via the relevant methods</x-p>
+<x-p>
+    In the resource you have access to the current element and model via the relevant methods.
+</x-p>
 
 <x-code language="php">
     $this->getItem();
@@ -155,13 +175,68 @@ class MoonShineServiceProvider extends ServiceProvider
 </x-code>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-    If the element does not yet exist (action create), then the <code>getItem()</code> method will return <code>NULL</code>
+    If the element does not yet exist (action create), then the <code>getItem()</code> method will return <code>NULL</code>.
+</x-moonshine::alert>
+
+<x-sub-title id="routes">Resource routes</x-sub-title>
+
+<x-p>
+    In MoonShine, the resource has many routes registered for various actions:
+</x-p>
+
+<x-code language="php">
+$this->route('index'); // GET|HEAD - list of items
+$this->route('create'); // GET|HEAD - create a new item
+$this->route('store'); // POST - save a new item
+$this->route('edit', $resourceItem); // GET|HEAD - edit an item
+$this->route('update', $resourceItem); // PUT|PATCH - save an item
+$this->route('destroy', $resourceItem); // DELETE - delete an item
+$this->route('show', $resourceItem); // GET|HEAD - view an item
+$this->route('query-tag', $queryTag); // GET|HEAD - filtered list of items by query filter / tag
+$this->route('update-column', $resourceItem); // PUT - save an item`s field
+</x-code>
+
+<x-p>
+    Through the <code>resolveRoutes()</code> method, you can add or override default routes.
+</x-p>
+
+<x-code language="php">
+namespace App\MoonShine\Resources;
+
+use App\Models\Post;
+use MoonShine\Resources\Resource;
+
+class PostResource extends Resource
+{
+    public static string $model = Post::class;
+
+    // ...
+
+    public function resolveRoutes(): void // [tl! focus:start]
+    {
+        parent::resolveRoutes();
+
+        Route::prefix('resource')->group(function (): void {
+            Route::get("{$this->uriKey()}/restore/{resourceItem}", function (Post $item) {
+                $item->restore();
+
+                return redirect()->back();
+            });
+        });
+    } // [tl! focus:end]
+
+    // ...
+}
+</x-code>
+
+<x-moonshine::alert type="default" icon="heroicons.book-open">
+    To access a route outside of a resource, use <code>(new Resource())->route('index')</code>.
 </x-moonshine::alert>
 
 <x-sub-title id="modal">Modal windows</x-sub-title>
 
 <x-p>
-    Ability to add, edit and view entries directly on the list page in a modal window
+    Ability to add, edit and view entries directly on the list page in a modal window.
 </x-p>
 
 <x-code language="php">
@@ -263,7 +338,7 @@ class PostResource extends Resource
 
 <x-p>
     You can customize the display of the list and form through
-    the properties <code>itemsView</code>, <code>formView</code> and <code>detailView</code>
+    the properties <code>itemsView</code>, <code>formView</code> and <code>detailView</code>.
 </x-p>
 
 <x-code language="php">
