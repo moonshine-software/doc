@@ -7,6 +7,7 @@
         ['url' => '#values-query', 'label' => 'Запрос для значений'],
         ['url' => '#tree', 'label' => 'Tree'],
         ['url' => '#onlycount', 'label' => 'onlyCount'],
+        ['url' => '#inline', 'label' => 'inLine'],
     ]
 ]">
 
@@ -113,8 +114,7 @@ public function fields(): array
 <x-sub-title id="onlycount">onlyCount</x-sub-title>
 
 <x-p>
-    По умолчанию на главной странице будут отображаться все выбранные значения через запятую,
-    но если требуется отобразить только значение количества выбранных,
+    Если требуется отобразить на индексной странице только количество выбранных значений,
     то следует воспользоваться методом <code>onlyCount()</code>.
 </x-p>
 
@@ -125,11 +125,42 @@ use MoonShine\Fields\BelongsToMany;
 public function fields(): array
 {
     return [
-        BelongsToMany::make('Категории', 'categories', 'name')
+        BelongsToMany::make('Categories', 'categories', 'name')
             ->onlyCount() // [tl! focus]
     ];
 }
 //...
 </x-code>
+
+<x-sub-title id="inline">inLine</x-sub-title>
+
+<x-p>
+    По умолчанию на индексной странице поле будет отображаться в виде таблицы,
+    но если требуется отобразить в строку то можно воспользоваться методом <code>inLine()</code>.
+</x-p>
+<x-p>
+    Методу можно передать необязательные параметры:
+    <ul>
+        <li><code>separator</code> - разделитель между элементами</li>
+        <li><code>badge</code> - отображать элементы в виде badge</li>
+    </ul>
+</x-p>
+
+<x-code language="php">
+use MoonShine\Fields\BelongsToMany;
+
+//...
+public function fields(): array
+{
+    return [
+        BelongsToMany::make('Categories', 'categories', 'name')
+            ->inLine(separator: ' ', badge: true) // [tl! focus]
+    ];
+}
+//...
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/belongs_to_many_index_in_line.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/belongs_to_many_index_in_line_dark.png') }}"></x-image>
 
 </x-page>

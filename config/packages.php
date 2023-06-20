@@ -50,5 +50,10 @@ return [
         'title' => 'User Impersonation',
         'url' => 'Jampire/moonshine-impersonate',
         'category' => 'Auth'
+    ],
+    [
+        'title' => 'MoonShine TagList Field for Spatie Laravel tags',
+        'url' => 'lee-to/moonshine-spatie-tags-field',
+        'category' => 'Fields'
     ]
 ];
