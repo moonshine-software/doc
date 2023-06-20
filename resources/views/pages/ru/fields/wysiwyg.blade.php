@@ -117,6 +117,10 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['moonshine']],
 // ..
 </x-code>
 
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    Роут файлового менеджера обязательно должен быть в группе middleware <code>moonshine</code>, а не в web!
+</x-moonshine::alert>
+
 <x-sub-title hashtag="3">Добавьте префикс в config/moonshine.php</x-sub-title>
 
 <x-code language="php">
