@@ -7,6 +7,7 @@
         ['url' => '#values-query', 'label' => 'Values query'],
         ['url' => '#tree', 'label' => 'Tree'],
         ['url' => '#onlycount', 'label' => 'onlyCount'],
+        ['url' => '#inline', 'label' => 'inLine'],
     ]
 ]">
 
@@ -113,9 +114,9 @@ public function fields(): array
 
 <x-sub-title id="onlycount">onlyCount</x-sub-title>
 
-<x-p>By default the main page will display all the selected values separated by commas,
-    but if you want to display only the number of selected values,
-    you should use the <code>onlyCount()</code> method
+<x-p>
+    If you want to display only the number of selected values on the index page,
+    then you should use the <code>onlyCount()</code> method.
 </x-p>
 
 <x-code language="php">
@@ -131,5 +132,36 @@ public function fields(): array
 }
 //...
 </x-code>
+
+<x-sub-title id="inline">inLine</x-sub-title>
+
+<x-p>
+    By default, the index page will display the field as a table,
+    but if you want to display it in a line, you can use the <code>inLine()</code> method.
+</x-p>
+<x-p>
+    Optional parameters can be passed to the method:
+    <ul>
+        <li><code>separator</code> - separator between elements</li>
+        <li><code>badge</code> - display elements as badge</li>
+    </ul>
+</x-p>
+
+<x-code language="php">
+use MoonShine\Fields\BelongsToMany;
+
+//...
+public function fields(): array
+{
+    return [
+        BelongsToMany::make('Categories', 'categories', 'name')
+            ->inLine(separator: ' ', badge: true) // [tl! focus]
+    ];
+}
+//...
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/belongs_to_many_index_in_line.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/belongs_to_many_index_in_line_dark.png') }}"></x-image>
 
 </x-page>
