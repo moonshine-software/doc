@@ -8,7 +8,7 @@
         "php": "^8.1",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.0",
-        "moonshine/moonshine": "^1.59",
+        "moonshine/moonshine": "^1.60",
         "torchlight/torchlight-laravel": "^0.5.11",
         "lee-to/moonshine-algolia-search": "^1.0"
     },
