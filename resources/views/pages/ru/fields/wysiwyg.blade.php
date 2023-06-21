@@ -20,33 +20,33 @@
 <x-sub-title id="tinymce">TinyMce</x-sub-title>
 
 <x-code language="php">
-use MoonShine\Fields\TinyMce;
+use MoonShine\Fields\TinyMce; // [tl! focus]
 
 //...
 public function fields(): array
 {
     return [
-        TinyMce::make('Описание', 'description'),
+        TinyMce::make('Описание', 'description'), // [tl! focus]
 
         // Более расширенные настройки
 
-        TinyMce::make('Text')
+        TinyMce::make('Text') // [tl! focus]
             // Переопределить набор плагинов
-            ->plugins('anchor')
+            ->plugins('anchor') // [tl! focus]
             // Добавление плагинов в базовый набор
-            ->addPlugins('code codesample')
+            ->addPlugins('code codesample') // [tl! focus]
             // Переопределить набор toolbar
-            ->toolbar('undo redo | blocks fontfamily fontsize')
+            ->toolbar('undo redo | blocks fontfamily fontsize') // [tl! focus]
             // Добавление toolbar в базовый набор
-            ->addToolbar('code codesample')
+            ->addToolbar('code codesample') // [tl! focus]
             // Для изменения имени автора для плагина tinycomments
-            ->commentAuthor('Danil Shutsky')
+            ->commentAuthor('Danil Shutsky') // [tl! focus]
             // Теги
             ->mergeTags([
                 ['value' => 'tag', 'title' => 'Title']
-            ])
+            ]) // [tl! focus:-2]
             // Переопределение текущей локали
-            ->locale('en'),
+            ->locale('en'), // [tl! focus]
     ];
 }
 //...
@@ -65,11 +65,11 @@ public function fields(): array
 </x-p>
 
 <x-code language="php">
-    //...
-    'tinymce' => [
-        'token' => 'YOUR_TOKEN'
-    ]
-    //...
+//...
+'tinymce' => [
+    'token' => 'YOUR_TOKEN' // [tl! focus]
+]
+//...
 </x-code>
 
 <x-sub-title>Laravel File manager</x-sub-title>
@@ -82,10 +82,10 @@ public function fields(): array
 <x-sub-title hashtag="1">Установка</x-sub-title>
 
 <x-code language="shell">
-    composer require unisharp/laravel-filemanager
+composer require unisharp/laravel-filemanager
 
-    php artisan vendor:publish --tag=lfm_config
-    php artisan vendor:publish --tag=lfm_public
+php artisan vendor:publish --tag=lfm_config
+php artisan vendor:publish --tag=lfm_public
 </x-code>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
@@ -94,11 +94,9 @@ public function fields(): array
 
 <x-code language="php">
 return [
-    // ..
-
-    'use_package_routes' => false,
-
-    // ..
+    // ...
+    'use_package_routes' => false, // [tl! focus]
+    // ...
 ];
 
 </x-code>
@@ -110,9 +108,9 @@ return [
 Route::middleware('web')
     ->group(base_path('routes/web.php'));
 
-Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['moonshine']], function () {
-\   UniSharp\LaravelFilemanager\Lfm::routes();
-});
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['moonshine', 'auth.moonshine']], function () {
+    UniSharp\LaravelFilemanager\Lfm::routes();
+}); // [tl! focus:-2]
 
 // ..
 </x-code>
@@ -121,15 +119,20 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['moonshine']],
     Роут файлового менеджера обязательно должен быть в группе middleware <code>moonshine</code>, а не в web!
 </x-moonshine::alert>
 
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    Для того чтобы разрешить доступ только авторизованным в админ-панели пользователям
+    необходимо использовать middleware <code>auth.moonshine</code>
+</x-moonshine::alert>
+
 <x-sub-title hashtag="3">Добавьте префикс в config/moonshine.php</x-sub-title>
 
 <x-code language="php">
-    //...
-    'tinymce' => [
-        'file_manager' => 'laravel-filemanager',
-        // ..
-    ]
-    //...
+//...
+'tinymce' => [
+    'file_manager' => 'laravel-filemanager', // [tl! focus]
+    // ...
+]
+//...
 </x-code>
 
 <x-sub-title id="trix">Trix</x-sub-title>
@@ -139,17 +142,17 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['moonshine']],
 </x-p>
 
 <x-code language="shell">
-    composer require moonshine/trix
+composer require moonshine/trix
 </x-code>
 
 <x-code language="php">
-use MoonShine\Trix\Fields\Trix;
+use MoonShine\Trix\Fields\Trix; // [tl! focus]
 
 //...
 public function fields(): array
 {
     return [
-        Trix::make('Описание', 'description'),
+        Trix::make('Описание', 'description'), // [tl! focus]
     ];
 }
 //...
@@ -165,17 +168,17 @@ public function fields(): array
 </x-p>
 
 <x-code language="shell">
-    composer require moonshine/ckeditor
+composer require moonshine/ckeditor
 </x-code>
 
 <x-code language="php">
-use MoonShine\CKEditor\Fields\CKEditor;
+use MoonShine\CKEditor\Fields\CKEditor; // [tl! focus]
 
 //...
 public function fields(): array
 {
     return [
-        CKEditor::make('Описание', 'description'),
+        CKEditor::make('Описание', 'description'), // [tl! focus]
     ];
 }
 //...
@@ -195,13 +198,13 @@ public function fields(): array
 </x-code>
 
 <x-code language="php">
-use MoonShine\Quill\Fields\Quill;
+use MoonShine\Quill\Fields\Quill; // [tl! focus]
 
 //...
 public function fields(): array
 {
     return [
-        Quill::make('Описание', 'description'),
+        Quill::make('Описание', 'description'), // [tl! focus]
     ];
 }
 //...

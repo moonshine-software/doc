@@ -18,7 +18,7 @@ return [
         ['slug' => 'resources-active_actions', 'label' => 'Active actions'],
         ['slug' => 'resources-validation', 'label' => 'Validation rules'],
         ['slug' => 'resources-search', 'label' => 'Search'],
-        ['slug' => 'resources-scopes', 'label' => 'Scopes'],
+        ['slug' => 'resources-query', 'label' => 'Query'],
         ['slug' => 'resources-metrics', 'label' => 'Metrics'],
         ['slug' => 'resources-item_actions', 'label' => 'Item actions'],
         ['slug' => 'resources-bulk_actions', 'label' => 'Bulk actions'],
