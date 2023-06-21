@@ -125,7 +125,7 @@ return [
     then specify <code>'avatar'=>''</code> or <code>'avatar'=>false</code>.
 </x-moonshine::alert>
 
-<x-moonshine::alert type="default" icon="heroicons.information-circle">
+<x-moonshine::alert type="default" icon="heroicons.book-open">
     If you want to change the look of your profile page,
     then create a file <code>resources/views/vendor/moonshine/profile.blade.php</code>
 </x-moonshine::alert>
