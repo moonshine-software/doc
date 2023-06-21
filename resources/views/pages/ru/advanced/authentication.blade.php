@@ -120,7 +120,12 @@ return [
 ];
 </x-code>
 
-<x-moonshine::alert type="default" icon="heroicons.information-circle">
+<x-moonshine::alert type="default" icon="heroicons.book-open">
+    Если вы не хотите использовать аватар,
+    то укажите <code>'avatar'=>''</code> или <code>'avatar'=>false</code>.
+</x-moonshine::alert>
+
+<x-moonshine::alert type="default" icon="heroicons.book-open">
     Если вы хотите изменить вид страницы профиля,
     то создайте файл <code>resources/views/vendor/moonshine/profile.blade.php</code>
 </x-moonshine::alert>
