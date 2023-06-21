@@ -14,33 +14,33 @@
 <x-sub-title id="tinymce">TinyMce</x-sub-title>
 
 <x-code language="php">
-use MoonShine\Fields\TinyMce;
+use MoonShine\Fields\TinyMce; // [tl! focus]
 
 //...
 public function fields(): array
 {
     return [
-        TinyMce::make('Description', 'description'),
+        TinyMce::make('Description', 'description'), // [tl! focus]
 
         // More advanced settings
 
-        TinyMce::make('Text')
+        TinyMce::make('Text') // [tl! focus]
             // Override the plugin set
-            ->plugins('anchor')
+            ->plugins('anchor') // [tl! focus]
             // Adding plugins to the base set
-            ->addPlugins('code codesample')
+            ->addPlugins('code codesample') // [tl! focus]
             // Override the set toolbar
-            ->toolbar('undo redo | blocks fontfamily fontsize')
+            ->toolbar('undo redo | blocks fontfamily fontsize') // [tl! focus]
             // Adding a toolbar to the base set
-            ->addToolbar('code codesample')
+            ->addToolbar('code codesample') // [tl! focus]
             // To change the author name for a plugin tinycomments
-            ->commentAuthor('Danil Shutsky')
+            ->commentAuthor('Danil Shutsky') // [tl! focus]
             // Tags
             ->mergeTags([
                 ['value' => 'tag', 'title' => 'Title']
-            ])
+            ]) // [tl! focus:-2]
             // Override the current locale
-            ->locale('en'),
+            ->locale('en'), // [tl! focus]
     ];
 }
 //...
@@ -58,11 +58,11 @@ public function fields(): array
 </x-p>
 
 <x-code language="php">
-    //...
-    'tinymce' => [
-        'token' => 'YOUR_TOKEN'
-    ]
-    //...
+//...
+'tinymce' => [
+    'token' => 'YOUR_TOKEN' // [tl! focus]
+]
+//...
 </x-code>
 
 <x-sub-title>Laravel File manager</x-sub-title>
@@ -75,10 +75,10 @@ public function fields(): array
 <x-sub-title hashtag="1">Installing</x-sub-title>
 
 <x-code language="shell">
-    composer require unisharp/laravel-filemanager
+composer require unisharp/laravel-filemanager
 
-    php artisan vendor:publish --tag=lfm_config
-    php artisan vendor:publish --tag=lfm_public
+php artisan vendor:publish --tag=lfm_config
+php artisan vendor:publish --tag=lfm_public
 </x-code>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
@@ -87,11 +87,9 @@ public function fields(): array
 
 <x-code language="php">
 return [
-    // ..
-
-    'use_package_routes' => false,
-
-    // ..
+    // ...
+    'use_package_routes' => false, // [tl! focus]
+    // ...
 ];
 
 </x-code>
@@ -104,8 +102,8 @@ Route::middleware('web')
 ->group(base_path('routes/web.php'));
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['moonshine']], function () {
-    \UniSharp\LaravelFilemanager\Lfm::routes();
-});
+    UniSharp\LaravelFilemanager\Lfm::routes();
+}); // [tl! focus:-2]
 
 // ..
 </x-code>
@@ -117,12 +115,12 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['moonshine']],
 <x-sub-title hashtag="3">Add the prefix to config/moonshine.php</x-sub-title>
 
 <x-code language="php">
-    //...
-    'tinymce' => [
-        'file_manager' => 'laravel-filemanager',
-        // ..
-    ]
-    //...
+//...
+'tinymce' => [
+    'file_manager' => 'laravel-filemanager', // [tl! focus]
+    // ...
+]
+//...
 </x-code>
 
 <x-sub-title id="trix">Trix</x-sub-title>
@@ -132,17 +130,17 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['moonshine']],
 </x-p>
 
 <x-code language="shell">
-    composer require moonshine/trix
+composer require moonshine/trix
 </x-code>
 
 <x-code language="php">
-use MoonShine\Fields\Trix;
+use MoonShine\Fields\Trix; // [tl! focus]
 
 //...
 public function fields(): array
 {
     return [
-        Trix::make('Description', 'description'),
+        Trix::make('Description', 'description'), // [tl! focus]
     ];
 }
 //...
@@ -158,17 +156,17 @@ public function fields(): array
 </x-p>
 
 <x-code language="shell">
-    composer require moonshine/ckeditor
+composer require moonshine/ckeditor
 </x-code>
 
 <x-code language="php">
-use MoonShine\CKEditor\Fields\CKEditor;
+use MoonShine\CKEditor\Fields\CKEditor; // [tl! focus]
 
 //...
 public function fields(): array
 {
     return [
-        CKEditor::make('Description', 'description'),
+        CKEditor::make('Description', 'description'), // [tl! focus]
     ];
 }
 //...
@@ -188,13 +186,13 @@ public function fields(): array
 </x-code>
 
 <x-code language="php">
-use MoonShine\Quill\Fields\Quill;
+use MoonShine\Quill\Fields\Quill; // [tl! focus]
 
 //...
 public function fields(): array
 {
     return [
-        Quill::make('Description', 'description'),
+        Quill::make('Description', 'description'), // [tl! focus]
     ];
 }
 //...
