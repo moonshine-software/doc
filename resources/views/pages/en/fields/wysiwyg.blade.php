@@ -101,7 +101,7 @@ return [
 Route::middleware('web')
 ->group(base_path('routes/web.php'));
 
-Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['moonshine']], function () {
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['moonshine', 'auth.moonshine']], function () {
     UniSharp\LaravelFilemanager\Lfm::routes();
 }); // [tl! focus:-2]
 
