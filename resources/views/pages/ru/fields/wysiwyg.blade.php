@@ -108,7 +108,7 @@ return [
 Route::middleware('web')
     ->group(base_path('routes/web.php'));
 
-Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['moonshine']], function () {
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['moonshine', 'auth.moonshine']], function () {
     UniSharp\LaravelFilemanager\Lfm::routes();
 }); // [tl! focus:-2]
 
@@ -117,6 +117,11 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['moonshine']],
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     Роут файлового менеджера обязательно должен быть в группе middleware <code>moonshine</code>, а не в web!
+</x-moonshine::alert>
+
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    Для того чтобы разрешить доступ только авторизованным в админ-панели пользователям
+    необходимо использовать middleware <code>auth.moonshine</code>
 </x-moonshine::alert>
 
 <x-sub-title hashtag="3">Добавьте префикс в config/moonshine.php</x-sub-title>

@@ -112,6 +112,11 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['moonshine']],
     The file manager route must be in the <code>moonshine</code> middleware group, not in the web!
 </x-moonshine::alert>
 
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    To allow access only to users authorized in the admin panel
+    middleware <code>auth.moonshine</code> must be used
+</x-moonshine::alert>
+
 <x-sub-title hashtag="3">Add the prefix to config/moonshine.php</x-sub-title>
 
 <x-code language="php">
