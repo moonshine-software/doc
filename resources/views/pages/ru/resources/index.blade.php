@@ -202,6 +202,7 @@ $this->route('update-column', $resourceItem); // PUT - сохранение по
 
 <x-p>
     Через метод <code>resolveRoutes()</code> можно добавить или переопределять роуты по умолчанию.
+</x-p>
 
 <x-code language="php">
 namespace App\MoonShine\Resources;
