@@ -1,7 +1,7 @@
 <x-page title="События">
 
 <x-p>
-    Так как MoonShine работает на основе стандартных eloquent методов по добавлению, редактированию и удалению, то вы можете легко использовать стандартные laravel events:
+    Так как MoonShine работает на основе стандартных eloquent методов по добавлению, редактированию и удалению, то вы можете легко использовать стандартные Laravel events:
 </x-p>
 
 <x-link link="https://laravel.com/docs/9.x/eloquent#events">https://laravel.com/docs/9.x/eloquent#events</x-link>
