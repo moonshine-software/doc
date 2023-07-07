@@ -1,6 +1,6 @@
 <x-page title="HasMany">
 
-<x-p>Поле для отношений в laravel типа hasMany</x-p>
+<x-p>Поле для отношений в Laravel типа hasMany</x-p>
 
 <x-code language="php">
 use MoonShine\Fields\HasMany;

@@ -4,7 +4,7 @@
     BelongsTo
 </x-extendby>
 
-<x-p>Relationship field in laravel like MorphTo</x-p>
+<x-p>Relationship field in Laravel like MorphTo</x-p>
 
 <x-p>Same as <code>MoonShine\Fields\BelongsTo</code> but for MorphTo relationships</x-p>
 

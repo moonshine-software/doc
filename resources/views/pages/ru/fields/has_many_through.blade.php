@@ -4,7 +4,7 @@
     HasMany
 </x-extendby>
 
-<x-p>Поле для отношений в laravel типа hasManyThrough</x-p>
+<x-p>Поле для отношений в Laravel типа hasManyThrough</x-p>
 
 <x-p>То же самое, что и <code>MoonShine\Fields\HasMany</code>, только для отношений hasManyThrough</x-p>
 
