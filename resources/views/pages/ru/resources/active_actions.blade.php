@@ -9,13 +9,11 @@
 <x-code language="php">
 namespace MoonShine\Resources;
 
-use MoonShine\Models\MoonshineUser;
-
 class PostResource extends Resource
 {
     public static string $model = App\Models\Post::class;
 
-    public static string $title = 'Статьи';
+    public static string $title = 'Articles';
 
     public static array $activeActions = ['create', 'show', 'edit', 'delete']; // [tl! focus]
     //...
@@ -26,6 +24,32 @@ class PostResource extends Resource
 
 <x-code language="php">
     public static array $activeActions = ['create']; // [tl! focus]
+</x-code>
+
+<x-p>Еще можно воспользоваться методом <code>getActiveActions()</code> и задать свою логику для доступных разделов</x-p>
+
+<x-code language="php">
+namespace MoonShine\Resources;
+
+class PostResource extends Resource
+{
+    public static string $model = App\Models\Post::class;
+
+    public static string $title = 'Articles';
+
+    public static array $activeActions = ['create', 'show', 'edit']; // [tl! focus]
+
+    //...
+
+    public function getActiveActions(): array // [tl! focus:start]
+    {
+        if (auth()->id() === $this->getItem()?->author_id) {
+            return array_merge(static::$activeActions, ['delete']);
+        }
+
+        return static::$activeActions;
+    } // [tl! focus:end]
+}
 </x-code>
 
 </x-page>
