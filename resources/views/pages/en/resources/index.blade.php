@@ -13,6 +13,7 @@
             ['url' => '#simple-pagination', 'label' => 'Simple pagination'],
             ['url' => '#disable-pagination', 'label' => 'Disable pagination'],
             ['url' => '#views', 'label' => 'Customization of views'],
+            ['url' => '#precognition', 'label' => 'Precognition'],
         ]
     ]
 ">
@@ -389,6 +390,34 @@ class PostResource extends Resource
     {
         return $this->detailView;
     } // [tl! focus:-3]
+
+    // ...
+}
+</x-code>
+
+<x-sub-title id="precognition">Precognition</x-sub-title>
+
+<x-p>
+    Precognition in Laravel allows you to create a "live" check for your application
+    without having to duplicate validation rules.
+</x-p>
+
+<x-p>
+    In Moonshine, you can use precognition when sending requests to your resource.
+    To do this, set the <code>precognition</code> property to <code>true</code>.
+</x-p>
+
+<x-code language="php">
+namespace App\MoonShine\Resources;
+
+use App\Models\Post;
+use MoonShine\Resources\Resource;
+
+class PostResource extends Resource
+{
+    public static string $model = Post::class;
+
+    protected bool $precognition = true; // [tl! focus]
 
     // ...
 }
