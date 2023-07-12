@@ -11,17 +11,17 @@ use MoonShine\Metrics\DonutChartMetric;
 
 class PostResource extends Resource
 {
-//...
+    //...
 
-public function metrics(): array // [tl! focus:start]
-{
-    return [
-        DonutChartMetric::make('Подписчики')
-            ->values(['CutCode' => 10000, 'Apple' => 9999]),
-    ];
-} // [tl! focus:end]
+    public function metrics(): array // [tl! focus:start]
+    {
+        return [
+            DonutChartMetric::make('Подписчики')
+                ->values(['CutCode' => 10000, 'Apple' => 9999]),
+        ];
+    } // [tl! focus:end]
 
-//...
+    //...
 }
 </x-code>
 

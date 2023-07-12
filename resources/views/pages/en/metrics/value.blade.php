@@ -7,22 +7,21 @@
 <x-code language="php">
 namespace MoonShine\Resources;
 
-
 use MoonShine\Metrics\ValueMetric;
 
 class PostResource extends Resource
 {
-//...
+    //...
 
-public function metrics(): array // [tl! focus:start]
-{
-return [
-    ValueMetric::make('Completed orders')
-        ->value(Orders::completed()->count())
-    ];
-} // [tl! focus:end]
+    public function metrics(): array // [tl! focus:start]
+    {
+        return [
+            ValueMetric::make('Completed orders')
+                ->value(Orders::completed()->count())
+        ];
+    } // [tl! focus:end]
 
-//...
+    //...
 }
 </x-code>
 
@@ -36,23 +35,22 @@ return [
 <x-code language="php">
 namespace MoonShine\Resources;
 
-
 use MoonShine\Metrics\ValueMetric;
 
 class PostResource extends Resource
 {
-//...
+    //...
 
-public function metrics(): array // [tl! focus:start]
-{
-    return [
-        ValueMetric::make('Open orders left')
-            ->value(Orders::completed()->count())
-            ->progress(200) // Ultimate goal
-    ];
-} // [tl! focus:end]
+    public function metrics(): array // [tl! focus:start]
+    {
+        return [
+            ValueMetric::make('Open orders left')
+                ->value(Orders::completed()->count())
+                ->progress(200) // Ultimate goal
+        ];
+    } // [tl! focus:end]
 
-//...
+    //...
 }
 </x-code>
 
@@ -70,18 +68,18 @@ use MoonShine\Metrics\ValueMetric;
 
 class PostResource extends Resource
 {
-//...
+    //...
 
-public function metrics(): array // [tl! focus:start]
-{
-    return [
-        ValueMetric::make('Revenue')
-            ->value(Orders::completed()->sum('price'))
-            ->valueFormat('for today {value} rub.')
-    ];
-} // [tl! focus:end]
+    public function metrics(): array // [tl! focus:start]
+    {
+        return [
+            ValueMetric::make('Revenue')
+                ->value(Orders::completed()->sum('price'))
+                ->valueFormat('for today {value} rub.')
+        ];
+    } // [tl! focus:end]
 
-//...
+    //...
 }
 </x-code>
 
