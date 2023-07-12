@@ -7,22 +7,21 @@
 <x-code language="php">
 namespace MoonShine\Resources;
 
-
 use MoonShine\Metrics\ValueMetric;
 
 class PostResource extends Resource
 {
-//...
+    //...
 
-public function metrics(): array // [tl! focus:start]
-{
-return [
-    ValueMetric::make('Завершенных заказов')
-        ->value(Orders::completed()->count())
-    ];
-} // [tl! focus:end]
+    public function metrics(): array // [tl! focus:start]
+    {
+        return [
+            ValueMetric::make('Завершенных заказов')
+                ->value(Orders::completed()->count())
+        ];
+    } // [tl! focus:end]
 
-//...
+    //...
 }
 </x-code>
 
@@ -36,23 +35,22 @@ return [
 <x-code language="php">
 namespace MoonShine\Resources;
 
-
 use MoonShine\Metrics\ValueMetric;
 
 class PostResource extends Resource
 {
-//...
+    //...
 
-public function metrics(): array // [tl! focus:start]
-{
-    return [
-        ValueMetric::make('Open tasks')
-            ->value(Task::opened()->count())
-            ->progress(200) // Конечная цель
-    ];
-} // [tl! focus:end]
+    public function metrics(): array // [tl! focus:start]
+    {
+        return [
+            ValueMetric::make('Open tasks')
+                ->value(Task::opened()->count())
+                ->progress(200) // Конечная цель
+        ];
+    } // [tl! focus:end]
 
-//...
+    //...
 }
 </x-code>
 
@@ -70,18 +68,18 @@ use MoonShine\Metrics\ValueMetric;
 
 class PostResource extends Resource
 {
-//...
+    //...
 
-public function metrics(): array // [tl! focus:start]
-{
-    return [
-        ValueMetric::make('Profit')
-            ->value(Orders::completed()->sum('price'))
-            ->valueFormat('Today ${value}')
-    ];
-} // [tl! focus:end]
+    public function metrics(): array // [tl! focus:start]
+    {
+        return [
+            ValueMetric::make('Profit')
+                ->value(Orders::completed()->sum('price'))
+                ->valueFormat('Today ${value}')
+        ];
+    } // [tl! focus:end]
 
-//...
+    //...
 }
 </x-code>
 
