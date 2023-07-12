@@ -34,7 +34,7 @@
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     После выполнения будет добавлен <code>config/moonshine.php</code> с основными настройками.
-    <x-link link="#config">Подробнее о файле конфигурации</x-link>
+    <x-link link="{{ route('moonshine.custom_page', 'configuration') }}">Подробнее о файле конфигурации</x-link>
 </x-moonshine::alert>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">

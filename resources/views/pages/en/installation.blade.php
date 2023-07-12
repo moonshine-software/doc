@@ -31,7 +31,7 @@
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     This command will add <code>config/moonshine.php</code> with the basic settings.
-    <x-link link="#config">More about the config file</x-link>
+    <x-link link="{{ route('moonshine.custom_page', 'configuration') }}">More about the config file</x-link>
 </x-moonshine::alert>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
