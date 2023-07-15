@@ -2,6 +2,7 @@
     'Sections' => [
         ['url' => '#basics', 'label' => 'Basics'],
         ['url' => '#messages', 'label' => 'Messages'],
+        ['url' => '#prepare', 'label' => 'Preparing Input For Validation'],
     ]
 ]">
 
@@ -48,16 +49,55 @@ class PostResource extends Resource
 </x-p>
 
 <x-code language="php">
-//...
+namespace MoonShine\Resources;
 
-public function validationMessages(): array // [tl! focus:start]
+use MoonShine\Models\MoonshineUser;
+
+class PostResource extends Resource
 {
-    return [
-        'email.required' => 'Required email'
-    ];
-} // [tl! focus:end]
+    public static string $model = App\Models\Post::class;
+    //...
 
-//...
+    public function validationMessages(): array // [tl! focus:start]
+    {
+        return [
+            'email.required' => 'Required email'
+        ];
+    } // [tl! focus:end]
+
+    //...
+}
+</x-code>
+
+<x-sub-title id="prepare">Preparing Input For Validation</x-sub-title>
+
+<x-p>
+    If you need to prepare or sanitize any data from the request before you apply your validation rules,
+    you may use the <code>prepareForValidation()</code> method.
+</x-p>
+
+<x-code language="php">
+namespace MoonShine\Resources;
+
+use MoonShine\Models\MoonshineUser;
+
+class PostResource extends Resource
+{
+    public static string $model = App\Models\Post::class;
+    //...
+
+    public function prepareForValidation(): void // [tl! focus:start]
+    {
+        request()?->merge([
+            'email' => request()
+                ?->string('email')
+                ->lower()
+                ->value()
+        ]);
+    } // [tl! focus:end]
+
+    //...
+}
 </x-code>
 
 </x-page>
