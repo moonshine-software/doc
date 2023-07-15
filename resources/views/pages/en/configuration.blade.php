@@ -20,6 +20,8 @@ return [
         # Which url will be available for the control panel (as a rule admin)
         # If the value is left empty, the panel will be accessible from /
         'prefix' => env('MOONSHINE_ROUTE_PREFIX', 'moonshine'),
+        # Starting route in admin panel
+        'index_route' => env('MOONSHINE_INDEX_ROUTE', 'moonshine.index'),
         # Groups of middlewares in the panel
         'middleware' => ['moonshine'],
         # Slug of the url formation for custom pages

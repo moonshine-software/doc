@@ -20,7 +20,9 @@ return [
         # По какому url будет доступна панель управления (как правило admin)
         # Если оставить значение пустым, то панель будет доступна от /
         'prefix' => env('MOONSHINE_ROUTE_PREFIX', 'moonshine'),
-        # Группы middlewares в панеле
+        # Начальный маршрут в админ-панели
+        'index_route' => env('MOONSHINE_INDEX_ROUTE', 'moonshine.index'),
+        # Группы middlewares в панели
         'middleware' => ['moonshine'],
         # Slug формирования url для кастомных страниц
         'custom_page_slug' => 'custom_page',
