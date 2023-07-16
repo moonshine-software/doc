@@ -30,8 +30,8 @@ use MoonShine\Fields\Json;
 public function fields(): array
 {
     return [
-        Json::make('Опции товара', 'options')
-            ->keyValue('Характеристика', 'Значение') // Первый аргумент Лейбл ключа, второй лейбл Значения
+        Json::make('Product Options', 'options') // [tl! focus]
+            ->keyValue('Characteristic', 'Value') // Первый аргумент Лейбл ключа, второй лейбл значения [tl! focus]
     ];
 }
 //...
@@ -54,11 +54,11 @@ use MoonShine\Fields\Json;
 public function fields(): array
 {
     return [
-        Json::make('Опции товара', 'options')
+        Json::make('Product Options', 'options') // [tl! focus:start]
             ->fields([
-                Text::make('Заголовок', 'title'),
-                Text::make('Значение', 'value')
-            ])
+                Text::make('Title', 'title'),
+                Text::make('Value', 'value')
+            ]) // [tl! focus:end]
     ];
 }
 //...
@@ -74,8 +74,8 @@ public function fields(): array
 <x-sub-title id="removable">Удаление</x-sub-title>
 
 <x-code language="php">
-Json::make('Опции товара', 'options')
-    ->keyValue('Характиристика', 'Значение')
+Json::make('Product Options', 'options')
+    ->keyValue('Characteristics', 'Value')
     ->removable() // [tl! focus]
 </x-code>
 

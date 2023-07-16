@@ -20,12 +20,11 @@
 use MoonShine\Fields\Json;
 
 //...
-
 public function fields(): array
 {
     return [
-        Json::make('Product Options', 'options')
-            ->keyValue('Characteristic', 'Value') // First argument Key label, second argument Value label
+        Json::make('Product Options', 'options') // [tl! focus]
+            ->keyValue('Characteristic', 'Value') // First argument Key label, second argument Value label [tl! focus]
     ];
 }
 //...
@@ -44,15 +43,14 @@ public function fields(): array
 use MoonShine\Fields\Json;
 
 //...
-
 public function fields(): array
 {
     return [
-        Json::make('Product Options', 'options')
+        Json::make('Product Options', 'options') // [tl! focus:start]
             ->fields([
                 Text::make('Title', 'title'),
                 Text::make('Value', 'value')
-            ])
+            ]) // [tl! focus:end]
     ];
 }
 //...
@@ -69,7 +67,7 @@ public function fields(): array
 
 <x-code language="php">
 Json::make('Product Options', 'options')
-    ->keyValue('Characteristics', 'Meaning')
+    ->keyValue('Characteristics', 'Value')
     ->removable() // [tl! focus]
 </x-code>
 
