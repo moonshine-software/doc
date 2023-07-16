@@ -5,6 +5,7 @@
             ['url' => '#key-value', 'label' => 'Ключ/Значение'],
             ['url' => '#fields', 'label' => 'С набором полей'],
             ['url' => '#removable', 'label' => 'Удаление'],
+            ['url' => '#value-only', 'label' => 'Только значение'],
         ]
     ]"
     :videos="[
@@ -12,11 +13,11 @@
     ]"
 >
 
-<x-sub-title id="key-value">Ключ/Значение</x-sub-title>
-
-<x-p>
+<x-moonshine::alert class="mt-8" type="default" icon="heroicons.information-circle">
     В базе поле должно иметь тип text или json. Также cast eloquent модели array или json или collection.
-</x-p>
+</x-moonshine::alert>
+
+<x-sub-title id="key-value">Ключ/Значение</x-sub-title>
 
 <x-p>
     Самый простой способ с использованием метода keyValue, в таком случае в базе будет
@@ -30,8 +31,8 @@ use MoonShine\Fields\Json;
 public function fields(): array
 {
     return [
-        Json::make('Опции товара', 'options')
-            ->keyValue('Характеристика', 'Значение') // Первый аргумент Лейбл ключа, второй лейбл Значения
+        Json::make('Product Options', 'options') // [tl! focus]
+            ->keyValue('Characteristic', 'Value') // Первый аргумент Лейбл ключа, второй лейбл значения [tl! focus]
     ];
 }
 //...
@@ -54,11 +55,11 @@ use MoonShine\Fields\Json;
 public function fields(): array
 {
     return [
-        Json::make('Опции товара', 'options')
+        Json::make('Product Options', 'options') // [tl! focus:start]
             ->fields([
-                Text::make('Заголовок', 'title'),
-                Text::make('Значение', 'value')
-            ])
+                Text::make('Title', 'title'),
+                Text::make('Value', 'value')
+            ]) // [tl! focus:end]
     ];
 }
 //...
@@ -74,12 +75,24 @@ public function fields(): array
 <x-sub-title id="removable">Удаление</x-sub-title>
 
 <x-code language="php">
-Json::make('Опции товара', 'options')
-    ->keyValue('Характиристика', 'Значение')
+Json::make('Product Options', 'options')
+    ->keyValue('Characteristics', 'Value')
     ->removable() // [tl! focus]
 </x-code>
 
 <x-image theme="light" src="{{ asset('screenshots/json_removable.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/json_removable_dark.png') }}"></x-image>
+
+<x-sub-title id="value-only">Только значение</x-sub-title>
+
+<x-p>
+    Иногда требуется сохранять в базе данных только значения,
+    для этого можно воспользоваться методом <code>onlyValue()</code>.
+</x-p>
+
+<x-code language="php">
+Json::make('Product Options', 'options')
+    ->onlyValue() // [tl! focus]
+</x-code>
 
 </x-page>
