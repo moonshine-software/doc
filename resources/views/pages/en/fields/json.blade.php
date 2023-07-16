@@ -3,6 +3,7 @@
         ['url' => '#key-value', 'label' => 'Key/Value'],
         ['url' => '#fields', 'label' => 'With a set of fields'],
         ['url' => '#removable', 'label' => 'Deleting'],
+        ['url' => '#value-only', 'label' => 'Value only'],
     ]
 ]">
 
@@ -73,5 +74,17 @@ Json::make('Product Options', 'options')
 
 <x-image theme="light" src="{{ asset('screenshots/json_removable.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/json_removable_dark.png') }}"></x-image>
+
+<x-sub-title id="value-only">Value only</x-sub-title>
+
+<x-p>
+    Sometimes you only need to store the values in the database
+    for this you can use the <code>onlyValue()</code> method.
+</x-p>
+
+<x-code language="php">
+Json::make('Product Options', 'options')
+    ->onlyValue() // [tl! focus]
+</x-code>
 
 </x-page>
