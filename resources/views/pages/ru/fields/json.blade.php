@@ -13,11 +13,11 @@
     ]"
 >
 
-<x-sub-title id="key-value">Ключ/Значение</x-sub-title>
-
-<x-p>
+<x-moonshine::alert class="mt-8" type="default" icon="heroicons.information-circle">
     В базе поле должно иметь тип text или json. Также cast eloquent модели array или json или collection.
-</x-p>
+</x-moonshine::alert>
+
+<x-sub-title id="key-value">Ключ/Значение</x-sub-title>
 
 <x-p>
     Самый простой способ с использованием метода keyValue, в таком случае в базе будет

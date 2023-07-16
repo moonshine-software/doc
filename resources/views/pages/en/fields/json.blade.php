@@ -7,11 +7,11 @@
     ]
 ]">
 
-<x-sub-title id="key-value">Key/Value</x-sub-title>
-
-<x-p>
+<x-moonshine::alert class="mt-8" type="default" icon="heroicons.information-circle">
     In the database, the field must be of type text or json. Also cast eloquent array or json or collection models.
-</x-p>
+</x-moonshine::alert>
+
+<x-sub-title id="key-value">Key/Value</x-sub-title>
 
 <x-p>
     The easiest way is to use the keyValue method, in which case the database will have a simple json [{key: value}]
