@@ -179,6 +179,7 @@ return [
 
     'Digging Deeper:moon' => [
         ['slug' => 'advanced-dashboard', 'label' => 'Dashboard', 'badge' => 'new'],
+        ['slug' => 'advanced-routes', 'label' => 'Routes'],
         ['slug' => 'advanced-pages', 'label' => 'Pages'],
         ['slug' => 'advanced-menu', 'label' => 'Menu'],
         ['slug' => 'advanced-assets', 'label' => 'Assets'],
