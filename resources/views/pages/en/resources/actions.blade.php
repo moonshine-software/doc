@@ -1,9 +1,11 @@
 <x-page title="Action" :sectionMenu="[
     'Sections' => [
+        ['url' => '#basics', 'label' => 'Basics'],
         ['url' => '#view', 'label' => 'Display method'],
-        ['url' => '#confirm', 'label' => 'Confirm the action'],
     ]
 ]">
+
+<x-sub-title id="basics">Basics</x-sub-title>
 
 <x-p>
     Often it is necessary to do something with the list of the section and "Actions" serve for this purpose.
@@ -47,6 +49,6 @@ class PostResource extends Resource
 <x-image theme="light" src="{{ asset('screenshots/export.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/export_dark.png') }}"></x-image>
 
-@include('pages.en.resources.shared.actions_config', ['action' => 'ExportAction'])
+@include('pages.en.resources.shared.actions_view', ['action' => 'ExportAction'])
 
 </x-page>
