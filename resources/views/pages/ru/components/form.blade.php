@@ -10,6 +10,7 @@
         ['url' => '#file', 'label' => 'File'],
         ['url' => '#range', 'label' => 'Range'],
         ['url' => '#select', 'label' => 'Select'],
+        ['url' => '#switcher', 'label' => 'Switcher'],
     ]
 ]">
 
@@ -234,5 +235,22 @@
 </x-p>
 
 <x-code language="blade" file="resources/views/examples/components/form/select-async.blade.php"></x-code>
+
+<x-sub-title id="switcher">Switcher</x-sub-title>
+
+<x-code language="blade" file="resources/views/examples/components/form/switcher.blade.php"></x-code>
+
+<x-moonshine::grid>
+    <x-moonshine::column adaptiveColSpan="12" colSpan="4">
+        <x-moonshine::box>
+            @include("examples/components/form/switcher")
+        </x-moonshine::box>
+    </x-moonshine::column>
+</x-moonshine::grid>
+
+<x-p>
+    <code>onValue</code> - значение при активном состоянии<br>
+    <code>offValue</code> - значение при неактивном состоянии
+</x-p>
 
 </x-page>
