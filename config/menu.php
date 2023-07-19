@@ -165,6 +165,7 @@ return [
         ['slug' => 'components-link', 'label' => 'Link'],
         ['slug' => 'components-loader', 'label' => 'Loader'],
         ['slug' => 'components-modal', 'label' => 'Modal'],
+        ['slug' => 'components-offcanvas', 'label' => 'Offcanvas'],
         ['slug' => 'components-popover', 'label' => 'Popover'],
         ['slug' => 'components-progress_bar', 'label' => 'Progress bar'],
         ['slug' => 'components-rating', 'label' => 'Rating'],
