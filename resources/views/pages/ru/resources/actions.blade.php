@@ -1,9 +1,11 @@
 <x-page title="Действия" :sectionMenu="[
     'Разделы' => [
-        ['url' => '#view', 'label' => 'Способ отображения'],
-        ['url' => '#confirm', 'label' => 'Подтверждение действия'],
+        ['url' => '#basics', 'label' => 'Основы'],
+        ['url' => '#view', 'label' => 'Способ отображения']
     ]
 ]">
+
+<x-sub-title id="basics">Основы</x-sub-title>
 
 <x-p>
     Часто необходимо что-либо сделать со списком раздела, и для этих целей служат "Действия".
@@ -47,6 +49,6 @@ class PostResource extends Resource
 <x-image theme="light" src="{{ asset('screenshots/export.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/export_dark.png') }}"></x-image>
 
-@include('pages.ru.resources.shared.actions_config', ['action' => 'ExportAction'])
+@include('pages.ru.resources.shared.actions_view', ['action' => 'ExportAction'])
 
 </x-page>

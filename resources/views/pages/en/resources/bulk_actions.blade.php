@@ -42,6 +42,7 @@ class PostResource extends Resource
     The third argument is the message that will be displayed after the execution of the action.
 </p>
 
-@include('pages.en.resources.shared.actions_config', ['action' => 'BulkAction'])
+@include('pages.en.resources.shared.actions_view', ['action' => 'BulkAction'])
+@include('pages.en.resources.shared.actions_confirm', ['action' => 'BulkAction'])
 
 </x-page>
