@@ -161,6 +161,7 @@ return [
         ['slug' => 'components-divider', 'label' => 'Divider'],
         ['slug' => 'components-dropdown', 'label' => 'Dropdown'],
         ['slug' => 'components-form', 'label' => 'Form elements'],
+        ['slug' => 'components-grid', 'label' => 'Grid/Column'],
         ['slug' => 'components-icon', 'label' => 'Icon'],
         ['slug' => 'components-link', 'label' => 'Link'],
         ['slug' => 'components-loader', 'label' => 'Loader'],
