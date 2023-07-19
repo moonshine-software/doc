@@ -11,6 +11,7 @@
         ['url' => '#range', 'label' => 'Range'],
         ['url' => '#select', 'label' => 'Select'],
         ['url' => '#switcher', 'label' => 'Switcher'],
+        ['url' => '#textarea', 'label' => 'Textarea'],
     ]
 ]">
 
@@ -252,5 +253,17 @@
     <code>onValue</code> - value when active<br>
     <code>offValue</code> - value when inactive
 </x-p>
+
+<x-sub-title id="textarea">Textarea</x-sub-title>
+
+<x-code language="blade" file="resources/views/examples/components/form/textarea.blade.php"></x-code>
+
+<x-moonshine::grid>
+    <x-moonshine::column adaptiveColSpan="12" colSpan="6">
+        <x-moonshine::box>
+            @include("examples/components/form/textarea")
+        </x-moonshine::box>
+    </x-moonshine::column>
+</x-moonshine::grid>
 
 </x-page>
