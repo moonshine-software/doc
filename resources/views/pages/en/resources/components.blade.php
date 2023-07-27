@@ -60,7 +60,7 @@ class MoonShineUserResource extends Resource
     {
         return [
             PermissionFormComponent::make('Permissions') // [tl! focus]
-                ->canSee(fn($user) => $user->moonshine_user_role_id === MoonshineUserRole::DEFAULT_ROLE_ID)
+                ->canSee(fn() => auth()->user()->moonshine_user_role_id === MoonshineUserRole::DEFAULT_ROLE_ID)
         ];
     }
 
@@ -120,7 +120,7 @@ class ArticleResource extends Resource
     {
         return [
             ChangeLogFormComponent::make('Change log') // [tl! focus]
-                ->canSee(fn ($user) => $user->moonshine_user_role_id === MoonshineUserRole::DEFAULT_ROLE_ID),
+                ->canSee(fn() => auth()->user()->moonshine_user_role_id === MoonshineUserRole::DEFAULT_ROLE_ID),
         ];
     }
     // ...

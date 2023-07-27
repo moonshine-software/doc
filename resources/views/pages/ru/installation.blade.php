@@ -34,7 +34,7 @@
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     После выполнения будет добавлен <code>config/moonshine.php</code> с основными настройками.
-    <x-link link="#config">Подробнее о файле конфигурации</x-link>
+    <x-link link="{{ route('moonshine.custom_page', 'configuration') }}">Подробнее о файле конфигурации</x-link>
 </x-moonshine::alert>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
@@ -93,4 +93,10 @@ class MoonShineServiceProvider extends ServiceProvider
     Отлично! Теперь можно создавать и регистрировать разделы будущей админ-панели и приступать к работе!
     Но не забудьте ознакомиться с документацией до конца!
 </x-p>
+
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    По умолчанию админ-панель доступа по url <code>/moonshine</code>. Изменить url можно в
+    <x-link link="{{ route('moonshine.custom_page', 'configuration') }}">файле конфигурации</x-link>.
+</x-moonshine::alert>
+
 </x-page>

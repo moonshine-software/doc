@@ -2,6 +2,7 @@
     'Разделы' => [
         ['url' => '#basics', 'label' => 'Основы'],
         ['url' => '#messages', 'label' => 'Сообщения'],
+        ['url' => '#prepare', 'label' => 'Подготовка входных данных'],
     ]
 ]">
 
@@ -48,16 +49,55 @@ class PostResource extends Resource
 </x-p>
 
 <x-code language="php">
-//...
+namespace MoonShine\Resources;
 
-public function validationMessages(): array // [tl! focus:start]
+use MoonShine\Models\MoonshineUser;
+
+class PostResource extends Resource
 {
-    return [
-        'email.required' => 'Required email'
-    ];
-} // [tl! focus:end]
+    public static string $model = App\Models\Post::class;
+    //...
 
-//...
+    public function validationMessages(): array // [tl! focus:start]
+    {
+        return [
+            'email.required' => 'Required email'
+        ];
+    } // [tl! focus:end]
+
+    //...
+}
+</x-code>
+
+<x-sub-title id="prepare">Подготовка входных данных для проверки</x-sub-title>
+
+<x-p>
+    Если вам нужно подготовить или очистить какие-либо данные из запроса, прежде чем применять свои правила проверки,
+    вы можете использовать метод <code>prepareForValidation()</code>.
+</x-p>
+
+<x-code language="php">
+namespace MoonShine\Resources;
+
+use MoonShine\Models\MoonshineUser;
+
+class PostResource extends Resource
+{
+    public static string $model = App\Models\Post::class;
+    //...
+
+    public function prepareForValidation(): void // [tl! focus:start]
+    {
+        request()?->merge([
+            'email' => request()
+                ?->string('email')
+                ->lower()
+                ->value()
+        ]);
+    } // [tl! focus:end]
+
+    //...
+}
 </x-code>
 
 </x-page>

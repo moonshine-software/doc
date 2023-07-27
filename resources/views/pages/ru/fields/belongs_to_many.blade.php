@@ -17,7 +17,7 @@
 
 <x-sub-title id="basics">Основы</x-sub-title>
 
-<x-p>Поле для отношений в laravel типа <code>BelongsToMany</code>.</x-p>
+<x-p>Поле для отношений в Laravel типа <code>BelongsToMany</code>.</x-p>
 
 <x-p>Отображается как группа чекбоксов, также есть возможность трансформировать отображение в select multiple.</x-p>
 

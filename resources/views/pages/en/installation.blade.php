@@ -31,7 +31,7 @@
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     This command will add <code>config/moonshine.php</code> with the basic settings.
-    <x-link link="#config">More about the config file</x-link>
+    <x-link link="{{ route('moonshine.custom_page', 'configuration') }}">More about the config file</x-link>
 </x-moonshine::alert>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
@@ -53,7 +53,7 @@
 </x-code>
 
 <x-sub-title id="config" hashtag="4">
-   Resource registration and menu configuration
+    Resource registration and menu configuration
 </x-sub-title>
 
 <x-p>
@@ -90,4 +90,10 @@ class MoonShineServiceProvider extends ServiceProvider
     Great! Now you can create and register sections of the future admin panel and proceed with the real work!
     But don't forget to read the documentation all the way through!
 </x-p>
+
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    By default, the admin panel is accessed by url <code>/moonshine</code>. You can change the url in
+    <x-link link="{{ route('moonshine.custom_page', 'configuration') }}">config file</x-link>.
+</x-moonshine::alert>
+
 </x-page>

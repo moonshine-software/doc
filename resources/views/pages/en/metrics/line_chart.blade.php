@@ -79,4 +79,21 @@ class PostResource extends Resource
 <x-image theme="light" src="{{ asset('screenshots/metrics_line_chart.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/metrics_line_chart_dark.png') }}"></x-image>
 
+<x-moonshine::alert type="default" icon="heroicons.book-open">
+    By default, LineChart graphics sort keys in ascending order.
+    This feature can be used with the usual <code>withoutSortKeys()</code> method.
+</x-moonshine::alert>
+
+<x-code language="php">
+LineChartMetric::make('Orders')
+    ->line([
+        'Profit' => Order::query()
+            ->selectRaw('SUM(price) as sum, DATE_FORMAT(created_at, "%d.%m.%Y") as date')
+            ->groupBy('date')
+            ->pluck('sum','date')
+            ->toArray()
+    ])
+    ->withoutSortKeys(), // [tl! focus]
+</x-code>
+
 </x-page>

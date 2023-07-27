@@ -8,5 +8,5 @@
 <div>
     {{ $slot }}
 
-    <x-next />
+    <x-page-nav />
 </div>

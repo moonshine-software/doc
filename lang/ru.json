@@ -34,5 +34,6 @@
     "Extensions": "Расширения",
     "Extends": "Наследует",
     "has the same features": "имеет те же возможности",
-    "UI components": "UI компоненты"
+    "UI components": "UI компоненты",
+    "Routes": "Маршруты"
 }

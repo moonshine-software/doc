@@ -4,7 +4,7 @@
     HasOne
 </x-extendby>
 
-<x-p>Поле для отношений в laravel типа hasOneThrough</x-p>
+<x-p>Поле для отношений в Laravel типа hasOneThrough</x-p>
 
 <x-p>То же самое, что и <code>MoonShine\Fields\HasOne</code>, только для отношений hasOneThrough</x-p>
 

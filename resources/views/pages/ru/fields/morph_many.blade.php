@@ -4,7 +4,7 @@
     HasMany
 </x-extendby>
 
-<x-p>Поле для отношений в laravel типа morphMany</x-p>
+<x-p>Поле для отношений в Laravel типа morphMany</x-p>
 
 <x-p>То же самое что и <code>MoonShine\Fields\HasMany</code> только для отношений morphMany</x-p>
 

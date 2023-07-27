@@ -39,6 +39,7 @@ class PostResource extends Resource
 <x-image theme="light" src="{{ asset('screenshots/form_actions.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/form_actions_dark.png') }}"></x-image>
 
-@include('pages.en.resources.shared.actions_config', ['action' => 'FormAction'])
+@include('pages.en.resources.shared.actions_view', ['action' => 'FormAction'])
+@include('pages.en.resources.shared.actions_confirm', ['action' => 'FormAction'])
 
 </x-page>

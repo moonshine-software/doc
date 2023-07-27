@@ -82,3 +82,23 @@ code:not(.torchlight) {
 .torchlight-copy:hover {
     opacity: 1;
 }
+
+.page-link {
+    display: flex;
+    gap: 1rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: auto;
+    width: 100%;
+    padding: 1rem;
+}
+@media (min-width: 640px) {
+    .page-link {
+        width: 320px;
+    }
+}
+.page-link.page-link__prev {
+    text-align: right;
+    flex-direction: row-reverse;
+}

@@ -161,10 +161,12 @@ return [
         ['slug' => 'components-divider', 'label' => 'Divider'],
         ['slug' => 'components-dropdown', 'label' => 'Dropdown'],
         ['slug' => 'components-form', 'label' => 'Form elements'],
+        ['slug' => 'components-grid', 'label' => 'Grid/Column'],
         ['slug' => 'components-icon', 'label' => 'Icon'],
         ['slug' => 'components-link', 'label' => 'Link'],
         ['slug' => 'components-loader', 'label' => 'Loader'],
         ['slug' => 'components-modal', 'label' => 'Modal'],
+        ['slug' => 'components-offcanvas', 'label' => 'Offcanvas'],
         ['slug' => 'components-popover', 'label' => 'Popover'],
         ['slug' => 'components-progress_bar', 'label' => 'Progress bar'],
         ['slug' => 'components-rating', 'label' => 'Rating'],
@@ -179,6 +181,7 @@ return [
 
     'Digging Deeper:moon' => [
         ['slug' => 'advanced-dashboard', 'label' => 'Dashboard', 'badge' => 'new'],
+        ['slug' => 'advanced-routes', 'label' => 'Routes'],
         ['slug' => 'advanced-pages', 'label' => 'Pages'],
         ['slug' => 'advanced-menu', 'label' => 'Menu'],
         ['slug' => 'advanced-assets', 'label' => 'Assets'],

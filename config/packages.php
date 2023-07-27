@@ -55,5 +55,10 @@ return [
         'title' => 'MoonShine TagList Field for Spatie Laravel tags',
         'url' => 'lee-to/moonshine-spatie-tags-field',
         'category' => 'Fields'
+    ],
+    [
+        'title' => 'Moonshine Language Romanian',
+        'url' => 'SWEET1S/MoonShine-Language-Romanian',
+        'category' => 'Localizations'
     ]
 ];
