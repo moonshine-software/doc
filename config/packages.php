@@ -65,5 +65,10 @@ return [
         'title' => 'MoonShine Roles-Permissions',
         'url' => 'SWEET1S/moonshine-roles-permissions',
         'category' => 'Auth'
+    ],
+    [
+        'title' => 'Database Manager',
+        'url' => 'SWEET1S/moonshine-database',
+        'category' => 'GUI'
     ]
 ];
