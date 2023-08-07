@@ -60,5 +60,15 @@ return [
         'title' => 'Moonshine Language Romanian',
         'url' => 'SWEET1S/MoonShine-Language-Romanian',
         'category' => 'Localizations'
+    ],
+    [
+        'title' => 'MoonShine Roles-Permissions',
+        'url' => 'SWEET1S/moonshine-roles-permissions',
+        'category' => 'Auth'
+    ],
+    [
+        'title' => 'Database Manager',
+        'url' => 'SWEET1S/moonshine-database',
+        'category' => 'GUI'
     ]
 ];
