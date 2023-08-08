@@ -13,7 +13,9 @@ MoonShineNotification::send(
     // Опционально button
     button: ['link' => 'https://moonshine.cutcode.dev', 'label' => 'Click me'],
     // Опционально id администраторов (по умолчанию всем)
-    ids: [1,2,3]
+    ids: [1,2,3],
+    // Опционально цвет иконки (purple, pink, blue, green, yellow, red, gray)
+    color: 'green'
 );
 </x-code>
 
