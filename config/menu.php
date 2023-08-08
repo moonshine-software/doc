@@ -63,7 +63,7 @@ return [
 
         // File
         'File:_divider_',
-        ['slug' => 'fields-file', 'label' => 'File'],
+        ['slug' => 'fields-files', 'label' => 'Files'],
         ['slug' => 'fields-image', 'label' => 'Image'],
 
         // Json
@@ -160,13 +160,15 @@ return [
         ['slug' => 'components-collapse', 'label' => 'Collapse'],
         ['slug' => 'components-divider', 'label' => 'Divider'],
         ['slug' => 'components-dropdown', 'label' => 'Dropdown'],
+        ['slug' => 'components-icon', 'label' => 'Icon'],
+        ['slug' => 'components-files', 'label' => 'Files'],
         ['slug' => 'components-form', 'label' => 'Form elements'],
         ['slug' => 'components-grid', 'label' => 'Grid/Column'],
-        ['slug' => 'components-icon', 'label' => 'Icon'],
         ['slug' => 'components-link', 'label' => 'Link'],
         ['slug' => 'components-loader', 'label' => 'Loader'],
         ['slug' => 'components-modal', 'label' => 'Modal'],
         ['slug' => 'components-offcanvas', 'label' => 'Offcanvas'],
+        ['slug' => 'components-paginations', 'label' => 'Paginations'],
         ['slug' => 'components-popover', 'label' => 'Popover'],
         ['slug' => 'components-progress_bar', 'label' => 'Progress bar'],
         ['slug' => 'components-rating', 'label' => 'Rating'],
