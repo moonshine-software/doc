@@ -3,6 +3,7 @@
         ['url' => '#basics', 'label' => 'Basics'],
         ['url' => '#without-title', 'label' => 'Without title'],
         ['url' => '#layout', 'label' => 'Layout'],
+        ['url' => '#class', 'label' => 'class CustomPage'],
     ]
 ]">
 
@@ -89,6 +90,8 @@ class MoonShineServiceProvider extends ServiceProvider
 
 <x-code language="php">
 use Illuminate\Support\ServiceProvider;
+use MoonShine\Menu\MenuItem;
+use MoonShine\MoonShine;
 use MoonShine\Resources\CustomPage;
 
 class MoonShineServiceProvider extends ServiceProvider
@@ -101,6 +104,44 @@ class MoonShineServiceProvider extends ServiceProvider
                 CustomPage::make('Page title', 'slug', 'view', fn() => [])
                     ->layout('path') // [tl! focus]
             )
+        ]);
+    }
+}
+</x-code>
+]
+<x-sub-title id="class">class CustomPage</x-sub-title>
+
+<x-p>
+    Pages can be created through a class, just run the command:
+</x-p>
+
+<x-code language="shell">
+    php artisan moonshine:page ExamplePage
+</x-code>
+
+<x-p>
+    As a result, a <code>ExamplePage</code> class will be created, which will be the basis of the custom page.
+    It is located by default in the <code>app/MoonShine/Pages</code> directory.
+</x-p>
+
+<x-p>When executing the command, you can immediately set an alias, title and blade view for your page.</x-p>
+
+<x-code language="shell">
+    php artisan moonshine:page ExamplePage --alias="example" --title="Example Page" --view="pages.example"
+</x-code>
+
+<x-p>After creating a page, it can be added to the menu.</x-p>
+
+<x-code language="php">
+use Illuminate\Support\ServiceProvider;
+use MoonShine\Pages\ExamplePage; // [tl! focus]
+
+class MoonShineServiceProvider extends ServiceProvider
+{
+    public function boot(): void
+    {
+        app(MoonShine::class)->menu([
+            MenuItem::make('Example', new ExamplePage()) // [tl! focus]
         ]);
     }
 }

@@ -3,6 +3,7 @@
         ['url' => '#basics', 'label' => 'Основы'],
         ['url' => '#without-title', 'label' => 'Без заголовка'],
         ['url' => '#layout', 'label' => 'Layout'],
+        ['url' => '#class', 'label' => 'class CustomPage'],
     ]
 ]">
 
@@ -16,6 +17,8 @@
 
 <x-code language="php">
 use Illuminate\Support\ServiceProvider;
+use MoonShine\Menu\MenuItem;
+use MoonShine\MoonShine;
 use MoonShine\Resources\CustomPage; // [tl! focus]
 
 class MoonShineServiceProvider extends ServiceProvider
@@ -101,6 +104,44 @@ class MoonShineServiceProvider extends ServiceProvider
                 CustomPage::make('Page title', 'slug', 'view', fn() => [])
                     ->layout('path') // [tl! focus]
             )
+        ]);
+    }
+}
+</x-code>
+
+<x-sub-title id="class">class CustomPage</x-sub-title>
+
+<x-p>
+    Страницы можно создавать через класс, для этого достаточно выполнить команду:
+</x-p>
+
+<x-code language="shell">
+    php artisan moonshine:page ExamplePage
+</x-code>
+
+<x-p>
+    В результате будет создан <code>ExamplePage</code> класс, который будет основой кастомной страницы.
+    Располагается он по умолчанию в директории <code>app/MoonShine/Pages</code>.
+</x-p>
+
+<x-p>При выполнении команды можно сразу задать для вашей страницы алиас, заголовок и blade шаблон.</x-p>
+
+<x-code language="shell">
+    php artisan moonshine:page ExamplePage --alias="example" --title="Example Page" --view="pages.example"
+</x-code>
+
+<x-p>После создания страницы, ее можно добавить в меню.</x-p>
+
+<x-code language="php">
+use Illuminate\Support\ServiceProvider;
+use MoonShine\Pages\ExamplePage; // [tl! focus]
+
+class MoonShineServiceProvider extends ServiceProvider
+{
+    public function boot(): void
+    {
+        app(MoonShine::class)->menu([
+            MenuItem::make('Example', new ExamplePage()) // [tl! focus]
         ]);
     }
 }
