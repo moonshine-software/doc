@@ -38,7 +38,7 @@
 <x-sub-title>Pull requests</x-sub-title>
 
 <x-p>
-    Вы можете предложить новые функции или улучшения для MoonShine! Ошибки и баги - все это можно зафиксировать и отправить на доработку.
+    Вы можете предложить новые функции или улучшения для <strong>MoonShine</strong>! Ошибки и баги - все это можно зафиксировать и отправить на доработку.
     Также я рад новым специалистам по развитию open source проекта.
 </x-p>
 
@@ -54,13 +54,16 @@
 
 <x-p>
     1. У вас достаточно опыта, чтобы предложить её решение.
-    Я буду крайне рад вашему PR с описанием ошибки и вариантом её исправления.
-    <br>
+    Я буду крайне рад вашему PR с описанием ошибки и вариантом её исправления.<br />
     2. Если не знаете, как решить проблему - создавайте GitHub issues, и в ближайшее время мы исправим эту проблему.
 
-    <div class="text-sm my-4">* Важно, чтобы ваш pr прошел все тесты платформы и имел подробное описание,
-        чтобы всем участникам разработки было понятно, что именно произошло.</div>
 </x-p>
+
+<x-moonshine::alert type="warning" icon="heroicons.information-circle">
+    Важно, чтобы ваш pr прошел все тесты платформы и имел подробное описание,
+    чтобы всем участникам разработки было понятно, что именно произошло.
+</x-moonshine::alert>
+
 
 <x-sub-title>Основная ветка</x-sub-title>
 
@@ -71,7 +74,7 @@
 <x-sub-title>Coding style</x-sub-title>
 
 <x-p>
-    MoonShine придерживается PSR-12 стандарта и PSR-4 autoload стандарта.
+    <strong>MoonShine</strong> придерживается PSR-12 стандарта и PSR-4 autoload стандарта.
 </x-p>
 
 <x-sub-title id="dev-guide">Инструкция для разработчиков</x-sub-title>
@@ -114,7 +117,7 @@ use App\Providers\MoonShineServiceProvider;
 // Import vendor provider
 use MoonShine\Providers\MoonShineServiceProvider as MSProvider;
 
-// ..
+// ...
 
 /*
 * Package Service Providers...
@@ -122,7 +125,7 @@ use MoonShine\Providers\MoonShineServiceProvider as MSProvider;
 // Add vendor provider
 MSProvider::class,
 
-// ..
+// ...
 </x-code>
 
 <x-moonshine::badge color="green">5</x-moonshine::badge> Создайте .env из .env.example (не забудьте создать базу данных) и выполните установку ниже
@@ -142,6 +145,7 @@ php artisan serve
 <x-moonshine::badge color="green">#</x-moonshine::badge> Создайте что-нибудь полезное
 
 <x-sub-title id="pr">Как делать pull request?</x-sub-title>
+
 <x-ul :items="[
 'Перейдите в MoonShine репозиторий и нажмите Fork',
 'Сделайте git clone вашего fork',
