@@ -1,23 +1,38 @@
 <x-page title="Icons" :sectionMenu="[
     'Разделы' => [
-        ['url' => '#system', 'label' => 'Системные иконки'],
+        ['url' => '#solid', 'label' => 'Solid'],
+        ['url' => '#outline', 'label' => 'Outline'],
         ['url' => '#custom', 'label' => 'Кастомные иконки']
     ]
 ]">
 
 <x-p>
     Для всех сущностей, в которых есть метод <code>icon()</code>,
-    можно воспользоваться одним из предложенных наборов иконок или создать свой набор
+    можно воспользоваться одним из предустановленных наборов
+    из коллекции <x-link link="https://heroicons.com" target="_blank">Heroicons</x-link>
+    (набор <b>Solid</b> по умолчанию и <b>Outline</b>) или создать свой набор
 </x-p>
 
-<x-sub-title id="system">Системные иконки</x-sub-title>
+<x-sub-title id="solid">Solid</x-sub-title>
 
 <x-code language="php">
-    ->icon('add') // [tl! focus]
+    ->icon('heroicons.academic-cap') // [tl! focus]
 </x-code>
 
 <x-icon-list
-    pattern="../vendor/moonshine/moonshine/resources/views/ui/icons/*.blade.php"
+    pattern="../vendor/moonshine/moonshine/resources/views/ui/icons/heroicons/*.blade.php"
+    prefix="heroicons."
+/>
+
+<x-sub-title id="outline">Outline</x-sub-title>
+
+<x-code language="php">
+    ->icon('heroicons.outline.academic-cap') // [tl! focus]
+</x-code>
+
+<x-icon-list
+    pattern="../vendor/moonshine/moonshine/resources/views/ui/icons/heroicons/outline/*.blade.php"
+    prefix="heroicons.outline."
 />
 
 <x-sub-title id="custom">Кастомные иконки</x-sub-title>

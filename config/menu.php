@@ -144,10 +144,9 @@ return [
 //        ['slug' => 'actions-import', 'label' => 'Import'],
 //    ],
 
-//    'Icons:trophy' => [
-//        ['slug' => 'icons-index', 'label' => 'Basics'],
-//        ['slug' => 'icons-heroicons', 'label' => 'Heroicons'],
-//    ],
+    'Icons:trophy' => [
+        ['slug' => 'icons-index', 'label' => 'Icons'],
+    ],
 
 //    'UI components:code-bracket-square' => [
 //        ['slug' => 'components-index', 'label' => 'Basics'],
