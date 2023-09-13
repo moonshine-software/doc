@@ -1,45 +1,77 @@
 <x-page title="Конфигурация" :sectionMenu="[]">
 
 <x-code language="php">
-use MoonShine\Exceptions\MoonShineNotFoundException;
+use MoonShine\Exceptions\MoonShineNotFoundException;  // [tl! focus:start]
+use MoonShine\Forms\LoginForm;
+use MoonShine\Http\Middleware\Authenticate;
+use MoonShine\Http\Middleware\SecurityHeadersMiddleware;
 use MoonShine\Models\MoonshineUser;
+use MoonShine\MoonShineLayout;
+use MoonShine\Pages\ProfilePage; // [tl! focus:end]
 
-return [
+return [ // [tl! focus]
     # Директория, где располагаются ресурсы
-    'dir' => 'app/MoonShine',
+    'dir' => 'app/MoonShine', // [tl! focus]
     # При изменении директории необходимо поменять и namespace согласно psr-4
-    'namespace' => 'App\MoonShine',
+    'namespace' => 'App\MoonShine', // [tl! focus]
 
     # Заголовок админ-панели
-    'title' => env('MOONSHINE_TITLE', 'MoonShine'),
+    'title' => env('MOONSHINE_TITLE', 'MoonShine'), // [tl! focus]
     # Вы можете изменить логотип, указав путь (пример - /images/logo.svg)
-    'logo' => env('MOONSHINE_LOGO', '/images/logo.svg'),
-    'logo_small' => env('MOONSHINE_LOGO_SMALL', '/images/logo-icon.svg'),
+    'logo' => env('MOONSHINE_LOGO'), // [tl! focus]
+    'logo_small' => env('MOONSHINE_LOGO_SMALL'), // [tl! focus]
 
-    'route' => [
-        # По какому url будет доступна панель управления (как правило admin)
+    'route' => [ // [tl! focus]
+        # По какому url будет доступна панель управления
         # Если оставить значение пустым, то панель будет доступна от /
-        'prefix' => env('MOONSHINE_ROUTE_PREFIX', 'moonshine'),
+        'prefix' => env('MOONSHINE_ROUTE_PREFIX', 'admin'), // [tl! focus]
+        # Префикс формирования url для страниц
+        'single_page_prefix' => 'page', // [tl! focus]
         # Начальный маршрут в админ-панели
-        'index_route' => env('MOONSHINE_INDEX_ROUTE', 'moonshine.index'),
+        'index_route' => env('MOONSHINE_INDEX_ROUTE', 'moonshine.index'), // [tl! focus]
         # Группы middlewares в панели
-        'middleware' => ['moonshine'],
-        # Slug формирования url для кастомных страниц
-        'custom_page_slug' => 'custom_page',
+        'middlewares' => [  // [tl! focus]
+            SecurityHeadersMiddleware::class, // [tl! focus]
+        ], // [tl! focus]
         # Можно поменять исключение для 404 (для ModelNotFound нужно реализовать самостоятельно)
-        'notFoundHandler' => MoonShineNotFoundException::class
+        'notFoundHandler' => MoonShineNotFoundException::class, // [tl! focus]
     ],
 
     # Если вы хотите заменить MoonshineUser на свою модель, то можно отключить дефолтные миграции
-    'use_migrations' => true,
+    'use_migrations' => true, // [tl! focus]
     # Вкл/Выкл уведомления
-    'use_notifications' => true,
+    'use_notifications' => true, // [tl! focus]
 
-    'auth' => [
+    # Class для рендеринга основного шаблона страницы
+    'layout' => MoonShineLayout::class, // [tl! focus]
+
+    # Filesystem Disk по умолчанию
+    'disk' => 'public', // [tl! focus]
+
+    'forms' => [ // [tl! focus]
+        # форма аунтификации
+        'login' => LoginForm::class // [tl! focus]
+    ], // [tl! focus]
+
+    'pages' => [ // [tl! focus]
+        # Страница дашборда
+        'dashboard' => '', // [tl! focus]
+        # Страница профиля
+        'profile' => ProfilePage::class // [tl! focus]
+    ], // [tl! focus]
+
+    'auth' => [ // [tl! focus]
         # Вкл/Выкл аутентификацию. Если false, то панель будет доступна всем
-        'enable' => true,
+        'enable' => true, // [tl! focus]
+        'middleware' => Authenticate::class, // [tl! focus]
+        'fields' => [ // [tl! focus:start]
+            'username' => 'email',
+            'password' => 'password',
+            'name' => 'name',
+            'avatar' => 'avatar',
+        ], // [tl! focus:end]
         # Если используете собственный guard, provider
-        'guard' => 'moonshine',
+        'guard' => 'moonshine', // [tl! focus:start]
         'guards' => [
             'moonshine' => [
                 'driver' => 'session',
@@ -51,37 +83,26 @@ return [
                 'driver' => 'eloquent',
                 'model' => MoonshineUser::class,
             ],
-        ],
-        # Текст под кнопкой войти. Как пример, можно добавить кнопку регистрации
-        'footer' => ''
-    ],
+        ], // [tl! focus:end]
+    ], // [tl! focus]
     # Возможные варианты переводов
-    'locales' => [
-        'en', 'ru'
-    ],
-    # Дополнительные middlewares
-    'middlewares' => [],
-    'tinymce' => [
+    'locales' => [ // [tl! focus:start]
+        'en',
+        'ru',
+    ], // [tl! focus:end]
+
+    'tinymce' => [ // [tl! focus]
         # Роут файлового менеджера, подробности в разделе Поля
-        'file_manager' => false, // or 'laravel-filemanager' prefix for lfm
-        'token' => env('MOONSHINE_TINYMCE_TOKEN', ''),
-        'version' => env('MOONSHINE_TINYMCE_VERSION', '6')
-    ],
+        'file_manager' => false, // [tl! focus]
+        'token' => env('MOONSHINE_TINYMCE_TOKEN', ''), // [tl! focus]
+        'version' => env('MOONSHINE_TINYMCE_VERSION', '6'), // [tl! focus]
+    ], // [tl! focus]
+
     # Аутентификация через соц. сети и socialite, перечисляем драйверы и указываем логотип
-    'socialite' => [
+    'socialite' => [ // [tl! focus:start]
         // 'driver' => 'path_to_image_for_button'
-    ],
-    # Кастомизация шаблона
-    'header' => null, // blade path
-    'footer' => [
-        'copyright' => 'Made with ❤️ by <a href="https://cutcode.dev" class="font-semibold text-purple hover:text-pink" target="_blank">CutCode</a>',
-        'nav' => [
-            'https://github.com/moonshine/moonshine/blob/1.x/LICENSE.md' => 'License',
-            'https://moonshine.cutcode.dev' => 'Documentation',
-            'https://github.com/moonshine/moonshine' => 'GitHub',
-        ],
-    ]
-];
+    ], // [tl! focus:end]
+]; // [tl! focus]
 </x-code>
 
 <x-p>
@@ -89,14 +110,20 @@ return [
 </x-p>
 
 <x-code language="php">
+// ...
+
 return [
-    // ..
+    // ...
+
     'title' => env('MOONSHINE_TITLE', 'MoonShine'), // [tl! focus]
     'logo' => env('MOONSHINE_LOGO', ''), // [tl! focus]
+    'logo_small' => env('MOONSHINE_LOGO_SMALL'), // [tl! focus]
 
     'route' => [
-        'prefix' => env('MOONSHINE_ROUTE_PREFIX', 'moonshine'), // [tl! focus]
+        'prefix' => env('MOONSHINE_ROUTE_PREFIX', 'admin'), // [tl! focus]
     ],
-    // ..
+
+    // ...
+];
 </x-code>
 </x-page>

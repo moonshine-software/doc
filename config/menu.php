@@ -4,7 +4,7 @@ return [
     'Getting started:play' => [
         ['slug' => 'concept', 'label' => 'Concept'],
         ['slug' => 'installation', 'label' => 'Installation'],
-//        ['slug' => 'configuration', 'label' => 'Configuration', 'badge' => 'new'],
+        ['slug' => 'configuration', 'label' => 'Configuration'],
 //        ['slug' => 'contribution', 'label' => 'Contribution Guide'],
 //        ['slug' => 'releases', 'label' => 'Releases'],
 //        ['slug' => 'upgrade_guide', 'label' => 'Upgrade guide', 'badge' => 'new'],
