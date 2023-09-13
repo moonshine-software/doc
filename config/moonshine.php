@@ -35,7 +35,7 @@ return [
         'footer' => ''
     ],
     'locales' => [
-        'en', 'ru'
+        'ru'
     ],
     'middlewares' => [
         RenderTorchlight::class
