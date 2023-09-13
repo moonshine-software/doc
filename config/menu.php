@@ -3,7 +3,7 @@
 return [
     'Getting started:play' => [
         ['slug' => 'concept', 'label' => 'Concept'],
-//        ['slug' => 'installation', 'label' => 'Installation'],
+        ['slug' => 'installation', 'label' => 'Installation'],
 //        ['slug' => 'configuration', 'label' => 'Configuration', 'badge' => 'new'],
 //        ['slug' => 'contribution', 'label' => 'Contribution Guide'],
 //        ['slug' => 'releases', 'label' => 'Releases'],
@@ -31,7 +31,7 @@ return [
 
 //    'Fields:bars-3' => [
 //        ['slug' => 'fields-index', 'label' => 'Basics'],
-//        // Text
+        // Text
 //        'Text:_divider_',
 //        ['slug' => 'fields-text', 'label' => 'Text'],
 //        ['slug' => 'fields-id', 'label' => 'ID'],
@@ -44,33 +44,33 @@ return [
 //        ['slug' => 'fields-number', 'label' => 'Number'],
 //        ['slug' => 'fields-slide', 'label' => 'Slide'],
 //        ['slug' => 'fields-date', 'label' => 'Date'],
-//
-//        // Textarea
+
+        // Textarea
 //        'Textarea:_divider_',
 //        ['slug' => 'fields-textarea', 'label' => 'Textarea'],
 //        ['slug' => 'fields-wysiwyg', 'label' => 'WYSIWYG'],
 //        ['slug' => 'fields-code', 'label' => 'Code'],
-//
-//        // Select
+
+        // Select
 //        'Select:_divider_',
 //        ['slug' => 'fields-select', 'label' => 'Select'],
 //        ['slug' => 'fields-enum', 'label' => 'Enum'],
-//
-//        // Checkbox
+
+        // Checkbox
 //        'Checkbox:_divider_',
 //        ['slug' => 'fields-checkbox', 'label' => 'Checkbox'],
 //        ['slug' => 'fields-switch', 'label' => 'Switch'],
-//
-//        // File
+
+        // File
 //        'File:_divider_',
 //        ['slug' => 'fields-files', 'label' => 'Files'],
 //        ['slug' => 'fields-image', 'label' => 'Image'],
-//
-//        // Json
+
+        // Json
 //        'Json:_divider_',
 //        ['slug' => 'fields-json', 'label' => 'Json'],
-//
-//        // Relationships
+
+        // Relationships
 //        'Relationships:_divider_',
 //        ['slug' => 'fields-belongs_to', 'label' => 'BelongsTo'],
 //        ['slug' => 'fields-belongs_to_many', 'label' => 'BelongsToMany'],
@@ -78,48 +78,48 @@ return [
 //        ['slug' => 'fields-has_many_through', 'label' => 'HasManyThrough'],
 //        ['slug' => 'fields-has_one', 'label' => 'HasOne'],
 //        ['slug' => 'fields-has_one_through', 'label' => 'HasOneThrough'],
-//
+
 //        ['slug' => 'fields-morph_to', 'label' => 'MorphTo'],
 //        ['slug' => 'fields-morph_one', 'label' => 'MorphOne'],
 //        ['slug' => 'fields-morph_many', 'label' => 'MorphMany'],
 //        ['slug' => 'fields-morph_to_many', 'label' => 'MorphToMany'],
-//
+
 //        'Other:_divider_',
 //        ['slug' => 'fields-no_input', 'label' => 'NoInput'],
 //        ['slug' => 'fields-stack_fields', 'label' => 'StackFields'],
-//
-//        // Packages
+
+       // Packages
 //        'Packages:_divider_',
 //        ['slug' => 'fields-spatie-translatable', 'label' => 'Spatie\Translatable'],
 //        ['slug' => 'fields-spatie-medialibrary', 'label' => 'Spatie\MediaLibrary'],
 //    ],
-//
+
 //    'Filters:adjustments-vertical' => [
 //        ['slug' => 'filters-index', 'label' => 'Basics'],
-//        // Text
+       // Text
 //        'Text:_divider_',
 //        ['slug' => 'filters-text', 'label' => 'TextFilter'],
 //        ['slug' => 'filters-date', 'label' => 'DateFilter'],
 //        ['slug' => 'filters-date_range', 'label' => 'DateRangeFilter'],
 //        ['slug' => 'filters-slide', 'label' => 'SlideFilter'],
 //
-//        // Select
+       // Select
 //        'Select:_divider_',
 //        ['slug' => 'filters-select', 'label' => 'SelectFilter'],
 //
-//        // Checkbox
+       // Checkbox
 //        'Checkbox:_divider_',
 //        ['slug' => 'filters-switch', 'label' => 'SwitchFilter'],
 //
 //        ['slug' => 'filters-is_empty', 'label' => 'IsEmptyFilter/IsNotEmptyFilter'],
-//
-//        // Relationships
+
+       // Relationships
 //        'Relationships:_divider_',
 //        ['slug' => 'filters-belongs_to', 'label' => 'BelongsToFilter'],
 //        ['slug' => 'filters-belongs_to_many', 'label' => 'BelongsToManyFilter'],
 //        ['slug' => 'filters-has_one', 'label' => 'HasOneFilter'],
 //    ],
-//
+
 //    'Decorations:rocket-launch' => [
 //        ['slug' => 'decorations-index', 'label' => 'Basics'],
 //        ['slug' => 'decorations-tabs', 'label' => 'Tabs'],
@@ -130,25 +130,25 @@ return [
 //        ['slug' => 'decorations-collapse', 'label' => 'Collapse'],
 //        ['slug' => 'decorations-divider', 'label' => 'Divider', 'badge' => 'new'],
 //    ],
-//
+
 //    'Metrics:chart-bar' => [
 //        ['slug' => 'metrics-index', 'label' => 'Basics'],
 //        ['slug' => 'metrics-value', 'label' => 'Value'],
 //        ['slug' => 'metrics-line_chart', 'label' => 'Line Chart'],
 //        ['slug' => 'metrics-donut_chart', 'label' => 'Donut Chart', 'badge' => 'new'],
 //    ],
-//
+
 //    'Actions:hand-raised' => [
 //        ['slug' => 'actions-index', 'label' => 'Basics'],
 //        ['slug' => 'actions-export', 'label' => 'Export'],
 //        ['slug' => 'actions-import', 'label' => 'Import'],
 //    ],
-//
+
 //    'Icons:trophy' => [
 //        ['slug' => 'icons-index', 'label' => 'Basics'],
 //        ['slug' => 'icons-heroicons', 'label' => 'Heroicons'],
 //    ],
-//
+
 //    'UI components:code-bracket-square' => [
 //        ['slug' => 'components-index', 'label' => 'Basics'],
 //        ['slug' => 'components-alert', 'label' => 'Alert'],
@@ -180,7 +180,7 @@ return [
 //        ['slug' => 'components-toast', 'label' => 'Toast'],
 //        ['slug' => 'components-tooltip', 'label' => 'Tooltip'],
 //    ],
-//
+
 //    'Digging Deeper:moon' => [
 //        ['slug' => 'advanced-dashboard', 'label' => 'Dashboard', 'badge' => 'new'],
 //        ['slug' => 'advanced-routes', 'label' => 'Routes'],
@@ -195,7 +195,7 @@ return [
 //        ['slug' => 'advanced-localization', 'label' => 'Localization'],
 //        ['slug' => 'advanced-development', 'label' => 'Development'],
 //    ],
-//
+
 //    ':_divider_',
 //    'Packages:cube' => [
 //        ['slug' => 'packages', 'label' => 'Packages', 'badge' => 'new'],
