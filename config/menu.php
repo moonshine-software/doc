@@ -16,6 +16,7 @@ return [
         ['slug' => 'resources-validation', 'label' => 'Validation rules'],
         ['slug' => 'resources-filters', 'label' => 'Filters'],
         ['slug' => 'resources-search', 'label' => 'Search'],
+        ['slug' => 'resources-table_attributes', 'label' => 'Table attributes'],
 //        ['slug' => 'resources-actions', 'label' => 'Actions'],
 //        ['slug' => 'resources-active_actions', 'label' => 'Active actions'],
 //        ['slug' => 'resources-query', 'label' => 'Query'],
@@ -25,7 +26,6 @@ return [
 //        ['slug' => 'resources-form_actions', 'label' => 'Form actions'],
 //        ['slug' => 'resources-query_tags', 'label' => 'Quick filters (tags)'],
 //        ['slug' => 'resources-components', 'label' => 'Components'],
-//        ['slug' => 'resources-table_styles', 'label' => 'Table styles'],
 //        ['slug' => 'resources-singleton', 'label' => 'SingletonResource'],
     ],
 
