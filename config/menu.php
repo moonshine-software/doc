@@ -13,10 +13,10 @@ return [
     'Models Resources:document-duplicate' => [
         ['slug' => 'resources-index', 'label' => 'Basics'],
         ['slug' => 'resources-fields', 'label' => 'Fields'],
+        ['slug' => 'resources-validation', 'label' => 'Validation rules'],
         ['slug' => 'resources-filters', 'label' => 'Filters'],
 //        ['slug' => 'resources-actions', 'label' => 'Actions'],
 //        ['slug' => 'resources-active_actions', 'label' => 'Active actions'],
-//        ['slug' => 'resources-validation', 'label' => 'Validation rules'],
 //        ['slug' => 'resources-search', 'label' => 'Search'],
 //        ['slug' => 'resources-query', 'label' => 'Query'],
 //        ['slug' => 'resources-metrics', 'label' => 'Metrics'],
