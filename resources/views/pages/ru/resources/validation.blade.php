@@ -13,19 +13,22 @@
 </x-p>
 
 <x-p>
-    Достаточно в привычной нам манере добавлять правила в методе <code>rules()</code> ресурса.
+    Достаточно в привычной нам манере добавлять правила в методе <code>rules()</code> ресурса модели.
 </x-p>
 
 <x-code language="php">
-namespace MoonShine\Resources;
+namespace App\MoonShine\Resources;
 
-use MoonShine\Models\MoonshineUser;
+use App\Models\Post;
+use MoonShine\Fields\Text;
+use MoonShine\Resources\ModelResource;
 
-class PostResource extends Resource
+class PostResource extends ModelResource
 {
-    public static string $model = App\Models\Post::class;
+    protected string $model = Post::class;
 
-    public static string $title = 'Articles';
+    protected string $title = 'Posts';
+
     //...
 
     public function rules($item): array // [tl! focus:start]
@@ -45,17 +48,22 @@ class PostResource extends Resource
 <x-sub-title id="messages">Сообщения</x-sub-title>
 
 <x-p>
-    Используя метод <code>validationMessages()</code> можно создать свои сообщения об ошибках валидации
+    Используя метод <code>validationMessages()</code> можно создать свои сообщения об ошибках валидации.
 </x-p>
 
 <x-code language="php">
-namespace MoonShine\Resources;
+namespace App\MoonShine\Resources;
 
-use MoonShine\Models\MoonshineUser;
+use App\Models\Post;
+use MoonShine\Fields\Text;
+use MoonShine\Resources\ModelResource;
 
-class PostResource extends Resource
+class PostResource extends ModelResource
 {
-    public static string $model = App\Models\Post::class;
+    protected string $model = Post::class;
+
+    protected string $title = 'Posts';
+
     //...
 
     public function validationMessages(): array // [tl! focus:start]
@@ -77,13 +85,18 @@ class PostResource extends Resource
 </x-p>
 
 <x-code language="php">
-namespace MoonShine\Resources;
+namespace App\MoonShine\Resources;
 
-use MoonShine\Models\MoonshineUser;
+use App\Models\Post;
+use MoonShine\Fields\Text;
+use MoonShine\Resources\ModelResource;
 
-class PostResource extends Resource
+class PostResource extends ModelResource
 {
-    public static string $model = App\Models\Post::class;
+    protected string $model = Post::class;
+
+    protected string $title = 'Posts';
+
     //...
 
     public function prepareForValidation(): void // [tl! focus:start]

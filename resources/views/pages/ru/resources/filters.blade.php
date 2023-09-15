@@ -1,49 +1,46 @@
 <x-page title="Фильтры" :sectionMenu="$sectionMenu ?? null">
 
 <x-p>
-    Фильтры не многим отличаются от полей и наследуют их свойства и методы!
-    Отображаются на главной странице раздела для фильтрации списка данных.
+    Для создания фильтров используются так же поля,
+    они отображаются только на главной странице раздела.
 </x-p>
 
 <x-p>
-    Добавлять новые фильтры просто! Достаточно в методе <code>filters</code>, который возвращает массив,
-    вернуть все необходимые фильтры, а как устроены фильтры, мы рассмотрим в разделе <x-link link="{{ route('moonshine.custom_page', 'filters-index') }}">"Фильтры"</x-link>.
+    Чтобы указать по каким полям осуществлять фильтрацию данных,
+    достаточно в вашем ресурсе модели в методе <code>filters()</code>,
+    вернуть массив с необходимыми полями.
 </x-p>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-    Если метод отсутствует либо возвращает пустой массив, то фильтры не будут отображаться
+    Если метод отсутствует, либо возвращает пустой массив, то фильтры не будут отображаться
+</x-moonshine::alert>
+
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    Некоторые поля не могут участвовать в построении запроса на фильтрацию,
+    поэтому они будут автоматически исключены из списка фильтров
 </x-moonshine::alert>
 
 <x-code language="php">
-namespace MoonShine\Resources;
+namespace App\MoonShine\Resources;
 
-use MoonShine\Models\MoonshineUser;
-use MoonShine\Filters\TextFilter; // [tl! focus]
+use App\Models\Post;
+use MoonShine\Fields\Text; // [tl! focus]
+use MoonShine\Resources\ModelResource;
 
-class PostResource extends Resource
+class PostResource extends ModelResource
 {
-    public static string $model = App\Models\Post::class;
+    protected string $model = Post::class;
 
-    public static string $title = 'Статьи';
+    protected string $title = 'Posts';
+
     //...
 
-    // [tl! focus:start]
-    public function filters(): array
+    public function filters(): array // [tl! focus:start]
     {
         return [
-            TextFilter::make('Заголовок', 'title')
+            Text::make('Title', 'title'),
         ];
-    }
-
-    // Не забудьте подключить фильтры к ресурсу
-    public function actions(): array
-    {
-        return [
-            FiltersAction::make(trans('moonshine::ui.filters')),
-        ];
-    }
-
-    // [tl! focus:end]
+    } // [tl! focus:end]
 
     //...
 }
@@ -51,5 +48,10 @@ class PostResource extends Resource
 
 <x-image theme="light" src="{{ asset('screenshots/filters.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/filters_dark.png') }}"></x-image>
+
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    Поля являются ключевым звеном построения форм в админ-панели <strong>Moonshine</strong>.<br />
+    <x-link link="{{ route('moonshine.custom_page', 'fields-index') }}">Подробнее о Полях</x-link>
+</x-moonshine::alert>
 
 </x-page>

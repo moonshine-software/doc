@@ -8,26 +8,32 @@
 <x-sub-title id="basics">Основы</x-sub-title>
 
 <x-p>
-    Здесь все просто! Для полнотекстового поиска необходимо указать, какие поля будут участвовать в поиске.
-    Для этого необходимо их перечислить в возвращаемом массиве в методе <code>search()</code>
+    Для поиска необходимо указать, какие поля модели будут участвовать в поиске.
+    Для этого необходимо их перечислить в возвращаемом массиве в методе <code>search()</code>.
 </x-p>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-    Если метод отсутствует либо возвращает пустой массив, то поисковая строка не будет отображаться
+    Если метод отсутствует, либо возвращает пустой массив, то поисковая строка не будет отображаться.
 </x-moonshine::alert>
 
 <x-code language="php">
-namespace MoonShine\Resources;
+namespace App\MoonShine\Resources;
 
-use MoonShine\Models\MoonshineUser;
+use App\Models\Post;
+use MoonShine\Fields\Text;
+use MoonShine\Resources\ModelResource;
 
-class PostResource extends Resource
+class PostResource extends ModelResource
 {
+    protected string $model = Post::class;
+
+    protected string $title = 'Posts';
+
     //...
 
     public function search(): array // [tl! focus:start]
     {
-        return ['id', 'title'];
+        return ['id', 'title', 'text'];
     } // [tl! focus:end]
 
     //...
@@ -35,26 +41,33 @@ class PostResource extends Resource
 </x-code>
 
 <x-p>
-    Если требуется fulltext поиск, то необходимо воспользоваться аттрибутом <code>MoonShine\Attributes\SearchUsingFullText</code>
+    Если требуется fulltext поиск, то необходимо воспользоваться аттрибутом <code>MoonShine\Attributes\SearchUsingFullText</code>.
 </x-p>
 
 <x-code language="php">
-    namespace MoonShine\Resources;
+namespace App\MoonShine\Resources;
 
-    use MoonShine\Attributes\SearchUsingFullText; // [tl! focus]
+use App\Models\Post;
+use MoonShine\Attributes\SearchUsingFullText; // [tl! focus]
+use MoonShine\Fields\Text;
+use MoonShine\Resources\ModelResource;
 
-    class PostResource extends Resource
-    {
+class PostResource extends ModelResource
+{
+    protected string $model = Post::class;
+
+    protected string $title = 'Posts';
+
     //...
 
     #[SearchUsingFullText(['title', 'text'])] // [tl! focus]
     public function search(): array
     {
-        return ['id'];
+        return ['id', 'title', 'text'];
     }
 
     //...
-    }
+}
 </x-code>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
@@ -68,7 +81,7 @@ class PostResource extends Resource
 
 <x-p>
     Для организации глобального поиска можно воспользоваться пакетом
-    <x-link link="https://github.com/lee-to/moonshine-algolia-search" target="_blank">Algolias search for MoonShine</x-link>
+    <x-link link="https://github.com/lee-to/moonshine-algolia-search" target="_blank">Algolias search for MoonShine</x-link>.
 </x-p>
 
 <x-p>

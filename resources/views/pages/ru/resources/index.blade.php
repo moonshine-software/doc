@@ -3,99 +3,107 @@
     :sectionMenu="[
         'Разделы' => [
             ['url' => '#basics', 'label' => 'Основы'],
-            ['url' => '#variables', 'label' => 'Основные свойства'],
             ['url' => '#create', 'label' => 'Создание'],
+            ['url' => '#variables', 'label' => 'Основные свойства'],
             ['url' => '#define', 'label' => 'Объявление'],
             ['url' => '#item', 'label' => 'Текущий элемент/модель'],
             ['url' => '#modal', 'label' => 'Модальные окна'],
-            ['url' => '#after', 'label' => 'Переход после сохранения'],
             ['url' => '#simple-pagination', 'label' => 'Simple pagination'],
             ['url' => '#disable-pagination', 'label' => 'Отключение пагинации'],
-            ['url' => '#views', 'label' => 'Кастомизация отображений'],
-            ['url' => '#precognition', 'label' => 'Precognition'],
         ]
     ]"
-    :videos="[
-        ['url' => 'https://www.youtube.com/embed/pHSaMeBjVDk', 'title' => 'Screencasts: Ресурсы и меню'],
-        ['url' => 'https://www.youtube.com/embed/jMsH8hTkPI4', 'title' => 'Screencasts: Кастомизация'],
-    ]"
+    :videos="[]"
 >
 
 <x-sub-title id="basics">Основы</x-sub-title>
 
 <x-p>
-    Что есть административная панель? Само собой это разделы, основанные на данных из базы, на основе eloquent моделей.
+    В основе любой админ-панели лежат разделы для редактирования данных.
+    <strong>MoonShine</strong> не является исключением в этом
+    и для работы с базой данных использует <code>Eloquent</code> модели,
+    а для разделов стандартные Laravel ресурс контроллеры и ресурс маршруты.
 </x-p>
 
 <x-p>
-    В основе MoonShine стандартные Laravel ресурс контроллеры и ресурс роуты
+    Если бы вы разрабатывали самостоятельно, то создать ресурс контроллеры и ресурс
+    маршруты можно следующим образом:
+</x-p>
 
-    <x-code language="shell">
-        php artisan make:controller Controller --resource
-    </x-code>
+<x-code language="shell">
+    php artisan make:controller Controller --resource
+</x-code>
 
-    <x-code language="php">
-        Route::resources('resources', Controller::class);
-    </x-code>
+<x-code language="php">
+    Route::resources('resources', Controller::class);
+</x-code>
 
-    Но система будет их генерировать и объявлять самостоятельно.
+<x-p>
+    Но эту работу можно поручить админ-панели <strong>MoonShine</strong>,
+    которая будет их генерировать и объявлять самостоятельно.
 </x-p>
 
 <x-p>
-    Поэтому в основе ресурсов MoonShine (разделов админ-панели) eloquent модель.
+    <code>ModelResource</code> является основным компонентом для создания раздела
+    в админ-панели при работе с базой данных.
 </x-p>
 
-<x-sub-title id="create">Создание раздела админ-панели</x-sub-title>
+<x-sub-title id="create">Создание раздела</x-sub-title>
 
 <x-code language="shell">
     php artisan moonshine:resource Post
 </x-code>
 
 <x-p>
-    В результате будет создан Resource класс, который будет основой нового раздела в панели.
-    Располагается он по умолчанию в директории <code>app/MoonShine/Resources/PostResource</code>.
-    И будет автоматически привязан к модели <code>app/Models/Post</code>.
-    Заголовок раздела останется с названием Posts.
+    <ul>
+        <li>- измените название вашего ресурса, если требуется</li>
+        <li>- выберите тип ресурса <em>Default model resource</em></li>
+    </ul>
 </x-p>
 
 <x-p>
-    Можно изменить привязку к модели и заголовок раздела вместе с выполнением команды
-
-    <x-code language="shell">
-        php artisan moonshine:resource Post --model=CustomPost --title="Статьи"
-    </x-code>
-
-    <x-code language="shell">
-        php artisan moonshine:resource Post --model="App\Models\CustomPost" --title="Статьи"
-    </x-code>
+    В результате создастся класс <code>PostResource</code>, который будет основой нового раздела в панели.<br />
+    Располагается он, по умолчанию, в директории <code>app/MoonShine/Resources</code>.<br />
+    MoonShine автоматически, исходя из названия, привяжет ресурс к модели <code>app/Models/Post</code>.<br />
+    Заголовок раздела так же сгенерируется автоматически и будет "Posts".
 </x-p>
 
+<x-p>
+    Можно сразу указать команде привязку к модели и заголовок раздела:
+</x-p>
+
+<x-code language="shell">
+    php artisan moonshine:resource Post --model=CustomPost --title="Статьи"
+</x-code>
+
+<x-code language="shell">
+    php artisan moonshine:resource Post --model="App\Models\CustomPost" --title="Статьи"
+</x-code>
+
 <x-sub-title id="variables">Основные свойства раздела</x-sub-title>
+
 <x-p>
     Основные параметры, которые можно менять у ресурса, чтобы кастомизировать его работу
 </x-p>
+
 <x-code language="php">
-namespace MoonShine\Resources;
+namespace App\MoonShine\Resources;
 
-use MoonShine\Models\MoonshineUser;
+use App\Models\Post;
+use MoonShine\Resources\ModelResource;
 
-class PostResource extends Resource
+class PostResource extends ModelResource
 {
-    public static string $model = App\Models\Post::class; // Модель [tl! focus]
+    protected string $model = Post::class; // Модель [tl! focus]
 
-    public static string $title = 'Статьи'; // Название раздела [tl! focus]
+    protected string $title = 'Posts'; // Название раздела [tl! focus]
 
-    public static string $subTitle = 'Управление статьями'; // Текст под заголовком раздела [tl! focus]
+    protected array $with = ['category']; // Eager load [tl! focus]
 
-    public static array $with = ['category']; // Eager load [tl! focus]
+    protected string $sortColumn = ''; // Поле сортировки по умолчанию [tl! focus]
 
-    public static bool $withPolicy = false; // Авторизация [tl! focus]
+    protected string $sortDirection = 'DESC'; // Тип сортировки по умолчанию [tl! focus]
 
-    public static string $orderField = 'id'; // Поле сортировки по умолчанию [tl! focus]
-
-    public static string $orderType = 'DESC'; // Тип сортировки по умолчанию [tl! focus]
-
-    public static int $itemsPerPage = 25; // Количество элементов на странице [tl! focus]
+    protected int $itemsPerPage = 25; // Количество элементов на странице [tl! focus]
 
     //...
 }
@@ -107,53 +115,28 @@ class PostResource extends Resource
 <x-sub-title id="define">Объявление раздела в системе</x-sub-title>
 
 <x-p>
-    Добавляются новые ресурсы к системе в <code>service provider</code> с помощью singleton класса
-    <code>MoonShine\MoonShine</code>.
+    Зарегистрировать ресурс в системе и сразу добавить ссылку на раздел в навигационное меню
+    можно через сервис провайдере <code>MoonShineServiceProvider</code>.
 </x-p>
 
 <x-code language="php">
 namespace App\Providers;
 
 use App\MoonShine\Resources\PostResource; // [tl! focus]
+use MoonShine\Providers\MoonShineApplicationServiceProvider;
 
-class MoonShineServiceProvider extends ServiceProvider
+class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 {
     //...
 
-    public function boot()
+    protected function menu(): array
     {
-        app(MoonShine::class)->resources([
-            new PostResource(),
-        ])  // [tl! focus: -2]
-    }
-</x-code>
+        return [
+            MenuItem::make('Posts', new PostResource())
+        ];
+    } // [tl! focus:-4]
 
-<x-p>
-    Для добавления ссылки на ресурс в навигационное меню, ресурс можно зарегистрировать используя метод <code>menu()</code>.
-</x-p>
-
-<x-code language="php">
-namespace App\Providers;
-
-use App\MoonShine\Resources\PostResource; // [tl! focus]
-use Illuminate\Support\ServiceProvider;
-use MoonShine\Menu\MenuItem; // [tl! focus]
-use MoonShine\MoonShine; // [tl! focus]
-use MoonShine\Resources\MoonShineUserResource;
-use MoonShine\Resources\MoonShineUserRoleResource;
-
-class MoonShineServiceProvider extends ServiceProvider
-{
     //...
-
-    public function boot()
-    {
-        app(MoonShine::class)->menu([ // [tl! focus]
-            MenuItem::make('Admins', new MoonShineUserResource()),
-            MenuItem::make('Roles', new MoonShineUserRoleResource()),
-            MenuItem::make('Posts', new PostResource()), // [tl! focus]
-        ]); // [tl! focus]
-    }
 }
 </x-code>
 
@@ -161,8 +144,32 @@ class MoonShineServiceProvider extends ServiceProvider
 <x-image theme="dark" src="{{ asset('screenshots/menu_dark.png') }}"></x-image>
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
-    О расширенных настройках можно узнать в разделе <x-link :link="route('moonshine.custom_page', 'advanced-menu')" ><code>Digging Deeper > Меню</code></x-link>.
+    О расширенных настройках можно узнать в разделе
+    <x-link :link="route('moonshine.custom_page', 'advanced-menu')" ><code>Digging Deeper > Меню</code></x-link>.
 </x-moonshine::alert>
+
+<x-p>
+    Если вам необходимо только зарегистрировать ресурс в системе без добавления в навигационное меню:
+</x-p>
+
+<x-code language="php">
+namespace App\Providers;
+
+use App\MoonShine\Resources\PostResource; // [tl! focus]
+use MoonShine\Providers\MoonShineApplicationServiceProvider;
+
+class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
+{
+    protected function resources(): array
+    {
+        return [
+            new PostResource()
+        ];
+    } // [tl! focus:-4]
+
+    //...
+}
+</x-code>
 
 <x-sub-title id="item">Текущий элемент/модель</x-sub-title>
 
@@ -192,46 +199,21 @@ class MoonShineServiceProvider extends ServiceProvider
 namespace App\MoonShine\Resources;
 
 use App\Models\Post;
+use MoonShine\Resources\ModelResource;
 
-use MoonShine\Resources\Resource;
-
-class PostResource extends Resource
+class PostResource extends ModelResource
 {
-    public static string $model = Post::class;
+    protected string $model = Post::class;
 
-    public static string $title = 'Posts';
+    protected string $title = 'Posts';
 
-    protected bool $createInModal = true; // [tl! focus]
+    protected bool $createInModal = false; // [tl! focus]
 
-    protected bool $editInModal = true; // [tl! focus]
+    protected bool $editInModal = false; // [tl! focus]
 
-    protected bool $showInModal = true; // [tl! focus]
+    protected bool $detailInModal = false; // [tl! focus]
 
-    // ...
-</x-code>
-
-<x-sub-title id="after">Переход после сохранения</x-sub-title>
-
-<x-p>
-    После сохранения ресурса можно указать, по какому маршруту сделать переход:
-    на страницу списка, детальную страницу или же на страницу редактирования.
-</x-p>
-
-<x-p>По умолчанию <code>index</code></x-p>
-
-<x-code language="php">
-namespace App\MoonShine\Resources;
-
-use App\Models\Post;
-use MoonShine\Resources\Resource;
-
-class PostResource extends Resource
-{
-    public static string $model = Post::class;
-
-    protected string $routeAfterSave = 'index'; // index, show, edit [tl! focus]
-
-    // ...
+    //...
 }
 </x-code>
 
@@ -246,13 +228,15 @@ class PostResource extends Resource
 namespace App\MoonShine\Resources;
 
 use App\Models\Post;
-use MoonShine\Resources\Resource;
+use MoonShine\Resources\ModelResource;
 
-class PostResource extends Resource
+class PostResource extends ModelResource
 {
-    public static string $model = Post::class;
+    protected string $model = Post::class;
 
-    public static bool $simplePaginate = true; // [tl! focus]
+    protected string $title = 'Posts';
+
+    protected bool $simplePaginate = true; // [tl! focus]
 
     // ...
 }
@@ -271,101 +255,15 @@ class PostResource extends Resource
 namespace App\MoonShine\Resources;
 
 use App\Models\Post;
-use MoonShine\Resources\Resource;
+use MoonShine\Resources\ModelResource;
 
-class PostResource extends Resource
+class PostResource extends ModelResource
 {
-    public static string $model = Post::class;
+    protected string $model = Post::class;
+
+    protected string $title = 'Posts';
 
     protected bool $usePagination = false; // [tl! focus]
-
-    // ...
-}
-</x-code>
-
-<x-sub-title id="views">Кастомизация отображений</x-sub-title>
-
-<x-p>
-    Можно кастомизировать отображение списка и формы через
-    свойства <code>itemsView</code>, <code>formView</code> и <code>detailView</code>.
-</x-p>
-
-<x-code language="php">
-namespace App\MoonShine\Resources;
-
-use App\Models\Post;
-use MoonShine\Resources\Resource;
-
-class PostResource extends Resource
-{
-    public static string $model = Post::class;
-
-    protected string $itemsView = 'moonshine::crud.shared.table'; // [tl! focus]
-
-    protected string $formView = 'moonshine::crud.shared.form'; // [tl! focus]
-
-    protected string $detailView = 'moonshine::crud.shared.detail-card'; // [tl! focus]
-
-    // ...
-}
-</x-code>
-
-<x-p>
-    Или переопределив соответствующие методы
-</x-p>
-
-<x-code language="php">
-namespace App\MoonShine\Resources;
-
-use App\Models\Post;
-use MoonShine\Resources\Resource;
-
-class PostResource extends Resource
-{
-    public static string $model = Post::class;
-
-    public function itemsView(): string
-    {
-        return $this->itemsView;
-    } // [tl! focus:-3]
-
-    public function formView(): string
-    {
-        return $this->formView;
-    } // [tl! focus:-3]
-
-    public function detailView(): string
-    {
-        return $this->detailView;
-    } // [tl! focus:-3]
-
-    // ...
-}
-</x-code>
-
-<x-sub-title id="precognition">Precognition</x-sub-title>
-
-<x-p>
-    Precognition в Laravel позволяет создавать "живую" проверку для вашего приложения
-    без необходимости дублировать правила валидации.
-</x-p>
-
-<x-p>
-    В Moonshine вы можете воспользоваться precognition при отправке запросов вашего ресурса.
-    Для этого необходимо у свойства <code>precognition</code> указать значение <code>true</code>.
-</x-p>
-
-<x-code language="php">
-namespace App\MoonShine\Resources;
-
-use App\Models\Post;
-use MoonShine\Resources\Resource;
-
-class PostResource extends Resource
-{
-    public static string $model = Post::class;
-
-    protected bool $precognition = true; // [tl! focus]
 
     // ...
 }
