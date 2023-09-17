@@ -1,25 +1,30 @@
 <x-page title="Метрики" :sectionMenu="$sectionMenu ?? null">
 
 <x-p>
-    Как и в <x-link link="{{ route('moonshine.page', 'advanced-dashboard') }}">панели управления</x-link> в каждом ресурсе можно
-    отобразить <x-link link="{{ route('moonshine.page', 'metrics-index') }}">метрики</x-link>
+    На индексной странице модель ресурса можно отобразить информационные блоки со статистикой - метрики.<br />
+    Для это в методе <code>metrics()</code> вернуть массив из <code>ValueMetric</code>.
 </x-p>
 
 <x-code language="php">
-namespace MoonShine\Resources;
+namespace App\MoonShine\Resources;
 
+use App\Models\Post;
+use MoonShine\Metrics\ValueMetric; // [tl! focus]
+use MoonShine\Resources\ModelResource;
 
-use MoonShine\Metrics\ValueMetric;
-
-class PostResource extends Resource
+class PostResource extends ModelResource
 {
+    protected string $model = Post::class;
+
+    protected string $title = 'Posts';
+
     //...
 
     public function metrics(): array // [tl! focus:start]
     {
         return [
-            ValueMetric::make('Completed orders')
-                ->value(Orders::completed()->count())
+            ValueMetric::make('Articles')
+                ->value(Post::count()),
         ];
     } // [tl! focus:end]
 
@@ -29,5 +34,9 @@ class PostResource extends Resource
 
 <x-image theme="light" src="{{ asset('screenshots/metrics.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/metrics_dark.png') }}"></x-image>
+
+<x-moonshine::alert type="default" icon="heroicons.book-open">
+    За более подробной информацией обратитесь к разделу <x-link link="{{ route('moonshine.custom_page', 'metrics-index') }}">Метрики</x-link>.
+</x-moonshine::alert>
 
 </x-page>
