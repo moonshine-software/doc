@@ -29,8 +29,8 @@ return [
 //        ['slug' => 'resources-singleton', 'label' => 'SingletonResource'],
     ],
 
-//    'Fields:bars-3' => [
-//        ['slug' => 'fields-index', 'label' => 'Basics'],
+    'Fields:bars-3' => [
+        ['slug' => 'fields-index', 'label' => 'Basics'],
         // Text
 //        'Text:_divider_',
 //        ['slug' => 'fields-text', 'label' => 'Text'],
@@ -92,7 +92,7 @@ return [
 //        'Packages:_divider_',
 //        ['slug' => 'fields-spatie-translatable', 'label' => 'Spatie\Translatable'],
 //        ['slug' => 'fields-spatie-medialibrary', 'label' => 'Spatie\MediaLibrary'],
-//    ],
+    ],
 
 //    'Filters:adjustments-vertical' => [
 //        ['slug' => 'filters-index', 'label' => 'Basics'],
