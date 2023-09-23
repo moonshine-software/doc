@@ -110,7 +110,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 </x-p>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-    По умолчанию админ-панель доступа по url <code>/admin</code>.<br />
+    По умолчанию админ-панель доступна по url <code>/admin</code>.<br />
     Изменить url можно в
     <x-link link="{{ route('moonshine.custom_page', 'configuration') }}">файле конфигурации</x-link>.
 </x-moonshine::alert>
