@@ -32,8 +32,8 @@ return [
     'Fields:bars-3' => [
         ['slug' => 'fields-index', 'label' => 'Basics'],
         // Text
-//        'Text:_divider_',
-//        ['slug' => 'fields-text', 'label' => 'Text'],
+        'Text:_divider_',
+        ['slug' => 'fields-text', 'label' => 'Text'],
 //        ['slug' => 'fields-id', 'label' => 'ID'],
 //        ['slug' => 'fields-slug', 'label' => 'Slug'],
 //        ['slug' => 'fields-color', 'label' => 'Color'],
