@@ -34,7 +34,7 @@ return [
         // Text
         'Text:_divider_',
         ['slug' => 'fields-text', 'label' => 'Text'],
-//        ['slug' => 'fields-id', 'label' => 'ID'],
+        ['slug' => 'fields-id', 'label' => 'ID'],
 //        ['slug' => 'fields-slug', 'label' => 'Slug'],
 //        ['slug' => 'fields-color', 'label' => 'Color'],
 //        ['slug' => 'fields-url', 'label' => 'Url'],
