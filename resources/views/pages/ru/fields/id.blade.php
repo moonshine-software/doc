@@ -5,9 +5,7 @@
 </x-extendby>
 
 <x-p>
-    Присутствует почти всегда и будет скрыт по умолчанию на странице добавления/редактирования.
-    Если primary key имеет наименование, отличное от id, то свое наименование указываем первым
-    аргументом у метода <code>make</code>
+    Поле отображается почти всегда и будет скрыт по умолчанию на странице добавления/редактирования.
 </x-p>
 
 <x-code language="php">
@@ -25,6 +23,10 @@ public function fields(): array
 //...
 </x-code>
 
+<x-p>
+    Если primary key имеет наименование, отличное от id, то необходимо указать аргументы у метода <code>make()</code>.
+</x-p>
+
 <x-code language="php">
 use MoonShine\Fields\ID; // [tl! focus]
 
@@ -33,7 +35,7 @@ use MoonShine\Fields\ID; // [tl! focus]
 public function fields(): array
 {
     return [
-        ID::make('primary_key')  // [tl! focus]
+        ID::make('ID', 'primary_key')  // [tl! focus]
     ];
 }
 

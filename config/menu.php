@@ -29,12 +29,12 @@ return [
 //        ['slug' => 'resources-singleton', 'label' => 'SingletonResource'],
     ],
 
-//    'Fields:bars-3' => [
-//        ['slug' => 'fields-index', 'label' => 'Basics'],
+    'Fields:bars-3' => [
+        ['slug' => 'fields-index', 'label' => 'Basics'],
         // Text
-//        'Text:_divider_',
-//        ['slug' => 'fields-text', 'label' => 'Text'],
-//        ['slug' => 'fields-id', 'label' => 'ID'],
+        'Text:_divider_',
+        ['slug' => 'fields-text', 'label' => 'Text'],
+        ['slug' => 'fields-id', 'label' => 'ID'],
 //        ['slug' => 'fields-slug', 'label' => 'Slug'],
 //        ['slug' => 'fields-color', 'label' => 'Color'],
 //        ['slug' => 'fields-url', 'label' => 'Url'],
@@ -92,7 +92,7 @@ return [
 //        'Packages:_divider_',
 //        ['slug' => 'fields-spatie-translatable', 'label' => 'Spatie\Translatable'],
 //        ['slug' => 'fields-spatie-medialibrary', 'label' => 'Spatie\MediaLibrary'],
-//    ],
+    ],
 
 //    'Filters:adjustments-vertical' => [
 //        ['slug' => 'filters-index', 'label' => 'Basics'],
