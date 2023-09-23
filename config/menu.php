@@ -36,7 +36,7 @@ return [
         ['slug' => 'fields-text', 'label' => 'Text'],
         ['slug' => 'fields-hidden', 'label' => 'Hidden'],
         ['slug' => 'fields-id', 'label' => 'ID'],
-//        ['slug' => 'fields-slug', 'label' => 'Slug'],
+        ['slug' => 'fields-slug', 'label' => 'Slug'],
 //        ['slug' => 'fields-color', 'label' => 'Color'],
 //        ['slug' => 'fields-url', 'label' => 'Url'],
 //        ['slug' => 'fields-email', 'label' => 'E-mail'],
