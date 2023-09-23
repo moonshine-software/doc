@@ -18,7 +18,7 @@
 
 <x-ul :items="['php >=8.1', 'laravel >= 10.20', 'composer']"></x-ul>
 
-<x-sub-title id="composer" hashtag="1">Composer</x-sub-title>
+<x-sub-title id="composer">Composer</x-sub-title>
 
 <x-code language="shell">
     composer require moonshine/moonshine
