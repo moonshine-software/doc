@@ -120,16 +120,16 @@ return [
 //        ['slug' => 'filters-has_one', 'label' => 'HasOneFilter'],
 //    ],
 
-//    'Decorations:rocket-launch' => [
-//        ['slug' => 'decorations-index', 'label' => 'Basics'],
-//        ['slug' => 'decorations-tabs', 'label' => 'Tabs'],
-//        ['slug' => 'decorations-heading', 'label' => 'Heading'],
-//        ['slug' => 'decorations-block', 'label' => 'Block'],
-//        ['slug' => 'decorations-layout', 'label' => 'Layout', 'badge' => 'new'],
-//        ['slug' => 'decorations-button', 'label' => 'Button'],
-//        ['slug' => 'decorations-collapse', 'label' => 'Collapse'],
-//        ['slug' => 'decorations-divider', 'label' => 'Divider', 'badge' => 'new'],
-//    ],
+   'Decorations:rocket-launch' => [
+       ['slug' => 'decorations-index', 'label' => 'Basics'],
+       ['slug' => 'decorations-tabs', 'label' => 'Tabs'],
+       // ['slug' => 'decorations-heading', 'label' => 'Heading'],
+       // ['slug' => 'decorations-block', 'label' => 'Block'],
+       // ['slug' => 'decorations-layout', 'label' => 'Layout', 'badge' => 'new'],
+       // ['slug' => 'decorations-button', 'label' => 'Button'],
+       // ['slug' => 'decorations-collapse', 'label' => 'Collapse'],
+       // ['slug' => 'decorations-divider', 'label' => 'Divider', 'badge' => 'new'],
+   ],
 
 //    'Metrics:chart-bar' => [
 //        ['slug' => 'metrics-index', 'label' => 'Basics'],
