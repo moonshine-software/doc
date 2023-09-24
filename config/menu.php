@@ -40,7 +40,7 @@ return [
         ['slug' => 'fields-color', 'label' => 'Color'],
         ['slug' => 'fields-url', 'label' => 'Url'],
         ['slug' => 'fields-email', 'label' => 'E-mail'],
-//        ['slug' => 'fields-phone', 'label' => 'Phone'],
+        ['slug' => 'fields-phone', 'label' => 'Phone'],
 //        ['slug' => 'fields-password', 'label' => 'Password'],
 //        ['slug' => 'fields-number', 'label' => 'Number'],
 //        ['slug' => 'fields-slide', 'label' => 'Slide'],
