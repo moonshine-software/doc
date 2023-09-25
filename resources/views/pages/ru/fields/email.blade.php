@@ -5,13 +5,23 @@
 </x-extendby>
 
 <x-p>
-    Все то же самое как и "Текстовое поле", меняется только input type = email
+    Поле <em>Email</em> является расширением <em>Text</em>,
+    которое по умолчанию устанавливает <code>type=email</code>.
 </x-p>
 
 <x-code language="php">
-use MoonShine\Fields\Email;
+use MoonShine\Fields\Email; // [tl! focus]
 
-Email::make('E-mail', 'email')
+//...
+
+public function fields(): array
+{
+    return [
+        Email::make('Email') // [tl! focus]
+    ];
+}
+
+//...
 </x-code>
 
 </x-page>

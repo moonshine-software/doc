@@ -1,7 +1,10 @@
 <x-page
     title="Число"
-    :videos="[
-        ['url' => 'https://www.youtube.com/embed/7HGaebxlcFM?start=827&end=913', 'title' => 'Screencasts: Поле Number'],
+    :sectionMenu="[
+        'Разделы' => [
+            ['url' => '#attributes', 'label' => 'Аттрибуты'],
+            ['url' => '#stars', 'label' => 'Stars'],
+        ]
     ]"
 >
 
@@ -10,28 +13,52 @@
 </x-extendby>
 
 <x-p>
-    Input с типом number и дополнительными методами  <code>stars</code>, <code>min</code>, <code>max</code>
+    Поле <em>Number</em> является расширением <em>Text</em>,
+    которое по умолчанию устанавливает <code>type=number</code> и имеет дополнительные методы.
 </x-p>
 
 <x-code language="php">
-use MoonShine\Fields\Number;
+use MoonShine\Fields\Number; // [tl! focus]
 
 //...
+
 public function fields(): array
 {
     return [
-        Number::make('Рейтинг', 'rating')
-            ->min(1)
-            ->max(5)
+        Number::make('Sort') // [tl! focus]
     ];
 }
 
 //...
 </x-code>
 
+<x-sub-title id="attributes">Аттрибуты</x-sub-title>
+
 <x-p>
-    Для отображения числового значения в виде звезд (например для рейтинга), необходим метод  <code>stars</code>
+    Поле <em>Number</em> имеет дополнительные аттрибуты (кроме стандартных аттрибутов поля <em>Text</em>),
+    которые можно задать через соответствующие методы.
 </x-p>
+
+<x-p>
+    Методы <code>min()</code> и <code>max()</code>
+    используются для задания минимального и максимального значения у поля.
+</x-p>
+
+<x-code language="php">
+min(int|float $min)
+</x-code>
+
+<x-code language="php">
+max(int|float $min)
+</x-code>
+
+<x-p>
+    Метод <code>step()</code> используются для задания шага значений у поля.
+</x-p>
+
+<x-code language="php">
+step(int|float $step)
+</x-code>
 
 <x-code language="php">
 use MoonShine\Fields\Number;
@@ -40,7 +67,36 @@ use MoonShine\Fields\Number;
 public function fields(): array
 {
     return [
-        Number::make('Рейтинг', 'rating')
+        Number::make('Price')
+            ->min(0) // [tl! focus]
+            ->max(100000) // [tl! focus]
+            ->step(5) // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
+
+<x-sub-title id="stars">Stars</x-sub-title>
+
+<x-p>
+    Метод <code>stars()</code> используется для отображения числового значения
+    при preview в виде звезд (например для рейтинга).
+</x-p>
+
+<x-code language="php">
+stars()
+</x-code>
+
+<x-code language="php">
+use MoonShine\Fields\Number;
+
+//...
+
+public function fields(): array
+{
+    return [
+        Number::make('Rating')
             ->stars() // [tl! focus]
             ->min(1)
             ->max(5)

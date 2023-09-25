@@ -5,29 +5,50 @@
 </x-extendby>
 
 <x-p>
-    Все то же самое как и "Текстовое поле", меняется только input type = password
+    Поля <em>Password</em> и <em>PasswordRepeat</em> предназначены для работы с паролями,
+    у них по умолчанию установленно <code>type=password</code>.
 </x-p>
 
 <x-p>
-    Ну и как правило может идти вместе с полем с подтверждением пароля
+    Поле <em>Password</em> в preview отображается как <x-moonshine::badge>***</x-moonshine::badge>,
+    а при выполнении метода <code>apply()</code> значение поля кодируется с помощью фасада <code>Hash</code>.
 </x-p>
 
 <x-code language="php">
-use MoonShine\Fields\Password;
-use MoonShine\Fields\PasswordRepeat;
+use MoonShine\Fields\Password; // [tl! focus]
 
 //...
 
 public function fields(): array
 {
     return [
-        Password::make('Пароль', 'password')->hideOnIndex(),  // [tl! focus]
-        PasswordRepeat::make('Повторите пароль', 'password_repeat')->hideOnIndex(),  // [tl! focus]
+        Password::make('Password') // [tl! focus]
     ];
 }
 
 //...
+</x-code>
 
+<x-p>
+    <em>PasswordRepeat</em> используется как вспомогательное поле для подтверждения пароля
+    и не изменяет данные при выполнении метода <code>apply()</code>.
+</x-p>
+
+<x-code language="php">
+use MoonShine\Fields\Password;
+use MoonShine\Fields\PasswordRepeat; // [tl! focus]
+
+//...
+
+public function fields(): array
+{
+    return [
+        Password::make('Password'),
+        PasswordRepeat::make('Password repeat', 'password_repeat') // [tl! focus]
+    ];
+}
+
+//...
 </x-code>
 
 </x-page>

@@ -5,15 +5,27 @@
 </x-extendby>
 
 <x-p>
-    Все то же самое как и "Текстовое поле", меняется только input type = tel
+    Поле <em>Phone</em> является расширением <em>Text</em>,
+    которое по умолчанию устанавливает <code>type=tel</code>.
 </x-p>
 
 <x-code language="php">
-use MoonShine\Fields\Phone;
+use MoonShine\Fields\Phone; // [tl! focus]
 
-Phone::make('Телефон', 'tel')
+//...
+
+public function fields(): array
+{
+    return [
+        Phone::make('Phone') // [tl! focus]
+    ];
+}
+
+//...
 </x-code>
 
-<x-moonshine::alert type="default" icon="heroicons.information-circle">Для маски телефона воспользуйтесь методом mask('7 999 999-99-99')</x-moonshine::alert>
+<x-moonshine::alert type="default" icon="heroicons.book-open">
+    Для маски телефона воспользуйтесь методом <code>mask('7 999 999-99-99')</code>
+</x-moonshine::alert>
 
 </x-page>
