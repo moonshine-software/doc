@@ -1,31 +1,29 @@
-<x-page title="Диапазон">
+<x-page title="Диапазон слайдер">
 
-<x-extendby :href="route('moonshine.custom_page', 'fields-text')">
-    Text
+<x-extendby :href="route('moonshine.custom_page', 'fields-range')">
+    RangeField
 </x-extendby>
 
 <x-p>
-    Имеет такие же методы как и поле "Число" с дополнительными методами <code>step</code>,
-    <code>fromField</code>, <code>toField</code>
-</x-p>
-
-<x-p>
-    Так как диапазон имеет два значения, то необходимо указать их с помощью методов
-    <code>fromField()</code> и <code>toField()</code>
+    <x-p>
+        Поле <em>SlideField</em> является расширением <em>RangeField</em> и
+        дополнительно имеет возможность изменять значения с помощью ползунка.
+    </x-p>
 </x-p>
 
 <x-code language="php">
-use MoonShine\Fields\SlideField;
+use MoonShine\Fields\SlideField; // [tl! focus]
 
 //...
+
 public function fields(): array
 {
     return [
-        SlideField::make('Age')
-            ->fromField('age_from') // Поле в таблице для значения "От"
-            ->toField('age_to') // Поле в таблице для значения "До"
+        SlideField::make('Age') // [tl! focus]
+            ->fromTo('age_from', 'age_to') // [tl! focus]
     ];
 }
+
 //...
 </x-code>
 

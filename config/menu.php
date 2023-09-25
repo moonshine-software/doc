@@ -44,7 +44,7 @@ return [
         ['slug' => 'fields-password', 'label' => 'Password'],
         ['slug' => 'fields-number', 'label' => 'Number'],
         ['slug' => 'fields-range', 'label' => 'Range'],
-//        ['slug' => 'fields-slide', 'label' => 'Slide'],
+        ['slug' => 'fields-slide', 'label' => 'Slide'],
 //        ['slug' => 'fields-date', 'label' => 'Date'],
 
         // Textarea
