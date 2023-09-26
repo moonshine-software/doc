@@ -48,8 +48,8 @@ return [
         ['slug' => 'fields-slide', 'label' => 'Slide'],
 
         // Textarea
-//        'Textarea:_divider_',
-//        ['slug' => 'fields-textarea', 'label' => 'Textarea'],
+        'Textarea:_divider_',
+        ['slug' => 'fields-textarea', 'label' => 'Textarea'],
 //        ['slug' => 'fields-wysiwyg', 'label' => 'WYSIWYG'],
 //        ['slug' => 'fields-code', 'label' => 'Code'],
 
