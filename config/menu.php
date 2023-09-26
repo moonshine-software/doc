@@ -50,8 +50,8 @@ return [
         // Textarea
         'Textarea:_divider_',
         ['slug' => 'fields-textarea', 'label' => 'Textarea'],
-//        ['slug' => 'fields-wysiwyg', 'label' => 'WYSIWYG'],
         ['slug' => 'fields-code', 'label' => 'Code'],
+        ['slug' => 'fields-tinymce', 'label' => 'TinyMce'],
 
         // Select
 //        'Select:_divider_',
