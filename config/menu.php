@@ -51,7 +51,7 @@ return [
         'Textarea:_divider_',
         ['slug' => 'fields-textarea', 'label' => 'Textarea'],
 //        ['slug' => 'fields-wysiwyg', 'label' => 'WYSIWYG'],
-//        ['slug' => 'fields-code', 'label' => 'Code'],
+        ['slug' => 'fields-code', 'label' => 'Code'],
 
         // Select
 //        'Select:_divider_',
