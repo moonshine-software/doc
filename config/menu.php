@@ -56,7 +56,7 @@ return [
         // Select
         'Select:_divider_',
         ['slug' => 'fields-select', 'label' => 'Select'],
-//        ['slug' => 'fields-enum', 'label' => 'Enum'],
+        ['slug' => 'fields-enum', 'label' => 'Enum'],
 
         // Checkbox
 //        'Checkbox:_divider_',
