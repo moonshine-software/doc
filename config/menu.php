@@ -43,9 +43,10 @@ return [
         ['slug' => 'fields-phone', 'label' => 'Phone'],
         ['slug' => 'fields-password', 'label' => 'Password'],
         ['slug' => 'fields-number', 'label' => 'Number'],
-        ['slug' => 'fields-date', 'label' => 'Date'],
         ['slug' => 'fields-range', 'label' => 'Range'],
         ['slug' => 'fields-range_slider', 'label' => 'RangeSlider'],
+        ['slug' => 'fields-date', 'label' => 'Date'],
+        ['slug' => 'fields-date_range', 'label' => 'DateRange'],
 
         // Textarea
         'Textarea:_divider_',
