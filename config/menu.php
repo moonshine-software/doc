@@ -59,8 +59,8 @@ return [
         ['slug' => 'fields-enum', 'label' => 'Enum'],
 
         // Checkbox
-//        'Checkbox:_divider_',
-//        ['slug' => 'fields-checkbox', 'label' => 'Checkbox'],
+        'Checkbox:_divider_',
+        ['slug' => 'fields-checkbox', 'label' => 'Checkbox'],
 //        ['slug' => 'fields-switch', 'label' => 'Switch'],
 
         // File
