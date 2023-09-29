@@ -54,9 +54,9 @@ return [
         ['slug' => 'fields-tinymce', 'label' => 'TinyMce'],
 
         // Select
-//        'Select:_divider_',
-//        ['slug' => 'fields-select', 'label' => 'Select'],
-//        ['slug' => 'fields-enum', 'label' => 'Enum'],
+        'Select:_divider_',
+        ['slug' => 'fields-select', 'label' => 'Select'],
+        ['slug' => 'fields-enum', 'label' => 'Enum'],
 
         // Checkbox
 //        'Checkbox:_divider_',
