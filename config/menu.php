@@ -62,7 +62,7 @@ return [
         // Checkbox
         'Checkbox:_divider_',
         ['slug' => 'fields-checkbox', 'label' => 'Checkbox'],
-        ['slug' => 'fields-switch', 'label' => 'Switch'],
+        ['slug' => 'fields-switcher', 'label' => 'Switcher'],
 
         // File
 //        'File:_divider_',
