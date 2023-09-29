@@ -5,7 +5,7 @@
 
 @if(isset($item['slug']))
     <a href="{{ route('moonshine.page', $item['slug']) }}"
-       class="my-4 btn h-auto p-4 flex flex-row items-center justify-between gap-4 page-link
+       class="my-4 btn h-auto p-4 gap-4 page-link
        {{ $type === 'prev' ? 'page-link__prev' : 'page-link__next' }}"
     >
         <div>
