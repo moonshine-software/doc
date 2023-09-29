@@ -45,7 +45,7 @@ return [
         ['slug' => 'fields-number', 'label' => 'Number'],
         ['slug' => 'fields-date', 'label' => 'Date'],
         ['slug' => 'fields-range', 'label' => 'Range'],
-        ['slug' => 'fields-slide', 'label' => 'Slide'],
+        ['slug' => 'fields-range_slider', 'label' => 'RangeSlider'],
 
         // Textarea
         'Textarea:_divider_',
