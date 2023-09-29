@@ -43,9 +43,10 @@ return [
         ['slug' => 'fields-phone', 'label' => 'Phone'],
         ['slug' => 'fields-password', 'label' => 'Password'],
         ['slug' => 'fields-number', 'label' => 'Number'],
-        ['slug' => 'fields-date', 'label' => 'Date'],
         ['slug' => 'fields-range', 'label' => 'Range'],
-        ['slug' => 'fields-slide', 'label' => 'Slide'],
+        ['slug' => 'fields-range_slider', 'label' => 'RangeSlider'],
+        ['slug' => 'fields-date', 'label' => 'Date'],
+        ['slug' => 'fields-date_range', 'label' => 'DateRange'],
 
         // Textarea
         'Textarea:_divider_',
@@ -61,7 +62,7 @@ return [
         // Checkbox
         'Checkbox:_divider_',
         ['slug' => 'fields-checkbox', 'label' => 'Checkbox'],
-        ['slug' => 'fields-switch', 'label' => 'Switch'],
+        ['slug' => 'fields-switcher', 'label' => 'Switcher'],
 
         // File
 //        'File:_divider_',
