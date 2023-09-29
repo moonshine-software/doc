@@ -21,7 +21,7 @@
 </x-p>
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
-    All available <x-link link="{{ route('moonshine.custom_page', 'icons-index') }}">icons</x-link>
+    All available <x-link link="{{ route('moonshine.page', 'icons-index') }}">icons</x-link>
 </x-moonshine::alert>
 
 <x-sub-title id="size">Size</x-sub-title>
@@ -54,7 +54,7 @@
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     Several colors are available by default, but you can expand them using your own
-    <x-link link="{{ route('moonshine.custom_page', 'advanced-assets') }}">color classes</x-link> tailwindcss
+    <x-link link="{{ route('moonshine.page', 'advanced-assets') }}">color classes</x-link> tailwindcss
 </x-moonshine::alert>
 
 <x-sub-title id="customization">Customization</x-sub-title>
@@ -71,7 +71,7 @@
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     Build MoonShine contains a limited list of tailwindcss classes,
-    use <x-link link="{{ route('moonshine.custom_page', 'advanced-assets') }}">custom styles</x-link>
+    use <x-link link="{{ route('moonshine.page', 'advanced-assets') }}">custom styles</x-link>
 </x-moonshine::alert>
 
 </x-page>

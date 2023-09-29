@@ -3,7 +3,7 @@
 <x-p>
     Через ресурсы модели есть возможность кастомизировать <code>tr</code> и <code>td</code> у таблицы с данными.<br />
     Для это необходимо использовать соответствующие методы <code>trAttributes()</code> и <code>tdAttributes()</code>,
-    которым нужно передать замыкание, возвращающее атрибуты для <x-link link="{{ route('moonshine.custom_page', 'components-table') }}">компонента таблица</x-link>.
+    которым нужно передать замыкание, возвращающее атрибуты для <x-link link="{{ route('moonshine.page', 'components-table') }}">компонента таблица</x-link>.
 </x-p>
 
 <x-code language="php">

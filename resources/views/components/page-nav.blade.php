@@ -16,7 +16,7 @@
         ->collapse();
 
     $current = $menuItems->search(function (array $item) {
-        return request()->route('alias') === $item['slug'];
+        return request()->route('pageUri') === $item['slug'];
     });
 
     $prevItem = $menuItems->slice(0, $current)->last() ?? null;

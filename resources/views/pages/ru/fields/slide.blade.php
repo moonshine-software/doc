@@ -1,6 +1,6 @@
 <x-page title="Диапазон слайдер">
 
-<x-extendby :href="route('moonshine.custom_page', 'fields-range')">
+<x-extendby :href="route('moonshine.page', 'fields-range')">
     RangeField
 </x-extendby>
 

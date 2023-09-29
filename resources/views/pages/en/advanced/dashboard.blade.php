@@ -12,7 +12,7 @@
 </x-p>
 
 <x-p>
-    Currently you can display <x-link link="{{ route('moonshine.custom_page', 'metrics-index') }}">metrics</x-link> in the control panel
+    Currently you can display <x-link link="{{ route('moonshine.page', 'metrics-index') }}">metrics</x-link> in the control panel
 </x-p>
 
 <x-p>
@@ -20,7 +20,7 @@
 </x-p>
 
 <x-p>
-    <x-link link="{{ route('moonshine.custom_page', 'decorations-layout#grid-column') }}">Layout (columnSpan)</x-link>
+    <x-link link="{{ route('moonshine.page', 'decorations-layout#grid-column') }}">Layout (columnSpan)</x-link>
     decorating methods are also available for the elements
 </x-p>
 

@@ -22,7 +22,7 @@
 <x-p>
     Добавлять новые поля крайне просто! Достаточно в методе <code>fields()</code>, который возвращает массив,
     вернуть все необходимые поля, а как устроенны поля, мы рассмотрим в разделе
-    <x-link link="{{ route('moonshine.custom_page', 'fields-index') }}">"Поля"</x-link>.
+    <x-link link="{{ route('moonshine.page', 'fields-index') }}">"Поля"</x-link>.
 </x-p>
 
 <x-code language="php">

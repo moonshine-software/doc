@@ -1,6 +1,6 @@
 <x-page title="IsEmptyFilter/IsNotEmptyFilter">
 
-<x-extendby :href="route('moonshine.custom_page', 'filters-switch')">
+<x-extendby :href="route('moonshine.page', 'filters-switch')">
     SwitchBooleanFilter
 </x-extendby>
 

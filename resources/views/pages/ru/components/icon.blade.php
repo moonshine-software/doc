@@ -21,7 +21,7 @@
 </x-p>
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
-    Все доступные <x-link link="{{ route('moonshine.custom_page', 'icons-index') }}">иконки</x-link>
+    Все доступные <x-link link="{{ route('moonshine.page', 'icons-index') }}">иконки</x-link>
 </x-moonshine::alert>
 
 <x-sub-title id="size">Размер</x-sub-title>
@@ -54,7 +54,7 @@
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     По умолчанию доступно несколько цветов, но вы можете их расширить используя свои
-    <x-link link="{{ route('moonshine.custom_page', 'advanced-assets') }}">классы цветов</x-link> tailwindcss
+    <x-link link="{{ route('moonshine.page', 'advanced-assets') }}">классы цветов</x-link> tailwindcss
 </x-moonshine::alert>
 
 <x-sub-title id="customization">Кастомизация</x-sub-title>
@@ -71,7 +71,7 @@
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     Build MoonShine содержит ограниченный перечень классов tailwindcss,
-    используйте <x-link link="{{ route('moonshine.custom_page', 'advanced-assets') }}">собственные стили</x-link>
+    используйте <x-link link="{{ route('moonshine.page', 'advanced-assets') }}">собственные стили</x-link>
 </x-moonshine::alert>
 
 </x-page>

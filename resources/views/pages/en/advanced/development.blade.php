@@ -62,8 +62,8 @@ final class CKEditor extends Field
 
 <x-p>
     MoonShine comes with several built-in actions such as
-    <x-link :link="route('moonshine.custom_page', 'actions-export')">Export</x-link> и
-    <x-link :link="route('moonshine.custom_page', 'actions-import')">Import</x-link>
+    <x-link :link="route('moonshine.page', 'actions-export')">Export</x-link> и
+    <x-link :link="route('moonshine.page', 'actions-import')">Import</x-link>
     but you can also create your own custom actions.
 </x-p>
 

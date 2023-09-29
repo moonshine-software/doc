@@ -145,7 +145,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
     О расширенных настройках можно узнать в разделе
-    <x-link :link="route('moonshine.custom_page', 'advanced-menu')" ><code>Digging Deeper > Меню</code></x-link>.
+    <x-link :link="route('moonshine.page', 'advanced-menu')" ><code>Digging Deeper > Меню</code></x-link>.
 </x-moonshine::alert>
 
 <x-p>

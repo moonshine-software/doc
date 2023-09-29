@@ -1,6 +1,6 @@
 <x-page title="SlideFilter">
 
-<x-extendby :href="route('moonshine.custom_page', 'fields-slide')">
+<x-extendby :href="route('moonshine.page', 'fields-slide')">
     Slide
 </x-extendby>
 

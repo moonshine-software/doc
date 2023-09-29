@@ -11,7 +11,7 @@
 
 <x-p>
     Adding new fields is extremely easy! You can simply return all the required fields in the <code>fields</code> method which returns an array.
-    And we will talk about fields structure in the <x-link link="{{ route('moonshine.custom_page', 'fields-index') }}">"Fields"</x-link> section.
+    And we will talk about fields structure in the <x-link link="{{ route('moonshine.page', 'fields-index') }}">"Fields"</x-link> section.
 </x-p>
 
 <x-code language="php">

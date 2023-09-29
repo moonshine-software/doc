@@ -15,7 +15,7 @@
 
 <x-p>
     You can simply return all the necessary actions in the <code>actions</code> method which returns an array.
-    And we will talk about actions structure in the <x-link link="{{ route('moonshine.custom_page', 'actions-index') }}">"Actions"</x-link> section.
+    And we will talk about actions structure in the <x-link link="{{ route('moonshine.page', 'actions-index') }}">"Actions"</x-link> section.
 </x-p>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">

@@ -1,6 +1,6 @@
 <x-page title="HasOneFilter">
 
-<x-extendby :href="route('moonshine.custom_page', 'fields-has_one')">
+<x-extendby :href="route('moonshine.page', 'fields-has_one')">
     HasOne
 </x-extendby>
 

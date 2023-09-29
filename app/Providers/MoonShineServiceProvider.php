@@ -2,86 +2,81 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
+use App\MoonShine\Pages\DocSection;
+use App\MoonShine\Resources\DocResource;
 use MoonShine\Menu\MenuDivider;
 use MoonShine\Menu\MenuGroup;
 use MoonShine\Menu\MenuItem;
-use MoonShine\MoonShine;
-use MoonShine\Resources\CustomPage;
-use MoonShine\Utilities\AssetManager;
+use MoonShine\Providers\MoonShineApplicationServiceProvider;
 
-class MoonShineServiceProvider extends ServiceProvider
+class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 {
     public function boot(): void
     {
-        $moonShineMenu = [];
+        parent::boot();
 
-        foreach (config('menu', []) as $group => $items) {
-            $title = str($group);
-            $moonShineItems = [];
-
-            if (is_string($items) && str($items)->contains('_divider_')) {
-                $moonShineMenu[] = MenuDivider::make(str($items)->before(':')->value());
-
-                continue;
-            }
-
-            foreach ($items as $item) {
-                if (is_string($item) && str($item)->contains('_divider_')) {
-                    $moonShineItems[] = MenuDivider::make(str($item)->before(':')->value());
-
-                   continue;
-                }
-
-                $menuItem = MenuItem::make(
-                    $item['label'],
-                    CustomPage::make(
-                        $item['label'],
-                        $item['slug'],
-                        fn() => $this->getPageView($item['slug'])
-                    )->translatable(),
-                    'heroicons.hashtag'
-                )->translatable();
-
-                if ($item['badge'] ?? false) {
-                    $menuItem->badge(fn() => $item['badge']);
-                }
-
-                $moonShineItems[] = $menuItem;
-            }
-
-            $icon = $title->contains(':') ? $title->after(':')
-                ->prepend('heroicons.')
-                ->value() : 'heroicons.squares-2x2';
-
-            if (count($moonShineItems) === 1) {
-                $moonShineMenu[] = $moonShineItems[0]->icon($icon);
-            } else {
-                $moonShineMenu[] = MenuGroup::make(
-                    $title->before(':')->value(),
-                    $moonShineItems,
-                    $icon,
-                    link: isset($items[0]['slug']) ? '/section/'.$items[0]['slug'] : '#'
-                )->translatable();
-            }
-        }
-
-        app(MoonShine::class)->menu($moonShineMenu);
-
-        app(AssetManager::class)->add([
+        moonshineAssets()->add([
             '/assets/css/style.css',
             '/assets/js/app.js',
         ]);
     }
 
-    private function getPageView(string $slug): string
+    protected function menu(): array
     {
-        $view = "pages.".session('change-moonshine-locale', app()->getLocale()).".".str_replace('-', '.', $slug);
+        $menu = [];
+        $resources = [];
 
-        if (!view()->exists($view)) {
-            $view = 'translation-in-progress';
+        foreach (config('menu', []) as $title => $items) {
+            if (!is_string($items)) {
+                [$title] = explode(':', $title);
+
+                $pages = [];
+
+                foreach ($items as $item) {
+                    if (!is_string($item)) {
+                        $pages[] = DocSection::make(
+                            $item['label'],
+                            $item['slug'],
+                        );
+                    }
+                }
+
+                $slug = str($title)->slug()->value();
+                $resources[$slug] = DocResource::make($pages, $title, $slug);
+            }
         }
 
-        return $view;
+        foreach (config('menu', []) as $title => $items) {
+            if (is_string($items)) {
+                [$titleDivider] = explode(':', $items);
+                $menu[] = MenuDivider::make($titleDivider);
+            } else {
+                [$title, $icon] = explode(':', $title);
+                $slug = str($title)->slug()->value();
+
+                $inner = [];
+
+                foreach ($items as $item) {
+                    if (is_string($item)) {
+                        [$titleDivider] = explode(':', $item);
+
+                        $inner[] = MenuDivider::make($titleDivider);
+                    } else {
+                        $page = DocSection::make(
+                            $item['label'],
+                            $item['slug'],
+                        )->setResource($resources[$slug]);
+
+                        $inner[] = MenuItem::make($item['label'], $page)
+                            ->badge(fn () => $item['badge'] ?? null);
+                    }
+                }
+
+                $menu[] = MenuGroup::make($title, $inner)
+                    ->icon("heroicons.outline.$icon");
+            }
+        }
+
+        return $menu;
     }
 }

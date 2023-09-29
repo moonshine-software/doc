@@ -1,6 +1,6 @@
 <x-page title="BelongsToManyFilter">
 
-<x-extendby :href="route('moonshine.custom_page', 'fields-belongs_to_many')">
+<x-extendby :href="route('moonshine.page', 'fields-belongs_to_many')">
     BelongsToMany
 </x-extendby>
 

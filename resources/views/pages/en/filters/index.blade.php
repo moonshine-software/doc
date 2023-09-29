@@ -7,7 +7,7 @@
 
 <x-sub-title id="filters">Adding a filter</x-sub-title>
 
-<x-extendby :href="route('moonshine.custom_page', 'fields-index')">
+<x-extendby :href="route('moonshine.page', 'fields-index')">
     Fields
 </x-extendby>
 

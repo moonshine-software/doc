@@ -157,7 +157,7 @@ class MoonShineServiceProvider extends ServiceProvider
 <x-image theme="dark" src="{{ asset('screenshots/menu_dark.png') }}"></x-image>
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
-    For advanced settings, see <x-link :link="route('moonshine.custom_page', 'advanced-menu')" ><code>Digging Deeper > Menu</code></x-link>.
+    For advanced settings, see <x-link :link="route('moonshine.page', 'advanced-menu')" ><code>Digging Deeper > Menu</code></x-link>.
 </x-moonshine::alert>
 
 <x-sub-title id="item">Current item/model</x-sub-title>

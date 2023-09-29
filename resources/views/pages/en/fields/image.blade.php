@@ -1,6 +1,6 @@
 <x-page title="Image">
 
-<x-extendby :href="route('moonshine.custom_page', 'fields-file')">
+<x-extendby :href="route('moonshine.page', 'fields-file')">
     File
 </x-extendby>
 

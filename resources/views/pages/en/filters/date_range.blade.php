@@ -1,6 +1,6 @@
 <x-page title="DateRangeFilter">
 
-<x-extendby :href="route('moonshine.custom_page', 'fields-date')">
+<x-extendby :href="route('moonshine.page', 'fields-date')">
     Date
 </x-extendby>
 

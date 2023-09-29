@@ -1,6 +1,6 @@
 <x-page title="MorphTo">
 
-<x-extendby :href="route('moonshine.custom_page', 'fields-belongs_to')">
+<x-extendby :href="route('moonshine.page', 'fields-belongs_to')">
     BelongsTo
 </x-extendby>
 
