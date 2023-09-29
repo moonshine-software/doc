@@ -11,9 +11,9 @@
 <div class="layout-wrapper layout-wrapper--top-menu">
     <aside class="layout-menu-horizontal" :class="asideMenuOpen && '_is-opened'">
         <div class="menu-logo">
-            <a href="http://127.0.0.1:8000/admin" class="block" rel="home">
-                <img src="http://127.0.0.1:8000/vendor/moonshine/logo.svg" class="hidden h-14 xl:block" :class="minimizedMenu &amp;&amp; '!hidden'" alt="MoonShine">
-                <img src="http://127.0.0.1:8000/vendor/moonshine/logo-small.svg" class="block h-8 lg:h-10 xl:hidden" :class="minimizedMenu &amp;&amp; '!block'" alt="MoonShine">
+            <a href="{{ route('home') }}" class="block" rel="home">
+                <img src="{{ config('moonshine.logo') ?: asset('vendor/moonshine/logo.svg') }}" class="hidden h-14 xl:block" :class="minimizedMenu &amp;&amp; '!hidden'" alt="MoonShine">
+                <img src="{{ config('moonshine.logo_small') ?: asset('vendor/moonshine/logo-small.svg') }}" class="block h-8 lg:h-10 xl:hidden" :class="minimizedMenu &amp;&amp; '!block'" alt="MoonShine">
             </a>
         </div>
 

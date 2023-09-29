@@ -83,7 +83,7 @@ code:not(.torchlight) {
     opacity: 1;
 }
 
-.page-link {
+.btn.page-link {
     display: flex;
     gap: 1rem;
     flex-direction: row;
@@ -94,7 +94,7 @@ code:not(.torchlight) {
     padding: 1rem;
 }
 @media (min-width: 640px) {
-    .page-link {
+    .btn.page-link {
         width: 320px;
     }
 }
