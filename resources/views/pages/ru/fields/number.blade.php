@@ -49,7 +49,7 @@ min(int|float $min)
 </x-code>
 
 <x-code language="php">
-max(int|float $min)
+max(int|float $max)
 </x-code>
 
 <x-p>
