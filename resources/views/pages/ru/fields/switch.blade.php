@@ -1,56 +1,22 @@
-<x-page
-    title="Переключатель"
-    :videos="[
-        ['url' => 'https://www.youtube.com/embed/7HGaebxlcFM?start=1278&end=1357', 'title' => 'Screencasts: Поле SwitchBoolean'],
-    ]"
->
+<x-page title="Переключатель">
 
 <x-extendby :href="route('moonshine.page', 'fields-checkbox')">
     Checkbox
 </x-extendby>
 
+<x-p>
+    Поле <em>Switch</em> является расширением <em>Checkbox</em> с другим визуальным оформлением.
+</x-p>
+
 <x-code language="php">
-use MoonShine\Fields\SwitchBoolean;
+use MoonShine\Fields\Switch; // [tl! focus]
 
 //...
+
 public function fields(): array
 {
     return [
-        SwitchBoolean::make('Опубликовать', 'active')
-    ];
-}
-
-//...
-</x-code>
-
-<x-code language="php">
-use MoonShine\Fields\SwitchBoolean;
-
-//...
-public function fields(): array
-{
-    return [
-        SwitchBoolean::make('Опубликовать', 'active')
-            ->onValue(1) // Активное значение элемента формы
-            ->offValue(0) // Неактивное значение элемента формы
-    ];
-}
-
-//...
-</x-code>
-
-
-<x-code language="php">
-use MoonShine\Fields\SwitchBoolean;
-
-//...
-public function fields(): array
-{
-    return [
-        SwitchBoolean::make('Опубликовать', 'active')
-            ->autoUpdate(false) // Возможность изменения на главной отключена
-            ->autoUpdate(true) // Возможность изменения на главной включена
-            ->autoUpdate(fn() => true)
+        Switch::make('Publish', 'is_publish') // [tl! focus]
     ];
 }
 

@@ -1,5 +1,5 @@
-.dark .dark\:block {display: block}
-.dark .dark\:hidden {display: none}
+.dark .dark\:block {display: block !important;}
+.dark .dark\:hidden {display: none !important;}
 
 .m-4 {
     margin: 1rem;
