@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" x-data>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" x-data xmlns:x-moonshine="http://www.w3.org/1999/xlink">
 <head>
     @moonShineAssets
 </head>
@@ -25,17 +25,33 @@
                        x-data="navTooltip"
                        @mouseenter="toggleTooltip()"
                     >
-                        <span class="menu-inner-text">Documentation</span>
+                        <span class="menu-inner-text">Документация</span>
 
-                        <span class="menu-inner-counter">2.0</span>
+                        <span class="menu-inner-counter">В процессе</span>
                     </a>
                 </li>
             </ul>
         </nav>
     </aside>
 
-    <main class="layout-page">
-        <h1 style="font-size: 32px;">Основной сайт скоро будет...</h1>
+    <main class="layout-page" style="
+        background-image: url('/images/home.png');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    ">
+        <x-moonshine::grid>
+            <x-moonshine::column colSpan="6">
+                <x-moonshine::title>MoonShine 2.0.0.alpha.1</x-moonshine::title>
+                <x-moonshine::link filled class="w-full" href="{{ route('moonshine.index') }}">
+                    Начать
+                </x-moonshine::link>
+                <x-moonshine::link class="w-full" href="https://github.com/moonshine-software/moonshine">
+                    Исходный код
+                </x-moonshine::link>
+            </x-moonshine::column>
+        </x-moonshine::grid>
+
     </main>
 </div>
 
