@@ -29,9 +29,15 @@ final class MoonShineLayout implements MoonShineLayoutContract
                         >
                             CutCode
                         </a>
-                    HTML)->menu([
-                    'https://moonshine.cutcode.dev' => 'Documentation',
-                ]),
+                    HTML)
+                    ->menu([
+                        'https://www.youtube.com/playlist?list=PLTucyHptHtTnfDI18bZnYEgvJIFmW8fGy' => 'Screencasts',
+                        'https://cutcode.dev/articles/moonshine-tips-tricks' => 'Tips & Tricks',
+                        'https://github.com/moonshine-software/moonshine/blob/1.x/LICENSE.md' => 'License',
+                        'https://github.com/moonshine-software/demo-project' => 'Demo project',
+                        'https://github.com/moonshine-software/moonshine' => 'GitHub',
+                        'https://t.me/laravel_chat/24568' => 'Telegram chat',
+                    ]),
             ])->customAttributes(['class' => 'layout-page']),
         ]);
     }
