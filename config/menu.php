@@ -67,7 +67,7 @@ return [
         // File
         'File:_divider_',
         ['slug' => 'fields-file', 'label' => 'File'],
-//        ['slug' => 'fields-image', 'label' => 'Image'],
+        ['slug' => 'fields-image', 'label' => 'Image'],
 
         // Json
 //        'Json:_divider_',
