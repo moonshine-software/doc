@@ -1,12 +1,16 @@
-<x-page title="Select" :sectionMenu="[
-    'Разделы' => [
-        ['url' => '#nullable', 'label' => 'Nullable'],
-        ['url' => '#groups', 'label' => 'Группы'],
-        ['url' => '#multiple', 'label' => 'Несколько значений'],
-        ['url' => '#searchable', 'label' => 'Поиск'],
-        ['url' => '#async', 'label' => 'Асинхронный поиск'],
-    ]
-]">
+<x-page
+    title="Select"
+    :sectionMenu="[
+        'Разделы' => [
+            ['url' => '#default', 'label' => 'Значение по умолчанию'],
+            ['url' => '#nullable', 'label' => 'Nullable'],
+            ['url' => '#groups', 'label' => 'Группы'],
+            ['url' => '#multiple', 'label' => 'Несколько значений'],
+            ['url' => '#searchable', 'label' => 'Поиск'],
+            ['url' => '#async', 'label' => 'Асинхронный поиск'],
+        ]
+    ]"
+>
 
 <x-p>
     Поле <em>Select</em> включает в себя все базовые методы.
@@ -33,6 +37,36 @@ public function fields(): array
 
 <x-image theme="light" src="{{ asset('screenshots/select.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/select_dark.png') }}"></x-image>
+
+<x-sub-title id="default">Значение по умолчанию</x-sub-title>
+
+<x-p>
+    Можно воспользоваться методом <code>default()</code>, если необходимо указать значение по умолчанию для поля.
+</x-p>
+
+<x-code language="php">
+default(mixed $default)
+</x-code>
+
+<x-code language="php">
+use MoonShine\Fields\Select;
+
+//...
+
+public function fields(): array
+{
+    return [
+        Select::make('Country', 'country_id')
+            ->options([
+                'value 1' => 'Option Label 1',
+                'value 2' => 'Option Label 2'
+            ])
+            ->default('value 2') // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
 
 <x-sub-title id="nullable">Nullable</x-sub-title>
 
