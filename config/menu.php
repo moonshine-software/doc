@@ -65,8 +65,8 @@ return [
         ['slug' => 'fields-switcher', 'label' => 'Switcher'],
 
         // File
-//        'File:_divider_',
-//        ['slug' => 'fields-files', 'label' => 'Files'],
+        'File:_divider_',
+        ['slug' => 'fields-file', 'label' => 'File'],
 //        ['slug' => 'fields-image', 'label' => 'Image'],
 
         // Json
