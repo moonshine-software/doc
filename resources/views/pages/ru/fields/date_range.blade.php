@@ -37,8 +37,8 @@ public function fields(): array
 //...
 </x-code>
 
-<x-image theme="light" src="{{ asset('screenshots/range-date.png') }}"></x-image>
-<x-image theme="dark" src="{{ asset('screenshots/range-date_dark.png') }}"></x-image>
+<x-image theme="light" src="{{ asset('screenshots/date-range.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/date-range_dark.png') }}"></x-image>
 
 <x-sub-title id="with-time">Дата и время</x-sub-title>
 
