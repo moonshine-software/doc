@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\MoonShine;
 
 use App\View\Components\AlertAlpha;
+use App\View\Components\DocSearch;
 use MoonShine\Components\Layout\{Content, Flash, Footer, Header, LayoutBlock, LayoutBuilder, Menu, Sidebar};
 use MoonShine\Contracts\MoonShineLayoutContract;
 
@@ -18,7 +19,9 @@ final class MoonShineLayout implements MoonShineLayoutContract
             ]),
             LayoutBlock::make([
                 Flash::make(),
-                Header::make(),
+                Header::make([
+                    //new DocSearch()
+                ]),
                 new AlertAlpha(),
                 Content::make(),
                 Footer::make()->copyright(fn (): string => <<<'HTML'

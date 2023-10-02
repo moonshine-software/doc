@@ -84,7 +84,6 @@ final class MoonShineLayout implements MoonShineLayoutContract
             LayoutBlock::make([
                 Flash::make(),
                 Header::make(),
-                new AlertAlpha(),
                 Content::make(),
                 Footer::make()->copyright(fn (): string => <<<'HTML'
                         &copy; 2021-2023 Made with ❤️ by
