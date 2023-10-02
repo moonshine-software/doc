@@ -147,8 +147,11 @@ return [
 //        ['slug' => 'actions-import', 'label' => 'Import'],
 //    ],
 
-    'Icons:trophy' => [
-        ['slug' => 'icons-index', 'label' => 'Icons'],
+    'Appearance:photo' => [
+        ['slug' => 'appearance-index', 'label' => 'Basics'],
+        ['slug' => 'appearance-layout_builder', 'label' => 'LayoutBuilder'],
+        ['slug' => 'appearance-assets', 'label' => 'AssetsManager'],
+        ['slug' => 'appearance-icons', 'label' => 'Icons'],
     ],
 
 //    'UI components:code-bracket-square' => [
