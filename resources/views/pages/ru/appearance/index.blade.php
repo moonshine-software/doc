@@ -1,11 +1,32 @@
 <x-page title="Icons" :sectionMenu="[
     'Разделы' => [
+        ['url' => '#logo', 'label' => 'Логотип'],
         ['url' => '#theme', 'label' => 'Основная тема'],
         ['url' => '#colors', 'label' => 'Цветовая схема'],
     ]
 ]">
 
+<x-sub-title id="logo">Логотип</x-sub-title>
+
+<x-p>
+    Меняется в конфигурационном файле <code>config/moonshine.php</code>
+</x-p>
+
+<x-code language="php">
+return [
+    # Заголовок админ-панели
+    'title' => env('MOONSHINE_TITLE', 'MoonShine'), // [tl! focus]
+    # Вы можете изменить логотип, указав путь (пример - /images/logo.svg)
+    'logo' => env('MOONSHINE_LOGO'), // [tl! focus]
+    'logo_small' => env('MOONSHINE_LOGO_SMALL'), // [tl! focus]
+];
+</x-code>
+
 <x-sub-title id="theme">Основная тема</x-sub-title>
+
+<x-p>
+    При необходимости можно создать собственный css который заменит системный
+</x-p>
 
 <x-code language="php">
 class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
