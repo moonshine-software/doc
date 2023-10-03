@@ -267,7 +267,7 @@ use MoonShine\Fields\Json;
 public function fields(): array
 {
     return [
-        Json::make('Comments')
+        Json::make('Comments', 'comments)
             ->asRelation(new CommentResource()) // [tl! focus:start]
             ->fields([
                 ID::make(),

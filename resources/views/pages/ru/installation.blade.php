@@ -21,7 +21,7 @@
 <x-sub-title id="composer">Composer</x-sub-title>
 
 <x-code language="shell">
-    composer require moonshine/moonshine:2.0.0.alpha.1
+    composer require moonshine/moonshine:2.0.0.alpha.2
 </x-code>
 
 <x-sub-title id="install">Установка</x-sub-title>
