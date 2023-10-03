@@ -13,23 +13,7 @@ return [
     ':_divider_',
 
     'Page:newspaper' => [
-        ['slug' => 'page-index', 'label' => 'Basics'],
-    ],
-
-    'Appearance:photo' => [
-        ['slug' => 'appearance-index', 'label' => 'Basics'],
-        ['slug' => 'appearance-layout_builder', 'label' => 'LayoutBuilder'],
-        ['slug' => 'appearance-assets', 'label' => 'AssetsManager'],
-        ['slug' => 'appearance-icons', 'label' => 'Icons'],
-
-        // Text
-        'Decorations:_divider_',
-        ['slug' => 'appearance-decorations_tabs', 'label' => 'Tabs'],
-        ['slug' => 'appearance-decorations_heading', 'label' => 'Heading'],
-        ['slug' => 'appearance-decorations_block', 'label' => 'Block'],
-        ['slug' => 'appearance-decorations_layout', 'label' => 'Layout'],
-        ['slug' => 'appearance-decorations_collapse', 'label' => 'Collapse'],
-        ['slug' => 'appearance-decorations_divider', 'label' => 'Divider'],
+        ['slug' => 'page-index', 'label' => 'Page'],
     ],
 
     'Models Resources:document-duplicate' => [
@@ -51,7 +35,27 @@ return [
 //        ['slug' => 'resources-singleton', 'label' => 'SingletonResource'],
     ],
 
-    'Fields:bars-3' => [
+    'Menu:bars-3' => [
+        ['slug' => 'menu-index', 'label' => 'Menu'],
+    ],
+
+    'Appearance:photo' => [
+        ['slug' => 'appearance-index', 'label' => 'Basics'],
+        ['slug' => 'appearance-layout_builder', 'label' => 'LayoutBuilder'],
+        ['slug' => 'appearance-assets', 'label' => 'AssetsManager'],
+        ['slug' => 'appearance-icons', 'label' => 'Icons'],
+
+        // Text
+        'Decorations:_divider_',
+        ['slug' => 'appearance-decorations_tabs', 'label' => 'Tabs'],
+        ['slug' => 'appearance-decorations_heading', 'label' => 'Heading'],
+        ['slug' => 'appearance-decorations_block', 'label' => 'Block'],
+        ['slug' => 'appearance-decorations_layout', 'label' => 'Layout'],
+        ['slug' => 'appearance-decorations_collapse', 'label' => 'Collapse'],
+        ['slug' => 'appearance-decorations_divider', 'label' => 'Divider'],
+    ],
+
+    'Fields:table-cells' => [
         ['slug' => 'fields-index', 'label' => 'Basics'],
         // Text
         'Text:_divider_',
@@ -120,7 +124,7 @@ return [
     ],
 
     'ActionButton:cursor-arrow-ripple' => [
-        ['slug' => 'action-button-index', 'label' => 'Basics'],
+        ['slug' => 'action-button-index', 'label' => 'ActionButton'],
     ],
 
 //    'Decorations:rocket-launch' => [
