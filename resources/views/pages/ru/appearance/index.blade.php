@@ -1,4 +1,4 @@
-<x-page title="Icons" :sectionMenu="[
+<x-page title="Внешний вид" :sectionMenu="[
     'Разделы' => [
         ['url' => '#logo', 'label' => 'Логотип'],
         ['url' => '#theme', 'label' => 'Основная тема'],
@@ -154,4 +154,5 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
     //...
 }
 </x-code>
+
 </x-page>
