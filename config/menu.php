@@ -70,8 +70,8 @@ return [
         ['slug' => 'fields-image', 'label' => 'Image'],
 
         // Json
-//        'Json:_divider_',
-//        ['slug' => 'fields-json', 'label' => 'Json'],
+        'Json:_divider_',
+        ['slug' => 'fields-json', 'label' => 'Json'],
 
         // Relationships
 //        'Relationships:_divider_',
