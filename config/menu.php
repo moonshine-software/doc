@@ -16,6 +16,22 @@ return [
         ['slug' => 'page-index', 'label' => 'Basics'],
     ],
 
+    'Appearance:photo' => [
+        ['slug' => 'appearance-index', 'label' => 'Basics'],
+        ['slug' => 'appearance-layout_builder', 'label' => 'LayoutBuilder'],
+        ['slug' => 'appearance-assets', 'label' => 'AssetsManager'],
+        ['slug' => 'appearance-icons', 'label' => 'Icons'],
+
+        // Text
+        'Decorations:_divider_',
+        ['slug' => 'appearance-decorations_tabs', 'label' => 'Tabs'],
+        ['slug' => 'appearance-decorations_heading', 'label' => 'Heading'],
+        ['slug' => 'appearance-decorations_block', 'label' => 'Block'],
+        ['slug' => 'appearance-decorations_layout', 'label' => 'Layout'],
+        ['slug' => 'appearance-decorations_collapse', 'label' => 'Collapse'],
+        ['slug' => 'appearance-decorations_divider', 'label' => 'Divider'],
+    ],
+
     'Models Resources:document-duplicate' => [
         ['slug' => 'resources-index', 'label' => 'Basics'],
         ['slug' => 'resources-fields', 'label' => 'Fields'],
@@ -131,13 +147,6 @@ return [
 //        ['slug' => 'actions-import', 'label' => 'Import'],
 //    ],
 
-    'Appearance:photo' => [
-        ['slug' => 'appearance-index', 'label' => 'Basics'],
-        ['slug' => 'appearance-layout_builder', 'label' => 'LayoutBuilder'],
-        ['slug' => 'appearance-assets', 'label' => 'AssetsManager'],
-        ['slug' => 'appearance-icons', 'label' => 'Icons'],
-    ],
-
 //    'UI components:code-bracket-square' => [
 //        ['slug' => 'components-index', 'label' => 'Basics'],
 //        ['slug' => 'components-alert', 'label' => 'Alert'],
@@ -175,6 +184,7 @@ return [
         ['slug' => 'advanced-form_builder', 'label' => 'FormBuilder'],
         ['slug' => 'advanced-table_builder', 'label' => 'TableBuilder'],
         ['slug' => 'advanced-type_casts', 'label' => 'TypeCasts'],
+        ['slug' => 'advanced-helpers', 'label' => 'Helpers'],
 //        ['slug' => 'advanced-dashboard', 'label' => 'Dashboard', 'badge' => 'new'],
 //        ['slug' => 'advanced-routes', 'label' => 'Routes'],
 //        ['slug' => 'advanced-pages', 'label' => 'Pages'],
