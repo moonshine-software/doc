@@ -1046,16 +1046,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v10.26.1",
+            "version": "v10.26.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "4bd35d1997bc042c238d7a38fa3f5f17529a3bda"
+                "reference": "6e5440f7c518f26b4495e5d7e4796ec239e26df9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/4bd35d1997bc042c238d7a38fa3f5f17529a3bda",
-                "reference": "4bd35d1997bc042c238d7a38fa3f5f17529a3bda",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/6e5440f7c518f26b4495e5d7e4796ec239e26df9",
+                "reference": "6e5440f7c518f26b4495e5d7e4796ec239e26df9",
                 "shasum": ""
             },
             "require": {
@@ -1242,20 +1242,20 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2023-10-03T12:55:11+00:00"
+            "time": "2023-10-03T14:24:20+00:00"
         },
         {
             "name": "laravel/prompts",
-            "version": "v0.1.10",
+            "version": "v0.1.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/prompts.git",
-                "reference": "37ed55f6950d921a87d5beeab16d03f8de26b060"
+                "reference": "cce65a90e64712909ea1adc033e1d88de8455ffd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/prompts/zipball/37ed55f6950d921a87d5beeab16d03f8de26b060",
-                "reference": "37ed55f6950d921a87d5beeab16d03f8de26b060",
+                "url": "https://api.github.com/repos/laravel/prompts/zipball/cce65a90e64712909ea1adc033e1d88de8455ffd",
+                "reference": "cce65a90e64712909ea1adc033e1d88de8455ffd",
                 "shasum": ""
             },
             "require": {
@@ -1297,9 +1297,9 @@
             ],
             "support": {
                 "issues": "https://github.com/laravel/prompts/issues",
-                "source": "https://github.com/laravel/prompts/tree/v0.1.10"
+                "source": "https://github.com/laravel/prompts/tree/v0.1.11"
             },
-            "time": "2023-09-29T07:26:07+00:00"
+            "time": "2023-10-03T01:07:35+00:00"
         },
         {
             "name": "laravel/serializable-closure",
@@ -1973,12 +1973,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/moonshine-software/moonshine.git",
-                "reference": "6c233ca67b492abe95288a0b5000a4a57f35676c"
+                "reference": "0de993be832eed3995e1074ff45df6809c3bcd0a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moonshine-software/moonshine/zipball/6c233ca67b492abe95288a0b5000a4a57f35676c",
-                "reference": "6c233ca67b492abe95288a0b5000a4a57f35676c",
+                "url": "https://api.github.com/repos/moonshine-software/moonshine/zipball/0de993be832eed3995e1074ff45df6809c3bcd0a",
+                "reference": "0de993be832eed3995e1074ff45df6809c3bcd0a",
                 "shasum": ""
             },
             "require": {
@@ -2049,7 +2049,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2023-10-03T12:47:22+00:00"
+            "time": "2023-10-03T15:07:47+00:00"
         },
         {
             "name": "nesbot/carbon",
