@@ -104,6 +104,7 @@ return [
     ],
 
     'ActionButton:cursor-arrow-ripple' => [
+        ['slug' => 'action-button-index', 'label' => 'Basics'],
     ],
 
 //    'Decorations:rocket-launch' => [
