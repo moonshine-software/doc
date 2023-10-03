@@ -2,6 +2,9 @@
     title="Файл"
     :sectionMenu="[
         'Разделы' => [
+            ['url' => '#disk', 'label' => 'Disk'],
+            ['url' => '#dir', 'label' => 'Директория'],
+            ['url' => '#allowed-extensions', 'label' => 'Допустимые расширения'],
             ['url' => '#multiple', 'label' => 'Мультизагрузка'],
             ['url' => '#removable', 'label' => 'Удаление файлов'],
             ['url' => '#download', 'label' => 'Запрет на скачивание'],
@@ -9,37 +12,30 @@
             ['url' => '#customname', 'label' => 'Произвольное имя файла'],
         ]
     ]"
-    :videos="[
-        ['url' => 'https://www.youtube.com/embed/7HGaebxlcFM?start=1429&end=1604', 'title' => 'Screencasts: Поле File'],
-    ]"
 >
 
+<x-moonshine::alert type="info" class="mt-8" icon="heroicons.information-circle">
+    Перед использованием необходимо убедиться, что на директорию <strong>storage</strong>
+    установлена символическая ссылка.<br />
+    <code>php artisan storage:link</code>
+</x-moonshine::alert>
+
 <x-p>
-    Прежде чем использовать файловое поле необходимо убедиться, что на директорию storage
-    установлена символическая ссылка
+    Поле <em>File</em> используется для загрузки файлов и включает в себя все базовые методы.
 </x-p>
 
-<x-code language="shell">
-    php artisan storage:link
-</x-code>
-
 <x-code language="php">
-use MoonShine\Fields\File;
+use MoonShine\Fields\File; // [tl! focus]
 
 //...
+
 public function fields(): array
 {
     return [
-        //...
-        // [tl! focus:start]
-        File::make('File', 'file')
-            ->dir('/') // Директория где будут хранится файлы в storage (по умолчанию /)
-            ->disk('public') // Filesystems disk
-            ->allowedExtensions(['jpg', 'gif', 'png']) // Допустимые расширения
-        // [tl! focus:end]
-        //...
+        File::make('File') // [tl! focus]
     ];
 }
+
 //...
 </x-code>
 
@@ -51,30 +47,123 @@ public function fields(): array
     чтобы она соответствовала URL-адресу вашего приложения.
 </x-moonshine::alert>
 
-<x-moonshine::alert type="default" icon="heroicons.information-circle">
-    При использовании драйвера <code>local</code> возвращаемое значение <code>url</code> не представляет собой URL-адрес.
-    По этой причине мы рекомендуем всегда хранить ваши файлы с именами, которые будут создавать действительные URL-адреса.
-</x-moonshine::alert>
-
-<x-sub-title id="multiple">Мультизагрузка</x-sub-title>
+<x-sub-title id="disk">Disk</x-sub-title>
 
 <x-p>
-    Для загрузки нескольких файлов используется метод <code>multiple()</code>
+    Метод <code>disk()</code> позволяет изменить <em>filesystems disk</em>.
 </x-p>
+
+<x-code language="php">
+disk(string $disk)
+</x-code>
 
 <x-code language="php">
 use MoonShine\Fields\File;
 
 //...
+
+public function fields(): array
+{
+    return [
+        File::make('File')
+            ->disk('public') // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
+
+<x-moonshine::alert type="default" icon="heroicons.book-open">
+    По умолчанию используется <em>disk</em> <code>public</code>.<br />
+    Вы можете изменить его в файле
+    <x-link :link="route('moonshine.page', 'resources-configuration')">
+        конфигурации
+    </x-link>.
+</x-moonshine::alert>
+
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    При использовании драйвера <code>local</code> возвращаемое значение <code>url</code> не представляет собой URL-адрес.
+    По этой причине мы рекомендуем всегда хранить ваши файлы с именами, которые будут создавать действительные URL-адреса.
+</x-moonshine::alert>
+
+<x-sub-title id="dir">Директория</x-sub-title>
+
+<x-p>
+    По умолчанию файлы будут сохраняться в корневой директории диска.<br />
+    Метод <code>dir()</code> позволяет указать директорию для сохранения файлов относительно корневой директории.
+</x-p>
+
+<x-code language="php">
+dir(string $dir)
+</x-code>
+
+<x-code language="php">
+use MoonShine\Fields\File;
+
+//...
+
+public function fields(): array
+{
+    return [
+        File::make('File')
+            ->dir('docs') // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
+
+<x-sub-title id="allowed-extensions">Допустимые расширения</x-sub-title>
+
+<x-p>
+    Используя метод <code>allowedExtensions()</code> можно указать какие файлы будут доступны для загрузки.
+</x-p>
+
+<x-code language="php">
+allowedExtensions(array $allowedExtensions)
+</x-code>
+
+<x-code language="php">
+use MoonShine\Fields\File;
+
+//...
+
+public function fields(): array
+{
+    return [
+        File::make('File')
+            ->allowedExtensions(['pdf', 'doc', 'txt']) // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
+
+<x-sub-title id="multiple">Мультизагрузка</x-sub-title>
+
+<x-p>
+    Для загрузки нескольких файлов используется метод <code>multiple()</code>.
+</x-p>
+
+<x-code language="php">
+multiple(Closure|bool|null $condition = null)
+</x-code>
+
+<x-code language="php">
+use MoonShine\Fields\File;
+
+//...
+
 public function fields(): array
 {
     return [
         //...
-        File::make('File', 'file')
+        File::make('File')
             ->multiple(), // [tl! focus]
         //...
     ];
 }
+
 //...
 </x-code>
 
@@ -86,118 +175,143 @@ public function fields(): array
 <x-sub-title id="removable">Удаление файлов</x-sub-title>
 
 <x-p>
-    Для возможности удаления файлов необходимо воспользоваться методом <code>removable()</code>
+    Для возможности удаления файлов необходимо воспользоваться методом <code>removable()</code>.
 </x-p>
+
+<x-code language="php">
+removable()
+</x-code>
 
 <x-code language="php">
 use MoonShine\Fields\File;
 
 //...
+
 public function fields(): array
 {
     return [
-        //...
-        File::make('File', 'file')
-            ->removable(), // [tl! focus]
-        //...
+        File::make('File')
+            ->removable() // [tl! focus]
     ];
 }
+
 //...
 </x-code>
 
 <x-p>
     Метод <code>disableDeleteFiles()</code> позволят удалить только запись в базе данных,
-    но не удалять сам файл
+    но не удалять сам файл.
 </x-p>
+
+<x-code language="php">
+disableDeleteFiles()
+</x-code>
 
 <x-code language="php">
 use MoonShine\Fields\File;
 
 //...
+
 public function fields(): array
 {
     return [
-        //...
-        File::make('File', 'file')
+        File::make('File')
             ->removable()
-            ->disableDeleteFiles(), // [tl! focus]
-        //...
+            ->disableDeleteFiles() // [tl! focus]
     ];
 }
+
 //...
 </x-code>
 
 <x-p>
-    Метод <code>enableDeleteDir()</code> удаляет директорию указанную в методе <code>dir()</code>, если она пуста
+    Метод <code>enableDeleteDir()</code> удаляет директорию указанную в методе <code>dir()</code>, если она пуста.
 </x-p>
+
+<x-code language="php">
+enableDeleteDir()
+</x-code>
 
 <x-code language="php">
 use MoonShine\Fields\File;
 
 //...
+
 public function fields(): array
 {
     return [
-        //...
-        File::make('File', 'file')
-            ->dir('/images/')
+        File::make('File')
+            ->dir('docs')
             ->removable()
-            ->enableDeleteDir(), // [tl! focus]
-        //...
+            ->enableDeleteDir() // [tl! focus]
     ];
 }
+
 //...
 </x-code>
 
 <x-sub-title id="download">Запрет на скачивание</x-sub-title>
 
 <x-p>
-    Если необходимо исключить возможность скачивания файла воспользуйтесь методом <code>disableDownload()</code>
+    Метод <code>disableDownload()</code> позволяет исключить возможность скачивания файла.
 </x-p>
+
+<x-code language="php">
+disableDownload(Closure|bool|null $condition = null)
+</x-code>
 
 <x-code language="php">
 use MoonShine\Fields\File;
 
 //...
+
 public function fields(): array
 {
     return [
-        //...
         File::make('File', 'file')
-            ->disableDownload(), // [tl! focus]
-        //...
+            ->disableDownload() // [tl! focus]
     ];
 }
+
 //...
 </x-code>
 
 <x-sub-title id="filename">Оригинальное имя файла</x-sub-title>
 
 <x-p>
-    Если необходимо сохранять оригинальное имя файла от клиента воспользуйтесь методом <code>keepOriginalFileName()</code>
+    При загрузке по умолчанию генерируется имя файла.
+    Метод <code>keepOriginalFileName()</code> позволяет сохранить файл с оригинальным именем.
 </x-p>
+
+<x-code language="php">
+keepOriginalFileName()
+</x-code>
 
 <x-code language="php">
 use MoonShine\Fields\File;
 
 //...
+
 public function fields(): array
 {
     return [
-        //...
-        File::make('File', 'file')
-            ->keepOriginalFileName(), // [tl! focus]
-        //...
+        File::make('File')
+            ->keepOriginalFileName() // [tl! focus]
     ];
 }
+
 //...
 </x-code>
 
 <x-sub-title id="customname">Произвольное имя файла</x-sub-title>
 
 <x-p>
-    Если необходимо сохранять произвольное имя файла воспользуйтесь методом <code>customName('file_name'))</code>
+    Метод <code>customName()</code> позволяет сохранить файл с произвольным именем.
 </x-p>
+
+<x-code language="php">
+customName(Closure $name)
+</x-code>
 
 <x-code language="php">
 use MoonShine\Fields\File;
@@ -205,15 +319,15 @@ use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Str;
 
 //...
+
 public function fields(): array
 {
     return [
-        //...
         File::make('File', 'file')
-            ->customName(fn(UploadedFile $file) =>  Str::random(10) . '.' . $file->extension()), // [tl! focus]
-        //...
+            ->customName(fn(UploadedFile $file) =>  Str::random(10) . '.' . $file->extension()) // [tl! focus]
     ];
 }
+
 //...
 </x-code>
 

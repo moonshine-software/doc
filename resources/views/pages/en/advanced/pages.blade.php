@@ -11,7 +11,7 @@
 
 <x-p>
     You can create your own blank pages based on the blade view
-    and <x-link link="{{ route('moonshine.custom_page', 'components-index') }}">UI components</x-link>,
+    and <x-link link="{{ route('moonshine.page', 'components-index') }}">UI components</x-link>,
     style in your own way, as well as organize some kind of logic.
 </x-p>
 

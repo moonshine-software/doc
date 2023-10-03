@@ -20,7 +20,7 @@
 <x-sub-title id="composer" hashtag="1">Composer</x-sub-title>
 
 <x-code language="shell">
-    composer require moonshine/moonshine
+    composer require moonshine/moonshine:2.0.0.alpha.1
 </x-code>
 
 <x-sub-title id="install" hashtag="2">Installation</x-sub-title>
@@ -31,17 +31,17 @@
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     This command will add <code>config/moonshine.php</code> with the basic settings.
-    <x-link link="{{ route('moonshine.custom_page', 'configuration') }}">More about the config file</x-link>
+    <x-link link="{{ route('moonshine.page', 'configuration') }}">More about the config file</x-link>
 </x-moonshine::alert>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     A directory containing the admin panel and resources will also be added - <code>app/MoonShine</code>.
-    <x-link link="{{ route('moonshine.custom_page', 'resources-index') }}">More about Resources</x-link>
+    <x-link link="{{ route('moonshine.page', 'resources-index') }}">More about Resources</x-link>
 </x-moonshine::alert>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
      It will also add MoonShineServiceProvider <code>App\Providers\MoonShineServiceProvider</code> where you need to register resources.
-     <x-link link="{{ route('moonshine.custom_page', 'resources-index') }}">More about Resources</x-link>
+     <x-link link="{{ route('moonshine.page', 'resources-index') }}">More about Resources</x-link>
 </x-moonshine::alert>
 
 <x-sub-title id="admin" hashtag="3">
@@ -83,7 +83,7 @@ class MoonShineServiceProvider extends ServiceProvider
 
 <x-p>
     In this example, we have added a menu item with panel admins.
-    <x-link link="{{ route('moonshine.custom_page', 'advanced-menu') }}">More about Menu</x-link>
+    <x-link link="{{ route('moonshine.page', 'advanced-menu') }}">More about Menu</x-link>
 </x-p>
 
 <x-p>
@@ -93,7 +93,7 @@ class MoonShineServiceProvider extends ServiceProvider
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     By default, the admin panel is accessed by url <code>/moonshine</code>. You can change the url in
-    <x-link link="{{ route('moonshine.custom_page', 'configuration') }}">config file</x-link>.
+    <x-link link="{{ route('moonshine.page', 'configuration') }}">config file</x-link>.
 </x-moonshine::alert>
 
 </x-page>

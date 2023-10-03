@@ -1,6 +1,6 @@
 <x-page title="Switch">
 
-<x-extendby :href="route('moonshine.custom_page', 'fields-checkbox')">
+<x-extendby :href="route('moonshine.page', 'fields-checkbox')">
     Checkbox
 </x-extendby>
 

@@ -1,26 +1,23 @@
-<x-page
-    title="Цвет"
-    :videos="[
-        ['url' => 'https://www.youtube.com/embed/7HGaebxlcFM?start=1375&end=1425', 'title' => 'Screencasts: Поле Color'],
-    ]"
->
+<x-page title="Цвет">
 
-<x-extendby :href="route('moonshine.custom_page', 'fields-text')">
+<x-extendby :href="route('moonshine.page', 'fields-text')">
     Text
 </x-extendby>
 
 <x-p>
-    Все тоже самое как и "Текстовое поле", меняется только input type = color
+    Поле <em>Color</em> является расширением <em>Text</em>,
+    которое предоставляет удобный способ для ввода цвета.
 </x-p>
 
 <x-code language="php">
-use MoonShine\Fields\Color;
+use MoonShine\Fields\Color; // [tl! focus]
 
 //...
+
 public function fields(): array
 {
     return [
-        Color::make('Цвет', 'color')
+        Color::make('Color') // [tl! focus]
     ];
 }
 

@@ -6,7 +6,7 @@
     ]
 ]">
 
-<x-extendby :href="route('moonshine.custom_page', 'fields-json')">
+<x-extendby :href="route('moonshine.page', 'fields-json')">
     Json
 </x-extendby>
 

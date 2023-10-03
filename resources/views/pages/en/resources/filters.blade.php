@@ -7,7 +7,7 @@
 
 <x-p>
     Adding new filters is easy! You can simply return all the necessary filters in the <code>filters</code> method which returns an array.
-    And we will talk about filters structure in the <x-link link="{{ route('moonshine.custom_page', 'filters-index') }}">"Filters"</x-link> section.
+    And we will talk about filters structure in the <x-link link="{{ route('moonshine.page', 'filters-index') }}">"Filters"</x-link> section.
 </x-p>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">

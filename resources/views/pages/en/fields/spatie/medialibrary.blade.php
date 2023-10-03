@@ -1,6 +1,6 @@
 <x-page title="Spatie\MediaLibrary">
 
-    <x-extendby :href="route('moonshine.custom_page', 'fields-image')">
+    <x-extendby :href="route('moonshine.page', 'fields-image')">
         Image
     </x-extendby>
 

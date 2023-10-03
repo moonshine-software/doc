@@ -9,7 +9,29 @@ return [
 //        ['slug' => 'releases', 'label' => 'Releases'],
 //        ['slug' => 'upgrade_guide', 'label' => 'Upgrade guide', 'badge' => 'new'],
     ],
+
     ':_divider_',
+
+    'Page:newspaper' => [
+        ['slug' => 'page-index', 'label' => 'Basics'],
+    ],
+
+    'Appearance:photo' => [
+        ['slug' => 'appearance-index', 'label' => 'Basics'],
+        ['slug' => 'appearance-layout_builder', 'label' => 'LayoutBuilder'],
+        ['slug' => 'appearance-assets', 'label' => 'AssetsManager'],
+        ['slug' => 'appearance-icons', 'label' => 'Icons'],
+
+        // Text
+        'Decorations:_divider_',
+        ['slug' => 'appearance-decorations_tabs', 'label' => 'Tabs'],
+        ['slug' => 'appearance-decorations_heading', 'label' => 'Heading'],
+        ['slug' => 'appearance-decorations_block', 'label' => 'Block'],
+        ['slug' => 'appearance-decorations_layout', 'label' => 'Layout'],
+        ['slug' => 'appearance-decorations_collapse', 'label' => 'Collapse'],
+        ['slug' => 'appearance-decorations_divider', 'label' => 'Divider'],
+    ],
+
     'Models Resources:document-duplicate' => [
         ['slug' => 'resources-index', 'label' => 'Basics'],
         ['slug' => 'resources-fields', 'label' => 'Fields'],
@@ -34,41 +56,44 @@ return [
         // Text
         'Text:_divider_',
         ['slug' => 'fields-text', 'label' => 'Text'],
+        ['slug' => 'fields-hidden', 'label' => 'Hidden'],
         ['slug' => 'fields-id', 'label' => 'ID'],
-//        ['slug' => 'fields-slug', 'label' => 'Slug'],
-//        ['slug' => 'fields-color', 'label' => 'Color'],
-//        ['slug' => 'fields-url', 'label' => 'Url'],
-//        ['slug' => 'fields-email', 'label' => 'E-mail'],
-//        ['slug' => 'fields-phone', 'label' => 'Phone'],
-//        ['slug' => 'fields-password', 'label' => 'Password'],
-//        ['slug' => 'fields-number', 'label' => 'Number'],
-//        ['slug' => 'fields-slide', 'label' => 'Slide'],
-//        ['slug' => 'fields-date', 'label' => 'Date'],
+        ['slug' => 'fields-slug', 'label' => 'Slug'],
+        ['slug' => 'fields-color', 'label' => 'Color'],
+        ['slug' => 'fields-url', 'label' => 'Url'],
+        ['slug' => 'fields-email', 'label' => 'E-mail'],
+        ['slug' => 'fields-phone', 'label' => 'Phone'],
+        ['slug' => 'fields-password', 'label' => 'Password'],
+        ['slug' => 'fields-number', 'label' => 'Number'],
+        ['slug' => 'fields-range', 'label' => 'Range'],
+        ['slug' => 'fields-range_slider', 'label' => 'RangeSlider'],
+        ['slug' => 'fields-date', 'label' => 'Date'],
+        ['slug' => 'fields-date_range', 'label' => 'DateRange'],
 
         // Textarea
-//        'Textarea:_divider_',
-//        ['slug' => 'fields-textarea', 'label' => 'Textarea'],
-//        ['slug' => 'fields-wysiwyg', 'label' => 'WYSIWYG'],
-//        ['slug' => 'fields-code', 'label' => 'Code'],
+        'Textarea:_divider_',
+        ['slug' => 'fields-textarea', 'label' => 'Textarea'],
+        ['slug' => 'fields-code', 'label' => 'Code'],
+        ['slug' => 'fields-tinymce', 'label' => 'TinyMce'],
 
         // Select
-//        'Select:_divider_',
-//        ['slug' => 'fields-select', 'label' => 'Select'],
-//        ['slug' => 'fields-enum', 'label' => 'Enum'],
+        'Select:_divider_',
+        ['slug' => 'fields-select', 'label' => 'Select'],
+        ['slug' => 'fields-enum', 'label' => 'Enum'],
 
         // Checkbox
-//        'Checkbox:_divider_',
-//        ['slug' => 'fields-checkbox', 'label' => 'Checkbox'],
-//        ['slug' => 'fields-switch', 'label' => 'Switch'],
+        'Checkbox:_divider_',
+        ['slug' => 'fields-checkbox', 'label' => 'Checkbox'],
+        ['slug' => 'fields-switcher', 'label' => 'Switcher'],
 
         // File
-//        'File:_divider_',
-//        ['slug' => 'fields-files', 'label' => 'Files'],
-//        ['slug' => 'fields-image', 'label' => 'Image'],
+        'File:_divider_',
+        ['slug' => 'fields-file', 'label' => 'File'],
+        ['slug' => 'fields-image', 'label' => 'Image'],
 
         // Json
-//        'Json:_divider_',
-//        ['slug' => 'fields-json', 'label' => 'Json'],
+        'Json:_divider_',
+        ['slug' => 'fields-json', 'label' => 'Json'],
 
         // Relationships
 //        'Relationships:_divider_',
@@ -94,31 +119,9 @@ return [
 //        ['slug' => 'fields-spatie-medialibrary', 'label' => 'Spatie\MediaLibrary'],
     ],
 
-//    'Filters:adjustments-vertical' => [
-//        ['slug' => 'filters-index', 'label' => 'Basics'],
-       // Text
-//        'Text:_divider_',
-//        ['slug' => 'filters-text', 'label' => 'TextFilter'],
-//        ['slug' => 'filters-date', 'label' => 'DateFilter'],
-//        ['slug' => 'filters-date_range', 'label' => 'DateRangeFilter'],
-//        ['slug' => 'filters-slide', 'label' => 'SlideFilter'],
-//
-       // Select
-//        'Select:_divider_',
-//        ['slug' => 'filters-select', 'label' => 'SelectFilter'],
-//
-       // Checkbox
-//        'Checkbox:_divider_',
-//        ['slug' => 'filters-switch', 'label' => 'SwitchFilter'],
-//
-//        ['slug' => 'filters-is_empty', 'label' => 'IsEmptyFilter/IsNotEmptyFilter'],
-
-       // Relationships
-//        'Relationships:_divider_',
-//        ['slug' => 'filters-belongs_to', 'label' => 'BelongsToFilter'],
-//        ['slug' => 'filters-belongs_to_many', 'label' => 'BelongsToManyFilter'],
-//        ['slug' => 'filters-has_one', 'label' => 'HasOneFilter'],
-//    ],
+    'ActionButton:cursor-arrow-ripple' => [
+        ['slug' => 'action-button-index', 'label' => 'Basics'],
+    ],
 
    'Decorations:rocket-launch' => [
        ['slug' => 'decorations-index', 'label' => 'Basics'],
@@ -143,10 +146,6 @@ return [
 //        ['slug' => 'actions-export', 'label' => 'Export'],
 //        ['slug' => 'actions-import', 'label' => 'Import'],
 //    ],
-
-    'Icons:trophy' => [
-        ['slug' => 'icons-index', 'label' => 'Icons'],
-    ],
 
 //    'UI components:code-bracket-square' => [
 //        ['slug' => 'components-index', 'label' => 'Basics'],
@@ -180,7 +179,12 @@ return [
 //        ['slug' => 'components-tooltip', 'label' => 'Tooltip'],
 //    ],
 
-//    'Digging Deeper:moon' => [
+    'Advanced:moon' => [
+        ['slug' => 'advanced-resource', 'label' => 'Resource'],
+        ['slug' => 'advanced-form_builder', 'label' => 'FormBuilder'],
+        ['slug' => 'advanced-table_builder', 'label' => 'TableBuilder'],
+        ['slug' => 'advanced-type_casts', 'label' => 'TypeCasts'],
+        ['slug' => 'advanced-helpers', 'label' => 'Helpers'],
 //        ['slug' => 'advanced-dashboard', 'label' => 'Dashboard', 'badge' => 'new'],
 //        ['slug' => 'advanced-routes', 'label' => 'Routes'],
 //        ['slug' => 'advanced-pages', 'label' => 'Pages'],
@@ -193,7 +197,7 @@ return [
 //        ['slug' => 'advanced-socialite', 'label' => 'Socialite'],
 //        ['slug' => 'advanced-localization', 'label' => 'Localization'],
 //        ['slug' => 'advanced-development', 'label' => 'Development'],
-//    ],
+    ],
 
 //    ':_divider_',
 //    'Packages:cube' => [

@@ -12,7 +12,7 @@
 </x-p>
 
 <x-p>
-    На текущий момент в панели управления можно отобразить <x-link link="{{ route('moonshine.custom_page', 'metrics-index') }}">метрики</x-link>
+    На текущий момент в панели управления можно отобразить <x-link link="{{ route('moonshine.page', 'metrics-index') }}">метрики</x-link>
 </x-p>
 
 <x-p>
@@ -22,7 +22,7 @@
 
 <x-p>
     Элементам также доступны методы декораций
-    <x-link link="{{ route('moonshine.custom_page', 'decorations-layout#grid-column') }}">Layout (columnSpan)</x-link>
+    <x-link link="{{ route('moonshine.page', 'decorations-layout#grid-column') }}">Layout (columnSpan)</x-link>
 </x-p>
 
 <x-code language="php">

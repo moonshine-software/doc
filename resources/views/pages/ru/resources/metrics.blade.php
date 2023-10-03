@@ -1,8 +1,8 @@
 <x-page title="Метрики" :sectionMenu="$sectionMenu ?? null">
 
 <x-p>
-    Как и в <x-link link="{{ route('moonshine.custom_page', 'advanced-dashboard') }}">панели управления</x-link> в каждом ресурсе можно
-    отобразить <x-link link="{{ route('moonshine.custom_page', 'metrics-index') }}">метрики</x-link>
+    Как и в <x-link link="{{ route('moonshine.page', 'advanced-dashboard') }}">панели управления</x-link> в каждом ресурсе можно
+    отобразить <x-link link="{{ route('moonshine.page', 'metrics-index') }}">метрики</x-link>
 </x-p>
 
 <x-code language="php">

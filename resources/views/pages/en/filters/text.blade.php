@@ -1,6 +1,6 @@
 <x-page title="TextFilter">
 
-<x-extendby :href="route('moonshine.custom_page', 'fields-text')">
+<x-extendby :href="route('moonshine.page', 'fields-text')">
     Text
 </x-extendby>
 

@@ -1,22 +1,27 @@
-<x-page
-    title="Url"
-    :videos="[
-        ['url' => 'https://www.youtube.com/embed/7HGaebxlcFM?start=925&end=978', 'title' => 'Screencasts: Поле Url'],
-    ]"
->
+<x-page title="Url">
 
-<x-extendby :href="route('moonshine.custom_page', 'fields-text')">
+<x-extendby :href="route('moonshine.page', 'fields-text')">
     Text
 </x-extendby>
 
 <x-p>
-    Все то же самое как и "Текстовое поле", меняется только input type = url
+    Поле <em>Url</em> является расширением <em>Text</em>,
+    которое по умолчанию устанавливает <code>type=url</code>.
 </x-p>
 
 <x-code language="php">
-use MoonShine\Fields\Url;
+use MoonShine\Fields\Url; // [tl! focus]
 
-Url::make('Url', 'url')
+//...
+
+public function fields(): array
+{
+    return [
+        Url::make('Link') // [tl! focus]
+    ];
+}
+
+//...
 </x-code>
 
 </x-page>

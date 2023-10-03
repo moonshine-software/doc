@@ -1,6 +1,6 @@
 <x-page title="SwitchBooleanFilter">
 
-<x-extendby :href="route('moonshine.custom_page', 'fields-switch')">
+<x-extendby :href="route('moonshine.page', 'fields-switch')">
     Switch
 </x-extendby>
 

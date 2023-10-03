@@ -148,7 +148,7 @@ app(MoonShine::class)->menu([
 </x-code>
 
 <x-p>
-    For more information, see <x-link link="{{ route('moonshine.custom_page', 'icons-index') }}">Icons</x-link>
+    For more information, see <x-link link="{{ route('moonshine.page', 'icons-index') }}">Icons</x-link>
 </x-p>
 
 <x-sub-title id="badge">Tag</x-sub-title>

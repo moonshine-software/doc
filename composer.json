@@ -8,9 +8,9 @@
         "php": "^8.2",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.0",
-        "moonshine/moonshine": "^1.60",
-        "torchlight/torchlight-laravel": "^0.5.11",
-        "lee-to/moonshine-algolia-search": "^1.0"
+        "lee-to/moonshine-algolia-search": "^1.0",
+        "moonshine/moonshine": "2.0.0.alpha.2",
+        "torchlight/torchlight-laravel": "^0.5.11"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.8",

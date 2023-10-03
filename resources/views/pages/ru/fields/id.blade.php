@@ -1,11 +1,12 @@
 <x-page title="ID">
 
-<x-extendby :href="route('moonshine.custom_page', 'fields-text')">
-    Text
+<x-extendby :href="route('moonshine.page', 'fields-hidden')">
+    Hidden
 </x-extendby>
 
 <x-p>
-    Поле отображается почти всегда и будет скрыт по умолчанию на странице добавления/редактирования.
+Поле <em>ID</em> используется для primary key.<br />
+Оно так же как и поле <em>Hidden</em> отображается только в preview и не отображается в формах.
 </x-p>
 
 <x-code language="php">

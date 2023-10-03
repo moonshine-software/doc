@@ -1,6 +1,6 @@
 <x-page title="Code">
 
-<x-extendby :href="route('moonshine.custom_page', 'fields-textarea')">
+<x-extendby :href="route('moonshine.page', 'fields-textarea')">
     Textarea
 </x-extendby>
 
