@@ -9,7 +9,13 @@ return [
 //        ['slug' => 'releases', 'label' => 'Releases'],
 //        ['slug' => 'upgrade_guide', 'label' => 'Upgrade guide', 'badge' => 'new'],
     ],
+
     ':_divider_',
+
+    'Page:newspaper' => [
+        ['slug' => 'page-index', 'label' => 'Basics'],
+    ],
+
     'Models Resources:document-duplicate' => [
         ['slug' => 'resources-index', 'label' => 'Basics'],
         ['slug' => 'resources-fields', 'label' => 'Fields'],
@@ -97,31 +103,8 @@ return [
 //        ['slug' => 'fields-spatie-medialibrary', 'label' => 'Spatie\MediaLibrary'],
     ],
 
-//    'Filters:adjustments-vertical' => [
-//        ['slug' => 'filters-index', 'label' => 'Basics'],
-       // Text
-//        'Text:_divider_',
-//        ['slug' => 'filters-text', 'label' => 'TextFilter'],
-//        ['slug' => 'filters-date', 'label' => 'DateFilter'],
-//        ['slug' => 'filters-date_range', 'label' => 'DateRangeFilter'],
-//        ['slug' => 'filters-slide', 'label' => 'SlideFilter'],
-//
-       // Select
-//        'Select:_divider_',
-//        ['slug' => 'filters-select', 'label' => 'SelectFilter'],
-//
-       // Checkbox
-//        'Checkbox:_divider_',
-//        ['slug' => 'filters-switch', 'label' => 'SwitchFilter'],
-//
-//        ['slug' => 'filters-is_empty', 'label' => 'IsEmptyFilter/IsNotEmptyFilter'],
-
-       // Relationships
-//        'Relationships:_divider_',
-//        ['slug' => 'filters-belongs_to', 'label' => 'BelongsToFilter'],
-//        ['slug' => 'filters-belongs_to_many', 'label' => 'BelongsToManyFilter'],
-//        ['slug' => 'filters-has_one', 'label' => 'HasOneFilter'],
-//    ],
+    'ActionButton:cursor-arrow-ripple' => [
+    ],
 
 //    'Decorations:rocket-launch' => [
 //        ['slug' => 'decorations-index', 'label' => 'Basics'],
@@ -186,7 +169,11 @@ return [
 //        ['slug' => 'components-tooltip', 'label' => 'Tooltip'],
 //    ],
 
-//    'Digging Deeper:moon' => [
+    'Advanced:moon' => [
+        ['slug' => 'advanced-resource', 'label' => 'Resource'],
+        ['slug' => 'advanced-form_builder', 'label' => 'FormBuilder'],
+        ['slug' => 'advanced-table_builder', 'label' => 'TableBuilder'],
+        ['slug' => 'advanced-type_casts', 'label' => 'TypeCasts'],
 //        ['slug' => 'advanced-dashboard', 'label' => 'Dashboard', 'badge' => 'new'],
 //        ['slug' => 'advanced-routes', 'label' => 'Routes'],
 //        ['slug' => 'advanced-pages', 'label' => 'Pages'],
@@ -199,7 +186,7 @@ return [
 //        ['slug' => 'advanced-socialite', 'label' => 'Socialite'],
 //        ['slug' => 'advanced-localization', 'label' => 'Localization'],
 //        ['slug' => 'advanced-development', 'label' => 'Development'],
-//    ],
+    ],
 
 //    ':_divider_',
 //    'Packages:cube' => [

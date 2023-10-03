@@ -1,4 +1,4 @@
-<x-page title="Icons" :sectionMenu="[
+<x-page title="Внешний вид" :sectionMenu="[
     'Разделы' => [
         ['url' => '#logo', 'label' => 'Логотип'],
         ['url' => '#theme', 'label' => 'Основная тема'],
@@ -25,22 +25,33 @@ return [
 <x-sub-title id="theme">Основная тема</x-sub-title>
 
 <x-p>
-    При необходимости можно создать собственный css который заменит системный
+    Метод <code>theme()</code> в провайдере <code>MoonShineServiceProvider</code>
+    позволяет конфигурировать тему админ-панели <strong>MoonShine</strong>.
+</x-p>
+
+<x-code language="php">
+/**
+* @return array{css: string, colors: array, darkColors: array}
+*/
+protected function theme(): array // [tl! focus]
+</x-code>
+
+<x-p>
+    При необходимости можно создать собственный css файл который заменит системный.
 </x-p>
 
 <x-code language="php">
 class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 {
     //...
-    /**
-    * @return array{css: string, colors: array, darkColors: array}
-    */
+
     protected function theme(): array
     {
         return [
-            'css' => 'path_to_theme.css'
+            'css' => 'path_to_theme.css' // [tl! focus]
         ];
     }
+
     //...
 }
 
@@ -49,48 +60,48 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 <x-sub-title id="colors">Цветовая схема</x-sub-title>
 
 <x-p>
-    Изменить определенные цвета
+    Если необходимо переопределить определенные цвета светлой схемы,
+    то из метода <code>theme()</code> нужно вернуть массив содержащий ключ <code>colors</code>.
 </x-p>
 
 <x-code language="php">
 class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 {
     //...
-    /**
-    * @return array{css: string, colors: array, darkColors: array}
-    */
+
     protected function theme(): array
     {
         return [
             'colors' => [
-                // Можно использовать hex
                 'primary' => '#0000',
-                // или rgb
                 'secondary' => 'rgb(120, 67, 233)',
-            ],
+            ], // [tl! focus:-3]
         ];
     }
+
     //...
 }
 </x-code>
 
+<x-moonshine::alert class="mt-8" type="default" icon="heroicons.book-open">
+    При указании цвета можно использовать <em>hex</em> или <em>rgb</em>.
+</x-moonshine::alert>
+
 <x-p>
-    Если необходимо изменить цвета темной темы
+    За цвета в темной теме отвечает ключ массива <code>darkColors</code>.
 </x-p>
 
 <x-code language="php">
 class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 {
     //...
-    /**
-    * @return array{css: string, colors: array, darkColors: array}
-    */
+
     protected function theme(): array
     {
         return [
             'darkColors' => [
                 'body' => 'rgb(27, 37, 59)',
-            ]
+            ] // [tl! focus:-2]
         ];
     }
     //...
@@ -98,19 +109,17 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 </x-code>
 
 <x-p>
-    Все доступные значения и цвета по умолчанию
+    Все доступные значения и цвета по умолчанию:
 </x-p>
 
 <x-code language="php">
 class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 {
     //...
-    /**
-    * @return array{css: string, colors: array, darkColors: array}
-    */
+
     protected function theme(): array
     {
-        return [
+        return [ // [tl! focus:start]
             'colors' => [
                 'primary' => 'rgb(120, 67, 233)',
                 'secondary' => 'rgb(236, 65, 118)',
@@ -149,9 +158,11 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
                 'info-bg' => 'rgb(38, 93, 205)',
                 'info-text' => 'rgb(179, 220, 255)',
             ]
-        ];
+        ];// [tl! focus:end]
     }
+
     //...
 }
 </x-code>
+
 </x-page>

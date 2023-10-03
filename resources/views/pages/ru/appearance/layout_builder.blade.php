@@ -8,11 +8,11 @@
 <x-sub-title id="publish">Публикация шаблона</x-sub-title>
 
 <x-p>
-    Для изменения структуры шаблона необходимо воспользоваться LayoutBuilder
+    Для изменения структуры шаблона необходимо воспользоваться <code>LayoutBuilder</code>.
 </x-p>
 
 <x-p>
-    Для начала класс по изменению шаблона нужно опубликовать
+    Для начала класс по изменению шаблона нужно опубликовать, воспользовавшись консольной командой.
 </x-p>
 
 <x-code language="shell">
@@ -20,7 +20,7 @@ php artisan moonshine:layout
 </x-code>
 
 <x-p>
-    После чего в директории <code>app/MoonShine</code> появится класс <code>MoonShineLayout.php</code>
+    После выполнения команды в директории <code>app/MoonShine</code> появится класс <code>MoonShineLayout.php</code>.
 </x-p>
 
 <x-code language="php">
@@ -63,7 +63,7 @@ final class MoonShineLayout implements MoonShineLayoutContract
 
 <x-p>
     По умолчанию в MoonShine есть компонент для верхнего меню,
-    давайте взглянем как в LayoutBuilder заменить Sidebar на TopBar
+    давайте взглянем как в <code>LayoutBuilder</code> заменить <code>Sidebar</code> на <code>TopBar</code>.
 </x-p>
 
 <x-code language="php">
