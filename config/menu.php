@@ -10,6 +10,9 @@ return [
 //        ['slug' => 'upgrade_guide', 'label' => 'Upgrade guide', 'badge' => 'new'],
     ],
     ':_divider_',
+    'Page:newspaper' => [
+        ['slug' => 'page-index', 'label' => 'Basics'],
+    ],
     'Models Resources:document-duplicate' => [
         ['slug' => 'resources-index', 'label' => 'Basics'],
         ['slug' => 'resources-fields', 'label' => 'Fields'],
