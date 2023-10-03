@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\MoonShine\Pages;
 
-use MoonShine\Decorations\Heading;
 use MoonShine\Decorations\TextBlock;
 use MoonShine\Pages\Page;
 
