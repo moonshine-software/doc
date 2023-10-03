@@ -122,11 +122,11 @@ return [
 
    'Decorations:rocket-launch' => [
        ['slug' => 'decorations-index', 'label' => 'Basics'],
+       ['slug' => 'decorations-layout', 'label' => 'Layout', 'badge' => 'new'],
+       ['slug' => 'decorations-block', 'label' => 'Block'],
+       ['slug' => 'decorations-heading', 'label' => 'Heading'],
        ['slug' => 'decorations-tabs', 'label' => 'Tabs'],
-       // ['slug' => 'decorations-heading', 'label' => 'Heading'],
-       // ['slug' => 'decorations-block', 'label' => 'Block'],
-       // ['slug' => 'decorations-layout', 'label' => 'Layout', 'badge' => 'new'],
-       // ['slug' => 'decorations-button', 'label' => 'Button'],
+       ['slug' => 'decorations-button', 'label' => 'Button'],
        // ['slug' => 'decorations-collapse', 'label' => 'Collapse'],
        // ['slug' => 'decorations-divider', 'label' => 'Divider', 'badge' => 'new'],
    ],
