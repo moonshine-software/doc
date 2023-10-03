@@ -58,6 +58,7 @@ final class MoonShineLayout implements MoonShineLayoutContract
     }
 }
 </x-code>
+
 <x-sub-title id="topbar">Верхнее меню</x-sub-title>
 
 <x-p>
@@ -76,15 +77,12 @@ final class MoonShineLayout implements MoonShineLayoutContract
     public static function build(): LayoutBuilder
     {
         return LayoutBuilder::make([
-            // [tl! focus:start]
             TopBar::make([
                 Menu::make()->top(),
-            ]),
-            // [tl! focus:end]
+            ]), // [tl! focus:-2]
             LayoutBlock::make([
                 Flash::make(),
                 Header::make(),
-                new AlertAlpha(),
                 Content::make(),
                 Footer::make()->copyright(fn (): string => <<<'HTML'
                         &copy; 2021-2023 Made with ❤️ by
@@ -100,13 +98,10 @@ final class MoonShineLayout implements MoonShineLayoutContract
                     ]),
             ])->customAttributes(['class' => 'layout-page']),
         ])
-        // [tl! focus:start]
-            ->customAttributes(['class' => 'layout-wrapper--top-menu']);
-        // [tl! focus:end]
+            ->customAttributes(['class' => 'layout-wrapper--top-menu']); // [tl! focus]
+
     }
 }
 </x-code>
-
-
 
 </x-page>
