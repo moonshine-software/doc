@@ -13,7 +13,8 @@ return [
     ':_divider_',
 
     'Page:newspaper' => [
-        ['slug' => 'page-index', 'label' => 'Basics'],
+        ['slug' => 'page-class', 'label' => 'Class'],
+        ['slug' => 'page-instance', 'label' => 'Instance'],
     ],
 
     'Appearance:photo' => [
@@ -51,7 +52,27 @@ return [
 //        ['slug' => 'resources-singleton', 'label' => 'SingletonResource'],
     ],
 
-    'Fields:bars-3' => [
+    'Menu:bars-3' => [
+        ['slug' => 'menu', 'label' => 'Menu'],
+    ],
+
+    'Appearance:photo' => [
+        ['slug' => 'appearance-index', 'label' => 'Basics'],
+        ['slug' => 'appearance-layout_builder', 'label' => 'LayoutBuilder'],
+        ['slug' => 'appearance-assets', 'label' => 'AssetsManager'],
+        ['slug' => 'appearance-icons', 'label' => 'Icons'],
+
+        // Decorations
+        'Decorations:_divider_',
+        ['slug' => 'appearance-decorations_tabs', 'label' => 'Tabs'],
+        ['slug' => 'appearance-decorations_heading', 'label' => 'Heading'],
+        ['slug' => 'appearance-decorations_block', 'label' => 'Block'],
+        ['slug' => 'appearance-decorations_layout', 'label' => 'Layout'],
+        ['slug' => 'appearance-decorations_collapse', 'label' => 'Collapse'],
+        ['slug' => 'appearance-decorations_divider', 'label' => 'Divider'],
+    ],
+
+    'Fields:table-cells' => [
         ['slug' => 'fields-index', 'label' => 'Basics'],
         // Text
         'Text:_divider_',
@@ -120,7 +141,7 @@ return [
     ],
 
     'ActionButton:cursor-arrow-ripple' => [
-        ['slug' => 'action-button-index', 'label' => 'Basics'],
+        ['slug' => 'action-button', 'label' => 'ActionButton'],
     ],
 
 //    'Decorations:rocket-launch' => [
@@ -147,6 +168,27 @@ return [
 //        ['slug' => 'actions-import', 'label' => 'Import'],
 //    ],
 
+    'Advanced:moon' => [
+        ['slug' => 'advanced-resource', 'label' => 'Resource'],
+        ['slug' => 'advanced-form_builder', 'label' => 'FormBuilder'],
+        ['slug' => 'advanced-table_builder', 'label' => 'TableBuilder'],
+        ['slug' => 'advanced-type_casts', 'label' => 'TypeCasts'],
+        ['slug' => 'advanced-helpers', 'label' => 'Helpers'],
+//        ['slug' => 'advanced-dashboard', 'label' => 'Dashboard', 'badge' => 'new'],
+//        ['slug' => 'advanced-routes', 'label' => 'Routes'],
+//        ['slug' => 'advanced-pages', 'label' => 'Pages'],
+//        ['slug' => 'advanced-menu', 'label' => 'Menu'],
+//        ['slug' => 'advanced-assets', 'label' => 'Assets'],
+//        ['slug' => 'advanced-authentication', 'label' => 'Authentication'],
+//        ['slug' => 'advanced-authorization', 'label' => 'Authorization'],
+//        ['slug' => 'advanced-events', 'label' => 'Events'],
+//        ['slug' => 'advanced-notifications', 'label' => 'Notifications'],
+//        ['slug' => 'advanced-socialite', 'label' => 'Socialite'],
+//        ['slug' => 'advanced-localization', 'label' => 'Localization'],
+//        ['slug' => 'advanced-development', 'label' => 'Development'],
+    ],
+
+//    ':_divider_',
 //    'UI components:code-bracket-square' => [
 //        ['slug' => 'components-index', 'label' => 'Basics'],
 //        ['slug' => 'components-alert', 'label' => 'Alert'],
@@ -178,26 +220,6 @@ return [
 //        ['slug' => 'components-toast', 'label' => 'Toast'],
 //        ['slug' => 'components-tooltip', 'label' => 'Tooltip'],
 //    ],
-
-    'Advanced:moon' => [
-        ['slug' => 'advanced-resource', 'label' => 'Resource'],
-        ['slug' => 'advanced-form_builder', 'label' => 'FormBuilder'],
-        ['slug' => 'advanced-table_builder', 'label' => 'TableBuilder'],
-        ['slug' => 'advanced-type_casts', 'label' => 'TypeCasts'],
-        ['slug' => 'advanced-helpers', 'label' => 'Helpers'],
-//        ['slug' => 'advanced-dashboard', 'label' => 'Dashboard', 'badge' => 'new'],
-//        ['slug' => 'advanced-routes', 'label' => 'Routes'],
-//        ['slug' => 'advanced-pages', 'label' => 'Pages'],
-//        ['slug' => 'advanced-menu', 'label' => 'Menu'],
-//        ['slug' => 'advanced-assets', 'label' => 'Assets'],
-//        ['slug' => 'advanced-authentication', 'label' => 'Authentication'],
-//        ['slug' => 'advanced-authorization', 'label' => 'Authorization'],
-//        ['slug' => 'advanced-events', 'label' => 'Events'],
-//        ['slug' => 'advanced-notifications', 'label' => 'Notifications'],
-//        ['slug' => 'advanced-socialite', 'label' => 'Socialite'],
-//        ['slug' => 'advanced-localization', 'label' => 'Localization'],
-//        ['slug' => 'advanced-development', 'label' => 'Development'],
-    ],
 
 //    ':_divider_',
 //    'Packages:cube' => [

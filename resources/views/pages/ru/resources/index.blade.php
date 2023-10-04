@@ -116,7 +116,7 @@ class PostResource extends ModelResource
 
 <x-p>
     Зарегистрировать ресурс в системе и сразу добавить ссылку на раздел в навигационное меню
-    можно через сервис провайдере <code>MoonShineServiceProvider</code>.
+    можно через сервис провайдер <code>MoonShineServiceProvider</code>.
 </x-p>
 
 <x-code language="php">
@@ -140,12 +140,9 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 }
 </x-code>
 
-<x-image theme="light" src="{{ asset('screenshots/menu.png') }}"></x-image>
-<x-image theme="dark" src="{{ asset('screenshots/menu_dark.png') }}"></x-image>
-
 <x-moonshine::alert type="default" icon="heroicons.book-open">
     О расширенных настройках можно узнать в разделе
-    <x-link :link="route('moonshine.page', 'advanced-menu')" ><code>Digging Deeper > Меню</code></x-link>.
+    <x-link :link="route('moonshine.page', 'menu')" ><code>Меню</code></x-link>.
 </x-moonshine::alert>
 
 <x-p>

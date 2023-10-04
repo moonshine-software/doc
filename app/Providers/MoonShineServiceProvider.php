@@ -72,8 +72,13 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
                     }
                 }
 
-                $menu[] = MenuGroup::make($title, $inner)
-                    ->icon("heroicons.outline.$icon");
+                if (count($inner) === 1) {
+                    $menu[] = array_shift($inner)
+                        ->icon("heroicons.outline.$icon");
+                } else {
+                    $menu[] = MenuGroup::make($title, $inner)
+                        ->icon("heroicons.outline.$icon");
+                }
             }
         }
 
