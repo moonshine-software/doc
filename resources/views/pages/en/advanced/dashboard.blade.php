@@ -72,7 +72,7 @@ class Dashboard extends DashboardScreen
             DashboardBlock::make([
                 ResourcePreview::make(
                     new ArticleResource(), // Mandatory parameter with MoonShine resource
-                    'Latest articles' // Optional - block header
+                    'Latest articles', // Optional - block header
                     Article::query()->where('active', true)->limit(2) // Optional QueryBuilder
                 )
             ])
