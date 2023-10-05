@@ -13,8 +13,8 @@ return [
     ':_divider_',
 
     'Page:newspaper' => [
-        ['slug' => 'page-class', 'label' => 'Class'],
-        ['slug' => 'page-instance', 'label' => 'Instance'],
+        ['slug' => 'page-class', 'label' => 'Create class'],
+        ['slug' => 'page-instance', 'label' => 'Make instance'],
     ],
 
     'Appearance:photo' => [

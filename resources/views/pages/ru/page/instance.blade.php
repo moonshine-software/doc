@@ -6,6 +6,7 @@
             ['url' => '#define', 'label' => 'Объявление'],
             ['url' => '#title', 'label' => 'Заголовок'],
             ['url' => '#layout', 'label' => 'Layout'],
+            ['url' => '#alias', 'label' => 'Alias'],
         ]
     ]
 ">
@@ -153,6 +154,32 @@ public function pages(): array
     return [
         CustomPage::make('Title page', 'custom_page')
             ->setLayout('custom_layouts.app') // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
+
+<x-sub-title id="alias">Alias</x-sub-title>
+
+<x-p>
+    Метод <code>alias()</code> позволяет изменить алиас для инстанса страницы.
+</x-p>
+
+<x-code language="php">
+alias(string $alias)
+</x-code>
+
+<x-code language="php">
+use App\MoonShine\Pages\CustomPage;
+
+//...
+
+public function pages(): array
+{
+    return [
+        CustomPage::make('Title page')
+            ->alias('custom-page') // [tl! focus]
     ];
 }
 

@@ -8,6 +8,8 @@
             ['url' => '#components', 'label' => 'Компоненты'],
             ['url' => '#breadcrumbs', 'label' => 'Хлебные крошки'],
             ['url' => '#layout', 'label' => 'Layout'],
+            ['url' => '#alias', 'label' => 'Alias'],
+            ['url' => '#before-render', 'label' => 'beforeRender'],
         ]
     ]
 ">
@@ -20,7 +22,8 @@
 </x-p>
 
 <x-p>
-    Страницы с единой логикой можно объединять в ресурсы.
+    Страницы с единой логикой можно объединять в
+    <x-link :link="route('moonshine.page', 'dvanced-resource')" ><code>Resource</code></x-link>.
 </x-p>
 
 <x-sub-title id="create">Создание класса</x-sub-title>
@@ -53,7 +56,24 @@ php artisan moonshine:page OrderStatistics --dir=Pages/Statistics
 <x-sub-title id="title">Заголовок</x-sub-title>
 
 <x-p>
-    Метод <code>title()</code> отвечает за заголовок страницы.
+    Заголовок страницы можно задать через свойство <code>title</code>, а <code>subtitle</code> задает подзаголовок.
+</x-p>
+
+<x-code language="php">
+use MoonShine\Pages\Page;
+
+class CustomPage extends Page
+{
+    protected string $title = 'CustomPage'; // [tl! focus]
+    protected string $subtitle = 'Subtitle'; // [tl! focus]
+
+    //...
+}
+</x-code>
+
+<x-p>
+    Если требуется какая-то логика для заголовка и подзаголовка,
+    то методы <code>title()</code> и <code>subtitle()</code> позволяют ее реализовать.
 </x-p>
 
 <x-code language="php">
@@ -66,6 +86,11 @@ class CustomPage extends Page
     public function title(): string // [tl! focus:start]
     {
         return $this->title ?: 'CustomPage';
+    }
+
+    public function subtitle(): string
+    {
+        return $this->subtitle ?: 'Subtitle';
     } // [tl! focus:end]
 
     //...
@@ -145,20 +170,93 @@ class CustomPage extends Page
 <x-sub-title id="layout">Layout</x-sub-title>
 
 <x-p>
-    По умолчанию страницы используют дефолтный шаблон отображения <em>Layout</em>, который, если необходимо, можно переопределить.
+    По умолчанию страницы используют дефолтный шаблон отображения <em>Layout</em>,
+    но его можно изменить через свойство <code>layout</code>.
 </x-p>
-
 
 <x-code language="php">
 use MoonShine\Pages\Page;
 
 class CustomPage extends Page
 {
-    // ...
-
     protected string $layout = 'moonshine::layouts.app'; // [tl! focus]
 
     //...
+}
+</x-code>
+
+<x-p>
+    Так же <em>Layout</em> можно переопределить используя метод <code>layout()</code>.
+</x-p>
+
+<x-code language="php">
+use MoonShine\Pages\Page;
+
+class CustomPage extends Page
+{
+    public function layout(): string // [tl! focus:start]
+    {
+        return $this->layout;
+    } // [tl! focus:end]
+
+    //...
+}
+</x-code>
+
+<x-sub-title id="alias">Alias</x-sub-title>
+
+<x-p>
+    Если требуется изменить алиас страницы,
+    то это можно сделать через свойство <code>alias</code>.
+</x-p>
+
+<x-code language="php">
+use MoonShine\Pages\Page;
+
+class CustomPage extends Page
+{
+    protected ?string $alias = null; // [tl! focus]
+
+    //...
+}
+</x-code>
+
+<x-p>
+    Так же есть возможность переопределить метод <code>getAlias()</code>
+</x-p>
+
+<x-code language="php">
+use MoonShine\Pages\Page;
+
+class CustomPage extends Page
+{
+    public function getAlias(): ?string // [tl! focus:start]
+    {
+        return 'custom_page';
+    } // [tl! focus:end]
+
+    //...
+}
+</x-code>
+
+<x-sub-title id="before-render">beforeRender</x-sub-title>
+
+<x-p>
+    Метод <code>beforeRender()</code> позволяет выполнить какие-то действия перед отображением страницы.
+</x-p>
+
+<x-code language="php">
+use MoonShine\Models\MoonshineUserRole;
+use MoonShine\Pages\Page;
+
+class CustomPage extends Page
+{
+    public function beforeRender(): void // [tl! focus:start]
+    {
+        if (auth()->user()->moonshine_user_role_id !== MoonshineUserRole::DEFAULT_ROLE_ID) {
+            abort(403);
+        }
+    } // [tl! focus:end]
 }
 </x-code>
 
