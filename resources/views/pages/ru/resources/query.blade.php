@@ -19,6 +19,7 @@
 namespace App\MoonShine\Resources;
 
 use App\Models\Post;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use MoonShine\Resources\ModelResource;
 
 class PostResource extends ModelResource
@@ -50,6 +51,7 @@ class PostResource extends ModelResource
 namespace App\MoonShine\Resources;
 
 use App\Models\Post;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use MoonShine\Resources\ModelResource;
 
 class PostResource extends ModelResource
@@ -80,6 +82,7 @@ class PostResource extends ModelResource
 namespace App\MoonShine\Resources;
 
 use App\Models\Post;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use MoonShine\Resources\ModelResource;
 
 class PostResource extends ModelResource
