@@ -41,7 +41,7 @@
 @include("examples/components/alert-icon")
 
 <x-p>
-    За более подробной информацией, обратитесь к разделу <x-link link="{{ route('moonshine.page', 'icons-index') }}">Icons</x-link>
+    За более подробной информацией, обратитесь к разделу <x-link link="{{ route('moonshine.page', 'appearance-icons') }}">Icons</x-link>
 </x-p>
 
 <x-sub-title id="removable">Удаление уведомлений</x-sub-title>

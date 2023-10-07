@@ -1,91 +1,137 @@
 <x-page title="Query" :sectionMenu="[
     'Разделы' => [
-        ['url' => '#filter', 'label' => 'Filter'],
-        ['url' => '#order', 'label' => 'Order'],
-        ['url' => '#scopes', 'label' => 'Scopes'],
+        ['url' => '#query', 'label' => 'Запрос'],
+        ['url' => '#item-query', 'label' => 'Получение записи'],
+        ['url' => '#search', 'label' => 'Поиск'],
+        ['url' => '#order', 'label' => 'Сортировка'],
     ]
 ]">
 
-<x-sub-title id="filter">Filter</x-sub-title>
+
+<x-sub-title id="filter">Запрос</x-sub-title>
 
 <x-p>
-    Часто необходимо изначально отфильтровать выдачу со списком записей.
-</x-p>
-
-<x-p>
-    В целом, вы можете легко переопределить query builder в ресурсе.
+    Часто необходимо изначально изменить все запросы ресурса к базе данных.<br />
+    Вы можете легко переопределить <em>query builder</em> в ресурсе.
 </x-p>
 
 <x-code language="php">
-namespace MoonShine\Resources;
+namespace App\MoonShine\Resources;
 
-use Illuminate\Contracts\Database\Eloquent\Builder; // [tl! focus]
+use App\Models\Post;
+use Illuminate\Contracts\Database\Eloquent\Builder;
+use MoonShine\Resources\ModelResource;
 
-class PostResource extends Resource
+class PostResource extends ModelResource
 {
+    protected string $model = Post::class;
+
+    protected string $title = 'Posts';
+
     //...
+
     public function query(): Builder // [tl! focus:start]
     {
         return parent::query()
             ->where('active', true);
     } // [tl! focus:end]
+
     //...
 }
 </x-code>
 
-<x-sub-title id="order">Order</x-sub-title>
+<x-sub-title id="item-query">Получение записи</x-sub-title>
 
 <x-p>
-    Переопределив метод <code>performOrder()</code> можно кастомизировать сортировку элементов.
+    Метод <code>resolveItemQuery()</code> используется,
+    если требуется изменить запрос на получение записи из базы данных.
 </x-p>
 
 <x-code language="php">
-namespace MoonShine\Resources;
+namespace App\MoonShine\Resources;
 
-use Illuminate\Contracts\Database\Eloquent\Builder; // [tl! focus]
+use App\Models\Post;
+use Illuminate\Contracts\Database\Eloquent\Builder;
+use MoonShine\Resources\ModelResource;
 
-class PostResource extends Resource
+class PostResource extends ModelResource
 {
+    protected string $model = Post::class;
+
+    protected string $title = 'Posts';
+
     //...
-    public function performOrder(Builder $query, string $column, string $direction): Builder // [tl! focus:start]
+
+    public function resolveItemQuery(): Builder // [tl! focus:start]
     {
-        return $query->orderBy(
-            $column,
-            $direction
-        );
+        return parent::resolveItemQuery()
+            ->withTrashed();
     } // [tl! focus:end]
+
     //...
 }
 </x-code>
 
-<x-sub-title id="scopes">Scopes</x-sub-title>
+<x-sub-title id="search">Поиск</x-sub-title>
 
 <x-p>
-    В Laravel также есть удобный функционал scopes, и его как раз можно применять в рамках админ-панели MoonShine.
+    Метод <code>searchQuery()</code> позволяет изменить запрос при поиске записей.
 </x-p>
 
-<x-moonshine::alert type="default" icon="heroicons.information-circle">
-    Для начала необходимо создать нужные scopes.
-</x-moonshine::alert>
+<x-code language="php">
+namespace App\MoonShine\Resources;
 
-<x-code language="shell">
-php artisan make:scope ActiveUserScope
+use App\Models\Post;
+use Illuminate\Contracts\Database\Eloquent\Builder;
+use MoonShine\Resources\ModelResource;
+
+class PostResource extends ModelResource
+{
+    protected string $model = Post::class;
+
+    protected string $title = 'Posts';
+
+    //...
+
+    public function searchQuery(): Builder // [tl! focus:start]
+    {
+        return parent::searchQuery()
+            ->withTrashed();
+    } // [tl! focus:end]
+
+    //...
+}
 </x-code>
 
+<x-sub-title id="order">Сортировка</x-sub-title>
+
+<x-p>
+    Переопределив метод <code>resolveOrder()</code>, можно кастомизировать сортировку записей.<br />
+    Метод принимать в качестве параметров поле по которому производится сортировка
+    и направление (по возрастанию или убыванию).
+</x-p>
+
 <x-code language="php">
-namespace MoonShine\Resources;
+namespace App\MoonShine\Resources;
 
-use App\Models\Scopes\ActiveUserScope; // [tl! focus]
+use App\Models\Post;
+use MoonShine\Resources\ModelResource;
 
-class PostResource extends Resource
+class PostResource extends ModelResource
 {
+    protected string $model = Post::class;
+
+    protected string $title = 'Posts';
+
     //...
-    public function scopes(): array // [tl! focus:start]
+
+    protected function resolveOrder(string $column, string $direction): self // [tl! focus:start]
     {
-        return [
-            new ActiveUserScope()
-        ];
+        $this->query()->orderBy($column, $direction);
+
+        return $this;
     } // [tl! focus:end]
+
     //...
 }
 </x-code>
