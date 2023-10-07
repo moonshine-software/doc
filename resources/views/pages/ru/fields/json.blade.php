@@ -104,7 +104,7 @@ public function fields(): array
 <x-p>
     Иногда требуется сохранять в базе данных только значения,
     для этого можно воспользоваться методом <code>onlyValue()</code>.<br />
-    В результате будет получен json <x-moonshine::badge color="gray">{'1': 'value'}</x-moonshine::badge>.
+    В результате будет получен json <x-moonshine::badge color="gray">['value']</x-moonshine::badge>.
 </x-p>
 
 <x-code language="php">
