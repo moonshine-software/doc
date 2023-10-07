@@ -30,7 +30,7 @@
 
 <x-p>
     Самый простой способ работы с полем <em>Json</em> это использование метода <code>keyValue()</code>.<br />
-    В результате будет получен простой json <x-moonshine::badge color="gray">[{key: value}]</x-moonshine::badge>.
+    В результате будет получен простой json <x-moonshine::badge color="gray">{key: value}</x-moonshine::badge>.
 </x-p>
 
 <x-code language="php">
@@ -103,7 +103,8 @@ public function fields(): array
 
 <x-p>
     Иногда требуется сохранять в базе данных только значения,
-    для этого можно воспользоваться методом <code>onlyValue()</code>.
+    для этого можно воспользоваться методом <code>onlyValue()</code>.<br />
+    В результате будет получен json <x-moonshine::badge color="gray">{'1': 'value'}</x-moonshine::badge>.
 </x-p>
 
 <x-code language="php">
@@ -267,7 +268,7 @@ use MoonShine\Fields\Json;
 public function fields(): array
 {
     return [
-        Json::make('Comments', 'comments)
+        Json::make('Comments', 'comments')
             ->asRelation(new CommentResource()) // [tl! focus:start]
             ->fields([
                 ID::make(),
