@@ -38,7 +38,7 @@ class PostResource extends ModelResource
 
             return $attr;
         };
-    } // [tl! focus:start]
+    } // [tl! focus:end]
 
     public function tdAttributes(): Closure // [tl! focus:start]
     {
@@ -56,7 +56,7 @@ class PostResource extends ModelResource
 
             return $attr;
         };
-    } // [tl! focus:start]
+    } // [tl! focus:end]
 
     //...
 }
