@@ -42,7 +42,9 @@ class PostResource extends ModelResource
 <x-sub-title id="order">Order</x-sub-title>
 
 <x-p>
-    Переопределив метод <code>resolveOrder()</code> можно кастомизировать сортировку элементов.
+    Переопределив метод <code>resolveOrder()</code> можно кастомизировать сортировку элементов.<br />
+    Метод принимать в качестве параметров столбец по которому производится сортировка
+    и направление (по возрастанию или убыванию)
 </x-p>
 
 <x-code language="php">

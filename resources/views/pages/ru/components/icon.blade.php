@@ -21,7 +21,7 @@
 </x-p>
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
-    Все доступные <x-link link="{{ route('moonshine.page', 'icons-index') }}">иконки</x-link>
+    Все доступные <x-link link="{{ route('moonshine.page', 'appearance-icons') }}">иконки</x-link>
 </x-moonshine::alert>
 
 <x-sub-title id="size">Размер</x-sub-title>

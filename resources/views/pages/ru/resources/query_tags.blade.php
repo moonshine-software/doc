@@ -81,7 +81,7 @@ class PostResource extends ModelResource
 </x-code>
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
-    За более подробной информацией обратитесь к разделу <x-link link="{{ route('moonshine.custom_page', 'icons-index') }}">Icons</x-link>
+    За более подробной информацией обратитесь к разделу <x-link link="{{ route('moonshine.page', 'appearance-icons') }}">Icons</x-link>
 </x-moonshine::alert>
 
 <x-sub-title id="can-see">Условие отображения</x-sub-title>

@@ -148,7 +148,7 @@ app(MoonShine::class)->menu([
 </x-code>
 
 <x-p>
-    За более подробной информацией обратитесь к разделу <x-link link="{{ route('moonshine.page', 'icons-index') }}">Icons</x-link>
+    За более подробной информацией обратитесь к разделу <x-link link="{{ route('moonshine.page', 'appearance-icons') }}">Icons</x-link>
 </x-p>
 
 <x-sub-title id="badge">Метка</x-sub-title>
