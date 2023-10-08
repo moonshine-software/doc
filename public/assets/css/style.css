@@ -1,6 +1,13 @@
 .dark .dark\:block {display: block !important;}
 .dark .dark\:hidden {display: none !important;}
 
+.underline {
+    text-decoration-line: underline;
+}
+.underline:hover {
+    text-decoration-line: none;
+}
+
 .m-4 {
     margin: 1rem;
 }

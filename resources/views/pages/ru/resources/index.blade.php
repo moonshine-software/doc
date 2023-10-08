@@ -56,7 +56,25 @@
 <x-p>
     <ul>
         <li>- измените название вашего ресурса, если требуется</li>
-        <li>- выберите тип ресурса <em>Default model resource</em></li>
+        <li>- выберите тип ресурса</li>
+    </ul>
+</x-p>
+
+<x-p>
+    При создания <em>ModelResource</em> доступно несколько вариантов:
+    <ul>
+        <li>
+            <x-link :link="route('moonshine.page', 'resources-fields') . '#default'" ><strong>Default model resource</strong></x-link>
+            - ресурс модели с общими полями
+        </li>
+        <li>
+            <x-link :link="route('moonshine.page', 'resources-fields') . '#separate'" ><strong>Separate model resource</strong></x-link>
+            - ресурс модели с разделением полей
+        </li>
+        <li>
+            <x-link :link="route('moonshine.page', 'resources-pages')" ><strong>Model resource with pages</strong></x-link>
+            - ресурс модели со страницами.
+        </li>
     </ul>
 </x-p>
 
