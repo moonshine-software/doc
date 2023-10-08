@@ -36,6 +36,7 @@ return [
     'Models Resources:document-duplicate' => [
         ['slug' => 'resources-index', 'label' => 'Basics'],
         ['slug' => 'resources-fields', 'label' => 'Fields'],
+        ['slug' => 'resources-pages', 'label' => 'With pages'],
         ['slug' => 'resources-validation', 'label' => 'Validation rules'],
         ['slug' => 'resources-filters', 'label' => 'Filters'],
         ['slug' => 'resources-search', 'label' => 'Search'],
