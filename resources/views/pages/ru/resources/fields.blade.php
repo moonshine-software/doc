@@ -3,7 +3,8 @@
     :sectionMenu="[
         'Разделы' => [
             ['url' => '#basics', 'label' => 'Основы'],
-            ['url' => '#override', 'label' => 'Переопределение полей'],
+            ['url' => '#default', 'label' => 'По умолчанию'],
+            ['url' => '#separate', 'label' => 'Разделение полей'],
         ]
     ]"
 >
@@ -16,13 +17,18 @@
     В административной панели MoonShine существует множество видов полей, которые покрывают все возможные требования!
     Также охватывают и все возможные связи в Laravel и для удобства называются так же, как и методы отношений
     <code>BelongsTo</code>, <code>BelongsToMany</code>, <code>HasOne</code>, <code>HasMany</code>,
-    <code>HasOneThrough</code>, <code>HasManyThrough</code>, <code>MorphOne</code>, <code>MorphMany</code>
+    <code>HasOneThrough</code>, <code>HasManyThrough</code>, <code>MorphOne</code>, <code>MorphMany</code>.
 </x-p>
 
 <x-p>
-    Добавлять новые поля крайне просто! Достаточно в методе <code>fields()</code>, который возвращает массив,
-    вернуть все необходимые поля, а как устроенны поля, мы рассмотрим в разделе
-    <x-link link="{{ route('moonshine.page', 'fields-index') }}">"Поля"</x-link>.
+    Добавлять поля в <em>ModelResource</em> очень просто!
+</x-p>
+
+<x-sub-title id="default">По умолчанию</x-sub-title>
+
+<x-p>
+    В <em>ModelResource</em> по умолчанию необходимо в методе <code>fields()</code>
+    вернуть массив со всеми <x-link link="{{ route('moonshine.page', 'fields-index') }}">Полями</x-link>.
 </x-p>
 
 <x-code language="php">
@@ -45,7 +51,7 @@ class PostResource extends ModelResource
     {
         return [
             ID::make(),
-            Text::make('Title', 'title'),
+            Text::make('Title'),
         ];
     } // [tl! focus:end]
 
@@ -57,7 +63,7 @@ class PostResource extends ModelResource
 <x-image theme="dark" src="{{ asset('screenshots/form_dark.png') }}"></x-image>
 
 
-<x-sub-title id="override">Переопределение полей</x-sub-title>
+<x-sub-title id="separate">Разделение полей</x-sub-title>
 
 <x-p>
     Иногда возникает потребность исключить или поменять порядок некоторых полей в индексной или детальной странице.
@@ -81,20 +87,28 @@ class PostResource extends ModelResource
 
     //...
 
-    public function fields(): array
-    {
-        return [
-            ID::make(),
-            Text::make('Title', 'title'),
-            Text::make('Subtitle', 'title'),
-        ];
-    }
-
     public function indexFields(): array // [tl! focus:start]
     {
         return [
             ID::make(),
+            Text::make('Title'),
+        ];
+    } // [tl! focus:end]
+
+    public function formFields(): array // [tl! focus:start]
+    {
+        return [
+            ID::make(),
+            Text::make('Title'),
+            Text::make('Subtitle'),
+        ];
+    } // [tl! focus:end]
+
+    public function detailFields(): array // [tl! focus:start]
+    {
+        return [
             Text::make('Title', 'title'),
+            Text::make('Subtitle'),
         ];
     } // [tl! focus:end]
 
