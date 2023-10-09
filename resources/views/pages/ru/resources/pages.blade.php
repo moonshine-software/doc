@@ -116,6 +116,7 @@ class PostIndexPage extends IndexPage
 <x-code language="php">
 namespace App\MoonShine\Pages\Post;
 
+use MoonShine\Decorations\Heading;
 use MoonShine\Pages\Crud\IndexPage;
 
 class PostIndexPage extends IndexPage
@@ -125,6 +126,7 @@ class PostIndexPage extends IndexPage
     protected function topLayer(): array // [tl! focus:start]
     {
         return [
+            Heading::make('Custom top'),
             ...parent::topLayer()
         ];
     } // [tl! focus:end]
@@ -132,6 +134,7 @@ class PostIndexPage extends IndexPage
     protected function mainLayer(): array // [tl! focus:start]
     {
         return [
+            Heading::make('Custom main'),
             ...parent::mainLayer()
         ];
     } // [tl! focus:end]
@@ -139,6 +142,7 @@ class PostIndexPage extends IndexPage
     protected function bottomLayer(): array // [tl! focus:start]
     {
         return [
+            Heading::make('Custom bottom'),
             ...parent::bottomLayer()
         ];
     } // [tl! focus:end]
@@ -147,5 +151,59 @@ class PostIndexPage extends IndexPage
 }
 </x-code>
 
+@php
+    $screenshots = \MoonShine\Decorations\Tabs::make([
+        \MoonShine\Decorations\Tab::make('IndexPage', [
+            \MoonShine\Fields\Preview::make()->changePreview(function ($value) {
+                return view('components.image', [
+                    'src' => asset('screenshots/page_index_layers.png'),
+                    'theme' => 'light',
+                    'slot' => null
+                ]);
+            }),
+            \MoonShine\Fields\Preview::make()->changePreview(function ($value) {
+                return view('components.image', [
+                    'src' => asset('screenshots/page_index_layers_dark.png'),
+                    'theme' => 'dark',
+                    'slot' => null
+                ]);
+            }),
+        ]),
+        \MoonShine\Decorations\Tab::make('FormPage', [
+            \MoonShine\Fields\Preview::make()->changePreview(function ($value) {
+                return view('components.image', [
+                    'src' => asset('screenshots/page_form_layers.png'),
+                    'theme' => 'light',
+                    'slot' => null
+                ]);
+            }),
+            \MoonShine\Fields\Preview::make()->changePreview(function ($value) {
+                return view('components.image', [
+                    'src' => asset('screenshots/page_form_layers_dark.png'),
+                    'theme' => 'dark',
+                    'slot' => null
+                ]);
+            }),
+        ]),
+        \MoonShine\Decorations\Tab::make('DetailPage', [
+            \MoonShine\Fields\Preview::make()->changePreview(function ($value) {
+                return view('components.image', [
+                    'src' => asset('screenshots/page_detail_layers.png'),
+                    'theme' => 'light',
+                    'slot' => null
+                ]);
+            }),
+            \MoonShine\Fields\Preview::make()->changePreview(function ($value) {
+                return view('components.image', [
+                    'src' => asset('screenshots/page_detail_layers_dark.png'),
+                    'theme' => 'dark',
+                    'slot' => null
+                ]);
+            }),
+        ]),
+    ])->render()
+@endphp
+
+{{ $screenshots }}
 
 </x-page>
