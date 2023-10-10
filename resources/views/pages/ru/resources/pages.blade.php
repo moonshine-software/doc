@@ -160,30 +160,31 @@ class PostIndexPage extends IndexPage
                     'theme' => 'light',
                     'slot' => null
                 ]);
-            }),
+            })->customWrapperAttributes(['class' => '!my-0']),
             \MoonShine\Fields\Preview::make()->changePreview(function ($value) {
                 return view('components.image', [
                     'src' => asset('screenshots/page_index_layers_dark.png'),
                     'theme' => 'dark',
                     'slot' => null
                 ]);
-            }),
+            })->customWrapperAttributes(['class' => '!my-0']),
         ]),
         \MoonShine\Decorations\Tab::make('FormPage', [
             \MoonShine\Fields\Preview::make()->changePreview(function ($value) {
                 return view('components.image', [
                     'src' => asset('screenshots/page_form_layers.png'),
                     'theme' => 'light',
-                    'slot' => null
+                    'slot' => null,
+                    'class' => 'wt'
                 ]);
-            }),
+            })->customWrapperAttributes(['class' => '!my-0']),
             \MoonShine\Fields\Preview::make()->changePreview(function ($value) {
                 return view('components.image', [
                     'src' => asset('screenshots/page_form_layers_dark.png'),
                     'theme' => 'dark',
                     'slot' => null
                 ]);
-            }),
+            })->customWrapperAttributes(['class' => '!my-0']),
         ]),
         \MoonShine\Decorations\Tab::make('DetailPage', [
             \MoonShine\Fields\Preview::make()->changePreview(function ($value) {
@@ -192,14 +193,14 @@ class PostIndexPage extends IndexPage
                     'theme' => 'light',
                     'slot' => null
                 ]);
-            }),
+            })->customWrapperAttributes(['class' => '!my-0']),
             \MoonShine\Fields\Preview::make()->changePreview(function ($value) {
                 return view('components.image', [
                     'src' => asset('screenshots/page_detail_layers_dark.png'),
                     'theme' => 'dark',
                     'slot' => null
                 ]);
-            }),
+            })->customWrapperAttributes(['class' => '!my-0']),
         ]),
     ])->render()
 @endphp
