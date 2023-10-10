@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a05edff6db668845187eb14e2ff13919",
+    "content-hash": "a28e94fd04bebdd7ef04eab139d2e0c1",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1969,16 +1969,16 @@
         },
         {
             "name": "moonshine/moonshine",
-            "version": "2.0.0-alpha.2",
+            "version": "2.0.0-alpha.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/moonshine-software/moonshine.git",
-                "reference": "0de993be832eed3995e1074ff45df6809c3bcd0a"
+                "reference": "8dc346bb294df43b8ac00a44bd22eda7b4aea182"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moonshine-software/moonshine/zipball/0de993be832eed3995e1074ff45df6809c3bcd0a",
-                "reference": "0de993be832eed3995e1074ff45df6809c3bcd0a",
+                "url": "https://api.github.com/repos/moonshine-software/moonshine/zipball/8dc346bb294df43b8ac00a44bd22eda7b4aea182",
+                "reference": "8dc346bb294df43b8ac00a44bd22eda7b4aea182",
                 "shasum": ""
             },
             "require": {
@@ -2045,11 +2045,15 @@
             },
             "funding": [
                 {
+                    "url": "https://github.com/moonshine-software",
+                    "type": "github"
+                },
+                {
                     "url": "https://opencollective.com/moonshine",
                     "type": "open_collective"
                 }
             ],
-            "time": "2023-10-03T15:07:47+00:00"
+            "time": "2023-10-10T14:52:17+00:00"
         },
         {
             "name": "nesbot/carbon",
