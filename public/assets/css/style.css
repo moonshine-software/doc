@@ -8,6 +8,16 @@
     text-decoration-line: none;
 }
 
+.my-0 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.\!my-0 {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
 .m-4 {
     margin: 1rem;
 }
