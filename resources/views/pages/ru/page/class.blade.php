@@ -23,7 +23,7 @@
 
 <x-p>
     Страницы с единой логикой можно объединять в
-    <x-link :link="route('moonshine.page', 'dvanced-resource')" ><code>Resource</code></x-link>.
+    <x-link :link="route('moonshine.page', 'advanced-resource')" ><code>Resource</code></x-link>.
 </x-p>
 
 <x-sub-title id="create">Создание класса</x-sub-title>
