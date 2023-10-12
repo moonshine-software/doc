@@ -22,7 +22,7 @@
                 <td>8.0 - 8.2</td>
                 <td>9 - 10</td>
                 <td>April 3rd, 2023</td>
-                <td>November 1st, 2024</td>
+                <td>November 1st, 2023</td>
                 <td>November 1st, 2024</td>
             </tr>
             <tr>
