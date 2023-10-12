@@ -85,7 +85,7 @@ public function fields(): array
     return [
         Json::make('Product Options', 'options') // [tl! focus:start]
             ->fields([
-                Position::make()
+                Position::make(),
                 Text::make('Title'),
                 Text::make('Value'),
                 Switcher::make('Active')
