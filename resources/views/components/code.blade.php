@@ -1,3 +1,6 @@
+@props([
+    'language' => 'php'
+])
 <div
     x-data="{
         copied: false,

@@ -6,8 +6,9 @@ return [
         ['slug' => 'installation', 'label' => 'Installation'],
         ['slug' => 'configuration', 'label' => 'Configuration'],
         ['slug' => 'contribution', 'label' => 'Contribution Guide'],
-//        ['slug' => 'releases', 'label' => 'Releases'],
-//        ['slug' => 'upgrade_guide', 'label' => 'Upgrade guide', 'badge' => 'new'],
+        ['slug' => 'releases', 'label' => 'Releases'],
+        ['slug' => 'upgrade_guide', 'label' => 'Upgrade guide'],
+        ['slug' => 'support_policy', 'label' => 'Support policy'],
     ],
 
     ':_divider_',
@@ -142,7 +143,7 @@ return [
     ],
 
     'ActionButton:cursor-arrow-ripple' => [
-        ['slug' => 'action-button', 'label' => 'ActionButton'],
+        ['slug' => 'action_button', 'label' => 'ActionButton'],
     ],
 
 //    'Decorations:rocket-launch' => [

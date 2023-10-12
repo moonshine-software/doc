@@ -7,6 +7,7 @@
             ['url' => '#title', 'label' => 'Заголовок'],
             ['url' => '#layout', 'label' => 'Layout'],
             ['url' => '#alias', 'label' => 'Alias'],
+            ['url' => '#view-page', 'label' => 'Быстрая страница'],
         ]
     ]
 ">
@@ -184,6 +185,22 @@ public function pages(): array
 }
 
 //...
+</x-code>
+
+<x-sub-title id="view-pate">Быстрая страница</x-sub-title>
+
+<x-p>
+    Если необходимо добавить страницу не создавая класс, а просто указав blade view, то рекомендуем воспользоваться <code>ViewPage</code>
+</x-p>
+
+<x-code>
+MenuItem::make(
+    'Custom',
+    ViewPage::make()
+        ->setTitle('Hello')
+        ->setLayout('custom_layout')
+        ->setContentView('my-form', ['param' => 'value'])
+),
 </x-code>
 
 </x-page>

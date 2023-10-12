@@ -68,7 +68,7 @@
 <x-sub-title>Основная ветка</x-sub-title>
 
 <x-p>
-    На данный момент основная ветка <code>1.5.x</code>
+    На данный момент основная ветка <code>2.x</code>
 </x-p>
 
 <x-sub-title>Coding style</x-sub-title>
@@ -91,48 +91,29 @@
     cd packages && git clone git@github.com:moonshine-software/moonshine.git && cd moonshine && composer install && npm install
 </x-code>
 
-<x-moonshine::badge color="green">3</x-moonshine::badge> Вернитесь в директорию проекта и в composer.json удалите зависимость moonshine/moonshine
+<x-moonshine::badge color="green">3</x-moonshine::badge> Вернитесь в директорию проекта и в composer.json измените зависимость moonshine/moonshine
 
 <x-code language="shell">
-    "moonshine/moonshine": "^1.50",
+    "moonshine/moonshine": "2.*.*-dev",
 </x-code>
 
-<x-moonshine::badge color="green">3</x-moonshine::badge> Добавьте загрузку MoonShine из директории packages в autoload секцию в composer.json
+<x-moonshine::badge color="green">3</x-moonshine::badge> Добавьте в composer.json
 
 <x-code language="shell">
-"autoload": {
-    "psr-4": {
-        "App\\": "app/",
-        "Database\\Factories\\": "database/factories/",
-        "Database\\Seeders\\": "database/seeders/",
-        "MoonShine\\": "packages/moonshine/src"
+"repositories": [
+    {
+        "type": "path",
+        "url": "packages/moonshine",
+        "options": {
+            "versions": {
+            "moonshine/moonshine": "2.*.*-dev"
+        },
+        "symlink": true
     }
-},
-</x-code>
-
-<x-moonshine::badge color="green">4</x-moonshine::badge> Добавьте MoonShineServiceProvider в config/app.php
-
-<x-code language="php">
-use App\Providers\MoonShineServiceProvider;
-// Import vendor provider
-use MoonShine\Providers\MoonShineServiceProvider as MSProvider;
-
-// ...
-
-/*
-* Package Service Providers...
-*/
-// Add vendor provider
-MSProvider::class,
-
-// ...
+]
 </x-code>
 
 <x-moonshine::badge color="green">5</x-moonshine::badge> Создайте .env из .env.example (не забудьте создать базу данных) и выполните установку ниже
-
-<x-code language="shell">
-composer require lee-to/laravel-package-command && composer require rap2hpoutre/fast-excel && composer install && npm install
-</x-code>
 
 <x-code language="shell">
 php artisan key:generate
