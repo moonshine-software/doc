@@ -29,8 +29,8 @@
                 <td>2.0</td>
                 <td>8.1 - 8.2</td>
                 <td>10</td>
+                <td>November 1st, 2023</td>
                 <td>November 1st, 2024</td>
-                <td>November 1st, 2025</td>
                 <td>November 1st, 2025</td>
             </tr>
             <tr>
@@ -38,7 +38,7 @@
                 <td>8.2</td>
                 <td>11</td>
                 <td>November 1st, 2024</td>
-                <td>November 1st, 2026</td>
+                <td>November 1st, 2025</td>
                 <td>November 1st, 2026</td>
             </tr>
         </x-slot:tbody>
