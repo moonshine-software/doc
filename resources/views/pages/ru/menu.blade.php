@@ -229,7 +229,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 </x-p>
 
 <x-code language="php">
-MenuGroup::canSee(Closure $callback)
+canSee(Closure $callback)
 </x-code>
 
 <x-code language="php">
