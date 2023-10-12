@@ -187,7 +187,7 @@ public function pages(): array
 //...
 </x-code>
 
-<x-sub-title id="view-pate">Быстрая страница</x-sub-title>
+<x-sub-title id="view-page">Быстрая страница</x-sub-title>
 
 <x-p>
     Если необходимо добавить страницу не создавая класс, а просто указав blade view, то рекомендуем воспользоваться <code>ViewPage</code>
