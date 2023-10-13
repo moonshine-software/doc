@@ -13,8 +13,8 @@
 
 <x-p>
     Поля и декорации в MoonShine используются внутри таблиц в режиме <code>preview</code> и за таблицы отвечает TableBuilder.
-    Благодаря TableBuilder происходит отображение и наполнение полей данными.
-    Вы также можете использовать TableBuilder на собственных страницах или даже вне MoonShine
+    Благодаря TableBuilder таблицы  отображаются и наполняются данными.
+    Вы также можете использовать TableBuilder на собственных страницах или даже вне MoonShine.
 </x-p>
 
 <x-code language="php">
@@ -36,7 +36,7 @@ TableBuilder::make([Text::make('Text')], [['text' => 'Value']])
 </x-code>
 
 <x-p>
-    Тоже самое через методы
+    Тоже самое через методы:
 </x-p>
 
 <x-code language="php">
@@ -48,7 +48,7 @@ TableBuilder::make()
 </x-code>
 
 <x-p>
-    Также доступен helper
+    Также доступен helper:
 </x-p>
 
 <x-code language="php">
@@ -77,7 +77,7 @@ TableBuilder::make()
 <x-moonshine::divider label="fields" />
 
 <x-p>
-    Метод <code>fields</code> для объявления полей
+    Метод <code>fields</code> для объявления полей:
 </x-p>
 
 <x-code language="php">
@@ -90,7 +90,7 @@ TableBuilder::make()
 <x-moonshine::divider label="items/paginator" />
 
 <x-p>
-    Метод <code>items</code> для наполнения таблицы данными
+    Метод <code>items</code> для наполнения таблицы данными:
 </x-p>
 
 <x-code language="php">
@@ -102,7 +102,7 @@ TableBuilder::make()
 </x-code>
 
 <x-p>
-    Метод <code>paginator</code> для того чтобы таблица работала с пагинацией
+    Метод <code>paginator</code> для того чтобы таблица работала с пагинацией:
 </x-p>
 
 <x-code language="php">
@@ -127,7 +127,7 @@ TableBuilder::make(items: Article::paginate())
 
 <x-p>
     Метод <code>cast</code> для приведения значений таблицы к определенному типу.
-    Так как по умолчанию таблица работает с массивом
+    Так как по умолчанию таблица работает с массивом:
 </x-p>
 
 <x-code language="php">
@@ -141,19 +141,19 @@ TableBuilder::make(items: User::paginate())
 </x-code>
 
 <x-p>
-    В этом примере мы привели данные к формату модели <code>User</code> с использованием <code>ModelCast</code>
+    В этом примере мы привели данные к формату модели <code>User</code> с использованием <code>ModelCast</code>.
 </x-p>
 
 <x-p>
     <x-moonshine::alert type="default" icon="heroicons.book-open">
-        Подробнее о TypeCasts читайте в одноименном разделе
+        Подробнее о TypeCasts читайте в одноименном разделе.
     </x-moonshine::alert>
 </x-p>
 
 <x-moonshine::divider label="buttons" />
 <x-p>
     Для добавления новых кнопок на основе <code>ActionButton</code>, воспользуйтесь методом <code>buttons</code>.
-    Кнопки будут добавляться для каждого row, а при включении режима bulk отображаться в футере для массовых действий
+    Кнопки будут добавляться для каждого row, а при включении режима bulk отображаться в футере для массовых действий:
 </x-p>
 
 <x-code language="php">
@@ -171,7 +171,7 @@ TableBuilder::make(items: Article::paginate())
 <x-moonshine::divider label="async" />
 
 <x-p>
-    Если необходимо получать данные таблицы асинхронно (при пагинации, сортировке), то воспользуйтесь методом <code>async</code>
+    Если необходимо получать данные из таблицы асинхронно (при пагинации, сортировке), то воспользуйтесь методом <code>async</code>:
 </x-p>
 
 <x-code language="php">
@@ -182,7 +182,7 @@ TableBuilder::make()
 <x-moonshine::divider label="Attributes" />
 
 <x-p>
-    Вы можете задать любые html атрибуты для таблицы через метод customAttributes
+    Вы можете задать любые html атрибуты для таблицы через метод <code>customAttributes</code>:
 </x-p>
 
 <x-code>
@@ -190,7 +190,7 @@ TableBuilder::make()->customAttributes(['class' => 'custom-form']),
 </x-code>
 
 <x-p>
-    Вы можете задать любые html атрибуты для строк и ячеек таблицы
+    Вы можете задать любые html-атрибуты для строк и ячеек таблицы:
 </x-p>
 
 <x-code>
@@ -234,8 +234,8 @@ TableBuilder::make()->tdAttributes(function(mixed $data, int $row, int $cell, Co
 <x-moonshine::divider label="withNotFound" />
 
 <x-p>
-    По умолчанию если данных у таблицы нет, то она будет пустой, но можно вывести сообщение "Пока записей нет".
-    Для этого воспользуйтесь методом <code>withNotFound</code>
+    По-умолчанию, если у таблицы нет данных, то она будет пустой, но можно вывести сообщение "Пока записей нет".
+    Для этого воспользуйтесь методом <code>withNotFound</code>:
 </x-p>
 
 <x-code>
@@ -252,7 +252,7 @@ TableBuilder::make()->withNotFound(),
 <x-moonshine::divider label="simple" />
 
 <x-p>
-    По умолчанию таблица стилизована под MoonShine, но с помощью метода <code>simple</code> можно отобразить таблицу в простом стиле
+    По-умолчанию таблица стилизована под MoonShine, но с помощью метода <code>simple</code> можно отобразить таблицу в упрощённом стиле:
 </x-p>
 
 <x-code>
@@ -270,7 +270,7 @@ TableBuilder::make()->simple(),
 <x-moonshine::divider label="preview" />
 
 <x-p>
-    Метод <code>preview</code> отключает отображение кнопок и сортировок для таблицы
+    Метод <code>preview</code> отключает отображение кнопок и сортировок для таблицы:
 </x-p>
 
 <x-code>
@@ -280,7 +280,7 @@ TableBuilder::make()->preview(),
 <x-moonshine::divider label="vertical" />
 
 <x-p>
-    С помощью метода <code>vertical</code> можно отобразить таблицу в вертикальном режиме
+    С помощью метода <code>vertical</code> можно отобразить таблицу в вертикальном режиме:
 </x-p>
 
 <x-code>
@@ -299,7 +299,7 @@ TableBuilder::make()->vertical(),
 <x-moonshine::divider label="creatable/reindex" />
 
 <x-p>
-    С помощью метода <code>creatable</code> можно добавить кнопку "Добавить" для генерации новых записей в таблице
+    С помощью метода <code>creatable</code> можно создать кнопку "Добавить" для генерации новых записей в таблице:
 </x-p>
 
 <x-code>
@@ -307,7 +307,7 @@ TableBuilder::make()->creatable(),
 </x-code>
 
 <x-p>
-    Если в таблице находятся поля в режиме редактирования с динамическим name, то следует добавить метод или параметр <code>reindex</code>
+    Если в таблице находятся поля в режиме редактирования с динамическим name, то нужно добавить метод или параметр <code>reindex</code>:
 </x-p>
 
 <x-code>
@@ -328,8 +328,7 @@ TableBuilder::make()->creatable(),
 <x-moonshine::divider label="editable" />
 
 <x-p>
-    По умолчанию поля в таблице отображаются в режиме <code>preview</code>, но если требуется отобразить их как элементы формы
-    с возможностью редактирования, то необходимо воспользоваться методом <code>editable</code>
+    По-умолчанию поля в таблице отображаются в режиме <code>preview</code>, но если требуется отобразить их как элементы формы с возможностью редактирования, то необходимо воспользоваться методом <code>editable</code>:
 </x-p>
 
 <x-code>
@@ -347,14 +346,14 @@ TableBuilder::make()->editable(),
 
 <x-p>
     <x-moonshine::alert type="default" icon="heroicons.book-open">
-        В режиме добавления необходимо чтобы последний элемент был пустым (скелет новой записи)
+        В режиме добавления необходимо, чтобы последний элемент был пустым (скелет новой записи):
     </x-moonshine::alert>
 </x-p>
 
 <x-moonshine::divider label="sortable" />
 
 <x-p>
-    Для сортировки строк таблицы воспользуйтесь методом <code>sortable</code>
+    Для сортировки строк в таблице воспользуйтесь методом <code>sortable</code>:
 </x-p>
 
 <x-code>
