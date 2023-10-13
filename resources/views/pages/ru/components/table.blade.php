@@ -11,7 +11,7 @@
 <x-sub-title id="basics">Основы</x-sub-title>
 
 <x-p>
-    Стилизованные таблицы можно создавать с помощью компонента <code>moonshine::table</code>
+    Стилизованные таблицы можно создавать с помощью компонента <code>moonshine::table</code>.
 </x-p>
 
 <x-code language="blade" file="resources/views/examples/components/table.blade.php"></x-code>
@@ -27,7 +27,7 @@
 <x-sub-title id="crud">Crud режим</x-sub-title>
 
 <x-p>
-    Параметр <code>crudMode</code> позволяет дополнительно стилизовать таблицы
+    Параметр <code>crudMode</code> позволяет дополнительно стилизовать таблицы.
 </x-p>
 
 <x-code language="blade" file="resources/views/examples/components/table-crud.blade.php"></x-code>
@@ -41,7 +41,7 @@
 <x-sub-title id="notfound">Отсутствие элементов</x-sub-title>
 
 <x-p>
-    Параметр <code>notfound</code> позволяет выводить сообщение при отсутствии элементов таблицы
+    Параметр <code>notfound</code> позволяет выводить сообщение при отсутствии элементов таблицы.
 </x-p>
 
 <x-code language="blade" file="resources/views/examples/components/table-notfound.blade.php"></x-code>
@@ -57,7 +57,7 @@
 <x-sub-title id="slots">Слоты</x-sub-title>
 
 <x-p>
-    Таблицу можно сформировать с использованием слотов
+    Таблицу можно сформировать с использованием слотов.
 </x-p>
 
 <x-code language="blade" file="resources/views/examples/components/table-slots.blade.php"></x-code>
@@ -73,7 +73,7 @@
 <x-sub-title id="styles">Стилизация</x-sub-title>
 
 <x-p>
-    Для стилизации таблицы есть предустановленные классы, которые можно использовать для <code>tr</code> / <code>td</code>
+    Для стилизации таблицы есть предустановленные классы, которые можно использовать для <code>tr</code> / <code>td</code>.
 </x-p>
 
 <x-p>

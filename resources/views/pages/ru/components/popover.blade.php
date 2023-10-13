@@ -7,7 +7,7 @@
 <x-sub-title id="basics">Основы</x-sub-title>
 
 <x-p>
-    C помощью компонента <code>moonshine::popover</code> можно создать всплывающее окно
+    C помощью компонента <code>moonshine::popover</code> можно создать всплывающее окно.
 </x-p>
 
 @include('pages.ru.components.shared.placement')
