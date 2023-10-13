@@ -80,7 +80,7 @@ class PostResource extends Resource
 <x-image theme="dark" src="{{ asset('screenshots/metrics_line_chart_dark.png') }}"></x-image>
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
-    По-умолчанию у графика LineChart ключи сортируются по возрастанию.
+    По умолчанию у графика LineChart ключи сортируются по возрастанию.
     Эту особенность можно отключить, используя метод <code>withoutSortKeys()</code>.
 </x-moonshine::alert>
 

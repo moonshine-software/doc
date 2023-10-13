@@ -36,7 +36,7 @@ public function fields(): array
 <x-sub-title id="language">Language</x-sub-title>
 
 <x-p>
-    По-умолчанию используется оформление для PHP, но с помощью метода <code>language()</code>
+    По умолчанию используется оформление для PHP, но с помощью метода <code>language()</code>
     можно изменить оформление для другого языка программирования.
 </x-p>
 

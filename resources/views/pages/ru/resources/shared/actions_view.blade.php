@@ -25,7 +25,7 @@ public function {!! ($action === 'ExportAction' ||  $action === 'ImportAction') 
 </x-code>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-    Данный способ отображения используется по-умолчанию.
+    Данный способ отображения используется по умолчанию.
 </x-moonshine::alert>
 
 <x-image theme="light" src="{{ asset('screenshots/actions_dropdown.png') }}"></x-image>

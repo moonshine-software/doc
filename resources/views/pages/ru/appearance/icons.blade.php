@@ -10,7 +10,7 @@
     Для всех сущностей, в которых есть метод <code>icon()</code>,
     можно воспользоваться одним из предустановленных наборов
     из коллекции <x-link link="https://heroicons.com" target="_blank">Heroicons</x-link>
-    (набор <b>Solid</b> по-умолчанию и <b>Outline</b>) или создать свой собственный набор.
+    (набор <b>Solid</b> по умолчанию и <b>Outline</b>) или создать свой собственный набор.
 </x-p>
 
 <x-sub-title id="solid">Solid</x-sub-title>

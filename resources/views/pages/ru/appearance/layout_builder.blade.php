@@ -62,7 +62,7 @@ final class MoonShineLayout implements MoonShineLayoutContract
 <x-sub-title id="topbar">Верхнее меню</x-sub-title>
 
 <x-p>
-    По-умолчанию в MoonShine есть компонент для верхнего меню.
+    По умолчанию в MoonShine есть компонент для верхнего меню.
     Давайте взглянем как в <code>LayoutBuilder</code> заменить <code>Sidebar</code> на <code>TopBar</code>.
 </x-p>
 

@@ -121,7 +121,7 @@ class MoonShineServiceProvider extends ServiceProvider
 
 <x-p>
     В результате будет создан <code>ExamplePage</code> класс, который будет основой кастомной страницы.
-    Располагается он по-умолчанию в директории <code>app/MoonShine/Pages</code>.
+    Располагается он по умолчанию в директории <code>app/MoonShine/Pages</code>.
 </x-p>
 
 <x-p>При выполнении команды можно сразу задать для вашей страницы алиас, заголовок и blade шаблон.</x-p>
