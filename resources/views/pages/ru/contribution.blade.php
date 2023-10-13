@@ -128,14 +128,14 @@ php artisan serve
 <x-sub-title id="pr">Как делать pull request?</x-sub-title>
 
 <x-ul :items="[
-'Перейдите в MoonShine репозиторий и нажмите Fork',
+'Перейдите в MoonShine репозиторий и нажмите "Fork"',
 'Сделайте git clone вашего fork',
 'Создайте новую ветку для ваших изменений',
-'Делайте commits, полагаясь на конвенцию https://www.conventionalcommits.org',
+'Делайте commits, полагаясь на конвенцию <x-link link="https://www.conventionalcommits.org">https://www.conventionalcommits.org</x-link>',
 'Сделайте push ваших изменений в ваш fork',
-'Снова перейдите в репозиторий MoonShine и нажмите New pull request',
-'Опишите ваши изменения в описании',
-'Ожидайте ревью',
+'Снова перейдите в репозиторий MoonShine и нажмите "New pull request"',
+'Подробно прокомментируйте сделанные изменения в поле "Описание"',
+'Ожидайте ревью!',
 ]"></x-ul>
 
 <x-sub-title>Возникли вопросы?</x-sub-title>
