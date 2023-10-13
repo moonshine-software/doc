@@ -25,7 +25,7 @@
 
 <x-p>
     Чтобы отключить возможность скачивать файлы, необходимо компоненту
-    передать параметр <code>download</code> со значением FALSE.
+    передать параметр <code>download</code> со значением <code>FALSE</code>.
 </x-p>
 
 <x-code language="blade" file="resources/views/examples/components/files-no-download.blade.php"></x-code>

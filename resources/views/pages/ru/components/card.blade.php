@@ -8,7 +8,7 @@
 <x-sub-title id="basics">Основы</x-sub-title>
 
 <x-p>
-    Для создания карточек в админ-панели используется компонент <code>moonshine::card</code>
+    Для создания карточек в админ-панели используется компонент <code>moonshine::card</code>.
 </x-p>
 
 <x-code language="blade" file="resources/views/examples/components/card.blade.php"></x-code>
@@ -24,7 +24,7 @@
 <x-sub-title id="overlay">Overlay режим</x-sub-title>
 
 <x-p>
-    Для карточки доступен режим <code>overlay</code>
+    Для карточки доступен режим <code>overlay</code>.
 </x-p>
 
 <x-code language="blade" file="resources/views/examples/components/card-overlay.blade.php"></x-code>

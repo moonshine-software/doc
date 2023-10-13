@@ -7,7 +7,7 @@
 <x-sub-title id="basics">Основы</x-sub-title>
 
 <x-p>
-    C помощью компонента <code>moonshine::toast</code> можно создавать уведомления
+    C помощью компонента <code>moonshine::toast</code> можно создавать уведомления.
 </x-p>
 
 <x-code language="blade" file="resources/views/examples/components/toast.blade.php"></x-code>
@@ -27,13 +27,13 @@
 <x-sub-title id="without">Без использования компонента</x-sub-title>
 
 <x-p>
-    Создать уведомление можно с помощью метода <code>MoonShineUi::toast()</code>
+    Создать уведомление можно с помощью метода <code>MoonShineUi::toast()</code>.
 </x-p>
 
 <x-code language="php">
 use MoonShine\MoonShineUI;
 
-MoonShineUi::toast('Toast content', 'error');
+MoonShineUI::toast('Toast content', 'error');
 </x-code>
 
 </x-page>

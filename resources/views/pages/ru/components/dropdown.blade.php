@@ -9,7 +9,7 @@
 <x-sub-title id="basics">Основы</x-sub-title>
 
 <x-p>
-    C помощью компонента <code>moonshine::dropdown</code> можно создавать выпадающие блоки
+    C помощью компонента <code>moonshine::dropdown</code> можно создавать выпадающие блоки.
 </x-p>
 
 <x-code language="blade" file="resources/views/examples/components/dropdown.blade.php"></x-code>
@@ -39,7 +39,7 @@
 <x-p>
     <x-moonshine::alert type="default" icon="heroicons.book-open">
         О дополнительных вариантах расположения можно узнать из официальной документации
-        <x-link link="https://atomiks.github.io/tippyjs/v6/all-props/#placement" target="_blank">tippy.js</x-link>
+        <x-link link="https://atomiks.github.io/tippyjs/v6/all-props/#placement" target="_blank">tippy.js</x-link>.
     </x-moonshine::alert>
 </x-p>
 

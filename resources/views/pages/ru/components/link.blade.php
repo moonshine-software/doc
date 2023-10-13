@@ -10,7 +10,7 @@
 
 <x-p>
     Для создания стилизованной ссылки можно воспользоваться компонентами <code>moonshine::link</code>
-    или <code>moonshine::link-native</code>
+    или <code>moonshine::link-native</code>.
 </x-p>
 
 <x-code language="blade" file="resources/views/examples/components/link.blade.php"></x-code>
@@ -26,7 +26,7 @@
 <x-sub-title id="filled">Заливка</x-sub-title>
 
 <x-p>
-    Параметр <code>filled</code> отвечает за заливку
+    Параметр <code>filled</code> отвечает за заливку.
 </x-p>
 
 <x-code language="blade" file="resources/views/examples/components/link-filled.blade.php"></x-code>
@@ -42,7 +42,7 @@
 <x-sub-title id="icon">Иконка</x-sub-title>
 
 <x-p>
-    Можно передать параметр <code>icon</code>
+    Можно передать параметр <code>icon</code>.
 </x-p>
 
 <x-code language="blade" file="resources/views/examples/components/link-icon.blade.php"></x-code>
@@ -54,5 +54,9 @@
         </x-moonshine::box>
     </x-moonshine::column>
 </x-moonshine::grid>
+
+<x-moonshine::alert type="default" icon="heroicons.book-open" class="mt-8">
+    Все доступные <x-link link="{{ route('moonshine.page', 'appearance-icons') }}">иконки</x-link>.
+</x-moonshine::alert>
 
 </x-page>

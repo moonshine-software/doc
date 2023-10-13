@@ -8,7 +8,7 @@
 <x-sub-title id="basics">Основы</x-sub-title>
 
 <x-p>
-    Для создания вкладок можно воспользоваться компонентом <code>moonshine::tabs</code>
+    Для создания вкладок можно воспользоваться компонентом <code>moonshine::tabs</code>.
 </x-p>
 
 <x-code language="blade" file="resources/views/examples/components/tabs.blade.php"></x-code>
@@ -24,7 +24,7 @@
 <x-sub-title id="active">Активная вкладка</x-sub-title>
 
 <x-p>
-    Указать активную вкладку по умолчанию, можно задав <code>activeTab</code>.
+    Указать активную вкладку по умолчанию, можно задав <code>active</code>.
 </x-p>
 
 <x-code language="blade" file="resources/views/examples/components/tabs-active.blade.php"></x-code>
