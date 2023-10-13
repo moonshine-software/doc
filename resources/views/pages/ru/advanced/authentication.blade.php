@@ -10,9 +10,9 @@
 <x-sub-title id="basics">Основы</x-sub-title>
 
 <x-p>
-    В админ-панели Moonshine реализована система аутентификации, которая по умолчанию включена,
+    В админ-панели MoonShine есть встроенная система аутентификации. По-умолчанию он включена,
     но если нужно разрешить доступ для всех пользователей,
-    то ее можно отключить в файле конфигурации <code>config/moonshine.php</code>
+    то ее можно отключить в файле конфигурации <code>config/moonshine.php</code>.
 </x-p>
 
 <x-code language="php">
@@ -33,7 +33,7 @@ return [
 
 <x-p>
     Если используете собственный guard, provider, то их можно переопределить в конфигурации,
-    а также модель <code>MoonshineUser</code>
+    а также модель <code>MoonshineUser</code>.
 </x-p>
 
 <x-code language="php">
@@ -61,8 +61,8 @@ return [
 </x-code>
 
 <x-p>
-    Если возникает потребность добавить текст под кнопкой войти (например добавить кнопку регистрации),
-    то это легко можно сделать через файл конфигурации
+    Если возникает потребность добавить текст под кнопкой "Войти" (например, добавить кнопку регистрации),
+    то это легко можно сделать через файл конфигурации.
 </x-p>
 
 <x-code language="php">
@@ -82,7 +82,7 @@ return [
 
 <x-p>
     Для изменения текста приветствия на странице аутентификации
-    необходимо создать языковой файл <code>lang/vendor/moonshine/ru/ui.php</code>
+    необходимо создать языковой файл <code>lang/vendor/moonshine/ru/ui.php</code>.
 </x-p>
 
 <x-code language="php">
@@ -99,7 +99,7 @@ return [
 <x-sub-title id="profile">Профиль</x-sub-title>
 
 <x-p>
-    Переопределить поля для профиля можно в файле конфигурации <code>config/moonshine.php</code>
+    Переопределить поля для профиля можно в файле конфигурации <code>config/moonshine.php</code>.
 </x-p>
 
 <x-code language="php">
@@ -127,7 +127,7 @@ return [
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
     Если вы хотите изменить вид страницы профиля,
-    то создайте файл <code>resources/views/vendor/moonshine/profile.blade.php</code>
+    то создайте файл <code>resources/views/vendor/moonshine/profile.blade.php</code>.
 </x-moonshine::alert>
 
 </x-page>

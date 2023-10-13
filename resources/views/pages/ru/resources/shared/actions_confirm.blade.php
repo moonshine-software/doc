@@ -1,7 +1,7 @@
 <x-sub-title id="confirm">Подтверждение действия</x-sub-title>
 
 <x-p>
-    Для подтверждения действия необходимо воспользоваться методом <code>withConfirm</code>
+    Для подтверждения действия необходимо воспользоваться методом <code>withConfirm</code>.
 </x-p>
 
 <x-code language="php">
@@ -29,7 +29,7 @@ public function {!! ($action === 'ExportAction' ||  $action === 'ImportAction') 
 
 <x-p>
     Методу <code>withConfirm()</code> можно передать заголовок и текст для модального окна, а так же название
-    для кнопки подтверждения
+    для кнопки подтверждения.
 </x-p>
 
 <x-code language="php">
@@ -53,7 +53,7 @@ public function {!! ($action === 'ExportAction' ||  $action === 'ImportAction') 
 </x-code>
 
 <x-p>
-    Метод <code>errorMessage()</code> позволяет задать текст сообщения об ошибке
+    Метод <code>errorMessage()</code> позволяет задать текст сообщения об ошибке.
 </x-p>
 
 <x-code language="php">

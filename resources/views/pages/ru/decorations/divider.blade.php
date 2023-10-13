@@ -11,7 +11,7 @@
 <x-sub-title id="basics">Основы</x-sub-title>
 
 <x-p>
-    Для разделения на зоны можно воспользоваться декорацией <code>Divider</code>
+    Для разделения на зоны можно воспользоваться декорацией <code>Divider</code>.
 </x-p>
 
 <x-code language="php">
@@ -35,7 +35,7 @@ public function fields(): array
 <x-sub-title id="label">Label</x-sub-title>
 
 <x-p>
-    В качестве разделителя можно использовать текст, для этого его необходимо передать методу <code>make()</code>
+    В качестве разделителя можно использовать текст, для этого его необходимо передать методу <code>make()</code> в качестве аргумента.
 </x-p>
 
 <x-code language="php">
@@ -57,7 +57,7 @@ public function fields(): array
 <x-image theme="dark" src="{{ asset('screenshots/divider_label_dark.png') }}"></x-image>
 
 <x-p>
-    Метод <code>centered()</code> позволяет отцентрировать текст
+    Метод <code>centered()</code> позволяет отцентрировать текст.
 </x-p>
 
 <x-code language="php">

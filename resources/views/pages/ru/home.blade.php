@@ -23,6 +23,7 @@
         Предлагаю заинтересованным пользователям использовать и развивать Moonshine вместе.
     </x-p>
 
+
     <x-image theme="light" src="{{ asset('screenshots/main.png') }}"></x-image>
     <x-image theme="dark" src="{{ asset('screenshots/main_dark.png') }}"></x-image>
 </x-page>

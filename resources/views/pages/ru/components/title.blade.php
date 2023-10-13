@@ -1,7 +1,7 @@
 <x-page title="Title" :sectionMenu="[]">
 
 <x-p>
-    Если вы хотите разместить стилизованный заголовок, то можно воспользоваться компонентом <code>moonshine::title</code>
+    Если вы хотите разместить стилизованный заголовок, то можно воспользоваться компонентом <code>moonshine::title</code>.
 </x-p>
 
 <x-code language="blade" file="resources/views/examples/components/title.blade.php"></x-code>

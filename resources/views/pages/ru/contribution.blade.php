@@ -16,7 +16,7 @@
 'Front-end разработка',
 'Отправлять отчёты об ошибках',
 'Помогать другим пользователям разобраться в деталях',
-'Заниматься написанием документации',
+'Дополнять документацию',
 'Заниматься популяризацией проекта'
 ]"></x-ul>
 
@@ -24,7 +24,7 @@
 
 <x-ul :items="[
 'Blade',
-'Tailwindcss',
+'TailwindCSS',
 'AlpineJs',
 ]"></x-ul>
 
@@ -79,25 +79,25 @@
 
 <x-sub-title id="dev-guide">Инструкция для разработчиков</x-sub-title>
 
-<x-moonshine::badge color="green">1</x-moonshine::badge> Создайте директорию для проекта и клонируйте демо
+<x-moonshine::badge color="green">1</x-moonshine::badge> Создайте директорию для проекта и клонируйте демо.
 
 <x-code language="shell">
     git clone git@github.com:moonshine-software/demo-project.git .
 </x-code>
 
-<x-moonshine::badge color="green">2</x-moonshine::badge> Добавьте директорию packages и выполните команду ниже
+<x-moonshine::badge color="green">2</x-moonshine::badge> Добавьте директорию <code>packages</code> и выполните команду ниже.
 
 <x-code language="shell">
     cd packages && git clone git@github.com:moonshine-software/moonshine.git && cd moonshine && composer install && npm install
 </x-code>
 
-<x-moonshine::badge color="green">3</x-moonshine::badge> Вернитесь в директорию проекта и в composer.json измените зависимость moonshine/moonshine
+<x-moonshine::badge color="green">3</x-moonshine::badge> Вернитесь в директорию проекта и в <code>composer.json</code> измените зависимость moonshine/moonshine.
 
 <x-code language="shell">
     "moonshine/moonshine": "2.*.*-dev",
 </x-code>
 
-<x-moonshine::badge color="green">3</x-moonshine::badge> Добавьте в composer.json
+<x-moonshine::badge color="green">3</x-moonshine::badge> Добавьте в <code>composer.json</code>.
 
 <x-code language="shell">
 "repositories": [
@@ -113,7 +113,7 @@
 ]
 </x-code>
 
-<x-moonshine::badge color="green">5</x-moonshine::badge> Создайте .env из .env.example (не забудьте создать базу данных) и выполните установку ниже
+<x-moonshine::badge color="green">5</x-moonshine::badge> Создайте <code>.env</code> из <code>.env.example</code> (не забудьте создать базу данных) и выполните установку ниже.
 
 <x-code language="shell">
 php artisan key:generate
@@ -123,7 +123,7 @@ php artisan moonshine:user
 php artisan serve
 </x-code>
 
-<x-moonshine::badge color="green">#</x-moonshine::badge> Создайте что-нибудь полезное
+<x-moonshine::badge color="green">#</x-moonshine::badge> Создайте что-нибудь полезное!
 
 <x-sub-title id="pr">Как делать pull request?</x-sub-title>
 

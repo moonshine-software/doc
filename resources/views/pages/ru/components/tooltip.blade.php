@@ -8,7 +8,7 @@
 <x-sub-title id="basics">Основы</x-sub-title>
 
 <x-p>
-    C помощью компонента <code>moonshine::tooltip</code> можно создавать удобные подсказки
+    C помощью компонента <code>moonshine::tooltip</code> можно создавать удобные подсказки.
 </x-p>
 
 @include('pages.ru.components.shared.placement')

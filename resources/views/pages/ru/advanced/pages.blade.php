@@ -11,8 +11,8 @@
 
 <x-p>
     Можно создавать свои пустые страницы на основе blade view
-    и <x-link link="{{ route('moonshine.page', 'components-index') }}">UI components</x-link>,
-    стилизовать по своему, а также организовывать какую-то логику.
+    и <x-link link="{{ route('moonshine.page', 'components-index') }}">UI components</x-link>.
+    Стилизовать их по-своему, а также организовывать какую-то логику.
 </x-p>
 
 <x-code language="php">
@@ -44,7 +44,7 @@ class MoonShineServiceProvider extends ServiceProvider
 </x-p>
 
 <x-p>
-    Третий аргумент - ваша кастомная blade view, которая располагается в resources/views.
+    Третий аргумент - ваша кастомная blade view, которая располагается в <code>resources/views</code>.
 </x-p>
 
 <x-p>
@@ -52,13 +52,13 @@ class MoonShineServiceProvider extends ServiceProvider
 </x-p>
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
-    Можно использовать <code>blade components</code> у которых есть класс обработчик, чтобы добавить свою логику.
+    Можно использовать <code>blade components</code> у которых есть класс-обработчик, чтобы добавить свою логику.
 </x-moonshine::alert>
 
 <x-sub-title id="without-title">Без заголовка</x-sub-title>
 
 <x-p>
-    Иногда не требуется вывод заголовка на кастомной странице, поэтому его можно скрыть используя метод <code>withoutTitle</code>.
+    Иногда не требуется вывод заголовка на кастомной странице, поэтому его можно скрыть, используя метод <code>withoutTitle</code>.
 </x-p>
 
 <x-code language="php">
@@ -85,7 +85,7 @@ class MoonShineServiceProvider extends ServiceProvider
 <x-sub-title id="layout">Layout</x-sub-title>
 
 <x-p>
-    Можно использовать кастомный <code>layout</code>, для этого необходимо указать путь до него в соответствующем методе.
+    Можно использовать кастомный <code>layout</code>, для этого необходимо указать путь к нему в соответствующем методе.
 </x-p>
 
 <x-code language="php">
@@ -121,7 +121,7 @@ class MoonShineServiceProvider extends ServiceProvider
 
 <x-p>
     В результате будет создан <code>ExamplePage</code> класс, который будет основой кастомной страницы.
-    Располагается он по умолчанию в директории <code>app/MoonShine/Pages</code>.
+    Располагается он по-умолчанию в директории <code>app/MoonShine/Pages</code>.
 </x-p>
 
 <x-p>При выполнении команды можно сразу задать для вашей страницы алиас, заголовок и blade шаблон.</x-p>

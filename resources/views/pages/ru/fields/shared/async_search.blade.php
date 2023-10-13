@@ -28,9 +28,9 @@ public function fields(): array
 
 <x-p>
     <ul>
-        <li><code>title</code> - поле по которому происходит поиск</li>
-        <li><code>count</code> - количество элементов в выдаче</li>
-        <li><code>asyncSearchQuery()</code> - callback-функция для фильтрации значений</li>
+        <li><code>title</code> - поле по которому происходит поиск;</li>
+        <li><code>count</code> - количество элементов в выдаче;</li>
+        <li><code>asyncSearchQuery()</code> - callback-функция для фильтрации значений;</li>
         <li><code>asyncSearchValueCallback()</code> - callback-функция для кастомизации вывода.</li>
     </ul>
 </x-p>

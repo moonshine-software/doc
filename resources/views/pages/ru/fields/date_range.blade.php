@@ -97,7 +97,7 @@ public function fields(): array
 <x-sub-title id="attributes">Аттрибуты</x-sub-title>
 
 <x-p>
-    Поле <em>DateRange</em> имеет аттрибуты которые можно задать через соответствующие методы.
+    Поле <em>DateRange</em> имеет аттрибуты? которые можно задать через соответствующие методы.
 </x-p>
 
 <x-p>

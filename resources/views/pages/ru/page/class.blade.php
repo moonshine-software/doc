@@ -38,11 +38,11 @@ php artisan moonshine:page
 
 <x-p>
     После ввода названия класса будет создан файл, который является основой для страницы в админ-панели.<br />
-    Располагается он по умолчанию в директории <code>app/MoonShine/Pages</code>.
+    Располагается он по-умолчанию в директории <code>app/MoonShine/Pages</code>.
 </x-p>
 
 <x-p>
-    Можно указывать в команде название класса и директорию его расположения:
+    Можно указывать в команде название класса и директорию его расположения.
 </x-p>
 
 <x-code language="shell">
@@ -186,7 +186,7 @@ class CustomPage extends Page
 </x-code>
 
 <x-p>
-    Так же <em>Layout</em> можно переопределить используя метод <code>layout()</code>.
+    Так же <em>Layout</em> можно переопределить, используя метод <code>layout()</code>.
 </x-p>
 
 <x-code language="php">
@@ -222,7 +222,7 @@ class CustomPage extends Page
 </x-code>
 
 <x-p>
-    Так же есть возможность переопределить метод <code>getAlias()</code>
+    Так же есть возможность переопределить метод <code>getAlias()</code>.
 </x-p>
 
 <x-code language="php">

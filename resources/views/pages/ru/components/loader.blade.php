@@ -1,7 +1,7 @@
 <x-page title="Loader" :sectionMenu="[]">
 
 <x-p>
-    Компонент <code>moonshine::loader</code> позволяет создать стилизованный индикатор загрузки
+    Компонент <code>moonshine::loader</code> позволяет создать стилизованный индикатор загрузки.
 </x-p>
 
 <x-code language="blade" file="resources/views/examples/components/loader.blade.php"></x-code>

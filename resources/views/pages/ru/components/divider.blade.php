@@ -8,7 +8,7 @@
 <x-sub-title id="basics">Основы</x-sub-title>
 
 <x-p>
-    Компонент <code>moonshine::divider</code> позволяет создать стилизованный разделитель контента
+    Компонент <code>moonshine::divider</code> позволяет создать стилизованный разделитель контента.
 </x-p>
 
 <x-code language="blade" file="resources/views/examples/components/divider.blade.php"></x-code>
@@ -24,7 +24,7 @@
 <x-sub-title id="text">Текстовый разделитель</x-sub-title>
 
 <x-p>
-    В качестве разделителя можно использовать текст, для этого необходимо указать текст в параметре <code>label</code>
+    В качестве разделителя можно использовать текст. Для этого необходимо указать текст в параметре <code>label</code>.
 </x-p>
 
 <x-code language="blade" file="resources/views/examples/components/divider-label.blade.php"></x-code>
@@ -38,7 +38,7 @@
 </x-moonshine::grid>
 
 <x-p>
-    Параметр <code>centered</code> позволяет разместить текст по центру
+    Параметр <code>centered</code> позволяет разместить текст по-центру.
 </x-p>
 
 <x-code language="blade" file="resources/views/examples/components/divider-label-center.blade.php"></x-code>

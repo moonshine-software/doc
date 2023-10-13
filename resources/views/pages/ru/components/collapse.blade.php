@@ -9,7 +9,7 @@
 <x-sub-title id="basics">Основы</x-sub-title>
 
 <x-p>
-    Компонент <code>moonshine::collapse</code> позволяет сворачивать контент
+    Компонент <code>moonshine::collapse</code> позволяет сворачивать контент.
 </x-p>
 
 <x-code language="blade" file="resources/views/examples/components/collapse.blade.php"></x-code>
@@ -25,7 +25,7 @@
 <x-sub-title id="show">Отобразить развернутым</x-sub-title>
 
 <x-p>
-    Если параметр <code>show</code> имеет значение <code>TRUE</code>, то по умолчанию блок будет отображаться развернутым
+    Если параметр <code>show</code> имеет значение <code>TRUE</code>, то по-умолчанию блок будет отображаться развернутым.
 </x-p>
 
 <x-code language="blade" file="resources/views/examples/components/collapse-show.blade.php"></x-code>
@@ -41,7 +41,7 @@
 <x-sub-title id="persist">Сохранение состояния</x-sub-title>
 
 <x-p>
-    Если параметр <code>persist</code> имеет значение <code>TRUE</code>, то будет сохраняться состояние блока
+    Если параметр <code>persist</code> имеет значение <code>TRUE</code>, то будет сохраняться состояние блока.
 </x-p>
 
 <x-code language="blade" file="resources/views/examples/components/collapse-persist.blade.php"></x-code>

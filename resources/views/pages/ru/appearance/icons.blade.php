@@ -10,7 +10,7 @@
     Для всех сущностей, в которых есть метод <code>icon()</code>,
     можно воспользоваться одним из предустановленных наборов
     из коллекции <x-link link="https://heroicons.com" target="_blank">Heroicons</x-link>
-    (набор <b>Solid</b> по умолчанию и <b>Outline</b>) или создать свой набор
+    (набор <b>Solid</b> по-умолчанию и <b>Outline</b>) или создать свой собственный набор.
 </x-p>
 
 <x-sub-title id="solid">Solid</x-sub-title>
@@ -38,8 +38,8 @@
 <x-sub-title id="custom">Кастомные иконки</x-sub-title>
 
 <x-p>
-    Также есть возможность создать blade файл с вашей кастомной иконкой. Для этого необходимо в <code>resources/views/vendor/moonshine/shared/icons</code>
-    создать blade файл как пример my-icon.blade.php с отображением иконки внутри (например код svg)
+    Также есть возможность создать blade-файл с вашей кастомной иконкой. Для этого необходимо в <code>resources/views/vendor/moonshine/shared/icons</code>
+    создать blade-файл (например <code>my-icon.blade.php</code>) с отображением иконки внутри (например, код svg-файла)
     и далее указать <code>icon('my-icon')</code>
 </x-p>
 

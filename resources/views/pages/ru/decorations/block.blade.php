@@ -1,7 +1,7 @@
 <x-page title="Block">
 
 <x-p>
-    Подложка с заголовком для элементов формы
+    Подложка с заголовком для элементов формы.
 </x-p>
 
 <x-code language="php">
@@ -23,7 +23,7 @@ public function fields(): array
 <x-image theme="dark" src="{{ asset('screenshots/block_dark.png') }}"></x-image>
 
 <x-p>
-    Если не нужен заголовок
+    Если не нужен заголовок:
 </x-p>
 
 <x-code language="php">

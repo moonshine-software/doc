@@ -1,7 +1,7 @@
 <x-page title="Rating" :sectionMenu="[]">
 
 <x-p>
-    Компонент <code>moonshine::rating</code> позволяет создавать стилизованные рейтинги
+    Компонент <code>moonshine::rating</code> позволяет создавать стилизованные рейтинги.
 </x-p>
 
 <x-code language="blade" file="resources/views/examples/components/rating.blade.php"></x-code>

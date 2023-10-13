@@ -12,8 +12,8 @@
 <x-sub-title id="basics">Основы</x-sub-title>
 
 <x-p>
-    Поля и декорации в MoonShine используются внутри таблиц в режиме <code>preview</code> и за таблицы отвечает TableBuilder.
-    Благодаря TableBuilder таблицы  отображаются и наполняются данными.
+    Поля и декорации в MoonShine используются внутри таблиц в режиме <code>preview</code>. За таблицы отвечает TableBuilder.
+    Благодаря TableBuilder таблицы отображаются и наполняются данными.
     Вы также можете использовать TableBuilder на собственных страницах или даже вне MoonShine.
 </x-p>
 

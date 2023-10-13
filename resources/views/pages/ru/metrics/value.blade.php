@@ -1,7 +1,7 @@
 <x-page title="Значение">
 
 <x-p>
-    Отображение простого значения, например сколько всего в таблице определенных записей
+    Предназначено для отображения простого значения. Например, сколько всего в таблице определенных записей.
 </x-p>
 
 <x-code language="php">
@@ -29,7 +29,7 @@ class PostResource extends Resource
 <x-image theme="dark" src="{{ asset('screenshots/metrics_dark.png') }}"></x-image>
 
 <x-p>
-    Также есть возможность отобразить в виде прогресса достижения цели
+    Также есть возможность отображения в виде прогресса достижения цели.
 </x-p>
 
 <x-code language="php">
@@ -58,7 +58,7 @@ class PostResource extends Resource
 <x-image theme="dark" src="{{ asset('screenshots/metrics_value_progress_dark.png') }}"></x-image>
 
 <x-p>
-Выводимое значение можно отформатировать и добавить префикс и суффик
+Выводимое значение можно отформатировать и добавить префикс и суффикс.
 </x-p>
 
 <x-code language="php">

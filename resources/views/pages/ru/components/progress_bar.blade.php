@@ -8,7 +8,7 @@
 <x-sub-title id="basics">Основы</x-sub-title>
 
 <x-p>
-    Компонент <code>moonshine::progress-bar</code> позволяет создавать индикатор прогресса
+    Компонент <code>moonshine::progress-bar</code> позволяет создавать индикатор прогресса.
 </x-p>
 
 @include('pages.ru.components.shared.colors')
@@ -26,7 +26,7 @@
 <x-sub-title id="radial">Радиальный</x-sub-title>
 
 <x-p>
-    Для создания радиального индикатора прогресса необходимо компоненту передать параметр <code>radial</code> со значением <code>TRUE</code>
+    Для создания радиального индикатора прогресса необходимо компоненту передать параметр <code>radial</code> со значением <code>TRUE</code>.
 </x-p>
 
 @include('pages.ru.components.shared.sizes')

@@ -63,8 +63,8 @@ public function fields(): array
 @include('pages.ru.fields.shared.async_search', ['field' => 'BelongsToMany'])
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-    Запросы необходимо кастомизировать через метод <code>asyncSearch()</code>,
-    не используйте <code>valuesQuery()</code>!
+    Запросы необходимо кастомизировать через метод <code>asyncSearch()</code>.
+    Не используйте <code>valuesQuery()</code>!
 </x-moonshine::alert>
 
 <x-sub-title id="select">Select</x-sub-title>
@@ -94,7 +94,7 @@ public function fields(): array
 
 <x-p>
     Иногда имеет смысл отобразить чекбоксы с иерархией, например для категорий,
-    которые имеют вложенность, для таких целей есть метод <code>tree()</code>.
+    которые имеют вложенность. Для таких целей есть метод <code>tree()</code>.
 </x-p>
 
 <x-code language="php">
@@ -135,8 +135,8 @@ public function fields(): array
 <x-sub-title id="inline">inLine</x-sub-title>
 
 <x-p>
-    По умолчанию на индексной странице поле будет отображаться в виде таблицы,
-    но если требуется отобразить в строку то можно воспользоваться методом <code>inLine()</code>.
+    По-умолчанию на индексной странице поле будет отображаться в виде таблицы,
+    но если требуется отобразить в строку, то можно воспользоваться методом <code>inLine()</code>.
 </x-p>
 <x-p>
     Методу можно передать необязательные параметры:
