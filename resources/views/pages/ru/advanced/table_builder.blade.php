@@ -190,7 +190,7 @@ TableBuilder::make()->customAttributes(['class' => 'custom-form']),
 </x-code>
 
 <x-p>
-    Вы можете задать любые html-атрибуты для строк и ячеек таблицы:
+    Вы можете задать любые html атрибуты для строк и ячеек таблицы:
 </x-p>
 
 <x-code>

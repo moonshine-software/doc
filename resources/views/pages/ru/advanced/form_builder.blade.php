@@ -186,7 +186,7 @@ FormBuilder::make('/crud/update', 'PUT')
 <x-moonshine::divider label="Attributes" />
 
 <x-p>
-    Вы можете задать любые html-атрибуты для формы через метод <code>customAttributes</code>.
+    Вы можете задать любые html атрибуты для формы через метод <code>customAttributes</code>.
 </x-p>
 
 <x-code>
