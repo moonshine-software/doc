@@ -1,5 +1,6 @@
 @props([
-    'language' => 'php'
+    'language' => 'php',
+    'file' => null,
 ])
 <div
     x-data="{
