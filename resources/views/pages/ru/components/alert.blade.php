@@ -21,7 +21,7 @@
 <x-sub-title id="type">Тип уведомления</x-sub-title>
 
 <x-p>
-    Изменить тип уведомления можно указав у компонента <code>type</code>:
+    Изменить тип уведомления можно указав у компонента <code>type</code>.
 </x-p>
 
 @include('pages.ru.components.shared.type')
@@ -40,9 +40,10 @@
 
 @include("examples/components/alert-icon")
 
-<x-p>
-    За более подробной информацией, обратитесь к разделу <x-link link="{{ route('moonshine.page', 'appearance-icons') }}">Icons</x-link>.
-</x-p>
+<x-moonshine::alert type="default" icon="heroicons.book-open">
+    За более подробной информацией, обратитесь к разделу
+    <x-link link="{{ route('moonshine.page', 'appearance-icons') }}">Icons</x-link>.
+</x-moonshine::alert>
 
 <x-sub-title id="removable">Удаление уведомлений</x-sub-title>
 

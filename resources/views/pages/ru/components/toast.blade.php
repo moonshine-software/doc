@@ -33,7 +33,7 @@
 <x-code language="php">
 use MoonShine\MoonShineUI;
 
-MoonShineUi::toast('Toast content', 'error');
+MoonShineUI::toast('Toast content', 'error');
 </x-code>
 
 </x-page>

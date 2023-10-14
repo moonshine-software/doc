@@ -7,5 +7,5 @@
         'tab_1' => fake()->text(),
         'tab_2' => fake()->text()
     ]"
-    activeTab="tab_2"
+    active="tab_2"
 />

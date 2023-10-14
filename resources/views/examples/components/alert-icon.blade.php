@@ -1,1 +1,1 @@
-<x-moonshine::alert icon="heroicons.book-open">Alert</x-moonshine::alert>
+<x-moonshine::alert icon="heroicons.academic-cap">Alert</x-moonshine::alert>

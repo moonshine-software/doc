@@ -38,7 +38,7 @@
 </x-moonshine::grid>
 
 <x-p>
-    Параметр <code>centered</code> позволяет разместить текст по-центру.
+    Параметр <code>centered</code> позволяет разместить текст по центру.
 </x-p>
 
 <x-code language="blade" file="resources/views/examples/components/divider-label-center.blade.php"></x-code>

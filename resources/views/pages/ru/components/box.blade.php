@@ -8,7 +8,7 @@
 <x-sub-title id="basics">Основы</x-sub-title>
 
 <x-p>
-    Для выделения контента можно воспользоваться компонентом <code>moonshine::box</code>
+    Для выделения контента можно воспользоваться компонентом <code>moonshine::box</code>.
 </x-p>
 
 <x-code language="blade" file="resources/views/examples/components/box.blade.php"></x-code>

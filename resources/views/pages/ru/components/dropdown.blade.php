@@ -9,7 +9,7 @@
 <x-sub-title id="basics">Основы</x-sub-title>
 
 <x-p>
-    C помощью компонента <code>moonshine::dropdown</code> можно создавать выпадающие блоки:
+    C помощью компонента <code>moonshine::dropdown</code> можно создавать выпадающие блоки.
 </x-p>
 
 <x-code language="blade" file="resources/views/examples/components/dropdown.blade.php"></x-code>

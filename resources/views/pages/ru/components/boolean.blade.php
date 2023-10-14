@@ -1,7 +1,8 @@
 <x-page title="Boolean" :sectionMenu="[]">
 
 <x-p>
-    Простой компонент <code>moonshine::boolean</code> позволяет создавать индикатор <code>TRUE</code> / <code>FALSE</code>
+    Простой компонент <code>moonshine::boolean</code>
+    позволяет создавать индикатор <code>TRUE</code> / <code>FALSE</code>.
 </x-p>
 
 <x-code language="blade" file="resources/views/examples/components/boolean.blade.php"></x-code>
