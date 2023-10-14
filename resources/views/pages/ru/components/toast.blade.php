@@ -27,7 +27,7 @@
 <x-sub-title id="without">Без использования компонента</x-sub-title>
 
 <x-p>
-    Создать уведомление можно с помощью метода <code>MoonShineUi::toast()</code>.
+    Также создать уведомление можно с помощью метода <code>MoonShineUi::toast()</code>.
 </x-p>
 
 <x-code language="php">

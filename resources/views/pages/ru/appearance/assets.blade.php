@@ -1,8 +1,8 @@
 <x-page>
 
 <x-p>
-    В MoonShine можно подключить любые ваши <em>css</em> и <em>js</em> файлы,
-    для этого необходимо добавить их в <code>MoonShineServiceProvider</code>.
+    В MoonShine можно подключить любые ваши <em>css</em> и <em>js</em> файлы.
+    Для этого необходимо добавить их в <code>MoonShineServiceProvider</code>.
 </x-p>
 
 <x-code language="php">

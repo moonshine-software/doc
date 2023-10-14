@@ -12,7 +12,7 @@
 </x-p>
 
 <x-p>
-    Для начала класс по изменению шаблона нужно опубликовать, воспользовавшись консольной командой.
+    Первым делом нужно опубликовать класс по изменению шаблона, воспользовавшись консольной командой.
 </x-p>
 
 <x-code language="shell">
@@ -62,8 +62,8 @@ final class MoonShineLayout implements MoonShineLayoutContract
 <x-sub-title id="topbar">Верхнее меню</x-sub-title>
 
 <x-p>
-    По умолчанию в MoonShine есть компонент для верхнего меню,
-    давайте взглянем как в <code>LayoutBuilder</code> заменить <code>Sidebar</code> на <code>TopBar</code>.
+    По умолчанию в MoonShine есть компонент для верхнего меню.
+    Давайте взглянем как в <code>LayoutBuilder</code> заменить <code>Sidebar</code> на <code>TopBar</code>.
 </x-p>
 
 <x-code language="php">

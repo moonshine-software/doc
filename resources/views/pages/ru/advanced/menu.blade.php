@@ -14,7 +14,7 @@
 
 <x-p>
     В разделе изучения ресурсов мы уже разобрались как регистрировать разделы админ-панели,
-    после чего они также появляются в меню
+    после чего они также появляются в меню.
 </x-p>
 
 <x-code language="php">
@@ -41,7 +41,7 @@ class MoonShineServiceProvider extends ServiceProvider
 </x-code>
 
 <x-p>
-    Но для удобства интерфейса мы также можем сгруппировать пункты меню
+    Но для удобства интерфейса мы также можем сгруппировать пункты меню.
 </x-p>
 
 <x-code language="php">
@@ -72,7 +72,7 @@ class MoonShineServiceProvider extends ServiceProvider
 
 <x-p>
     Всего лишь необходимо добавить ресурсы вторым параметром в класс <code>MoonShine\Menu\MenuGroup</code>.
-    Ну а первый параметр название группы!
+    Ну а первый параметр это название группы!
 </x-p>
 
 <x-image theme="light" src="{{ asset('screenshots/menu.png') }}"></x-image>
@@ -81,7 +81,7 @@ class MoonShineServiceProvider extends ServiceProvider
 <x-sub-title id="condition">Условие отображения</x-sub-title>
 
 <x-p>
-    Отображать меню по условию
+    Отображать меню по условию.
 </x-p>
 
 <x-code language="php">
@@ -100,7 +100,7 @@ app(MoonShine::class)->menu([
 <x-sub-title id="link">Внешняя ссылка</x-sub-title>
 
 <x-p>
-    Возможность добавить кастомный линк
+    Возможность добавить кастомный линк:
 </x-p>
 
 <x-code language="php">
@@ -112,7 +112,7 @@ app(MoonShine::class)->menu([
 </x-code>
 
 <x-p>
-    Ссылки можно передавать через функцию
+    Ссылки можно передавать через функцию.
 </x-p>
 
 <x-code language="php">
@@ -129,7 +129,7 @@ app(MoonShine::class)->menu([
 <x-sub-title id="icon">Иконка</x-sub-title>
 
 <x-p>
-    Также есть возможность менять иконку у пункта меню
+    Также есть возможность менять иконку у пункта меню.
 </x-p>
 
 <x-code language="php">
@@ -148,13 +148,13 @@ app(MoonShine::class)->menu([
 </x-code>
 
 <x-p>
-    За более подробной информацией обратитесь к разделу <x-link link="{{ route('moonshine.page', 'appearance-icons') }}">Icons</x-link>
+    За более подробной информацией обратитесь к разделу <x-link link="{{ route('moonshine.page', 'appearance-icons') }}">Icons</x-link>.
 </x-p>
 
 <x-sub-title id="badge">Метка</x-sub-title>
 
 <x-p>
-    Также есть возможность добавить счетчик к пункту меню
+    Также есть возможность добавить счетчик к пункту меню.
 </x-p>
 
 <x-code language="php">
@@ -173,7 +173,7 @@ app(MoonShine::class)->menu([
 
 <x-p>
     Для перевода пунктов меню необходимо в качестве названия передать ключ перевода
-    и добавить метод <code>translatable()</code>
+    и добавить метод <code>translatable()</code>.
 </x-p>
 
 <x-code language="php">
@@ -197,7 +197,7 @@ return [
 </x-code>
 
 <x-p>
-    Для перевода меток меню можно воспользоваться средствами перевода Laravel
+    Для перевода меток меню можно воспользоваться средствами перевода Laravel.
 </x-p>
 
 <x-code language="php">
@@ -231,7 +231,7 @@ app(MoonShine::class)->menu([
 <x-image theme="dark" src="{{ asset('screenshots/menu_divider_dark.png') }}"></x-image>
 
 <x-p>
-    В качестве разделителя можно использовать текст, для этого его нужно передать методу <code>make()</code>
+    В качестве разделителя можно использовать текст. Для этого его нужно передать методу <code>make()</code>.
 </x-p>
 
 <x-code language="php">

@@ -1,7 +1,7 @@
 <x-sub-title id="view">Способ отображения</x-sub-title>
 
 <x-p>
-    Для отображения действий в виде выпадающего списка можно воспользоваться методом <code>showInDropdown</code>
+    Для отображения действий в виде выпадающего списка можно воспользоваться методом <code>showInDropdown</code>.
 </x-p>
 
 <x-code language="php">
@@ -25,14 +25,14 @@ public function {!! ($action === 'ExportAction' ||  $action === 'ImportAction') 
 </x-code>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-    Данный способ отображения используется по умолчанию
+    Данный способ отображения используется по умолчанию.
 </x-moonshine::alert>
 
 <x-image theme="light" src="{{ asset('screenshots/actions_dropdown.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/actions_dropdown_dark.png') }}"></x-image>
 
 <x-p>
-    Для отображения действий в виде горизонтального списка можно воспользоваться методом <code>showInLine</code>
+    Для отображения действий в виде горизонтального списка, можно воспользоваться методом <code>showInLine</code>.
 </x-p>
 
 <x-code language="php">

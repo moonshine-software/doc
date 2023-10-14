@@ -19,7 +19,7 @@
 <x-sub-title id="make">Make</x-sub-title>
 
 <x-p>
-    Для создании экземпляра страницы используется статический метод <code>make()</code>.
+    Для создании экземпляра страницы используется статический метод <code>make()</code>:
 </x-p>
 
 <x-code language="php">
@@ -31,9 +31,9 @@ make(
 </x-code>
 
 <ul>
-    <li><code>title</code> - заголовок страницы,</li>
-    <li><code>alias</code> - алиас для url страницы,</li>
-    <li><code>resource</code> - ресурс к которому принадлежит страница.</li>
+    <li><code>title</code> - заголовок страницы;</li>
+    <li><code>alias</code> - алиас для url страницы;</li>
+    <li><code>resource</code> - ресурс, к которому принадлежит страница.</li>
 </ul>
 
 <x-code language="php">
@@ -50,7 +50,7 @@ CustomPage::make('Custom page', 'custom_page') // [tl! focus]
 
 <x-p>
     Зарегистрировать страницу в системе и сразу добавить ссылку на нее в навигационное меню
-    можно через сервис провайдер <code>MoonShineServiceProvider</code>.
+    можно через сервис провайдер <code>MoonShineServiceProvider</code>:
 </x-p>
 
 <x-code language="php">
@@ -81,7 +81,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 
 <x-p>
     Если вам необходимо только зарегистрировать страницу в системе без добавления в навигационное меню,
-    то необходимо воспользоваться методом <code>pages()</code>.
+    то необходимо воспользоваться методом <code>pages()</code>:
 </x-p>
 
 <x-code language="php">

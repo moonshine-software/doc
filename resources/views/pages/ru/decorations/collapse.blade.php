@@ -6,7 +6,7 @@
 >
 
 <x-p>
-    Декоратор Collapse позволяет сворачивать <code>fields</code> и <code>blocks</code> с сохранением состояния
+    Декоратор Collapse позволяет сворачивать <code>fields</code> и <code>blocks</code> с сохранением состояния.
 </x-p>
 
 <x-code language="php">

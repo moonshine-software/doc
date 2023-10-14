@@ -12,9 +12,9 @@
 <x-sub-title id="basics">Основы</x-sub-title>
 
 <x-p>
-    Поля и декорации в MoonShine используются внутри форм и за формы отвечает FormBuilder.
+    Поля и декорации в MoonShine используются внутри форм, за которые отвечает FormBuilder.
     Благодаря FormBuilder происходит отображение и наполнение полей данными.
-    Вы также можете использовать FormBuilder на собственных страницах или даже вне MoonShine
+    Вы также можете использовать FormBuilder на собственных страницах или даже вне MoonShine.
 </x-p>
 
 <x-code language="php">
@@ -42,7 +42,7 @@ FormBuilder::make('/crud/update', 'PUT')
 </x-code>
 
 <x-p>
-    Тоже самое через методы
+    Тоже самое через методы:
 </x-p>
 
 <x-code language="php">
@@ -56,7 +56,7 @@ FormBuilder::make()
 </x-code>
 
 <x-p>
-    Также доступен helper
+    Также доступен helper:
 </x-p>
 
 <x-code language="php">
@@ -82,7 +82,7 @@ FormBuilder::make()
 <x-moonshine::divider label="fields" />
 
 <x-p>
-    Метод <code>fields</code> для объявления полей и декораций формы
+    Метод <code>fields</code> для объявления полей и декораций формы:
 </x-p>
 
 <x-code language="php">
@@ -96,7 +96,7 @@ FormBuilder::make('/crud/update', 'PUT')
 <x-moonshine::divider label="fill" />
 
 <x-p>
-    Метод <code>fill</code> для наполнения полей значениями
+    Метод <code>fill</code> для наполнения полей значениями:
 </x-p>
 
 <x-code language="php">
@@ -112,7 +112,7 @@ FormBuilder::make('/crud/update', 'PUT')
 
 <x-p>
     Метод <code>cast</code> для приведения значений формы к определенному типу.
-    Так как по умолчанию форма работает с массивом
+    Так как по умолчанию форма работает с массивом:
 </x-p>
 
 <x-code language="php">
@@ -128,7 +128,7 @@ FormBuilder::make('/crud/update', 'PUT')
 </x-code>
 
 <x-p>
-    В этом примере мы привели данные к формату модели <code>User</code> с использованием <code>ModelCast</code>
+    В этом примере мы привели данные к формату модели <code>User</code> с использованием <code>ModelCast</code>.
 </x-p>
 
 <x-p>
@@ -140,11 +140,11 @@ FormBuilder::make('/crud/update', 'PUT')
 <x-moonshine::divider label="buttons" />
 
 <x-p>
-    Кнопки формы можно изменять и добавлять
+    Кнопки формы можно изменять и добавлять.
 </x-p>
 
 <x-p>
-    Для кастомизации submit кнопки, воспользуйтесь методом <code>submit</code>
+    Для кастомизации "submit" кнопки, воспользуйтесь методом <code>submit</code>
 </x-p>
 
 <x-code language="php">
@@ -166,7 +166,7 @@ FormBuilder::make('/crud/update', 'PUT')
 <x-moonshine::divider label="async/precognition" />
 
 <x-p>
-    Если необходимо отправлять форму асинхронно, то воспользуйтесь методом <code>async</code>
+    Если необходимо отправлять форму асинхронно, то воспользуйтесь методом <code>async</code>.
 </x-p>
 
 <x-code language="php">
@@ -175,7 +175,7 @@ FormBuilder::make('/crud/update', 'PUT')
 </x-code>
 
 <x-p>
-    Если необходимо предварительно выполнить precognition валидацию, необходим метод <code>precognitive</code>
+    Если необходимо предварительно выполнить precognition валидацию, необходим метод <code>precognitive</code>.
 </x-p>
 
 <x-code language="php">
@@ -186,7 +186,7 @@ FormBuilder::make('/crud/update', 'PUT')
 <x-moonshine::divider label="Attributes" />
 
 <x-p>
-    Вы можете задать любые html атрибуты для формы через метод customAttributes
+    Вы можете задать любые html атрибуты для формы через метод <code>customAttributes</code>.
 </x-p>
 
 <x-code>

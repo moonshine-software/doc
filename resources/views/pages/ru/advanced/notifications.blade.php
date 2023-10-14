@@ -1,8 +1,8 @@
 <x-page title="Уведомления">
 
 <x-p>
-    Если есть необходимость добавить уведомления в центр уведомлений MoonShine, тогда
-    воспользуйтесь классом <code>MoonShine\Notifications\MoonShineNotification</code>
+    Если есть необходимость добавить уведомления в центр уведомлений MoonShine, то
+    воспользуйтесь классом <code>MoonShine\Notifications\MoonShineNotification</code>.
 </x-p>
 
 <x-code language="php">

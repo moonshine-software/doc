@@ -9,7 +9,7 @@
 <x-sub-title id="logo">Логотип</x-sub-title>
 
 <x-p>
-    Меняется в конфигурационном файле <code>config/moonshine.php</code>
+    Меняется в конфигурационном файле <code>config/moonshine.php</code>.
 </x-p>
 
 <x-code language="php">
@@ -37,7 +37,7 @@ protected function theme(): array // [tl! focus]
 </x-code>
 
 <x-p>
-    При необходимости можно создать собственный css файл который заменит системный.
+    При необходимости можно создать собственный css файл, который заменит системный.
 </x-p>
 
 <x-code language="php">
@@ -61,7 +61,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 
 <x-p>
     Если необходимо переопределить определенные цвета светлой схемы,
-    то из метода <code>theme()</code> нужно вернуть массив содержащий ключ <code>colors</code>.
+    то из метода <code>theme()</code> нужно вернуть массив, содержащий ключ <code>colors</code>.
 </x-p>
 
 <x-code language="php">

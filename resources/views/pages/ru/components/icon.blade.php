@@ -11,7 +11,7 @@
 
 <x-p>
     Для вставки иконок в свои кастомные элементы,
-    можно воспользоваться компонентом <code>moonshine::icon</code>
+    можно воспользоваться компонентом <code>moonshine::icon</code>.
 </x-p>
 
 <x-code language="blade" file="resources/views/examples/components/icon.blade.php"></x-code>
@@ -37,7 +37,7 @@
 </x-p>
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
-    Значение параметра size соответствует размерам в tailwindcss.
+    Значение параметра <code>size</code> соответствует размерам в TailwindCSS.
 </x-moonshine::alert>
 
 <x-sub-title id="color">Цвет</x-sub-title>
@@ -53,8 +53,8 @@
 </x-p>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-    По умолчанию доступно несколько цветов, но вы можете их расширить используя свои
-    <x-link link="{{ route('moonshine.page', 'advanced-assets') }}">классы цветов</x-link> tailwindcss.
+    По умолчанию доступно несколько цветов, но вы можете их расширить, используя свои
+    <x-link link="{{ route('moonshine.page', 'advanced-assets') }}">классы цветов</x-link> TailwindCSS.
 </x-moonshine::alert>
 
 <x-sub-title id="customization">Кастомизация</x-sub-title>
@@ -70,8 +70,8 @@
 </x-p>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-    Build MoonShine содержит ограниченный перечень классов tailwindcss,
-    используйте <x-link link="{{ route('moonshine.page', 'advanced-assets') }}">собственные стили</x-link>.
+    Build MoonShine содержит ограниченный перечень классов TailwindCSS.
+    Используйте <x-link link="{{ route('moonshine.page', 'advanced-assets') }}">собственные стили</x-link>.
 </x-moonshine::alert>
 
 </x-page>

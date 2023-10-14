@@ -11,7 +11,7 @@
 </x-extendby>
 
 <x-p class="font-bold text-pink">
-    Поле вынесено в отдельный пакет, перед использованием необходимо выполнить установку
+    Поле вынесено в отдельный пакет, перед использованием необходимо выполнить установку.
 </x-p>
 
 <x-code language="shell">
@@ -22,11 +22,11 @@
     Поле предназначено для работы с пакетом
     <x-link link="https://github.com/spatie/laravel-translatable" target="_blank">Laravel-translatable</x-link>
     от
-    <x-link link="https://spatie.be/open-source" target="_blank">Spatie</x-link>
+    <x-link link="https://spatie.be/open-source" target="_blank">Spatie</x-link>.
 </x-p>
 
 <x-p>
-    Прежде чем использовать поле Spatie\Translatable, необходимо убедиться что:
+    Прежде чем использовать поле <code>Spatie\Translatable</code>, необходимо убедиться что:
 </x-p>
 
 <x-ul :items="[
@@ -44,12 +44,12 @@ Translatable::make('Название', 'name')
 <x-sub-title id="required">Обязательные переводы</x-sub-title>
 
 <x-p>
-    Для указания языков переводов, без которых валидатор не позволит создать/сохранить запись используется
-    метод ->requiredLanguages(array $languages).
+    Для указания языков переводов, без которых валидатор не позволит создать/сохранить запись, используется
+    метод <code>->requiredLanguages(array $languages)</code>.
 </x-p>
 
 <x-p>
-    Рекомендуется передавать в этот метод значение config('app.fallback_locale')
+    Рекомендуется передавать в этот метод значение <code>config('app.fallback_locale')</code>
 </x-p>
 
 
@@ -79,7 +79,7 @@ Translatable::make('Название', 'name')
 <x-sub-title id="removable">Удаление</x-sub-title>
 
 <x-p>
-    Позволяет удалять конкретные переводы из введенных
+    Позволяет удалять конкретные переводы из введенных.
 </x-p>
 
 <x-code language="php">

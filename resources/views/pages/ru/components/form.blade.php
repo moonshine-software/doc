@@ -16,7 +16,7 @@
 ]">
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle" class="my-4">
-    Компоненты форм являются оберткой аналогичных html элементов, им можно передавать все необходимые атрибуты.
+    Компоненты форм являются оберткой аналогичных html-элементов, им можно передавать все необходимые атрибуты.
 </x-moonshine::alert>
 
 <x-sub-title id="label">Label</x-sub-title>
@@ -32,7 +32,7 @@
 </x-moonshine::grid>
 
 <x-p>
-    Если поле обязательно для заполнения, то можно передать атрибут <code>required</code> для стилизации элемента
+    Если поле обязательно для заполнения, то можно передать атрибут <code>required</code> для стилизации элемента.
 </x-p>
 
 <x-code language="blade" file="resources/views/examples/components/form/label-required.blade.php"></x-code>
@@ -145,7 +145,7 @@
 
 <x-p>
     <x-moonshine::alert type="default" icon="heroicons.book-open">
-        Дополнительно будут созданы скрытые поля со значениями переданные в массиве <code>files[]</code>.
+        Дополнительно будут созданы скрытые поля со значениями, которые передаются в массиве <code>files[]</code>.
     </x-moonshine::alert>
 </x-p>
 
@@ -217,7 +217,7 @@
 </x-p>
 <x-p>
     <code>searchable</code> - поиск по значениям <br>
-    <code>nullable</code> - может иметь значение NULL
+    <code>nullable</code> - может иметь значение <code>NULL</code>
 </x-p>
 
 <x-code language="blade" file="resources/views/examples/components/form/select-full.blade.php"></x-code>

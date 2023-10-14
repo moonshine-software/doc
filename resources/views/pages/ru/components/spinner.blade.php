@@ -9,7 +9,7 @@
 <x-sub-title id="basics">Основы</x-sub-title>
 
 <x-p>
-    C помощью компонента <code>moonshine::spinner</code> можно создавать индикаторы загрузки
+    C помощью компонента <code>moonshine::spinner</code> можно создавать индикаторы загрузки.
 </x-p>
 
 <x-code language="blade" file="resources/views/examples/components/spinner.blade.php"></x-code>
@@ -53,13 +53,13 @@
 <x-sub-title id="position">Позиционирование</x-sub-title>
 
 <x-p>
-    Параметр <code>absolute="true"</code> задает абсолютное позиционирование индикатора загрузки
+    Параметр <code>absolute="true"</code> задает абсолютное позиционирование индикатора загрузки.
 </x-p>
 
 <x-code language="blade" file="resources/views/examples/components/spinner-absolute.blade.php"></x-code>
 
 <x-p>
-    Параметр <code>fixed="true"</code> задает фиксированное позиционирование индикатора загрузки
+    Параметр <code>fixed="true"</code> задает фиксированное позиционирование индикатора загрузки.
 </x-p>
 
 <x-code language="blade" file="resources/views/examples/components/spinner-fixed.blade.php"></x-code>

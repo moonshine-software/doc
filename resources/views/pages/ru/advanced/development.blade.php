@@ -25,12 +25,12 @@
 <x-sub-title id="custom-field">Кастомное поле</x-sub-title>
 
 <x-p>
-    Рассмотрим небольшой пример создания собственного поля!
-    Это будет визуальный редактор на основе js плагина CKEditor
+    Рассмотрим небольшой пример создания собственного поля.
+    Это будет визуальный редактор на основе js-плагина CKEditor.
 </x-p>
 
 <x-p>
-    Для начала создадим класс, который расширяет MoonShine поля
+    Для начала создадим класс, который расширяет MoonShine поля.
 </x-p>
 
 <x-code language="php">
@@ -49,7 +49,7 @@ final class CKEditor extends Field
 </x-code>
 
 <x-p>
-    И создаем view с реализацией
+    И создаем view с реализацией.
 </x-p>
 
 <x-code language="blade" file="examples/extensions/ckeditor.blade.php"></x-code>
@@ -68,7 +68,7 @@ final class CKEditor extends Field
 </x-p>
 
 <x-p>
-    Для этого вам нужно создать класс, который расширяет класс действия MoonShine и определить метод handle.
+    Для этого вам нужно создать класс, который расширяет класс действия MoonShine и определить метод <code>handle</code>.
 </x-p>
 
 <x-code language="php">
@@ -104,7 +104,7 @@ class CustomAction extends Action
 </x-code>
 
 <x-p>
-    Затем зарегистрируйте действие в методе actions ресурса, в котором вы хотите отобразить его.
+    Затем зарегистрируйте действие в методе <code>actions</code> ресурса, в котором вы хотите отобразить его.
 </x-p>
 
 <x-code language="php">

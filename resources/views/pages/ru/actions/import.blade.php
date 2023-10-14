@@ -1,7 +1,7 @@
 <x-page title="Импорт">
 
 <x-p>
-    Импортирует данные
+    Импортирует данные.
 </x-p>
 
 <x-code language="php">
@@ -30,7 +30,7 @@ public function actions(): array
 </x-code>
 
 <x-p>
-    Импортироваться будут только те поля, которые помечены с помощью метода <code>useOnImport</code>
+    Импортироваться будут только те поля, которые помечены с помощью метода <code>useOnImport</code>.
 </x-p>
 
 <x-code language="php">

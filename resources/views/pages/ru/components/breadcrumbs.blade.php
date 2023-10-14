@@ -1,7 +1,7 @@
 <x-page title="Breadcrumbs" :sectionMenu="[]">
 
 <x-p>
-    Компонент <code>moonshine::breadcrumbs</code> используется для создания <code>breadcrumbs</code>.
+    Компонент <code>moonshine::breadcrumbs</code> используется для создания <code>breadcrumbs</code> ("хлебных крошек").
 </x-p>
 
 <x-code language="blade" file="resources/views/examples/components/breadcrumbs.blade.php"></x-code>

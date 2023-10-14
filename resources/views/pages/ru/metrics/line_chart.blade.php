@@ -1,7 +1,7 @@
 <x-page title="LineChart">
 
 <x-p>
-   Позволяет создавать линейный график для метрик
+   Позволяет создавать линейный график для метрик.
 </x-p>
 
 <x-code language="php">
@@ -39,7 +39,7 @@ class PostResource extends Resource
 </x-code>
 
 <x-p>
-    или используя один метод <code>line</code>
+    или используя один метод <code>line</code>:
 </x-p>
 
 <x-code language="php">
@@ -81,7 +81,7 @@ class PostResource extends Resource
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
     По умолчанию у графика LineChart ключи сортируются по возрастанию.
-    Эту особенность можно отключить используя метод <code>withoutSortKeys()</code>.
+    Эту особенность можно отключить, используя метод <code>withoutSortKeys()</code>.
 </x-moonshine::alert>
 
 <x-code language="php">

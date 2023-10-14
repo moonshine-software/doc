@@ -5,7 +5,7 @@
     </x-extendby>
 
     <x-p class="font-bold text-pink">
-        Поле вынесено в отдельный пакет, перед использованием необходимо выполнить установку
+        Поле вынесено в отдельный пакет, перед использованием необходимо выполнить установку:
     </x-p>
 
     <x-code language="shell">
@@ -16,11 +16,11 @@
         Поле предназначено для работы с пакетом
         <x-link link="https://github.com/spatie/laravel-medialibrary" target="_blank">Laravel-medialibrary</x-link>
         от
-        <x-link link="https://spatie.be/open-source" target="_blank">Spatie</x-link>
+        <x-link link="https://spatie.be/open-source" target="_blank">Spatie</x-link>.
     </x-p>
 
     <x-p>
-        Прежде чем использовать поле Spatie\MediaLibrary, необходимо убедиться что:
+        Прежде чем использовать поле <code>Spatie\MediaLibrary</code>, необходимо убедиться, что:
     </x-p>
 
     <x-ul :items="[
@@ -59,7 +59,7 @@ class ModelClass extends Model implements HasMedia
     </x-code>
 
     <x-p>
-        По умолчанию, поле работает в режиме одного изображения
+        По умолчанию, поле работает в режиме одного изображения.
     </x-p>
     <x-code language="php">
 use Spatie\MediaLibrary\HasMedia;
@@ -76,7 +76,7 @@ public function registerMediaCollections(): void
 //...
     </x-code>
     <x-p>
-        Если вы хотите использовать поле для загрузки нескольких изображений, добавьте к объявлению поля метод ->multiple()
+        Если вы хотите использовать поле для загрузки нескольких изображений, добавьте к объявлению поля метод <code>->multiple()</code>
     </x-p>
     <x-code language="php">
 //...

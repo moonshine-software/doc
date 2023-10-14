@@ -33,7 +33,7 @@
 <x-sub-title id="icon">Иконка</x-sub-title>
 
 <x-p>
-    У уведомлений есть возможность изменить иконку, для этого необходимо передать ее в параметр <code>icon</code>.
+    Есть возможность у уведомления изменить иконку, для этого необходимо передать её в параметр <code>icon</code>.
 </x-p>
 
 <x-code language="blade" file="resources/views/examples/components/alert-icon.blade.php"></x-code>
@@ -41,7 +41,7 @@
 @include("examples/components/alert-icon")
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
-    За более подробной информацией обратитесь к разделу
+    За более подробной информацией, обратитесь к разделу
     <x-link link="{{ route('moonshine.page', 'appearance-icons') }}">Icons</x-link>.
 </x-moonshine::alert>
 

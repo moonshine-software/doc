@@ -8,7 +8,7 @@
 <x-sub-title id="basics">Основы</x-sub-title>
 
 <x-p>
-    Для создания модальных окон используется компонент <code>moonshine::modal</code>
+    Для создания модальных окон используется компонент <code>moonshine::modal</code>.
 </x-p>
 
 <x-code language="blade" file="resources/views/examples/components/modal.blade.php"></x-code>
