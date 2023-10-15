@@ -97,7 +97,7 @@
     "moonshine/moonshine": "2.*.*-dev",
 </x-code>
 
-<x-moonshine::badge color="green">3</x-moonshine::badge> Добавьте в <code>composer.json</code>.
+<x-moonshine::badge color="green">4</x-moonshine::badge> Добавьте в <code>composer.json</code>.
 
 <x-code language="shell">
 "repositories": [
@@ -106,9 +106,10 @@
         "url": "packages/moonshine",
         "options": {
             "versions": {
-            "moonshine/moonshine": "2.*.*-dev"
-        },
-        "symlink": true
+                "moonshine/moonshine": "2.*.*-dev"
+            },
+            "symlink": true
+        }
     }
 ]
 </x-code>
