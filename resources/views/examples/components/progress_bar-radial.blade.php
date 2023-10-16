@@ -1,5 +1,5 @@
 <x-moonshine::progress-bar
-    color="green"
+    color="secondary"
     :radial="true"
     :value="33"
     size="md"

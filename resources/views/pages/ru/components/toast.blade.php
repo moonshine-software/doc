@@ -18,6 +18,8 @@
 
 <div class="flex gap-2">
     @include("examples/components/toast-default")
+    @include("examples/components/toast-primary")
+    @include("examples/components/toast-secondary")
     @include("examples/components/toast-success")
     @include("examples/components/toast-info")
     @include("examples/components/toast-warning")
