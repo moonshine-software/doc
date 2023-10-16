@@ -207,10 +207,10 @@ class PostIndexPage extends IndexPage
 
 {{ $screenshots }}
 
-<x-alert>
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
     Если необходимо через ресурс добавить компонент для указанной страницы в нужный слой, то воспользуйтесь методом onBoot
     ресурса и pushToLayer страницы
-</x-alert>
+</x-moonshine::alert>
 
 <x-code>
 protected function onBoot(): void
