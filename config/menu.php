@@ -209,7 +209,7 @@ return [
         ['slug' => 'components-grid', 'label' => 'Grid/Column'],
         ['slug' => 'components-link', 'label' => 'Link'],
         ['slug' => 'components-loader', 'label' => 'Loader'],
-//        ['slug' => 'components-modal', 'label' => 'Modal'],
+        ['slug' => 'components-modal', 'label' => 'Modal'],
         ['slug' => 'components-offcanvas', 'label' => 'Offcanvas'],
         ['slug' => 'components-paginations', 'label' => 'Paginations'],
         ['slug' => 'components-popover', 'label' => 'Popover'],

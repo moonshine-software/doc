@@ -1,4 +1,4 @@
-<x-moonshine::modal title="Title">
+<x-moonshine::modal :closeOutside="false" title="Title">
     <div>
         Content...
     </div>
