@@ -1,7 +1,7 @@
 <x-page title="Table" :sectionMenu="[
     'Разделы' => [
         ['url' => '#basics', 'label' => 'Основы'],
-        ['url' => '#crud', 'label' => 'Crud режим'],
+        ['url' => '#simple', 'label' => 'Упрощенный вид'],
         ['url' => '#notfound', 'label' => 'Отсутствие элементов'],
         ['url' => '#slots', 'label' => 'Слоты'],
         ['url' => '#styles', 'label' => 'Стилизация'],
@@ -18,23 +18,23 @@
 
 <x-moonshine::grid>
     <x-moonshine::column adaptiveColSpan="12" colSpan="8">
-        <x-moonshine::box>
-            @include("examples/components/table")
-        </x-moonshine::box>
+        @include("examples/components/table")
     </x-moonshine::column>
 </x-moonshine::grid>
 
-<x-sub-title id="crud">Crud режим</x-sub-title>
+<x-sub-title id="simple">Упрощенный вид</x-sub-title>
 
 <x-p>
-    Параметр <code>crudMode</code> позволяет дополнительно стилизовать таблицы.
+    Параметр <code>simple</code> позволяет создавать упрощенного вида таблицы.
 </x-p>
 
-<x-code language="blade" file="resources/views/examples/components/table-crud.blade.php"></x-code>
+<x-code language="blade" file="resources/views/examples/components/table-simple.blade.php"></x-code>
 
 <x-moonshine::grid>
     <x-moonshine::column adaptiveColSpan="12" colSpan="8">
-        @include("examples/components/table-crud")
+        <x-moonshine::box>
+            @include("examples/components/table-simple")
+        </x-moonshine::box>
     </x-moonshine::column>
 </x-moonshine::grid>
 
@@ -48,9 +48,7 @@
 
 <x-moonshine::grid>
     <x-moonshine::column adaptiveColSpan="12" colSpan="8">
-        <x-moonshine::box>
-            @include("examples/components/table-notfound")
-        </x-moonshine::box>
+        @include("examples/components/table-notfound")
     </x-moonshine::column>
 </x-moonshine::grid>
 
@@ -64,9 +62,7 @@
 
 <x-moonshine::grid>
     <x-moonshine::column adaptiveColSpan="12" colSpan="8">
-        <x-moonshine::box>
-            @include("examples/components/table-slots")
-        </x-moonshine::box>
+        @include("examples/components/table-slots")
     </x-moonshine::column>
 </x-moonshine::grid>
 
@@ -88,15 +84,19 @@
     <x-moonshine::badge color="yellow">bgc-yellow</x-moonshine::badge>
     <x-moonshine::badge color="red">bgc-red</x-moonshine::badge>
     <x-moonshine::badge color="gray">bgc-gray</x-moonshine::badge>
+    <x-moonshine::badge color="primary">bgc-primary</x-moonshine::badge>
+    <x-moonshine::badge color="secondary">bgc-secondary</x-moonshine::badge>
+    <x-moonshine::badge color="success">bgc-success</x-moonshine::badge>
+    <x-moonshine::badge color="warning">bgc-warning</x-moonshine::badge>
+    <x-moonshine::badge color="error">bgc-error</x-moonshine::badge>
+    <x-moonshine::badge color="info">bgc-info</x-moonshine::badge>
 </x-p>
 
 <x-code language="blade" file="resources/views/examples/components/table-slots-color.blade.php"></x-code>
 
 <x-moonshine::grid>
     <x-moonshine::column adaptiveColSpan="12" colSpan="8">
-        <x-moonshine::box>
-            @include("examples/components/table-slots-color")
-        </x-moonshine::box>
+        @include("examples/components/table-slots-color")
     </x-moonshine::column>
 </x-moonshine::grid>
 

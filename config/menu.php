@@ -216,7 +216,7 @@ return [
         ['slug' => 'components-progress_bar', 'label' => 'Progress bar'],
         ['slug' => 'components-rating', 'label' => 'Rating'],
         ['slug' => 'components-spinner', 'label' => 'Spinner'],
-//        ['slug' => 'components-table', 'label' => 'Table'],
+        ['slug' => 'components-table', 'label' => 'Table'],
         ['slug' => 'components-tabs', 'label' => 'Tabs'],
         ['slug' => 'components-thumbnail', 'label' => 'Thumbnail'],
         ['slug' => 'components-title', 'label' => 'Title'],

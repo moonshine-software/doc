@@ -1,5 +1,5 @@
 <x-moonshine::table
-    :crudMode="true"
+    :simple="true"
     :columns="[
         '#', 'First', 'Last', 'Email'
     ]"
