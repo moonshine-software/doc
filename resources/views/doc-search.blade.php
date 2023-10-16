@@ -1,3 +1,23 @@
+<x-moonshine::dropdown
+    placement="bottom-end"
+>
+    <x-slot:toggler>
+        <a class="dropdown-btn btn">v1.x</a>
+    </x-slot:toggler>
+
+    <ul class="dropdown-menu">
+        <li class="dropdown-menu-item">
+            <a
+                href="https://moonshine-laravel.com"
+                class="dropdown-menu-link"
+            >
+                v2.x
+            </a>
+        </li>
+    </ul>
+</x-moonshine::dropdown>
+
+
 <link rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"
 />
