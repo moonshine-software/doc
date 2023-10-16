@@ -10,6 +10,7 @@
             ['url' => '#modal', 'label' => 'Модальные окна'],
             ['url' => '#simple-pagination', 'label' => 'Simple pagination'],
             ['url' => '#disable-pagination', 'label' => 'Отключение пагинации'],
+            ['url' => '#boot', 'label' => 'Boot'],
         ]
     ]"
     :videos="[]"
@@ -281,6 +282,66 @@ class PostResource extends ModelResource
     protected bool $usePagination = false; // [tl! focus]
 
     // ...
+}
+</x-code>
+
+<x-sub-title id="boot">Boot</x-sub-title>
+
+<x-p>
+    Если Вам необходимо добавить логику в работу ресурса в момент когда он активен и загружен,
+    то воспользуйтесь методом <code>onBoot</code>
+</x-p>
+
+<x-code language="php">
+namespace App\MoonShine\Resources;
+
+use App\Models\Post;
+use MoonShine\Resources\ModelResource;
+
+class PostResource extends ModelResource
+{
+    // ...
+    protected function onBoot(): void
+    {
+        //
+    }
+    // ...
+}
+</x-code>
+
+<x-p>
+    Вы также можете подключить trait к ресурсу и внутри trait добавить метод согласно конвецнии наименований -
+    boot{TraitName} и через трейт обратится к boot ресурса
+</x-p>
+
+<x-code language="php">
+namespace App\MoonShine\Resources;
+
+use App\Models\Post;
+use MoonShine\Resources\ModelResource;
+use App\Traits\WithPermissions;
+
+class PostResource extends ModelResource
+{
+    use WithPermissions;
+}
+</x-code>
+
+<x-code language="php">
+trait WithPermissions
+{
+    protected function bootWithPermissions(): void
+    {
+        $this->getPages()
+            ->findByUri(PageType::FORM->value)
+            ->pushToLayer(
+                layer: Layer::BOTTOM,
+                component: Permissions::make(
+                    label: 'Permissions',
+                    resource: $this,
+                )
+            );
+    }
 }
 </x-code>
 

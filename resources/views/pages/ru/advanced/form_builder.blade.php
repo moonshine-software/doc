@@ -112,7 +112,7 @@ FormBuilder::make('/crud/update', 'PUT')
 
 <x-p>
     Метод <code>cast</code> для приведения значений формы к определенному типу.
-    Так как по умолчанию форма работает с массивом:
+    Так как по умолчанию поля работают с примитивными типами:
 </x-p>
 
 <x-code language="php">
@@ -123,8 +123,18 @@ FormBuilder::make('/crud/update', 'PUT')
         Heading::make('Title'),
         Text::make('Text'),
     ])
-    ->fill(['text' => 'value'])
-    ->cast(ModelCast::make(User::class))
+    ->fillCast(['text' => 'value'], ModelCast::make(User::class))
+</x-code>
+
+<x-code language="php">
+    use MoonShine\TypeCasts\ModelCast;
+
+    FormBuilder::make('/crud/update', 'PUT')
+    ->fields([
+    Heading::make('Title'),
+    Text::make('Text'),
+    ])
+    ->fillCast(User::query()->first(), ModelCast::make(User::class))
 </x-code>
 
 <x-p>

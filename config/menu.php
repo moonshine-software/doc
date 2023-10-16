@@ -172,6 +172,7 @@ return [
 
     'Advanced:moon' => [
         ['slug' => 'advanced-resource', 'label' => 'Resource'],
+        ['slug' => 'advanced-controller', 'label' => 'Controllers'],
         ['slug' => 'advanced-form_builder', 'label' => 'FormBuilder'],
         ['slug' => 'advanced-table_builder', 'label' => 'TableBuilder'],
         ['slug' => 'advanced-type_casts', 'label' => 'TypeCasts'],

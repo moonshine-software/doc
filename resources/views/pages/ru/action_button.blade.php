@@ -156,6 +156,23 @@ ActionButton::make(
         actionBtn('Click me in modal', 'https://moonshine-laravel.com')
 ]) !!}
 
+<x-moonshine::divider label="withConfirm" />
+
+<x-p>
+    Быстрый способ создать кнопка с подтверждением действия <code>withConfirm</code>
+</x-p>
+
+<x-code>
+ActionButton::make(
+    label: 'Click me',
+    url: 'https://moonshine-laravel.com',
+)->withConfirm(
+    'Confirm modal title',
+    'Confirm modal content',
+    'Confirm modal button',
+),
+</x-code>
+
 <x-moonshine::divider label="Async" />
 
 <x-p>

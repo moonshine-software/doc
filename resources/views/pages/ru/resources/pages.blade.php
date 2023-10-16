@@ -207,4 +207,24 @@ class PostIndexPage extends IndexPage
 
 {{ $screenshots }}
 
+<x-alert>
+    Если необходимо через ресурс добавить компонент для указанной страницы в нужный слой, то воспользуйтесь методом onBoot
+    ресурса и pushToLayer страницы
+</x-alert>
+
+<x-code>
+protected function onBoot(): void
+{
+    $this->getPages()
+        ->findByUri(PageType::FORM->value)
+        ->pushToLayer(
+            layer: Layer::BOTTOM,
+            component: Permissions::make(
+                'Permissions',
+                $this,
+            )
+        );
+}
+</x-code>
+
 </x-page>
