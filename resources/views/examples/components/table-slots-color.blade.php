@@ -1,5 +1,5 @@
 <x-moonshine::table>
-    <x-slot:thead class="bgc-blue text-center">
+    <x-slot:thead class="bgc-secondary text-center">
         <th colspan="3">Header</th>
     </x-slot:thead>
     <x-slot:tbody>

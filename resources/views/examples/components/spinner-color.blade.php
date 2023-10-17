@@ -1,7 +1,6 @@
-<x-moonshine::spinner color="purple" />
-<x-moonshine::spinner color="pink" />
-<x-moonshine::spinner color="blue" />
-<x-moonshine::spinner color="green" />
-<x-moonshine::spinner color="yellow" />
-<x-moonshine::spinner color="red" />
-<x-moonshine::spinner color="gray" />
+<x-moonshine::spinner color="primary" />
+<x-moonshine::spinner color="secondary" />
+<x-moonshine::spinner color="success" />
+<x-moonshine::spinner color="warning" />
+<x-moonshine::spinner color="error" />
+<x-moonshine::spinner color="info" />

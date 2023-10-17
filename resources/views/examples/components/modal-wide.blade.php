@@ -3,7 +3,7 @@
         Content...
     </div>
     <x-slot name="outerHtml">
-        <x-moonshine::link @click.prevent="toggleModal;">
+        <x-moonshine::link>
             Open wide modal
         </x-moonshine::link>
     </x-slot>

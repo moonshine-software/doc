@@ -54,7 +54,7 @@
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     По умолчанию доступно несколько цветов, но вы можете их расширить, используя свои
-    <x-link link="{{ route('moonshine.page', 'advanced-assets') }}">классы цветов</x-link> TailwindCSS.
+    <x-link link="{{ route('moonshine.page', 'appearance-assets') }}">классы цветов</x-link> TailwindCSS.
 </x-moonshine::alert>
 
 <x-sub-title id="customization">Кастомизация</x-sub-title>

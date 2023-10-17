@@ -8,7 +8,7 @@
         ['url' => '#button', 'label' => 'Button'],
         ['url' => '#hint', 'label' => 'Hint'],
         ['url' => '#file', 'label' => 'File'],
-        ['url' => '#range', 'label' => 'Range'],
+        ['url' => '#slide-range', 'label' => 'Slide range'],
         ['url' => '#select', 'label' => 'Select'],
         ['url' => '#switcher', 'label' => 'Switcher'],
         ['url' => '#textarea', 'label' => 'Textarea'],
@@ -81,7 +81,7 @@
     </x-moonshine::column>
 </x-moonshine::grid>
 
-<x-sub-title id="color">Выбор цвета</x-sub-title>
+<x-sub-title id="color">Color</x-sub-title>
 
 <x-code language="blade" file="resources/views/examples/components/form/color.blade.php"></x-code>
 
@@ -144,8 +144,9 @@
 </x-moonshine::grid>
 
 <x-p>
-    <x-moonshine::alert type="default" icon="heroicons.book-open">
-        Дополнительно будут созданы скрытые поля со значениями, которые передаются в массиве <code>files[]</code>.
+    <x-moonshine::alert type="default" icon="heroicons.information-circle">
+        <code>files</code> - массив url файлов для вывода<br>
+        <code>raw</code> - массив исходных данных (значение сохраненное в базе данных).
     </x-moonshine::alert>
 </x-p>
 
@@ -168,14 +169,14 @@
     </x-moonshine::column>
 </x-moonshine::grid>
 
-<x-sub-title id="range">Range</x-sub-title>
+<x-sub-title id="slide-range">Slide range</x-sub-title>
 
-<x-code language="blade" file="resources/views/examples/components/form/range.blade.php"></x-code>
+<x-code language="blade" file="resources/views/examples/components/form/slide-range.blade.php"></x-code>
 
 <x-moonshine::grid>
     <x-moonshine::column adaptiveColSpan="12" colSpan="4">
         <x-moonshine::box>
-            @include("examples/components/form/range")
+            @include("examples/components/form/slide-range")
         </x-moonshine::box>
     </x-moonshine::column>
 </x-moonshine::grid>

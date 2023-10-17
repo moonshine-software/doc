@@ -1,5 +1,5 @@
 <x-moonshine::progress-bar
-    color="purple"
+    color="primary"
     :value="33"
 >
     33%

@@ -11,7 +11,7 @@
     Компонент <code>moonshine::progress-bar</code> позволяет создавать индикатор прогресса.
 </x-p>
 
-@include('pages.ru.components.shared.colors')
+@include('pages.ru.components.shared.themes-colors')
 
 <x-code language="blade" file="resources/views/examples/components/progress_bar.blade.php"></x-code>
 
