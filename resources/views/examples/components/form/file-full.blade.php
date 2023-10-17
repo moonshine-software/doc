@@ -4,6 +4,11 @@
         '/images/thumb_2.jpg',
         '/images/thumb_3.jpg'
     ]"
+    :raw="[
+        'thumb_1.jpg',
+        'thumb_2.jpg',
+        'thumb_3.jpg'
+    ]"
     name="images[]"
     multiple="multiple"
     :download="true"

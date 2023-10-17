@@ -1,4 +1,4 @@
-<x-moonshine::form.range
+<x-moonshine::form.slide-range
     fromName="from"
     toName="to"
     fromValue="1000"
