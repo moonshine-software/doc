@@ -98,8 +98,6 @@ final class MoonShineLayout implements MoonShineLayoutContract
                     ]),
             ])->customAttributes(['class' => 'layout-page']),
         ])
-            ->customAttributes(['class' => 'layout-wrapper--top-menu']); // [tl! focus]
-
     }
 }
 </x-code>
