@@ -16,7 +16,7 @@
 
 <x-code language="blade" file="resources/views/examples/components/toast-type.blade.php"></x-code>
 
-<div class="flex gap-2">
+<div class="flex flex-wrap gap-2">
     @include("examples/components/toast-default")
     @include("examples/components/toast-primary")
     @include("examples/components/toast-secondary")
