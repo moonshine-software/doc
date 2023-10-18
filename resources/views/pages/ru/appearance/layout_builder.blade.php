@@ -16,11 +16,11 @@
 </x-p>
 
 <x-code language="shell">
-php artisan moonshine:layout
+php artisan moonshine:publish
 </x-code>
 
 <x-p>
-    После выполнения команды в директории <code>app/MoonShine</code> появится класс <code>MoonShineLayout.php</code>.
+    После публикации <em>Layout</em>, в директории <code>app/MoonShine</code> появится класс <code>MoonShineLayout.php</code>.
 </x-p>
 
 <x-code language="php">
