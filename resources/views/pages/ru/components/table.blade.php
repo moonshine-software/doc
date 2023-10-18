@@ -16,5 +16,11 @@
 
 <x-code language="blade" file="resources/views/examples/components/table.blade.php"></x-code>
 
+<x-moonshine::grid>
+    <x-moonshine::column adaptiveColSpan="12" colSpan="8">
+        @include("examples/components/table")
+    </x-moonshine::column>
+</x-moonshine::grid>
+
 
 </x-page>
