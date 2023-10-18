@@ -3,6 +3,8 @@
         '#', 'First', 'Last', 'Email'
     ]"
     :values="[
-        [1, 2, 3, 4],
+        [1, fake()->firstName(), fake()->lastName(), fake()->safeEmail()],
+        [2, fake()->firstName(), fake()->lastName(), fake()->safeEmail()],
+        [3, fake()->firstName(), fake()->lastName(), fake()->safeEmail()]
     ]"
 />
