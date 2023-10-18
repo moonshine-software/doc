@@ -9,6 +9,23 @@
 ]">
 
 
+
+<x-sub-title id="simple">Упрощенный вид</x-sub-title>
+
+<x-p>
+    Параметр <code>simple</code> позволяет создавать упрощенного вида таблицы.
+</x-p>
+
+<x-code language="blade" file="resources/views/examples/components/table-simple.blade.php"></x-code>
+
+<x-moonshine::grid>
+    <x-moonshine::column adaptiveColSpan="12" colSpan="8">
+        <x-moonshine::box>
+            @include("examples/components/table-simple")
+        </x-moonshine::box>
+    </x-moonshine::column>
+</x-moonshine::grid>
+
 <x-sub-title id="notfound">Отсутствие элементов</x-sub-title>
 
 <x-p>
