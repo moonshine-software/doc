@@ -8,7 +8,19 @@
     ]
 ]">
 
+<x-sub-title id="basics">Основы</x-sub-title>
 
+<x-p>
+    Стилизованные таблицы можно создавать с помощью компонента <code>moonshine::table</code>.
+</x-p>
+
+<x-code language="blade" file="resources/views/examples/components/table.blade.php"></x-code>
+
+<x-moonshine::grid>
+    <x-moonshine::column adaptiveColSpan="12" colSpan="8">
+{{--        @include("examples/components/table")--}}
+    </x-moonshine::column>
+</x-moonshine::grid>
 
 <x-sub-title id="simple">Упрощенный вид</x-sub-title>
 
@@ -21,7 +33,7 @@
 <x-moonshine::grid>
     <x-moonshine::column adaptiveColSpan="12" colSpan="8">
         <x-moonshine::box>
-            @include("examples/components/table-simple")
+{{--            @include("examples/components/table-simple")--}}
         </x-moonshine::box>
     </x-moonshine::column>
 </x-moonshine::grid>
