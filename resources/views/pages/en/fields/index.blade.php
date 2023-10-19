@@ -34,12 +34,12 @@
 </x-p>
 
 <x-code language="php">
-Text::make(string $label = null, string $field = null, ResourceContract|string|null $resource = null)
+Text::make(string $label = null, string $column = null, ResourceContract|string|null $resource = null)
 </x-code>
 
 <x-p>
     $label - Label, field header<br>
-    $field - A field in the database (e.g. name) or a relation (e.g. countries)<br>
+    $column - A field in the database (e.g. name) or a relation (e.g. countries)<br>
     $resource - If $field is a relation, then in this parameter you need to specify a field
     in the linked table that will be displayed in the view
 </x-p>
