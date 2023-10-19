@@ -47,12 +47,12 @@
 
 <x-p>
     $label - лейбл, заголовок поля<br>
-    $field - поле в базе (например name) или отношение (например countries)<br>
+    $column - поле в базе (например name) или отношение (например countries)<br>
     $formatted - замыкание для форматирования значения поля при превью (везде кроме формы).
 </x-p>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-    Если не указать <code>$field</code>,
+    Если не указать <code>$column</code>,
     то поле в базе данных будет определено автоматически на основе <code>$label</code>.
 </x-moonshine::alert>
 
