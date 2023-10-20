@@ -5,21 +5,34 @@
 </x-p>
 
 <x-code language="php">
-use MoonShine\Fields\{{ $field }}; // [tl! focus]
+asyncSearch(
+    string $asyncSearchColumn = null,
+    int $asyncSearchCount = 15,
+    ?Closure $asyncSearchQuery = null,
+    ?Closure $asyncSearchValueCallback = null,
+    ?string $url = null,
+)
+</x-code>
+
+<x-code language="php">
+use MoonShine\Fields\Relationships\{{ $field }};
 
 //...
+
 public function fields(): array
 {
     return [
-        {{ $field }}::make('Contacts') // [tl! focus]
-            ->asyncSearch(){!!$field === 'BelongsToMany' ? "->fields([Text::make('Contact', 'text')])" : ""!!} // [tl! focus]
+        {{ $field }}::make('Contacts')
+            ->asyncSearch() // [tl! focus]
+            {!!$field === 'BelongsToMany' ? "->fields([Text::make('Contact', 'text')])" : ""!!}
     ];
 }
+
 //...
 </x-code>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-    Поиск будет осуществляться по полю отношения ресурса <code>titleField</code>. По умолчанию <code>titleField=id</code>.
+    Поиск будет осуществляться по полю отношения ресурса <code>column</code>. По умолчанию <code>column=id</code>.
 </x-moonshine::alert>
 
 <x-p>
@@ -28,18 +41,20 @@ public function fields(): array
 
 <x-p>
     <ul>
-        <li><code>title</code> - поле по которому происходит поиск;</li>
-        <li><code>count</code> - количество элементов в выдаче;</li>
-        <li><code>asyncSearchQuery()</code> - callback-функция для фильтрации значений;</li>
-        <li><code>asyncSearchValueCallback()</code> - callback-функция для кастомизации вывода.</li>
+        <li><code>$asyncSearchColumn</code> - поле по которому происходит поиск;</li>
+        <li><code>$asyncSearchCount</code> - количество элементов в выдаче;</li>
+        <li><code>$asyncSearchQuery</code> - callback-функция для фильтрации значений;</li>
+        <li><code>$asyncSearchValueCallback</code> - callback-функция для кастомизации вывода;</li>
+        <li><code>$url</code> - url для обработки асинхронного запроса.</li>
     </ul>
 </x-p>
 
 <x-code language="php">
 use Illuminate\Contracts\Database\Eloquent\Builder; // [tl! focus]
-use MoonShine\Fields\{{ $field }}; // [tl! focus]
+use MoonShine\Fields\Relationships\{{ $field }}; // [tl! focus]
 
 //...
+
 public function fields(): array
 {
     return [
@@ -51,25 +66,28 @@ public function fields(): array
             },
             asyncSearchValueCallback: function ($contact) {
                 return $contact->id . ' | ' . $contact->title;
-            }
-        ){!!$field === 'BelongsToMany' ? "->fields([Text::make('Contact', 'text')])" : ""!!} // [tl! focus:-9]
+            },
+            '{{ route('async') }}'
+        ){!!$field === 'BelongsToMany' ? "->fields([Text::make('Contact', 'text')])" : ""!!} // [tl! focus:-10]
     ];
 }
+
 //...
 </x-code>
 
-<x-p>
+<x-moonshine::alert type="default" icon="heroicons.book-open">
     При построении запроса в <code>asyncSearchQuery()</code> можно использовать текущие значения формы.
     Для этого необходимо передать <code>Request</code> в callback-функции.
-</x-p>
+</x-moonshine::alert>
 
 <x-code language="php">
 use Illuminate\Contracts\Database\Eloquent\Builder; // [tl! focus]
 use Illuminate\Http\Request; // [tl! focus]
-use MoonShine\Fields\{{ $field }};
+use MoonShine\Fields\Relationships\{{ $field }};
 use MoonShine\Fields\Select;
 
 //...
+
 public function fields(): array
 {
     return [
@@ -82,9 +100,6 @@ public function fields(): array
         )
     ];
 }
+
 //...
 </x-code>
-
-<x-moonshine::alert type="default" icon="heroicons.information-circle">
-    Отношения, которые применяют в своих полях асинхронный поиск, рекомендуется использовать в режиме <code>ResourceMode</code>.
-</x-moonshine::alert>
