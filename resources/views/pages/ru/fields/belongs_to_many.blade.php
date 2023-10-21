@@ -2,63 +2,346 @@
     'Разделы' => [
         ['url' => '#basics', 'label' => 'Основы'],
         ['url' => '#pivot', 'label' => 'Pivot'],
-        ['url' => '#async-search', 'label' => 'Асинхронный поиск'],
+        ['url' => '#creatable', 'label' => 'Создание объекта отношения'],
         ['url' => '#select', 'label' => 'Select'],
-        ['url' => '#values-query', 'label' => 'Запрос для значений'],
         ['url' => '#tree', 'label' => 'Tree'],
+        ['url' => '#preview', 'label' => 'Preview'],
         ['url' => '#onlycount', 'label' => 'onlyCount'],
         ['url' => '#inline', 'label' => 'inLine'],
+        ['url' => '#values-query', 'label' => 'Запрос для значений'],
+        ['url' => '#async-search', 'label' => 'Асинхронный поиск'],
+		['url' => '#with-image', 'label' => 'Значения с изображением'],
     ]
 ]">
 
-<x-extendby :href="route('moonshine.page', 'fields-select')">
-    Select
-</x-extendby>
-
 <x-sub-title id="basics">Основы</x-sub-title>
 
-<x-p>Поле для отношений в Laravel типа <code>BelongsToMany</code>.</x-p>
+<x-p>
+    Поле <em>BelongsToMany</em> предназначено для работы с одноименным отношением в Laravel
+    и включает в себя все базовые методы.
+</x-p>
 
-<x-p>Отображается как группа чекбоксов, также есть возможность трансформировать отображение в select multiple.</x-p>
+<x-p>
+    Для создания данного поля используется статический метод <code>make()</code>.
+</x-p>
 
 <x-code language="php">
-use MoonShine\Fields\BelongsToMany; // [tl! focus]
+BelongsToMany::make(
+    Closure|string $label,
+    ?string $relationName = null,
+    Closure|string|null $formatted = null,
+    ?ModelResource $resource = null
+)
+</x-code>
+
+<x-p>
+    <code>$label</code> - лейбл, заголовок поля,<br>
+    <code>$relationName</code> - название отношения,<br>
+    <code>$formatted</code> - замыкание или поле в связанной таблице для отображения значений,<br>
+    <code>$resource</code> - ресурс модели на которую ссылается отношение.
+</x-p>
+
+<x-moonshine::alert type="warning" icon="heroicons.information-circle">
+    Наличие ресурса модели на которую ссылается отношение обязательно!
+</x-moonshine::alert>
+
+<x-code language="php">
+use MoonShine\Fields\Relationships\BelongsToMany; // [tl! focus]
 
 //...
+
 public function fields(): array
 {
     return [
-        BelongsToMany::make('Categories', 'categories', 'name') // [tl! focus]
+        BelongsToMany::make('Categories', 'categories', resource: new CategoryResource()) // [tl! focus]
     ];
 }
+
 //...
 </x-code>
 
 <x-image theme="light" src="{{ asset('screenshots/belongs_to_many.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/belongs_to_many_dark.png') }}"></x-image>
 
-<x-sub-title id="pivot">Pivot</x-sub-title>
-
-<x-p>Для реализации pivot полей воспользуйтесь методом <code>fields()</code>.</x-p>
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    Если не указать <code>$relationName</code>,
+    то название отношения будет определено автоматически на основе <code>$label</code>.
+</x-moonshine::alert>
 
 <x-code language="php">
-use MoonShine\Fields\BelongsToMany;
+use MoonShine\Fields\Relationships\BelongsToMany; // [tl! focus]
 
 //...
+
 public function fields(): array
 {
     return [
-        BelongsToMany::make('Contacts', 'contacts', 'name')
+        BelongsToMany::make('Categories', resource: new CategoryResource()) // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
+
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    Можно не указывать <code>$resource</code>, если ресурс модели соответствует названию отношения.
+</x-moonshine::alert>
+
+<x-code language="php">
+use MoonShine\Fields\Relationships\BelongsToMany; // [tl! focus]
+
+//...
+
+public function fields(): array
+{
+    return [
+        BelongsToMany::make('Categories', 'categories') // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
+
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    По умолчанию для отображения значения используется поле в связанной таблице,
+    которе задано свойством <code>$column</code> в ресурсе модели.<br />
+    Аргумент <code>$formatted</code> позволяет это переопределить.
+</x-moonshine::alert>
+
+<x-code language="php">
+namespace App\MoonShine\Resources;
+
+use MoonShine\Resources\ModelResource;
+
+class CountryResource extends ModelResource
+{
+    //...
+
+    public string $column = 'title'; // [tl! focus]
+
+    //...
+}
+</x-code>
+
+<x-p>
+    Если необходимо задать более сложное значение для отображения,
+    то аргументу <code>$formatted</code> можно передать callback функцию.
+</x-p>
+
+<x-code language="php">
+use MoonShine\Fields\Relationships\BelongsToMany;
+
+//...
+
+public function fields(): array
+{
+    return [
+        BelongsToMany::make(
+            'Categories',
+            'categories',
+            fn($item) => "$item->id.) $item->name" // [tl! focus]
+        )
+    ];
+}
+
+//...
+</x-code>
+
+<x-sub-title id="pivot">Pivot</x-sub-title>
+
+<x-p>
+    Метод <code>fields()</code> используется для реализации <em>pivot</em> полей у отношения BelongsToMany.
+</x-p>
+
+<x-code language="php">
+fields(Fields|Closure|array $fields)
+</x-code>
+
+<x-code language="php">
+use MoonShine\Fields\Relationships\BelongsToMany;
+use MoonShine\Fields\Text;
+
+//...
+
+public function fields(): array
+{
+    return [
+        BelongsToMany::make('Contacts', resource: new ContactResource())
             ->fields([
                 Text::make('Contact', 'text'),
             ]) // [tl! focus:-2]
     ];
 }
+
 //...
 </x-code>
 
 <x-image theme="light" src="{{ asset('screenshots/belongs_to_many_pivot.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/belongs_to_many_pivot_dark.png') }}"></x-image>
+
+<x-sub-title id="creatable">Создание объекта отношения</x-sub-title>
+
+<x-p>
+    Метод <code>creatable()</code> позволяет создавать новый объект отношения через модальное окно.
+</x-p>
+
+<x-code language="php">
+creatable(Closure|bool|null $condition = null)
+</x-code>
+
+<x-code language="php">
+use MoonShine\Fields\Relationships\BelongsToMany;
+
+//...
+
+public function fields(): array
+{
+    return [
+        BelongsToMany::make('Categories', resource: new CategoryResource())
+            ->creatable() // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/belongs_to_many_creatable.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/belongs_to_many_creatable_dark.png') }}"></x-image>
+
+<x-sub-title id="select">Select</x-sub-title>
+
+<x-p>
+    Поле <em>BelongsToMany</em> можно отобразить в виде выпадающего списка,
+    для этого необходимо воспользоваться методом <code>selectMode()</code>.
+</x-p>
+
+<x-code language="php">
+use MoonShine\Fields\Relationships\BelongsToMany;
+
+//...
+
+public function fields(): array
+{
+    return [
+        BelongsToMany::make('Categories', resource: new CategoryResource())
+            ->selectMode() // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/belongs_to_many_select.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/belongs_to_many_select_dark.png') }}"></x-image>
+
+
+<x-sub-title id="tree">Tree</x-sub-title>
+
+<x-p>
+    Метод <code>tree()</code> позволять отобразить значения в виде дерева с чекбоксами,
+    например для категорий, которые имеют вложенность.
+    Методу необходимо передать столбец в базе данных по которому будет строиться дерево.
+</x-p>
+
+<x-code language="php">
+tree(string $parentColumn)
+</x-code>
+
+<x-code language="php">
+use MoonShine\Fields\Relationships\BelongsToMany;
+
+//...
+
+public function fields(): array
+{
+    return [
+        BelongsToMany::make('Categories', resource: new CategoryResource())
+            ->tree('parent_id') // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/belongs_to_many_tree.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/belongs_to_many_tree_dark.png') }}"></x-image>
+
+<x-sub-title id="preview">Preview</x-sub-title>
+
+<x-p>
+    По умолчанию в <em>preview</em> поле будет отображаться в виде таблицы.
+</x-p>
+
+<x-image theme="light" src="{{ asset('screenshots/belongs_to_many_preview.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/belongs_to_many_preview_dark.png') }}"></x-image>
+
+<x-p>
+    Для того чтобы изменить отображение в <em>preview</em> можно воспользоваться следующими методами.
+</x-p>
+
+<x-moonshine::divider label="onlyCount" />
+
+<x-p>
+    Метод <code>onlyCount()</code> позволяет отобразить в <em>preview</em> только количество выбранных значений.
+</x-p>
+
+<x-code language="php">
+use MoonShine\Fields\Relationships\BelongsToMany;
+
+//...
+
+public function fields(): array
+{
+    return [
+        BelongsToMany::make('Categories', resource: new CategoryResource())
+            ->onlyCount() // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/belongs_to_many_preview_count.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/belongs_to_many_preview_count_dark.png') }}"></x-image>
+
+<x-moonshine::divider label="inLine" />
+
+<x-p>
+    Метод <code>inLine()</code> позволяет отобразить значения поля в виде строки.
+</x-p>
+
+<x-code language="php">
+inLine(string $separator = '', bool $badge = false)
+</x-code>
+
+<x-p>
+    Методу можно передать необязательные параметры:
+    <ul>
+        <li><code>separator</code> - разделитель между элементами;</li>
+        <li><code>badge</code> - отображать элементы в виде badge.</li>
+    </ul>
+</x-p>
+
+<x-code language="php">
+use MoonShine\Fields\Relationships\BelongsToMany;
+
+//...
+
+public function fields(): array
+{
+    return [
+        BelongsToMany::make('Categories', resource: new CategoryResource())
+            ->inLine(separator: ' ', badge: true) // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/belongs_to_many_preview_in_line.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/belongs_to_many_preview_in_line_dark.png') }}"></x-image>
+
+@include('pages.ru.fields.shared.values_query', ['field' => 'BelongsToMany'])
 
 @include('pages.ru.fields.shared.async_search', ['field' => 'BelongsToMany'])
 
@@ -67,100 +350,6 @@ public function fields(): array
     Не используйте <code>valuesQuery()</code>!
 </x-moonshine::alert>
 
-<x-sub-title id="select">Select</x-sub-title>
-
-<x-p>Для трансформации отображения в select воспользуйтесь методом <code>select()</code></x-p>
-
-<x-code language="php">
-use MoonShine\Fields\BelongsToMany;
-
-//...
-public function fields(): array
-{
-    return [
-        BelongsToMany::make('Categories', 'categories', 'name')
-            ->select() // [tl! focus]
-    ];
-}
-//...
-</x-code>
-
-<x-image theme="light" src="{{ asset('screenshots/belongs_to_many_select.png') }}"></x-image>
-<x-image theme="dark" src="{{ asset('screenshots/belongs_to_many_select_dark.png') }}"></x-image>
-
-@include('pages.ru.fields.shared.values_query', ['field' => 'BelongsToMany'])
-
-<x-sub-title id="tree">Tree</x-sub-title>
-
-<x-p>
-    Иногда имеет смысл отобразить чекбоксы с иерархией, например для категорий,
-    которые имеют вложенность. Для таких целей есть метод <code>tree()</code>.
-</x-p>
-
-<x-code language="php">
-use MoonShine\Fields\BelongsToMany;
-
-//...
-public function fields(): array
-{
-    return [
-        BelongsToMany::make('Категории', 'categories', 'name')
-            ->tree('parent_id') // Поле для связи // [tl! focus]
-    ];
-}
-//...
-</x-code>
-
-<x-sub-title id="onlycount">onlyCount</x-sub-title>
-
-<x-p>
-    Если требуется отобразить на индексной странице только количество выбранных значений,
-    то следует воспользоваться методом <code>onlyCount()</code>.
-</x-p>
-
-<x-code language="php">
-use MoonShine\Fields\BelongsToMany;
-
-//...
-public function fields(): array
-{
-    return [
-        BelongsToMany::make('Categories', 'categories', 'name')
-            ->onlyCount() // [tl! focus]
-    ];
-}
-//...
-</x-code>
-
-<x-sub-title id="inline">inLine</x-sub-title>
-
-<x-p>
-    По умолчанию на индексной странице поле будет отображаться в виде таблицы,
-    но если требуется отобразить в строку, то можно воспользоваться методом <code>inLine()</code>.
-</x-p>
-<x-p>
-    Методу можно передать необязательные параметры:
-    <ul>
-        <li><code>separator</code> - разделитель между элементами</li>
-        <li><code>badge</code> - отображать элементы в виде badge</li>
-    </ul>
-</x-p>
-
-<x-code language="php">
-use MoonShine\Fields\BelongsToMany;
-
-//...
-public function fields(): array
-{
-    return [
-        BelongsToMany::make('Categories', 'categories', 'name')
-            ->inLine(separator: ' ', badge: true) // [tl! focus]
-    ];
-}
-//...
-</x-code>
-
-<x-image theme="light" src="{{ asset('screenshots/belongs_to_many_index_in_line.png') }}"></x-image>
-<x-image theme="dark" src="{{ asset('screenshots/belongs_to_many_index_in_line_dark.png') }}"></x-image>
+@include('pages.ru.fields.shared.with_image', ['field' => 'BelongsToMany'])
 
 </x-page>

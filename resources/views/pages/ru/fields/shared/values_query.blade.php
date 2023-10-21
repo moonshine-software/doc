@@ -17,7 +17,7 @@ use MoonShine\Fields\Relationships\{{ $field }};
 public function fields(): array
 {
     return [
-        {{ $field }}::make('Categories', 'categories', 'name')
+        {{ $field }}::make({!! $field === 'BelongsToMany' ? 'Categories' : 'Category' !!}, resource: new CategoryResource())
             ->valuesQuery(fn(Builder $query) => $query->where('active', true)) // [tl! focus]
     ];
 }

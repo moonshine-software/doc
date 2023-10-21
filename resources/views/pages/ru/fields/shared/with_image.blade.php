@@ -28,11 +28,11 @@ use MoonShine\Fields\Relationships\{{ $field }};
 public function fields(): array
 {
     return [
-        {{ $field }}::make('Country')
-            ->withImage('thumb', 'public', 'countries') // [tl! focus]
-            {!!$field === 'BelongsToMany' ? "->fields([Text::make('Country', 'text')])" : ""!!}
+        {{ $field }}::make({!! $field === 'BelongsToMany' ? 'Countries' : 'Country' !!}, resource: new CountryResource())
+            ->withImage('thumb', 'public', 'countries'){!! $field === 'BelongsToMany' ? '->selectMode()' : '' !!} // [tl! focus]
     ];
 }
+
 //...
 </x-code>
 
