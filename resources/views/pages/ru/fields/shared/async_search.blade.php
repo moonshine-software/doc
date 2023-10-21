@@ -22,9 +22,8 @@ use MoonShine\Fields\Relationships\{{ $field }};
 public function fields(): array
 {
     return [
-        {{ $field }}::make('Contacts')
+        {{ $field }}::make({!! $field === 'BelongsToMany' ? 'Countries' : 'Country' !!}, resource: new CountryResource())
             ->asyncSearch() // [tl! focus]
-            {!!$field === 'BelongsToMany' ? "->fields([Text::make('Contact', 'text')])" : ""!!}
     ];
 }
 
@@ -51,24 +50,25 @@ public function fields(): array
 
 <x-code language="php">
 use Illuminate\Contracts\Database\Eloquent\Builder; // [tl! focus]
-use MoonShine\Fields\Relationships\{{ $field }}; // [tl! focus]
+use MoonShine\Fields\Relationships\{{ $field }};
 
 //...
 
 public function fields(): array
 {
     return [
-        {{ $field }}::make('Contacts')->asyncSearch(
-            'title',
-            10,
-            asyncSearchQuery: function (Builder $query) {
-                return $query->where('id', '!=', 2);
-            },
-            asyncSearchValueCallback: function ($contact) {
-                return $contact->id . ' | ' . $contact->title;
-            },
-            '{{ route('async') }}'
-        ){!!$field === 'BelongsToMany' ? "->fields([Text::make('Contact', 'text')])" : ""!!} // [tl! focus:-10]
+        {{ $field }}::make({!! $field === 'BelongsToMany' ? 'Countries' : 'Country' !!}, resource: new CountryResource())
+            ->asyncSearch(
+                'title',
+                10,
+                asyncSearchQuery: function (Builder $query) {
+                    return $query->where('id', '!=', 2);
+                },
+                asyncSearchValueCallback: function ($country) {
+                    return $country->id . ' | ' . $country->title;
+                },
+                '{{ route('async') }}'
+            ) // [tl! focus:-10]
     ];
 }
 
@@ -92,7 +92,7 @@ public function fields(): array
 {
     return [
         Select::make('Country', 'country_id'), // [tl! focus]
-        {{ $field }}::make('City')->asyncSearch(
+        {{ $field }}::make({!! $field === 'BelongsToMany' ? 'Cities' : 'City' !!}, resource: new CityResource())->asyncSearch(
             'title',
             asyncSearchQuery: function (Builder $query, Request $request): Builder {
                 return $query->where('country_id', $request->get('country_id'));
