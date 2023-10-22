@@ -1,151 +1,25 @@
-<x-page title="BelongsToMany" :sectionMenu="[
-    'Разделы' => [
-        ['url' => '#basics', 'label' => 'Основы'],
-        ['url' => '#pivot', 'label' => 'Pivot'],
-        ['url' => '#creatable', 'label' => 'Создание объекта отношения'],
-        ['url' => '#select', 'label' => 'Select'],
-        ['url' => '#tree', 'label' => 'Tree'],
-        ['url' => '#preview', 'label' => 'Preview'],
-        ['url' => '#onlycount', 'label' => 'onlyCount'],
-        ['url' => '#inline', 'label' => 'inLine'],
-        ['url' => '#values-query', 'label' => 'Запрос для значений'],
-        ['url' => '#async-search', 'label' => 'Асинхронный поиск'],
-		['url' => '#with-image', 'label' => 'Значения с изображением'],
-    ]
-]">
+<x-page
+    title="BelongsToMany"
+    :sectionMenu="[
+        'Разделы' => [
+            ['url' => '#basics', 'label' => 'Основы'],
+            ['url' => '#pivot', 'label' => 'Pivot'],
+            ['url' => '#creatable', 'label' => 'Создание объекта отношения'],
+            ['url' => '#select', 'label' => 'Select'],
+            ['url' => '#tree', 'label' => 'Tree'],
+            ['url' => '#preview', 'label' => 'Preview'],
+            ['url' => '#onlycount', 'label' => 'onlyCount'],
+            ['url' => '#inline', 'label' => 'inLine'],
+            ['url' => '#values-query', 'label' => 'Запрос для значений'],
+            ['url' => '#async-search', 'label' => 'Асинхронный поиск'],
+            ['url' => '#with-image', 'label' => 'Значения с изображением'],
+        ]
+    ]"
+>
 
 <x-sub-title id="basics">Основы</x-sub-title>
 
-<x-p>
-    Поле <em>BelongsToMany</em> предназначено для работы с одноименным отношением в Laravel
-    и включает в себя все базовые методы.
-</x-p>
-
-<x-p>
-    Для создания данного поля используется статический метод <code>make()</code>.
-</x-p>
-
-<x-code language="php">
-BelongsToMany::make(
-    Closure|string $label,
-    ?string $relationName = null,
-    Closure|string|null $formatted = null,
-    ?ModelResource $resource = null
-)
-</x-code>
-
-<x-p>
-    <code>$label</code> - лейбл, заголовок поля,<br>
-    <code>$relationName</code> - название отношения,<br>
-    <code>$formatted</code> - замыкание или поле в связанной таблице для отображения значений,<br>
-    <code>$resource</code> - ресурс модели на которую ссылается отношение.
-</x-p>
-
-<x-moonshine::alert type="warning" icon="heroicons.information-circle">
-    Наличие ресурса модели на которую ссылается отношение обязательно!
-</x-moonshine::alert>
-
-<x-code language="php">
-use MoonShine\Fields\Relationships\BelongsToMany; // [tl! focus]
-
-//...
-
-public function fields(): array
-{
-    return [
-        BelongsToMany::make('Categories', 'categories', resource: new CategoryResource()) // [tl! focus]
-    ];
-}
-
-//...
-</x-code>
-
-<x-image theme="light" src="{{ asset('screenshots/belongs_to_many.png') }}"></x-image>
-<x-image theme="dark" src="{{ asset('screenshots/belongs_to_many_dark.png') }}"></x-image>
-
-<x-moonshine::alert type="default" icon="heroicons.information-circle">
-    Если не указать <code>$relationName</code>,
-    то название отношения будет определено автоматически на основе <code>$label</code>.
-</x-moonshine::alert>
-
-<x-code language="php">
-use MoonShine\Fields\Relationships\BelongsToMany; // [tl! focus]
-
-//...
-
-public function fields(): array
-{
-    return [
-        BelongsToMany::make('Categories', resource: new CategoryResource()) // [tl! focus]
-    ];
-}
-
-//...
-</x-code>
-
-<x-moonshine::alert type="default" icon="heroicons.information-circle">
-    Можно не указывать <code>$resource</code>, если ресурс модели соответствует названию отношения.
-</x-moonshine::alert>
-
-<x-code language="php">
-use MoonShine\Fields\Relationships\BelongsToMany; // [tl! focus]
-
-//...
-
-public function fields(): array
-{
-    return [
-        BelongsToMany::make('Categories', 'categories') // [tl! focus]
-    ];
-}
-
-//...
-</x-code>
-
-<x-moonshine::alert type="default" icon="heroicons.information-circle">
-    По умолчанию для отображения значения используется поле в связанной таблице,
-    которе задано свойством <code>$column</code> в ресурсе модели.<br />
-    Аргумент <code>$formatted</code> позволяет это переопределить.
-</x-moonshine::alert>
-
-<x-code language="php">
-namespace App\MoonShine\Resources;
-
-use MoonShine\Resources\ModelResource;
-
-class CountryResource extends ModelResource
-{
-    //...
-
-    public string $column = 'title'; // [tl! focus]
-
-    //...
-}
-</x-code>
-
-<x-p>
-    Если необходимо задать более сложное значение для отображения,
-    то аргументу <code>$formatted</code> можно передать callback функцию.
-</x-p>
-
-<x-code language="php">
-use MoonShine\Fields\Relationships\BelongsToMany;
-
-//...
-
-public function fields(): array
-{
-    return [
-        BelongsToMany::make(
-            'Categories',
-            'categories',
-            fn($item) => "$item->id.) $item->name" // [tl! focus]
-        )
-    ];
-}
-
-//...
-</x-code>
+@include('pages.ru.fields.shared.relation_make', ['field' => 'BelongsToMany', 'label' => 'Categories'])
 
 <x-sub-title id="pivot">Pivot</x-sub-title>
 
@@ -181,32 +55,7 @@ public function fields(): array
 
 <x-sub-title id="creatable">Создание объекта отношения</x-sub-title>
 
-<x-p>
-    Метод <code>creatable()</code> позволяет создавать новый объект отношения через модальное окно.
-</x-p>
-
-<x-code language="php">
-creatable(Closure|bool|null $condition = null)
-</x-code>
-
-<x-code language="php">
-use MoonShine\Fields\Relationships\BelongsToMany;
-
-//...
-
-public function fields(): array
-{
-    return [
-        BelongsToMany::make('Categories', resource: new CategoryResource())
-            ->creatable() // [tl! focus]
-    ];
-}
-
-//...
-</x-code>
-
-<x-image theme="light" src="{{ asset('screenshots/belongs_to_many_creatable.png') }}"></x-image>
-<x-image theme="dark" src="{{ asset('screenshots/belongs_to_many_creatable_dark.png') }}"></x-image>
+@include('pages.ru.fields.shared.relation_creatable', ['field' => 'BelongsToMany', 'label' => 'Categories'])
 
 <x-sub-title id="select">Select</x-sub-title>
 
