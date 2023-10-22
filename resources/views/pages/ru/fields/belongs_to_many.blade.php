@@ -3,6 +3,7 @@
     :sectionMenu="[
         'Разделы' => [
             ['url' => '#basics', 'label' => 'Основы'],
+            ['url' => '#label-column', 'label' => 'Заголовок столбца'],
             ['url' => '#pivot', 'label' => 'Pivot'],
             ['url' => '#creatable', 'label' => 'Создание объекта отношения'],
             ['url' => '#select', 'label' => 'Select'],
@@ -20,6 +21,34 @@
 <x-sub-title id="basics">Основы</x-sub-title>
 
 @include('pages.ru.fields.shared.relation_make', ['field' => 'BelongsToMany', 'label' => 'Categories'])
+
+<x-sub-title id="label-column">Заголовок столбца</x-sub-title>
+
+<x-p>
+    По умолчанию в качестве заголовка столбца таблицы используется свойство
+    <code>$title</code> ресурса модели отношения.<br />
+    Метод <code>columnLabel()</code> позволяет переопределить заголовок.
+</x-p>
+
+<x-code language="php">
+columnLabel(string $label)
+</x-code>
+
+<x-code language="php">
+use MoonShine\Fields\Relationships\BelongsToMany;
+
+//...
+
+public function fields(): array
+{
+    return [
+        BelongsToMany::make('Categories', resource: new CategoryResource())
+            ->columnLabel('Title') // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
 
 <x-sub-title id="pivot">Pivot</x-sub-title>
 
