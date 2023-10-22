@@ -147,7 +147,7 @@ class CommentResource extends ModelResource
 </x-moonshine::alert>
 
 <x-p>
-    Аттрибут <code>linkRelation</code> позволяет создать ссылку на отношение с привязкой родительского ресурса.
+    Параметр <code>linkRelation</code> позволяет создать ссылку на отношение с привязкой родительского ресурса.
 </x-p>
 
 <x-code language="php">
@@ -169,7 +169,7 @@ public function fields(): array
 <x-moonshine::divider label="condition"></x-moonshine::divider>
 
 <x-p>
-    Аттрибут <code>condition</code> через замыкание позволят изменять способ отображения в зависимости от условий.
+    Параметр <code>condition</code> через замыкание позволят изменять способ отображения в зависимости от условий.
 </x-p>
 
 <x-code language="php">

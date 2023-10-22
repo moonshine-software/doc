@@ -19,9 +19,17 @@
 <x-p>
     <code>$label</code> - лейбл, заголовок поля,<br>
     <code>$relationName</code> - название отношения,<br>
+    @if($field !== 'HasMany')
     <code>$formatted</code> - замыкание или поле в связанной таблице для отображения значений,<br>
+    @endif
     <code>$resource</code> - ресурс модели на которую ссылается отношение.
 </x-p>
+
+@if($field === 'HasMany')
+<x-moonshine::alert type="error" icon="heroicons.information-circle">
+    Параметр <code>$formatted</code> не используется в поле <code>HasMany</code>!
+</x-moonshine::alert>
+@endif
 
 <x-moonshine::alert type="warning" icon="heroicons.information-circle">
     Наличие ресурса модели на которую ссылается отношение обязательно!
@@ -84,6 +92,8 @@ public function fields(): array
 //...
 </x-code>
 
+@if($field !== 'HasMany')
+
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     По умолчанию для отображения значения используется поле в связанной таблице,
     которе задано свойством <code>$column</code> в ресурсе модели.<br />
@@ -128,3 +138,5 @@ public function fields(): array
 
 //...
 </x-code>
+
+@endif
