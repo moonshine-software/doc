@@ -4,10 +4,24 @@
     HasMany
 </x-extendby>
 
-<x-p>Поле для отношений в Laravel типа hasManyThrough</x-p>
+<x-p>
+    Поле <em>HasManyThrough</em> предназначено для работы с одноименным отношением в Laravel,
+    наследуется от поля <em>HasMany</em> и включает в себя все его методы.
+</x-p>
 
-<x-p>То же самое, что и <code>MoonShine\Fields\HasMany</code>, только для отношений hasManyThrough</x-p>
+<x-code language="php">
+use MoonShine\Fields\Relationships\HasManyThrough; // [tl! focus]
 
-<x-p><code>MoonShine\Fields\hasManyThrough</code></x-p>
+//...
+
+public function fields(): array
+{
+    return [
+        HasManyThrough::make('Deployments', 'deployments', resource: new DeploymentResource()) // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
 
 </x-page>

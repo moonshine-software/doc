@@ -32,7 +32,7 @@
 @endif
 
 <x-moonshine::alert type="warning" icon="heroicons.information-circle">
-    Наличие ресурса модели на которую ссылается отношение обязательно!
+    Наличие ресурса модели, на которую ссылается отношение, обязательно!
 </x-moonshine::alert>
 
 <x-code language="php">
