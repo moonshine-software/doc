@@ -9,7 +9,7 @@
 <x-sub-title id="basics">Basics</x-sub-title>
 
 <x-p>
-    To create a stylized link, you can use the <code>moonshine::link</code>
+    To create a stylized link, you can use the <code>moonshine::link-button</code>
     or <code>moonshine::link-native</code> components
 </x-p>
 

@@ -13,6 +13,6 @@
     {{ fake()->text() }}
 
     <x-slot:actions><!-- [tl! focus] -->
-        <x-moonshine::link href="#">Read more</x-moonshine::link>
+        <x-moonshine::link-button href="#">Read more</x-moonshine::link-button>
     </x-slot:actions><!-- [tl! focus:1] -->
 </x-moonshine::card>

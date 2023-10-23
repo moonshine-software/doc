@@ -1,9 +1,9 @@
-<x-moonshine::link
+<x-moonshine::link-button
     href="#"
     :filled="true"
 >
     Link
-</x-moonshine::link><!-- [tl! focus:-5] -->
+</x-moonshine::link-button><!-- [tl! focus:-5] -->
 
 <x-moonshine::link-native
     href="#"
