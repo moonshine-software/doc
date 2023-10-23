@@ -1,7 +1,7 @@
 <x-page title="Updates" :sectionMenu="null">
 <ul class="tree-list">
     <li class="my-2">
-        <x-moonshine::link href="https://github.com/moonshine-software/moonshine/releases/tag/1.50.0">v1.50.0</x-moonshine::link>
+        <x-moonshine::link-button href="https://github.com/moonshine-software/moonshine/releases/tag/1.50.0">v1.50.0</x-moonshine::link-button>
 
         <div class="">
             <div class="font-bold">Changes</div>
@@ -22,7 +22,7 @@
     </li>
 
     <li class="my-2">
-        <x-moonshine::link href="https://github.com/moonshine-software/moonshine/releases/tag/1.27.0">v1.27.0</x-moonshine::link>
+        <x-moonshine::link-button href="https://github.com/moonshine-software/moonshine/releases/tag/1.27.0">v1.27.0</x-moonshine::link-button>
 
         <div class="">
             <div class="font-bold">Changes</div>
@@ -33,7 +33,7 @@
         </div>
     </li>
     <li class="my-2">
-        <x-moonshine::link href="https://github.com/moonshine-software/moonshine/releases/tag/1.26.0">v1.26.0</x-moonshine::link>
+        <x-moonshine::link-button href="https://github.com/moonshine-software/moonshine/releases/tag/1.26.0">v1.26.0</x-moonshine::link-button>
 
         <div class="">
             <div class="font-bold">Changes</div>
@@ -44,7 +44,7 @@
         </div>
     </li>
     <li class="my-2">
-        <x-moonshine::link href="https://github.com/moonshine-software/moonshine/releases/tag/1.25.0">v1.25.0</x-moonshine::link>
+        <x-moonshine::link-button href="https://github.com/moonshine-software/moonshine/releases/tag/1.25.0">v1.25.0</x-moonshine::link-button>
 
         <div class="">
             <div class="font-bold">Changes</div>
@@ -59,7 +59,7 @@
         </div>
     </li>
     <li class="my-2">
-        <x-moonshine::link href="https://github.com/moonshine-software/moonshine/releases/tag/1.24.0">v1.24.0</x-moonshine::link>
+        <x-moonshine::link-button href="https://github.com/moonshine-software/moonshine/releases/tag/1.24.0">v1.24.0</x-moonshine::link-button>
 
         <div class="">
             <div class="font-bold">Changes</div>
@@ -70,7 +70,7 @@
         </div>
     </li>
     <li class="my-2">
-        <x-moonshine::link href="https://github.com/moonshine-software/moonshine/releases/tag/1.23.0">v1.23.0</x-moonshine::link>
+        <x-moonshine::link-button href="https://github.com/moonshine-software/moonshine/releases/tag/1.23.0">v1.23.0</x-moonshine::link-button>
 
         <div class="">
             <div class="font-bold">Changes</div>
@@ -81,7 +81,7 @@
         </div>
     </li>
     <li class="my-2">
-        <x-moonshine::link href="https://github.com/moonshine-software/moonshine/releases/tag/1.22.0">v1.22.0</x-moonshine::link>
+        <x-moonshine::link-button href="https://github.com/moonshine-software/moonshine/releases/tag/1.22.0">v1.22.0</x-moonshine::link-button>
 
         <div class="">
             <div class="font-bold">Changes</div>
@@ -92,7 +92,7 @@
         </div>
     </li>
     <li class="my-2">
-        <x-moonshine::link href="https://github.com/moonshine-software/moonshine/releases/tag/1.21.0">v1.21.0</x-moonshine::link>
+        <x-moonshine::link-button href="https://github.com/moonshine-software/moonshine/releases/tag/1.21.0">v1.21.0</x-moonshine::link-button>
 
         <div class="">
             <div class="font-bold">Changes</div>
@@ -104,7 +104,7 @@
         </div>
     </li>
     <li class="my-2">
-        <x-moonshine::link href="https://github.com/moonshine-software/moonshine/releases/tag/1.20.0">v1.20.0</x-moonshine::link>
+        <x-moonshine::link-button href="https://github.com/moonshine-software/moonshine/releases/tag/1.20.0">v1.20.0</x-moonshine::link-button>
 
         <div class="">
             <div class="font-bold">Changes</div>
@@ -120,7 +120,7 @@
         </div>
     </li>
     <li class="my-2">
-        <x-moonshine::link href="https://github.com/moonshine-software/moonshine/releases/tag/1.19.0">v1.19.0</x-moonshine::link>
+        <x-moonshine::link-button href="https://github.com/moonshine-software/moonshine/releases/tag/1.19.0">v1.19.0</x-moonshine::link-button>
 
         <div class="">
             <div class="font-bold">Changes</div>
@@ -133,7 +133,7 @@
         </div>
     </li>
     <li class="my-2">
-        <x-moonshine::link href="https://github.com/moonshine-software/moonshine/releases/tag/1.18.0">v1.18.0</x-moonshine::link>
+        <x-moonshine::link-button href="https://github.com/moonshine-software/moonshine/releases/tag/1.18.0">v1.18.0</x-moonshine::link-button>
 
         <div class="">
             <div class="font-bold">Changes</div>
@@ -145,7 +145,7 @@
         </div>
     </li>
     <li class="my-2">
-        <x-moonshine::link href="https://github.com/moonshine-software/moonshine/releases/tag/1.17.0">v1.17.0</x-moonshine::link>
+        <x-moonshine::link-button href="https://github.com/moonshine-software/moonshine/releases/tag/1.17.0">v1.17.0</x-moonshine::link-button>
 
         <div class="">
             <div class="font-bold">Changes</div>
@@ -155,18 +155,18 @@
         </div>
     </li>
     <li class="my-2">
-        <x-moonshine::link href="https://github.com/moonshine-software/moonshine/releases/tag/1.16.0">v1.16.0</x-moonshine::link>
+        <x-moonshine::link-button href="https://github.com/moonshine-software/moonshine/releases/tag/1.16.0">v1.16.0</x-moonshine::link-button>
     </li>
     <li class="my-2">
-        <x-moonshine::link href="https://github.com/moonshine-software/moonshine/releases/tag/1.15.0">v1.15.0</x-moonshine::link>
+        <x-moonshine::link-button href="https://github.com/moonshine-software/moonshine/releases/tag/1.15.0">v1.15.0</x-moonshine::link-button>
 
         <div class="">
             <div class="font-bold">Changes</div>
             <ul class="list-decimal">
                 <li>New CKEditor field</li>
                 <li>New Quill field</li>
-                <li>New Translatable field to work with <x-moonshine::link href="https://github.com/spatie/laravel-translatable">Laravel-translatable</x-moonshine::link> made by
-                     <x-moonshine::link href="https://spatie.be/open-source">Spatie</x-moonshine::link></li>
+                <li>New Translatable field to work with <x-moonshine::link-button href="https://github.com/spatie/laravel-translatable">Laravel-translatable</x-moonshine::link-button> made by
+                     <x-moonshine::link-button href="https://spatie.be/open-source">Spatie</x-moonshine::link-button></li>
                 <li>Labels for menu items</li>
                 <li>onlyCount method for the BelongsToMany field</li>
                 <li>ShowOnUpdateForm/showOnCreateForm methods for fields</li>
@@ -180,21 +180,21 @@
         </div>
     </li>
     <li class="my-2">
-        <x-moonshine::link href="https://github.com/moonshine-software/moonshine/releases/tag/1.14.0">v1.14.0</x-moonshine::link>
+        <x-moonshine::link-button href="https://github.com/moonshine-software/moonshine/releases/tag/1.14.0">v1.14.0</x-moonshine::link-button>
     </li>
     <li class="my-2">
-        <x-moonshine::link href="https://github.com/moonshine-software/moonshine/releases/tag/1.13.0">v1.13.0</x-moonshine::link>
+        <x-moonshine::link-button href="https://github.com/moonshine-software/moonshine/releases/tag/1.13.0">v1.13.0</x-moonshine::link-button>
 
         <div class="">
             <div class="font-bold">Changes</div>
             <ul class="list-decimal">
-                <li>New MediaLibrary field to work with <x-moonshine::link href="https://github.com/spatie/laravel-medialibrary">Laravel-medialibrary</x-moonshine::link> made by
-                     <x-moonshine::link href="https://spatie.be/open-source">Spatie</x-moonshine::link></li>
+                <li>New MediaLibrary field to work with <x-moonshine::link-button href="https://github.com/spatie/laravel-medialibrary">Laravel-medialibrary</x-moonshine::link-button> made by
+                     <x-moonshine::link-button href="https://spatie.be/open-source">Spatie</x-moonshine::link-button></li>
             </ul>
         </div>
     </li>
     <li class="my-2">
-        <x-moonshine::link href="https://github.com/moonshine-software/moonshine/releases/tag/1.12.0">v1.12.0</x-moonshine::link>
+        <x-moonshine::link-button href="https://github.com/moonshine-software/moonshine/releases/tag/1.12.0">v1.12.0</x-moonshine::link-button>
 
         <div class="">
             <div class="font-bold">Changes</div>
@@ -204,11 +204,11 @@
         </div>
     </li>
     <li class="my-2">
-        <x-moonshine::link href="https://github.com/moonshine-software/moonshine/releases/tag/1.11.0">v1.11.0</x-moonshine::link>
+        <x-moonshine::link-button href="https://github.com/moonshine-software/moonshine/releases/tag/1.11.0">v1.11.0</x-moonshine::link-button>
 
     </li>
     <li class="my-2">
-        <x-moonshine::link href="https://github.com/moonshine-software/moonshine/releases/tag/1.10.0">v1.10.0</x-moonshine::link>
+        <x-moonshine::link-button href="https://github.com/moonshine-software/moonshine/releases/tag/1.10.0">v1.10.0</x-moonshine::link-button>
 
         <div class="">
             <div class="font-bold">Changes</div>
@@ -219,23 +219,23 @@
     </li>
 
     <li class="my-2">
-        <x-moonshine::link href="https://github.com/moonshine-software/moonshine/releases/tag/1.9.0">v1.9.0</x-moonshine::link>
+        <x-moonshine::link-button href="https://github.com/moonshine-software/moonshine/releases/tag/1.9.0">v1.9.0</x-moonshine::link-button>
     </li>
 
     <li class="my-2">
-        <x-moonshine::link href="https://github.com/moonshine-software/moonshine/releases/tag/1.8.0">v1.8.0</x-moonshine::link>
+        <x-moonshine::link-button href="https://github.com/moonshine-software/moonshine/releases/tag/1.8.0">v1.8.0</x-moonshine::link-button>
     </li>
 
     <li class="my-2">
-        <x-moonshine::link href="https://github.com/moonshine-software/moonshine/releases/tag/1.7.0">v1.7.0</x-moonshine::link>
+        <x-moonshine::link-button href="https://github.com/moonshine-software/moonshine/releases/tag/1.7.0">v1.7.0</x-moonshine::link-button>
     </li>
 
     <li class="my-2">
-        <x-moonshine::link href="https://github.com/moonshine-software/moonshine/releases/tag/1.6.0">v1.6.0</x-moonshine::link>
+        <x-moonshine::link-button href="https://github.com/moonshine-software/moonshine/releases/tag/1.6.0">v1.6.0</x-moonshine::link-button>
     </li>
 
     <li class="my-2">
-        <x-moonshine::link href="https://github.com/moonshine-software/moonshine/releases/tag/1.5.0">v1.5.0</x-moonshine::link>
+        <x-moonshine::link-button href="https://github.com/moonshine-software/moonshine/releases/tag/1.5.0">v1.5.0</x-moonshine::link-button>
         <div class="">
             <div class="font-bold">Changes</div>
             <ul class="list-decimal">
@@ -249,23 +249,23 @@
     </li>
 
     <li class="my-2">
-        <x-moonshine::link href="https://github.com/moonshine-software/moonshine/releases/tag/1.4.0">v1.4.0</x-moonshine::link>
+        <x-moonshine::link-button href="https://github.com/moonshine-software/moonshine/releases/tag/1.4.0">v1.4.0</x-moonshine::link-button>
     </li>
 
     <li class="my-2">
-        <x-moonshine::link href="https://github.com/moonshine-software/moonshine/releases/tag/1.3.0">v1.3.0</x-moonshine::link>
+        <x-moonshine::link-button href="https://github.com/moonshine-software/moonshine/releases/tag/1.3.0">v1.3.0</x-moonshine::link-button>
     </li>
 
     <li class="my-2">
-        <x-moonshine::link href="https://github.com/moonshine-software/moonshine/releases/tag/1.2.0">v1.2.0</x-moonshine::link>
+        <x-moonshine::link-button href="https://github.com/moonshine-software/moonshine/releases/tag/1.2.0">v1.2.0</x-moonshine::link-button>
     </li>
 
     <li class="my-2">
-        <x-moonshine::link href="https://github.com/moonshine-software/moonshine/releases/tag/1.1.0">v1.1.0</x-moonshine::link>
+        <x-moonshine::link-button href="https://github.com/moonshine-software/moonshine/releases/tag/1.1.0">v1.1.0</x-moonshine::link-button>
     </li>
 
     <li class="my-2">
-        <x-moonshine::link href="https://github.com/moonshine-software/moonshine/releases/tag/1.0.0">v1.0.0</x-moonshine::link>
+        <x-moonshine::link-button href="https://github.com/moonshine-software/moonshine/releases/tag/1.0.0">v1.0.0</x-moonshine::link-button>
     </li>
 </ul>
 <div class="my-4"></div>

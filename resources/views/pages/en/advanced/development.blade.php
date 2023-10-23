@@ -12,9 +12,9 @@
 
 <x-p>
     If you can't figure out how your MoonShine package should look like, we've prepared a ready-made template for you.
-    <x-moonshine::link href="https://github.com/moonshine-software/moonshine-package-template">
+    <x-moonshine::link-button href="https://github.com/moonshine-software/moonshine-package-template">
         Package template
-    </x-moonshine::link>
+    </x-moonshine::link-button>
 </x-p>
 
 <x-p>

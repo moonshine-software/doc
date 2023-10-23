@@ -1,10 +1,10 @@
 <div x-data="{active: null}">
     @foreach(collect(config('packages', []))->keyBy('category') as $package)
-        <x-moonshine::link
+        <x-moonshine::link-button
             x-bind:class="active === '{{ $package['category'] }}' ? 'btn-primary' : ''"
             @click.prevent="active = active === '{{ $package['category'] }}' ? null : '{{ $package['category'] }}'">
             {{ $package['category'] }}
-        </x-moonshine::link>
+        </x-moonshine::link-button>
     @endforeach
 
     <hr class="divider" />

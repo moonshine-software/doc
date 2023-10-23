@@ -16,7 +16,7 @@
                         </iframe>
                     </div>
                     <x-slot name="outerHtml">
-                        <x-moonshine::link :filled="true" @click.prevent="toggleModal;">
+                        <x-moonshine::link-button :filled="true" @click.prevent="toggleModal;">
                             <x-moonshine::icon icon="heroicons.play" size="4"/>
                             {{  $video['title'] }}
                         </x-moonshine::link>

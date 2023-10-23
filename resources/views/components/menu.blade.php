@@ -8,7 +8,7 @@
             <ul class="inline-flex gap-2 flex-wrap">
                 @foreach($items as $item)
                     <li>
-                        <x-moonshine::link href="{{ $item['url'] }}">
+                        <x-moonshine::link-button href="{{ $item['url'] }}">
                             {{ $item['label'] }}
                         </x-moonshine::link>
                     </li>

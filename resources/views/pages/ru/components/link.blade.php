@@ -9,7 +9,7 @@
 <x-sub-title id="basics">Основы</x-sub-title>
 
 <x-p>
-    Для создания стилизованной ссылки можно воспользоваться компонентами <code>moonshine::link</code>
+    Для создания стилизованной ссылки можно воспользоваться компонентами <code>moonshine::link-button</code>
     или <code>moonshine::link-native</code>.
 </x-p>
 
