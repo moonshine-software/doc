@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\MoonShine;
 
-use App\View\Components\AlertAlpha;
 use App\View\Components\ChangeVersion;
 use App\View\Components\DocSearch;
 use MoonShine\Components\Layout\{Content, Flash, Footer, Header, LayoutBlock, LayoutBuilder, Menu, Sidebar};
@@ -24,7 +23,6 @@ final class MoonShineLayout implements MoonShineLayoutContract
                     new ChangeVersion(),
                     //new DocSearch()
                 ]),
-                new AlertAlpha(),
                 Content::make(),
                 Footer::make()->copyright(fn (): string => <<<'HTML'
                         &copy; 2021-2023 Made with ❤️ by
