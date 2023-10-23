@@ -11,7 +11,7 @@ class DocResource extends Resource
 {
     use Makeable;
 
-    public function __construct(protected array $pages, string $title, string $alias)
+    public function __construct(protected array $docPages, string $title, string $alias)
     {
         $this->title = $title;
         $this->alias = $alias;
@@ -19,6 +19,6 @@ class DocResource extends Resource
 
     protected function pages(): array
     {
-        return $this->pages;
+        return $this->docPages;
     }
 }
