@@ -1,13 +1,27 @@
 <x-page title="HasOneThrough">
 
 <x-extendby :href="route('moonshine.page', 'fields-has_one')">
-    HasOne
+    HasMany
 </x-extendby>
 
-<x-p>Поле для отношений в Laravel типа hasOneThrough</x-p>
+<x-p>
+    Поле <em>HasOneThrough</em> предназначено для работы с одноименным отношением в Laravel,
+    наследуется от поля <em>HasOne</em> и включает в себя все его методы.
+</x-p>
 
-<x-p>То же самое, что и <code>MoonShine\Fields\HasOne</code>, только для отношений hasOneThrough</x-p>
+<x-code language="php">
+use MoonShine\Fields\Relationships\HasOneThrough; // [tl! focus]
 
-<x-p><code>MoonShine\Fields\HasOne</code></x-p>
+//...
+
+public function fields(): array
+{
+    return [
+        HasOneThrough::make('Car owner', 'carOwner', resource: new OwnerResource()) // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
 
 </x-page>
