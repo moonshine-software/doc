@@ -1,51 +1,49 @@
-<x-page title="HasOne">
+<x-page
+    title="HasOne"
+    :sectionMenu="[
+        'Разделы' => [
+            ['url' => '#basics', 'label' => 'Основы'],
+            ['url' => '#fields', 'label' => 'Поля'],
+        ]
+    ]"
+>
 
-<x-extendby :href="route('moonshine.page', 'fields-has_many')">
-    HasMany
-</x-extendby>
+<x-sub-title id="basics">Основы</x-sub-title>
 
-<x-p>Поле для отношений в Laravel типа hasOne</x-p>
+@include('pages.ru.fields.shared.relation_make', ['field' => 'HasOne', 'label' => 'Profile'])
 
-<x-p>Создает новую запись в связанной таблице и привязывает к текущей записи</x-p>
+<x-sub-title id="fields">Поля</x-sub-title>
 
-<x-p>При существовании связи запись редактируется</x-p>
+<x-p>
+    Метод <code>fields()</code> позволяет задать какие поля будут участвовать в <em>preview</em> или в построении форм.
+</x-p>
 
 <x-code language="php">
-use MoonShine\Fields\HasOne;
+fields(Fields|Closure|array $fields)
+</x-code>
+
+<x-code language="php">
+use MoonShine\Fields\Relationships\HasOne;
+use MoonShine\Fields\Phone;
+use MoonShine\Fields\Text;
 
 //...
+
 public function fields(): array
 {
     return [
-        HasOne::make('Город', 'city', 'name')
+        HasOne::make('Contacts', resource: new ContactResource())
             ->fields([
-                ID::make(),
-                Text::make('Значение', 'name'),
-            ])
+                Phone::make('Phone'),
+                Text::make('Address'),
+            ]) // [tl! focus:-3]
     ];
 }
+
 //...
 </x-code>
 
-<x-moonshine::alert type="default" icon="heroicons.information-circle">
-    Поле ID в методе fields обязательно
-</x-moonshine::alert>
-
-<x-p>
-    Часто бывает, что полей для связи крайне много и в таблице они отображаются мелко и неудобно.
-    Во многих случаях необходимо выносить такую связь в отдельный ресурс, однако, если необходимо
-    оставить связь в рамках текущего ресурса, но отобразить поля полноценно, воспользуйтесь
-    методом <code>fullPage()</code>, и поля примут стандартный вид
-</x-p>
-
-<x-image theme="light" src="{{ asset('screenshots/has_one_1.png') }}"></x-image>
-<x-image theme="dark" src="{{ asset('screenshots/has_one_1_dark.png') }}"></x-image>
-
-<x-image theme="light" src="{{ asset('screenshots/has_one_2.png') }}"></x-image>
-<x-image theme="dark" src="{{ asset('screenshots/has_one_2_dark.png') }}"></x-image>
-
-<x-p>
-    Также доступен <code>resourceMode</code>, подробности в поле HasMany
-</x-p>
+<x-image theme="light" src="{{ asset('screenshots/has_one_preview.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/has_one_preview_dark.png') }}"></x-image>
 
 </x-page>
