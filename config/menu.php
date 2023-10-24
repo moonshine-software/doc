@@ -124,7 +124,7 @@ return [
         ['slug' => 'fields-belongs_to_many', 'label' => 'BelongsToMany'],
         ['slug' => 'fields-has_many', 'label' => 'HasMany'],
         ['slug' => 'fields-has_many_through', 'label' => 'HasManyThrough'],
-//        ['slug' => 'fields-has_one', 'label' => 'HasOne'],
+        ['slug' => 'fields-has_one', 'label' => 'HasOne'],
 //        ['slug' => 'fields-has_one_through', 'label' => 'HasOneThrough'],
 
 //        ['slug' => 'fields-morph_to', 'label' => 'MorphTo'],
