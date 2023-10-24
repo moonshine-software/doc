@@ -119,3 +119,19 @@ code:not(.torchlight) {
     text-align: right;
     flex-direction: row-reverse;
 }
+
+@media (min-width: 768px) {
+    .sticky-menu {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        padding: .5rem 0;
+        background-color: #f8fafc;
+    }
+
+    .dark .sticky-menu {
+        background-color: rgba(var(--dark-700),var(--tw-bg-opacity));
+    }
+}
+
+
