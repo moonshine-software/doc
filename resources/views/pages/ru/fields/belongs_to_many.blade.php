@@ -9,8 +9,6 @@
             ['url' => '#select', 'label' => 'Select'],
             ['url' => '#tree', 'label' => 'Tree'],
             ['url' => '#preview', 'label' => 'Preview'],
-            ['url' => '#onlycount', 'label' => 'onlyCount'],
-            ['url' => '#inline', 'label' => 'inLine'],
             ['url' => '#values-query', 'label' => 'Запрос для значений'],
             ['url' => '#async-search', 'label' => 'Асинхронный поиск'],
             ['url' => '#with-image', 'label' => 'Значения с изображением'],
