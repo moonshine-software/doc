@@ -366,8 +366,14 @@ class MoonShineUserResource extends ModelResource
 <x-sub-title id="badge">Метка</x-sub-title>
 
 <x-p>
-    Также есть возможность добавить значок к пункту меню или группе. Для этого используется метод <code>badge()</code>,
-    которое в качестве параметра принимает замыкание.
+    Также есть возможность добавить значок к пункту меню или группе.
+</x-p>
+
+<x-moonshine::divider label="Через элемент меню" />
+
+<x-p>
+    Для добавления значка к пункту меню или группе используется метод <code>badge()</code>,
+    который в качестве параметра принимает замыкание.
 </x-p>
 
 <x-code language="php">
@@ -391,6 +397,34 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
                 ->badge(fn() => Comment::count()) // [tl! focus]
         ];
     }
+
+    //...
+}
+</x-code>
+
+<x-moonshine::divider label="Через метод класса" />
+
+<x-p>
+    Для <em><x-link link="{{ route('moonshine.page', 'resources-index') }}">ModelResource</x-link></em>,
+    <em><x-link link="{{ route('moonshine.page', 'page-class') }}">Page</x-link></em>
+    или <em><x-link link="{{ route('moonshine.page', 'advanced-resource') }}">Resource</x-link></em>
+    существует альтернативный способ задать значок - метод <code>getBadge()</code>.
+</x-p>
+
+<x-code language="php">
+namespace App\MoonShine\Resources;
+
+use App\Models\Post;
+use MoonShine\Resources\ModelResource;
+
+class PostResource extends ModelResource
+{
+    //...
+
+    public function getBadge(): string
+    {
+        return 'new';
+    } // [tl! focus:-3]
 
     //...
 }
