@@ -40,7 +40,7 @@ public function fields(): array
 
 <x-sub-title id="value">Вывод значений</x-sub-title>
 
-<x-moonshine::divider label="getColor" />
+<x-moonshine::divider label="toString" />
 
 <x-p>
     Метод <code>toString()</code>, реализованный в <em>Enum</em>,
