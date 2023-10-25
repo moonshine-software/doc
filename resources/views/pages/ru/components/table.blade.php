@@ -18,7 +18,7 @@
 
 <x-moonshine::grid>
     <x-moonshine::column adaptiveColSpan="12" colSpan="8">
-{{--        @include("examples/components/table")--}}
+        @include("examples/components/table")
     </x-moonshine::column>
 </x-moonshine::grid>
 
@@ -33,7 +33,7 @@
 <x-moonshine::grid>
     <x-moonshine::column adaptiveColSpan="12" colSpan="8">
         <x-moonshine::box>
-{{--            @include("examples/components/table-simple")--}}
+            @include("examples/components/table-simple")
         </x-moonshine::box>
     </x-moonshine::column>
 </x-moonshine::grid>
