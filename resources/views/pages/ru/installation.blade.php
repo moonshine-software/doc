@@ -5,6 +5,7 @@
             ['url' => '#requirements', 'label' => 'Требования'],
             ['url' => '#composer', 'label' => 'Composer'],
             ['url' => '#install', 'label' => 'Установка'],
+            ['url' => '#admin', 'label' => 'Создание администратора'],
             ['url' => '#config', 'label' => 'Сервис провайдер'],
         ]
     ]"
@@ -46,9 +47,12 @@
     <x-link link="{{ route('moonshine.page', 'resources-index') }}">Подробнее о Ресурсах</x-link>
 </x-moonshine::alert>
 
-<x-sub-title id="admin">
-    Создание администратора
-</x-sub-title>
+<x-sub-title id="admin">Создание администратора</x-sub-title>
+
+<x-p>
+    Если при установке админ-панели <code>MoonShine</code> не был создан администратор или требуется создать еще одного,
+    то сделать это можно выполнив консольную команду.
+</x-p>
 
 <x-code language="shell">
     php artisan moonshine:user
