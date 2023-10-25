@@ -3,7 +3,7 @@
     :sectionMenu="[
         'Разделы' => [
             ['url' => '#make', 'label' => 'Make'],
-            ['url' => '#preview', 'label' => 'Preview'],
+            ['url' => '#value', 'label' => 'Вывод значений'],
         ]
     ]"
 >
@@ -38,7 +38,36 @@ public function fields(): array
 //...
 </x-code>
 
-<x-sub-title id="preview">Preview</x-sub-title>
+<x-sub-title id="value">Вывод значений</x-sub-title>
+
+<x-moonshine::divider label="getColor" />
+
+<x-p>
+    Метод <code>toString()</code>, реализованный в <em>Enum</em>,
+    позволяет задать значение для вывода.
+</x-p>
+
+<x-code language="php">
+namespace App\Enums;
+
+enum StatusEmun: string
+{
+    case NEW = 'new';
+    case DRAFT = 'draft';
+    case PUBLIC = 'public';
+
+    public function toString(): ?string
+    {
+        return match ($this) {
+            self::NEW => 'New',
+            self::DRAFT => 'Draft',
+            self::PUBLIC => 'Public',
+        };
+    }
+}
+</x-code>
+
+<x-moonshine::divider label="getColor" />
 
 <x-p>
     Если в <em>Enum</em> реализован метод <code>getColor()</code>,
@@ -56,12 +85,12 @@ enum StatusEmun: string
     case DRAFT = 'draft';
     case PUBLIC = 'public';
 
-    public function getColor(): string
+    public function getColor(): ?string
     {
         return match ($this) {
-            StatusEmun::NEW => 'info',
-            StatusEmun::DRAFT => 'gray',
-            StatusEmun::PUBLIC => 'success',
+            self::NEW => 'info',
+            self::DRAFT => 'gray',
+            self::PUBLIC => 'success',
         };
     }
 }
