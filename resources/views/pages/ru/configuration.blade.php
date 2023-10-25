@@ -1,4 +1,14 @@
-<x-page title="Конфигурация" :sectionMenu="[]">
+<x-page
+    title="Конфигурация"
+    :sectionMenu="[
+        'Разделы' => [
+            ['url' => '#config', 'label' => 'Config'],
+            ['url' => '#home-page', 'label' => 'Главная страница'],
+        ]
+    ]"
+>
+
+<x-sub-title id="config">Config</x-sub-title>
 
 <x-code language="php">
 use MoonShine\Exceptions\MoonShineNotFoundException;  // [tl! focus:start]
@@ -27,8 +37,6 @@ return [ // [tl! focus]
         'prefix' => env('MOONSHINE_ROUTE_PREFIX', 'admin'), // [tl! focus]
         # Префикс формирования url для страниц
         'single_page_prefix' => 'page', // [tl! focus]
-        # Начальный маршрут в админ-панели
-        'index_route' => env('MOONSHINE_INDEX_ROUTE', 'moonshine.index'), // [tl! focus]
         # Группы middlewares в панели
         'middlewares' => [  // [tl! focus]
             SecurityHeadersMiddleware::class, // [tl! focus]
@@ -126,4 +134,41 @@ return [
     // ...
 ];
 </x-code>
+
+<x-sub-title id="home-page">Главная страница</x-sub-title>
+
+<x-p>
+    Если необходимо переопределить главную страницу в админ-панели <strong>MoonShine</strong>,
+    это можно сделать воспользовавшись статическим методом <code>home()</code> класса <em>MoonShine</em>
+    в сервис провайдере <code>MoonShineServiceProvider</code>.
+</x-p>
+
+<x-code language="php">
+home(string|Closure $homeClass)
+</x-code>
+
+<x-code language="php">
+use App\MoonShine\Pages\CustomPage;
+use App\MoonShine\Resources\PostResource;
+use MoonShine\Providers\MoonShineApplicationServiceProvider;
+use MoonShine\MoonShine;
+
+class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
+{
+    public function register(): void
+    {
+        MoonShine::home(CustomPage::class); // [tl! focus]
+        // or
+        MoonShine::home(PostResource::class); // [tl! focus]
+        // or
+        MoonShine::home(function () {
+            return PostResource::class;
+        }); // [tl! focus:-2]
+    }
+
+    //...
+
+}
+</x-code>
+
 </x-page>
