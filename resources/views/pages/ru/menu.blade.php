@@ -264,20 +264,19 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 <x-sub-title id="icon">Иконка</x-sub-title>
 
 <x-p>
-    У пункта меню и у группы можно задать иконку.
-    Это можно сделать передав третьим параметром название иконки в статическом методе <code>make()</code><br />
-    или воспользоваться методом <code>icon()</code>.
+    У пункта меню и у группы можно задать иконку. Это можно реализовать несколькоми методами.
 </x-p>
 
-<x-code language="php">
-icon(string $icon)
-</x-code>
+<x-moonshine::divider label="Через параметр" />
 
+<x-p>
+    Иконку можно задать, передав третьим параметром название в статическом методе <code>make()</code>.
+</x-p>
 
 <x-code language="php">
 namespace App\Providers;
 
-use MoonShine\Menu\MenuGroup; // [tl! focus]
+use MoonShine\Menu\MenuGroup;
 use MoonShine\Menu\MenuItem;
 use MoonShine\Providers\MoonShineApplicationServiceProvider;
 use MoonShine\Resources\MoonShineUserResource;
@@ -288,15 +287,74 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
     protected function menu(): array
     {
         return [
-            MenuGroup::make('System', [ // [tl! focus]
-                MenuItem::make('Admins', new MoonShineUserResource(), 'heroicons.hashtag'), // [tl! focus]
+            MenuGroup::make('System', [
+                MenuItem::make('Admins', new MoonShineUserResource(), 'heroicons.outline.users'), // [tl! focus]
                 MenuItem::make('Roles', new MoonShineUserRoleResource(), 'heroicons.hashtag'), // [tl! focus]
             ])
-                ->icon('app') // [tl! focus]
         ];
     }
 
     //...
+}
+</x-code>
+
+<x-moonshine::divider label="Через метод" />
+
+<x-p>
+    Воспользоваться методом <code>icon()</code>.
+</x-p>
+
+<x-code language="php">
+icon(string $icon)
+</x-code>
+
+<x-code language="php">
+namespace App\Providers;
+
+use MoonShine\Menu\MenuGroup;
+use MoonShine\Menu\MenuItem;
+use MoonShine\Providers\MoonShineApplicationServiceProvider;
+use MoonShine\Resources\MoonShineUserResource;
+use MoonShine\Resources\MoonShineUserRoleResource;
+
+class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
+{
+    protected function menu(): array
+    {
+        return [
+            MenuGroup::make('System', [
+                MenuItem::make('Admins', new MoonShineUserResource())
+                    ->icon('heroicons.outline.users'), // [tl! focus]
+                MenuItem::make('Roles', new MoonShineUserRoleResource())
+                    ->icon('heroicons.hashtag'), // [tl! focus]
+            ])
+                ->icon('heroicons.cog') // [tl! focus]
+        ];
+    }
+
+    //...
+}
+</x-code>
+
+<x-moonshine::divider label="Через аттрибут" />
+
+<x-p>
+    У пункта меню отобразится иконка, если у класса
+    <em><x-link link="{{ route('moonshine.page', 'resources-index') }}">ModelResource</x-link></em>,
+    <em><x-link link="{{ route('moonshine.page', 'page-class') }}">Page</x-link></em>
+    или <em><x-link link="{{ route('moonshine.page', 'advanced-resource') }}">Resource</x-link></em>
+    задан аттрибут <code>Icon</code> и иконка не переопределена другими способами.
+</x-p>
+
+<x-code language="php">
+namespace MoonShine\Resources;
+
+#[Icon('heroicons.outline.users')] // [tl! focus]
+class MoonShineUserResource extends ModelResource
+{
+
+    //...
+
 }
 </x-code>
 
