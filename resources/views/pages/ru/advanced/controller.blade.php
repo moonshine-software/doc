@@ -12,6 +12,12 @@
     Полезно для отображения своих сложных решений или написания дополнительных обработчиков
 </x-p>
 
+<x-sub-title>Сгенерировать контроллер</x-sub-title>
+
+<x-code>
+php artisan moonshine:controller
+</x-code>
+
 <x-sub-title>Отобразить страницу</x-sub-title>
 
 <x-code>
