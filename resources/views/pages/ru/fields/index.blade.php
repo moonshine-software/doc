@@ -542,7 +542,7 @@ public function fields(): array
 {
     return [
         Image::make('Thumbnail')
-            ->beforeRender(function (Image $field) {
+            ->beforeRender(function (Field $field) {
                 return $field->preview());
             }) // [tl! focus:-2]
     ];
@@ -569,7 +569,7 @@ public function fields(): array
 {
     return [
         Text::make('Slug')
-            ->when($this->getItem()?->exist, fn(Text $field) => $field->locked()) // [tl! focus]
+            ->when($this->getItem()?->exist, fn(Field $field) => $field->locked()) // [tl! focus]
     ];
 }
 
@@ -682,7 +682,7 @@ public function fields(): array
 {
     return [
         Text::make('Thumbnail by link', 'thumbnail')
-            ->onApply(function(Post $item, $value) {
+            ->onApply(function(Model $item, $value, Field $field) {
                 $path = 'thumbnail.jpg';
 
                 if ($value) {
@@ -691,6 +691,26 @@ public function fields(): array
 
                 return $item;
             }) // [tl! focus:-8]
+    ];
+}
+
+//...
+</x-code>
+
+<x-moonshine::alert type="default" icon="heroicons.book-open">
+    Если поле используется для построения фильтра, то в замыкание будет передан <em>Query Builder</em>.
+</x-moonshine::alert>
+
+<x-code language="php">
+use Illuminate\Contracts\Database\Eloquent\Builder; // [tl! focus]
+
+//...
+
+public function filters(): array
+{
+    return [
+        Switcher::make('Active')
+            ->onApply(fn(Builder $query, $value, Field $field) => $query->where('active', $value)) // [tl! focus]
     ];
 }
 
@@ -738,7 +758,7 @@ public function fields(): array
 {
     return [
         Text::make('Title')
-            ->onBeforeApply(function(Post $item, $value) {
+            ->onBeforeApply(function(Model $item, $value) {
                 //
                 return $item;
             }) // [tl! focus:-3]
@@ -757,7 +777,7 @@ public function fields(): array
 {
     return [
         Text::make('Title')
-            ->onAfterApply(function(Post $item, $value) {
+            ->onAfterApply(function(Model $item, $value) {
                 //
                 return $item;
             }) // [tl! focus:-3]
@@ -776,7 +796,7 @@ public function fields(): array
 {
     return [
         Text::make('Title')
-            ->onAfterDestroy(function(Post $item, $value) {
+            ->onAfterDestroy(function(Model $item, $value) {
                 //
                 return $item;
             }) // [tl! focus:-3]
