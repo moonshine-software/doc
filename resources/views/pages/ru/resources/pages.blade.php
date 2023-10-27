@@ -208,6 +208,26 @@ class PostIndexPage extends IndexPage
 {{ $screenshots }}
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
+    Если необходимо через ресурс или страницу получить доступ к компонентам определенного слоя, то
+    воспользуйтесь методом <code>getLayerComponents</code>
+</x-moonshine::alert>
+
+<x-code>
+use MoonShine\Enums\Layer;
+use MoonShine\Enums\PageType;
+
+// ...
+
+// Resource
+$this->getPages()
+    ->findByType(PageType::FORM)
+    ->getLayerComponents(Layer::BOTTOM);
+
+// Page
+$this->getLayerComponents(Layer::BOTTOM);
+</x-code>
+
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
     Если необходимо через ресурс добавить компонент для указанной страницы в нужный слой, то воспользуйтесь методом onBoot
     ресурса и pushToLayer страницы
 </x-moonshine::alert>

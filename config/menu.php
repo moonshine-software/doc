@@ -9,6 +9,7 @@ return [
         ['slug' => 'releases', 'label' => 'Releases'],
         ['slug' => 'upgrade_guide', 'label' => 'Upgrade guide'],
         ['slug' => 'support_policy', 'label' => 'Support policy'],
+        ['slug' => 'troubleshooting', 'label' => 'Troubleshooting'],
     ],
 
     ':_divider_',
