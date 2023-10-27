@@ -15,9 +15,10 @@
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.8",
         "fakerphp/faker": "^1.9.1",
+        "lukeraymonddowning/pest-plugin-larastrap": "^0.3.0",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^7.0",
-        "phpunit/phpunit": "^10.0",
+        "pestphp/pest": "^2.24",
         "spatie/laravel-ignition": "^2.0"
     },
     "autoload": {
