@@ -68,6 +68,12 @@ return [ // [tl! focus]
         'profile' => ProfilePage::class // [tl! focus]
     ], // [tl! focus]
 
+    # Импорт и экспорт по умолчанию у ModelResource
+    'model_resources' => [ // [tl! focus]
+        'default_with_import' => true, // [tl! focus]
+        'default_with_export' => true, // [tl! focus]
+    ],  // [tl! focus]
+
     'auth' => [ // [tl! focus]
         # Вкл/Выкл аутентификацию. Если false, то панель будет доступна всем
         'enable' => true, // [tl! focus]
