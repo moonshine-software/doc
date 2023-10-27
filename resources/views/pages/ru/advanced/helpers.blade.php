@@ -60,7 +60,7 @@ actionBtn(
 )
 </x-code>
 
-<x-sub-title>TableBuilder</x-sub-title>
+<x-sub-title>Найти apply класс поля(фильтра)</x-sub-title>
 
 <x-code>
 findFieldApply(
