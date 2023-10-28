@@ -1,8 +1,8 @@
 <x-page title="Аутентификации" :sectionMenu="[
     'Разделы' => [
         ['url' => '#basics', 'label' => 'Основы'],
-        ['url' => '#extending', 'label' => 'Расширение возможностей'],
-        ['url' => '#greetings', 'label' => 'Приветствие'],
+        ['url' => '#extending', 'label' => 'Guard/Provider'],
+        ['url' => '#form', 'label' => 'Форма'],
         ['url' => '#profile', 'label' => 'Профиль']
     ]
 ]">
@@ -41,7 +41,8 @@ return [
     // ...
     'auth' => [
         // ...
-        'guard' => 'moonshine', // [tl! focus:start]
+        'middleware' => Authenticate::class, // [tl! focus:start]
+        'guard' => 'moonshine',
         'guards' => [
             'moonshine' => [
                 'driver' => 'session',
@@ -60,43 +61,39 @@ return [
 ];
 </x-code>
 
+<x-sub-title id="form">Форма входа</x-sub-title>
+
 <x-p>
-    Если возникает потребность добавить текст под кнопкой "Войти" (например, добавить кнопку регистрации),
-    то это легко можно сделать через файл конфигурации.
+    Вы можете полностью заменить форму входа на собственную, просто замените класс в конфиге на свой,
+    а внутри реализуйте FormBuilder
 </x-p>
 
 <x-code language="php">
 return [
     // ...
-    'auth' => [
-        // ...
-            'footer' => '<a href="https://cutcode.dev/" target="_blank">CutCode</a>' // [tl! focus]
-        ],
-        // ...
+    'forms' => [
+        'login' => LoginForm::class
     ],
     // ...
 ];
 </x-code>
 
-<x-sub-title id="greetings">Приветствие</x-sub-title>
+<x-sub-title id="profile">Профиль</x-sub-title>
 
 <x-p>
-    Для изменения текста приветствия на странице аутентификации
-    необходимо создать языковой файл <code>lang/vendor/moonshine/ru/ui.php</code>.
+    Вы можете полностью заменить страницу профиля на собственную, просто замените класс страницы в конфиге на свой
 </x-p>
 
 <x-code language="php">
 return [
     // ...
-    'login' => [ // [tl! focus:start]
-        'title' => 'Добро пожаловать в :moonshine_title!',
-        'description' => 'Пожалуйста, войдите в свою учетную запись',
-    ], // [tl! focus:end]
+    'pages' => [
+        // ...
+        'profile' => ProfilePage::class
+    ],
     // ...
 ];
 </x-code>
-
-<x-sub-title id="profile">Профиль</x-sub-title>
 
 <x-p>
     Переопределить поля для профиля можно в файле конфигурации <code>config/moonshine.php</code>.
@@ -124,10 +121,4 @@ return [
     Если вы не хотите использовать аватар,
     то укажите <code>'avatar'=>''</code> или <code>'avatar'=>false</code>.
 </x-moonshine::alert>
-
-<x-moonshine::alert type="default" icon="heroicons.book-open">
-    Если вы хотите изменить вид страницы профиля,
-    то создайте файл <code>resources/views/vendor/moonshine/profile.blade.php</code>.
-</x-moonshine::alert>
-
 </x-page>
