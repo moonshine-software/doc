@@ -97,4 +97,22 @@ final class CustomViewController extends MoonshineController
     }
 }
 </x-code>
+
+<x-sub-title>Json ответ</x-sub-title>
+
+<x-code>
+namespace App\MoonShine\Controllers;
+
+use MoonShine\MoonShineRequest;
+use MoonShine\Http\Controllers\MoonshineController;
+use Symfony\Component\HttpFoundation\Response;
+
+final class CustomViewController extends MoonshineController
+{
+    public function __invoke(MoonShineRequest $request): Response
+    {
+        return $this->json(message: 'Message', data: [], redirect: null);
+    }
+}
+</x-code>
 </x-page>
