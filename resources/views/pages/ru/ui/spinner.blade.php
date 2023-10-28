@@ -24,7 +24,7 @@
 
 <x-sub-title id="size">Размер</x-sub-title>
 
-@include('pages.ru.components.shared.sizes')
+@include('pages.ru.ui.shared.sizes')
 
 <x-code language="blade" file="resources/views/examples/components/spinner-size.blade.php"></x-code>
 
@@ -38,7 +38,7 @@
 
 <x-sub-title id="color">Цвет</x-sub-title>
 
-@include('pages.ru.components.shared.themes-colors')
+@include('pages.ru.ui.shared.themes-colors')
 
 <x-code language="blade" file="resources/views/examples/components/spinner-color.blade.php"></x-code>
 

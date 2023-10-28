@@ -24,7 +24,7 @@
     Изменить тип уведомления можно указав у компонента <code>type</code>.
 </x-p>
 
-@include('pages.ru.components.shared.type')
+@include('pages.ru.ui.shared.type')
 
 <x-code language="blade" file="resources/views/examples/components/alert-type.blade.php"></x-code>
 

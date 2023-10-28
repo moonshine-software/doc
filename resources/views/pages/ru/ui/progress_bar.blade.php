@@ -11,7 +11,7 @@
     Компонент <code>moonshine::progress-bar</code> позволяет создавать индикатор прогресса.
 </x-p>
 
-@include('pages.ru.components.shared.themes-colors')
+@include('pages.ru.ui.shared.themes-colors')
 
 <x-code language="blade" file="resources/views/examples/components/progress_bar.blade.php"></x-code>
 
@@ -29,7 +29,7 @@
     Для создания радиального индикатора прогресса необходимо компоненту передать параметр <code>radial</code> со значением <code>TRUE</code>.
 </x-p>
 
-@include('pages.ru.components.shared.sizes')
+@include('pages.ru.ui.shared.sizes')
 
 <x-code language="blade" file="resources/views/examples/components/progress_bar-radial.blade.php"></x-code>
 

@@ -30,7 +30,7 @@
 
 <x-sub-title id="placement">Placement</x-sub-title>
 
-@include('pages.en.components.shared.placement')
+@include('pages.en.ui.shared.placement')
 
 <x-code language="blade" file="resources/views/examples/components/dropdown-placement.blade.php"></x-code>
 

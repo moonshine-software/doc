@@ -1,32 +1,54 @@
-<x-page title="Значение">
+<x-page
+    title="Значение"
+    :sectionMenu="[
+        'Разделы' => [
+            ['url' => '#make', 'label' => 'Make'],
+            ['url' => '#progress', 'label' => 'Прогресс'],
+            ['url' => '#format', 'label' => 'Формат'],
+        ]
+    ]"
+>
+
+<x-sub-title id="make">Make</x-sub-title>
 
 <x-p>
-    Предназначено для отображения простого значения. Например, сколько всего в таблице определенных записей.
+    Метрика <em>ValueMetric</em> предназначена для отображения какого-либо значения.
+    Например, сколько всего в таблице записей.<br />
+    Создать <em>ValueMetric</em> можно используя статический метод <code>make()</code>.
 </x-p>
 
 <x-code language="php">
-namespace MoonShine\Resources;
+make(Closure|string $label)
+</x-code>
 
-use MoonShine\Metrics\ValueMetric;
+<x-p>
+    Метод <code>value()</code> позволяет указать значение для метрики.
+</x-p>
 
-class PostResource extends Resource
+<x-code language="php">
+value(int|string|float|Closure $value)
+</x-code>
+
+<x-code language="php">
+use MoonShine\Metrics\ValueMetric; // [tl! focus]
+
+//...
+
+public function components(): array
 {
-    //...
-
-    public function metrics(): array // [tl! focus:start]
-    {
-        return [
-            ValueMetric::make('Завершенных заказов')
-                ->value(Orders::completed()->count())
-        ];
-    } // [tl! focus:end]
-
-    //...
+    return [
+        ValueMetric::make('Completed orders')
+            ->value(Orders::completed()->count()) // [tl! focus:-1]
+    ];
 }
+
+//...
 </x-code>
 
 <x-image theme="light" src="{{ asset('screenshots/metrics.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/metrics_dark.png') }}"></x-image>
+
+<x-sub-title id="progress">Прогресс</x-sub-title>
 
 <x-p>
     Также есть возможность отображения в виде прогресса достижения цели.
@@ -56,6 +78,8 @@ class PostResource extends Resource
 
 <x-image theme="light" src="{{ asset('screenshots/metrics_value_progress.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/metrics_value_progress_dark.png') }}"></x-image>
+
+<x-sub-title id="format">Формат</x-sub-title>
 
 <x-p>
 Выводимое значение можно отформатировать и добавить префикс и суффикс.

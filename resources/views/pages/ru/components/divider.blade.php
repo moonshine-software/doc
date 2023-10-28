@@ -1,54 +1,82 @@
-<x-page title="Divider" :sectionMenu="[
-    'Разделы' => [
-        ['url' => '#basics', 'label' => 'Основы'],
-        ['url' => '#text', 'label' => 'Текстовый разделитель'],
-    ]
-]">
+<x-page
+    title="Разделитель"
+    :sectionMenu="[
+        'Разделы' => [
+            ['url' => '#basics', 'label' => 'Основы'],
+            ['url' => '#label', 'label' => 'Label'],
+        ]
+    ]"
+>
 
 <x-sub-title id="basics">Основы</x-sub-title>
 
 <x-p>
-    Компонент <code>moonshine::divider</code> позволяет создать стилизованный разделитель контента.
+    Для разделения на зоны можно воспользоваться декорацией <code>Divider</code>.
 </x-p>
 
-<x-code language="blade" file="resources/views/examples/components/divider.blade.php"></x-code>
+<x-code language="php">
+use MoonShine\Decorations\Divider;
 
-<x-moonshine::grid>
-    <x-moonshine::column adaptiveColSpan="12" colSpan="6">
-        <x-moonshine::box>
-            @include("examples/components/divider")
-        </x-moonshine::box>
-    </x-moonshine::column>
-</x-moonshine::grid>
+//...
+public function fields(): array
+{
+    return [
+        //...
+        Divider::make(), // [tl! focus]
+        //...
+    ];
+}
+//...
+</x-code>
 
-<x-sub-title id="text">Текстовый разделитель</x-sub-title>
+<x-image theme="light" src="{{ asset('screenshots/divider.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/divider_dark.png') }}"></x-image>
+
+<x-sub-title id="label">Label</x-sub-title>
 
 <x-p>
-    В качестве разделителя можно использовать текст. Для этого необходимо указать текст в параметре <code>label</code>.
+    В качестве разделителя можно использовать текст, для этого его необходимо передать методу <code>make()</code> в качестве аргумента.
 </x-p>
 
-<x-code language="blade" file="resources/views/examples/components/divider-label.blade.php"></x-code>
+<x-code language="php">
+use MoonShine\Decorations\Divider;
 
-<x-moonshine::grid>
-    <x-moonshine::column adaptiveColSpan="12" colSpan="6">
-        <x-moonshine::box>
-            @include("examples/components/divider-label")
-        </x-moonshine::box>
-    </x-moonshine::column>
-</x-moonshine::grid>
+//...
+public function fields(): array
+{
+    return [
+        //...
+        Divider::make('Divider'), // [tl! focus]
+        //...
+    ];
+}
+//...
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/divider_label.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/divider_label_dark.png') }}"></x-image>
 
 <x-p>
-    Параметр <code>centered</code> позволяет разместить текст по центру.
+    Метод <code>centered()</code> позволяет отцентрировать текст.
 </x-p>
 
-<x-code language="blade" file="resources/views/examples/components/divider-label-center.blade.php"></x-code>
+<x-code language="php">
+use MoonShine\Decorations\Divider;
 
-<x-moonshine::grid>
-    <x-moonshine::column adaptiveColSpan="12" colSpan="6">
-        <x-moonshine::box>
-            @include("examples/components/divider-label-center")
-        </x-moonshine::box>
-    </x-moonshine::column>
-</x-moonshine::grid>
+//...
+public function fields(): array
+{
+    return [
+        //...
+        Divider::make('Divider')
+            ->centered(), // [tl! focus]
+        //...
+    ];
+}
+//...
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/divider_label_center.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/divider_label_center_dark.png') }}"></x-image>
 
 </x-page>

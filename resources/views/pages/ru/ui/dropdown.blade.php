@@ -30,7 +30,7 @@
 
 <x-sub-title id="placement">Расположение</x-sub-title>
 
-@include('pages.ru.components.shared.placement')
+@include('pages.ru.ui.shared.placement')
 
 <x-code language="blade" file="resources/views/examples/components/dropdown-placement.blade.php"></x-code>
 

@@ -12,7 +12,7 @@
 
 <x-code language="blade" file="resources/views/examples/components/toast.blade.php"></x-code>
 
-@include('pages.en.components.shared.type')
+@include('pages.en.ui.shared.type')
 
 <x-code language="blade" file="resources/views/examples/components/toast-type.blade.php"></x-code>
 

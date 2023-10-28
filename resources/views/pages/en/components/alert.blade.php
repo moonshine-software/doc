@@ -24,7 +24,7 @@
     You can change the notification type by specifying the component <code>type</code>
 </x-p>
 
-@include('pages.en.components.shared.type')
+@include('pages.en.ui.shared.type')
 
 <x-code language="blade" file="resources/views/examples/components/alert-type.blade.php"></x-code>
 

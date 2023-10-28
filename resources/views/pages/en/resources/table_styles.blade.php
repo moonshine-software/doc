@@ -35,7 +35,7 @@ class PostResource extends Resource
 }
 </x-code>
 
-@include('pages.en.components.shared.colors')
+@include('pages.en.ui.shared.colors')
 
 <x-image theme="light" src="{{ asset('screenshots/table_class.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/table_class_dark.png') }}"></x-image>
