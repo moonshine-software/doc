@@ -11,7 +11,7 @@ columnSpan(
 
 <x-code language="php">
 use MoonShine\Decorations\Grid;
-use MoonShine\Metrics\ValueMetric;
+use MoonShine\Metrics\{{ $metric }};
 
 //...
 
@@ -19,11 +19,29 @@ public function components(): array
 {
     return [
         Grid::make([ // [tl! focus]
-            ValueMetric::make('Articles')
+            {{ $metric }}::make('Articles')
+@if( $metric === 'ValueMetric')
                 ->value(Article::count())
+@elseif( $metric === 'LineChartMetric')
+                ->line([
+                    'Count' => [
+                        now()->format('Y-m-d') => 3,
+                        now()->addDay()->format('Y-m-d') => 5
+                    ]
+                ])
+@endif
                 ->columnSpan(6), // [tl! focus]
-            ValueMetric::make('Comments')
+            {{ $metric }}::make('Comments')
+@if( $metric === 'ValueMetric')
                 ->value(Comment::count())
+@elseif( $metric === 'LineChartMetric')
+                ->line([
+                    'Count' => [
+                        now()->format('Y-m-d') => 53,
+                        now()->addDay()->format('Y-m-d') => 22
+                    ]
+                ])
+@endif
                 ->columnSpan(6) // [tl! focus]
         ]) // [tl! focus]
     ];
