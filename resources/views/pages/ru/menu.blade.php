@@ -264,7 +264,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 <x-sub-title id="icon">Иконка</x-sub-title>
 
 <x-p>
-    У пункта меню и у группы можно задать иконку. Это можно реализовать несколькоми методами.
+    У пункта меню и у группы можно задать иконку. Это можно реализовать несколькими методами.
 </x-p>
 
 <x-moonshine::divider label="Через параметр" />
