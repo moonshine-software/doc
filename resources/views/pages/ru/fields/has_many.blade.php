@@ -18,7 +18,7 @@
 <x-sub-title id="fields">Поля</x-sub-title>
 
 <x-p>
-    Метод <code>fields()</code> позволят задать поля которе будут отображаться в <em>preview</em>.
+    Метод <code>fields()</code> позволят задать поля, которые будут отображаться в <em>preview</em>.
 </x-p>
 
 <x-code language="php">
