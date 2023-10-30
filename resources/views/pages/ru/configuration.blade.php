@@ -57,7 +57,7 @@ return [ // [tl! focus]
     'disk' => 'public', // [tl! focus]
 
     'forms' => [ // [tl! focus]
-        # форма аунтификации
+        # форма аутентификации
         'login' => LoginForm::class // [tl! focus]
     ], // [tl! focus]
 

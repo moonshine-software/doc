@@ -1,7 +1,11 @@
 <x-page title="MoonshineComponents">
 
 <x-p>
-    Блоки для отображения статистики.
+
 </x-p>
+
+<x-code language="shell">
+php artisan moonshine:component
+</x-code>
 
 </x-page>
