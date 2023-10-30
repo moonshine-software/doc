@@ -8,7 +8,6 @@
     ]"
 >
 
-
 <x-sub-title id="make">Make</x-sub-title>
 
 <x-p>

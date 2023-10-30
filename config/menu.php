@@ -33,9 +33,9 @@ return [
 
         // Metrics
         'Metrics:_divider_',
-        ['slug' => 'components-metric_value', 'label' => 'Value', 'title' => 'Metric Value'],
-        ['slug' => 'components-metric_line_chart', 'label' => 'Line Chart', 'title' => 'Metric Line Chart'],
         ['slug' => 'components-metric_donut_chart', 'label' => 'Donut Chart', 'title' => 'Metric Donut Chart'],
+        ['slug' => 'components-metric_line_chart', 'label' => 'Line Chart', 'title' => 'Metric Line Chart'],
+        ['slug' => 'components-metric_value', 'label' => 'Value', 'title' => 'Metric Value'],
     ],
 
     'Appearance:photo' => [

@@ -1,12 +1,17 @@
 <x-page
     title="Вкладки"
-    :videos="[
-        ['url' => 'https://www.youtube.com/embed/7HGaebxlcFM?start=713&end=819', 'title' => 'Screencasts: Декорация Tabs'],
+    :sectionMenu="[
+        'Разделы' => [
+            ['url' => '#make', 'label' => 'Make'],
+            ['url' => '#active-tab', 'label' => 'Активная вкладка'],
+        ]
     ]"
 >
 
+<x-sub-title id="make">Make</x-sub-title>
+
 <x-p>
-    На форму для удобства можно добавить вкладки и сгруппировать поля.
+    Компонент <em>Tabs</em> позволяет создавать вкладки.
 </x-p>
 
 <x-code language="php">
