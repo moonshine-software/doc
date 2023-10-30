@@ -35,7 +35,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
                 foreach ($items as $item) {
                     if (!is_string($item)) {
                         $pages[] = DocSection::make(
-                            $item['label'],
+                            $item['title'] ?? $item['label'],
                             $item['slug'],
                         );
                     }
@@ -63,7 +63,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
                         $inner[] = MenuDivider::make($titleDivider);
                     } else {
                         $page = DocSection::make(
-                            $item['label'],
+                            $item['title'] ?? $item['label'],
                             $item['slug'],
                         )->setResource($resources[$slug]);
 

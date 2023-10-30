@@ -1,58 +1,38 @@
-<x-page title="Collapse" :sectionMenu="[
-    'Разделы' => [
-        ['url' => '#basics', 'label' => 'Основы'],
-        ['url' => '#show', 'label' => 'Отобразить развернутым'],
-        ['url' => '#persist', 'label' => 'Сохранение состояния'],
-    ]
-]">
-
-<x-sub-title id="basics">Основы</x-sub-title>
+<x-page
+    title="Collapse"
+    :videos="[
+        ['url' => 'https://www.youtube.com/embed/7HGaebxlcFM?start=251&end=306', 'title' => 'Screencasts: Декорация Collapse'],
+    ]"
+>
 
 <x-p>
-    Компонент <code>moonshine::collapse</code> позволяет сворачивать контент.
+    Декоратор Collapse позволяет сворачивать <code>fields</code> и <code>blocks</code> с сохранением состояния.
 </x-p>
 
-<x-code language="blade" file="resources/views/examples/components/collapse.blade.php"></x-code>
+<x-code language="php">
+use MoonShine\Decorations\Collapse;  // [tl! focus]
+use MoonShine\Decorations\Block;
 
-<x-moonshine::grid>
-    <x-moonshine::column adaptiveColSpan="12" colSpan="6">
-        <x-moonshine::box>
-            @include("examples/components/collapse")
-        </x-moonshine::box>
-    </x-moonshine::column>
-</x-moonshine::grid>
+//...
+public function fields(): array
+{
+    return [
+        Block::make([
+            Collapse::make('Title/Slug', [  // [tl! focus]
+                Text::make('Title')
+                ->fieldContainer(false),
 
-<x-sub-title id="show">Отобразить развернутым</x-sub-title>
+                Text::make('Slug')
+                    ->fieldContainer(false),
+            ])  // [tl! focus]
+            ->show() // отобразить развернутым (дополнительная опция) [tl! focus]
+        ]);
+    ];
+}
+//...
+</x-code>
 
-<x-p>
-    Если параметр <code>show</code> имеет значение <code>TRUE</code>,
-    то по умолчанию блок будет отображаться развернутым.
-</x-p>
-
-<x-code language="blade" file="resources/views/examples/components/collapse-show.blade.php"></x-code>
-
-<x-moonshine::grid>
-    <x-moonshine::column adaptiveColSpan="12" colSpan="6">
-        <x-moonshine::box>
-            @include("examples/components/collapse-show")
-        </x-moonshine::box>
-    </x-moonshine::column>
-</x-moonshine::grid>
-
-<x-sub-title id="persist">Сохранение состояния</x-sub-title>
-
-<x-p>
-    Если параметр <code>persist</code> имеет значение <code>TRUE</code>, то будет сохраняться состояние блока.
-</x-p>
-
-<x-code language="blade" file="resources/views/examples/components/collapse-persist.blade.php"></x-code>
-
-<x-moonshine::grid>
-    <x-moonshine::column adaptiveColSpan="12" colSpan="6">
-        <x-moonshine::box>
-            @include("examples/components/collapse-persist")
-        </x-moonshine::box>
-    </x-moonshine::column>
-</x-moonshine::grid>
+<x-image theme="light" src="{{ asset('screenshots/collapse.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/collapse_dark.png') }}"></x-image>
 
 </x-page>
