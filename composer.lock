@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b4cac22232857a33b733f351361b0c36",
+    "content-hash": "ea95e11ac8cb9b648d4e50d33b1c2d95",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1969,16 +1969,16 @@
         },
         {
             "name": "moonshine/moonshine",
-            "version": "2.0.0-beta.2",
+            "version": "2.0.0-rc.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/moonshine-software/moonshine.git",
-                "reference": "a0b78f72f48a57dfa976b2c318757490ebf39f2b"
+                "reference": "1d36fd8ddc80c2c5518b635fa2eec221791c6324"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moonshine-software/moonshine/zipball/a0b78f72f48a57dfa976b2c318757490ebf39f2b",
-                "reference": "a0b78f72f48a57dfa976b2c318757490ebf39f2b",
+                "url": "https://api.github.com/repos/moonshine-software/moonshine/zipball/1d36fd8ddc80c2c5518b635fa2eec221791c6324",
+                "reference": "1d36fd8ddc80c2c5518b635fa2eec221791c6324",
                 "shasum": ""
             },
             "require": {
@@ -2053,7 +2053,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2023-10-26T10:18:34+00:00"
+            "time": "2023-10-30T09:37:15+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -9142,7 +9142,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "moonshine/moonshine": 10
+        "moonshine/moonshine": 5
     },
     "prefer-stable": true,
     "prefer-lowest": false,
