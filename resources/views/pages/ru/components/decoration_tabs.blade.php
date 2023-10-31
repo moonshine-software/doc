@@ -15,33 +15,62 @@
 </x-p>
 
 <x-code language="php">
-use MoonShine\Decorations\Block;
-use MoonShine\Decorations\Tabs;
-use MoonShine\Decorations\Tab;
+use MoonShine\Decorations\Tabs; // [tl! focus]
+use MoonShine\Decorations\Tab; // [tl! focus]
 use MoonShine\Fields\Text;
 
 //...
-public function fields(): array
+
+public function components(): array
 {
     return [
-        Block::make('Основное', [
-            Tabs::make([
-                Tab::make('Seo', [
-                    Text::make('Seo title')
-                        ->fieldContainer(false),
-                    //...
-                ]),
-                Tab::make('Categories', [
-                    //...
-                ])
+        Tabs::make([ // [tl! focus:1]
+            Tab::make('Seo', [
+                Text::make('Seo title')
+
+                //...
+            ]), // [tl! focus:1]
+            Tab::make('Categories', [
+                //...
             ])
-        ]),
+        ]) // [tl! focus:-1]
     ];
 }
+
 //...
 </x-code>
 
 <x-image theme="light" src="{{ asset('screenshots/tabs.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/tabs_dark.png') }}"></x-image>
+
+<x-sub-title id="active-tab">Активная вкладка</x-sub-title>
+
+<x-p>
+    Метод <code>active()</code> позволяет указать какая вкладка должна быть активной по умолчанию.
+</x-p>
+
+<x-code language="php">
+use MoonShine\Decorations\Tabs;
+use MoonShine\Decorations\Tab;
+
+//...
+
+public function components(): array
+{
+    return [
+        Tabs::make([
+            Tab::make('Seo', [
+                //...
+            ]),
+            Tab::make('Categories', [
+                //...
+            ])
+                ->active() // [tl! focus]
+        ])
+    ];
+}
+
+//...
+</x-code>
 
 </x-page>
