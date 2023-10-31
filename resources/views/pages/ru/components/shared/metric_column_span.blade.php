@@ -9,6 +9,11 @@ columnSpan(
 )
 </x-code>
 
+<x-p>
+    <code>$columnSpan</code> - значение для десктопной версии,<br>
+    <code>$adaptiveColumnSpan</code> - значение для мобильной версии.
+</x-p>
+
 <x-code language="php">
 use App\Models\Article;
 use MoonShine\Decorations\Grid;
