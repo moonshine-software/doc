@@ -26,10 +26,10 @@ return [
         'Decorations:_divider_',
         ['slug' => 'components-decoration_block', 'label' => 'Block', 'title' => 'Decoration Block'],
         ['slug' => 'components-decoration_collapse', 'label' => 'Collapse', 'title' => 'Decoration Collapse'],
+        ['slug' => 'components-decoration_divider', 'label' => 'Divider', 'title' => 'Decoration Divider'],
         ['slug' => 'components-decoration_tabs', 'label' => 'Tabs', 'title' => 'Decoration Tabs'],
         ['slug' => 'components-decoration_heading', 'label' => 'Heading', 'title' => 'Decoration Heading'],
         ['slug' => 'components-decoration_layout', 'label' => 'Layout', 'title' => 'Decoration Layout'],
-        ['slug' => 'components-decoration_divider', 'label' => 'Divider', 'title' => 'Decoration Divider'],
 
         // Metrics
         'Metrics:_divider_',

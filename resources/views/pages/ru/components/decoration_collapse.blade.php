@@ -1,5 +1,5 @@
 <x-page
-    title="Collapse"
+    title="Декоратор Collapse"
     :sectionMenu="[
         'Разделы' => [
             ['url' => '#make', 'label' => 'Make'],
@@ -27,10 +27,10 @@ use MoonShine\Fields\Text;
 public function components(): array
 {
     return [
-        Collapse::make('Title/Slug', [  // [tl! focus]
+        Collapse::make('Title/Slug', [ // [tl! focus]
             Text::make('Title'),
             Text::make('Slug')
-        ])  // [tl! focus]
+        ]) // [tl! focus]
     ];
 }
 
