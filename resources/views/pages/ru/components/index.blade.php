@@ -23,7 +23,16 @@
 
 <x-p>
     <em>Decorations</em> - компоненты используются для визуального оформления пользовательского интерфейса:
-    Block, Collapse, Divider, Flex, Fragment, Grid, Heading, LineBreak, Tabs, TextBlock.
+    <x-link link="{{ route('moonshine.page', 'components-decoration_block') }}">Block</x-link>,
+    <x-link link="{{ route('moonshine.page', 'components-decoration_collapse') }}">Collapse</x-link>,
+    <x-link link="{{ route('moonshine.page', 'components-decoration_divider') }}">Divider</x-link>,
+    <x-link link="{{ route('moonshine.page', 'components-decoration_layout') . '#flex' }}">Flex</x-link>,
+    <x-link link="{{ route('moonshine.page', 'components-decoration_fragment') }}">Fragment</x-link>,
+    <x-link link="{{ route('moonshine.page', 'components-decoration_layout') . '#grid-column' }}">Grid</x-link>,
+    <x-link link="{{ route('moonshine.page', 'components-decoration_heading') }}">Heading</x-link>,
+    LineBreak,
+    <x-link link="{{ route('moonshine.page', 'components-decoration_tabs') }}">Tabs</x-link>,
+    TextBlock.
 </x-p>
 
 <x-p>
