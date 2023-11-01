@@ -143,6 +143,11 @@ class CustomPage extends Page
 }
 </x-code>
 
+<x-moonshine::alert type="default" icon="heroicons.book-open">
+    За более подробной информацией обратитесь к разделу
+    <x-link link="{{ route('moonshine.page', 'components-index') }}">Components</x-link>.
+</x-moonshine::alert>
+
 <x-sub-title id="breadcrumbs">Хлебные крошки</x-sub-title>
 
 <x-p>
