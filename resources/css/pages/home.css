@@ -1,0 +1,581 @@
+/* Section: Heroes */
+.heroes {
+    &-telegram {
+        @apply block mb-4 lg:mb-6 self-center rounded-4xl py-1 px-3 xl:py-2 xl:px-4 text-xxs font-medium text-white bg-white/5 border border-white/20 hover:bg-[#40b3e0];
+    }
+
+    &-title {
+        @apply text-[28px] xs:text-xl md:text-2xl xl:text-[64px] 2xl:text-3xl font-black text-center;
+    }
+
+    &-subtitle {
+        @apply mt-2 lg:mt-4 text-md md:text-lg xl:text-xl 2xl:text-[36px] font-bold leading-[1.25] text-center;
+    }
+
+    &-buttons {
+        @apply flex flex-wrap justify-center items-center gap-x-4 md:gap-x-6 gap-y-4 mt-8 xl:mt-12;
+    }
+
+    .ballons-1 {
+        @apply lg:ml-24 2xl:ml-80 px-8 md:px-0 inset-y-0 left-0 h-full;
+
+        path {
+            &:nth-child(1) {
+                animation-duration: 7.25s;
+                animation-delay: 2s;
+            }
+
+            &:nth-child(2) {
+                animation-duration: 7.5s;
+            }
+
+            &:nth-child(3) {
+                animation-duration: 7.75s;
+                animation-delay: 3s;
+            }
+
+            &:nth-child(4) {
+                animation-duration: 8s;
+                animation-delay: 1s;
+            }
+        }
+    }
+
+    .ballons-2 {
+        @apply lg:mr-24 2xl:mr-80 px-10 md:px-0 inset-y-0 right-0 h-full;
+
+        path {
+            &:nth-child(1) {
+                animation-duration: 7.25s;
+                animation-delay: 5s;
+            }
+
+            &:nth-child(2) {
+                animation-duration: 7.5s;
+            }
+
+            &:nth-child(3) {
+                animation-duration: 7.75s;
+                animation-delay: 2s;
+            }
+
+            &:nth-child(4) {
+                animation-duration: 8s;
+            }
+        }
+    }
+}
+
+/* Section: How it works */
+.how-it-works {
+    &-tabs {
+        @apply relative flex flex-col sm:flex-row border border-stroke p-2 gap-1 rounded-3xl sm:rounded-5xl;
+    }
+
+    &-tab {
+        @apply grow lg:grow-0 basis-1/2 lg:min-w-[200px] 2xl:min-w-[230px] rounded-5xl px-6 py-4 text-center text-xxs md:text-xs font-semibold !leading-none transition-all md:px-10 2xl:px-8 md:py-5 xl:py-6 hover:bg-dark-300 current:bg-pink current:pointer-events-none;
+    }
+
+    &-wrapper {
+        @apply flex flex-nowrap flex-col-reverse xl:flex-row gap-y-16 gap-x-10 xl:gap-x-14 mt-8 lg:mt-14;
+    }
+
+    &-items {
+        @apply flex flex-row xl:flex-col gap-x-4 lg:gap-x-6 gap-y-4 overflow-x-auto xl:overflow-x-visible;
+        counter-reset: how-it-works;
+    }
+
+    &-item {
+        @apply w-3/4 md:w-2/4 xl:w-full shrink-0 flex flex-col sm:flex-row gap-y-6 gap-x-6 xl:gap-x-8 2xl:gap-x-10 rounded-3xl border border-stroke bg-dark-100 p-4 2xl:p-8 cursor-pointer hover:bg-dark-200 current:bg-purple current:border-purple current:pointer-events-none;
+        counter-increment: how-it-works;
+
+        &._is-active {
+            .number {
+                @apply bg-pink;
+            }
+
+            .heading-descr {
+                @apply text-white;
+            }
+        }
+
+        .number {
+            @apply shrink-0 bg-purple rounded-3xl w-7 2xl:w-8 h-6 2xl:h-7 transition-colors;
+
+            &::after {
+                content: counter(how-it-works, decimal-leading-zero);
+                @apply relative top-3 left-4 text-md 2xl:text-lg leading-none font-bold text-white;
+            }
+        }
+
+        .heading {
+            &-title {
+                @apply text-xs sm:text-xs 2xl:text-md font-semibold;
+            }
+
+            &-descr {
+                @apply mt-2 2xl:mt-4 text-xs 2xl:text-sm text-gray transition-colors;
+            }
+        }
+    }
+
+    &-preview {
+        @apply relative xl:sticky top-4 h-full aspect-[16/9] before:-z-1 before:rounded-3xl before:rotate-[4deg] before:absolute before:inset-0 before:w-full before:h-full;
+
+        &::before {
+            background: radial-gradient(106.9% 96.69% at 93.08% 41.92%, #4ef6ec 0%, #0797ff 100%), linear-gradient(90deg, #0797ff -29.19%, #894ef6 109.85%);
+        }
+
+        &-video {
+            @apply hidden w-full h-full aspect-[16/9] rounded-3xl current:block;
+        }
+    }
+}
+
+/* Section: Features */
+.features {
+    &-wrapper {
+        @apply lg:max-h-[720px] lg:h-[70vh] lg:min-h-[540px] flex flex-col lg:flex-row mt-10 gap-6 xl:gap-8;
+    }
+
+    &-list {
+        @apply shrink-0 lg:basis-1/4 rounded-3xl bg-purple py-4 lg:py-6 2xl:py-10 px-3 sm:px-4 2xl:px-6;
+
+        > ul {
+            @apply overflow-y-auto h-full max-h-64 lg:max-h-full space-y-1;
+
+            > li {
+                > button {
+                    @apply w-full p-3 2xl:px-4 rounded-lg text-xs 2xl:text-sm font-medium leading-[1.25] text-left hover:bg-white/10 current:bg-pink;
+                }
+            }
+        }
+    }
+
+    &-preview {
+        @apply grow lg:basis-3/4 min-w-0 rounded-3xl bg-lightgray p-4 sm:p-6 2xl:p-10 text-black;
+
+        &-wrapper {
+            @apply aspect-[16/9] w-full max-w-full overflow-hidden relative h-full rounded-[0.75rem];
+
+            /* &._is-switched { */
+            /* 	.features-preview-image { */
+            /* 		@apply w-[15%] sm:w-[10%]; */
+            /* 	} */
+            /* } */
+        }
+
+        &-code {
+            @apply absolute inset-y-0 z-3 h-full rounded-r-none text-xxs sm:text-xs;
+            width: var(--slider-pos, 10%);
+
+            pre {
+                @apply h-full;
+            }
+        }
+
+        &-image {
+            @apply pointer-events-none select-none absolute inset-y-0 right-0 w-[90%] h-full;
+
+            .resize {
+                @apply pointer-events-none absolute -left-6 z-3 inset-y-0 flex items-center before:absolute before:block before:w-1.5 before:h-full before:bg-pink before:left-1/2 before:-translate-x-1/2;
+            }
+
+            > img {
+                @apply w-full h-full object-cover;
+            }
+        }
+
+        &-slider {
+            @apply pointer-events-none absolute left-[10%] z-4 appearance-none flex items-center justify-center w-[80.5%] h-full m-0 outline-none transition-all bg-transparent;
+
+            &::-webkit-slider-thumb {
+                @apply pointer-events-auto appearance-none relative z-5 w-1.5 h-[999px] bg-pink cursor-ew-resize;
+            }
+
+            &::-moz-range-thumb {
+                @apply pointer-events-auto appearance-none relative z-5 w-1.5 h-[999px] border-0 bg-pink cursor-ew-resize;
+            }
+
+            &-btn {
+                @apply pointer-events-none absolute z-4 flex items-center justify-center w-8 h-8 rounded-full bg-pink text-white transition-colors hover:bg-purple;
+                top: calc(50% - 1rem);
+                left: calc(var(--slider-pos, 10%) + 2px);
+                transform: translateX(-50%);
+            }
+        }
+    }
+
+    .ballons {
+        @apply lg:mr-24 2xl:mr-36 px-8 md:px-0 top-24 right-0;
+
+        path {
+            &:nth-child(1) {
+                animation-duration: 7.25s;
+                animation-delay: 2s;
+            }
+
+            &:nth-child(2) {
+                animation-duration: 7.5s;
+            }
+
+            &:nth-child(3) {
+                animation-duration: 7.75s;
+                animation-delay: 3s;
+            }
+
+            &:nth-child(4) {
+                animation-duration: 8s;
+                animation-delay: 1s;
+            }
+        }
+    }
+}
+
+/* Section: Questions */
+.questions {
+    @apply mt-14;
+
+    &-wrapper {
+        @apply relative z-1 gap-y-6 gap-x-10 flex flex-col lg:flex-row lg:items-center py-6 xs:py-8 2xl:py-4 px-4 xs:px-6 lg:px-10 rounded-3xl border border-stroke bg-dark-100;
+    }
+
+    &-heading {
+        @apply 2xl:max-w-[600px] 2xl:w-full;
+
+        .title {
+            @apply text-lg xl:text-xl font-black;
+        }
+
+        .description {
+            @apply mt-4 text-gray text-sm 2xl:text-md;
+        }
+    }
+
+    &-actions {
+        @apply grow shrink-0 flex flex-col md:flex-row lg:flex-col 2xl:flex-row gap-4 lg:gap-x-6;
+
+        > .btn {
+            @apply w-full 2xl:w-auto;
+        }
+    }
+
+    &-image {
+        @apply absolute lg:static -z-1 w-20 lg:w-40 h-20 lg:h-40 top-3 sm:top-4 lg:inset-y-0 right-3 sm:right-6 lg:right-10 lg:my-auto opacity-50 sm:opacity-100;
+    }
+}
+
+/* Section: Technologies */
+.technologies {
+    &-items {
+        @apply flex flex-wrap items-center justify-center gap-y-12 gap-x-20 2xl:gap-x-28 mt-12 lg:mt-16;
+    }
+
+    &-item {
+        @apply block hover:opacity-75;
+
+        > img {
+            @apply object-contain w-full h-full max-w-[200px] lg:max-w-[240px] xl:max-w-[280px] max-h-20;
+        }
+    }
+
+    .ballons {
+        @apply lg:ml-24 2xl:ml-56 px-8 md:px-0 top-24 left-0;
+
+        path {
+            &:nth-child(1) {
+                animation-duration: 7.25s;
+                animation-delay: 2s;
+            }
+
+            &:nth-child(2) {
+                animation-duration: 7.5s;
+            }
+
+            &:nth-child(3) {
+                animation-duration: 7.75s;
+                animation-delay: 3s;
+            }
+
+            &:nth-child(4) {
+                animation-duration: 8s;
+                animation-delay: 1s;
+            }
+        }
+    }
+}
+
+/* Section: Advantages */
+.advantages {
+    &-wrapper {
+        @apply flex flex-col md:flex-row gap-10 py-6 px-4 xs:p-6 md:p-8 lg:p-10 2xl:p-16 bg-dark-200 border border-stroke rounded-3xl;
+    }
+
+    &-heading {
+        @apply md:sticky md:top-6 md:h-full;
+
+        &-links {
+            @apply flex flex-col sm:flex-row md:flex-col flex-wrap items-start gap-4 mt-6 md:mt-8;
+
+            > .btn {
+                @apply grow;
+            }
+        }
+    }
+
+    &-list {
+        @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-y-8 md:gap-y-12 xl:gap-y-16 gap-x-10;
+        counter-reset: advantages;
+    }
+
+    &-item {
+        counter-increment: advantages;
+
+        .number {
+            @apply bg-pink rounded-3xl w-7 xl:w-8 h-6 xl:h-7 transition-colors;
+
+            &::after {
+                content: counter(advantages, decimal-leading-zero);
+                @apply relative top-3 left-4 text-md xl:text-lg leading-none font-bold text-white;
+            }
+        }
+
+        .heading {
+            @apply mt-6 xl:mt-8;
+
+            &-title {
+                @apply text-xs sm:text-sm xl:text-md 2xl:text-lg font-bold;
+            }
+
+            &-descr {
+                @apply mt-2 2xl:mt-4 text-xs xl:text-sm 2xl:text-md text-gray transition-colors;
+            }
+        }
+    }
+}
+
+/* Section: Cases */
+.cases {
+    &-list {
+        @apply flex items-center flex-wrap lg:flex-nowrap justify-center gap-x-4 gap-y-4 md:gap-y-0 lg:gap-x-0 lg:-space-x-6 2xl:space-x-0 2xl:gap-x-6 mt-6 md:mt-10 px-6;
+    }
+
+    &-item {
+        @apply relative bg-body overflow-hidden w-32 sm:w-36 md:w-52 lg:w-36 xl:w-44 2xl:w-52 h-32 sm:h-36 md:h-52 lg:h-36 xl:h-44 2xl:h-52 rounded-full border-[10px] border-body shadow-[0_0_0_1px_#424265] transition-all;
+        background:
+            linear-gradient(rgb(26 27 65 / 90%) 0%, rgb(26 27 65 / 90%) 100%),
+            var(--bg-url) no-repeat center/195px;
+
+        .title {
+            @apply absolute z-2 inset-0 flex items-center justify-center text-xxs md:text-xs xl:text-sm font-semibold text-center;
+        }
+
+        &-middle {
+            @apply order-last md:order-[initial] flex items-center md:justify-center basis-full self-center lg:basis-auto relative md:-my-16 xl:my-0 z-2 w-44 md:w-52 2xl:w-60 h-44 md:h-52 2xl:h-60 shrink-0;
+
+            .picture {
+                @apply select-none pointer-events-none object-contain w-full h-full;
+            }
+        }
+    }
+
+    .ballons {
+        @apply lg:mr-24 2xl:mr-56 px-8 md:px-0 top-24 right-0;
+
+        path {
+            &:nth-child(1) {
+                animation-duration: 7.25s;
+                animation-delay: 2s;
+            }
+
+            &:nth-child(2) {
+                animation-duration: 7.5s;
+            }
+
+            &:nth-child(3) {
+                animation-duration: 7.75s;
+                animation-delay: 3s;
+            }
+
+            &:nth-child(4) {
+                animation-duration: 8s;
+                animation-delay: 1s;
+            }
+        }
+    }
+}
+
+/* Section: Testimonials */
+.testimonials {
+    @apply overflow-hidden;
+
+    &-heading {
+        @apply flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 xl:gap-10;
+    }
+
+    &-navigation {
+        @apply flex gap-x-2 md:gap-x-4;
+    }
+
+    &-slider {
+        @apply mt-8 md:mt-10 xl:mt-16 overflow-x-visible;
+
+        .swiper-slide {
+            @apply transition-opacity;
+
+            &:not(.swiper-slide-visible) {
+                @apply 2xl:opacity-50;
+            }
+        }
+    }
+
+    &-item {
+        @apply overflow-hidden py-6 px-4 sm:p-6 md:p-8 xl:p-10 rounded-3xl bg-purple after:absolute after:-top-8 after:-right-2 after:block after:w-24 after:h-24 after:bg-[url('/../../images/icons/quote.svg')] after:bg-no-repeat after:opacity-10;
+
+        &-heading {
+            @apply flex items-center gap-x-4 md:gap-x-6;
+
+            .photo {
+                @apply shrink-0 select-none overflow-hidden w-12 md:w-16 h-12 md:h-16 rounded-full;
+            }
+
+            .author {
+                &-name {
+                    @apply text-xs md:text-sm lg:text-md font-semibold;
+                    word-break: break-word;
+                }
+
+                &-link {
+                    @apply text-xs hover:opacity-75;
+                    word-break: break-word;
+                }
+            }
+        }
+
+        &-text {
+            @apply mt-4 md:mt-6 text-xs md:text-sm xl:text-md xl:leading-[1.6];
+        }
+
+        &-video {
+            @apply relative overflow-hidden mt-4 md:mt-6 rounded-[0.75rem] aspect-[16/9] after:overflow-hidden after:pointer-events-none after:absolute after:block after:inset-0 after:rounded-[0.75rem] after:bg-black/50 after:backdrop-blur-sm after:transition-colors hover:after:bg-black/60;
+
+            > a {
+                @apply block;
+
+                &:hover {
+                    > svg {
+                        @apply scale-110 fill-pink;
+                    }
+                }
+
+                > svg {
+                    @apply absolute inset-0 z-2 m-auto w-10 sm:w-12 h-10 sm:h-12 fill-white transition-all;
+                }
+
+                > img {
+                    @apply w-full h-full object-cover;
+                }
+            }
+        }
+    }
+}
+
+/* Section: Compare */
+.compare {
+    &-table {
+        @apply max-w-full overflow-x-auto;
+
+        table {
+            @apply w-full mt-12 lg:mt-16 text-xs 2xl:text-sm text-center border-collapse border-none;
+
+            th,
+            td {
+                @apply px-4 py-6;
+            }
+
+            th {
+                @apply font-semibold;
+            }
+
+            thead th {
+                @apply border-b-[3px] border-b-purple bg-dark-100/90 backdrop-blur-sm;
+
+                &:first-child {
+                    @apply rounded-tl-2xl;
+                }
+
+                &:last-child {
+                    @apply rounded-tr-2xl;
+                }
+            }
+
+            tbody th,
+            tbody td {
+                @apply align-top border-y-[1px] border-stroke;
+            }
+
+            tbody th {
+                @apply text-left;
+            }
+
+            tbody tr {
+                &:nth-child(even) {
+                    th,
+                    td {
+                        @apply bg-dark-100/80 backdrop-blur-sm;
+                    }
+                }
+            }
+        }
+    }
+
+    .ballons-1 {
+        @apply hidden sm:block lg:ml-24 2xl:ml-80 px-8 md:px-0 inset-y-0 left-0 h-full;
+
+        path {
+            &:nth-child(1) {
+                animation-duration: 7.25s;
+                animation-delay: 2s;
+            }
+
+            &:nth-child(2) {
+                animation-duration: 7.5s;
+            }
+
+            &:nth-child(3) {
+                animation-duration: 7.75s;
+                animation-delay: 3s;
+            }
+
+            &:nth-child(4) {
+                animation-duration: 8s;
+                animation-delay: 1s;
+            }
+        }
+    }
+
+    .ballons-2 {
+        @apply lg:mr-24 2xl:mr-80 px-10 md:px-0 inset-y-0 right-0 h-full;
+
+        path {
+            &:nth-child(1) {
+                animation-duration: 10.25s;
+                animation-delay: 4s;
+            }
+
+            &:nth-child(2) {
+                animation-duration: 10.5s;
+            }
+
+            &:nth-child(3) {
+                animation-duration: 10.75s;
+                animation-delay: 3s;
+            }
+
+            &:nth-child(4) {
+                animation-duration: 10s;
+                animation-delay: 2s;
+            }
+        }
+    }
+}

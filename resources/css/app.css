@@ -1,0 +1,14 @@
+/* Tailwind Base */
+@import "tailwindcss/base";
+@import "base/common.css";
+
+/* Tailwind Components */
+@import "tailwindcss/components";
+@import "components/buttons.css";
+@import "components/swiper.css";
+
+/* Tailwind Utilities */
+@import "tailwindcss/utilities";
+
+/* Pages */
+@import "pages/home.css";

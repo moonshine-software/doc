@@ -1,0 +1,198 @@
+/* Custom Fonts */
+@font-face {
+	font-family: "Gilroy";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url("../../fonts/Gilroy-Regular.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Gilroy";
+	font-style: normal;
+	font-weight: 500;
+	font-display: swap;
+	src: url("../../fonts/Gilroy-Medium.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Gilroy";
+	font-style: normal;
+	font-weight: 600;
+	font-display: swap;
+	src: url("../../fonts/Gilroy-SemiBold.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Gilroy";
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url("../../fonts/Gilroy-Bold.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Gilroy";
+	font-style: normal;
+	font-weight: 900;
+	font-display: swap;
+	src: url("../../fonts/Gilroy-Black.woff2") format("woff2");
+}
+
+/* General CSS */
+::selection {
+	@apply bg-purple text-white;
+}
+
+/* Custom Scrollbar */
+.scrollbar {
+	* {
+		scrollbar-width: thin;
+		scrollbar-color: theme("colors.white") transparent;
+	}
+
+	::-webkit-scrollbar {
+		width: 10px;
+		height: 10px;
+	}
+
+	::-webkit-scrollbar-track {
+		background-color: transparent;
+	}
+
+	::-webkit-scrollbar-thumb {
+		border-radius: 20px;
+		border: 3px solid transparent;
+		background-clip: padding-box;
+		background-color: theme("colors.white");
+
+		&:hover {
+			background-color: theme("colors.pink");
+		}
+	}
+
+	::-webkit-scrollbar-corner {
+		background: transparent;
+	}
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	@apply relative overflow-x-hidden bg-body text-white;
+	min-width: 320px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+a {
+	@apply inline-block transition-all;
+}
+
+p + p {
+	@apply mt-4;
+}
+
+b,
+strong {
+	@apply font-semibold;
+}
+
+button {
+	@apply transition-all;
+}
+
+svg {
+	@apply flex-shrink-0;
+}
+
+pre {
+	@apply max-w-full overflow-auto;
+}
+
+section {
+	@apply relative;
+}
+
+.section-heading {
+	&-title {
+		@apply text-lg md:text-xl xl:text-2xl font-black text-white;
+	}
+
+	&-descr {
+		@apply mt-3 md:mt-6 text-xs md:text-sm xl:text-md text-gray;
+	}
+}
+
+.mt-120 {
+	@apply mt-20 md:mt-28 xl:mt-32;
+}
+
+.pt-120 {
+	@apply pt-20 md:pt-28 xl:pt-32;
+}
+
+.ballons {
+	@apply overflow-visible select-none pointer-events-none absolute -z-1;
+
+	path {
+		animation-name: move;
+		animation-iteration-count: infinite;
+		animation-timing-function: linear;
+		opacity: 0;
+	}
+
+	@keyframes move {
+		0% {
+			transform: translate3d(0, 75%, 0);
+			opacity: 0;
+		}
+		25% {
+			opacity: 1;
+		}
+		75% {
+			opacity: 1;
+		}
+		100% {
+			transform: translate3d(0, -75%, 0);
+			opacity: 0;
+		}
+	}
+}
+
+.box {
+	@apply relative rounded-lg bg-white p-3 sm:p-4 lg:p-5;
+
+	&-dark {
+		@apply bg-[#28334e] text-slate-200 shadow-none;
+	}
+}
+
+.torchlight.has-focus-lines .line:not(.line-focus) {
+	transition:
+		filter 0.35s,
+		opacity 0.35s;
+	filter: blur(0.095rem);
+	opacity: 0.65;
+}
+
+.torchlight.has-focus-lines:hover .line:not(.line-focus) {
+	filter: blur(0px);
+	opacity: 1;
+}
+
+.torchlight-copy {
+	position: absolute;
+	top: 0.5rem;
+	right: 0.5rem;
+	opacity: 0.25;
+	color: #ffffff;
+}
+
+.torchlight-copy:hover {
+	opacity: 1;
+}
