@@ -120,14 +120,14 @@
     }
 
     &-preview {
-        @apply relative xl:sticky top-4 h-full aspect-[16/9] before:-z-1 before:rounded-3xl before:rotate-[4deg] before:absolute before:inset-0 before:w-full before:h-full;
+        @apply relative xl:sticky top-4 h-full before:-z-1 before:rounded-3xl before:rotate-[4deg] before:absolute before:inset-0 before:w-full before:h-full;
 
         &::before {
             background: radial-gradient(106.9% 96.69% at 93.08% 41.92%, #4ef6ec 0%, #0797ff 100%), linear-gradient(90deg, #0797ff -29.19%, #894ef6 109.85%);
         }
 
         &-video {
-            @apply hidden w-full h-full aspect-[16/9] rounded-3xl current:block;
+            @apply hidden w-full h-full rounded-3xl current:block;
         }
     }
 }
