@@ -4,7 +4,7 @@ return [
     // The Torchlight client caches highlighted code blocks. Here
     // you can define which cache driver you'd like to use. If
     // leave this blank your default app cache will be used.
-    'cache' => env('TORCHLIGHT_CACHE_DRIVER'),
+    'cache' => env('TORCHLIGHT_CACHE_DRIVER', 'file'),
 
     // Cache blocks for 30 days.
     'cache_seconds' => env('TORCHLIGHT_CACHE_TTL', 60 * 60 * 24 * 30),

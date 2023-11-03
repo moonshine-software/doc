@@ -1,11 +1,13 @@
 <?php
 
-use App\MoonShine\MoonShineLayout;
 use MoonShine\Exceptions\MoonShineNotFoundException;
 use MoonShine\Forms\LoginForm;
 use MoonShine\Http\Middleware\Authenticate;
+use MoonShine\Http\Middleware\SecurityHeadersMiddleware;
 use MoonShine\Models\MoonshineUser;
+use App\MoonShine\MoonShineLayout;
 use MoonShine\Pages\ProfilePage;
+use Torchlight\Middleware\RenderTorchlight;
 
 return [
     'dir' => 'app/MoonShine',
@@ -20,7 +22,8 @@ return [
         'single_page_prefix' => 'section',
         'index_route' => env('MOONSHINE_INDEX_ROUTE', 'moonshine.index'),
         'middlewares' => [
-            //SecurityHeadersMiddleware::class,
+            SecurityHeadersMiddleware::class,
+            RenderTorchlight::class,
         ],
         'notFoundHandler' => MoonShineNotFoundException::class,
     ],
@@ -33,12 +36,12 @@ return [
     'disk' => 'public',
 
     'forms' => [
-        'login' => LoginForm::class,
+        'login' => LoginForm::class
     ],
 
     'pages' => [
         'dashboard' => App\MoonShine\Pages\Dashboard::class,
-        'profile' => ProfilePage::class,
+        'profile' => ProfilePage::class
     ],
 
     'auth' => [
