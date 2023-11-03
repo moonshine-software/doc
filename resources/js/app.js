@@ -4,6 +4,9 @@ import { Navigation } from "swiper/modules"
 
 import("../../node_modules/swiper/swiper.css")
 
+/* Import main CSS */
+import("../css/app.css")
+
 /* Import Alpine.js */
 import Alpine from "alpinejs"
 import persist from "@alpinejs/persist"

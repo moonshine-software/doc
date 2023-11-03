@@ -14,12 +14,9 @@
     <meta name="msapplication-TileColor" content="#1A1B41" />
     <meta name="theme-color" content="#1A1B41" />
 
-    <style>
-        [x-cloak] { display: none !important; }
-    </style>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite('resources/js/app.js')
 </head>
-<body x-data="{ openMobileMenu: false }" x-cloak>
+<body x-data="{ openMobileMenu: false }">
     <!-- Site header -->
     <header class="header pt-6 2xl:pt-10">
         <div class="container">
@@ -235,13 +232,13 @@
                     </div>
                     <!-- /.how-it-works-items -->
                     <div class="how-it-works-preview">
-                        <video load="lazy" class="how-it-works-preview-video" :class="{ '_is-active': lvlTab_1_ActiveTab === 1 }" autoplay muted preload="auto" playsinline loop>
+                        <video class="how-it-works-preview-video" :class="{ '_is-active': lvlTab_1_ActiveTab === 1 }" autoplay muted preload="auto" playsinline loop>
                             <source src="/video/j1.mp4" type="video/mp4" />
                         </video>
-                        <video load="lazy" class="how-it-works-preview-video" :class="{ '_is-active': lvlTab_1_ActiveTab === 2 }" autoplay muted preload="auto" playsinline loop>
+                        <video class="how-it-works-preview-video" :class="{ '_is-active': lvlTab_1_ActiveTab === 2 }" autoplay muted preload="auto" playsinline loop>
                             <source src="/video/j2.mp4" type="video/mp4" />
                         </video>
-                        <video load="lazy" class="how-it-works-preview-video" :class="{ '_is-active': lvlTab_1_ActiveTab === 3 }" autoplay muted preload="auto" playsinline loop>
+                        <video class="how-it-works-preview-video" :class="{ '_is-active': lvlTab_1_ActiveTab === 3 }" autoplay muted preload="auto" playsinline loop>
                             <source src="/video/j3.mp4" type="video/mp4" />
                         </video>
                     </div>
@@ -270,10 +267,10 @@
                     </div>
                     <!-- /.how-it-works-items -->
                     <div class="how-it-works-preview">
-                        <video load="lazy" class="how-it-works-preview-video" :class="{ '_is-active': lvlTab_2_ActiveTab === 1 }" autoplay muted preload="auto" playsinline loop>
+                        <video class="how-it-works-preview-video" :class="{ '_is-active': lvlTab_2_ActiveTab === 1 }" autoplay muted preload="auto" playsinline loop>
                             <source src="/video/p1.mp4" type="video/mp4" />
                         </video>
-                        <video load="lazy" class="how-it-works-preview-video" :class="{ '_is-active': lvlTab_2_ActiveTab === 2 }" autoplay muted preload="auto" playsinline loop>
+                        <video class="how-it-works-preview-video" :class="{ '_is-active': lvlTab_2_ActiveTab === 2 }" autoplay muted preload="auto" playsinline loop>
                             <source src="/video/p2.mp4" type="video/mp4" />
                         </video>
                     </div>
