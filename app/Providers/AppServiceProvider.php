@@ -24,6 +24,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Vite::useScriptTagAttributes([
+            'async' => true,
+            'rel="prefetch" as' => 'script',
+        ]);
 
+        Vite::useStyleTagAttributes([
+            'rel="preload" as' => 'style',
+        ]);
     }
 }
