@@ -1,120 +1,120 @@
 {
-  "resources/fonts/Gilroy-Medium.woff2": {
-    "file": "assets/Gilroy-Medium.e61f2165.woff2",
-    "src": "resources/fonts/Gilroy-Medium.woff2"
-  },
-  "resources/fonts/Gilroy-Regular.woff2": {
-    "file": "assets/Gilroy-Regular.8ae963ef.woff2",
-    "src": "resources/fonts/Gilroy-Regular.woff2"
-  },
-  "resources/fonts/Gilroy-Black.woff2": {
-    "file": "assets/Gilroy-Black.cf204b09.woff2",
-    "src": "resources/fonts/Gilroy-Black.woff2"
-  },
-  "resources/fonts/Gilroy-Bold.woff2": {
-    "file": "assets/Gilroy-Bold.05391b44.woff2",
-    "src": "resources/fonts/Gilroy-Bold.woff2"
-  },
-  "resources/fonts/Gilroy-SemiBold.woff2": {
-    "file": "assets/Gilroy-SemiBold.d8e57f7f.woff2",
-    "src": "resources/fonts/Gilroy-SemiBold.woff2"
-  },
-  "resources/images/admin-panel.png": {
-    "file": "assets/admin-panel.8aa4ac2e.png",
-    "src": "resources/images/admin-panel.png"
-  },
-  "resources/images/cases/blog.jpg": {
-    "file": "assets/blog.a5720d97.jpg",
-    "src": "resources/images/cases/blog.jpg"
-  },
-  "resources/images/avatar.jpg": {
-    "file": "assets/avatar.0a53be38.jpg",
-    "src": "resources/images/avatar.jpg"
-  },
-  "resources/images/cases/cms.jpg": {
-    "file": "assets/cms.0e783a77.jpg",
-    "src": "resources/images/cases/cms.jpg"
-  },
-  "resources/images/cases/chatbot.jpg": {
-    "file": "assets/chatbot.917c1091.jpg",
-    "src": "resources/images/cases/chatbot.jpg"
-  },
-  "resources/images/cases/crm.jpg": {
-    "file": "assets/crm.841d6ea4.jpg",
-    "src": "resources/images/cases/crm.jpg"
-  },
-  "resources/images/cases/news.jpg": {
-    "file": "assets/news.c69f700d.jpg",
-    "src": "resources/images/cases/news.jpg"
-  },
-  "resources/images/cases/your-project.svg": {
-    "file": "assets/your-project.3be6bdf4.svg",
-    "src": "resources/images/cases/your-project.svg"
-  },
-  "resources/images/cases/shop.jpg": {
-    "file": "assets/shop.e4e80aa0.jpg",
-    "src": "resources/images/cases/shop.jpg"
-  },
-  "resources/images/icons/telegram.svg": {
-    "file": "assets/telegram.6238de9b.svg",
-    "src": "resources/images/icons/telegram.svg"
-  },
-  "resources/images/icons/quote.svg": {
-    "file": "assets/quote.2386e012.svg",
-    "src": "resources/images/icons/quote.svg"
-  },
-  "resources/images/icons/play.svg": {
-    "file": "assets/play.3a9f99cd.svg",
-    "src": "resources/images/icons/play.svg"
-  },
-  "resources/images/icons/youtube.svg": {
-    "file": "assets/youtube.d7f25e01.svg",
-    "src": "resources/images/icons/youtube.svg"
-  },
-  "resources/images/logo-text.svg": {
-    "file": "assets/logo-text.be78c3d1.svg",
-    "src": "resources/images/logo-text.svg"
-  },
-  "resources/images/logo/alpinejs.svg": {
-    "file": "assets/alpinejs.496916c8.svg",
-    "src": "resources/images/logo/alpinejs.svg"
-  },
-  "resources/images/logo.svg": {
-    "file": "assets/logo.5d9863e5.svg",
-    "src": "resources/images/logo.svg"
-  },
-  "resources/images/logo/laravel.svg": {
-    "file": "assets/laravel.03f6319e.svg",
-    "src": "resources/images/logo/laravel.svg"
-  },
-  "resources/images/question.svg": {
-    "file": "assets/question.0b0bb6b3.svg",
-    "src": "resources/images/question.svg"
-  },
-  "resources/images/logo/tailwindcss.svg": {
-    "file": "assets/tailwindcss.8f489175.svg",
-    "src": "resources/images/logo/tailwindcss.svg"
-  },
-  "resources/images/logo-moon.svg": {
-    "file": "assets/logo-moon.77c8adaf.svg",
-    "src": "resources/images/logo-moon.svg"
-  },
-  "resources/images/testimonial-thumb.jpg": {
-    "file": "assets/testimonial-thumb.67326447.jpg",
-    "src": "resources/images/testimonial-thumb.jpg"
-  },
-  "resources/js/app.js": {
-    "file": "assets/app.f0294bb5.js",
-    "src": "resources/js/app.js",
-    "isEntry": true
-  },
   "node_modules/swiper/swiper.css": {
-    "file": "assets/swiper.d5a0116a.css",
+    "file": "assets/swiper-d6fc63cb.css",
     "src": "node_modules/swiper/swiper.css"
   },
   "resources/css/app.css": {
-    "file": "assets/app.c530671b.css",
-    "src": "resources/css/app.css",
-    "isEntry": true
+    "file": "assets/app-b77d4d5d.css",
+    "isEntry": true,
+    "src": "resources/css/app.css"
+  },
+  "resources/fonts/Gilroy-Black.woff2": {
+    "file": "assets/Gilroy-Black-cf204b09.woff2",
+    "src": "resources/fonts/Gilroy-Black.woff2"
+  },
+  "resources/fonts/Gilroy-Bold.woff2": {
+    "file": "assets/Gilroy-Bold-05391b44.woff2",
+    "src": "resources/fonts/Gilroy-Bold.woff2"
+  },
+  "resources/fonts/Gilroy-Medium.woff2": {
+    "file": "assets/Gilroy-Medium-e61f2165.woff2",
+    "src": "resources/fonts/Gilroy-Medium.woff2"
+  },
+  "resources/fonts/Gilroy-Regular.woff2": {
+    "file": "assets/Gilroy-Regular-8ae963ef.woff2",
+    "src": "resources/fonts/Gilroy-Regular.woff2"
+  },
+  "resources/fonts/Gilroy-SemiBold.woff2": {
+    "file": "assets/Gilroy-SemiBold-d8e57f7f.woff2",
+    "src": "resources/fonts/Gilroy-SemiBold.woff2"
+  },
+  "resources/images/admin-panel.png": {
+    "file": "assets/admin-panel-8aa4ac2e.png",
+    "src": "resources/images/admin-panel.png"
+  },
+  "resources/images/avatar.jpg": {
+    "file": "assets/avatar-0a53be38.jpg",
+    "src": "resources/images/avatar.jpg"
+  },
+  "resources/images/cases/blog.jpg": {
+    "file": "assets/blog-a5720d97.jpg",
+    "src": "resources/images/cases/blog.jpg"
+  },
+  "resources/images/cases/chatbot.jpg": {
+    "file": "assets/chatbot-917c1091.jpg",
+    "src": "resources/images/cases/chatbot.jpg"
+  },
+  "resources/images/cases/cms.jpg": {
+    "file": "assets/cms-0e783a77.jpg",
+    "src": "resources/images/cases/cms.jpg"
+  },
+  "resources/images/cases/crm.jpg": {
+    "file": "assets/crm-841d6ea4.jpg",
+    "src": "resources/images/cases/crm.jpg"
+  },
+  "resources/images/cases/news.jpg": {
+    "file": "assets/news-c69f700d.jpg",
+    "src": "resources/images/cases/news.jpg"
+  },
+  "resources/images/cases/shop.jpg": {
+    "file": "assets/shop-e4e80aa0.jpg",
+    "src": "resources/images/cases/shop.jpg"
+  },
+  "resources/images/cases/your-project.svg": {
+    "file": "assets/your-project-3be6bdf4.svg",
+    "src": "resources/images/cases/your-project.svg"
+  },
+  "resources/images/icons/play.svg": {
+    "file": "assets/play-3a9f99cd.svg",
+    "src": "resources/images/icons/play.svg"
+  },
+  "resources/images/icons/quote.svg": {
+    "file": "assets/quote-2386e012.svg",
+    "src": "resources/images/icons/quote.svg"
+  },
+  "resources/images/icons/telegram.svg": {
+    "file": "assets/telegram-6238de9b.svg",
+    "src": "resources/images/icons/telegram.svg"
+  },
+  "resources/images/icons/youtube.svg": {
+    "file": "assets/youtube-d7f25e01.svg",
+    "src": "resources/images/icons/youtube.svg"
+  },
+  "resources/images/logo-moon.svg": {
+    "file": "assets/logo-moon-77c8adaf.svg",
+    "src": "resources/images/logo-moon.svg"
+  },
+  "resources/images/logo-text.svg": {
+    "file": "assets/logo-text-be78c3d1.svg",
+    "src": "resources/images/logo-text.svg"
+  },
+  "resources/images/logo.svg": {
+    "file": "assets/logo-5d9863e5.svg",
+    "src": "resources/images/logo.svg"
+  },
+  "resources/images/logo/alpinejs.svg": {
+    "file": "assets/alpinejs-496916c8.svg",
+    "src": "resources/images/logo/alpinejs.svg"
+  },
+  "resources/images/logo/laravel.svg": {
+    "file": "assets/laravel-03f6319e.svg",
+    "src": "resources/images/logo/laravel.svg"
+  },
+  "resources/images/logo/tailwindcss.svg": {
+    "file": "assets/tailwindcss-8f489175.svg",
+    "src": "resources/images/logo/tailwindcss.svg"
+  },
+  "resources/images/question.svg": {
+    "file": "assets/question-0b0bb6b3.svg",
+    "src": "resources/images/question.svg"
+  },
+  "resources/images/testimonial-thumb.jpg": {
+    "file": "assets/testimonial-thumb-67326447.jpg",
+    "src": "resources/images/testimonial-thumb.jpg"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-3a879dd7.js",
+    "isEntry": true,
+    "src": "resources/js/app.js"
   }
 }
