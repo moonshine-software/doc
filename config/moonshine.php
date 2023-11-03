@@ -7,6 +7,7 @@ use MoonShine\Http\Middleware\SecurityHeadersMiddleware;
 use MoonShine\Models\MoonshineUser;
 use App\MoonShine\MoonShineLayout;
 use MoonShine\Pages\ProfilePage;
+use Torchlight\Middleware\RenderTorchlight;
 
 return [
     'dir' => 'app/MoonShine',
@@ -22,6 +23,7 @@ return [
         'index_route' => env('MOONSHINE_INDEX_ROUTE', 'moonshine.index'),
         'middlewares' => [
             SecurityHeadersMiddleware::class,
+            RenderTorchlight::class,
         ],
         'notFoundHandler' => MoonShineNotFoundException::class,
     ],
