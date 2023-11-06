@@ -53,23 +53,14 @@ return [
         ['slug' => 'resources-validation', 'label' => 'Validation rules'],
         ['slug' => 'resources-filters', 'label' => 'Filters'],
         ['slug' => 'resources-search', 'label' => 'Search'],
-        ['slug' => 'resources-table_attributes', 'label' => 'Table attributes'],
+        ['slug' => 'resources-table', 'label' => 'Table'],
+        ['slug' => 'resources-form', 'label' => 'Form'],
+        ['slug' => 'resources-import-export', 'label' => 'Import/Export'],
         ['slug' => 'resources-query', 'label' => 'Query'],
         ['slug' => 'resources-query_tags', 'label' => 'Quick filters (tags)'],
         ['slug' => 'resources-metrics', 'label' => 'Metrics'],
         ['slug' => 'resources-events', 'label' => 'Events'],
         ['slug' => 'resources-authorization', 'label' => 'Authorization'],
-
-//        ['slug' => 'resources-export', 'label' => 'Export'],
-//        ['slug' => 'resources-import', 'label' => 'Import'],
-
-//        ['slug' => 'resources-actions', 'label' => 'Actions'],
-//        ['slug' => 'resources-active_actions', 'label' => 'Active actions'],
-//        ['slug' => 'resources-item_actions', 'label' => 'Item actions'],
-//        ['slug' => 'resources-bulk_actions', 'label' => 'Bulk actions'],
-//        ['slug' => 'resources-form_actions', 'label' => 'Form actions'],
-//        ['slug' => 'resources-components', 'label' => 'Components'],
-//        ['slug' => 'resources-singleton', 'label' => 'SingletonResource'],
     ],
 
     'Menu:bars-3' => [

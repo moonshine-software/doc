@@ -8,8 +8,8 @@
             ['url' => '#define', 'label' => 'Объявление'],
             ['url' => '#item', 'label' => 'Текущий элемент/модель'],
             ['url' => '#modal', 'label' => 'Модальные окна'],
-            ['url' => '#simple-pagination', 'label' => 'Simple pagination'],
-            ['url' => '#disable-pagination', 'label' => 'Отключение пагинации'],
+            ['url' => '#redirects', 'label' => 'Редиректы'],
+            ['url' => '#active_actions', 'label' => 'Активные действия'],
             ['url' => '#boot', 'label' => 'Boot'],
         ]
     ]"
@@ -233,55 +233,50 @@ class PostResource extends ModelResource
 }
 </x-code>
 
-<x-sub-title id="simple-pagination">Simple pagination</x-sub-title>
+<x-sub-title id="redirects">Редиректы</x-sub-title>
 
 <x-p>
-    Если вы не планируете отображать общее количество страниц, воспользуйтесь <code>Simple Pagination</code>.
-    Это позволит избежать дополнительных запросов на общее количество записей в базе данных.
+    По умолчанию при создании и редактировании записи осуществляется редирект на страницу с формой,
+    но это поведение можно контролировать
 </x-p>
 
-<x-code language="php">
-namespace App\MoonShine\Resources;
+<x-code>
+// Через свойство в ресурсе
+protected ?PageType $redirectAfterSave = PageType::FORM;
 
-use App\Models\Post;
-use MoonShine\Resources\ModelResource;
+// или через методы (также доступен редирект после удаления)
 
-class PostResource extends ModelResource
+public function redirectAfterSave(): string
 {
-    protected string $model = Post::class;
+    return '/';
+}
 
-    protected string $title = 'Posts';
-
-    protected bool $simplePaginate = true; // [tl! focus]
-
-    // ...
+public function redirectAfterDelete(): string
+{
+    return to_page(CustomPage::class);
 }
 </x-code>
 
-<x-image theme="light" src="{{ asset('screenshots/resource_simple_paginate.png') }}"></x-image>
-<x-image theme="dark" src="{{ asset('screenshots/resource_simple_paginate_dark.png') }}"></x-image>
-
-<x-sub-title id="disable-pagination">Отключение пагинации</x-sub-title>
+<x-sub-title id="active_actions">Активные действия</x-sub-title>
 
 <x-p>
-    Если вы не планируете использовать разбиение на страницы, то его можно отключить.
+    Часто бывает, что необходимо создать ресурс, в котором будет исключена возможность удалять,
+    или добавлять, или редактировать. И здесь речь не об авторизации, а о глобальном исключении этих разделов.
+    Делается это крайне просто за счет метода <code>getActiveActions</code> в ресурсе
 </x-p>
 
 <x-code language="php">
-namespace App\MoonShine\Resources;
-
-use App\Models\Post;
-use MoonShine\Resources\ModelResource;
+namespace MoonShine\Resources;
 
 class PostResource extends ModelResource
 {
-    protected string $model = Post::class;
+    //...
+    public function getActiveActions(): array // [tl! focus:start]
+    {
+        return ['create', 'view', 'update', 'delete', 'massDelete'];
+    } // [tl! focus:end]
 
-    protected string $title = 'Posts';
-
-    protected bool $usePagination = false; // [tl! focus]
-
-    // ...
+    //...
 }
 </x-code>
 
