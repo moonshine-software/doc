@@ -2,8 +2,10 @@
     title="Число"
     :sectionMenu="[
         'Разделы' => [
+            ['url' => '#make', 'label' => 'Make'],
             ['url' => '#attributes', 'label' => 'Аттрибуты'],
             ['url' => '#stars', 'label' => 'Stars'],
+            ['url' => '#buttons', 'label' => 'Кнопки +/-'],
         ]
     ]"
 >
@@ -11,6 +13,8 @@
 <x-extendby :href="route('moonshine.page', 'fields-text')">
     Text
 </x-extendby>
+
+<x-sub-title id="make">Make</x-sub-title>
 
 <x-p>
     Поле <em>Number</em> является расширением <em>Text</em>,
@@ -99,11 +103,48 @@ public function fields(): array
         Number::make('Rating')
             ->stars() // [tl! focus]
             ->min(1)
-            ->max(5)
+            ->max(10)
     ];
 }
 
 //...
 </x-code>
+
+<x-moonshine::grid>
+    <x-moonshine::column adaptiveColSpan="12" colSpan="4">
+        <x-moonshine::box>
+            @include("examples/components/rating")
+        </x-moonshine::box>
+    </x-moonshine::column>
+</x-moonshine::grid>
+
+<x-sub-title id="buttons">Кнопки +/-</x-sub-title>
+
+<x-p>
+    Метод <code>buttons()</code> позволяет добавить к полю кнопки для увеличения и уменьшения значения.
+</x-p>
+
+<x-code language="php">
+buttons()
+</x-code>
+
+<x-code language="php">
+use MoonShine\Fields\Number;
+
+//...
+
+public function fields(): array
+{
+    return [
+        Number::make('Rating')
+            ->buttons() // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/number_buttons.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/number_buttons_dark.png') }}"></x-image>
 
 </x-page>
