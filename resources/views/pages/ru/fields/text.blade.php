@@ -2,13 +2,17 @@
     title="Текстовое поле"
     :sectionMenu="[
         'Разделы' => [
+            ['url' => '#make', 'label' => 'Make'],
             ['url' => '#default', 'label' => 'Значение по умолчанию'],
             ['url' => '#readonly', 'label' => 'Только для чтения'],
             ['url' => '#mask', 'label' => 'Маска'],
             ['url' => '#extensions', 'label' => 'Расширения'],
+            ['url' => '#update-on-preview', 'label' => 'Редактирование в preview'],
         ]
     ]"
 >
+
+<x-sub-title id="make">Make</x-sub-title>
 
 <x-p>
     Текстовое поле включает в себя все базовые методы.
@@ -191,5 +195,7 @@ public function fields(): array
 
 //...
 </x-code>
+
+@include('pages.ru.fields.shared.update_on_preview', ['field' => 'Text'])
 
 </x-page>

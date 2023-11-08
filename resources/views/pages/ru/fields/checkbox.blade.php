@@ -2,10 +2,14 @@
     title="Checkbox"
     :sectionMenu="[
         'Разделы' => [
+            ['url' => '#make', 'label' => 'Make'],
             ['url' => '#on-off', 'label' => 'Значения on/off'],
+            ['url' => '#update-on-preview', 'label' => 'Редактирование в preview'],
         ]
     ]"
 >
+
+<x-sub-title id="make">Make</x-sub-title>
 
 <x-p>
     Поле <em>Checkbox</em> включает в себя все базовые методы.
@@ -58,7 +62,6 @@ public function fields(): array
 //...
 </x-code>
 
+@include('pages.ru.fields.shared.update_on_preview', ['field' => 'Checkbox'])
+
 </x-page>
-
-
-

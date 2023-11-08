@@ -2,15 +2,19 @@
     title="Select"
     :sectionMenu="[
         'Разделы' => [
+            ['url' => '#make', 'label' => 'Make'],
             ['url' => '#default', 'label' => 'Значение по умолчанию'],
             ['url' => '#nullable', 'label' => 'Nullable'],
             ['url' => '#groups', 'label' => 'Группы'],
             ['url' => '#multiple', 'label' => 'Несколько значений'],
             ['url' => '#searchable', 'label' => 'Поиск'],
             ['url' => '#async', 'label' => 'Асинхронный поиск'],
+            ['url' => '#update-on-preview', 'label' => 'Редактирование в preview'],
         ]
     ]"
 >
+
+<x-sub-title id="make">Make</x-sub-title>
 
 <x-p>
     Поле <em>Select</em> включает в себя все базовые методы.
@@ -255,5 +259,7 @@ public function fields(): array
 
 //...
 </x-code>
+
+@include('pages.ru.fields.shared.update_on_preview', ['field' => 'Select'])
 
 </x-page>
