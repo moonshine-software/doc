@@ -16,7 +16,7 @@
 </x-p>
 
 <x-moonshine::alert type="info" icon="heroicons.information-circle">
-    Если метод отсутствует, либо возвращает пустой массив, то поисковая строка не будет отображаться.
+    Если метод возвращает пустой массив, то поисковая строка не будет отображаться.
 </x-moonshine::alert>
 
 <x-code language="php">
