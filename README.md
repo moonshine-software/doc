@@ -1,4 +1,4 @@
-### MoonShine Documentation!
+### MoonShine Documentation
 
 #### Register menu
 - config/menu.php
