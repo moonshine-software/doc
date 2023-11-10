@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "651b3d14094ebb5910628a865ba3d70c",
+    "content-hash": "f08da91cb5883791153592c263108281",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -2037,22 +2037,22 @@
         },
         {
             "name": "moonshine/moonshine",
-            "version": "2.0.0-rc.2",
+            "version": "2.0.0-rc.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/moonshine-software/moonshine.git",
-                "reference": "fd96c8db97b93faa4b29758ec619206f5e85ff48"
+                "reference": "746b69b5aad3d04d26464a62ce8d1d9fc2b72446"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/moonshine-software/moonshine/zipball/fd96c8db97b93faa4b29758ec619206f5e85ff48",
-                "reference": "fd96c8db97b93faa4b29758ec619206f5e85ff48",
+                "url": "https://api.github.com/repos/moonshine-software/moonshine/zipball/746b69b5aad3d04d26464a62ce8d1d9fc2b72446",
+                "reference": "746b69b5aad3d04d26464a62ce8d1d9fc2b72446",
                 "shasum": ""
             },
             "require": {
                 "ext-curl": "*",
                 "ext-json": "*",
-                "lee-to/laravel-package-command": "^0.9.1",
+                "lee-to/laravel-package-command": "^0.9",
                 "php": "^8.1|^8.2",
                 "rap2hpoutre/fast-excel": "^5.0"
             },
@@ -2062,11 +2062,11 @@
             "require-dev": {
                 "mockery/mockery": "^1.6",
                 "nunomaduro/larastan": "^2.6",
-                "orchestra/testbench": "^8.9",
-                "pestphp/pest": "^2.16",
-                "pestphp/pest-plugin-laravel": "^2.0",
+                "orchestra/testbench": "^8.14",
+                "pestphp/pest": "^2.24.2",
+                "pestphp/pest-plugin-laravel": "^2.2",
                 "pestphp/pest-plugin-mock": "^2.0",
-                "rector/rector": "^0.18.0"
+                "rector/rector": "^0.18"
             },
             "suggest": {
                 "laravel/socialite": "Required to use the Socialite",
@@ -2100,7 +2100,7 @@
                 }
             ],
             "description": "Laravel administration panel",
-            "homepage": "https://moonshine.cutcode.dev",
+            "homepage": "https://moonshine-laravel.com",
             "keywords": [
                 "admin",
                 "dashboard",
@@ -2121,7 +2121,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2023-11-03T09:06:52+00:00"
+            "time": "2023-11-10T14:34:52+00:00"
         },
         {
             "name": "nesbot/carbon",
