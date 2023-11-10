@@ -127,6 +127,7 @@ return [
 
         'Other:_divider_',
         ['slug' => 'fields-preview', 'label' => 'Preview'],
+        ['slug' => 'fields-position', 'label' => 'Position'],
         ['slug' => 'fields-stack_fields', 'label' => 'StackFields'],
     ],
 
