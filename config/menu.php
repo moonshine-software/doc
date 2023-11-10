@@ -125,8 +125,8 @@ return [
 //        ['slug' => 'fields-morph_many', 'label' => 'MorphMany'],
 //        ['slug' => 'fields-morph_to_many', 'label' => 'MorphToMany'],
 
-//        'Other:_divider_',
-//        ['slug' => 'fields-no_input', 'label' => 'NoInput'],
+        'Other:_divider_',
+        ['slug' => 'fields-preview', 'label' => 'Preview'],
 //        ['slug' => 'fields-stack_fields', 'label' => 'StackFields'],
 
        // Packages
