@@ -1,7 +1,7 @@
 <x-page title="StackFields" :sectionMenu="[]">
 
 <x-p>
-    Поле <code>StackFields</code> позволяет группировать поля при отображении их на индексной странице.
+    Поле <code>StackFields</code> позволяет группировать поля при отображении в preview.
 </x-p>
 
 <x-p>
@@ -9,13 +9,14 @@
 </x-p>
 
 <x-p>
-    Метод <code>withLabels()</code> можно использовать для отображения лейблов на индексной странице
+    Метод <code>withLabels()</code> можно использовать для отображения лейблов на индексной странице.
 </x-p>
 
 <x-code language="php">
 use MoonShine\Fields\BelongsTo;
 use MoonShine\Fields\StackFields; // [tl! focus]
 use MoonShine\Fields\Text;
+
 //...
 
 public function fields(): array

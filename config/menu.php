@@ -125,14 +125,10 @@ return [
 //        ['slug' => 'fields-morph_many', 'label' => 'MorphMany'],
 //        ['slug' => 'fields-morph_to_many', 'label' => 'MorphToMany'],
 
-//        'Other:_divider_',
-//        ['slug' => 'fields-no_input', 'label' => 'NoInput'],
-//        ['slug' => 'fields-stack_fields', 'label' => 'StackFields'],
-
-       // Packages
-//        'Packages:_divider_',
-//        ['slug' => 'fields-spatie-translatable', 'label' => 'Spatie\Translatable'],
-//        ['slug' => 'fields-spatie-medialibrary', 'label' => 'Spatie\MediaLibrary'],
+        'Other:_divider_',
+        ['slug' => 'fields-preview', 'label' => 'Preview'],
+        ['slug' => 'fields-position', 'label' => 'Position'],
+        ['slug' => 'fields-stack_fields', 'label' => 'StackFields'],
     ],
 
     'ActionButton:cursor-arrow-ripple' => [
