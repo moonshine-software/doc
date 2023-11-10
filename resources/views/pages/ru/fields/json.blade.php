@@ -2,6 +2,7 @@
     title="Json"
     :sectionMenu="[
         'Разделы' => [
+            ['url' => '#basics', 'label' => 'Основы'],
             ['url' => '#key-value', 'label' => 'Ключ/Значение'],
             ['url' => '#fields', 'label' => 'Набор полей'],
             ['url' => '#value-only', 'label' => 'Только значение'],
@@ -9,9 +10,12 @@
             ['url' => '#creatable-removable', 'label' => 'Добавление/удаление'],
             ['url' => '#vertical', 'label' => 'Вертикальное отображение'],
             ['url' => '#relation', 'label' => 'Отношения через Json'],
+            ['url' => '#filter', 'label' => 'Фильтр'],
         ]
     ]"
 >
+
+<x-sub-title id="basics">Make</x-sub-title>
 
 <x-p>
     Поле <em>Json</em> включает в себя все базовые методы.
@@ -142,6 +146,8 @@ default(mixed $default)
 
 <x-code language="php">
 use MoonShine\Fields\Json;
+use MoonShine\Fields\Switcher;
+use MoonShine\Fields\Text;
 
 //...
 
@@ -261,7 +267,10 @@ asRelation(ModelResource $resource)
 </x-code>
 
 <x-code language="php">
+use MoonShine\Fields\ID;
 use MoonShine\Fields\Json;
+use MoonShine\Fields\Relationships\BelongsTo;
+use MoonShine\Fields\Text;
 
 //...
 
@@ -280,7 +289,7 @@ public function fields(): array
                 Text::make('Text')->required(),
             ]) // [tl! focus:end]
             ->creatable()
-            ->removable(),
+            ->removable()
     ];
 }
 
@@ -294,5 +303,33 @@ public function fields(): array
 
 <x-image theme="light" src="{{ asset('screenshots/json_relation.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/json_relation_dark.png') }}"></x-image>
+
+<x-sub-title id="filter">Фильтр</x-sub-title>
+
+<x-p>
+    Если поле используется для построения фильтра, то необходимо воспользоваться методом <code>filterMode()</code>.
+    Данный метод адаптирует поведение поля и устанавливает <code>creatable = false</code>.
+</x-p>
+
+<x-code language="php">
+use MoonShine\Fields\Json;
+use MoonShine\Fields\Text;
+
+//...
+
+public function filters(): array
+{
+    return [
+        Json::make('Data')
+            ->fields([
+                Text::make('Title', 'title'),
+                Text::make('Value', 'value')
+            ])
+            ->filterMode() // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
 
 </x-page>
