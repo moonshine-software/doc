@@ -127,12 +127,7 @@ return [
 
         'Other:_divider_',
         ['slug' => 'fields-preview', 'label' => 'Preview'],
-//        ['slug' => 'fields-stack_fields', 'label' => 'StackFields'],
-
-       // Packages
-//        'Packages:_divider_',
-//        ['slug' => 'fields-spatie-translatable', 'label' => 'Spatie\Translatable'],
-//        ['slug' => 'fields-spatie-medialibrary', 'label' => 'Spatie\MediaLibrary'],
+        ['slug' => 'fields-stack_fields', 'label' => 'StackFields'],
     ],
 
     'ActionButton:cursor-arrow-ripple' => [
