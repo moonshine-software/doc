@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
+        "fakerphp/faker": "^1.9.1",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.0",
         "lee-to/moonshine-algolia-search": "^1.0",
@@ -14,7 +15,6 @@
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.8",
-        "fakerphp/faker": "^1.9.1",
         "lukeraymonddowning/pest-plugin-larastrap": "^0.3.0",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^7.0",
