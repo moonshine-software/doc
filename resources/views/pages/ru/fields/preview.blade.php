@@ -15,7 +15,7 @@
 
 <x-p>
     С помощью поля <em>Preview</em> вы можете вывести текстовые данные из любого поля модели,
-    либо сгенерировать текст на основе модели.
+    либо сгенерировать текст.
 </x-p>
 
 <x-code language="php">
@@ -58,7 +58,7 @@ public function fields(): array
 {
     return [
         Preview::make('Status')
-            ->badge(fn($item) => $item->status_id === 1 ? 'green' : 'gray') // [tl! focus]
+            ->badge(fn($status) => $status === 1 ? 'green' : 'gray') // [tl! focus]
     ];
 }
 
@@ -140,7 +140,7 @@ public function fields(): array
         Preview::make('Link')
             ->link('https://moonshine-laravel.com', blank: false), // [tl! focus]
         Preview::make('Link')
-            ->link(fn($item) => $item->link, fn($item) => $item->name) // [tl! focus]
+            ->link(fn($link) => $link, fn() => 'Go') // [tl! focus]
     ];
 }
 
