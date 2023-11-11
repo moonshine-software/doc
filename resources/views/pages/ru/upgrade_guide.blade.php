@@ -1,6 +1,21 @@
 <x-page
     title="Upgrade Guide"
-    :sectionMenu="null"
+    :sectionMenu="[
+        'Разделы' => [
+            ['url' => '#requirements', 'label' => '1. Минимальные требования'],
+            ['url' => '#composer', 'label' => '2. Composer.json'],
+            ['url' => '#provider', 'label' => '3. MoonShineServiceProvider'],
+            ['url' => '#icons', 'label' => '4. Icons'],
+            ['url' => '#resources', 'label' => '5. Resources'],
+            ['url' => '#fields', 'label' => '6. Fields'],
+            ['url' => '#filters', 'label' => '7. Filters'],
+            ['url' => '#import_export', 'label' => '8. Import/Export'],
+            ['url' => '#actions', 'label' => '9. Actions'],
+            ['url' => '#update', 'label' => '10. Обновление зависимостей'],
+            ['url' => '#config', 'label' => '11. Config'],
+            ['url' => '#ddashboard', 'label' => '12. Dashboard'],
+        ]
+    ]"
     :videos="[
         ['url' => 'https://www.youtube.com/embed/y4RB25jb31c', 'title' => 'Video upgrade guide'],
     ]"
@@ -261,7 +276,7 @@ class ArticleResource extends ModelResource
     <x-link link="{{ route('moonshine.page', 'resources-filters') }}">Filters</x-link>.
 </x-moonshine::alert>
 
-<x-sub-title id="import-export" hashtag="8">Import / Export</x-sub-title>
+<x-sub-title id="import_export" hashtag="8">Import / Export</x-sub-title>
 
 <x-p>
     По умолчанию импорт и экспорт уже включен во все ресурсы модели.
