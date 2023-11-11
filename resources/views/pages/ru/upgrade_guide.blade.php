@@ -110,10 +110,15 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider // [t
 </x-p>
 
 <x-p>
-    Свойство для перехода после сохранения <code>routeAfterSave</code> в <strong>MoonShine 2.0</strong> заменено на
-    метод <code>redirectAfterSave()</code> который возвращает строку с маршрутом на который необходимо сделать
-    перенаправление.
+    Свойство для перехода после сохранения <code>routeAfterSave</code> в <strong>MoonShine 2.0</strong> переименовано на
+    <code>redirectAfterSave</code>, либо можно воспользоваться методом <code>redirectAfterSave()</code>,
+    который возвращает строку с маршрутом для перенаправления.
 </x-p>
+
+<x-moonshine::alert type="default" icon="heroicons.book-open">
+    За более подробной информацией обратитесь к разделу
+    <x-link link="{{ route('moonshine.page', 'resources-index') . '#redirects' }}">Resources</x-link>.
+</x-moonshine::alert>
 
 <x-p>
     Так же были переименованы некоторые свойства.
@@ -164,31 +169,31 @@ class ArticleResource extends ModelResource // [tl! ++ **]
 </x-p>
 
 <x-code language="php">
-use MoonShine\Fields\Relationships\BelongsTo; // [tl! -- **]
+use MoonShine\Fields\BelongsTo; // [tl! -- **]
 use MoonShine\Fields\Relationships\BelongsTo; // [tl! ++ **]
 
-use MoonShine\Fields\Relationships\BelongsToMany; // [tl! -- **]
+use MoonShine\Fields\BelongsToMany; // [tl! -- **]
 use MoonShine\Fields\Relationships\BelongsToMany; // [tl! ++ **]
 
-use MoonShine\Fields\Relationships\HasMany; // [tl! -- **]
+use MoonShine\Fields\HasMany; // [tl! -- **]
 use MoonShine\Fields\Relationships\HasMany; // [tl! ++ **]
 
-use MoonShine\Fields\Relationships\HasManyThrough; // [tl! -- **]
+use MoonShine\Fields\HasManyThrough; // [tl! -- **]
 use MoonShine\Fields\Relationships\HasManyThrough; // [tl! ++ **]
 
-use MoonShine\Fields\Relationships\HasOne; // [tl! -- **]
+use MoonShine\Fields\HasOne; // [tl! -- **]
 use MoonShine\Fields\Relationships\HasOne; // [tl! ++ **]
 
-use MoonShine\Fields\Relationships\HasOneThrough; // [tl! -- **]
+use MoonShine\Fields\HasOneThrough; // [tl! -- **]
 use MoonShine\Fields\Relationships\HasOneThrough; // [tl! ++ **]
 
-use MoonShine\Fields\Relationships\MorphMany; // [tl! -- **]
+use MoonShine\Fields\MorphMany; // [tl! -- **]
 use MoonShine\Fields\Relationships\MorphMany; // [tl! ++ **]
 
-use MoonShine\Fields\Relationships\MorphTo; // [tl! -- **]
+use MoonShine\Fields\MorphTo; // [tl! -- **]
 use MoonShine\Fields\Relationships\MorphTo; // [tl! ++ **]
 
-use MoonShine\Fields\Relationships\MorphToMany; // [tl! -- **]
+use MoonShine\Fields\MorphToMany; // [tl! -- **]
 use MoonShine\Fields\Relationships\MorphToMany; // [tl! ++ **]
 </x-code>
 
@@ -334,7 +339,7 @@ composer update
 <x-p>
     В новой версии <strong>MoonShine</strong> полностью изменился сonfig.
     Опубликовать новый конфигурационный файл можно через консольную команду.
-    После публикации, можно внести необходимые изменения.
+    После публикации, внесите необходимые корректировки.
 </x-p>
 
 <x-code language="shell">
