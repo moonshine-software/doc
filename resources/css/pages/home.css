@@ -77,11 +77,11 @@
     }
 
     &-wrapper {
-        @apply flex flex-nowrap flex-col-reverse xl:flex-row gap-y-16 gap-x-10 xl:gap-x-14 mt-8 lg:mt-14;
+        @apply flex flex-nowrap flex-col-reverse xl:flex-row xl:space-x-14 mt-8 lg:mt-14;
     }
 
     &-items {
-        @apply flex flex-row xl:flex-col gap-x-4 lg:gap-x-6 gap-y-4 overflow-x-auto xl:overflow-x-visible;
+        @apply flex flex-row xl:flex-col gap-x-4 lg:gap-x-6 gap-y-4 overflow-x-auto xl:overflow-x-visible mt-16 xl:mt-0;
         counter-reset: how-it-works;
     }
 
@@ -430,7 +430,7 @@
     }
 
     &-item {
-        @apply overflow-hidden py-6 px-4 sm:p-6 md:p-8 xl:p-10 rounded-3xl bg-purple after:absolute after:-top-8 after:-right-2 after:block after:w-24 after:h-24 after:bg-[url('/../../images/icons/quote.svg')] after:bg-no-repeat after:opacity-10;
+        @apply overflow-hidden py-6 px-4 sm:p-6 md:p-8 xl:p-10 rounded-3xl bg-purple after:absolute after:-top-8 after:-right-2 after:block after:w-24 after:h-24 after:bg-[url('/images/icons/quote.svg')] after:bg-no-repeat after:opacity-10;
 
         &-heading {
             @apply flex items-center gap-x-4 md:gap-x-6;
