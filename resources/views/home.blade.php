@@ -688,7 +688,7 @@
                 </div>
             </div>
             <!-- /.testimonials-heading -->
-            <div class="testimonials-slider swiper">
+            <div class="testimonials-slider swiper" x-data="featureSlider">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <div class="testimonials-item">
