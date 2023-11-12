@@ -324,7 +324,7 @@ public function fields(): array
 {
     return [
         File::make('File', 'file')
-            ->customName(fn(UploadedFile $file) =>  Str::random(10) . '.' . $file->extension()) // [tl! focus]
+            ->customName(fn(UploadedFile $file, Field $field) =>  Str::random(10) . '.' . $file->extension()) // [tl! focus]
     ];
 }
 

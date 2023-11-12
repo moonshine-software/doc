@@ -61,10 +61,10 @@ public function fields(): array
             ->asyncSearch(
                 'title',
                 10,
-                asyncSearchQuery: function (Builder $query) {
+                asyncSearchQuery: function (Builder $query, Field $field) {
                     return $query->where('id', '!=', 2);
                 },
-                asyncSearchValueCallback: function ($country) {
+                asyncSearchValueCallback: function ($country, Field $field) {
                     return $country->id . ' | ' . $country->title;
                 },
                 '{{ route('async') }}'
@@ -94,7 +94,7 @@ public function fields(): array
         Select::make('Country', 'country_id'), // [tl! focus]
         {{ $field }}::make({!! $field === 'BelongsToMany' ? 'Cities' : 'City' !!}, resource: new CityResource())->asyncSearch(
             'title',
-            asyncSearchQuery: function (Builder $query, Request $request): Builder {
+            asyncSearchQuery: function (Builder $query, Request $request, Field $field): Builder {
                 return $query->where('country_id', $request->get('country_id'));
             } // [tl! focus:-2]
         )
