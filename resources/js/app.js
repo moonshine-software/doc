@@ -14,43 +14,41 @@ import.meta.glob(["../images/**", "../fonts/**"])
 window.Alpine = Alpine
 
 /* Document ready */
-document.onreadystatechange = function () {
-    if (document.readyState === "interactive") {
-        const testimonialsSwiper = new Swiper(".testimonials-slider", {
-            modules: [Navigation],
-            slidesPerView: 1,
-            spaceBetween: 20,
-            navigation: {
-                prevEl: ".testimonials-navigation .swiper-button-prev",
-                nextEl: ".testimonials-navigation .swiper-button-next",
-            },
-            watchSlidesProgress: true,
-            grabCursor: true,
-            breakpoints: {
-                375: {
-                    slidesPerView: 1.1,
-                    spaceBetween: 20,
-                },
-                720: {
-                    slidesPerView: 1.25,
-                    spaceBetween: 30,
-                },
-                960: {
-                    slidesPerView: 2.25,
-                    spaceBetween: 30,
-                },
-                1140: {
-                    slidesPerView: 2.5,
-                    spaceBetween: 40,
-                },
-                1550: {
-                    slidesPerView: 3,
-                    spaceBetween: 40,
-                },
-            },
-        })
-    }
-};
+document.addEventListener("DOMContentLoaded", () => {
+	const testimonialsSwiper = new Swiper(".testimonials-slider", {
+		modules: [Navigation],
+		slidesPerView: 1,
+		spaceBetween: 20,
+		navigation: {
+			prevEl: ".testimonials-navigation .swiper-button-prev",
+			nextEl: ".testimonials-navigation .swiper-button-next",
+		},
+		watchSlidesProgress: true,
+		grabCursor: true,
+		breakpoints: {
+			375: {
+				slidesPerView: 1.1,
+				spaceBetween: 20,
+			},
+			720: {
+				slidesPerView: 1.25,
+				spaceBetween: 30,
+			},
+			960: {
+				slidesPerView: 2.25,
+				spaceBetween: 30,
+			},
+			1140: {
+				slidesPerView: 2.5,
+				spaceBetween: 40,
+			},
+			1550: {
+				slidesPerView: 3,
+				spaceBetween: 40,
+			},
+		},
+	})
+})
 
 /* Alpine.js */
 document.addEventListener("alpine:init", () => {
