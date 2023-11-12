@@ -212,24 +212,24 @@
                         <div class="number"></div>
                         <div class="heading">
                             <h5 class="heading-title">Даже джун сможет легко создать полноценную админ-панель!</h5>
-                            <p class="heading-descr">Всего пару строчек кода и твоя админ-панель MoonShine готова к использованию.</p>
+                            <p class="heading-descr">Всего пару строчек кода и твоя админ-панель на MoonShine готова к использованию</p>
                         </div>
                     </div>
 
                     <div class="how-it-works-item" @click="lvlTab_1_ActiveTab = 2" :class="{ '_is-active': lvlTab_1_ActiveTab === 2 }">
                         <div class="number"></div>
                         <div class="heading">
-                            <h5 class="heading-title">Не нужно знать фронтэнд, все элементы легко кастомизируются</h5>
-                            <p class="heading-descr">Всего пару строчек кода и твоя админ-панель MoonShine готова к использованию.</p>
+                            <h5 class="heading-title">Не нужно знать фронтэнд - все элементы легко кастомизируются</h5>
+                            <p class="heading-descr">Пункты меню, формы и поля добавляются на лету</p>
                         </div>
                     </div>
 
                     <div class="how-it-works-item" @click="lvlTab_1_ActiveTab = 3" :class="{ '_is-active': lvlTab_1_ActiveTab === 3 }">
                         <div class="number"></div>
                         <div class="heading">
-                            <h5 class="heading-title">Меняем цветовую схему</h5>
+                            <h5 class="heading-title">Меняй цветовую схему</h5>
                             <p class="heading-descr">
-                                Тюнингуйте админ-панель под свой вкус
+                                Тюнингуй админ-панель под свой вкус
                             </p>
                         </div>
                     </div>
@@ -256,15 +256,24 @@
                         <div class="number"></div>
                         <div class="heading">
                             <h5 class="heading-title">Множество подходов</h5>
-                            <p class="heading-descr">Разрабатывай так как тебе нравится</p>
+                            <p class="heading-descr">Разрабатывай так, как тебе нравится</p>
                         </div>
                     </div>
                     <div class="how-it-works-item" @click="lvlTab_2_ActiveTab = 2" :class="{ '_is-active': lvlTab_2_ActiveTab === 2 }">
                         <div class="number"></div>
                         <div class="heading">
-                            <h5 class="heading-title">Кастомизируй под себя.</h5>
+                            <h5 class="heading-title">Кастомизируй под себя</h5>
                             <p class="heading-descr">
                                 Меняй расположение блоков. Или добавляй свои!
+                            </p>
+                        </div>
+                    </div>
+                    <div class="how-it-works-item" @click="lvlTab_2_ActiveTab = 3" :class="{ '_is-active': lvlTab_2_ActiveTab === 3 }">
+                        <div class="number"></div>
+                        <div class="heading">
+                            <h5 class="heading-title">Создавай свои поля</h5>
+                            <p class="heading-descr">
+                                Как нужно для твоих задач
                             </p>
                         </div>
                     </div>
@@ -276,6 +285,9 @@
                     </video>
                     <video load="lazy" class="how-it-works-preview-video" :class="{ '_is-active': lvlTab_2_ActiveTab === 2 }" autoplay muted preload="auto" playsinline loop>
                         <source src="/video/p2.mp4" type="video/mp4" />
+                    </video>
+                    <video load="lazy" class="how-it-works-preview-video" :class="{ '_is-active': lvlTab_2_ActiveTab === 3 }" autoplay muted preload="auto" playsinline loop>
+                        <source src="/video/p3.mp4" type="video/mp4" />
                     </video>
                 </div>
                 <!-- /.how-it-works-preview -->
@@ -664,7 +676,7 @@
         </svg>
     </section>
 
-   <!-- Section: Testimonials -->
+    <!-- Section: Testimonials -->
     <section class="testimonials pt-120">
         <div class="container">
             <div class="testimonials-heading">
@@ -698,7 +710,7 @@
                                 </div>
                                 <div class="author">
                                     <h5 class="author-name">GigaHertZ28</h5>
-                                    <a href="#" class="author-link" target="_blank" rel="noopener nofollow">https://www.youtube.com/@gigahertzf1</a>
+                                    <a href="https://www.youtube.com/@gigahertzf1" class="author-link" target="_blank" rel="noopener nofollow">@gigahertzf1</a>
                                 </div>
                             </div>
                             <div class="testimonials-item-text">
@@ -717,7 +729,7 @@
                                 </div>
                                 <div class="author">
                                     <h5 class="author-name">Павел Климов</h5>
-                                    <a href="#" class="author-link" target="_blank" rel="noopener nofollow">https://www.youtube.com/@user-mg2yr1zv2c</a>
+                                    <a href="https://www.youtube.com/@user-mg2yr1zv2c" class="author-link" target="_blank" rel="noopener nofollow">@user-mg2yr1zv2c</a>
                                 </div>
                             </div>
                             <div class="testimonials-item-text">
@@ -734,7 +746,7 @@
                                 </div>
                                 <div class="author">
                                     <h5 class="author-name">Даниил Работа</h5>
-                                    <a href="#" class="author-link" target="_blank" rel="noopener nofollow">https://www.youtube.com/@user-lx1jf6qt3n</a>
+                                    <a href="https://www.youtube.com/@user-lx1jf6qt3n" class="author-link" target="_blank" rel="noopener nofollow">@user-lx1jf6qt3n</a>
                                 </div>
                             </div>
                             <div class="testimonials-item-text">
@@ -759,7 +771,7 @@
                                 </div>
                                 <div class="author">
                                     <h5 class="author-name">ArabicLang</h5>
-                                    <a href="#" class="author-link" target="_blank" rel="noopener nofollow">https://www.youtube.com/@ArabicLang.online</a>
+                                    <a href="https://www.youtube.com/@ArabicLang.online" class="author-link" target="_blank" rel="noopener nofollow">@ArabicLang.online</a>
                                 </div>
                             </div>
                             <div class="testimonials-item-text">
@@ -776,7 +788,7 @@
                                 </div>
                                 <div class="author">
                                     <h5 class="author-name">Kuanysh Osmanov</h5>
-                                    <a href="#" class="author-link" target="_blank" rel="noopener nofollow">https://t.me/k_rustemuly</a>
+                                    <a href="https://t.me/k_rustemuly" class="author-link" target="_blank" rel="noopener nofollow">@k_rustemuly</a>
                                 </div>
                             </div>
                             <div class="testimonials-item-text">
@@ -793,7 +805,7 @@
                                 </div>
                                 <div class="author">
                                     <h5 class="author-name">Ильдар Енакаев</h5>
-                                    <a href="#" class="author-link" target="_blank" rel="noopener nofollow">https://t.me/gian_tiaga</a>
+                                    <a href="https://t.me/gian_tiaga" class="author-link" target="_blank" rel="noopener nofollow">@gian_tiaga</a>
                                 </div>
                             </div>
                             <div class="testimonials-item-text">
@@ -810,12 +822,12 @@
                                 </div>
                                 <div class="author">
                                     <h5 class="author-name">Name</h5>
-                                    <a href="#" class="author-link" target="_blank" rel="noopener nofollow"></a>
+                                    <a href="#" class="author-link" target="_blank" rel="noopener nofollow">@Name</a>
                                 </div>
                             </div>
                             <div class="testimonials-item-text">
                                 <p>Ребят, админка топовая! Вы очень крутые! Спасибо за труд! Надеюсь будете дальше развиваться в том же духе! 🔥
-                                   P.S. Видео, кстати, тоже  очень круто смонтировано, прям на уровне</p>
+                                    P.S. Видео, кстати, тоже  очень круто смонтировано, прям на уровне</p>
                             </div>
                         </div>
                     </div>
@@ -828,7 +840,7 @@
                                 </div>
                                 <div class="author">
                                     <h5 class="author-name">Alexey Muromtsev</h5>
-                                    <a href="#" class="author-link" target="_blank" rel="noopener nofollow">https://www.youtube.com/@Santropogen</a>
+                                    <a href="https://www.youtube.com/@Santropogen" class="author-link" target="_blank" rel="noopener nofollow">@Santropogen</a>
                                 </div>
                             </div>
                             <div class="testimonials-item-text">
