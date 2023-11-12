@@ -28,10 +28,8 @@ public function components(): array
 {
     return [
         Heading::make('Title/Slug'), // [tl! focus]
-        Text::make('Title')
-            ->fieldContainer(false),
-        Text::make('Slug')
-            ->fieldContainer(false),
+        Text::make('Title'),
+        Text::make('Slug'),
     ];
 }
 
