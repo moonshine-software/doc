@@ -664,7 +664,7 @@
         </svg>
     </section>
 
-    {{--<!-- Section: Testimonials -->
+   <!-- Section: Testimonials -->
     <section class="testimonials pt-120">
         <div class="container">
             <div class="testimonials-heading">
@@ -694,17 +694,16 @@
                         <div class="testimonials-item">
                             <div class="testimonials-item-heading">
                                 <div class="photo">
-                                    <img src="{{ Vite::asset('resources/images/avatar.jpg') }}" alt="Данил Шуцкий" />
+                                    <img src="{{ Vite::asset('resources/images/GigaHertZ28.jpg') }}" alt="GigaHertZ28" />
                                 </div>
                                 <div class="author">
-                                    <h5 class="author-name">Данил Шуцкий</h5>
-                                    <a href="#" class="author-link" target="_blank" rel="noopener nofollow">@leeto_telegram</a>
+                                    <h5 class="author-name">GigaHertZ28</h5>
+                                    <a href="#" class="author-link" target="_blank" rel="noopener nofollow">https://www.youtube.com/@gigahertzf1</a>
                                 </div>
                             </div>
                             <div class="testimonials-item-text">
                                 <p>
-                                    MoonShine мне показался более интересным в плане функционала так и возможность конструктором собрать компоненты так и использование кастомного функционала. Что позволяет расширять возможности, работая не только с
-                                    crud но и вне базы.
+                                    жирная админка
                                 </p>
                             </div>
                         </div>
@@ -714,15 +713,15 @@
                         <div class="testimonials-item">
                             <div class="testimonials-item-heading">
                                 <div class="photo">
-                                    <img src="{{ Vite::asset('resources/images/avatar.jpg') }}" alt="Данил Шуцкий" />
+                                    <img src="{{ Vite::asset('resources/images/PavelKlimov.jpg') }}" alt="Павел Климов" />
                                 </div>
                                 <div class="author">
-                                    <h5 class="author-name">Данил Шуцкий</h5>
-                                    <a href="#" class="author-link" target="_blank" rel="noopener nofollow">@leeto_telegram</a>
+                                    <h5 class="author-name">Павел Климов</h5>
+                                    <a href="#" class="author-link" target="_blank" rel="noopener nofollow">https://www.youtube.com/@user-mg2yr1zv2c</a>
                                 </div>
                             </div>
                             <div class="testimonials-item-text">
-                                <p>Возможность держать контакт с создателем, гибкость. Еще смотрел в сторону Laravel Nova но в текущих реалиях сложно ее оплачивать.</p>
+                                <p>Попробовал. Удобно. До этого писал SPA отдельно на Vue (quasar)и всегда заботился чтобы написать о том чтобы создать template, маршруты, получить данные по API. Для одного человека это слишком долго (сложно)</p>
                             </div>
                         </div>
                     </div>
@@ -731,23 +730,40 @@
                         <div class="testimonials-item">
                             <div class="testimonials-item-heading">
                                 <div class="photo">
-                                    <img src="{{ Vite::asset('resources/images/avatar.jpg') }}" alt="Данил Шуцкий" />
+                                    <img src="{{ Vite::asset('resources/images/DanilWork.jpg') }}" alt="Даниил Работа" />
                                 </div>
                                 <div class="author">
-                                    <h5 class="author-name">Данил Шуцкий</h5>
-                                    <a href="#" class="author-link" target="_blank" rel="noopener nofollow">@leeto_telegram</a>
+                                    <h5 class="author-name">Даниил Работа</h5>
+                                    <a href="#" class="author-link" target="_blank" rel="noopener nofollow">https://www.youtube.com/@user-lx1jf6qt3n</a>
                                 </div>
                             </div>
                             <div class="testimonials-item-text">
-                                <p>Посмотрел видеокурс и через час уже сдал проект!</p>
+                                <p>Решил использовать вашу админку и не пожалел. Основное всё есть, а если нужно что-то нестандартное, то всё легко расширяется и кастомизируется. Благодарю за труды!</p>
                             </div>
-                            <div class="testimonials-item-video">
+                            <!--<div class="testimonials-item-video">
                                 <a href="#" target="_blank" rel="noopener nofollow">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 48 48">
                                         <path d="M10.21 1.058C5.884-1.424 2.376.61 2.376 5.597V42.4c0 4.992 3.508 7.023 7.836 4.543L42.38 28.495c4.329-2.483 4.329-6.506 0-8.989L10.21 1.058Z" />
                                     </svg>
                                     <img src="{{ Vite::asset('resources/images/testimonial-thumb.jpg') }}" alt="Данил Шуцкий" />
                                 </a>
+                            </div>-->
+                        </div>
+                    </div>
+                    <!-- /.swiper-slide -->
+                    <div class="swiper-slide">
+                        <div class="testimonials-item">
+                            <div class="testimonials-item-heading">
+                                <div class="photo">
+                                    <img src="{{ Vite::asset('resources/images/ArabicLangOnline.jpg') }}" alt="ArabicLang" />
+                                </div>
+                                <div class="author">
+                                    <h5 class="author-name">ArabicLang</h5>
+                                    <a href="#" class="author-link" target="_blank" rel="noopener nofollow">https://www.youtube.com/@ArabicLang.online</a>
+                                </div>
+                            </div>
+                            <div class="testimonials-item-text">
+                                <p>Вот это мощь! Просто гении! Подход с flutter идея супер</p>
                             </div>
                         </div>
                     </div>
@@ -756,15 +772,69 @@
                         <div class="testimonials-item">
                             <div class="testimonials-item-heading">
                                 <div class="photo">
-                                    <img src="{{ Vite::asset('resources/images/avatar.jpg') }}" alt="Данил Шуцкий" />
+                                    <img src="{{ Vite::asset('resources/images/k_rustemuly.jpg') }}" alt="Kuanysh Osmanov" />
                                 </div>
                                 <div class="author">
-                                    <h5 class="author-name">Данил Шуцкий</h5>
-                                    <a href="#" class="author-link" target="_blank" rel="noopener nofollow">@leeto_telegram</a>
+                                    <h5 class="author-name">Kuanysh Osmanov</h5>
+                                    <a href="#" class="author-link" target="_blank" rel="noopener nofollow">https://t.me/k_rustemuly</a>
                                 </div>
                             </div>
                             <div class="testimonials-item-text">
-                                <p>MoonShine показался лучшим выбором из-за меньшего внедрения в фреймворк, что дает большую гибкость, ну и так же субъективно мне понравился дизайн и работа с полями в создании ресурсов админки</p>
+                                <p>😁 Позавчера сдал проект заказчику. Админку реализовал на муншайне. Все задачи покрыл. За 5 часов реализовал. Заказчик в шоке. 😬</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.swiper-slide -->
+                    <div class="swiper-slide">
+                        <div class="testimonials-item">
+                            <div class="testimonials-item-heading">
+                                <div class="photo">
+                                    <img src="{{ Vite::asset('resources/images/gian_tiaga.jpg') }}" alt="Ильдар Енакаев" />
+                                </div>
+                                <div class="author">
+                                    <h5 class="author-name">Ильдар Енакаев</h5>
+                                    <a href="#" class="author-link" target="_blank" rel="noopener nofollow">https://t.me/gian_tiaga</a>
+                                </div>
+                            </div>
+                            <div class="testimonials-item-text">
+                                <p>Муншайн 2 получилось с первого взгляда очень круто. Именно та архитектура которую я видел в голове идеальной</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.swiper-slide -->
+                    <div class="swiper-slide">
+                        <div class="testimonials-item">
+                            <div class="testimonials-item-heading">
+                                <div class="photo">
+                                    <img src="{{ Vite::asset('resources/images/name.jpg') }}" alt="Name" />
+                                </div>
+                                <div class="author">
+                                    <h5 class="author-name">Name</h5>
+                                    <a href="#" class="author-link" target="_blank" rel="noopener nofollow"></a>
+                                </div>
+                            </div>
+                            <div class="testimonials-item-text">
+                                <p>Ребят, админка топовая! Вы очень крутые! Спасибо за труд! Надеюсь будете дальше развиваться в том же духе! 🔥
+                                   P.S. Видео, кстати, тоже  очень круто смонтировано, прям на уровне</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.swiper-slide -->
+                    <div class="swiper-slide">
+                        <div class="testimonials-item">
+                            <div class="testimonials-item-heading">
+                                <div class="photo">
+                                    <img src="{{ Vite::asset('resources/images/AlexeyMuromtsev.jpg') }}" alt="Alexey Muromtsev" />
+                                </div>
+                                <div class="author">
+                                    <h5 class="author-name">Alexey Muromtsev</h5>
+                                    <a href="#" class="author-link" target="_blank" rel="noopener nofollow">https://www.youtube.com/@Santropogen</a>
+                                </div>
+                            </div>
+                            <div class="testimonials-item-text">
+                                <p>DatePicker конечно пушечный 😏
+                                    А вообще смотрю и понимаю что очень много реализовано из коробки того, что приходилось самостоятельно писать или подтягивать сторонние библиотеки.
+                                    Очень круто, уже задумался над использованием в собственном проекте. Так что ждем продолжения!</p>
                             </div>
                         </div>
                     </div>
@@ -776,140 +846,141 @@
         </div>
     </section>
 
-    <section class="compare pt-120">
-        <div class="container">
-            <div class="section-heading text-center">
-                <h2 class="section-heading-title">
-                    <span class="text-pink">Давайте сравним</span><br />
-                    популярные админ-панели
-                </h2>
-            </div>
-            <div class="compare-table">
-                <table>
-                    <thead>
-                    <tr>
-                        <!-- 							<th></th> -->
-                        <th>Название админ-панели</th>
-                        <th>Сложность (больше-сложнее)</th>
-                        <th>Качество документации</th>
-                        <th>Стек и версии</th>
-                        <th>Русскоязычное комьюнити</th>
-                        <th>Последнее обновление</th>
-                        <th>Стоимость</th>
-                        <th>Возможность консультации</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <th>Laravel Nova</th>
-                        <td>9/10</td>
-                        <td>8/10</td>
-                        <td>
-                            Node.js<br />
-                            Laravel
-                        </td>
-                        <td>Нет</td>
-                        <td>3 апреля 2022 г.</td>
-                        <td>$99 за проект</td>
-                        <td>Да</td>
-                    </tr>
-                    <tr>
-                        <th>MoonShine</th>
-                        <td>5/10</td>
-                        <td>9/10</td>
-                        <td>
-                            TailwindCSS<br />
-                            AlpineJS<br />
-                            Laravel
-                        </td>
-                        <td>Да</td>
-                        <td>1 ноября 2023 г.</td>
-                        <td>open-source, есть платные услуги</td>
-                        <td>Да</td>
-                    </tr>
-                    <tr>
-                        <th>Laravel Nova</th>
-                        <td>9/10</td>
-                        <td>8/10</td>
-                        <td>
-                            Node.js<br />
-                            Laravel
-                        </td>
-                        <td>Нет</td>
-                        <td>3 апреля 2022 г.</td>
-                        <td>$99 за проект</td>
-                        <td>Да</td>
-                    </tr>
-                    <tr>
-                        <th>MoonShine</th>
-                        <td>5/10</td>
-                        <td>9/10</td>
-                        <td>
-                            TailwindCSS<br />
-                            AlpineJS<br />
-                            Laravel
-                        </td>
-                        <td>Да</td>
-                        <td>1 ноября 2023 г.</td>
-                        <td>open-source, есть платные услуги</td>
-                        <td>Да</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
 
-            <!-- Ballons -->
-            <svg class="ballons ballons-1" xmlns="http://www.w3.org/2000/svg" width="219" height="269" fill="none" viewBox="0 0 219 269">
-                <path fill="url(#c1-a)" d="M81.736 269c17.037 0 30.849-14.088 30.849-31.466s-13.811-31.465-30.849-31.465c-17.037 0-30.848 14.087-30.848 31.465S64.699 269 81.736 269Z" />
-                <path fill="url(#c1-b)" d="M122.457 146.839c22.489 0 40.72-18.231 40.72-40.72 0-22.489-18.231-40.72-40.72-40.72-22.49 0-40.72 18.231-40.72 40.72 0 22.489 18.23 40.72 40.72 40.72Z" />
-                <path fill="url(#c1-c)" d="M198.344 40.72c11.245 0 20.361-9.115 20.361-20.36 0-11.244-9.116-20.36-20.361-20.36-11.244 0-20.36 9.116-20.36 20.36 0 11.245 9.116 20.36 20.36 20.36Z" />
-                <path fill="url(#c1-d)" d="M15.72 76.504c8.519 0 15.425-6.905 15.425-15.424 0-8.518-6.906-15.424-15.425-15.424C7.202 45.656.296 52.562.296 61.08c0 8.519 6.906 15.424 15.424 15.424Z" />
-                <defs>
-                    <linearGradient id="c1-a" x1="31.711" x2="148.44" y1="232.452" y2="232.452" gradientUnits="userSpaceOnUse">
-                        <stop offset=".01" stop-color="#0797FF" />
-                        <stop offset=".745" stop-color="#894EF6" />
-                    </linearGradient>
-                    <linearGradient id="c1-b" x1="56.425" x2="210.506" y1="99.541" y2="99.541" gradientUnits="userSpaceOnUse">
-                        <stop offset=".01" stop-color="#0797FF" />
-                        <stop offset=".745" stop-color="#894EF6" />
-                    </linearGradient>
-                    <linearGradient id="c1-c" x1="165.328" x2="242.369" y1="17.071" y2="17.071" gradientUnits="userSpaceOnUse">
-                        <stop offset=".01" stop-color="#0797FF" />
-                        <stop offset=".745" stop-color="#894EF6" />
-                    </linearGradient>
-                    <linearGradient id="c1-d" x1="-9.292" x2="49.072" y1="58.589" y2="58.589" gradientUnits="userSpaceOnUse">
-                        <stop offset=".01" stop-color="#0797FF" />
-                        <stop offset=".745" stop-color="#894EF6" />
-                    </linearGradient>
-                </defs>
-            </svg>
+    {{--<section class="compare pt-120">
+       <div class="container">
+           <div class="section-heading text-center">
+               <h2 class="section-heading-title">
+                   <span class="text-pink">Давайте сравним</span><br />
+                   популярные админ-панели
+               </h2>
+           </div>
+           <div class="compare-table">
+               <table>
+                   <thead>
+                   <tr>
+                       <!-- 							<th></th> -->
+                       <th>Название админ-панели</th>
+                       <th>Сложность (больше-сложнее)</th>
+                       <th>Качество документации</th>
+                       <th>Стек и версии</th>
+                       <th>Русскоязычное комьюнити</th>
+                       <th>Последнее обновление</th>
+                       <th>Стоимость</th>
+                       <th>Возможность консультации</th>
+                   </tr>
+                   </thead>
+                   <tbody>
+                   <tr>
+                       <th>Laravel Nova</th>
+                       <td>9/10</td>
+                       <td>8/10</td>
+                       <td>
+                           Node.js<br />
+                           Laravel
+                       </td>
+                       <td>Нет</td>
+                       <td>3 апреля 2022 г.</td>
+                       <td>$99 за проект</td>
+                       <td>Да</td>
+                   </tr>
+                   <tr>
+                       <th>MoonShine</th>
+                       <td>5/10</td>
+                       <td>9/10</td>
+                       <td>
+                           TailwindCSS<br />
+                           AlpineJS<br />
+                           Laravel
+                       </td>
+                       <td>Да</td>
+                       <td>1 ноября 2023 г.</td>
+                       <td>open-source, есть платные услуги</td>
+                       <td>Да</td>
+                   </tr>
+                   <tr>
+                       <th>Laravel Nova</th>
+                       <td>9/10</td>
+                       <td>8/10</td>
+                       <td>
+                           Node.js<br />
+                           Laravel
+                       </td>
+                       <td>Нет</td>
+                       <td>3 апреля 2022 г.</td>
+                       <td>$99 за проект</td>
+                       <td>Да</td>
+                   </tr>
+                   <tr>
+                       <th>MoonShine</th>
+                       <td>5/10</td>
+                       <td>9/10</td>
+                       <td>
+                           TailwindCSS<br />
+                           AlpineJS<br />
+                           Laravel
+                       </td>
+                       <td>Да</td>
+                       <td>1 ноября 2023 г.</td>
+                       <td>open-source, есть платные услуги</td>
+                       <td>Да</td>
+                   </tr>
+                   </tbody>
+               </table>
+           </div>
 
-            <svg class="ballons ballons-2" xmlns="http://www.w3.org/2000/svg" width="393" height="486" fill="none" viewBox="0 0 393 486">
-                <path fill="url(#c2-a)" d="M246.457 485.017c-30.656 0-55.508-25.349-55.508-56.619s24.852-56.619 55.508-56.619c30.657 0 55.509 25.349 55.509 56.619s-24.852 56.619-55.509 56.619Z" />
-                <path fill="url(#c2-b)" d="M173.187 265.204c-40.467 0-73.271-32.805-73.271-73.272 0-40.466 32.804-73.271 73.271-73.271 40.466 0 73.271 32.805 73.271 73.271 0 40.467-32.805 73.272-73.271 73.272Z" />
-                <path fill="url(#c2-c)" d="M36.636 74.254C16.403 74.254 0 57.852 0 37.618 0 17.385 16.403.983 36.636.983c20.233 0 36.636 16.402 36.636 36.636 0 20.233-16.403 36.635-36.636 36.635Z" />
-                <path fill="url(#c2-d)" d="M365.246 138.644c-15.329 0-27.754-12.426-27.754-27.754 0-15.329 12.425-27.755 27.754-27.755 15.328 0 27.754 12.426 27.754 27.755 0 15.328-12.426 27.754-27.754 27.754Z" />
-                <defs>
-                    <linearGradient id="c2-a" x1="336.471" x2="126.432" y1="419.253" y2="419.253" gradientUnits="userSpaceOnUse">
-                        <stop offset=".01" stop-color="#0797FF" />
-                        <stop offset=".745" stop-color="#894EF6" />
-                    </linearGradient>
-                    <linearGradient id="c2-b" x1="292.004" x2="14.753" y1="180.096" y2="180.096" gradientUnits="userSpaceOnUse">
-                        <stop offset=".01" stop-color="#0797FF" />
-                        <stop offset=".745" stop-color="#894EF6" />
-                    </linearGradient>
-                    <linearGradient id="c2-c" x1="96.044" x2="-42.581" y1="31.7" y2="31.7" gradientUnits="userSpaceOnUse">
-                        <stop offset=".01" stop-color="#0797FF" />
-                        <stop offset=".745" stop-color="#894EF6" />
-                    </linearGradient>
-                    <linearGradient id="c2-d" x1="410.252" x2="305.233" y1="106.407" y2="106.407" gradientUnits="userSpaceOnUse">
-                        <stop offset=".01" stop-color="#0797FF" />
-                        <stop offset=".745" stop-color="#894EF6" />
-                    </linearGradient>
-                </defs>
-            </svg>
-        </div>
-    </section>--}}
+           <!-- Ballons -->
+           <svg class="ballons ballons-1" xmlns="http://www.w3.org/2000/svg" width="219" height="269" fill="none" viewBox="0 0 219 269">
+               <path fill="url(#c1-a)" d="M81.736 269c17.037 0 30.849-14.088 30.849-31.466s-13.811-31.465-30.849-31.465c-17.037 0-30.848 14.087-30.848 31.465S64.699 269 81.736 269Z" />
+               <path fill="url(#c1-b)" d="M122.457 146.839c22.489 0 40.72-18.231 40.72-40.72 0-22.489-18.231-40.72-40.72-40.72-22.49 0-40.72 18.231-40.72 40.72 0 22.489 18.23 40.72 40.72 40.72Z" />
+               <path fill="url(#c1-c)" d="M198.344 40.72c11.245 0 20.361-9.115 20.361-20.36 0-11.244-9.116-20.36-20.361-20.36-11.244 0-20.36 9.116-20.36 20.36 0 11.245 9.116 20.36 20.36 20.36Z" />
+               <path fill="url(#c1-d)" d="M15.72 76.504c8.519 0 15.425-6.905 15.425-15.424 0-8.518-6.906-15.424-15.425-15.424C7.202 45.656.296 52.562.296 61.08c0 8.519 6.906 15.424 15.424 15.424Z" />
+               <defs>
+                   <linearGradient id="c1-a" x1="31.711" x2="148.44" y1="232.452" y2="232.452" gradientUnits="userSpaceOnUse">
+                       <stop offset=".01" stop-color="#0797FF" />
+                       <stop offset=".745" stop-color="#894EF6" />
+                   </linearGradient>
+                   <linearGradient id="c1-b" x1="56.425" x2="210.506" y1="99.541" y2="99.541" gradientUnits="userSpaceOnUse">
+                       <stop offset=".01" stop-color="#0797FF" />
+                       <stop offset=".745" stop-color="#894EF6" />
+                   </linearGradient>
+                   <linearGradient id="c1-c" x1="165.328" x2="242.369" y1="17.071" y2="17.071" gradientUnits="userSpaceOnUse">
+                       <stop offset=".01" stop-color="#0797FF" />
+                       <stop offset=".745" stop-color="#894EF6" />
+                   </linearGradient>
+                   <linearGradient id="c1-d" x1="-9.292" x2="49.072" y1="58.589" y2="58.589" gradientUnits="userSpaceOnUse">
+                       <stop offset=".01" stop-color="#0797FF" />
+                       <stop offset=".745" stop-color="#894EF6" />
+                   </linearGradient>
+               </defs>
+           </svg>
+
+           <svg class="ballons ballons-2" xmlns="http://www.w3.org/2000/svg" width="393" height="486" fill="none" viewBox="0 0 393 486">
+               <path fill="url(#c2-a)" d="M246.457 485.017c-30.656 0-55.508-25.349-55.508-56.619s24.852-56.619 55.508-56.619c30.657 0 55.509 25.349 55.509 56.619s-24.852 56.619-55.509 56.619Z" />
+               <path fill="url(#c2-b)" d="M173.187 265.204c-40.467 0-73.271-32.805-73.271-73.272 0-40.466 32.804-73.271 73.271-73.271 40.466 0 73.271 32.805 73.271 73.271 0 40.467-32.805 73.272-73.271 73.272Z" />
+               <path fill="url(#c2-c)" d="M36.636 74.254C16.403 74.254 0 57.852 0 37.618 0 17.385 16.403.983 36.636.983c20.233 0 36.636 16.402 36.636 36.636 0 20.233-16.403 36.635-36.636 36.635Z" />
+               <path fill="url(#c2-d)" d="M365.246 138.644c-15.329 0-27.754-12.426-27.754-27.754 0-15.329 12.425-27.755 27.754-27.755 15.328 0 27.754 12.426 27.754 27.755 0 15.328-12.426 27.754-27.754 27.754Z" />
+               <defs>
+                   <linearGradient id="c2-a" x1="336.471" x2="126.432" y1="419.253" y2="419.253" gradientUnits="userSpaceOnUse">
+                       <stop offset=".01" stop-color="#0797FF" />
+                       <stop offset=".745" stop-color="#894EF6" />
+                   </linearGradient>
+                   <linearGradient id="c2-b" x1="292.004" x2="14.753" y1="180.096" y2="180.096" gradientUnits="userSpaceOnUse">
+                       <stop offset=".01" stop-color="#0797FF" />
+                       <stop offset=".745" stop-color="#894EF6" />
+                   </linearGradient>
+                   <linearGradient id="c2-c" x1="96.044" x2="-42.581" y1="31.7" y2="31.7" gradientUnits="userSpaceOnUse">
+                       <stop offset=".01" stop-color="#0797FF" />
+                       <stop offset=".745" stop-color="#894EF6" />
+                   </linearGradient>
+                   <linearGradient id="c2-d" x1="410.252" x2="305.233" y1="106.407" y2="106.407" gradientUnits="userSpaceOnUse">
+                       <stop offset=".01" stop-color="#0797FF" />
+                       <stop offset=".745" stop-color="#894EF6" />
+                   </linearGradient>
+               </defs>
+           </svg>
+       </div>
+   </section>--}}
 </main>
 
 <!-- Site footer -->
