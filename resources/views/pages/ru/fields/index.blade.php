@@ -93,7 +93,7 @@ public function fields(): array
     return [
         Slug::make('Slug')
             ->setLabel(
-                fn() => $this->getItem()?->exists
+                fn($label, Field $field) => $field->getData()?->exists
                     ? 'Slug (do not change)'
                     : 'Slug'
             ) // [tl! focus:-4]
@@ -329,7 +329,7 @@ public function fields(): array
 {
     return [
         Text::make('Title')
-            ->badge('green') // [tl! focus]
+            ->badge(fn($status, Field $field) => 'green') // [tl! focus]
     ];
 }
 
@@ -511,7 +511,7 @@ public function fields(): array
 {
     return [
         Text::make('Thumbnail')
-            ->changePreview(function ($value) {
+            ->changePreview(function ($value, Field $field) {
                 return view('moonshine::ui.image', [
                     'value' => Storage::url($value)
                 ]);
@@ -569,7 +569,7 @@ public function fields(): array
 {
     return [
         Text::make('Slug')
-            ->when($this->getItem()?->exist, fn(Field $field) => $field->locked()) // [tl! focus]
+            ->when(fn($field) => $field->getData()?->exists, fn(Field $field) => $field->locked()) // [tl! focus]
     ];
 }
 
@@ -597,9 +597,9 @@ public function fields(): array
     return [
         Text::make('Slug')
             ->when(
-                $this->getItem()?->exist,
-                fn(Text $field) => $field->locked(),
-                fn(Text $field) => $field->hidden()
+                fn($field) => $field->getData()?->exists,
+                fn(Field $field) => $field->locked(),
+                fn(Field $field) => $field->hidden()
             ) // [tl! focus:-4]
     ];
 }
@@ -625,8 +625,8 @@ public function fields(): array
         Text::make('Slug')
             ->unless(
                 auth('moonshine')->user()->moonshine_user_role_id === 1,
-                fn(Text $field) => $field->readonly()->hideOnCreate(),
-                fn(Text $field) => $field->locked()
+                fn(Field $field) => $field->readonly()->hideOnCreate(),
+                fn(Field $field) => $field->locked()
             ) // [tl! focus:-4]
     ];
 }
@@ -758,7 +758,7 @@ public function fields(): array
 {
     return [
         Text::make('Title')
-            ->onBeforeApply(function(Model $item, $value) {
+            ->onBeforeApply(function(Model $item, $value, Field $field) {
                 //
                 return $item;
             }) // [tl! focus:-3]
@@ -777,7 +777,7 @@ public function fields(): array
 {
     return [
         Text::make('Title')
-            ->onAfterApply(function(Model $item, $value) {
+            ->onAfterApply(function(Model $item, $value, Field $field) {
                 //
                 return $item;
             }) // [tl! focus:-3]
@@ -796,7 +796,7 @@ public function fields(): array
 {
     return [
         Text::make('Title')
-            ->onAfterDestroy(function(Model $item, $value) {
+            ->onAfterDestroy(function(Model $item, $value, Field $field) {
                 //
                 return $item;
             }) // [tl! focus:-3]

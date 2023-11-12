@@ -18,7 +18,7 @@ public function fields(): array
 {
     return [
         {{ $field }}::make({!! $field === 'BelongsToMany' ? 'Categories' : 'Category' !!}, resource: new CategoryResource())
-            ->valuesQuery(fn(Builder $query) => $query->where('active', true)) // [tl! focus]
+            ->valuesQuery(fn(Builder $query, Field $field) => $query->where('active', true)) // [tl! focus]
     ];
 }
 
