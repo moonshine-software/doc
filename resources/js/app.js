@@ -15,6 +15,7 @@ window.Alpine = Alpine
 
 /* Document ready */
 document.addEventListener("DOMContentLoaded", () => {
+    console.log('Init Swiper')
 	const testimonialsSwiper = new Swiper(".testimonials-slider", {
 		modules: [Navigation],
 		slidesPerView: 1,
