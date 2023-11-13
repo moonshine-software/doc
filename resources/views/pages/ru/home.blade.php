@@ -1,6 +1,10 @@
 <x-page title="MoonShine">
-    <x-image theme="light" src="{{ asset('images/home.png') }}"></x-image>
-    <x-image theme="dark" src="{{ asset('images/home.png') }}"></x-image>
+
+    <div style="max-width: 1440px">
+        <video load="lazy" class="how-it-works-preview-video" autoplay muted preload="auto" playsinline>
+            <source src="/video/moon_shine_logo_2.mp4" type="video/mp4" />
+        </video>
+    </div>
 
     <x-sub-title>Привет пользователь Laravel!</x-sub-title>
 
