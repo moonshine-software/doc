@@ -1,8 +1,18 @@
-<x-page title="Диапазон слайдер">
+<x-page
+    title="Диапазон слайдер"
+    :sectionMenu="[
+        'Разделы' => [
+            ['url' => '#make', 'label' => 'Make'],
+            ['url' => '#filter', 'label' => 'Фильтр'],
+        ]
+    ]"
+>
 
 <x-extendby :href="route('moonshine.page', 'fields-range')">
     Range
 </x-extendby>
+
+<x-sub-title id="make">Make</x-sub-title>
 
 <x-p>
     <x-p>
@@ -29,5 +39,7 @@ public function fields(): array
 
 <x-image theme="light" src="{{ asset('screenshots/slide.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/slide_dark.png') }}"></x-image>
+
+@include('pages.ru.fields.shared.filter_range', ['field' => 'RangeSlider'])
 
 </x-page>

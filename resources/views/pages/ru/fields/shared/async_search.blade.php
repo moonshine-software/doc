@@ -22,7 +22,7 @@ use MoonShine\Fields\Relationships\{{ $field }};
 public function fields(): array
 {
     return [
-        {{ $field }}::make({!! $field === 'BelongsToMany' ? 'Countries' : 'Country' !!}, resource: new CountryResource())
+        {{ $field }}::make('{{ $field === 'BelongsToMany' ? 'Countries' : 'Country' }}', '{{ $field === 'BelongsToMany' ? 'countries' : 'country' }}', resource: new CountryResource())
             ->asyncSearch() // [tl! focus]
     ];
 }
@@ -57,7 +57,7 @@ use MoonShine\Fields\Relationships\{{ $field }};
 public function fields(): array
 {
     return [
-        {{ $field }}::make({!! $field === 'BelongsToMany' ? 'Countries' : 'Country' !!}, resource: new CountryResource())
+        {{ $field }}::make('{{ $field === 'BelongsToMany' ? 'Countries' : 'Country' }}', '{{ $field === 'BelongsToMany' ? 'countries' : 'country' }}', resource: new CountryResource())
             ->asyncSearch(
                 'title',
                 10,
@@ -92,12 +92,13 @@ public function fields(): array
 {
     return [
         Select::make('Country', 'country_id'), // [tl! focus]
-        {{ $field }}::make({!! $field === 'BelongsToMany' ? 'Cities' : 'City' !!}, resource: new CityResource())->asyncSearch(
-            'title',
-            asyncSearchQuery: function (Builder $query, Request $request, Field $field): Builder {
-                return $query->where('country_id', $request->get('country_id'));
-            } // [tl! focus:-2]
-        )
+        {{ $field }}::make('{{ $field === 'BelongsToMany' ? 'Cities' : 'City' }}', '{{ $field === 'BelongsToMany' ? 'cities' : 'city' }}',  resource: new CityResource())
+            ->asyncSearch(
+                'title',
+                asyncSearchQuery: function (Builder $query, Request $request, Field $field): Builder {
+                    return $query->where('country_id', $request->get('country_id'));
+                } // [tl! focus:-2]
+            )
     ];
 }
 
