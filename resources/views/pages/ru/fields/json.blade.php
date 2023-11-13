@@ -296,7 +296,11 @@ public function fields(): array
 //...
 </x-code>
 
-<x-moonshine::alert class="mt-8" type="default" icon="heroicons.information-circle">
+<x-moonshine::alert type="warning" icon="heroicons.information-circle">
+    Для отношений, наличие поля ID в методе fields обязательно!
+</x-moonshine::alert>
+
+<x-moonshine::alert type="warning" icon="heroicons.information-circle">
     При использовании <em>BelongsTo</em> обязательно необходимо через метод
     <code>setColumn()</code> задать поле в таблице базы данных!
 </x-moonshine::alert>
