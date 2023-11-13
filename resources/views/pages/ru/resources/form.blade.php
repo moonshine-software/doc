@@ -1,12 +1,12 @@
-<x-page title="Валидация" :sectionMenu="[
+<x-page title="Форма" :sectionMenu="[
     'Разделы' => [
-        ['url' => '#basics', 'label' => 'Основы'],
-        ['url' => '#messages', 'label' => 'Сообщения'],
-        ['url' => '#prepare', 'label' => 'Подготовка входных данных'],
+        ['url' => '#validation', 'label' => 'Валидация'],
+        ['url' => '#buttons', 'label' => 'Кнопки'],
+        ['url' => '#async', 'label' => 'Асинхронный режим'],
     ]
 ]">
 
-<x-sub-title id="basics">Основы</x-sub-title>
+<x-sub-title id="validation">Основы</x-sub-title>
 
 <x-p>
     Валидация выполнена так же просто, как и в <code>FormRequests</code> классах от Laravel.
@@ -113,4 +113,80 @@ class PostResource extends ModelResource
 }
 </x-code>
 
+<x-sub-title id="buttons">Кнопки</x-sub-title>
+
+<x-p>
+    Для добавления кнопок используются ActionButton и методы <code>FormButtons</code> или <code>buttons</code> в ресурсе
+</x-p>
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    <x-link link="{{ route('moonshine.page', 'action_button') }}">Подробнее ActionButton</x-link>
+</x-moonshine::alert>
+
+<x-code>
+public function formButtons(): array
+{
+    return [
+        ActionButton::make('Link', '/endpoint'),
+    ];
+}
+</x-code>
+
+<x-p>
+    Также можно воспользоваться методом <code>buttons</code>, но в таком случае кнопки будут и на всех остальных страницах ресурса
+</x-p>
+
+<x-code>
+public function buttons(): array
+{
+    return [
+        ActionButton::make('Link', '/endpoint'),
+    ];
+}
+</x-code>
+
+<x-sub-title id="async">Асинхронный режим</x-sub-title>
+
+<x-p>
+    Переключить режим без перезагрузки для сохранения данных
+</x-p>
+
+<x-code>
+namespace App\MoonShine\Resources;
+
+use App\Models\Post;
+use MoonShine\Resources\ModelResource;
+
+class PostResource extends ModelResource
+{
+    protected string $model = Post::class;
+
+    protected string $title = 'Posts';
+
+    protected bool $isAsync = true; // [tl! focus]
+
+    // ...
+}
+</x-code>
+
+<x-p>
+    Переключить режим формы в Precognitive валидацию
+</x-p>
+
+<x-code>
+namespace App\MoonShine\Resources;
+
+use App\Models\Post;
+use MoonShine\Resources\ModelResource;
+
+class PostResource extends ModelResource
+{
+    protected string $model = Post::class;
+
+    protected string $title = 'Posts';
+
+    protected bool $isPrecognitive = true; // [tl! focus]
+
+    // ...
+}
+</x-code>
 </x-page>

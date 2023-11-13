@@ -2,8 +2,13 @@
 
 return [
     [
-        'title' => 'Settings Manager',
-        'url' => 'visual-ideas/laravel-site-settings',
+        'title' => 'Permissions',
+        'url' => 'moonshine-software/permissions',
+        'category' => 'GUI'
+    ],
+    [
+        'title' => 'Changelog',
+        'url' => 'moonshine-software/changelog',
         'category' => 'GUI'
     ],
     [
@@ -17,58 +22,8 @@ return [
         'category' => 'Fields'
     ],
     [
-        'title' => 'Moonshine Spatie Translatable',
-        'url' => 'visual-ideas/moonshine-spatie-translatable',
-        'category' => 'Fields'
-    ],
-    [
-        'title' => 'Moonshine Language Ukrainian',
-        'url' => 'JekaSylar/MoonShine-Language-Ukrainian',
-        'category' => 'Localizations'
-    ],
-    [
-        'title' => 'Char Count',
-        'url' => 'lee-to/moonshine-input-extension-char-count',
-        'category' => 'Input extensions'
-    ],
-    [
-        'title' => 'Global search (Algolia)',
-        'url' => 'lee-to/moonshine-algolia-search',
-        'category' => 'Search'
-    ],
-    [
         'title' => 'Sortable tree resource',
         'url' => 'lee-to/moonshine-tree-resource',
         'category' => 'Resources'
     ],
-    [
-        'title' => 'Kanban board resource',
-        'url' => 'lee-to/moonshine-kanban-board-resource',
-        'category' => 'Resources'
-    ],
-    [
-        'title' => 'User Impersonation',
-        'url' => 'Jampire/moonshine-impersonate',
-        'category' => 'Auth'
-    ],
-    [
-        'title' => 'MoonShine TagList Field for Spatie Laravel tags',
-        'url' => 'lee-to/moonshine-spatie-tags-field',
-        'category' => 'Fields'
-    ],
-    [
-        'title' => 'Moonshine Language Romanian',
-        'url' => 'SWEET1S/MoonShine-Language-Romanian',
-        'category' => 'Localizations'
-    ],
-    [
-        'title' => 'MoonShine Roles-Permissions',
-        'url' => 'SWEET1S/moonshine-roles-permissions',
-        'category' => 'Auth'
-    ],
-    [
-        'title' => 'Database Manager',
-        'url' => 'SWEET1S/moonshine-database',
-        'category' => 'GUI'
-    ]
 ];

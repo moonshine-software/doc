@@ -50,7 +50,6 @@ return [
         ['slug' => 'resources-index', 'label' => 'Basics'],
         ['slug' => 'resources-fields', 'label' => 'Fields'],
         ['slug' => 'resources-pages', 'label' => 'With pages'],
-        ['slug' => 'resources-validation', 'label' => 'Validation rules'],
         ['slug' => 'resources-filters', 'label' => 'Filters'],
         ['slug' => 'resources-search', 'label' => 'Search'],
         ['slug' => 'resources-table', 'label' => 'Table'],
@@ -61,6 +60,7 @@ return [
         ['slug' => 'resources-metrics', 'label' => 'Metrics'],
         ['slug' => 'resources-events', 'label' => 'Events'],
         ['slug' => 'resources-authorization', 'label' => 'Authorization'],
+        //['slug' => 'resources-routes', 'label' => 'Routes'],
     ],
 
     'Menu:bars-3' => [
@@ -136,7 +136,9 @@ return [
     ],
 
     'Advanced:moon' => [
-        ['slug' => 'advanced-resource', 'label' => 'Resource'],
+        //['slug' => 'advanced-resource', 'label' => 'Resource'],
+        //['slug' => 'advanced-development', 'label' => 'Development'],
+        //['slug' => 'advanced-commands', 'label' => 'Commands'],
         ['slug' => 'advanced-controller', 'label' => 'Controllers'],
         ['slug' => 'advanced-form_builder', 'label' => 'FormBuilder'],
         ['slug' => 'advanced-table_builder', 'label' => 'TableBuilder'],
@@ -147,9 +149,6 @@ return [
         ['slug' => 'advanced-notifications', 'label' => 'Notifications'],
         ['slug' => 'advanced-socialite', 'label' => 'Socialite'],
         ['slug' => 'advanced-localization', 'label' => 'Localization'],
-//        ['slug' => 'advanced-dashboard', 'label' => 'Dashboard', 'badge' => 'new'],
-//        ['slug' => 'advanced-routes', 'label' => 'Routes'],
-//        ['slug' => 'advanced-development', 'label' => 'Development'],
     ],
 
     ':_divider_',
@@ -185,8 +184,8 @@ return [
         ['slug' => 'ui-tooltip', 'label' => 'Tooltip'],
     ],
 
-//    ':_divider_',
-//    'Packages:cube' => [
-//        ['slug' => 'packages', 'label' => 'Packages', 'badge' => 'new'],
-//    ],
+    ':_divider_',
+    'Packages:cube' => [
+        ['slug' => 'packages', 'label' => 'Packages', 'badge' => 'new'],
+    ],
 ];

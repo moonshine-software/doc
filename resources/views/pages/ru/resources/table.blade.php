@@ -204,7 +204,7 @@ class PostResource extends ModelResource
 
     protected string $title = 'Posts';
 
-    protected bool $isAsync = true;
+    protected bool $isAsync = true; // [tl! focus]
 
     // ...
 }

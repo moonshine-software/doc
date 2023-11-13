@@ -54,4 +54,23 @@ class PostResource extends ModelResource
     <x-link link="{{ route('moonshine.page', 'fields-index') }}">Подробнее о Полях</x-link>
 </x-moonshine::alert>
 
+<x-p>
+    Если необходимо кешировать состояние фильтров, воспользуйтесь свойство <code>saveFilterState</code> в ресурсе
+</x-p>
+<x-code language="php">
+namespace App\MoonShine\Resources;
+
+use App\Models\Post;
+use MoonShine\Resources\ModelResource;
+
+class PostResource extends ModelResource
+{
+    protected string $model = Post::class;
+
+    protected string $title = 'Posts';
+
+    protected bool $saveFilterState = true; // [tl! focus]
+//...
+}
+</x-code>
 </x-page>
