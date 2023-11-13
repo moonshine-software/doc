@@ -19,6 +19,7 @@
             ['url' => '#apply', 'label' => 'Apply'],
             ['url' => '#events', 'label' => 'События'],
             ['url' => '#assets', 'label' => 'Assets'],
+            ['url' => '#wrapper', 'label' => 'Wrapper'],
         ]
     ]"
 >
@@ -825,5 +826,32 @@ public function fields(): array
     ];
 }
 </x-code>
+
+<x-sub-title id="wrapper">Wrapper</x-sub-title>
+
+<x-p>
+    Поля при отображении в формах используют специальную обертку <em>wrapper</em> для заголовков, подсказок, ссылок и тд.
+    Иногда может возникнуть ситуация, когда требуется отобразить поле без дополнительных элементов.<br />
+    Метод <code>withoutWrapper()</code> позволяет отключить создание <em>wrapper</em>.
+</x-p>
+
+<x-code language="php">
+withoutWrapper(mixed $condition = null)
+</x-code>
+
+<x-code language="php">
+//...
+
+public function fields(): array
+{
+    return [
+        Text::make('Title')
+            ->withoutWrapper() // [tl! focus]
+    ];
+}
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/without_wrapper.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/without_wrapper_dark.png') }}"></x-image>
 
 </x-page>
