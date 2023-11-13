@@ -42,7 +42,7 @@
     "laravel/framework": "^10.23",
     "lee-to/moonshine-algolia-search": "^1.0",
     "moonshine/moonshine": "^1.60" // [tl! -- **]
-    "moonshine/moonshine": "^2.0.0.rc.3" // [tl! ++ **]
+    "moonshine/moonshine": "^2.0" // [tl! ++ **]
 },
 </x-code>
 
