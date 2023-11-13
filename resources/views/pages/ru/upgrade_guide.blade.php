@@ -29,6 +29,10 @@
 
 <x-ul :items="['php >=8.1', 'laravel >= 10.23']"></x-ul>
 
+<x-moonshine::alert class="mt-8" type="info" icon="heroicons.information-circle">
+    Перед обновлением рекомендуется удалить папку <code>public/vendor/moonshine</code>.
+</x-moonshine::alert>
+
 <x-sub-title id="composer" hashtag="2">Composer.json</x-sub-title>
 
 <x-p>
@@ -347,6 +351,14 @@ class ArticleResource extends ModelResource
 
 <x-code language="shell">
 composer update
+</x-code>
+
+<x-p>
+    Если во время обновления ассеты не были опубликованы, то их необходимо опубликовать.
+</x-p>
+
+<x-code language="shell">
+php artisan vendor:publish --tag=laravel-assets --ansi --force
 </x-code>
 
 <x-sub-title id="config" hashtag="11">Config</x-sub-title>
