@@ -79,32 +79,7 @@ public function fields(): array
     Не забудьте в таблице базы данных указать, что поле может принимать значение <code>Null</code>.
 </x-moonshine::alert>
 
-<x-sub-title id="placeholder">Placeholder</x-sub-title>
-
-<x-p>
-    Метод <code>placeholder()</code> позволяет переопределить стандартный placeholder.
-</x-p>
-
-<x-code language="php">
-placeholder(string $value)
-</x-code>
-
-<x-code language="php">
-use MoonShine\Fields\Relationships\BelongsTo;
-
-//...
-
-public function fields(): array
-{
-    return [
-        BelongsTo::make('Country', resource: new CountryResource())
-            ->nullable()
-            ->placeholder('Select country') // [tl! focus]
-    ];
-}
-
-//...
-</x-code>
+@include('pages.ru.fields.shared.placeholder', ['field' => 'BelongsTo'])
 
 <x-sub-title id="searchable">Поиск значений</x-sub-title>
 

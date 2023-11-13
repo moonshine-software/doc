@@ -7,6 +7,7 @@
             ['url' => '#pivot', 'label' => 'Pivot'],
             ['url' => '#creatable', 'label' => 'Создание объекта отношения'],
             ['url' => '#select', 'label' => 'Select'],
+            ['url' => '#placeholder', 'label' => 'Placeholder'],
             ['url' => '#tree', 'label' => 'Tree'],
             ['url' => '#preview', 'label' => 'Preview'],
             ['url' => '#values-query', 'label' => 'Запрос для значений'],
@@ -110,6 +111,12 @@ public function fields(): array
 <x-image theme="light" src="{{ asset('screenshots/belongs_to_many_select.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/belongs_to_many_select_dark.png') }}"></x-image>
 
+@include('pages.ru.fields.shared.placeholder', ['field' => 'BelongsToMany'])
+
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    Метод <code>placeholder()</code> используется только,
+    если поле отображается в виде выпадающего списка <code>selectMode()</code>!
+</x-moonshine::alert>
 
 <x-sub-title id="tree">Tree</x-sub-title>
 

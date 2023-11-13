@@ -5,6 +5,7 @@
             ['url' => '#make', 'label' => 'Make'],
             ['url' => '#default', 'label' => 'Значение по умолчанию'],
             ['url' => '#nullable', 'label' => 'Nullable'],
+            ['url' => '#placeholder', 'label' => 'Placeholder'],
             ['url' => '#groups', 'label' => 'Группы'],
             ['url' => '#multiple', 'label' => 'Несколько значений'],
             ['url' => '#searchable', 'label' => 'Поиск'],
@@ -104,6 +105,8 @@ public function fields(): array
 
 <x-image theme="light" src="{{ asset('screenshots/select_nullable.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/select_nullable_dark.png') }}"></x-image>
+
+@include('pages.ru.fields.shared.placeholder', ['field' => 'Select'])
 
 <x-sub-title id="groups">Группы</x-sub-title>
 
