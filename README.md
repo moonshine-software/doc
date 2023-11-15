@@ -4,4 +4,4 @@
 - config/menu.php
 
 #### Pages
-- src/resources/views/pages/(en|ru|ua)
+- src/resources/views/pages/(en|ru)
