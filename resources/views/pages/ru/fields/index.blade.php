@@ -76,6 +76,12 @@ public function fields(): array
 //...
 </x-code>
 
+<x-moonshine::alert type="warning" icon="heroicons.information-circle">
+    Поля не поддерживающие <em>formatted</em>: <code>Json</code>, <code>File</code>, <code>Range</code>,
+    <code>RangeSlider</code>, <code>DateRange</code>, <code>Select</code>, <code>Enum</code>, <code>HasOne</code>,
+    <code>HasMany</code>.
+</x-moonshine::alert>
+
 <x-sub-title id="label">Label</x-sub-title>
 
 <x-p>
@@ -192,6 +198,28 @@ public function fields(): array
     return [
         Password::make('Title')
             ->customAttributes(['autocomplete' => 'off']) // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
+
+<x-p>
+    Метод <code>customWrapperAttributes()</code> позволяет добавить аттрибуты для <em>wrapper</em> поля.
+</x-p>
+
+<x-code language="php">
+customWrapperAttributes(array $attributes)
+</x-code>
+
+<x-code language="php">
+//...
+
+public function fields(): array
+{
+    return [
+        Password::make('Title')
+            ->customWrapperAttributes(['class' => 'mt-8']) // [tl! focus]
     ];
 }
 

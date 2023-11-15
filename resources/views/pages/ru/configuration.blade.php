@@ -62,8 +62,8 @@ return [ // [tl! focus]
     ], // [tl! focus]
 
     'pages' => [ // [tl! focus]
-        # Страница дашборда
-        'dashboard' => '', // [tl! focus]
+        # Страница дашборда, дефолтная страница создается при установке MoonShine
+        'dashboard' => App\MoonShine\Pages\Dashboard::class, // [tl! focus]
         # Страница профиля
         'profile' => ProfilePage::class // [tl! focus]
     ], // [tl! focus]

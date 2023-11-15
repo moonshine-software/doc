@@ -6,6 +6,7 @@
             ['url' => '#default', 'label' => 'Значение по умолчанию'],
             ['url' => '#readonly', 'label' => 'Только для чтения'],
             ['url' => '#mask', 'label' => 'Маска'],
+            ['url' => '#placeholder', 'label' => 'Placeholder'],
             ['url' => '#extensions', 'label' => 'Расширения'],
             ['url' => '#update-on-preview', 'label' => 'Редактирование в preview'],
         ]
@@ -116,6 +117,8 @@ public function fields(): array
 
 <x-image theme="light" src="{{ asset('screenshots/mask.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/mask_dark.png') }}"></x-image>
+
+@include('pages.ru.fields.shared.placeholder', ['field' => 'Text'])
 
 <x-sub-title id="extensions">Расширения</x-sub-title>
 

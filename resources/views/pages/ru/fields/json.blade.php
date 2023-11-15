@@ -15,7 +15,7 @@
     ]"
 >
 
-<x-sub-title id="basics">Make</x-sub-title>
+<x-sub-title id="basics">Основы</x-sub-title>
 
 <x-p>
     Поле <em>Json</em> включает в себя все базовые методы.

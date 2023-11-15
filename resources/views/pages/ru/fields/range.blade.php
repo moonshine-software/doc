@@ -2,7 +2,9 @@
     title="Диапазон"
     :sectionMenu="[
         'Разделы' => [
+            ['url' => '#make', 'label' => 'Make'],
             ['url' => '#attributes', 'label' => 'Аттрибуты'],
+            ['url' => '#filter', 'label' => 'Фильтр'],
         ]
     ]"
 >
@@ -10,6 +12,8 @@
 <x-extendby :href="route('moonshine.page', 'fields-number')">
     Number
 </x-extendby>
+
+<x-sub-title id="make">Make</x-sub-title>
 
 <x-p>
     Поле <em>Range</em> является расширением <em>Number</em>,
@@ -75,5 +79,7 @@ public function fields(): array
 
 //...
 </x-code>
+
+@include('pages.ru.fields.shared.filter_range', ['field' => 'Range'])
 
 </x-page>

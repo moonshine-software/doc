@@ -2,12 +2,16 @@
     title="Диапазон дат"
     :sectionMenu="[
         'Разделы' => [
+            ['url' => '#make', 'label' => 'Make'],
             ['url' => '#with-time', 'label' => 'Дата и время'],
             ['url' => '#format', 'label' => 'Формат'],
             ['url' => '#attributes', 'label' => 'Аттрибуты'],
+            ['url' => '#filter', 'label' => 'Фильтр'],
         ]
     ]"
 >
+
+<x-sub-title id="make">Make</x-sub-title>
 
 <x-p>
     Поле <em>DateRange</em> включает в себя все базовые методы и позволяет выбрать диапазон дат.
@@ -170,5 +174,7 @@ public function fields(): array
 
 //...
 </x-code>
+
+@include('pages.ru.fields.shared.filter_range', ['field' => 'DateRange'])
 
 </x-page>

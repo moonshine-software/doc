@@ -5,11 +5,13 @@
             ['url' => '#make', 'label' => 'Make'],
             ['url' => '#default', 'label' => 'Значение по умолчанию'],
             ['url' => '#nullable', 'label' => 'Nullable'],
+            ['url' => '#placeholder', 'label' => 'Placeholder'],
             ['url' => '#groups', 'label' => 'Группы'],
             ['url' => '#multiple', 'label' => 'Несколько значений'],
             ['url' => '#searchable', 'label' => 'Поиск'],
             ['url' => '#async', 'label' => 'Асинхронный поиск'],
             ['url' => '#update-on-preview', 'label' => 'Редактирование в preview'],
+		    ['url' => '#with-image', 'label' => 'Значения с изображением'],
         ]
     ]"
 >
@@ -104,6 +106,8 @@ public function fields(): array
 
 <x-image theme="light" src="{{ asset('screenshots/select_nullable.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/select_nullable_dark.png') }}"></x-image>
+
+@include('pages.ru.fields.shared.placeholder', ['field' => 'Select'])
 
 <x-sub-title id="groups">Группы</x-sub-title>
 
@@ -215,7 +219,7 @@ public function fields(): array
 <x-p>
     У поля <em>Select</em> так же можно организовать асинхронный поиск.
     Для это необходимо методу <code>async()</code> передать <em>url</em>,
-    на который будет отправляться запрос с <em>query</em> параметром для поиск.
+    на который будет отправляться запрос с <em>query</em> параметром для поиска.
 </x-p>
 
 <x-code language="php">
@@ -261,5 +265,42 @@ public function fields(): array
 </x-code>
 
 @include('pages.ru.fields.shared.update_on_preview', ['field' => 'Select'])
+
+<x-sub-title id="with-image">Значения с изображением</x-sub-title>
+
+<x-p>
+    Метод <code>optionProperties()</code> позволяет добавить изображение к значению.
+</x-p>
+
+<x-code language="php">
+optionProperties(Closure|array $data)
+</x-code>
+
+<x-code language="php">
+use MoonShine\Fields\Select;
+
+//...
+
+public function fields(): array
+{
+    return [
+        Select::make('Country', 'country_id')
+            ->options([
+                1 => 'Andorra',
+                2 => 'United Arab Emirates',
+                //...
+            ])->optionProperties(fn() => [
+                1 => ['image' => '{{ config('app.url') }}/images/ad.png'],
+                2 => ['image' => '{{ config('app.url') }}/images/ae.png'],
+                //...
+            ]) // [tl! focus:-4]
+    ];
+}
+
+//...
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/belongs_to_image.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/belongs_to_image_dark.png') }}"></x-image>
 
 </x-page>
