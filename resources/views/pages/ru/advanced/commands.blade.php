@@ -9,6 +9,7 @@
             ['url' => '#field', 'label' => 'Field'],
             ['url' => '#handler', 'label' => 'Handler'],
             ['url' => '#page', 'label' => 'Page'],
+            ['url' => '#policy', 'label' => 'Policy'],
             ['url' => '#resource', 'label' => 'Resource'],
             ['url' => '#type_cast', 'label' => 'Type cast'],
             ['url' => '#user', 'label' => 'User'],
@@ -172,6 +173,25 @@
 <x-moonshine::alert type="default" icon="heroicons.book-open">
     За более подробной информацией обратитесь к разделу
     <x-link link="{{ route('moonshine.page', 'page-class') }}">Page</x-link>.
+</x-moonshine::alert>
+
+<x-sub-title id="policy">Policy</x-sub-title>
+
+<x-p>
+    Команда создает <em>Policy</em> с привязкой к пользователю админ-панели:
+</x-p>
+
+<x-code language="shell">
+    php artisan moonshine:policy
+</x-code>
+
+<x-p>
+    После выполнения команды будет создан класс в директории <code>app/Policies</code>.
+</x-p>
+
+<x-moonshine::alert type="default" icon="heroicons.book-open">
+    За более подробной информацией обратитесь к разделу
+    <x-link link="{{ route('moonshine.page', 'advanced-authorization') }}">Authorization</x-link>.
 </x-moonshine::alert>
 
 <x-sub-title id="resource">Resource</x-sub-title>
