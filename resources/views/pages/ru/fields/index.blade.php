@@ -204,6 +204,28 @@ public function fields(): array
 //...
 </x-code>
 
+<x-p>
+    Метод <code>customWrapperAttributes()</code> позволяет добавить аттрибуты для <em>wrapper</em> поля.
+</x-p>
+
+<x-code language="php">
+customWrapperAttributes(array $attributes)
+</x-code>
+
+<x-code language="php">
+//...
+
+public function fields(): array
+{
+    return [
+        Password::make('Title')
+            ->customWrapperAttributes(['class' => 'mt-8']) // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
+
 <x-sub-title id="hint">Подсказка</x-sub-title>
 
 <x-p>
