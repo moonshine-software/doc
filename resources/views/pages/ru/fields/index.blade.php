@@ -76,6 +76,12 @@ public function fields(): array
 //...
 </x-code>
 
+<x-moonshine::alert type="warning" icon="heroicons.information-circle">
+    Поля не поддерживающие <em>formatted</em>: <code>Json</code>, <code>File</code>, <code>Range</code>,
+    <code>RangeSlider</code>, <code>DateRange</code>, <code>Select</code>, <code>Enum</code>, <code>HasOne</code>,
+    <code>HasMany</code>.
+</x-moonshine::alert>
+
 <x-sub-title id="label">Label</x-sub-title>
 
 <x-p>
