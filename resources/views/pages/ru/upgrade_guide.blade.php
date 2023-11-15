@@ -358,6 +358,12 @@ composer update
 </x-p>
 
 <x-code language="shell">
+    php artisan moonshine:publish
+</x-code>
+
+<x-p>или</x-p>
+
+<x-code language="shell">
 php artisan vendor:publish --tag=laravel-assets --ansi --force
 </x-code>
 
@@ -370,7 +376,7 @@ php artisan vendor:publish --tag=laravel-assets --ansi --force
 </x-p>
 
 <x-code language="shell">
-php artisan moonsine:install
+php artisan moonshine:install
 </x-code>
 
 <x-sub-title id="dashboard" hashtag="12">Dashboard</x-sub-title>
