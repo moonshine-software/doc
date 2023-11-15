@@ -21,7 +21,7 @@ final class MoonShineLayout implements MoonShineLayoutContract
                 Flash::make(),
                 Header::make([
                     new ChangeVersion(),
-                    //new DocSearch()
+                    new DocSearch()
                 ]),
                 Content::make(),
                 Footer::make()->copyright(fn (): string => <<<'HTML'

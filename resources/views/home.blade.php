@@ -47,16 +47,19 @@
             <!-- /.header-menu -->
             <div class="header-actions flex items-center">
                 <div class="flex items-center gap-x-2 sm:gap-x-3 md:gap-x-5">
-                    {{--
-                    <button type="button" class="text-white hover:text-pink">
+
+                    {{--<button type="button" class="text-white hover:text-pink">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6" fill="currentColor" viewBox="0 0 24 24">
                             <path
                                 d="m23.58 21.572-4.612-4.613a10.481 10.481 0 0 0 2.165-6.391c0-2.823-1.1-5.476-3.096-7.473A10.497 10.497 0 0 0 10.565 0a10.5 10.5 0 0 0-7.472 3.095c-4.12 4.12-4.12 10.825 0 14.945a10.497 10.497 0 0 0 7.472 3.096 10.48 10.48 0 0 0 6.392-2.166l4.612 4.613a1.419 1.419 0 0 0 2.011 0 1.423 1.423 0 0 0 0-2.011ZM5.104 16.029c-3.011-3.011-3.01-7.911 0-10.923a7.674 7.674 0 0 1 5.462-2.26 7.673 7.673 0 0 1 5.46 2.26 7.674 7.674 0 0 1 2.262 5.462 7.675 7.675 0 0 1-2.262 5.461 7.669 7.669 0 0 1-5.461 2.262 7.678 7.678 0 0 1-5.461-2.262Z"
                             />
                         </svg>
-                    </button>
+                    </button>--}}
+
+                    <x-doc-search />
+
                     <div class="h-4 w-[1px] bg-white/25"></div>
-                    --}}
+
                     <a href="{{ config('links.github') }}" class="text-white hover:text-pink" target="_blank" rel="noopener nofollow">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6" fill="currentColor" viewBox="0 0 24 24">
                             <path
