@@ -11,7 +11,7 @@
 <x-sub-title id="basics">Основы</x-sub-title>
 
 <x-p>
-    Админ-панель <strong>MoonShine</strong> не отходим от концепций Laravel
+    Админ-панель <strong>MoonShine</strong> не отходит от концепций Laravel
     и также с помощью <em>Laravel policy</em> может работать с правами доступа.
 </x-p>
 
