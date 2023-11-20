@@ -35,6 +35,8 @@ return [ // [tl! focus]
         # По какому url будет доступна панель управления
         # Если оставить значение пустым, то панель будет доступна от /
         'prefix' => env('MOONSHINE_ROUTE_PREFIX', 'admin'), // [tl! focus]
+        # Имя роута главной страницы
+        'index' => 'moonshine.index', // [tl! focus]
         # Префикс формирования url для страниц
         'single_page_prefix' => 'page', // [tl! focus]
         # Группы middlewares в панели
