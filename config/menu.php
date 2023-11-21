@@ -22,6 +22,10 @@ return [
     'Components:rectangle-group' => [
         ['slug' => 'components-index', 'label' => 'Basics'],
 
+        // System
+        'System:_divider_',
+        ['slug' => 'components-system_layout', 'label' => 'Layout', 'title' => 'Системный компонент Layout'],
+
         // Decorations
         'Decorations:_divider_',
         ['slug' => 'components-decoration_block', 'label' => 'Block', 'title' => 'Decoration Block'],
