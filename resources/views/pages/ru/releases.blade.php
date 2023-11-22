@@ -1,6 +1,18 @@
 <x-page title="Обновления" :sectionMenu="null">
 <ul class="tree-list">
     <li class="my-2">
+        <x-moonshine::link-button href="https://github.com/moonshine-software/moonshine/releases/tag/2.1.0">
+            v2.1.0 "Cosmo Fusion"
+        </x-moonshine::link-button>
+
+        <div class="">
+            <x-moonshine::link-native href="https://cutcode.dev/articles/moonshine-21-cosmo-fusion">
+                Подробности
+            </x-moonshine::link-native>
+        </div>
+    </li>
+
+    <li class="my-2">
         <x-moonshine::link-button href="https://github.com/moonshine-software/moonshine/releases/tag/2.0.0">
             v2.0.0
         </x-moonshine::link-button>
