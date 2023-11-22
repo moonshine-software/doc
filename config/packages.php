@@ -26,4 +26,9 @@ return [
         'url' => 'lee-to/moonshine-tree-resource',
         'category' => 'Resources'
     ],
+    [
+        'title' => 'Moonshine Spatie Translatable',
+        'url' => 'visual-ideas/moonshine-spatie-translatable',
+        'category' => 'Fields'
+    ],
 ];
