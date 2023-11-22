@@ -58,7 +58,7 @@ return [
         ['slug' => 'resources-search', 'label' => 'Search'],
         ['slug' => 'resources-table', 'label' => 'Table'],
         ['slug' => 'resources-form', 'label' => 'Form'],
-        ['slug' => 'resources-import-export', 'label' => 'Import/Export'],
+        ['slug' => 'resources-import_export', 'label' => 'Import / Export'],
         ['slug' => 'resources-query', 'label' => 'Query'],
         ['slug' => 'resources-query_tags', 'label' => 'Quick filters (tags)'],
         ['slug' => 'resources-metrics', 'label' => 'Metrics'],
