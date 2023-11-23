@@ -124,6 +124,8 @@ class PostResource extends ModelResource
 
     protected int $itemsPerPage = 25; // Количество элементов на странице [tl! focus]
 
+    public string $column = 'id'; // Поле для отображения значений в связях и хлебных крошках [tl! focus]
+
     //...
 }
 </x-code>
@@ -305,7 +307,7 @@ class PostResource extends ModelResource
 </x-code>
 
 <x-p>
-    Вы также можете подключить trait к ресурсу и внутри trait добавить метод согласно конвецнии наименований -
+    Вы также можете подключить trait к ресурсу и внутри trait добавить метод согласно конвенции наименований -
     boot{TraitName} и через трейт обратится к boot ресурса
 </x-p>
 
