@@ -36,8 +36,10 @@ class PostResource extends ModelResource
 <x-image theme="dark" src="{{ asset('screenshots/metrics_dark.png') }}"></x-image>
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
-    За более подробной информацией обратитесь к разделу
-    <x-link link="{{ route('moonshine.page', 'metrics-index') }}">Метрики</x-link>.
+    За более подробной информацией обратитесь к разделам
+    <x-link link="{{ route('moonshine.page', 'components-metric_donut_chart') }}">Donut Chart</x-link>,
+    <x-link link="{{ route('moonshine.page', 'components-metric_line_chart') }}">Line Chart</x-link> и
+    <x-link link="{{ route('moonshine.page', 'components-metric_value') }}">Value</x-link>.
 </x-moonshine::alert>
 
 </x-page>
