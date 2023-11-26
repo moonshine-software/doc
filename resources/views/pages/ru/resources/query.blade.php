@@ -125,11 +125,9 @@ class PostResource extends ModelResource
 
     //...
 
-    protected function resolveOrder(string $column, string $direction): self // [tl! focus:start]
+    protected function resolveOrder(): static // [tl! focus:start]
     {
-        $this->query()->orderBy($column, $direction);
-
-        return $this;
+        return parent::resolveOrder();
     } // [tl! focus:end]
 
     //...
