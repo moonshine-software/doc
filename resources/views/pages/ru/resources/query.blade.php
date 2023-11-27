@@ -106,9 +106,7 @@ class PostResource extends ModelResource
 <x-sub-title id="order">Сортировка</x-sub-title>
 
 <x-p>
-    Переопределив метод <code>resolveOrder()</code>, можно кастомизировать сортировку записей.<br />
-    Метод принимает в качестве параметров поле по которому производится сортировка
-    и направление (по возрастанию или убыванию).
+    Переопределив метод <code>resolveOrder()</code>, можно кастомизировать сортировку записей.
 </x-p>
 
 <x-code language="php">
@@ -127,6 +125,20 @@ class PostResource extends ModelResource
 
     protected function resolveOrder(): static // [tl! focus:start]
     {
+        if (($sort = request('sort')) && is_string($sort)) {
+            $column = ltrim($sort, '-');
+            $direction = str_starts_with($sort, '-') ? 'desc' : 'asc';
+
+            if ($column === 'author') {
+                $this->query()
+                    ->select('posts.*')
+                    ->leftJoin('users', 'users.id', '=', 'posts.author_id')
+                    ->orderBy('users.name', $direction);
+
+                return $this;
+            }
+        }
+
         return parent::resolveOrder();
     } // [tl! focus:end]
 
