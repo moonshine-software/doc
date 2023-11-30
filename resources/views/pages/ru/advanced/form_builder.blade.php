@@ -5,6 +5,7 @@
         'Разделы' => [
             ['url' => '#basics', 'label' => 'Основы'],
             ['url' => '#methods', 'label' => 'Методы'],
+            ['url' => '#async', 'label' => 'Асинхронный режим'],
         ]
     ]"
 >
@@ -173,7 +174,17 @@ FormBuilder::make('/crud/update', 'PUT')
     ])
 </x-code>
 
-<x-moonshine::divider label="async/precognition" />
+<x-moonshine::divider label="Attributes" />
+
+<x-p>
+    Вы можете задать любые html атрибуты для формы через метод <code>customAttributes</code>.
+</x-p>
+
+<x-code>
+FormBuilder::make()->customAttributes(['class' => 'custom-form']),
+</x-code>
+
+<x-sub-title id="async">Асинхронный режим</x-sub-title>
 
 <x-p>
     Если необходимо отправлять форму асинхронно, то воспользуйтесь методом <code>async</code>.
@@ -185,6 +196,26 @@ FormBuilder::make('/crud/update', 'PUT')
 </x-code>
 
 <x-p>
+    После успешного запроса, можно вызвать события, добавив параметр <code>asyncEvents</code>.
+</x-p>
+
+<x-code language="php">
+    FormBuilder::make('/crud/update', 'PUT')
+        ->name('main-form')
+        ->async(asyncEvents: ['table-updated-crud', 'form-reset-main-form'])
+</x-code>
+
+<x-moonshine::alert type="primary" icon="heroicons.information-circle">
+    В MoonShine уже есть набор готовых событий
+</x-moonshine::alert>
+
+<ul>
+    <li><code>table-updated-{name}</code> - Обновление асинхронной таблицы по ее имени</li>
+    <li><code>form-reset-{name}</code> - Сброс значений формы по ее имени</li>
+    <li><code>fragment-updated-{name}</code> - Обновление blade fragment по его имени</li>
+</ul>
+
+<x-p>
     Если необходимо предварительно выполнить precognition валидацию, необходим метод <code>precognitive</code>.
 </x-p>
 
@@ -193,13 +224,33 @@ FormBuilder::make('/crud/update', 'PUT')
     ->precognitive()
 </x-code>
 
-<x-moonshine::divider label="Attributes" />
+<x-moonshine::alert type="primary" icon="heroicons.outline.book-open">
+    Рецепт
+</x-moonshine::alert>
 
 <x-p>
-    Вы можете задать любые html атрибуты для формы через метод <code>customAttributes</code>.
+    Форма при успешном запросе обновляет таблицу и сбрасывает значения
 </x-p>
 
-<x-code>
-FormBuilder::make()->customAttributes(['class' => 'custom-form']),
+<x-code language="php">
+Block::make([
+    FormBuilder::make(route('form-table.store'))
+    ->fields([
+        Text::make('Title')
+    ])
+    ->name('main-form')
+    ->async(asyncEvents: ['table-updated-main-table','form-reset-main-form'])
+]),
+
+TableBuilder::make()
+    ->fields([
+        ID::make(),
+        Text::make('Title'),
+        Textarea::make('Body'),
+    ])
+    ->creatable()
+    ->items(Post::query()->paginate())
+    ->name('main-table')
+    ->async()
 </x-code>
 </x-page>

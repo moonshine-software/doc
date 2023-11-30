@@ -3,6 +3,7 @@
     :sectionMenu="[
         'Разделы' => [
             ['url' => '#make', 'label' => 'Make'],
+            ['url' => '#async', 'label' => 'Асинхронное событие'],
         ]
     ]"
 >
@@ -44,6 +45,37 @@ public function components(): array
 }
 
 //...
+</x-code>
+
+<x-sub-title id="async">Асинхронное событие</x-sub-title>
+
+<x-p>
+    Вы можете обвернуть область в Fragment и повесить на эту область событие,
+    вызвав которое можно будет обновить фрагмент
+</x-p>
+
+<x-code>
+Fragment::make($fields)
+    ->name('fragment-name')
+    ->updateAsync(),
+</x-code>
+
+<x-p>
+    И как пример вызовем событие на успешную отправку формы
+</x-p>
+
+<x-code>
+FormBuilder::make()->async(asyncEvents: 'fragment-updated-fragment-name')
+</x-code>
+
+<x-p>
+    Также с запросом можно передать дополнительные параметры через массив
+</x-p>
+
+<x-code>
+Fragment::make($fields)
+    ->name('fragment-name')
+    ->updateAsync(['resourceItem' => request('resourceItem')]),
 </x-code>
 
 </x-page>
