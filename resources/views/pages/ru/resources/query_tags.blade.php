@@ -2,6 +2,7 @@
     'Разделы' => [
         ['url' => '#basics', 'label' => 'Основы'],
         ['url' => '#icon', 'label' => 'Иконка'],
+        ['url' => '#default', 'label' => 'Активный пункт'],
         ['url' => '#can-see', 'label' => 'Условие отображения'],
     ]
 ]">
@@ -52,37 +53,36 @@ class PostResource extends ModelResource
 </x-p>
 
 <x-code language="php">
-namespace App\MoonShine\Resources;
-
-use App\Models\Post;
-use MoonShine\QueryTags\QueryTag;
-use MoonShine\Resources\ModelResource;
-
-class PostResource extends ModelResource
-{
-    protected string $model = Post::class;
-
-    protected string $title = 'Posts';
-
-    //...
-
-    public function queryTags(): array
-    {
-        return [
-            QueryTag::make(
-                'Post without an author',
-                fn(Builder $query) => $query->whereNull('author_id')
-            )->icon('heroicons.users') // [tl! focus]
-        ];
-    }
-
-    //...
-}
+QueryTag::make(
+    'Post without an author',
+    fn(Builder $query) => $query->whereNull('author_id')
+)
+    ->icon('heroicons.users') // [tl! focus]
 </x-code>
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
-    За более подробной информацией обратитесь к разделу <x-link link="{{ route('moonshine.page', 'appearance-icons') }}">Icons</x-link>
+    За более подробной информацией обратитесь к разделу
+    <x-link link="{{ route('moonshine.page', 'appearance-icons') }}">Icons</x-link>
 </x-moonshine::alert>
+
+<x-sub-title id="default">Активный пункт</x-sub-title>
+
+<x-p>
+    Можно сделать активным <em>QueryTag</em> по умолчанию.
+    Для этого необходимо воспользоваться методом <code>default()</code>.
+</x-p>
+
+<x-code language="php">
+default(Closure|bool|null $condition = null)
+</x-code>
+
+<x-code language="php">
+QueryTag::make(
+    'All posts',
+    fn(Builder $query) => $query
+)
+    ->default() // [tl! focus]
+</x-code>
 
 <x-sub-title id="can-see">Условие отображения</x-sub-title>
 
@@ -93,32 +93,11 @@ class PostResource extends ModelResource
 </x-p>
 
 <x-code language="php">
-namespace App\MoonShine\Resources;
-
-use App\Models\Post;
-use MoonShine\QueryTags\QueryTag;
-use MoonShine\Resources\ModelResource;
-
-class PostResource extends ModelResource
-{
-    protected string $model = Post::class;
-
-    protected string $title = 'Posts';
-
-    //...
-
-    public function queryTags(): array
-    {
-        return [
-            QueryTag::make(
-                'Post with author', // Заголовок тега
-                fn(Builder $query) => $query->whereNotNull('author_id')
-            )->canSee(fn() => auth()->user()->moonshine_user_role_id === 1) // [tl! focus]
-        ];
-    }
-
-    //...
-}
+QueryTag::make(
+    'Post with author', // Заголовок тега
+    fn(Builder $query) => $query->whereNotNull('author_id')
+)
+    ->canSee(fn() => auth()->user()->moonshine_user_role_id === 1) // [tl! focus]
 </x-code>
 
 </x-page>
