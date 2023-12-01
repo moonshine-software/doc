@@ -34,7 +34,8 @@ return [
         ['slug' => 'components-decoration_fragment', 'label' => 'Fragment', 'title' => 'Decoration Fragment'],
         ['slug' => 'components-decoration_heading', 'label' => 'Heading', 'title' => 'Decoration Heading'],
         ['slug' => 'components-decoration_layout', 'label' => 'Layout', 'title' => 'Decoration Layout'],
-        ['slug' => 'components-decoration_tabs', 'label' => 'Tabs', 'title' => 'Decoration Tabs'],
+        ['slug' => 'components-decoration_tabs', 'label' => 'Tabs', 'title' => ' Tabs'],
+        ['slug' => 'components-decoration_flexible_render', 'label' => 'FlexibleRender', 'title' => 'Decoration FlexibleRender'],
 
         // Metrics
         'Metrics:_divider_',
