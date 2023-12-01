@@ -8,6 +8,7 @@
             ['url' => '#value-only', 'label' => 'Только значение'],
             ['url' => '#default', 'label' => 'Значение по умолчанию'],
             ['url' => '#creatable-removable', 'label' => 'Добавление/удаление'],
+            ['url' => '#nesting', 'label' => 'Вложенные значения'],
             ['url' => '#vertical', 'label' => 'Вертикальное отображение'],
             ['url' => '#relation', 'label' => 'Отношения через Json'],
             ['url' => '#filter', 'label' => 'Фильтр'],
@@ -224,6 +225,36 @@ public function fields(): array
 
 <x-image theme="light" src="{{ asset('screenshots/json_removable.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/json_removable_dark.png') }}"></x-image>
+
+<x-sub-title id="nesting">Вложенные значения</x-sub-title>
+
+<x-p>
+    Получить вложенные значения <em>JSON</em> полей можно через <code>.</code>.<br />
+    Значения можно редактировать, при этом изменения не затронут остальные ключи.
+</x-p>
+
+<x-code language="json">
+{"info": [{"title": "Info title", "value": "Info value"}], "content": [{"title": "Content title", "value": "Content value"}]}
+</x-code>
+
+<x-code language="php">
+use MoonShine\Fields\Json;
+
+//...
+
+public function fields(): array
+{
+    return [
+        Json::make('Data', 'data.content') // [tl! focus]
+            ->fields([
+                Text::make('Title'),
+                Text::make('Value'),
+            ])->removable()
+    ];
+}
+
+//...
+</x-code>
 
 <x-sub-title id="vertical">Вертикальное отображение</x-sub-title>
 
