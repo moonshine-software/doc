@@ -687,6 +687,28 @@ public function fields(): array
 //...
 </x-code>
 
+<x-p>
+    Метод <code>changeFill()</code> позволяет изменить логику наполнения поля значениями.
+</x-p>
+
+<x-code language="php">
+fill(mixed $value, mixed $casted = null)
+</x-code>
+
+<x-code language="php">
+//...
+
+public function fields(): array
+{
+    return [
+        Text::make('Categories')
+            ->changeFill(Article $data, Field $field) => $data->categories->implode('title', ',')) // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
+
 <x-sub-title id="apply">Apply</x-sub-title>
 
 <x-p>

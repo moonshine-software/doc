@@ -4,6 +4,7 @@
         ['url' => '#badge', 'label' => 'Badge'],
         ['url' => '#boolean', 'label' => 'Boolean'],
         ['url' => '#link', 'label' => 'Link'],
+        ['url' => '#image', 'label' => 'Image'],
     ]
 ]">
 
@@ -149,5 +150,30 @@ public function fields(): array
 
 <x-image theme="light" src="{{ asset('screenshots/preview_all.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/preview_all_dark.png') }}"></x-image>
+
+<x-sub-title id="image">Image</x-sub-title>
+
+<x-p>
+    Метод <code>image()</code> позволяет трансформировать url в миниатюру с изображением.
+</x-p>
+
+<x-code language="php">
+use MoonShine\Fields\Preview;
+
+//...
+
+public function fields(): array
+{
+    return [
+        Preview::make('Thumb')
+            ->image() // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/preview_image.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/preview_image_dark.png') }}"></x-image>
 
 </x-page>
