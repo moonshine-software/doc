@@ -224,33 +224,5 @@ FormBuilder::make('/crud/update', 'PUT')
     ->precognitive()
 </x-code>
 
-<x-moonshine::alert type="primary" icon="heroicons.outline.book-open">
-    Рецепт
-</x-moonshine::alert>
-
-<x-p>
-    Форма при успешном запросе обновляет таблицу и сбрасывает значения
-</x-p>
-
-<x-code language="php">
-Block::make([
-    FormBuilder::make(route('form-table.store'))
-    ->fields([
-        Text::make('Title')
-    ])
-    ->name('main-form')
-    ->async(asyncEvents: ['table-updated-main-table','form-reset-main-form'])
-]),
-
-TableBuilder::make()
-    ->fields([
-        ID::make(),
-        Text::make('Title'),
-        Textarea::make('Body'),
-    ])
-    ->creatable()
-    ->items(Post::query()->paginate())
-    ->name('main-table')
-    ->async()
-</x-code>
+@include('recipes.form-with-events')
 </x-page>

@@ -188,6 +188,10 @@ return [
         ['slug' => 'ui-tooltip', 'label' => 'Tooltip'],
     ],
 
+    'Recipes:book-open' => [
+        ['slug' => 'recipes', 'label' => 'Recipes'],
+    ],
+
     ':_divider_',
     'Packages:cube' => [
         ['slug' => 'packages', 'label' => 'Packages', 'badge' => 'new'],

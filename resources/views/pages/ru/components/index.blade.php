@@ -108,4 +108,5 @@ final class Test extends MoonshineComponent
 //...
 </x-code>
 
+@include('recipes.make-component')
 </x-page>
