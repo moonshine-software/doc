@@ -198,12 +198,21 @@ public function fields(): array
 </x-p>
 
 <x-code language="php">
-creatable()
+creatable(Closure|bool|null $condition = null, ?int $limit = null)
 </x-code>
 
+<x-p>
+    <code>$condition</code> - условие выполнения метода,<br>
+    <code>$limit</code> - количество записей которые можно добавить.
+</x-p>
+
 <x-code language="php">
-removable()
+removable(Closure|bool|null $condition = null)
 </x-code>
+
+<x-p>
+    <code>$condition</code> - условие выполнения метода.
+</x-p>
 
 <x-code language="php">
 use MoonShine\Fields\Json;
@@ -215,7 +224,7 @@ public function fields(): array
     return [
         Json::make('Data')
             ->keyValue()
-            ->creatable() // [tl! focus]
+            ->creatable(limit: 6) // [tl! focus]
             ->removable() // [tl! focus]
     ];
 }

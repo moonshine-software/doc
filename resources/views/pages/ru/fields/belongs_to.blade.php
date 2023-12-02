@@ -8,6 +8,7 @@
         ['url' => '#values-query', 'label' => 'Запрос для значений'],
 		['url' => '#async-search', 'label' => 'Асинхронный поиск'],
 		['url' => '#with-image', 'label' => 'Значения с изображением'],
+        ['url' => '#options', 'label' => 'Опции'],
     ]
 ]">
 
@@ -118,5 +119,7 @@ public function fields(): array
 @include('pages.ru.fields.shared.async_search', ['field' => 'BelongsTo'])
 
 @include('pages.ru.fields.shared.with_image', ['field' => 'BelongsTo'])
+
+@include('pages.ru.fields.shared.choices_options', ['field' => 'BelongsTo'])
 
 </x-page>
