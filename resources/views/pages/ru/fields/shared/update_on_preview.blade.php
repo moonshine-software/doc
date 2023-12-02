@@ -11,7 +11,7 @@ updateOnPreview(?Closure $url = null, ?ResourceContract $resource = null, mixed 
 <x-p>
     <code>$url</code> - url для обработки асинхронного запроса,<br>
     <code>$resource</code> - ресурс модели на которую ссылается отношение,<br>
-    <code>$condition</code> -условия выполнения метода.
+    <code>$condition</code> - условие выполнения метода.
 </x-p>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
