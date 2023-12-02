@@ -25,6 +25,7 @@ return [
         // System
         'System:_divider_',
         ['slug' => 'components-system_layout', 'label' => 'Layout', 'title' => 'Системный компонент Layout'],
+        ['slug' => 'components-system_flash', 'label' => 'Flash', 'title' => 'Системный компонент Flash'],
 
         // Decorations
         'Decorations:_divider_',
@@ -32,10 +33,10 @@ return [
         ['slug' => 'components-decoration_collapse', 'label' => 'Collapse', 'title' => 'Decoration Collapse'],
         ['slug' => 'components-decoration_divider', 'label' => 'Divider', 'title' => 'Decoration Divider'],
         ['slug' => 'components-decoration_fragment', 'label' => 'Fragment', 'title' => 'Decoration Fragment'],
+        ['slug' => 'components-decoration_flexible_render', 'label' => 'FlexibleRender', 'title' => 'Decoration FlexibleRender'],
         ['slug' => 'components-decoration_heading', 'label' => 'Heading', 'title' => 'Decoration Heading'],
         ['slug' => 'components-decoration_layout', 'label' => 'Layout', 'title' => 'Decoration Layout'],
         ['slug' => 'components-decoration_tabs', 'label' => 'Tabs', 'title' => ' Tabs'],
-        ['slug' => 'components-decoration_flexible_render', 'label' => 'FlexibleRender', 'title' => 'Decoration FlexibleRender'],
 
         // Metrics
         'Metrics:_divider_',
