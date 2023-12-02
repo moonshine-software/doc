@@ -299,21 +299,30 @@ TableBuilder::make()->vertical(),
 <x-moonshine::divider label="creatable/reindex" />
 
 <x-p>
-    С помощью метода <code>creatable</code> можно создать кнопку "Добавить" для генерации новых записей в таблице:
+    С помощью метода <code>creatable()</code> можно создать кнопку "Добавить" для генерации новых записей в таблице:
 </x-p>
 
-<x-code>
+<x-code language="php">
 TableBuilder::make()->creatable(),
 </x-code>
 
 <x-p>
-    Если в таблице находятся поля в режиме редактирования с динамическим name, то нужно добавить метод или параметр <code>reindex</code>:
+    Если в таблице находятся поля в режиме редактирования с динамическим name,
+    то нужно добавить метод или параметр <code>reindex</code>:
 </x-p>
 
 <x-code>
     TableBuilder::make()->creatable(reindex: true),
     // or
     TableBuilder::make()->creatable()->reindex(),
+</x-code>
+
+<x-p>
+    Если требуется ограничить количество записей которые можно добавить, то необходимо указать параметр <code>limit</code>:
+</x-p>
+
+<x-code>
+    TableBuilder::make()->creatable(limit: 6),
 </x-code>
 
 {!!
@@ -328,7 +337,9 @@ TableBuilder::make()->creatable(),
 <x-moonshine::divider label="editable" />
 
 <x-p>
-    По умолчанию поля в таблице отображаются в режиме <code>preview</code>, но если требуется отобразить их как элементы формы с возможностью редактирования, то необходимо воспользоваться методом <code>editable</code>:
+    По умолчанию поля в таблице отображаются в режиме <code>preview()</code>,
+    но если требуется отобразить их как элементы формы с возможностью редактирования,
+    то необходимо воспользоваться методом <code>editable()</code>:
 </x-p>
 
 <x-code>
