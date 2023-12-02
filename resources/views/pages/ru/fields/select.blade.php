@@ -12,6 +12,7 @@
             ['url' => '#async', 'label' => 'Асинхронный поиск'],
             ['url' => '#update-on-preview', 'label' => 'Редактирование в preview'],
 		    ['url' => '#with-image', 'label' => 'Значения с изображением'],
+		    ['url' => '#options', 'label' => 'Опции'],
         ]
     ]"
 >
@@ -302,5 +303,7 @@ public function fields(): array
 
 <x-image theme="light" src="{{ asset('screenshots/belongs_to_image.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/belongs_to_image_dark.png') }}"></x-image>
+
+@include('pages.ru.fields.shared.choices_options', ['field' => 'Select'])
 
 </x-page>

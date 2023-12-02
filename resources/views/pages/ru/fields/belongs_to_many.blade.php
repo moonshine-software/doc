@@ -7,6 +7,7 @@
             ['url' => '#pivot', 'label' => 'Pivot'],
             ['url' => '#creatable', 'label' => 'Создание объекта отношения'],
             ['url' => '#select', 'label' => 'Select'],
+		    ['url' => '#options', 'label' => 'Опции'],
             ['url' => '#placeholder', 'label' => 'Placeholder'],
             ['url' => '#tree', 'label' => 'Tree'],
             ['url' => '#preview', 'label' => 'Preview'],
@@ -110,6 +111,8 @@ public function fields(): array
 
 <x-image theme="light" src="{{ asset('screenshots/belongs_to_many_select.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/belongs_to_many_select_dark.png') }}"></x-image>
+
+@include('pages.ru.fields.shared.choices_options', ['field' => 'BelongsToMany'])
 
 @include('pages.ru.fields.shared.placeholder', ['field' => 'BelongsToMany'])
 
