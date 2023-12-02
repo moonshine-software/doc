@@ -745,6 +745,28 @@
                         <div class="testimonials-item">
                             <div class="testimonials-item-heading">
                                 <div class="photo">
+                                    <img src="{{ Vite::asset('resources/images/IgorPetrovPRO.jpg') }}" alt="Игорь Петров" />
+                                </div>
+                                <div class="author">
+                                    <h5 class="author-name">Игорь Петров</h5>
+                                    <a href="https://ipetrov.pro" class="author-link" target="_blank" rel="noopener nofollow">ipetrov.pro</a>
+                                </div>
+                            </div>
+                            <div class="testimonials-item-video">
+                                <a href="https://youtu.be/y_JNQP9qIVw" target="_blank" rel="noopener nofollow">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 48 48">
+                                        <path d="M10.21 1.058C5.884-1.424 2.376.61 2.376 5.597V42.4c0 4.992 3.508 7.023 7.836 4.543L42.38 28.495c4.329-2.483 4.329-6.506 0-8.989L10.21 1.058Z" />
+                                    </svg>
+                                    <img src="{{ Vite::asset('resources/images/thumb1.jpg') }}" alt="Игорь Петров" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.swiper-slide -->
+                    <div class="swiper-slide">
+                        <div class="testimonials-item">
+                            <div class="testimonials-item-heading">
+                                <div class="photo">
                                     <img src="{{ Vite::asset('resources/images/DanilWork.jpg') }}" alt="Даниил Работа" />
                                 </div>
                                 <div class="author">
