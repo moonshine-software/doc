@@ -13,6 +13,7 @@
             ['url' => '#preview', 'label' => 'Preview'],
             ['url' => '#values-query', 'label' => 'Запрос для значений'],
             ['url' => '#async-search', 'label' => 'Асинхронный поиск'],
+		    ['url' => '#associated', 'label' => 'Связанные поля'],
             ['url' => '#with-image', 'label' => 'Значения с изображением'],
         ]
     ]"
@@ -235,6 +236,8 @@ public function fields(): array
     Запросы необходимо кастомизировать через метод <code>asyncSearch()</code>.
     Не используйте <code>valuesQuery()</code>!
 </x-moonshine::alert>
+
+@include('pages.ru.fields.shared.with_associated', ['field' => 'BelongsToMany'])
 
 @include('pages.ru.fields.shared.with_image', ['field' => 'BelongsToMany'])
 
