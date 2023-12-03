@@ -3,7 +3,7 @@
     :sectionMenu="[
         'Разделы' => [
             ['url' => '#basics', 'label' => 'Основы'],
-            ['url' => '#moonshine-component', 'label' => 'MoonshineComponent'],
+            ['url' => '#moonshine-component', 'label' => 'MoonShineComponent'],
         ]
     ]"
 >
@@ -50,10 +50,10 @@
     компоненты.
 </x-p>
 
-<x-sub-title id="moonshine-component">MoonshineComponent</x-sub-title>
+<x-sub-title id="moonshine-component">MoonShineComponent</x-sub-title>
 
 <x-p>
-    В <strong>MoonShine</strong> реализована консольная команда для создания <em>MoonshineComponent</em>,
+    В <strong>MoonShine</strong> реализована консольная команда для создания <em>MoonShineComponent</em>,
     в котором уже реализованы основные методы для использования в админ панели.
 </x-p>
 
@@ -97,7 +97,7 @@ namespace App\MoonShine\Components; // [tl! focus]
 
 //...
 
-final class Test extends MoonshineComponent
+final class Test extends MoonShineComponent
 {
     protected function viewData(): array
     {
