@@ -108,7 +108,7 @@ public function components(): array
     return [
         ValueMetric::make('Profit')
             ->value(Order::completed()->sum('price'))
-            ->valueFormat('Today ${value}') // [tl! focus:-1]
+            ->valueFormat(fn($value) => \Illuminate\Support\Number::forHumans($value)) // [tl! focus:-1]
     ];
 }
 
