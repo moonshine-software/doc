@@ -364,11 +364,26 @@ TableBuilder::make()->editable(),
 <x-moonshine::divider label="sortable" />
 
 <x-p>
-    Для сортировки строк в таблице воспользуйтесь методом <code>sortable</code>:
+    Для сортировки строк в таблице воспользуйтесь методом <code>sortable()</code>:
 </x-p>
 
-<x-code>
-    TableBuilder::make()->sortable(),
+<x-code language="php">
+sortable(
+    ?string $url = null,
+    string $key = 'id',
+    ?string $group = null
+)
+</x-code>
+
+<ul>
+    <li><code>url</code> - url-обработчика,</li>
+    <li><code>key</code> - ключ элемента,</li>
+    <li><code>group</code> - группировка.</li>
+</ul>
+
+<x-code language="php">
+TableBuilder::make()
+    ->sortable(url: '/update_indexes_endpoint', key: 'id', group: 'nested'),
 </x-code>
 
 {!!
@@ -379,4 +394,5 @@ TableBuilder::make()->editable(),
             Text::make('Field')
         ])
 !!}
+
 </x-page>

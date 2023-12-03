@@ -7,6 +7,7 @@
         ['url' => '#searchable', 'label' => 'Поиск значений'],
         ['url' => '#values-query', 'label' => 'Запрос для значений'],
 		['url' => '#async-search', 'label' => 'Асинхронный поиск'],
+		['url' => '#associated', 'label' => 'Связанные поля'],
 		['url' => '#with-image', 'label' => 'Значения с изображением'],
         ['url' => '#options', 'label' => 'Опции'],
     ]
@@ -117,6 +118,8 @@ public function fields(): array
 @include('pages.ru.fields.shared.values_query', ['field' => 'BelongsTo'])
 
 @include('pages.ru.fields.shared.async_search', ['field' => 'BelongsTo'])
+
+@include('pages.ru.fields.shared.with_associated', ['field' => 'BelongsTo'])
 
 @include('pages.ru.fields.shared.with_image', ['field' => 'BelongsTo'])
 

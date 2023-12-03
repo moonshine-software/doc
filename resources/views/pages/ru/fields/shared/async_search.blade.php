@@ -10,6 +10,7 @@ asyncSearch(
     int $asyncSearchCount = 15,
     ?Closure $asyncSearchQuery = null,
     ?Closure $asyncSearchValueCallback = null,
+    ?string $associatedWith = null,
     ?string $url = null,
 )
 </x-code>
@@ -44,6 +45,7 @@ public function fields(): array
         <li><code>$asyncSearchCount</code> - количество элементов в выдаче;</li>
         <li><code>$asyncSearchQuery</code> - callback-функция для фильтрации значений;</li>
         <li><code>$asyncSearchValueCallback</code> - callback-функция для кастомизации вывода;</li>
+        <li><code>$associatedWith</code> - поле с которым необходимо установить связь;</li>
         <li><code>$url</code> - url для обработки асинхронного запроса.</li>
     </ul>
 </x-p>

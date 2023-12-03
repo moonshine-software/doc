@@ -500,6 +500,15 @@ public function fields(): array
 //...
 </x-code>
 
+<x-p>
+    В методе <code>showWhen()</code> для полей <em>Json</em> и <em>BelongsToMany</em>
+    получить доступ к вложенным значениям можно через <code>.</code>:
+</x-p>
+
+<x-code language="php">
+    ->showWhen('data.content.active', '=', 1)
+</x-code>
+
 <x-sub-title id="custom-view">Изменение отображения</x-sub-title>
 
 <x-p>
