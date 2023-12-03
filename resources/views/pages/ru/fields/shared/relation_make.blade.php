@@ -131,7 +131,7 @@ public function fields(): array
         {{ $field }}::make(
             '{{ $label }}',
             '{{ str($label)->lower() }}',
-            fn($item) => "$item->id.) $item->title" // [tl! focus]
+            fn($item) => "$item->id. $item->title" // [tl! focus]
         )
     ];
 }
