@@ -32,7 +32,9 @@ return [ // [tl! focus]
     'logo_small' => env('MOONSHINE_LOGO_SMALL'), // [tl! focus]
 
     'route' => [ // [tl! focus]
-        # По какому url будет доступна панель управления
+        # Если домен отличается от домена сайта
+        'domain' => env('MOONSHINE_URL', ''),
+        # По какому пути будет доступна панель управления
         # Если оставить значение пустым, то панель будет доступна от /
         'prefix' => env('MOONSHINE_ROUTE_PREFIX', 'admin'), // [tl! focus]
         # Имя роута главной страницы

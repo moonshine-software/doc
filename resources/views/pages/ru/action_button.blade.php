@@ -6,9 +6,11 @@
             ['url' => '#modal', 'label' => 'Modal'],
             ['url' => '#offcanvas', 'label' => 'Offcanvas'],
             ['url' => '#group', 'label' => 'Методы группы'],
+            ['url' => '#async', 'label' => 'Асинхронный режим'],
         ]
     ]"
 >
+
 <x-sub-title id="basics">Основы</x-sub-title>
 
 <x-p>
@@ -272,4 +274,93 @@ public function components(): array
         Метод <code>bulk()</code>, используется только внутри ModelResource
     </x-moonshine::alert>
 </x-p>
+
+<x-sub-title id="async">Асинхронный режим</x-sub-title>
+
+<x-p>
+    Метод <code>async()</code> позволяет реализовать асинхронный режим работы для <em>ActionButton</em>.
+</x-p>
+
+<x-code language="php">
+async(string $method = 'GET', ?string $selector = null, array $events = [])
+</x-code>
+
+<x-p>
+    <ul>
+        <li><code>$method</code> - метод асинхронного запроса;</li>
+        <li><code>$selector</code> - selector элемента у которого будет изменяться контент;</li>
+        <li><code>$events</code> - вызываемые события после успешного запроса.</li>
+    </ul>
+</x-p>
+
+<x-code language="php">
+public function components(): array
+{
+    return [
+        ActionButton::make(
+            'Click me',
+            '/endpoint'
+        )
+            ->async() // [tl! focus]
+    ];
+}
+</x-code>
+
+<x-moonshine::divider label="Уведомления" />
+
+<x-p>
+    Если Вам необходимо после клика отобразить уведомление или сделать редирект,
+    то достаточно реализовать json ответ по структуре:
+</x-p>
+
+<x-code language="json">
+{message: 'Toast', type: 'success', redirect: '/url'}
+</x-code>
+
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    Параметр <code>redirect</code> не является обязательным.
+</x-moonshine::alert>
+
+<x-moonshine::divider label="HTML контент" />
+
+<x-p>
+    Если требуется по клику заменить область с html, то вы можете в ответе вернуть HTML контент или json с ключом html:
+</x-p>
+
+<x-code language="json">
+{html: 'Html content'}
+</x-code>
+
+<x-code language="php">
+public function components(): array
+{
+    return [
+        ActionButton::make(
+            'Click me',
+            '/endpoint'
+        )
+            ->async(selector: '#my-selector') // [tl! focus]
+    ];
+}
+</x-code>
+
+<x-moonshine::divider label="События" />
+
+<x-p>
+    После успешного запроса можно вызывать события:
+</x-p>
+
+<x-code language="php">
+public function components(): array
+{
+    return [
+        ActionButton::make(
+            'Click me',
+            '/endpoint'
+        )
+            ->async(events: ['table-updated-index-table']) // [tl! focus]
+    ];
+}
+</x-code>
+
 </x-page>

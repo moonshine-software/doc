@@ -1,6 +1,17 @@
 <x-page title="Обновления" :sectionMenu="null">
 <ul class="tree-list">
     <li class="my-2">
+        <x-moonshine::link-button href="https://github.com/moonshine-software/moonshine/releases/tag/2.3.0">
+            v2.3.0 "Bloody Boyarskiy"
+        </x-moonshine::link-button>
+
+        <div class="">
+            <x-moonshine::link-native href="https://cutcode.dev/articles/moonshine-23">
+                Подробности
+            </x-moonshine::link-native>
+        </div>
+    </li>
+    <li class="my-2">
         <x-moonshine::link-button href="https://github.com/moonshine-software/moonshine/releases/tag/2.2.0">
             v2.2.0 "Double Barrel"
         </x-moonshine::link-button>
