@@ -45,17 +45,42 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 {
     //...
 
-    protected function theme(): array
+    protected function theme(): array // [tl! focus:start]
     {
         return [
-            'css' => 'path_to_theme.css' // [tl! focus]
+            'css' => 'path_to_theme.css'
         ];
-    }
+    } // [tl! focus:end]
 
     //...
 }
-
 </x-code>
+
+<x-p>
+    Для конфигурации темы можно также использовать замыкание на основе текущего реквеста.
+</x-p>
+
+<x-code language="php">
+class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
+{
+    //...
+
+    protected function theme(): Closure // [tl! focus:start]
+    {
+        return static function (MoonShineRequest $request) {
+            return [
+                //...
+            ];
+        }
+    } // [tl! focus:end]
+
+    //...
+}
+</x-code>
+
+<x-moonshine::alert type="default" icon="heroicons.book-open">
+    Будет полезно если вы решили использовать <em>multi tenancy</em> или же у вас и веб и админ часть реализована на MoonShine.
+</x-moonshine::alert>
 
 <x-sub-title id="colors">Цветовая схема</x-sub-title>
 
