@@ -8,5 +8,5 @@ return [
         'title' => 'Видео-гайд',
     ],
     'tricks' => ['link' => 'https://cutcode.dev/articles/moonshine-tips-tricks', 'title' => 'Блог'],
-    'consult' => ['link' => 'https://t.me/leeto_telegram', 'title' => 'Консультация'],
+    'consult' => ['link' => 'https://forms.gle/U41uLZzXBCibmwbE7', 'title' => 'Консультация'],
 ];
