@@ -3,9 +3,9 @@
         ['url' => '#logo', 'label' => 'Логотип'],
         ['url' => '#theme', 'label' => 'Основная тема'],
         ['url' => '#colors', 'label' => 'Цветовая схема'],
+        ['url' => '#color-manager', 'label' => 'Менеджер цветов'],
     ]
 ]">
-
 <x-sub-title id="logo">Логотип</x-sub-title>
 
 <x-p>
@@ -45,17 +45,42 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 {
     //...
 
-    protected function theme(): array
+    protected function theme(): array // [tl! focus:start]
     {
         return [
-            'css' => 'path_to_theme.css' // [tl! focus]
+            'css' => 'path_to_theme.css'
         ];
-    }
+    } // [tl! focus:end]
 
     //...
 }
-
 </x-code>
+
+<x-p>
+    Для конфигурации темы можно также использовать замыкание на основе текущего реквеста.
+</x-p>
+
+<x-code language="php">
+class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
+{
+    //...
+
+    protected function theme(): Closure // [tl! focus:start]
+    {
+        return static function (MoonShineRequest $request) {
+            return [
+                //...
+            ];
+        }
+    } // [tl! focus:end]
+
+    //...
+}
+</x-code>
+
+<x-moonshine::alert type="default" icon="heroicons.book-open">
+    Будет полезно если вы решили использовать <em>multi tenancy</em> или же у вас и веб и админ часть реализована на MoonShine.
+</x-moonshine::alert>
 
 <x-sub-title id="colors">Цветовая схема</x-sub-title>
 
@@ -163,6 +188,57 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 
     //...
 }
+</x-code>
+
+<x-sub-title id="color-manager">Менеджер цветов</x-sub-title>
+
+<x-p>
+    <em>Менеджер цветов</em> в админ-панели <strong>MoonShine</strong> позволяет более удобно управлять цветовой схемой.
+</x-p>
+
+<x-code language="php">
+class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
+{
+    //...
+
+    public function boot(): void
+    {
+        parent::boot();
+
+        moonshineColors()
+            ->background('#A3C3D9')
+            ->content('#A3C3D9')
+            ->tableRow('#AE76A6')
+            ->dividers('#AE76A6')
+            ->borders('#AE76A6')
+            ->buttons('#AE76A6')
+            ->primary('#CCD6EB')
+            ->secondary('#AE76A6');  // [tl! focus:-8]
+    }
+
+    //...
+}
+</x-code>
+
+<x-p>
+    Изменить ключ массива цветов можно через магический метод, например если вам требуется изменить цвет success-bg в темной теме.
+</x-p>
+
+<x-code language="php">
+keyName(string $value, string $shade, string $dark)
+</x-code>
+
+<x-p>
+    <ul>
+        <li><code>keyName</code> - ключ в массиве цветов;</li>
+        <li><code>$value</code> - значение цвета;</li>
+        <li><code>$shade</code> - оттенок цвета (необязательный параметр);</li>
+        <li><code>$dark</code> - темная тема, по умолчанию светлая тема (необязательный параметр).</li>
+    </ul>
+</x-p>
+
+<x-code language="php">
+    moonshineColors()->successBg('#000000', dark: true);
 </x-code>
 
 </x-page>
