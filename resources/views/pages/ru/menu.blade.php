@@ -74,6 +74,38 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
     то для элемента меню будет использоваться первая страница объявленная в методе <code>pages()</code>.
 </x-moonshine::alert>
 
+<x-moonshine::divider label="Меню через Closure" />
+
+<x-p>
+    Объявить меню можно используя замыкание на основе текущего запроса:
+</x-p>
+
+<x-code language="php">
+namespace App\Providers;
+
+use Closure; // [tl! focus]
+use MoonShine\MoonShineRequest; // [tl! focus]
+use MoonShine\Providers\MoonShineApplicationServiceProvider;
+
+class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
+{
+    protected function menu(): Closure // [tl! focus:start]
+    {
+        return static function (MoonShineRequest $request) {
+            return [
+                //...
+            ];
+        };
+    }; // [tl! focus:end]
+
+    //...
+}
+</x-code>
+
+<x-moonshine::alert type="default" icon="heroicons.book-open">
+    Будет полезно если вы решили использовать <em>multi tenancy</em> или же у вас и веб и админ часть реализована на MoonShine.
+</x-moonshine::alert>
+
 <x-sub-title id="group">Группы</x-sub-title>
 
 <x-p>
