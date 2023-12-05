@@ -6,6 +6,7 @@
             ['url' => '#basics', 'label' => 'Основы'],
             ['url' => '#methods', 'label' => 'Методы'],
             ['url' => '#async', 'label' => 'Асинхронный режим'],
+            ['url' => '#apply', 'label' => 'Apply'],
         ]
     ]"
 >
@@ -225,4 +226,76 @@ FormBuilder::make('/crud/update', 'PUT')
 </x-code>
 
 @include('recipes.form-with-events')
+
+<x-sub-title id="apply">Apply</x-sub-title>
+
+<x-p>
+    Метод <code>apply()</code> в <em>FormBuilder</em> проходит по всем полям формы и вызывает их apply методы.
+</x-p>
+
+<x-code language="php">
+apply(
+    Closure $apply,
+    ?Closure $default = null,
+    ?Closure $before = null,
+    ?Closure $after = null,
+    bool $throw = false,
+)
+</x-code>
+
+<ul>
+    <li><code>$apply</code> - callback функция;</li>
+    <li><code>$default</code> - apply для поля по умолчанию;</li>
+    <li><code>$before</code> - callback функция до apply;</li>
+    <li><code>$after</code> - callback функция после apply;</li>
+    <li><code>$throw</code> - вызывать исключения.</li>
+</ul>
+
+<x-moonshine::divider label="Примеры" />
+
+<x-p>
+    Необходимо в контроллере сохранить данные всех полей <em>FormBuilder</em>:
+</x-p>
+
+<x-code language="php">
+$form->apply(fn(Model $item) => $item->save());
+</x-code>
+
+<x-p>
+    Более сложный вариант, с указанием событий до сохранения и после:
+</x-p>
+
+<x-code language="php">
+$form->apply(
+    static fn(Model $item) => $item->save(),
+    before: function (Model $item) {
+        if (! $item->exists) {
+            $item = $this->beforeCreating($item);
+        }
+
+        if ($item->exists) {
+            $item = $this->beforeUpdating($item);
+        }
+
+        return $item;
+    },
+    after: function (Model $item) {
+        $wasRecentlyCreated = $item->wasRecentlyCreated;
+
+        $item->save();
+
+        if ($wasRecentlyCreated) {
+            $item = $this->afterCreated($item);
+        }
+
+        if (! $wasRecentlyCreated) {
+            $item = $this->afterUpdated($item);
+        }
+
+        return $item;
+    },
+    throw: true
+);
+</x-code>
+
 </x-page>
