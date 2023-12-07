@@ -6,7 +6,10 @@
 
 <x-p>Поле для отношений в Laravel типа morphMany</x-p>
 
-<x-p>То же самое что и <code>MoonShine\Fields\Relationships\HasMany</code> только для отношений morphMany <code>MoonShine\Fields\Relationships\MorphMany</code></x-p>
+<x-p>
+    То же самое что и <code>MoonShine\Fields\Relationships\HasMany</code> только для отношений morphMany
+    <code>MoonShine\Fields\Relationships\MorphMany</code>
+</x-p>
 
 @include('pages.ru.fields.shared.morph_make', ['field' => 'MorphMany', 'label' => 'Comments'])
 
