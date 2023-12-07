@@ -18,7 +18,7 @@
 php artisan moonshine:controller
 </x-code>
 
-<x-sub-title>Отобразить страницу</x-sub-title>
+<x-sub-title>Отобразить blade view</x-sub-title>
 
 <x-code>
 namespace App\MoonShine\Controllers;
@@ -35,6 +35,24 @@ final class CustomViewController extends MoonshineController
             ->view('path_to_blade', ['param' => 'value'])
             //->setLayout('custom_layout')
             ->render();
+    }
+}
+</x-code>
+
+<x-sub-title>Отобразить страницу</x-sub-title>
+
+<x-code>
+namespace App\MoonShine\Controllers;
+
+use MoonShine\MoonShineRequest;
+use MoonShine\Http\Controllers\MoonshineController;
+use MoonShine\Pages\Page;
+
+final class CustomViewController extends MoonshineController
+{
+    public function __invoke(MoonShineRequest $request): Page
+    {
+        return MyPage::make();
     }
 }
 </x-code>

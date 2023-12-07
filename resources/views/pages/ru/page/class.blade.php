@@ -9,6 +9,7 @@
             ['url' => '#breadcrumbs', 'label' => 'Хлебные крошки'],
             ['url' => '#layout', 'label' => 'Layout'],
             ['url' => '#alias', 'label' => 'Alias'],
+            ['url' => '#render', 'label' => 'Render'],
             ['url' => '#before-render', 'label' => 'beforeRender'],
         ]
     ]
@@ -242,6 +243,32 @@ class CustomPage extends Page
 
     //...
 }
+</x-code>
+
+<x-sub-title id="render">Render</x-sub-title>
+
+<x-p>
+    Вы можете отображать страницу и вне MoonShine, скажем просто вернув ее в Controller
+</x-p>
+
+<x-code language="php">
+use MoonShine\Pages\Page;
+
+class ProfileController extends Controller
+{
+    public function __invoke(): Page // [tl! focus:start]
+    {
+        return ProfilePage::make();
+    } // [tl! focus:end]
+}
+</x-code>
+
+<x-p>
+    Или скажем с Fortify
+</x-p>
+
+<x-code language="php">
+Fortify::loginView(static fn() => LoginPage::make());
 </x-code>
 
 <x-sub-title id="before-render">beforeRender</x-sub-title>

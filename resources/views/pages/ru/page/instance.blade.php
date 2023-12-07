@@ -8,6 +8,7 @@
             ['url' => '#layout', 'label' => 'Layout'],
             ['url' => '#alias', 'label' => 'Alias'],
             ['url' => '#view-page', 'label' => 'Быстрая страница'],
+            ['url' => '#render', 'label' => 'Render'],
         ]
     ]
 ">
@@ -201,6 +202,31 @@ MenuItem::make(
         ->setLayout('custom_layout')
         ->setContentView('my-form', ['param' => 'value'])
 ),
+</x-code>
+
+<x-sub-title id="render">Render</x-sub-title>
+
+<x-p>
+    Вы можете отображать быструю страницу и вне MoonShine, скажем просто вернув ее в Controller
+</x-p>
+
+<x-code>
+class HomeController extends Controller
+{
+    public function __invoke(Request $request): Page
+    {
+        $articles = Article::query()
+            ->published()
+            ->latest()
+            ->take(6)
+            ->get();
+
+        return ViewPage::make()
+            ->setTitle('Welcome')
+            ->setLayout('layouts.app')
+            ->setContentView('welcome', ['articles' => $articles]);
+    }
+}
 </x-code>
 
 </x-page>
