@@ -125,11 +125,10 @@ return [
         ['slug' => 'fields-has_many_through', 'label' => 'HasManyThrough'],
         ['slug' => 'fields-has_one', 'label' => 'HasOne'],
         ['slug' => 'fields-has_one_through', 'label' => 'HasOneThrough'],
-
-//        ['slug' => 'fields-morph_to', 'label' => 'MorphTo'],
-//        ['slug' => 'fields-morph_one', 'label' => 'MorphOne'],
-//        ['slug' => 'fields-morph_many', 'label' => 'MorphMany'],
-//        ['slug' => 'fields-morph_to_many', 'label' => 'MorphToMany'],
+        ['slug' => 'fields-morph_to', 'label' => 'MorphTo'],
+        ['slug' => 'fields-morph_one', 'label' => 'MorphOne'],
+        ['slug' => 'fields-morph_many', 'label' => 'MorphMany'],
+        ['slug' => 'fields-morph_to_many', 'label' => 'MorphToMany'],
 
         'Other:_divider_',
         ['slug' => 'fields-preview', 'label' => 'Preview'],

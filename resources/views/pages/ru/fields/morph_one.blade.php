@@ -6,9 +6,12 @@
 
 <x-p>Поле для отношений в Laravel типа morphOne</x-p>
 
-<x-p>То же самое что и <code>MoonShine\Fields\HasOne</code> только для отношений MorphOne</x-p>
+<x-p>
+    То же самое что и <code>MoonShine\Fields\Relationships\HasOne</code> только для отношений MorphOne
+    <code>MoonShine\Fields\Relationships\MorphOne</code>
+</x-p>
 
-<x-p><code>MoonShine\Fields\MorphOne</code></x-p>
+@include('pages.ru.fields.shared.morph_make', ['field' => 'MorphOne', 'label' => 'Profile'])
 
 </x-page>
 
