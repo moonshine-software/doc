@@ -9,7 +9,7 @@
 <x-p>То же самое что и <code>MoonShine\Fields\BelongsTo</code> только для отношений MorphTo</x-p>
 
 <x-code language="php">
-use MoonShine\Fields\MorphTo;
+use MoonShine\Fields\MorphTo; // [tl! focus]
 
 //...
 
@@ -18,7 +18,7 @@ public function fields(): array
     return [
         MorphTo::make('Commentable')->types([
             Article::class => 'title'
-        ]),
+        ]), // [tl! focus:-2]
     ];
 }
 //...
