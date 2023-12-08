@@ -2,7 +2,6 @@
 
 return [
     'Getting started:play' => [
-        ['slug' => 'concept', 'label' => 'Concept'],
         ['slug' => 'installation', 'label' => 'Installation'],
         ['slug' => 'configuration', 'label' => 'Configuration'],
         ['slug' => 'contribution', 'label' => 'Contribution Guide'],
