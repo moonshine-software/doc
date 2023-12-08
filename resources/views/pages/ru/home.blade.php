@@ -19,7 +19,7 @@
         MoonShine это админ-панель, которую могут использовать разработчики разного уровня подготовки.
     </x-p>
     <x-p>
-        <strong>Новички</strong> - без проблем реализуют распространенные задачи - авторизацию, CRUD и работу с товарами.
+        <strong>Новички</strong> - без проблем реализуют распространенные задачи - авторизацию и CRUD.
         У MoonShine низкий порог вхождения, он дружелюбен для новичков.
     </x-p>
 
@@ -35,7 +35,7 @@
 
     <x-p>
         Для предложения улучшений MoonShine или документации, обязательно создавайте
-        <x-moonshine::link-native href="https://github.com/moonshine-software/moonshine/issues/new/choose">Issue на GitHub</x-moonshine::link-native> с подробным описанием идеи.
+        <x-link link="https://github.com/moonshine-software/moonshine/issues/new/choose">Issue на GitHub</x-link> с подробным описанием идеи.
         Вы очень поможете проекту.
     </x-p>
 
@@ -71,13 +71,14 @@
 
     <x-p>
         Если хотите быстро освоить MoonShine, рекомендую посмотреть мои
-        <x-moonshine::link-native href="https://www.youtube.com/playlist?list=PLTucyHptHtTnfDI18bZnYEgvJIFmW8fGy">видео гайды</x-moonshine::link-native>
-        и <x-moonshine::link-native href="https://cutcode.dev/articles/moonshine-tips-tricks">статьи</x-moonshine::link-native>.
+        <x-link link="https://www.youtube.com/playlist?list=PLTucyHptHtTnfDI18bZnYEgvJIFmW8fGy">видео гайды</x-link>
+        и <x-link link="https://cutcode.dev/articles/moonshine-tips-tricks">статьи</x-link>.
     </x-p>
 
     <x-p>
         Понадобилась помощь по MoonShine? Можете задать вопрос в
-        <x-moonshine::link-native href="https://t.me/laravel_chat/24568">telegram-чате</x-moonshine::link-native> или заказать консультацию.
+        <x-link link="https://t.me/laravel_chat/24568">telegram-чате</x-link> или
+        <x-link link="https://forms.gle/U41uLZzXBCibmwbE7">заказать консультацию</x-link>.
     </x-p>
 
     <x-image theme="light" src="{{ asset('screenshots/main.png') }}"></x-image>
