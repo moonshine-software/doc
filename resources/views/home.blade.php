@@ -2,8 +2,9 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8" />
-    <title>{{ config('app.name') }}</title>
-    <meta name="description" content="Админ-панель для ваших Laravel проектов" />
+    <title>MoonShine - админ панель для проектов на Laravel</title>
+    <meta name="description" content="MoonShine - пакет для ускоренной разработки web-проектов на Laravel.
+MoonShine отлично подходит для создания админ панели, MVP, backoffice, и CMS. Простая для новичков, безграничная для профессионалов. Открытый исходный код." />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
 
     <!-- Theme settings -->
