@@ -1,5 +1,5 @@
 <x-page
-    title="Системный компонент Sidebal"
+    title="Системный компонент Sidebar"
     :sectionMenu="[
         'Разделы' => [
             ['url' => '#make', 'label' => 'Make'],
@@ -31,9 +31,9 @@ namespace App\MoonShine;
 
 use MoonShine\Components\Layout\LayoutBlock;
 use MoonShine\Components\Layout\LayoutBuilder;
-use MoonShine\Components\Layout\Menu; // [tl! focus]
+use MoonShine\Components\Layout\Menu;
 use MoonShine\Components\Layout\Profile;
-use MoonShine\Components\Layout\Sidebar;
+use MoonShine\Components\Layout\Sidebar; // [tl! focus]
 use MoonShine\Contracts\MoonShineLayoutContract;
 
 final class MoonShineLayout implements MoonShineLayoutContract
@@ -41,10 +41,10 @@ final class MoonShineLayout implements MoonShineLayoutContract
     public static function build(): LayoutBuilder
     {
         return LayoutBuilder::make([
-            Sidebar::make([
-                Menu::make()->customAttributes(['class' => 'mt-2']), // [tl! focus]
+            Sidebar::make([ // [tl! focus]
+                Menu::make()->customAttributes(['class' => 'mt-2']),
                 Profile::make(withBorder: true)
-            ]),
+            ]), // [tl! focus]
 
             //...
         ]);
