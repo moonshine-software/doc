@@ -17,7 +17,7 @@
 'Submit bug reports',
 'Help other users understand the details',
 'Supplement documentation',
-'Publicize the project'.
+'Publicize the project'
 ]"></x-ul>
 
 <x-sub-title>Let's use</x-sub-title>
