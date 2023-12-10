@@ -220,7 +220,7 @@ use MoonShine\Enums\PageType;
 
 // Resource
 $this->getPages()
-    ->findByType(PageType::FORM)
+    ->formPage()
     ->getLayerComponents(Layer::BOTTOM);
 
 // Page
@@ -236,7 +236,7 @@ $this->getLayerComponents(Layer::BOTTOM);
 protected function onBoot(): void
 {
     $this->getPages()
-        ->findByUri(PageType::FORM->value)
+        ->formPage()
         ->pushToLayer(
             layer: Layer::BOTTOM,
             component: Permissions::make(
