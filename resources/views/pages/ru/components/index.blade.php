@@ -22,7 +22,8 @@
     <x-link link="{{ route('moonshine.page', 'components-system_flash') }}">Flash</x-link>,
     Footer, Header, LayoutBlock, LayoutBuilder, Menu,
     <x-link link="{{ route('moonshine.page', 'components-system_profile') }}">Profile</x-link>,
-    Sidebar, TopBar.
+    <x-link link="{{ route('moonshine.page', 'components-system_sidebar') }}">Sidebar</x-link>,
+    TopBar.
 </x-p>
 
 <x-p>

@@ -26,6 +26,7 @@ return [
         ['slug' => 'components-system_layout', 'label' => 'Layout', 'title' => 'Системный компонент Layout'],
         ['slug' => 'components-system_flash', 'label' => 'Flash', 'title' => 'Системный компонент Flash'],
         ['slug' => 'components-system_profile', 'label' => 'Profile', 'title' => 'Системный компонент Profile'],
+        ['slug' => 'components-system_sidebar', 'label' => 'Sidebar', 'title' => 'Системный компонент Sidebar'],
 
         // Decorations
         'Decorations:_divider_',
