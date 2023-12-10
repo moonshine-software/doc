@@ -25,6 +25,7 @@ return [
         'System:_divider_',
         ['slug' => 'components-system_layout', 'label' => 'Layout', 'title' => 'Системный компонент Layout'],
         ['slug' => 'components-system_flash', 'label' => 'Flash', 'title' => 'Системный компонент Flash'],
+        ['slug' => 'components-system_profile', 'label' => 'Profile', 'title' => 'Системный компонент Profile'],
 
         // Decorations
         'Decorations:_divider_',

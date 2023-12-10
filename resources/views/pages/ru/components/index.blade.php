@@ -20,7 +20,9 @@
     <em>Systems</em> - компоненты используются для создания основных блоков админ-панели:
     <x-link link="{{ route('moonshine.page', 'components-system_layout') }}">Layout</x-link>,
     <x-link link="{{ route('moonshine.page', 'components-system_flash') }}">Flash</x-link>,
-    Footer, Header, LayoutBlock, LayoutBuilder, Menu, Profile, Sidebar, TopBar.
+    Footer, Header, LayoutBlock, LayoutBuilder, Menu,
+    <x-link link="{{ route('moonshine.page', 'components-system_profile') }}">Profile</x-link>,
+    Sidebar, TopBar.
 </x-p>
 
 <x-p>
