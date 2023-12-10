@@ -36,6 +36,7 @@ return [
         ['slug' => 'components-decoration_heading', 'label' => 'Heading', 'title' => 'Decoration Heading'],
         ['slug' => 'components-decoration_layout', 'label' => 'Layout', 'title' => 'Decoration Layout'],
         ['slug' => 'components-decoration_tabs', 'label' => 'Tabs', 'title' => ' Tabs'],
+        ['slug' => 'components-decoration_when', 'label' => 'When', 'title' => 'Decoration When'],
 
         // Metrics
         'Metrics:_divider_',
