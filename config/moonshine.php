@@ -68,7 +68,7 @@ return [
         ],
     ],
     'locales' => [
-//        'en',
+        'en',
         'ru',
     ],
 

@@ -5,8 +5,8 @@
 ])
 <x-video :data="$videos"/>
 <x-menu :data="$sectionMenu"></x-menu>
-<div>
+<article>
     {{ $slot }}
 
     <x-page-nav />
-</div>
+</article>
