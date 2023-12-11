@@ -13,12 +13,17 @@
 <x-p>
     Компоненты в <strong>MoonShine</strong> являются основой для построения интерфейса.<br />
     В админ-панели уже реализовано множество компонентов, которые можно разделить на несколько групп:
-    Layouts, Decorations и Metrics.
+    Systems, Decorations и Metrics.
 </x-p>
 
 <x-p>
-    <em>Layouts</em> - компоненты используются для создания основных блоков админ-панели:
-    Flash, Footer, Header, LayoutBlock, LayoutBuilder, Menu, Profile, Sidebar, TopBar.
+    <em>Systems</em> - компоненты используются для создания основных блоков админ-панели:
+    <x-link link="{{ route('moonshine.page', 'components-system_layout') }}">Layout</x-link>,
+    <x-link link="{{ route('moonshine.page', 'components-system_flash') }}">Flash</x-link>,
+    Footer, Header, LayoutBlock, LayoutBuilder, Menu,
+    <x-link link="{{ route('moonshine.page', 'components-system_profile') }}">Profile</x-link>,
+    <x-link link="{{ route('moonshine.page', 'components-system_sidebar') }}">Sidebar</x-link>,
+    TopBar.
 </x-p>
 
 <x-p>
@@ -27,12 +32,13 @@
     <x-link link="{{ route('moonshine.page', 'components-decoration_collapse') }}">Collapse</x-link>,
     <x-link link="{{ route('moonshine.page', 'components-decoration_divider') }}">Divider</x-link>,
     <x-link link="{{ route('moonshine.page', 'components-decoration_layout') . '#flex' }}">Flex</x-link>,
+    <x-link link="{{ route('moonshine.page', 'components-decoration_flexible_render') . '#FlexibleRender' }}">FlexibleRender</x-link>,
     <x-link link="{{ route('moonshine.page', 'components-decoration_fragment') }}">Fragment</x-link>,
     <x-link link="{{ route('moonshine.page', 'components-decoration_layout') . '#grid-column' }}">Grid</x-link>,
     <x-link link="{{ route('moonshine.page', 'components-decoration_heading') }}">Heading</x-link>,
     LineBreak,
     <x-link link="{{ route('moonshine.page', 'components-decoration_tabs') }}">Tabs</x-link>,
-    TextBlock.
+    <x-link link="{{ route('moonshine.page', 'components-decoration_when') }}">When</x-link>.
 </x-p>
 
 <x-p>

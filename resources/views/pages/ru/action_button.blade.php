@@ -282,14 +282,20 @@ public function components(): array
 </x-p>
 
 <x-code language="php">
-async(string $method = 'GET', ?string $selector = null, array $events = [])
+async(
+    string $method = 'GET',
+    ?string $selector = null,
+    array $events = []
+    ?string $callback = null
+)
 </x-code>
 
 <x-p>
     <ul>
         <li><code>$method</code> - метод асинхронного запроса;</li>
         <li><code>$selector</code> - selector элемента у которого будет изменяться контент;</li>
-        <li><code>$events</code> - вызываемые события после успешного запроса.</li>
+        <li><code>$events</code> - вызываемые события после успешного запроса;</li>
+        <li><code>$callback</code> - js callback функция после получения ответа.</li>
     </ul>
 </x-p>
 
@@ -360,6 +366,37 @@ public function components(): array
         )
             ->async(events: ['table-updated-index-table']) // [tl! focus]
     ];
+}
+</x-code>
+
+<x-moonshine::divider label="Callback" />
+
+<x-p>
+    Если необходимо обработать ответ иным способом, то необходимо реализовать функцию-обработчик
+    и указать ее в методе <code>async()</code>.
+</x-p>
+
+<x-code language="php">
+public function components(): array
+{
+    return [
+        ActionButton::make(
+            'Click me',
+            '/endpoint'
+        )
+            ->async(callback: 'myFunction') // [tl! focus]
+    ];
+}
+</x-code>
+
+<x-code language="javascript">
+window.myFunction = function(response, element, events, component)
+{
+    if(response.confirmed === true) {
+        component.$dispatch('toast', {type: 'success', text: 'Success'})
+    } else {
+        component.$dispatch('toast', {type: 'error', text: 'Error'})
+    }
 }
 </x-code>
 

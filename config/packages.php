@@ -31,4 +31,9 @@ return [
         'url' => 'visual-ideas/moonshine-spatie-translatable',
         'category' => 'Fields'
     ],
+    [
+        'title' => 'MoonShine Roles-Permissions',
+        'url' => 'SWEET1S/moonshine-roles-permissions',
+        'category' => 'Auth'
+    ],
 ];

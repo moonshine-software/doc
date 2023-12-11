@@ -41,7 +41,6 @@ return [
 
     'pages' => [
         'dashboard' => App\MoonShine\Pages\Dashboard::class,
-        'profile' => ProfilePage::class
     ],
 
     'auth' => [

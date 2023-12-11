@@ -25,6 +25,9 @@ return [
         'System:_divider_',
         ['slug' => 'components-system_layout', 'label' => 'Layout', 'title' => 'Системный компонент Layout'],
         ['slug' => 'components-system_flash', 'label' => 'Flash', 'title' => 'Системный компонент Flash'],
+        ['slug' => 'components-system_profile', 'label' => 'Profile', 'title' => 'Системный компонент Profile'],
+        ['slug' => 'components-system_sidebar', 'label' => 'Sidebar', 'title' => 'Системный компонент Sidebar'],
+        ['slug' => 'components-system_top_bar', 'label' => 'TopBar', 'title' => 'Системный компонент TopBar'],
 
         // Decorations
         'Decorations:_divider_',
@@ -36,6 +39,7 @@ return [
         ['slug' => 'components-decoration_heading', 'label' => 'Heading', 'title' => 'Decoration Heading'],
         ['slug' => 'components-decoration_layout', 'label' => 'Layout', 'title' => 'Decoration Layout'],
         ['slug' => 'components-decoration_tabs', 'label' => 'Tabs', 'title' => ' Tabs'],
+        ['slug' => 'components-decoration_when', 'label' => 'When', 'title' => 'Decoration When'],
 
         // Metrics
         'Metrics:_divider_',
