@@ -44,7 +44,7 @@
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     And a <code>MoonShineServiceProvider</code> provider will also be added,
     where resources should be registered.<br />
-    <x-link link="{{ route('moonshine.page', 'resources-index') }}">Подробнее о Ресурсах</x-link>
+    <x-link link="{{ route('moonshine.page', 'resources-index') }}">More about Resources</x-link>
 </x-moonshine::alert>
 
 <x-sub-title id="admin">Creating an administrator</x-sub-title>

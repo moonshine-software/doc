@@ -1,0 +1,244 @@
+<x-page
+    title="BelongsToMany"
+    :sectionMenu="[
+        'Sections' => [
+            ['url' => '#basics', 'label' => 'Basics'],
+            ['url' => '#label-column', 'label' => 'Column header'],
+            ['url' => '#pivot', 'label' => 'Pivot'],
+            ['url' => '#creatable', 'label' => 'Creating a Relationship Object'],
+            ['url' => '#select', 'label' => 'Select'],
+		    ['url' => '#options', 'label' => 'Options'],
+            ['url' => '#placeholder', 'label' => 'Placeholder'],
+            ['url' => '#tree', 'label' => 'Tree'],
+            ['url' => '#preview', 'label' => 'Preview'],
+            ['url' => '#values-query', 'label' => 'Query for values'],
+            ['url' => '#async-search', 'label' => 'Asynchronous search'],
+		    ['url' => '#associated', 'label' => 'Related fields'],
+            ['url' => '#with-image', 'label' => 'Values with picture'],
+        ]
+    ]"
+>
+
+<x-sub-title id="basics">Basics</x-sub-title>
+
+@include('pages.ru.fields.shared.relation_make', ['field' => 'BelongsToMany', 'label' => 'Categories'])
+
+<x-sub-title id="label-column">Column header</x-sub-title>
+
+<x-p>
+    By default, the table column header uses the property
+    <code>$title</code> of the relationship model resource.<br />
+    The <code>columnLabel()</code> method allows you to override the title.
+</x-p>
+
+<x-code language="php">
+columnLabel(string $label)
+</x-code>
+
+<x-code language="php">
+use MoonShine\Fields\Relationships\BelongsToMany;
+
+//...
+
+public function fields(): array
+{
+    return [
+        BelongsToMany::make('Categories', resource: new CategoryResource())
+            ->columnLabel('Title') // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
+
+<x-sub-title id="pivot">Pivot</x-sub-title>
+
+<x-p>
+    The <code>fields()</code> method is used to implement <em>pivot</em> fields in the BelongsToMany relationship.
+</x-p>
+
+<x-code language="php">
+fields(Fields|Closure|array $fields)
+</x-code>
+
+<x-code language="php">
+use MoonShine\Fields\Relationships\BelongsToMany;
+use MoonShine\Fields\Text;
+
+//...
+
+public function fields(): array
+{
+    return [
+        BelongsToMany::make('Contacts', resource: new ContactResource())
+            ->fields([
+                Text::make('Contact', 'text'),
+            ]) // [tl! focus:-2]
+    ];
+}
+
+//...
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/belongs_to_many_pivot.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/belongs_to_many_pivot_dark.png') }}"></x-image>
+
+<x-sub-title id="creatable">Creating a Relationship Object</x-sub-title>
+
+@include('pages.ru.fields.shared.relation_creatable', ['field' => 'BelongsToMany', 'label' => 'Categories'])
+
+<x-sub-title id="select">Select</x-sub-title>
+
+<x-p>
+    The <em>BelongsToMany</em> field can be displayed as a drop-down list,
+    To do this, you need to use the <code>selectMode()</code> method.
+</x-p>
+
+<x-code language="php">
+use MoonShine\Fields\Relationships\BelongsToMany;
+
+//...
+
+public function fields(): array
+{
+    return [
+        BelongsToMany::make('Categories', resource: new CategoryResource())
+            ->selectMode() // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/belongs_to_many_select.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/belongs_to_many_select_dark.png') }}"></x-image>
+
+@include('pages.ru.fields.shared.choices_options', ['field' => 'BelongsToMany'])
+
+@include('pages.ru.fields.shared.placeholder', ['field' => 'BelongsToMany'])
+
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    The <code>placeholder()</code> method is only used
+    if the field is displayed as a dropdown list <code>selectMode()</code>!
+</x-moonshine::alert>
+
+<x-sub-title id="tree">Tree</x-sub-title>
+
+<x-p>
+    The <code>tree()</code> method allows you to display values as a tree with checkboxes,
+    for example, for categories that have nesting.
+    The method must be passed a column in the database on which the tree will be built.
+</x-p>
+
+<x-code language="php">
+tree(string $parentColumn)
+</x-code>
+
+<x-code language="php">
+use MoonShine\Fields\Relationships\BelongsToMany;
+
+//...
+
+public function fields(): array
+{
+    return [
+        BelongsToMany::make('Categories', resource: new CategoryResource())
+            ->tree('parent_id') // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/belongs_to_many_tree.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/belongs_to_many_tree_dark.png') }}"></x-image>
+
+<x-sub-title id="preview">Preview</x-sub-title>
+
+<x-p>
+    By default, <em>preview</em> will display the field as a table.
+</x-p>
+
+<x-image theme="light" src="{{ asset('screenshots/belongs_to_many_preview.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/belongs_to_many_preview_dark.png') }}"></x-image>
+
+<x-p>
+    To change the display in <em>preview</em> you can use the following methods.
+</x-p>
+
+<x-moonshine::divider label="onlyCount" />
+
+<x-p>
+    The <code>onlyCount()</code> method allows you to display only the number of selected values in <em>preview</em>.
+</x-p>
+
+<x-code language="php">
+use MoonShine\Fields\Relationships\BelongsToMany;
+
+//...
+
+public function fields(): array
+{
+    return [
+        BelongsToMany::make('Categories', resource: new CategoryResource())
+            ->onlyCount() // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/belongs_to_many_preview_count.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/belongs_to_many_preview_count_dark.png') }}"></x-image>
+
+<x-moonshine::divider label="inLine" />
+
+<x-p>
+    The <code>inLine()</code> method allows you to display field values as a line.
+</x-p>
+
+<x-code language="php">
+inLine(string $separator = '', bool $badge = false)
+</x-code>
+
+<x-p>
+    You can pass optional parameters to the method:
+    <ul>
+        <li><code>separator</code> - separator between elements;</li>
+        <li><code>badge</code> - display elements as badge.</li>
+    </ul>
+</x-p>
+
+<x-code language="php">
+use MoonShine\Fields\Relationships\BelongsToMany;
+
+//...
+
+public function fields(): array
+{
+    return [
+        BelongsToMany::make('Categories', resource: new CategoryResource())
+            ->inLine(separator: ' ', badge: true) // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/belongs_to_many_preview_in_line.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/belongs_to_many_preview_in_line_dark.png') }}"></x-image>
+
+@include('pages.ru.fields.shared.values_query', ['field' => 'BelongsToMany'])
+
+@include('pages.ru.fields.shared.async_search', ['field' => 'BelongsToMany'])
+
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    Requests must be customized using the <code>asyncSearch()</code> method.
+    Don't use <code>valuesQuery()</code>!
+</x-moonshine::alert>
+
+@include('pages.ru.fields.shared.with_associated', ['field' => 'BelongsToMany'])
+
+@include('pages.ru.fields.shared.with_image', ['field' => 'BelongsToMany'])
+
+</x-page>
