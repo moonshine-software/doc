@@ -6,7 +6,7 @@
         </x-moonshine::link-button>
 
         <div class="">
-            <x-moonshine::link-native href="https://cutcode.dev/articles/moonshine-24">
+            <x-moonshine::link-native href="https://cutcode.dev/articles/moonshine-v24">
                 Подробности
             </x-moonshine::link-native>
         </div>
