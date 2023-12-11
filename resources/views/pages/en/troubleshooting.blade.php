@@ -25,6 +25,6 @@
 
     <ol>
         <li>Make sure you have a quality ssl certificate</li>
-        <li>В middleware <code>TrustProxies</code> set <code>protected $proxies = ['*']</code></li>
+        <li>In middleware <code>TrustProxies</code> set <code>protected $proxies = ['*']</code></li>
     </ol>
 </x-page>

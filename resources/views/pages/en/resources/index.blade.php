@@ -1,0 +1,345 @@
+<x-page
+    title="Basics"
+    :sectionMenu="[
+        'Sections' => [
+            ['url' => '#basics', 'label' => 'Basics'],
+            ['url' => '#create', 'label' => 'Creation'],
+            ['url' => '#variables', 'label' => 'Basic properties'],
+            ['url' => '#define', 'label' => 'Announcement'],
+            ['url' => '#item', 'label' => 'Current element/model'],
+            ['url' => '#modal', 'label' => 'Modal windows'],
+            ['url' => '#redirects', 'label' => 'Redirects'],
+            ['url' => '#active_actions', 'label' => 'Active actions'],
+            ['url' => '#boot', 'label' => 'Boot'],
+        ]
+    ]"
+    :videos="[]"
+>
+
+<x-sub-title id="basics">Basics</x-sub-title>
+
+<x-p>
+    At the heart of any admin panel are sections for editing data.
+    <strong>MoonShine</strong> is no exception to this
+    and uses <code>Eloquent</code> models to work with the database,
+    and for sections there are standard Laravel resource controllers and resource routes.
+</x-p>
+
+<x-p>
+    If you were developing on your own, then create resource controllers and resource
+    routes can be as follows:
+</x-p>
+
+<x-code language="shell">
+    php artisan make:controller Controller --resource
+</x-code>
+
+<x-code language="php">
+    Route::resources('resources', Controller::class);
+</x-code>
+
+<x-p>
+    But this work can be entrusted to the <strong>MoonShine</strong> admin panel,
+    which will generate and declare them independently.
+</x-p>
+
+<x-p>
+    <code>ModelResource</code> is the main component for creating a section
+    in the admin panel when working with the database.
+</x-p>
+
+<x-sub-title id="create">Creating a section</x-sub-title>
+
+<x-code language="shell">
+    php artisan moonshine:resource Post
+</x-code>
+
+<x-p>
+    <ul>
+        <li>- change the name of your resource if required</li>
+        <li>- select resource type</li>
+    </ul>
+</x-p>
+
+<x-p>
+    There are several options available when creating a <em>ModelResource</em>:
+    <ul>
+        <li>
+            <x-link :link="route('moonshine.page', 'resources-fields') . '#default'" ><strong>Default model resource</strong></x-link>
+            - model resource with common fields
+        </li>
+        <li>
+            <x-link :link="route('moonshine.page', 'resources-fields') . '#separate'" ><strong>Separate model resource</strong></x-link>
+            - model resource with field separation
+        </li>
+        <li>
+            <x-link :link="route('moonshine.page', 'resources-pages')" ><strong>Model resource with pages</strong></x-link>
+            - model resource with pages.
+        </li>
+    </ul>
+</x-p>
+
+<x-p>
+    As a result, a <code>PostResource</code> class will be created, which will be the basis of a new section in the panel.<br />
+    It is located, by default, in the <code>app/MoonShine/Resources</code> directory.<br />
+    MoonShine will automatically, based on the name, link the resource to the <code>app/Models/Post</code> model.<br />
+    The section title will also be generated automatically and will be “Posts”.
+</x-p>
+
+<x-p>
+    You can immediately specify the model binding and section title for the command:
+</x-p>
+
+<x-code language="shell">
+    php artisan moonshine:resource Post --model=CustomPost --title="Articles"
+</x-code>
+
+<x-code language="shell">
+    php artisan moonshine:resource Post --model="App\Models\CustomPost" --title="Articles"
+</x-code>
+
+<x-sub-title id="variables">Basic section properties</x-sub-title>
+
+<x-p>
+    Basic parameters that can be changed for a resource to customize its operation
+</x-p>
+
+<x-code language="php">
+namespace App\MoonShine\Resources;
+
+use App\Models\Post;
+use MoonShine\Resources\ModelResource;
+
+class PostResource extends ModelResource
+{
+    protected string $model = Post::class; // Model [tl! focus]
+
+    protected string $title = 'Posts'; // Section title [tl! focus]
+
+    protected array $with = ['category']; // Eager load [tl! focus]
+
+    protected string $sortColumn = ''; // Default sort field [tl! focus]
+
+    protected string $sortDirection = 'DESC'; // Default sort type [tl! focus]
+
+    protected int $itemsPerPage = 25; // Number of elements per page [tl! focus]
+
+    public string $column = 'id'; // Field to display values in links and breadcrumbs [tl! focus]
+
+    //...
+}
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/resource_paginate.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/resource_paginate_dark.png') }}"></x-image>
+
+<x-sub-title id="define">Declaring a section in the system</x-sub-title>
+
+<x-p>
+    Register the resource in the system and immediately add a link to the section in the navigation menu
+    You can use the service provider <code>MoonShineServiceProvider</code>.
+</x-p>
+
+<x-code language="php">
+namespace App\Providers;
+
+use App\MoonShine\Resources\PostResource; // [tl! focus]
+use MoonShine\Providers\MoonShineApplicationServiceProvider;
+
+class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
+{
+    //...
+
+    protected function menu(): array
+    {
+        return [
+            MenuItem::make('Posts', new PostResource())
+        ];
+    } // [tl! focus:-4]
+
+    //...
+}
+</x-code>
+
+<x-moonshine::alert type="default" icon="heroicons.book-open">
+    You can learn about advanced settings in the section
+    <x-link :link="route('moonshine.page', 'menu')" ><code>Menu</code></x-link>.
+</x-moonshine::alert>
+
+<x-p>
+    If you only need to register the resource in the system without adding it to the navigation menu:
+</x-p>
+
+<x-code language="php">
+namespace App\Providers;
+
+use App\MoonShine\Resources\PostResource; // [tl! focus]
+use MoonShine\Providers\MoonShineApplicationServiceProvider;
+
+class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
+{
+    protected function resources(): array
+    {
+        return [
+            new PostResource()
+        ];
+    } // [tl! focus:-4]
+
+    //...
+}
+</x-code>
+
+<x-sub-title id="item">Current element/model</x-sub-title>
+
+<x-p>
+    In a resource, you have access to the current element and model through the corresponding methods.
+</x-p>
+
+<x-code language="php">
+    $this->getItem();
+</x-code>
+
+<x-code language="php">
+    $this->getModel();
+</x-code>
+
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    If the element does not yet exist (action create), then the <code>getItem()</code> method will return <code>NULL</code>.
+</x-moonshine::alert>
+
+<x-sub-title id="modal">Modal windows</x-sub-title>
+
+<x-p>
+    Ability to add, edit and view entries directly on the list page in a modal window.
+</x-p>
+
+<x-code language="php">
+namespace App\MoonShine\Resources;
+
+use App\Models\Post;
+use MoonShine\Resources\ModelResource;
+
+class PostResource extends ModelResource
+{
+    protected string $model = Post::class;
+
+    protected string $title = 'Posts';
+
+    protected bool $createInModal = false; // [tl! focus]
+
+    protected bool $editInModal = false; // [tl! focus]
+
+    protected bool $detailInModal = false; // [tl! focus]
+
+    //...
+}
+</x-code>
+
+<x-sub-title id="redirects">Redirects</x-sub-title>
+
+<x-p>
+    By default, when creating and editing a record, a redirect is made to the page with the form,
+    but this behavior can be controlled
+</x-p>
+
+<x-code>
+// Via a property in a resource
+protected ?PageType $redirectAfterSave = PageType::FORM;
+
+// or through methods (redirect after deletion is also available)
+
+public function redirectAfterSave(): string
+{
+    return '/';
+}
+
+public function redirectAfterDelete(): string
+{
+    return to_page(CustomPage::class);
+}
+</x-code>
+
+<x-sub-title id="active_actions">Active actions</x-sub-title>
+
+<x-p>
+    It often happens that it is necessary to create a resource in which the ability to delete will be excluded,
+    or add or edit. And here we are not talking about authorization, but about the global exclusion of these sections.
+    This is done extremely simply using the <code>getActiveActions</code> method in the resource
+</x-p>
+
+<x-code language="php">
+namespace MoonShine\Resources;
+
+class PostResource extends ModelResource
+{
+    //...
+    public function getActiveActions(): array // [tl! focus:start]
+    {
+        return ['create', 'view', 'update', 'delete', 'massDelete'];
+    } // [tl! focus:end]
+
+    //...
+}
+</x-code>
+
+<x-sub-title id="boot">Boot</x-sub-title>
+
+<x-p>
+    If you need to add logic to the operation of a resource when it is active and loaded,
+    then use the <code>onBoot</code> method
+</x-p>
+
+<x-code language="php">
+namespace App\MoonShine\Resources;
+
+use App\Models\Post;
+use MoonShine\Resources\ModelResource;
+
+class PostResource extends ModelResource
+{
+    // ...
+    protected function onBoot(): void
+    {
+        //
+    }
+    // ...
+}
+</x-code>
+
+<x-p>
+    You can also connect trait to a resource and inside trait add a method according to the naming convention -
+    boot{TraitName} and through the trait will access the boot resource
+</x-p>
+
+<x-code language="php">
+namespace App\MoonShine\Resources;
+
+use App\Models\Post;
+use MoonShine\Resources\ModelResource;
+use App\Traits\WithPermissions;
+
+class PostResource extends ModelResource
+{
+    use WithPermissions;
+}
+</x-code>
+
+<x-code language="php">
+trait WithPermissions
+{
+    protected function bootWithPermissions(): void
+    {
+        $this->getPages()
+            ->findByUri(PageType::FORM->value)
+            ->pushToLayer(
+                layer: Layer::BOTTOM,
+                component: Permissions::make(
+                    label: 'Permissions',
+                    resource: $this,
+                )
+            );
+    }
+}
+</x-code>
+
+</x-page>

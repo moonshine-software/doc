@@ -1,21 +1,21 @@
 <x-page title="ActionButton"
     :sectionMenu="[
-        'Разделы' => [
-            ['url' => '#basics', 'label' => 'Основы'],
-            ['url' => '#methods', 'label' => 'Методы'],
+        'Sections' => [
+            ['url' => '#basics', 'label' => 'Basics'],
+            ['url' => '#methods', 'label' => 'Methods'],
             ['url' => '#modal', 'label' => 'Modal'],
             ['url' => '#offcanvas', 'label' => 'Offcanvas'],
-            ['url' => '#group', 'label' => 'Методы группы'],
-            ['url' => '#async', 'label' => 'Асинхронный режим'],
+            ['url' => '#group', 'label' => 'Group methods'],
+            ['url' => '#async', 'label' => 'Asynchronous mode'],
         ]
     ]"
 >
 
-<x-sub-title id="basics">Основы</x-sub-title>
+<x-sub-title id="basics">Basics</x-sub-title>
 
 <x-p>
-    Когда Вам необходимо добавить кнопку с определенным действием, на помощь приходят ActionButton.
-    В MoonShine они уже используются - в формах, таблицах, на страницах
+    When you need to add a button with a specific action, ActionButtons come to the rescue.
+    In MoonShine they are already used - in forms, tables, on pages
 </x-p>
 
 <x-code language="php">
@@ -27,9 +27,9 @@ make(
 </x-code>
 
 <ul>
-    <li><code>label</code> - Текст кнопки,</li>
+    <li><code>label</code> - Button text,</li>
     <li><code>url</code> - Url,</li>
-    <li><code>item</code> - Опциональные данные кнопки, доступные в замыканиях.</li>
+    <li><code>item</code> - Optional button data available in closures.</li>
 </ul>
 
 <x-code>
@@ -44,7 +44,7 @@ public function components(): array
 </x-code>
 
 <x-p>
-    Также доступен helper, который можно применить в blade
+    A helper is also available that can be used in blade
 </x-p>
 
 <x-code>
@@ -55,12 +55,12 @@ public function components(): array
 
 {!! actionBtn('Example', 'https://moonshine-laravel.com') !!}
 
-<x-sub-title id="methods">Методы</x-sub-title>
+<x-sub-title id="methods">Methods</x-sub-title>
 
 <x-moonshine::divider label="blank" />
 
 <x-p>
-    Открыть в новом окне
+    Open in new window
 </x-p>
 <x-code>
 ActionButton::make(
@@ -74,7 +74,7 @@ ActionButton::make(
 <x-moonshine::divider label="icon" />
 
 <x-p>
-    Иконка
+    Icon
 </x-p>
 <x-code>
 ActionButton::make(
@@ -88,7 +88,7 @@ ActionButton::make(
 <x-moonshine::divider label="Attributes" />
 
 <x-p>
-    Вы можете задать любые html атрибуты для кнопки через метод customAttributes
+    You can set any html attributes for a button using the customAttributes method
 </x-p>
 <x-code>
 ActionButton::make(
@@ -99,10 +99,10 @@ ActionButton::make(
 
 {!! actionBtn('Example', 'https://moonshine-laravel.com')->customAttributes(['class' => 'btn-primary']) !!}
 
-<x-moonshine::divider label="Цвета" />
+<x-moonshine::divider label="Colors" />
 
 <x-p>
-    Чтобы не держать в голове классы для изменения цвета кнопки, мы подготовили для вас готовые класы
+    In order not to keep in mind the classes for changing the button color, we have prepared ready-made classes for you
 </x-p>
 <x-code>
 ActionButton::make(
@@ -120,7 +120,7 @@ ActionButton::make(
 <x-moonshine::divider label="onClick" />
 
 <x-p>
-    Возможность выполнить js по клику
+    Ability to execute js on click
 </x-p>
 
 <x-code>
@@ -136,7 +136,7 @@ ActionButton::make(
 <x-moonshine::divider label="Basics" />
 
 <x-p>
-    Для того, чтобы по клику на кнопку произошел вызов модального окна, воспользуйтесь методом <code>inModal</code>
+    To trigger a modal window when a button is clicked, use the method <code>inModal</code>
 </x-p>
 
 <x-code>
@@ -161,7 +161,7 @@ ActionButton::make(
 <x-moonshine::divider label="withConfirm" />
 
 <x-p>
-    Быстрый способ создать кнопку с подтверждением действия <code>withConfirm</code>
+    A quick way to create a confirmation button <code>withConfirm</code>
 </x-p>
 
 <x-code>
@@ -178,7 +178,7 @@ ActionButton::make(
 <x-moonshine::divider label="Async" />
 
 <x-p>
-    Если требуется подгрузить контент в модальное окно асинхронно, то переключите параметр async в true
+    If you need to load content into the modal window asynchronously, then switch the async parameter to true
 </x-p>
 
 @fragment('action-btn-fragment')
@@ -200,14 +200,14 @@ ActionButton::make(
 
 <x-p>
     <x-moonshine::alert type="default" icon="heroicons.book-open">
-        О Fragment можно узнать в разделе "Декорации"
+        You can learn about Fragment in the "Decoration" section
     </x-moonshine::alert>
 </x-p>
 
 <x-sub-title id="offcanvas">Offcanvas</x-sub-title>
 
 <x-p>
-    Для того, чтобы по клику на кнопку произошел вызов offcanvas, воспользуйтесь методом <code>inOffCanvas</code>
+    To call offcanvas when a button is clicked, use the <code>inOffCanvas</code> method
 </x-p>
 
 <x-code>
@@ -222,21 +222,21 @@ ActionButton::make(
 
 <x-p>
     <x-moonshine::alert type="default" icon="heroicons.book-open">
-        О FormBuilder можно узнать в разделе "Advanced"
+        You can learn about FormBuilder in the "Advanced" section
     </x-moonshine::alert>
 </x-p>
 
-<x-sub-title id="group">Методы группы</x-sub-title>
+<x-sub-title id="group">Group Methods</x-sub-title>
 
 <x-p>
-    Если Вам необходимо выстроить логику с несколькими <code>ActionButton</code>, при этом некоторые должны быть скрыты или отображаться в выпадающем меню,
-    в таком случае воспользуйтесь компонентом <code>ActionGroup</code>
+    If you need to build logic with several <code>ActionButton</code>, while some should be hidden or displayed in the drop-down menu,
+     in this case, use the <code>ActionGroup</code> component
 </x-p>
 
 <x-moonshine::divider label="canSee" />
 
 <x-p>
-    Условие отображения
+    Display condition
 </x-p>
 
 <x-code>
@@ -251,10 +251,10 @@ public function components(): array
 }
 </x-code>
 
-<x-moonshine::divider label="Отображение" />
+<x-moonshine::divider label="Display" />
 
 <x-p>
-    Вы также благодаря ActionGroup можете изменить отображение кнопок, отображать их в линию или же в выпадающем меню для экономии места
+    Thanks to ActionGroup, you can also change the display of buttons, display them in a line or in a drop-down menu to save space
 </x-p>
 
 <x-code>
@@ -271,14 +271,14 @@ public function components(): array
 
 <x-p>
     <x-moonshine::alert type="default" icon="heroicons.book-open">
-        Метод <code>bulk()</code>, используется только внутри ModelResource
+        <code>bulk()</code> method, used only inside ModelResource
     </x-moonshine::alert>
 </x-p>
 
-<x-sub-title id="async">Асинхронный режим</x-sub-title>
+<x-sub-title id="async">Asynchronous mode</x-sub-title>
 
 <x-p>
-    Метод <code>async()</code> позволяет реализовать асинхронный режим работы для <em>ActionButton</em>.
+    The <code>async()</code> method allows you to implement asynchronous operation for the <em>ActionButton</em>.
 </x-p>
 
 <x-code language="php">
@@ -287,9 +287,9 @@ async(string $method = 'GET', ?string $selector = null, array $events = [])
 
 <x-p>
     <ul>
-        <li><code>$method</code> - метод асинхронного запроса;</li>
-        <li><code>$selector</code> - selector элемента у которого будет изменяться контент;</li>
-        <li><code>$events</code> - вызываемые события после успешного запроса.</li>
+        <li><code>$method</code> - asynchronous request method;</li>
+        <li><code>$selector</code> - selector of the element whose content will change;</li>
+        <li><code>$events</code> - events raised after a successful request.</li>
     </ul>
 </x-p>
 
@@ -306,11 +306,11 @@ public function components(): array
 }
 </x-code>
 
-<x-moonshine::divider label="Уведомления" />
+<x-moonshine::divider label="Notifications" />
 
 <x-p>
-    Если Вам необходимо после клика отобразить уведомление или сделать редирект,
-    то достаточно реализовать json ответ по структуре:
+    If you need to display a notification or make a redirect after a click,
+     then it is enough to implement the json response according to the structure:
 </x-p>
 
 <x-code language="json">
@@ -318,13 +318,13 @@ public function components(): array
 </x-code>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-    Параметр <code>redirect</code> не является обязательным.
+    The <code>redirect</code> parameter is optional.
 </x-moonshine::alert>
 
-<x-moonshine::divider label="HTML контент" />
+<x-moonshine::divider label="HTML content" />
 
 <x-p>
-    Если требуется по клику заменить область с html, то вы можете в ответе вернуть HTML контент или json с ключом html:
+    If you need to replace an area with html on click, then you can return HTML content or json with the html key in the response:
 </x-p>
 
 <x-code language="json">
@@ -344,10 +344,10 @@ public function components(): array
 }
 </x-code>
 
-<x-moonshine::divider label="События" />
+<x-moonshine::divider label="Events" />
 
 <x-p>
-    После успешного запроса можно вызывать события:
+    After a successful request, you can raise events:
 </x-p>
 
 <x-code language="php">
