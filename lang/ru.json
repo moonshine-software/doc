@@ -36,5 +36,10 @@
     "Extends": "Наследует",
     "has the same features": "имеет те же возможности",
     "UI components": "UI компоненты",
-    "Routes": "Маршруты"
+    "Routes": "Маршруты",
+    "System component Layout": "Системный компонент Layout",
+    "System component Flash": "Системный компонент Flash",
+    "System component Profile": "Системный компонент Profile",
+    "System component Sidebar": "Системный компонент Sidebar",
+    "System component TopBar": "Системный компонент TopBar"
 }
