@@ -13,12 +13,17 @@
 <x-p>
     Components in <strong>MoonShine</strong> are the basis for building an interface.<br />
     The admin panel already implements many components that can be divided into several groups:
-    Layouts, Decorations and Metrics.
+    Systems, Decorations and Metrics.
 </x-p>
 
 <x-p>
-    <em>Layouts</em> - components are used to create the main blocks of the admin panel:
-    Flash, Footer, Header, LayoutBlock, LayoutBuilder, Menu, Profile, Sidebar, TopBar.
+    <em>Systems</em> - components are used to create the main blocks of the admin panel:
+    <x-link link="{{ route('moonshine.page', 'components-system_layout') }}">Layout</x-link>,
+    <x-link link="{{ route('moonshine.page', 'components-system_flash') }}">Flash</x-link>,
+    Footer, Header, LayoutBlock, LayoutBuilder, Menu,
+    <x-link link="{{ route('moonshine.page', 'components-system_profile') }}">Profile</x-link>,
+    <x-link link="{{ route('moonshine.page', 'components-system_sidebar') }}">Sidebar</x-link>,
+    TopBar.
 </x-p>
 
 <x-p>
@@ -27,12 +32,13 @@
     <x-link link="{{ route('moonshine.page', 'components-decoration_collapse') }}">Collapse</x-link>,
     <x-link link="{{ route('moonshine.page', 'components-decoration_divider') }}">Divider</x-link>,
     <x-link link="{{ route('moonshine.page', 'components-decoration_layout') . '#flex' }}">Flex</x-link>,
+	<x-link link="{{ route('moonshine.page', 'components-decoration_flexible_render') . '#FlexibleRender' }}">FlexibleRender</x-link>,
     <x-link link="{{ route('moonshine.page', 'components-decoration_fragment') }}">Fragment</x-link>,
     <x-link link="{{ route('moonshine.page', 'components-decoration_layout') . '#grid-column' }}">Grid</x-link>,
     <x-link link="{{ route('moonshine.page', 'components-decoration_heading') }}">Heading</x-link>,
     LineBreak,
     <x-link link="{{ route('moonshine.page', 'components-decoration_tabs') }}">Tabs</x-link>,
-    TextBlock.
+    <x-link link="{{ route('moonshine.page', 'components-decoration_when') }}">When</x-link>.
 </x-p>
 
 <x-p>

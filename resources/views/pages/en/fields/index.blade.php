@@ -321,7 +321,7 @@ public function fields(): array
 </x-p>
 
 <x-code language="php">
-sortable()
+sortable(Closure|string|null $callback = null)
 </x-code>
 
 <x-code language="php">
@@ -332,6 +332,27 @@ public function fields(): array
     return [
         Text::make('Title')
             ->sortable() // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
+
+<x-p>
+    The <code>sortable()</code> method can take the name of a field in the database or a closure as a parameter.
+</x-p>
+
+<x-code language="php">
+//...
+
+public function fields(): array
+{
+    return [
+        BelongsTo::make('Author')->sortable('author_id'), // [tl! focus]
+
+        Text::make('Title')->sortable(function (Builder $query, string $column, string $direction) {
+            $query->orderBy($column, $direction);
+        }) // [tl! focus:-2]
     ];
 }
 
