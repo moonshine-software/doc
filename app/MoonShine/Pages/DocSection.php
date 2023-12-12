@@ -43,4 +43,9 @@ class DocSection extends Page
 
         return view($view)->render();
     }
+
+    public function title(): string
+    {
+        return __($this->title);
+    }
 }

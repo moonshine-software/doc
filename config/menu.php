@@ -23,11 +23,11 @@ return [
 
         // System
         'System:_divider_',
-        ['slug' => 'components-system_layout', 'label' => 'Layout', 'title' => 'Системный компонент Layout'],
-        ['slug' => 'components-system_flash', 'label' => 'Flash', 'title' => 'Системный компонент Flash'],
-        ['slug' => 'components-system_profile', 'label' => 'Profile', 'title' => 'Системный компонент Profile'],
-        ['slug' => 'components-system_sidebar', 'label' => 'Sidebar', 'title' => 'Системный компонент Sidebar'],
-        ['slug' => 'components-system_top_bar', 'label' => 'TopBar', 'title' => 'Системный компонент TopBar'],
+        ['slug' => 'components-system_layout', 'label' => 'Layout', 'title' => 'System component Layout'],
+        ['slug' => 'components-system_flash', 'label' => 'Flash', 'title' => 'System component Flash'],
+        ['slug' => 'components-system_profile', 'label' => 'Profile', 'title' => 'System component Profile'],
+        ['slug' => 'components-system_sidebar', 'label' => 'Sidebar', 'title' => 'System component Sidebar'],
+        ['slug' => 'components-system_top_bar', 'label' => 'TopBar', 'title' => 'System component TopBar'],
 
         // Decorations
         'Decorations:_divider_',
