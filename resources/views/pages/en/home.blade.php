@@ -9,7 +9,7 @@
     <x-sub-title>Hi Laravel user!</x-sub-title>
 
     <x-p>
-        <strong>MoonShine</strong> is an open source package for open source Laravel projects (MIT license)
+        <strong>MoonShine</strong> is an open source package for Laravel projects (MIT license)
         for accelerated development of web projects.
     </x-p>
     <x-p>
@@ -20,7 +20,7 @@
     </x-p>
     <x-p>
         <strong>Newbies</strong> - have no problem implementing common tasks - authorization and CRUD.
-        MoonShine has a low entry threshold and is beginner friendly.
+        MoonShine has a low threshold for entry, it is friendly for beginners.
     </x-p>
 
     <x-moonshine::alert type="default" icon="heroicons.information-circle">
@@ -30,19 +30,19 @@
 
     <x-p>
         <strong>Professionals</strong> - use all the features of Laravel without limitations,
-        while getting the tools to speed up your work - "framework on framework".
+        while getting the tools for work acceleration - "framework on framework".
     </x-p>
 
     <x-p>
-        To suggest MoonShine improvements or documentation, be sure to create a
-        <x-link link="https://github.com/moonshine-software/moonshine/issues/new/choose">Issue on GitHub</x-link> with a detailed description of the idea.
-        You will help the project a lot.
+        To suggest MoonShine or its documentation improvements, be sure to create a
+        <x-link link="https://github.com/moonshine-software/moonshine/issues/new/choose">Issue on GitHub</x-link>
+        with a detailed description of the idea. You’ll be very helpful to the project.
     </x-p>
 
     <x-sub-title>Features</x-sub-title>
     <x-p>
         <ul>
-            <li>Using MoonShine in projects is like a designer, helping you create the functionality you need much faster.</li>
+            <li>Using MoonShine in projects is like a designer, helping you to create the functionality much faster.</li>
             <li>There is no binding to models, you can take whatever data you like</li>
             <li>Form and table builder</li>
             <li>Lightweight and easy to use AlpineJs</li>
@@ -54,17 +54,17 @@
 
     <x-sub-title>History of the name</x-sub-title>
     <x-p>
-        What does MoonShine stand for? It's not exactly "moonlight": my idea of it is the name "moonshine".
-        Literally, it's the independent making of a drink under illegal conditions under the cover of night.
-        So I spent nights in my spare time (mostly at night) developing this admin panel,
-        making a quality product with heart, for my own use. Well, and for friends.
-        Everything is already ready for use in your projects, created documentation describing the order of installation,
-        customization and features. I suggest that interested users use and develop MoonShine together.
+        What does MoonShine stand for? It's not exactly "moonlight": my idea is the name "moonshine".
+        Literally, it's the independent making of a drink under illegal conditions in the dead of night.
+        So I spent my spare time (mostly at night) developing this admin panel, making a quality product with heart,
+        for my own use as well as for friends. Everything is already ready for use in your projects,
+        created documentation describing the order of installation, customization and features.
+        I invite interested users to use and develop MoonShine together.
     </x-p>
 
     <x-sub-title>Where to start?</x-sub-title>
     <x-p>
-        MoonShine is ready to appear in your project. Simply execute
+        MoonShine is ready to appear in your project. Simply follow the
         <x-link link="{{ route('moonshine.page', 'installation') }}">installation guide</x-link>,
         and then find in the documentation how to implement the required functionality and add it to your project.
     </x-p>

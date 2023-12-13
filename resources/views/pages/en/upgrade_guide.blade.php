@@ -121,7 +121,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider // [t
 </x-p>
 
 <x-p>
-    <em>Resource</em> should be replaced by <em>ModelResource</em>, public properties by protected properties.
+    <em>Resource</em> should be replaced with <em>ModelResource</em>, public properties with protected properties.
 </x-p>
 
 <x-p>
@@ -370,7 +370,7 @@ php artisan vendor:publish --tag=laravel-assets --ansi --force
 <x-sub-title id="config" hashtag="11">Config</x-sub-title>
 
 <x-p>
-    The new version of <strong>MoonShine</strong> has completely changed sonfig.
+    The config has been completely changed in new version of <strong>MoonShine</strong>.
     You can publish the new configuration file via the console command.
     After publishing, make the necessary adjustments.
 </x-p>
@@ -382,7 +382,7 @@ php artisan moonshine:install
 <x-sub-title id="dashboard" hashtag="12">Dashboard</x-sub-title>
 
 <x-p>
-    <em>Dashboard</em> as well as <em>CustomPage</em> now this
+    <em>Dashboard</em> as well as <em>CustomPage</em> are now
     <x-link link="{{ route('moonshine.page', 'page-class') }}">Pages</x-link>.
     Once installed, a page is generated for the <em>Dashboard</em> <code>app/MoonShine/Pages/Dashboard.php</code>.
     You need to move all components to a new page.

@@ -124,7 +124,7 @@ return [ // [tl! focus]
 </x-code>
 
 <x-p>
-    For basic use it is sufficient to edit the parameters below:
+    For basic use it is sufficient to edit the following parameters:
 </x-p>
 
 <x-code language="php">
@@ -148,7 +148,7 @@ return [
 <x-sub-title id="home-page">Home page</x-sub-title>
 
 <x-p>
-    If you need to override the home page in the <strong>MoonShine admin panel</strong>,
+    If you need to redefine the home page in the <strong>MoonShine admin panel</strong>,
     this can be done using the static method <code>home()</code> of the class <em>MoonShine</em>
     at the service provider <code>MoonShineServiceProvider</code>.
 </x-p>

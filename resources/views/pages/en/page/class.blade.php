@@ -176,8 +176,8 @@ class CustomPage extends Page
 <x-sub-title id="layout">Layout</x-sub-title>
 
 <x-p>
-    By default, pages use the default <em>Layout</em> display template,
-    but it can be changed via the <code>layout</code> property.
+    By default, pages use a default <em>Layout</em> display template,
+    but you can modify it through the <code>layout</code> property.
 </x-p>
 
 <x-code language="php">
@@ -192,7 +192,7 @@ class CustomPage extends Page
 </x-code>
 
 <x-p>
-    You can also override <em>Layout</em> using the <code>layout()</code> method.
+    <em>Layout</em> can also be overridden using <code>layout()</code> method.
 </x-p>
 
 <x-code language="php">
@@ -213,7 +213,7 @@ class CustomPage extends Page
 
 <x-p>
     If you need to change the page alias,
-    then this can be done through the <code>alias</code> property.
+    this can be done through the <code>alias</code> property.
 </x-p>
 
 <x-code language="php">
@@ -264,7 +264,7 @@ class ProfileController extends Controller
 </x-code>
 
 <x-p>
-    Or let's say with Fortify
+    Or with Fortify
 </x-p>
 
 <x-code language="php">
