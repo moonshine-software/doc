@@ -12,7 +12,7 @@
 
 <x-p>
     Components in <strong>MoonShine</strong> are the basis for building an interface.<br />
-    The admin panel already implements many components that can be divided into several groups:
+    Many components have already been implemented in the Admin Panel, which can be divided into several groups:
     Systems, Decorations and Metrics.
 </x-p>
 
@@ -27,7 +27,7 @@
 </x-p>
 
 <x-p>
-    <em>Decorations</em> - components are used to visually design the user interface:
+    <em>Decorations</em> - components are used for visual design of user interface:
     <x-link link="{{ route('moonshine.page', 'components-decoration_block') }}">Block</x-link>,
     <x-link link="{{ route('moonshine.page', 'components-decoration_collapse') }}">Collapse</x-link>,
     <x-link link="{{ route('moonshine.page', 'components-decoration_divider') }}">Divider</x-link>,
@@ -60,7 +60,7 @@
 
 <x-p>
     <strong>MoonShine</strong> implements a console command to create a <em>MoonShineComponent</em>,
-    which already implements the basic methods for use in the admin panel.
+    where the basic methods are already implemented  for admin panel usage.
 </x-p>
 
 <x-code language="shell">

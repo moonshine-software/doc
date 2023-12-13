@@ -11,7 +11,7 @@
 <x-sub-title id="make">Make</x-sub-title>
 
 <x-p>
-    The <em>Collapse</em> decorator allows you to collapse the contents of a block while maintaining state.
+    The <em>Collapse</em> decorator allows you to collapse the block contents while maintaining the state.
 </x-p>
 
 <x-code language="php">
@@ -43,7 +43,7 @@ public function components(): array
 <x-sub-title id="show">Show</x-sub-title>
 
 <x-p>
-    By default, the <em>Collapse</em> decorator is displayed in a collapsed state.
+    By default, the <em>Collapse</em> decorator is displayed as collapsed.
     The <code>show()</code> method allows you to override this behavior.
 </x-p>
 

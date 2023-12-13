@@ -47,7 +47,7 @@ public function components(): array
 <x-sub-title id="wihtout-heading">No title</x-sub-title>
 
 <x-p>
-    If the block does not need a header, then only the array needs to be passed to the <code>make()</code> method.
+    If the block does not need title, then the <code>make()</code> method only has to pass an array.
 </x-p>
 
 <x-code language="php">
