@@ -50,8 +50,8 @@ CustomPage::make('Custom page', 'custom_page') // [tl! focus]
 <x-sub-title id="define">Declaring pages in the system</x-sub-title>
 
 <x-p>
-    Register the page in the system and immediately add a link to it in the navigation menu
-    You can use the service provider <code>MoonShineServiceProvider</code>:
+    To register the page in the system and immediately add a its link in the navigation menu
+    use the service provider <code>MoonShineServiceProvider</code>:
 </x-p>
 
 <x-code language="php">
@@ -108,7 +108,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 
 <x-p>
     The <code>setTitle()</code> method allows you to change the page title,
-    and the <code>setSubTitle()</code> method is the subtitle.
+    and the <code>setSubTitle()</code> method consequently the subtitle.
 </x-p>
 
 <x-code language="php">

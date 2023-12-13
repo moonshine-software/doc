@@ -5,19 +5,19 @@
      ]
 ]">
 
-<x-sub-title>What can I do to help?</x-sub-title>
+<x-sub-title>How can we help?</x-sub-title>
 
 <x-p>
     The community needs active users. You can help in many ways:
 </x-p>
 
 <x-ul :items="[
-'Complementing code',
+'Complement the code',
 'Front-end development',
 'Submit bug reports',
-'Help other users understand the details',
+'Help other users to understand the details',
 'Supplement documentation',
-'Publicize the project'
+'Promote the project'
 ]"></x-ul>
 
 <x-sub-title>Let's use</x-sub-title>
@@ -31,8 +31,8 @@
 <x-sub-title>Where do we start?</x-sub-title>
 
 <x-p>
-    There is a product that is already functioning, fully functional and testable. Functional doesn't mean great,
-    so our job is to make it better.
+    There is an already functional product that is fully operational and testable.
+    Functional doesn't mean great, so our job is to make it better.
 </x-p>
 
 <x-sub-title>Pull requests</x-sub-title>
@@ -142,7 +142,7 @@ php artisan serve
 <x-sub-title>Any questions?</x-sub-title>
 
 <x-p>
-    My name is Danil! Write to me on e-mail <x-link link="mailto:thecutcode@gmail.com">thecutcode@gmail.com</x-link>
+    My name is Danil! E-mail me <x-link link="mailto:thecutcode@gmail.com">thecutcode@gmail.com</x-link>
 </x-p>
 
 </x-page>

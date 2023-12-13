@@ -4,7 +4,7 @@
     <ol>
         <li>Make sure you've done <code>php artisan storage:link</code></li>
         <li>Make sure the disk is selected by default <code>public</code>, not <code>local</code></li>
-        <li>Check that <code>APP_URL</code> in <code>.env</code> true</li>
+        <li>Check that <code>APP_URL</code> in <code>.env</code> is true</li>
     </ol>
 
     <x-sub-title>Default language</x-sub-title>

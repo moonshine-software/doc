@@ -38,7 +38,7 @@
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     A directory with the administration panel and resources will also be added - <code>app/MoonShine</code>.<br />
-    <x-link link="{{ route('moonshine.page', 'resources-index') }}">Read more about Resources</x-link>
+    <x-link link="{{ route('moonshine.page', 'resources-index') }}">More about Resources</x-link>
 </x-moonshine::alert>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
@@ -61,7 +61,7 @@
 <x-sub-title id="config">Service provider</x-sub-title>
 
 <x-p>
-    To register new resources in MoonShine and create a menu, we will need to <code>app/Providers/MoonShineServiceProvider.php</code>
+    To register new resources in MoonShine and create a menu, we need <code>app/Providers/MoonShineServiceProvider.php</code>
 </x-p>
 
 <x-code language="php">
@@ -105,12 +105,12 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     Once installed, several resources will be registered in the <code>MoonShineServiceProvider</code>.<br />
-    <x-link link="{{ route('moonshine.page', 'advanced-menu') }}">Read more about Menu</x-link>.
+    <x-link link="{{ route('moonshine.page', 'advanced-menu') }}">More about Menu</x-link>.
 </x-moonshine::alert>
 
 <x-p>
     Great! Now you can create and register sections of the future admin panel and get to work!
-    But don't forget to read the documentation until the end!
+    But don't forget to read the documentation to the end!
 </x-p>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
