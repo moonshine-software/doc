@@ -34,6 +34,7 @@ make(
 
 <x-code>
 public function components(): array
+{
     return [
         ActionButton::make(
             label: 'Button title',
