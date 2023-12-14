@@ -225,7 +225,7 @@ FormBuilder::make('/crud/update', 'PUT')
     ->precognitive()
 </x-code>
 
-@include('recipes.form-with-events')
+@include('pages.en.recipes.form-with-events')
 
 <x-sub-title id="apply">Apply</x-sub-title>
 

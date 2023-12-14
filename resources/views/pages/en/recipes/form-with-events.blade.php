@@ -1,6 +1,7 @@
-<x-recipe id="form-with-events" title="{{ $title ?? 'Рецепт' }}">
+<x-recipe id="form-with-events" title="{{ $title ?? 'Recipe' }}">
+
 <x-p>
-    Форма при успешном запросе обновляет таблицу и сбрасывает значения
+    Upon a successful request, the form updates the table and resets the values.
 </x-p>
 
 <x-code language="php">
@@ -26,7 +27,7 @@ TableBuilder::make()
 </x-code>
 
 <x-p>
-    Давайте также рассмотрим как добавить свои события
+    Let's also look at how to add your own events
 </x-p>
 
 <x-code language="html">
@@ -67,4 +68,5 @@ FormBuilder::make(route('form-table.store'))
     ->name('main-form')
     ->async(asyncEvents: ['my-event'])
 </x-code>
+
 </x-recipe>
