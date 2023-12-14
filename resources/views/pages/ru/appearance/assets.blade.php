@@ -57,5 +57,5 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 </head>
 </x-code>
 
-@include('recipes.assets-vite')
+@include('pages.ru.recipes.assets-vite')
 </x-page>

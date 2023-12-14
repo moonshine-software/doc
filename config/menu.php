@@ -20,6 +20,7 @@ return [
 
     'Components:rectangle-group' => [
         ['slug' => 'components-index', 'label' => 'Basics'],
+        ['slug' => 'components-moonshine_component', 'label' => 'MoonShineComponent'],
 
         // System
         'System:_divider_',

@@ -1,6 +1,7 @@
-<x-recipe id="assets-vite" title="{{ $title ?? 'Рецепт' }}">
+<x-recipe id="assets-vite" title="{{ $title ?? 'Recipe' }}">
+
 <x-p>
-Добавим скомпилированный с помощью Vite build
+    Let's add one compiled using Vite build.
 </x-p>
 
 <x-code language="php">
@@ -23,4 +24,5 @@ public function boot(): void
 //...
 }
 </x-code>
+
 </x-recipe>

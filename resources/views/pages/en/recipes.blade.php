@@ -9,8 +9,8 @@
     ]"
 >
 
-@include('recipes.form-with-events', ['title' => 'Form and events'])
-@include('recipes.make-component', ['title' => 'View component with AlpineJs'])
-@include('recipes.assets-vite', ['title' => 'Vite build connection'])
+@include('pages.en.recipes.form-with-events', ['title' => 'Form and events'])
+@include('pages.en.recipes.make-component', ['title' => 'View component with AlpineJs'])
+@include('pages.en.recipes.assets-vite', ['title' => 'Vite build connection'])
 
 </x-page>

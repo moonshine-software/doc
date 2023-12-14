@@ -1,14 +1,7 @@
 <x-page
-    title="Moonshine компоненты"
-    :sectionMenu="[
-        'Разделы' => [
-            ['url' => '#basics', 'label' => 'Основы'],
-            ['url' => '#moonshine-component', 'label' => 'MoonShineComponent'],
-        ]
-    ]"
+    title="Компоненты"
+    :sectionMenu="[]"
 >
-
-<x-sub-title id="basics">Основы</x-sub-title>
 
 <x-p>
     Компоненты в <strong>MoonShine</strong> являются основой для построения интерфейса.<br />
@@ -56,63 +49,4 @@
     компоненты.
 </x-p>
 
-<x-sub-title id="moonshine-component">MoonShineComponent</x-sub-title>
-
-<x-p>
-    В <strong>MoonShine</strong> реализована консольная команда для создания <em>MoonShineComponent</em>,
-    в котором уже реализованы основные методы для использования в админ панели.
-</x-p>
-
-<x-code language="shell">
-php artisan moonshine:component
-</x-code>
-
-<x-p>
-    В результате будет создан класс <code>NameComponent</code>, который является основой нового компонента.<br />
-    Располагается он, по умолчанию, в директории <code>app/MoonShine/Components</code>.<br />
-    А так же Blade файл для компонента в директории <code>resources/views/admin/components</code>.
-</x-p>
-
-<x-moonshine::divider label="Методы компонента" />
-
-<x-p>
-    Метод <code>make()</code> предназначен для создания экземпляра компонента.
-</x-p>
-
-<x-code language="php">
-use App\MoonShine\Components\NameComponent; // [tl! focus]
-
-//...
-
-public function components(): array
-{
-    return [
-        NameComponent::make() // [tl! focus]
-    ];
-}
-
-//...
-</x-code>
-
-<x-p>
-    Метод <code>viewData()</code> позволяет передать данные в шаблон компонента.
-</x-p>
-
-<x-code language="php">
-namespace App\MoonShine\Components; // [tl! focus]
-
-//...
-
-final class Test extends MoonShineComponent
-{
-    protected function viewData(): array
-    {
-        return [];
-    }
-}
-
-//...
-</x-code>
-
-@include('recipes.make-component')
 </x-page>
