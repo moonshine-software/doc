@@ -2,9 +2,9 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8" />
-    <title>MoonShine - админ панель для проектов на Laravel</title>
-    <meta name="description" content="MoonShine - пакет для ускоренной разработки web-проектов на Laravel.
-MoonShine отлично подходит для создания админ панели, MVP, backoffice, и CMS. Простая для новичков, безграничная для профессионалов. Открытый исходный код." />
+    <title>MoonShine - admin panel for Laravel projects</title>
+    <meta name="description" content="MoonShine is a package for accelerated development of web projects on Laravel.
+MoonShine is great for creating admin panel, MVP, backoffice, and CMS. Simple for beginners, limitless for professionals. Open source." />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
 
     <!-- Theme settings -->
@@ -106,26 +106,26 @@ MoonShine отлично подходит для создания админ п�
     <section class="heroes">
         <div class="container">
             <div class="flex flex-col">
-                <a href="{{ config('links.chat') }}" class="heroes-telegram" target="_blank" rel="noopener nofollow">Telegram-канал</a>
+                <a href="{{ config('links.chat') }}" class="heroes-telegram" target="_blank" rel="noopener nofollow">Telegram-channel</a>
                 <h1 class="heroes-title">
-                    Админ-панель для<br />
-                    Ваших <span class="px-2 text-transparent bg-[url('/images/laravel-title.svg')] bg-no-repeat bg-contain bg-center">Laravel</span>
-                    проектов
+                    Admin panel for<br />
+                    your <span class="px-2 text-transparent bg-[url('/images/laravel-title.svg')] bg-no-repeat bg-contain bg-center">Laravel</span>
+                    projects
                 </h1>
                 <h2 class="heroes-subtitle">
-                    <span class="text-pink">Простая для новичков,</span><br />
-                    безграничная для профессионалов
+                    <span class="text-pink">Simple for beginners</span><br />
+                    limitless for professionals
                 </h2>
                 <div class="heroes-buttons">
                     <a href="{{ config('promo_menu.demo.link') }}" class="btn btn-purple" target="_blank" rel="noopener nofollow">
-                        Попробовать демо
+                        Try demo
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" fill="currentColor" viewBox="0 0 12 12">
                             <path d="M12.308 11.808a.649.649 0 0 1-.462.192.659.659 0 0 1-.654-.654V1.307H1.154A.658.658 0 0 1 .5.654C.5.296.796 0 1.154 0h10.692c.357 0 .654.296.654.654v10.692a.646.646 0 0 1-.192.462Z" />
                             <path d="M12.307 1.145 1.645 11.805a.677.677 0 0 1-.95 0 .676.676 0 0 1 0-.95L11.355.196c.26-.26.69-.26.95 0a.676.676 0 0 1 0 .95h.002Z" />
                         </svg>
                     </a>
                     <a href="{{ route('moonshine.index') }}" class="btn btn-outline btn-pink" rel="noopener nofollow">
-                        Документация
+                        Documentation
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-pink" fill="currentColor" viewBox="0 0 21 20">
                             <path
                                 d="M14.515 3.226H3.03a.757.757 0 0 0-.756.756v15.262c0 .417.34.756.756.756h11.485c.417 0 .756-.34.756-.756V3.982a.757.757 0 0 0-.756-.756ZM11.952 13.87h-6.13a.645.645 0 1 1 0-1.29h6.13a.645.645 0 1 1 0 1.29Zm0-2.58h-6.13a.645.645 0 1 1 0-1.291h6.13a.645.645 0 1 1 0 1.29Zm0-2.581h-6.13a.645.645 0 1 1 0-1.29h6.13a.645.645 0 1 1 0 1.29Z"
@@ -193,19 +193,19 @@ MoonShine отлично подходит для создания админ п�
         <div class="container">
             <div class="flex flex-nowrap flex-col lg:flex-row justify-between lg:items-center gap-6">
                 <div class="section-heading">
-                    <h2 class="section-heading-title text-center sm:text-left">Как это работает?</h2>
+                    <h2 class="section-heading-title text-center sm:text-left">How it works?</h2>
                 </div>
                 <div class="how-it-works-tabs">
                     <div class="hidden sm:block sm:absolute right-0 lg:right-full -top-12 md:-top-14 lg:-top-2 pr-0 sm:pr-12 pb-4 sm:pb-0 text-gray scale-75 2xl:scale-100 origin-right">
-                        <span class="whitespace-nowrap text-sm ld:text-md">Выберите свой уровень</span>
+                        <span class="whitespace-nowrap text-sm ld:text-md">Choose your level</span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="74" height="72" class="absolute right-0 tra sm:right-full lg:right-6 -top-4 lg:top-2 mr-4 lg:mr-0 rotate-[145deg] lg:rotate-0" fill="currentColor" viewBox="0 0 74 72">
                             <path
                                 d="M69.534 43.712a1 1 0 0 0-.71-1.223l-8.698-2.31a1 1 0 0 0-.514 1.934l7.733 2.052-2.052 7.733a1 1 0 0 0 1.933.512l2.308-8.698ZM1.087 21.218c5.689 7.084 15.88 16.735 28.015 22.695 12.15 5.966 26.39 8.29 39.968.407l-1.004-1.73c-12.796 7.429-26.285 5.321-38.082-.472-11.81-5.8-21.783-15.235-27.338-22.152l-1.56 1.252Z"
                             />
                         </svg>
                     </div>
-                    <button type="button" class="how-it-works-tab" @click="lvlTab = 1" :class="{ '_is-active': lvlTab === 1 }">Новичок</button>
-                    <button type="button" class="how-it-works-tab" @click="lvlTab = 2" :class="{ '_is-active': lvlTab === 2 }">Опытный</button>
+                    <button type="button" class="how-it-works-tab" @click="lvlTab = 1" :class="{ '_is-active': lvlTab === 1 }">Newbie</button>
+                    <button type="button" class="how-it-works-tab" @click="lvlTab = 2" :class="{ '_is-active': lvlTab === 2 }">Experienced</button>
                 </div>
             </div>
 
@@ -215,25 +215,25 @@ MoonShine отлично подходит для создания админ п�
                     <div class="how-it-works-item" @click="lvlTab_1_ActiveTab = 1" :class="{ '_is-active': lvlTab_1_ActiveTab === 1 }">
                         <div class="number"></div>
                         <div class="heading">
-                            <h5 class="heading-title">Даже джун сможет легко создать полноценную админ-панель!</h5>
-                            <p class="heading-descr">Всего пару строчек кода и твоя админ-панель на MoonShine готова к использованию</p>
+                            <h5 class="heading-title">Even a junior can easily create a full-fledged admin panel!</h5>
+                            <p class="heading-descr">Just a couple of lines of code and your admin panel on MoonShine is ready to use</p>
                         </div>
                     </div>
 
                     <div class="how-it-works-item" @click="lvlTab_1_ActiveTab = 2" :class="{ '_is-active': lvlTab_1_ActiveTab === 2 }">
                         <div class="number"></div>
                         <div class="heading">
-                            <h5 class="heading-title">Не нужно знать фронтэнд - все элементы легко кастомизируются</h5>
-                            <p class="heading-descr">Пункты меню, формы и поля добавляются на лету</p>
+                            <h5 class="heading-title">No need to know the front end - all elements are easily customizable</h5>
+                            <p class="heading-descr">Menu items, forms and fields are added on the fly</p>
                         </div>
                     </div>
 
                     <div class="how-it-works-item" @click="lvlTab_1_ActiveTab = 3" :class="{ '_is-active': lvlTab_1_ActiveTab === 3 }">
                         <div class="number"></div>
                         <div class="heading">
-                            <h5 class="heading-title">Меняй цветовую схему</h5>
+                            <h5 class="heading-title">Change the color scheme</h5>
                             <p class="heading-descr">
-                                Тюнингуй админ-панель под свой вкус
+                                Customize the admin panel to your taste
                             </p>
                         </div>
                     </div>
@@ -259,25 +259,25 @@ MoonShine отлично подходит для создания админ п�
                     <div class="how-it-works-item" @click="lvlTab_2_ActiveTab = 1" :class="{ '_is-active': lvlTab_2_ActiveTab === 1 }">
                         <div class="number"></div>
                         <div class="heading">
-                            <h5 class="heading-title">Множество подходов</h5>
-                            <p class="heading-descr">Разрабатывай так, как тебе нравится</p>
+                            <h5 class="heading-title">Many approaches</h5>
+                            <p class="heading-descr">Design the way you like</p>
                         </div>
                     </div>
                     <div class="how-it-works-item" @click="lvlTab_2_ActiveTab = 2" :class="{ '_is-active': lvlTab_2_ActiveTab === 2 }">
                         <div class="number"></div>
                         <div class="heading">
-                            <h5 class="heading-title">Кастомизируй под себя</h5>
+                            <h5 class="heading-title">Customize for yourself</h5>
                             <p class="heading-descr">
-                                Меняй расположение блоков. Или добавляй свои!
+                                Change the location of the blocks. Or add your own!
                             </p>
                         </div>
                     </div>
                     <div class="how-it-works-item" @click="lvlTab_2_ActiveTab = 3" :class="{ '_is-active': lvlTab_2_ActiveTab === 3 }">
                         <div class="number"></div>
                         <div class="heading">
-                            <h5 class="heading-title">Создавай свои поля</h5>
+                            <h5 class="heading-title">Create your own fields</h5>
                             <p class="heading-descr">
-                                Как нужно для твоих задач
+                                As needed for your tasks
                             </p>
                         </div>
                     </div>
@@ -489,14 +489,14 @@ MoonShine отлично подходит для создания админ п�
         <div class="container">
             <div class="questions-wrapper">
                 <div class="questions-heading">
-                    <h2 class="title">Возникли трудности?</h2>
-                    <p class="description">Спросите в комьюнити или воспользуйтесь консультацией.</p>
+                    <h2 class="title">Having difficulties?</h2>
+                    <p class="description">Ask in the community or use consultation.</p>
                 </div>
                 <div class="questions-actions">
-                    <a href="{{ config('links.chat') }}" class="btn btn-purple" target="_blank" rel="noopener nofollow">Перейти в Telegram-канал</a>
-                    <a href="{{ config('promo_menu.consult.link') }}" class="btn btn-pink" target="_blank" rel="noopener nofollow">Консультация</a>
+                    <a href="{{ config('links.chat') }}" class="btn btn-purple" target="_blank" rel="noopener nofollow">Go to Telegram channel</a>
+                    <a href="{{ config('promo_menu.consult.link') }}" class="btn btn-pink" target="_blank" rel="noopener nofollow">Consultation</a>
                 </div>
-                <img src="{{ Vite::asset('resources/images/question.svg') }}" class="questions-image" alt="Возникли трудности?" />
+                <img src="{{ Vite::asset('resources/images/question.svg') }}" class="questions-image" alt="Difficulties have arisen?" />
             </div>
         </div>
     </section>
@@ -505,11 +505,11 @@ MoonShine отлично подходит для создания админ п�
     <section class="technologies pt-120">
         <div class="container">
             <div class="section-heading text-center">
-                <h2 class="section-heading-title">Что под капотом MoonShine?</h2>
+                <h2 class="section-heading-title">What's under the hood of MoonShine?</h2>
                 <div class="section-heading-descr">
                     <p>
-                        Современные, простые, надежные и перспективные инструменты.<br />
-                        С ними можно в разработку с головой.
+                        Modern, simple, reliable and future-proof tools.<br />
+                        With them you can go into development headlong.
                     </p>
                 </div>
             </div>
@@ -559,17 +559,17 @@ MoonShine отлично подходит для создания админ п�
             <div class="advantages-wrapper">
                 <div class="advantages-heading">
                     <div class="section-heading">
-                        <h2 class="section-heading-title">Еще сомневаетесь, подойдет ли вам MoonShine?</h2>
+                        <h2 class="section-heading-title">Still unsure whether MoonShine is right for you?</h2>
                     </div>
                     <div class="advantages-heading-links">
                         <a href="{{ config('promo_menu.demo.link') }}" class="btn btn-purple" target="_blank" rel="noopener nofollow">
-                            Попробовать демо
+                            Try demo
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" fill="currentColor" viewBox="0 0 12 12">
                                 <path d="M12.308 11.808a.649.649 0 0 1-.462.192.659.659 0 0 1-.654-.654V1.307H1.154A.658.658 0 0 1 .5.654C.5.296.796 0 1.154 0h10.692c.357 0 .654.296.654.654v10.692a.646.646 0 0 1-.192.462Z" />
                                 <path d="M12.307 1.145 1.645 11.805a.677.677 0 0 1-.95 0 .676.676 0 0 1 0-.95L11.355.196c.26-.26.69-.26.95 0a.676.676 0 0 1 0 .95h.002Z" />
                             </svg>
                         </a>
-                        <a href="{{ config('links.chat') }}" class="btn btn-dark" target="_blank" rel="noopener nofollow">Спросить в чате</a>
+                        <a href="{{ config('links.chat') }}" class="btn btn-dark" target="_blank" rel="noopener nofollow">Ask in chat</a>
                     </div>
                 </div>
                 <!-- /.advantages-heading -->
@@ -577,29 +577,29 @@ MoonShine отлично подходит для создания админ п�
                     <div class="advantages-item">
                         <div class="number"></div>
                         <div class="heading">
-                            <h4 class="heading-title">В 2 раза ускоряет разработку админ-панели</h4>
-                            <p class="heading-descr">По отзывам пользователей которые использовали MoonShine и другие панели администратора.</p>
+                            <h4 class="heading-title">Speeds up the development of the admin panel by 2 times</h4>
+                            <p class="heading-descr">Based on reviews from users who have used MoonShine and other admin panels.</p>
                         </div>
                     </div>
                     <div class="advantages-item">
                         <div class="number"></div>
                         <div class="heading">
-                            <h4 class="heading-title">Внедряется от 5 минут</h4>
-                            <p class="heading-descr">Именно столько потребуется чтобы сделать админ-панель с авторизацией и CRUD.</p>
+                            <h4 class="heading-title">Implemented in 5 minutes</h4>
+                            <p class="heading-descr">This is exactly how much it will take to make an admin panel with authorization and CRUD.</p>
                         </div>
                     </div>
                     <div class="advantages-item">
                         <div class="number"></div>
                         <div class="heading">
-                            <h4 class="heading-title">Это удобно!</h4>
-                            <p class="heading-descr">Никаких танцев с бубном – быстрая настройка с использованием Laravel Prompts при установке.</p>
+                            <h4 class="heading-title">It's comfortable!</h4>
+                            <p class="heading-descr">No dancing with a tambourine - quick setup using Laravel Prompts during installation.</p>
                         </div>
                     </div>
                     <div class="advantages-item">
                         <div class="number"></div>
                         <div class="heading">
-                            <h4 class="heading-title">Не волнуйтесь за качество!</h4>
-                            <p class="heading-descr">Всё работает уже на 10к+ разных проектах на Laravel.</p>
+                            <h4 class="heading-title">Don't worry about the quality!</h4>
+                            <p class="heading-descr">Everything works already on 10k+ different projects on Laravel.</p>
                         </div>
                     </div>
                 </div>
@@ -612,19 +612,19 @@ MoonShine отлично подходит для создания админ п�
     <section class="cases pt-120">
         <div class="container">
             <div class="section-heading text-center md:text-left">
-                <h2 class="section-heading-title">MoonShine подойдет вам</h2>
+                <h2 class="section-heading-title">MoonShine is right for you</h2>
                 <div class="section-heading-descr">
                     <p>
-                        MoonShine это универсальная админ-панель, которую можно использовать на любом проекте.<br />
-                        Главное, чтобы он был на Laravel.
+                        MoonShine is a universal admin panel that can be used on any project.<br />
+                        The main thing is that it is on Laravel.
                     </p>
                 </div>
-                <h3 class="mt-6 text-md xl:text-lg font-semibold"><span class="text-pink">Уже реализованные</span> на MoonShine проекты:</h3>
+                <h3 class="mt-6 text-md xl:text-lg font-semibold"><span class="text-pink">Projects already implemented</span>on MoonShine:</h3>
             </div>
         </div>
         <div class="cases-list">
             <div class="cases-item" style="--bg-url: url({{ Vite::asset('resources/images/cases/shop.jpg') }})">
-                <h5 class="title">Интернет-<br />магазин</h5>
+                <h5 class="title">Online<br />store</h5>
             </div>
             <div class="cases-item" style="--bg-url: url({{ Vite::asset('resources/images/cases/cms.jpg') }})">
                 <h5 class="title">CMS</h5>
@@ -633,21 +633,21 @@ MoonShine отлично подходит для создания админ п�
                 <h5 class="title">CRM</h5>
             </div>
             <div class="cases-item-middle">
-                <img src="{{ Vite::asset('resources/images/cases/your-project.svg') }}" class="picture" alt="Ваш будущий проект" />
+                <img src="{{ Vite::asset('resources/images/cases/your-project.svg') }}" class="picture" alt="Your future project" />
             </div>
             <div class="cases-item" style="--bg-url: url({{ Vite::asset('resources/images/cases/blog.jpg') }})">
-                <h5 class="title">Блог</h5>
+                <h5 class="title">Blog</h5>
             </div>
             <div class="cases-item" style="--bg-url: url({{ Vite::asset('resources/images/cases/blog.jpg') }})">
                 <h5 class="title">
-                    Новостной<br />
-                    портал
+                    News<br />
+                    portal
                 </h5>
             </div>
             <div class="cases-item" style="--bg-url: url({{ Vite::asset('resources/images/cases/chatbot.jpg') }})">
                 <h5 class="title">
-                    Админ-панель<br />
-                    чат-бота
+                    Chatbot<br />
+                    admin panel
                 </h5>
             </div>
         </div>
@@ -686,8 +686,8 @@ MoonShine отлично подходит для создания админ п�
             <div class="testimonials-heading">
                 <div class="section-heading">
                     <h2 class="section-heading-title">
-                        Вот почему другие<br />
-                        <span class="text-pink">разработчики выбрали MoonShine</span>
+                        That's why others<br />
+                        <span class="text-pink">developers chose MoonShine</span>
                     </h2>
                 </div>
                 <div class="testimonials-navigation">
@@ -719,7 +719,7 @@ MoonShine отлично подходит для создания админ п�
                             </div>
                             <div class="testimonials-item-text">
                                 <p>
-                                    жирная админка
+                                    fat admin
                                 </p>
                             </div>
                         </div>
@@ -737,7 +737,7 @@ MoonShine отлично подходит для создания админ п�
                                 </div>
                             </div>
                             <div class="testimonials-item-text">
-                                <p>Попробовал. Удобно. До этого писал SPA отдельно на Vue (quasar)и всегда заботился чтобы написать о том чтобы создать template, маршруты, получить данные по API. Для одного человека это слишком долго (сложно)</p>
+                                <p>I tried it. Comfortable. Before that, I wrote SPA separately in Vue (quasar) and always took care to write about creating a template, routes, and getting data via the API. It's too long for one person (difficult)</p>
                             </div>
                         </div>
                     </div>
@@ -776,7 +776,7 @@ MoonShine отлично подходит для создания админ п�
                                 </div>
                             </div>
                             <div class="testimonials-item-text">
-                                <p>Решил использовать вашу админку и не пожалел. Основное всё есть, а если нужно что-то нестандартное, то всё легко расширяется и кастомизируется. Благодарю за труды!</p>
+                                <p>I decided to use your admin panel and did not regret it. The basics are all there, and if you need something non-standard, then everything can be easily expanded and customized. Thank you for your efforts!</p>
                             </div>
                             <!--<div class="testimonials-item-video">
                                 <a href="#" target="_blank" rel="noopener nofollow">
@@ -801,7 +801,7 @@ MoonShine отлично подходит для создания админ п�
                                 </div>
                             </div>
                             <div class="testimonials-item-text">
-                                <p>Вот это мощь! Просто гении! Подход с flutter идея супер</p>
+                                <p>This is power! Simply geniuses! The flutter approach is a great idea</p>
                             </div>
                         </div>
                     </div>
@@ -818,7 +818,7 @@ MoonShine отлично подходит для создания админ п�
                                 </div>
                             </div>
                             <div class="testimonials-item-text">
-                                <p>😁 Позавчера сдал проект заказчику. Админку реализовал на муншайне. Все задачи покрыл. За 5 часов реализовал. Заказчик в шоке. 😬</p>
+                                <p>😁 The day before yesterday I handed over the project to the customer. I implemented the admin panel on Moonshine. Covered all tasks. I implemented it in 5 hours. The customer is shocked. 😬</p>
                             </div>
                         </div>
                     </div>
@@ -835,7 +835,7 @@ MoonShine отлично подходит для создания админ п�
                                 </div>
                             </div>
                             <div class="testimonials-item-text">
-                                <p>Муншайн 2 получилось с первого взгляда очень круто. Именно та архитектура которую я видел в голове идеальной</p>
+                                <p>MoonShine 2 turned out very cool at first glance. Exactly the architecture that I saw in my head as ideal</p>
                             </div>
                         </div>
                     </div>
@@ -852,8 +852,8 @@ MoonShine отлично подходит для создания админ п�
                                 </div>
                             </div>
                             <div class="testimonials-item-text">
-                                <p>Ребят, админка топовая! Вы очень крутые! Спасибо за труд! Надеюсь будете дальше развиваться в том же духе! 🔥
-                                    P.S. Видео, кстати, тоже  очень круто смонтировано, прям на уровне</p>
+                                <p>Guys, the admin is top! You are very cool! Thanks for your hard work! I hope you will continue to develop in the same spirit! 🔥
+                                P.S. The video, by the way, is also very coolly edited, right on the level</p>
                             </div>
                         </div>
                     </div>
@@ -870,9 +870,9 @@ MoonShine отлично подходит для создания админ п�
                                 </div>
                             </div>
                             <div class="testimonials-item-text">
-                                <p>DatePicker конечно пушечный 😏
-                                    А вообще смотрю и понимаю что очень много реализовано из коробки того, что приходилось самостоятельно писать или подтягивать сторонние библиотеки.
-                                    Очень круто, уже задумался над использованием в собственном проекте. Так что ждем продолжения!</p>
+                                <p>DatePicker is certainly a cannon 😏
+                                    In general, I look and understand that a lot of things have been implemented out of the box that I had to write myself or pull up third-party libraries.
+                                    Very cool, I’m already thinking about using it in my own project. So we are waiting for the continuation!</p>
                             </div>
                         </div>
                     </div>
@@ -1071,8 +1071,8 @@ MoonShine отлично подходит для создания админ п�
             </div><!-- /.footer-social -->
         </div>
         <div class="footer-copyright mt-10">
-            <div class="text-[#999] text-xxs md:text-xs text-center">CutCode, MoonShine, {{ now()->year }} © Все права
-                защищены.
+            <div class="text-[#999] text-xxs md:text-xs text-center">CutCode, MoonShine, {{ now()->year }} © All rights
+                protected.
             </div>
         </div><!-- /.footer-copyright -->
     </div><!-- /.container -->
@@ -1100,7 +1100,7 @@ MoonShine отлично подходит для создания админ п�
                 <div class="shrink-0 flex items-center">
                     <button id="closeMobileMenu" class="text-white hover:text-pink transition"
                             @click="openMobileMenu = ! openMobileMenu">
-                        <span class="sr-only">Закрыть меню</span>
+                        <span class="sr-only">Close menu</span>
                         <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                              stroke="currentColor"
                              aria-hidden="true">
