@@ -14,7 +14,7 @@
 </x-p>
 
 <x-p>
-    You can create a <em>Sidebar</em> using the static <code>make()</code> method
+    You can create a <em>Sidebar</em> using the static method <code>make()</code>
     class <code>Sidebar</code>.
 </x-p>
 

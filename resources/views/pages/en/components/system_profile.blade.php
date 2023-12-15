@@ -10,7 +10,7 @@
 <x-sub-title id="make">Make</x-sub-title>
 
 <x-p>
-    The <em>Profile</em> system component is used to display information about an authorized user in
+    The system component <em>Profile</em>  is used to display information about an authorized user in
     <strong>MoonShine</strong>.
 </x-p>
 
@@ -24,7 +24,7 @@ make(bool $withBorder = false)
 </x-code>
 
 <x-p>
-    <code>$withBorder</code> - split before the component.
+    <code>$withBorder</code> - to split before the component.
 </x-p>
 
 <x-code language="php">
