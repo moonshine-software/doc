@@ -39,6 +39,7 @@ return [
         ['slug' => 'components-decoration_flexible_render', 'label' => 'FlexibleRender', 'title' => 'Decoration FlexibleRender'],
         ['slug' => 'components-decoration_heading', 'label' => 'Heading', 'title' => 'Decoration Heading'],
         ['slug' => 'components-decoration_layout', 'label' => 'Layout', 'title' => 'Decoration Layout'],
+        ['slug' => 'components-decoration_modal', 'label' => 'Modal', 'title' => 'Decoration Modal'],
         ['slug' => 'components-decoration_tabs', 'label' => 'Tabs', 'title' => ' Tabs'],
         ['slug' => 'components-decoration_when', 'label' => 'When', 'title' => 'Decoration When'],
 
