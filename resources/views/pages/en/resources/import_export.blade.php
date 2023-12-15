@@ -57,7 +57,7 @@ class PostResource extends ModelResource
 </x-code>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-    Be sure to add ID to the import, otherwise records will only be added without updating existing ones.
+    Be sure to add ID to the import, otherwise, records will only be added without updating existing ones.
 </x-moonshine::alert>
 
 <x-moonshine::divider label="Handler" />
@@ -239,7 +239,7 @@ public function export(): ?ExportHandler
 
 <x-p>
     <em>ImportHandler</em> and <em>ExportHandler</em> extend the base class <em>Handler</em>
-    which implements additional methods.
+    that implements additional methods.
 </x-p>
 
 <x-moonshine::divider label="icon" />
@@ -301,7 +301,7 @@ unless($value = null, callable $callback = null, callable $default = null)
 </x-p>
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
-    The <code>unless()</code> method is the inverse of the <code>when()</code> method.
+    The <code>unless()</code> method is the <code>when()</code> method the inverse.
 </x-moonshine::alert>
 
 

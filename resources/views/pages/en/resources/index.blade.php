@@ -19,7 +19,7 @@
 <x-sub-title id="basics">Basics</x-sub-title>
 
 <x-p>
-    At the heart of any admin panel are sections for editing data.
+    At any admin panel heart are sections for editing data.
     <strong>MoonShine</strong> is no exception to this
     and uses <code>Eloquent</code> models to work with the database,
     and for sections there are standard Laravel resource controllers and resource routes.
@@ -39,7 +39,7 @@
 </x-code>
 
 <x-p>
-    But this work can be entrusted to the <strong>MoonShine</strong> admin panel,
+    However, this work can be entrusted to the <strong>MoonShine</strong> admin panel,
     which will generate and declare them independently.
 </x-p>
 
@@ -56,7 +56,7 @@
 
 <x-p>
     <ul>
-        <li>- change the name of your resource if required</li>
+        <li>- change your resource name if required</li>
         <li>- select resource type</li>
     </ul>
 </x-p>
@@ -80,7 +80,7 @@
 </x-p>
 
 <x-p>
-    As a result, a <code>PostResource</code> class will be created, which will be the basis of a new section in the panel.<br />
+    As a result, a <code>PostResource</code> class will be created, which will be a new section basis in the panel.<br />
     It is located, by default, in the <code>app/MoonShine/Resources</code> directory.<br />
     MoonShine will automatically, based on the name, link the resource to the <code>app/Models/Post</code> model.<br />
     The section title will also be generated automatically and will be “Posts”.
@@ -137,7 +137,7 @@ class PostResource extends ModelResource
 
 <x-p>
     Register the resource in the system and immediately add a link to the section in the navigation menu
-    You can use the service provider <code>MoonShineServiceProvider</code>.
+    you can use the service provider <code>MoonShineServiceProvider</code>.
 </x-p>
 
 <x-code language="php">
@@ -239,7 +239,7 @@ class PostResource extends ModelResource
 
 <x-p>
     By default, when creating and editing a record, a redirect is made to the page with the form,
-    but this behavior can be controlled
+    but this behaviour can be controlled
 </x-p>
 
 <x-code>
@@ -263,7 +263,7 @@ public function redirectAfterDelete(): string
 
 <x-p>
     It often happens that it is necessary to create a resource in which the ability to delete will be excluded,
-    or add or edit. And here we are not talking about authorization, but about the global exclusion of these sections.
+    or add or edit. In addition, here we are not talking about authorization, but about the global exclusion of these sections.
     This is done extremely simply using the <code>getActiveActions</code> method in the resource
 </x-p>
 
@@ -285,7 +285,7 @@ class PostResource extends ModelResource
 <x-sub-title id="boot">Boot</x-sub-title>
 
 <x-p>
-    If you need to add logic to the operation of a resource when it is active and loaded,
+    If you need to add logic to a resource operation when it is active and loaded,
     then use the <code>onBoot</code> method
 </x-p>
 

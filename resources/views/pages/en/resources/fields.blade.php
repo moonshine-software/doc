@@ -66,7 +66,7 @@ class PostResource extends ModelResource
 <x-sub-title id="separate">Field separation</x-sub-title>
 
 <x-p>
-    Sometimes there is a need to exclude or change the order of some fields in an index or detail page.
+    Sometimes there is a need to exclude or change the order of some fields' order in an index or detail page.
     To do this, you can use methods that allow you to redefine fields for the corresponding pages:
     <code>indexFields()</code>, <code>formFields()</code> or <code>detailFields()</code>.
 </x-p>

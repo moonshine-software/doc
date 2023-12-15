@@ -1,7 +1,7 @@
 <x-page title="Metrics" :sectionMenu="$sectionMenu ?? null">
 
 <x-p>
-    On the index page of the resource model, you can display information blocks with statistics - metrics.<br />
+    On the resource model index page, you can display information blocks with statistics - metrics.<br />
     To do this, in the <code>metrics()</code> method, return an array from <code>ValueMetric</code>.
 </x-p>
 

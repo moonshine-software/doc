@@ -2,7 +2,7 @@
 
 <x-p>
     To create filters, fields are also used:
-    they are displayed only on the main page of the section.
+    they are displayed only on the section main page.
 </x-p>
 
 <x-p>
@@ -55,7 +55,7 @@ class PostResource extends ModelResource
 </x-moonshine::alert>
 
 <x-p>
-    If you need to cache the state of filters, use the <code>saveFilterState</code> property in the resource
+    If you need to cache the filters state, use the <code>saveFilterState</code> property in the resource
 </x-p>
 <x-code language="php">
 namespace App\MoonShine\Resources;

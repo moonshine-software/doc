@@ -1,7 +1,7 @@
 <x-page title="Authorization">
 
 <x-p>
-    We do not deviate from the Laravel concept and with the help of Laravel policy we can work with
+    We do not deviate from the Laravel concept and with the Laravel policy help we can work with
     access rights within the MoonShine admin panel
 </x-p>
 

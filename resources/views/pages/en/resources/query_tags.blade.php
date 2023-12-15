@@ -10,7 +10,7 @@
 <x-sub-title id="basics">Basics</x-sub-title>
 
 <x-p>
-    Sometimes there is a need to create a set of filters (a selection of results)
+    Sometimes there is a need to create filters (results a selection) a set
     and display it on the listing. Tags have been created for such situations.
 </x-p>
 

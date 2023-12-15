@@ -12,7 +12,7 @@
 <x-sub-title id="basics">Basics</x-sub-title>
 
 <x-p>
-    <strong>MoonShine</strong> provides the ability to customize the crud of <em>ModelResource</em> pages,
+    <strong>MoonShine</strong> provides the ability to customize the <em>ModelResource</em> pages crud,
     for this it is necessary, when creating a resource through the command,
     select resource type<br />
     <code>Model resource with pages</code>.
@@ -66,7 +66,7 @@ class PostResource extends ModelResource
 <x-p>
     <x-link link="{{ route('moonshine.page', 'fields-index') }}">Fields</x-link>
     in <strong>MoonShine</strong> are used not only for data input, but also for their output.<br />
-    The <code>fields()</code> method in the <em>crud</em> class of the page allows you to specify the required fields.
+    The <code>fields()</code> method in the page <em>crud</em> class allows you to specify the required fields.
 </x-p>
 
 <x-code language="php">
@@ -110,7 +110,7 @@ class PostIndexPage extends IndexPage
 
 <x-p>
     To customize layers, the corresponding methods are used: <code>topLayer()</code>, <code>mainLayer()</code> and
-    <code>bottomLayer()</code>. Methods must return an array of <x-link link="{{ route('moonshine.page', 'page-class') . '#components' }}">Components</x-link>.
+    <code>bottomLayer()</code>. Methods must return <x-link link="{{ route('moonshine.page', 'page-class') . '#components' }}">Components</x-link> an array.
 </x-p>
 
 <x-code language="php">
