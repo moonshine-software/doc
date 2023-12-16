@@ -1,5 +1,6 @@
 <x-page title="Form elements" :sectionMenu="[
     'Разделы' => [
+        ['url' => '#basics', 'label' => 'Основы'],
         ['url' => '#label', 'label' => 'Label'],
         ['url' => '#input', 'label' => 'Input'],
         ['url' => '#checkbox', 'label' => 'Checkbox'],
@@ -18,6 +19,71 @@
 <x-moonshine::alert type="default" icon="heroicons.information-circle" class="my-4">
     Компоненты форм являются оберткой аналогичных html-элементов, им можно передавать все необходимые атрибуты.
 </x-moonshine::alert>
+
+<x-sub-title id="basics">Основы</x-sub-title>
+
+<x-p>
+    Компонент <em>Form</em> является основой для построения форм.
+</x-p>
+
+<x-code language="blade" file="resources/views/examples/components/form/index.blade.php"></x-code>
+
+<x-p>
+    Компонент создает <code>html</code> разметку для будущей формы.
+</x-p>
+
+<x-code language="html">
+<form
+    class="form" method="POST"
+    x-id="['form']"
+    :id="$id('form')"
+>
+    @csrf <!-- [tl! focus:-5] -->
+
+    // form elements
+
+</form><!-- [tl! focus] -->
+</x-code>
+
+<x-moonshine::divider label="Buttons" />
+
+<x-p>
+    Компонент <em>Form</em> позволяет вынести кнопки в отдельный блок,
+    для этого необходимо передать их в слоте <code>buttons</code>.
+</x-p>
+
+<x-code language="blade" file="resources/views/examples/components/form/index-buttons.blade.php"></x-code>
+
+<x-moonshine::grid>
+    <x-moonshine::column adaptiveColSpan="12" colSpan="4">
+        <x-moonshine::box>
+            @include("examples/components/form/index-buttons")
+        </x-moonshine::box>
+    </x-moonshine::column>
+</x-moonshine::grid>
+
+<x-moonshine::divider label="Вывод ошибок" />
+
+<x-p>
+    Параметр <code>errors</code> позволяет выводить список ошибок.
+</x-p>
+
+<x-code language="blade" file="resources/views/examples/components/form/index-error.blade.php"></x-code>
+
+<x-p>
+    Если на странице несколько форм, рекомендуется задать <code>name</code> у формы,
+    для вывода ошибок только для конкретной формы.
+</x-p>
+
+<x-code language="blade" file="resources/views/examples/components/form/index-error-name.blade.php"></x-code>
+
+<x-moonshine::divider label="Precognition" />
+
+<x-p>
+    Параметр <code>precognitive</code> позволяет включить у формы режим <em>Precognition</em>.
+</x-p>
+
+<x-code language="blade" file="resources/views/examples/components/form/index-precognitive.blade.php"></x-code>
 
 <x-sub-title id="label">Label</x-sub-title>
 
