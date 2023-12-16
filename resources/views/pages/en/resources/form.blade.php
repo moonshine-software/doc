@@ -13,7 +13,7 @@
 </x-p>
 
 <x-p>
-    It is enough to add rules in the <code>rules()</code> method of the model resource in the usual manner.
+    It is enough to add rules in the model resource <code>rules()</code> method in the usual manner.
 </x-p>
 
 <x-code language="php">
@@ -132,7 +132,7 @@ public function formButtons(): array
 </x-code>
 
 <x-p>
-    You can also use the <code>buttons</code> method, but in this case the buttons will be on all other pages of the resource
+    You can also use the <code>buttons</code> method, but in this case, the buttons will be on the resource all other pages
 </x-p>
 
 <x-code>

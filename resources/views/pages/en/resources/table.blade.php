@@ -56,7 +56,7 @@ public function buttons(): array
 <x-sub-title id="attributes">Attributes</x-sub-title>
 
 <x-p>
-    Through model resources, it is possible to customize the <code>tr</code> and <code>td</code> of the data table.<br />
+    Through model resources, it is possible to customize the data table <code>tr</code> and <code>td</code>.<br />
     To do this, you must use the appropriate <code>trAttributes()</code> and <code>tdAttributes()</code> methods,
     which need to pass a closure that returns attributes for the <x-link link="{{ route('moonshine.page', 'components-table') }}">table component</x-link>.
 </x-p>

@@ -15,7 +15,7 @@
 </x-p>
 
 <x-p>
-    You can create a <em>TopBar</em> using the static <code>make()</code> method
+    You can create a <em>TopBar</em> using the static method <code>make()</code>
     class <code>TopBar</code>.
 </x-p>
 
@@ -24,7 +24,7 @@ make(array $components = [])
 </x-code>
 
 <x-p>
-    В качестве параметра метод <code>make()</code> принимает массив с компонентами.
+    As a parameter, method <code>make()</code> takes an array with components.
 </x-p>
 
 <x-code language="php">
@@ -58,8 +58,8 @@ final class MoonShineLayout implements MoonShineLayoutContract
 <x-sub-title id="actions">Actions</x-sub-title>
 
 <x-p>
-    The <code>actions()</code> method of the <em>TopBar</em> component allows you to add additional elements to the areas
-    <em>actions</em>. The method takes an array of components as a parameter.
+    Method <code>actions()</code> of the <em>TopBar</em> component allows you to add additional elements to the
+    <em>actions</em> areas. The method takes an array of components as a parameter.
 </x-p>
 
 <x-code language="php">

@@ -145,7 +145,7 @@ class PostResource extends ModelResource
 <x-sub-title id="relation">Search by relationship</x-sub-title>
 
 <x-p>
-    You can search by relationships; to do this, you need to specify which field of the relationship to search.
+    You can search by relationships; to do this, you need to specify which the relationship field to search.
 </x-p>
 
 <x-code language="php">
@@ -180,7 +180,7 @@ class PostResource extends ModelResource
 </x-p>
 
 <x-p>
-    This package uses the <code>Algolia</code> search engine, which takes into account the context and type of request,
+    This package uses the <code>Algolia</code> search engine, which takes into account the context, and request type,
     possible typos, synonyms and word forms, entering queries in different languages and much more.
 </x-p>
 

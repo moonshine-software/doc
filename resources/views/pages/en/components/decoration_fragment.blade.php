@@ -11,7 +11,7 @@
 <x-sub-title id="make">Make</x-sub-title>
 
 <x-p>
-    Sometimes you may want to return only part of a template in your HTTP response. For this you can use
+    Sometimes you need to return only part of a template in your HTTP response. For this you can use
     <x-link link="https://laravel.com/docs/blade#rendering-blade-fragments" target="_blank">Blade Fragments</x-link>.<br />
     The <em>Fragment</em> decorator allows you to create corresponding blocks.
 </x-p>
@@ -25,7 +25,7 @@ make(array $fields = [])
 </x-code>
 
 <x-p>
-    The <code>name()</code> method sets the name for the fragment.
+    Method <code>name()</code> sets the name for the fragment.
 </x-p>
 
 <x-code language="php">
@@ -50,7 +50,7 @@ public function components(): array
 <x-sub-title id="async">Asynchronous event</x-sub-title>
 
 <x-p>
-    You can wrap an area in a Fragment and hang an event on this area,
+    You can incorporate an area in a Fragment and set an event on this area,
     by calling which it will be possible to update the fragment
 </x-p>
 

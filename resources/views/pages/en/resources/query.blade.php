@@ -11,7 +11,7 @@
 <x-sub-title id="filter">Request</x-sub-title>
 
 <x-p>
-    It is often necessary to initially change all of the resource's queries to the database.<br />
+    It is often necessary to initially change the resource's queries all to the database.<br />
     You can easily override <em>query builder</em> in a resource.
 </x-p>
 
@@ -106,7 +106,7 @@ class PostResource extends ModelResource
 <x-sub-title id="order">Sorting</x-sub-title>
 
 <x-p>
-    By overriding the <code>resolveOrder()</code> method, you can customize the sorting of records.
+    By overriding the <code>resolveOrder()</code> method, you can customize the records sorting.
 </x-p>
 
 <x-code language="php">
