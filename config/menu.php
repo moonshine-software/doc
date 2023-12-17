@@ -26,6 +26,7 @@ return [
         'System:_divider_',
         ['slug' => 'components-system_layout', 'label' => 'Layout', 'title' => 'System component Layout'],
         ['slug' => 'components-system_flash', 'label' => 'Flash', 'title' => 'System component Flash'],
+        ['slug' => 'components-system_header', 'label' => 'Header', 'title' => 'System component Header'],
         ['slug' => 'components-system_profile', 'label' => 'Profile', 'title' => 'System component Profile'],
         ['slug' => 'components-system_sidebar', 'label' => 'Sidebar', 'title' => 'System component Sidebar'],
         ['slug' => 'components-system_top_bar', 'label' => 'TopBar', 'title' => 'System component TopBar'],
