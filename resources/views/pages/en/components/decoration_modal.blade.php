@@ -1,7 +1,7 @@
 <x-page
     title="Component Modal"
     :sectionMenu="[
-        'Разделы' => [
+        'Sections' => [
             ['url' => '#make', 'label' => 'Make'],
             ['url' => '#events', 'label' => 'Events'],
             ['url' => '#open', 'label' => 'Default state'],
