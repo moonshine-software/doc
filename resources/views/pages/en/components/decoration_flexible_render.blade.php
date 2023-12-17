@@ -14,7 +14,7 @@
 </x-p>
 
 <x-p>
-    You can create <em>FlexibleRender</em> using the static <code>make()</code> method
+    You can create <em>FlexibleRender</em> using the static method <code>make()</code>
     class <code>FlexibleRender</code>.
 </x-p>
 

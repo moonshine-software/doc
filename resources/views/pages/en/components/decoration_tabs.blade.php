@@ -46,7 +46,7 @@ public function components(): array
 <x-sub-title id="active-tab">Active tab</x-sub-title>
 
 <x-p>
-    The <code>active()</code> method allows you to specify which tab should be active by default.
+    The method <code>active()</code> allows you to specify which tab should be active by default.
 </x-p>
 
 <x-code language="php">

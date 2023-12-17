@@ -10,7 +10,7 @@
 <x-sub-title id="make">Make</x-sub-title>
 
 <x-p>
-    The <em>When</em> component allows you to display other components based on a condition.
+    The <em>When</em> component allows you to display other components according to the condition.
 </x-p>
 
 <x-p>
