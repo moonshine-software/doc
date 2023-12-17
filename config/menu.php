@@ -26,6 +26,7 @@ return [
         'System:_divider_',
         ['slug' => 'components-system_layout', 'label' => 'Layout', 'title' => 'System component Layout'],
         ['slug' => 'components-system_flash', 'label' => 'Flash', 'title' => 'System component Flash'],
+        ['slug' => 'components-system_header', 'label' => 'Header', 'title' => 'System component Header'],
         ['slug' => 'components-system_profile', 'label' => 'Profile', 'title' => 'System component Profile'],
         ['slug' => 'components-system_sidebar', 'label' => 'Sidebar', 'title' => 'System component Sidebar'],
         ['slug' => 'components-system_top_bar', 'label' => 'TopBar', 'title' => 'System component TopBar'],
@@ -40,6 +41,7 @@ return [
         ['slug' => 'components-decoration_heading', 'label' => 'Heading', 'title' => 'Decoration Heading'],
         ['slug' => 'components-decoration_layout', 'label' => 'Layout', 'title' => 'Decoration Layout'],
         ['slug' => 'components-decoration_modal', 'label' => 'Modal', 'title' => 'Decoration Modal'],
+        ['slug' => 'components-decoration_offcanvas', 'label' => 'Offcanvas', 'title' => 'Decoration Offcanvas'],
         ['slug' => 'components-decoration_tabs', 'label' => 'Tabs', 'title' => ' Tabs'],
         ['slug' => 'components-decoration_when', 'label' => 'When', 'title' => 'Decoration When'],
 
