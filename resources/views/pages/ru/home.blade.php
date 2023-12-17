@@ -23,9 +23,11 @@
         У MoonShine низкий порог вхождения, он дружелюбен для новичков.
     </x-p>
 
-    <x-moonshine::alert type="default" icon="heroicons.information-circle">
+    <x-moonshine::alert type="warning" icon="heroicons.information-circle">
         MoonShine очень удобный и функциональный инструмент.
         Однако, для его использования необходимо уверенно знать основы Laravel.
+        Поэтому, если вы новичок, я рекомендую пройти мой курс  <x-link link="https://cutcode.dev/l/k7mk">'Laravel Start'</x-link>,
+        который поможет уверенно войти в мир Laravel и использовать MoonShine без затруднений.
     </x-moonshine::alert>
 
     <x-p>
