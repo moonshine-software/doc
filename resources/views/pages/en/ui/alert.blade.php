@@ -42,7 +42,7 @@
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
     For more detailed information, please refer to the section
-    <x-link link="{{ route('moonshine.page', 'appearance-icons') }}">Icons</x-link>.
+    <x-link link="{{ route('moonshine.page', 'icons') }}">Icons</x-link>.
 </x-moonshine::alert>
 
 <x-sub-title id="removable">Deleting notifications</x-sub-title>
