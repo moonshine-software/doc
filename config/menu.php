@@ -111,6 +111,7 @@ return [
         ['slug' => 'components-system_flash', 'label' => 'Flash', 'title' => 'System component Flash'],
         ['slug' => 'components-system_header', 'label' => 'Header', 'title' => 'System component Header'],
         ['slug' => 'components-system_profile', 'label' => 'Profile', 'title' => 'System component Profile'],
+        ['slug' => 'components-system_search', 'label' => 'Search', 'title' => 'System component Search'],
         ['slug' => 'components-system_sidebar', 'label' => 'Sidebar', 'title' => 'System component Sidebar'],
         ['slug' => 'components-system_top_bar', 'label' => 'TopBar', 'title' => 'System component TopBar'],
 
