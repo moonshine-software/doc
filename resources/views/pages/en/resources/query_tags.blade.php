@@ -62,7 +62,7 @@ QueryTag::make(
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
     For more detailed information, please refer to the section
-    <x-link link="{{ route('moonshine.page', 'appearance-icons') }}">Icons</x-link>
+    <x-link link="{{ route('moonshine.page', 'icons') }}">Icons</x-link>
 </x-moonshine::alert>
 
 <x-sub-title id="default">Active item</x-sub-title>

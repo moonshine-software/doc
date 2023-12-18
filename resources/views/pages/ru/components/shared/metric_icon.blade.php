@@ -21,7 +21,7 @@ public function components(): array
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
     За более подробной информацией обратитесь к разделу
-    <x-link link="{{ route('moonshine.page', 'appearance-icons') }}">Icons</x-link>.
+    <x-link link="{{ route('moonshine.page', 'icons') }}">Icons</x-link>.
 </x-moonshine::alert>
 
 
