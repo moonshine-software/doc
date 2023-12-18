@@ -3,7 +3,8 @@
         ['url' => '#basics', 'label' => 'Basics'],
         ['url' => '#extending', 'label' => 'Guard/Provider'],
         ['url' => '#form', 'label' => 'Form'],
-        ['url' => '#profile', 'label' => 'Profile']
+        ['url' => '#profile', 'label' => 'Profile'],
+        ['url' => '#pipelines', 'label' => 'Pipelines']
     ]
 ]">
 
@@ -121,4 +122,42 @@ return [
     If you don't want to use an avatar,
      then specify <code>'avatar'=>''</code> or <code>'avatar'=>false</code>.
 </x-moonshine::alert>
+
+<x-sub-title id="pipelines">Pipelines</x-sub-title>
+
+<x-p>
+    In the <strong>MoonShine</strong> admin panel it is possible to add logic to the authentication process,
+    which will allow you to change the request or response object in the process.
+</x-p>
+
+<x-p>
+    To do this, you need to specify your <em>Pipelines</em> in the configuration file <code>config/moonshine.php</code>.
+</x-p>
+
+<x-code language="php">
+return [
+    'auth' => [
+        'pipelines' => [
+            PipelineClass::class
+        ],
+    ]
+];
+</x-code>
+
+<x-p>or</x-p>
+
+<x-code language="php">
+return [
+    'auth' => [
+        'pipelines' => [
+            new class {
+                public function handle($request, $next) {
+                    return $next($request);
+                }
+            }
+        ],
+    ]
+];
+</x-code>
+
 </x-page>

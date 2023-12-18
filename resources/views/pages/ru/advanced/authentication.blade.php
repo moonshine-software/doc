@@ -3,7 +3,8 @@
         ['url' => '#basics', 'label' => 'Основы'],
         ['url' => '#extending', 'label' => 'Guard/Provider'],
         ['url' => '#form', 'label' => 'Форма'],
-        ['url' => '#profile', 'label' => 'Профиль']
+        ['url' => '#profile', 'label' => 'Профиль'],
+        ['url' => '#pipelines', 'label' => 'Pipelines']
     ]
 ]">
 
@@ -121,4 +122,42 @@ return [
     Если вы не хотите использовать аватар,
     то укажите <code>'avatar'=>''</code> или <code>'avatar'=>false</code>.
 </x-moonshine::alert>
+
+<x-sub-title id="pipelines">Pipelines</x-sub-title>
+
+<x-p>
+    В админ-панели <strong>MoonShine</strong> существует возможность добавлять логику в процесс аутентификации,
+    что в процессе позволит изменить объект запроса или ответа.
+</x-p>
+
+<x-p>
+    Для этого необходимо указать ваши <em>Pipelines</em> в файле конфигурации <code>config/moonshine.php</code>.
+</x-p>
+
+<x-code language="php">
+return [
+    'auth' => [
+        'pipelines' => [
+            PipelineClass::class
+        ],
+    ]
+];
+</x-code>
+
+<x-p>или</x-p>
+
+<x-code language="php">
+return [
+    'auth' => [
+        'pipelines' => [
+            new class {
+                public function handle($request, $next) {
+                    return $next($request);
+                }
+            }
+        ],
+    ]
+];
+</x-code>
+
 </x-page>
