@@ -175,13 +175,52 @@ class PostResource extends ModelResource
 <x-sub-title id="global">Global search</x-sub-title>
 
 <x-p>
-    To organize a global search, you can use the package
-    <x-link link="https://github.com/lee-to/moonshine-algolia-search" target="_blank">Algolias search for MoonShine</x-link>.
+    In the <strong>MoonShine</strong> admin panel, global search can be implemented based on integration
+    <x-link link="https://laravel.com/docs/scout" target="_blank">Laravel Scout</x-link>.
 </x-p>
 
 <x-p>
-    This package uses the <code>Algolia</code> search engine, which takes into account the context, and request type,
-    possible typos, synonyms and word forms, entering queries in different languages and much more.
+    To implement a global search you must:
 </x-p>
+
+<x-moonshine::badge color="green">1</x-moonshine::badge> Specify the list of models to search
+    in the configuration file <code>config/moonshine.php</code>.
+
+<x-code language="php">
+'global_search' => [
+    Article::class,
+    User::class
+],
+</x-code>
+
+<x-moonshine::badge color="green">2</x-moonshine::badge> Implement the interface in models.
+
+<x-code language="php">
+use MoonShine\Scout\HasGlobalSearch;
+use MoonShine\Scout\SearchableResponse;
+use Laravel\Scout\Searchable;
+use Laravel\Scout\Builder;
+
+class Article extends Model implements HasGlobalSearch
+{
+    use Searchable;
+
+    public function searchableQuery(Builder $builder): Builder
+    {
+        return $builder->take(4);
+    }
+
+    public function toSearchableResponse(): SearchableResponse
+    {
+        return new SearchableResponse(
+            group: 'Articles',
+            title: $this->title,
+            url: '/',
+            preview: $this->text,
+            image: $this->thumbnail
+        );
+    }
+}
+</x-code>
 
 </x-page>
