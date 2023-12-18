@@ -36,4 +36,9 @@ return [
         'url' => 'SWEET1S/moonshine-roles-permissions',
         'category' => 'Auth'
     ],
+    [
+        'title' => 'User Impersonation',
+        'url' => 'Jampire/moonshine-impersonate',
+        'category' => 'Auth'
+    ],
 ];
