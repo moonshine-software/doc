@@ -25,14 +25,12 @@
 make(Closure|string $title, Closure|View|string $content, Closure|string $toggler = '', Closure|string|null $asyncUrl = '')
 </x-code>
 
-<x-p>
-    <ul>
-        <li><code>$title</code> - sidebar title,</li>
-        <li><code>$content</code> - sidebar content,</li>
-        <li><code>$toggler</code> - title for button,</li>
-        <li><code>$asyncUrl</code> - url for asynchronous content.</li>
-    </ul>
-</x-p>
+<x-ul>
+    <li><code>$title</code> - sidebar title,</li>
+    <li><code>$content</code> - sidebar content,</li>
+    <li><code>$toggler</code> - title for button,</li>
+    <li><code>$asyncUrl</code> - url for asynchronous content.</li>
+</x-ul>
 
 <x-code language="php">
 use MoonShine\Components\FormBuilder;

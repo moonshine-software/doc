@@ -46,11 +46,11 @@
     Text::make(Closure|string|null $label = null, ?string $column = null, ?Closure $formatted = null)
 </x-code>
 
-<x-p>
-    $label - лейбл, заголовок поля<br>
-    $column - поле в базе (например name) или отношение (например countries)<br>
-    $formatted - замыкание для форматирования значения поля при превью (везде кроме формы).
-</x-p>
+<x-ul>
+    <li><code>$label</code> - лейбл, заголовок поля,</li>
+    <li><code>$column</code> - поле в базе (например name) или отношение (например countries),</li>
+    <li><code>$formatted</code> - замыкание для форматирования значения поля при превью (везде кроме формы).</li>
+</x-ul>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     Если не указать <code>$column</code>,

@@ -31,11 +31,11 @@ make(
 )
 </x-code>
 
-<ul>
+<x-ul>
     <li><code>title</code> - заголовок страницы;</li>
     <li><code>alias</code> - алиас для url страницы;</li>
     <li><code>resource</code> - ресурс, к которому принадлежит страница.</li>
-</ul>
+</x-ul>
 
 <x-code language="php">
 use App\MoonShine\Pages\CustomPage; // [tl! focus]

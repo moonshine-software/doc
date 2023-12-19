@@ -26,14 +26,12 @@
 make(Closure|string $title, Closure|View|string $content, Closure|View|ActionButton|string $outer = '', Closure|string|null $asyncUrl = '')
 </x-code>
 
-<x-p>
-    <ul>
-        <li><code>$title</code> - заголовок модального окна,</li>
-        <li><code>$content</code> - контент модального окна,</li>
-        <li><code>$outer</code> - внешний блок с обработчиком вызова окна,</li>
-        <li><code>$asyncUrl</code> - url для асинхронного контента.</li>
-    </ul>
-</x-p>
+<x-ul>
+    <li><code>$title</code> - заголовок модального окна,</li>
+    <li><code>$content</code> - контент модального окна,</li>
+    <li><code>$outer</code> - внешний блок с обработчиком вызова окна,</li>
+    <li><code>$asyncUrl</code> - url для асинхронного контента.</li>
+</x-ul>
 
 <x-code language="php">
 use MoonShine\ActionButtons\ActionButton;

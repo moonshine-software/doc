@@ -91,13 +91,13 @@ onlyLink(?string $linkRelation = null, Closure|bool|null $condition = null)
 
 <x-p>
     You can pass optional parameters to the method:
-    <ul>
+    <x-ul>
         <li><code>linkRelation</code> - relation reference;</li>
         <li>
             <code>condition</code> - closure or boolean value,
             responsible for displaying the relationship as a link.
         </li>
-    </ul>
+    </x-ul>
 </x-p>
 
 <x-code language="php">

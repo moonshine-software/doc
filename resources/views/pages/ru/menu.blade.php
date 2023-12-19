@@ -29,13 +29,11 @@
 MenuItem::make(Closure|string $label, Closure|MenuFiller|string $filler, null|string $icon = null)
 </x-code>
 
-<x-p>
-    <ul>
-        <li><code>$label</code> - название пункта меню,</li>
-        <li><code>$filler</code> - элемент для формирования url,</li>
-        <li><code>$icon</code> - иконка для пункта меню.</li>
-    </ul>
-</x-p>
+<x-ul>
+    <li><code>$label</code> - название пункта меню,</li>
+    <li><code>$filler</code> - элемент для формирования url,</li>
+    <li><code>$icon</code> - иконка для пункта меню.</li>
+</x-ul>
 
 <x-p>
     <x-moonshine::alert type="default" icon="heroicons.information-circle">
@@ -117,13 +115,11 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 MenuGroup::make(Closure|string $label, iterable $items, null|string $icon = null)
 </x-code>
 
-<x-p>
-    <ul>
-        <li><code>$label</code> - название группы,</li>
-        <li><code>$items</code> - массив компонентов меню,</li>
-        <li><code>$icon</code> - иконка для группы.</li>
-    </ul>
-</x-p>
+<x-ul>
+    <li><code>$label</code> - название группы,</li>
+    <li><code>$items</code> - массив компонентов меню,</li>
+    <li><code>$icon</code> - иконка для группы.</li>
+</x-ul>
 
 <x-code language="php">
 namespace App\Providers;

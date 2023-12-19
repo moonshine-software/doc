@@ -133,25 +133,3 @@ code:not(.torchlight) {
         background-color: rgba(var(--dark-700),var(--tw-bg-opacity));
     }
 }
-
-article ul, .article ul {
-    list-style-type:square
-}
-
-article ul > :not([hidden]) ~ :not([hidden]), .article ul > :not([hidden]) ~ :not([hidden]) {
-    --tw-space-y-reverse: 0;
-    margin-top: calc(.5rem * calc(1 - var(--tw-space-y-reverse)));
-    margin-bottom:calc(.5rem * var(--tw-space-y-reverse))
-}
-
-article ul, .article ul {
-    padding-left:1rem
-}
-
-article ul * ::marker, .article ul * ::marker {
-    color:rgba(var(--primary), var(--tw-text-opacity))
-}
-
-article ul::marker, .article ul::marker {
-    color:rgba(var(--primary), var(--tw-text-opacity))
-}

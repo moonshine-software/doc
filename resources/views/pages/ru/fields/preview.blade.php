@@ -115,15 +115,13 @@ link(
 )
 </x-code>
 
-<x-p>
-    <ul>
-        <li><code>$link</code> - url ссылки,</li>
-        <li><code>$name</code> - текст ссылки,</li>
-        <li><code>$icon</code> - наименовании иконки,</li>
-        <li><code>$withoutIcon</code> - не отображать иконку у ссылки,</li>
-        <li><code>$blank</code> - открывать ссылку в новой вкладке.</li>
-    </ul>
-</x-p>
+<x-ul>
+    <li><code>$link</code> - url ссылки,</li>
+    <li><code>$name</code> - текст ссылки,</li>
+    <li><code>$icon</code> - наименовании иконки,</li>
+    <li><code>$withoutIcon</code> - не отображать иконку у ссылки,</li>
+    <li><code>$blank</code> - открывать ссылку в новой вкладке.</li>
+</x-ul>
 
 <x-moonshine::alert type="default" icon="heroicons.book-open" class="my-4">
     За более подробной информацией обратитесь к разделу

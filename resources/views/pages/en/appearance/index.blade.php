@@ -228,14 +228,12 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 keyName(string $value, string $shade, string $dark)
 </x-code>
 
-<x-p>
-    <ul>
-        <li><code>keyName</code> - key in color array;</li>
-        <li><code>$value</code> - color meaning;</li>
-        <li><code>$shade</code> - color tint (optional parameter);</li>
-        <li><code>$dark</code> - dark theme, default light theme (optional parameter).</li>
-    </ul>
-</x-p>
+<x-ul>
+    <li><code>keyName</code> - key in color array;</li>
+    <li><code>$value</code> - color meaning;</li>
+    <li><code>$shade</code> - color tint (optional parameter);</li>
+    <li><code>$dark</code> - dark theme, default light theme (optional parameter).</li>
+</x-ul>
 
 <x-code language="php">
     moonshineColors()->successBg('#000000', dark: true);

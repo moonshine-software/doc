@@ -32,10 +32,10 @@
     Доступные опции:
 </x-p>
 
-<ul>
+<x-ul>
     <li><code>-u</code>, <code>--without-user</code> - без создания супер пользователя;</li>
     <li><code>-m</code>, <code>--without-migrations </code> - без выполнения миграций.</li>
-</ul>
+</x-ul>
 
 <x-moonshine::alert class="mt-8" type="default" icon="heroicons.book-open">
     За более подробной информацией обратитесь к разделу
@@ -154,7 +154,7 @@
     Доступные опции:
 </x-p>
 
-<ul>
+<x-ul>
     <li><code>--crud</code> - создает группу страниц: индексная, детальная и страница с формой;</li>
     <li>
         <code>--dir=</code> - директория в которой будут располагаться файлы относительно <code>app/MoonShine</code>,
@@ -163,7 +163,7 @@
     <li>
         <code>--extends=</code> - класс который будет расширять страница, например IndexPage, FormPage или DetailPage.
     </li>
-</ul>
+</x-ul>
 
 <x-p>
     После выполнения команды будет создана страница (или группа страниц) по умолчанию в директории
@@ -208,16 +208,16 @@
     Доступные опции:
 </x-p>
 
-<ul>
+<x-ul>
     <li><code>--m|model=</code> - Eloquent модель для ресурса модели;</li>
     <li>
         <code>--t|title=</code> - заголовок раздела.
     </li>
-</ul>
+</x-ul>
 
 <x-p>
     При создания <em>Resource</em> доступно несколько вариантов:
-    <ul>
+    <x-ul>
         <li>
             <x-link :link="route('moonshine.page', 'resources-fields') . '#default'"><strong>Default model resource</strong></x-link>
             - ресурс модели с общими полями;
@@ -234,7 +234,7 @@
             <strong>Empty resource</strong>
             - пустой ресурс.
         </li>
-    </ul>
+    </x-ul>
 </x-p>
 
 <x-p>
@@ -281,11 +281,11 @@
     Доступные опции:
 </x-p>
 
-<ul>
+<x-ul>
     <li><code>--u|username=</code> - login/email пользователя;</li>
     <li><code>--N|name=</code> - имя пользователя;</li>
     <li><code>--p|password=</code> - пароль.</li>
-</ul>
+</x-ul>
 
 <x-sub-title id="publish">Publish</x-sub-title>
 
@@ -299,7 +299,7 @@
 
 <x-p>
     Для публикации доступно несколько вариантов:
-    <ul>
+    <x-ul>
         <li><strong>Assets</strong> - ассеты админ-панели <strong>MoonShine</strong>;</li>
         <li>
             <x-link :link="route('moonshine.page', 'appearance-layout_builder')"><strong>Layout</strong></x-link>
@@ -309,7 +309,7 @@
             <strong>System Resources</strong> - системные MoonShineUserResource, MoonShineUserRoleResource,
             которые вы сможете изменить.
         </li>
-    </ul>
+    </x-ul>
 </x-p>
 
 </x-page>

@@ -53,7 +53,7 @@ class PostResource extends ModelResource
 <x-p>
     Доступные методы Policy:
 </x-p>
-<ul>
+<x-ul>
     <li><code>viewAny</code> - индексная страница;</li>
     <li><code>view</code> - детальная страница;</li>
     <li><code>create</code> - создание записи;</li>
@@ -62,7 +62,7 @@ class PostResource extends ModelResource
     <li><code>massDelete</code> - массовое удаление записей;</li>
     <li><code>restore</code> - восстановление записи после soft удаления;</li>
     <li><code>forceDelete</code> - безвозвратное удаление записи из базы данных.</li>
-</ul>
+</x-ul>
 
 <x-code language="php">
 namespace App\Policies;

@@ -28,12 +28,12 @@ make(
 )
 </x-code>
 
-<ul>
+<x-ul>
     <li><code>action</code> - handler</li>
     <li><code>method</code> - request type,</li>
     <li><code>fields</code> - fields and decorations.</li>
     <li><code>values </code> - field values.</li>
-</ul>
+</x-ul>
 
 <x-code language="php">
 FormBuilder::make('/crud/update', 'PUT')
@@ -210,11 +210,11 @@ FormBuilder::make('/crud/update', 'PUT')
     MoonShine already has a set of ready-made events
 </x-moonshine::alert>
 
-<ul>
+<x-ul>
     <li><code>table-updated-{name}</code> - Updating an asynchronous table by its name</li>
     <li><code>form-reset-{name}</code> - Reset form values by its name</li>
     <li><code>fragment-updated-{name}</code> - Updates a blade fragment by its name</li>
-</ul>
+</x-ul>
 
 <x-p>
     If you need to perform precognition validation first, you need the <code>precognitive</code> method.
@@ -243,13 +243,13 @@ apply(
 )
 </x-code>
 
-<ul>
+<x-ul>
     <li><code>$apply</code> - callback function;</li>
     <li><code>$default</code> - apply for the default field;</li>
     <li><code>$before</code> - callback function before apply;</li>
     <li><code>$after</code> - callback function after apply;</li>
     <li><code>$throw</code> - throw exceptions.</li>
-</ul>
+</x-ul>
 
 <x-moonshine::divider label="Examples" />
 

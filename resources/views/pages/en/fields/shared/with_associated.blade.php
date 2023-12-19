@@ -8,12 +8,10 @@
 associatedWith(string $column, ?Closure $asyncSearchQuery = null)
 </x-code>
 
-<x-p>
-    <ul>
-        <li><code>$column</code> - the field with which the connection is established;</li>
-        <li><code>$asyncSearchQuery</code> - callback function for filtering values.</li>
-    </ul>
-</x-p>
+<x-ul>
+    <li><code>$column</code> - the field with which the connection is established;</li>
+    <li><code>$asyncSearchQuery</code> - callback function for filtering values.</li>
+</x-ul>
 
 <x-code language="php">
 use MoonShine\Fields\Relationships\{{ $field }};

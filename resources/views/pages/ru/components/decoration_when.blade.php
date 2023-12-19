@@ -21,13 +21,11 @@
 make(Closure $condition, Closure $components, ?Closure $default = null)
 </x-code>
 
-<x-p>
-    <ul>
-        <li><code>$condition</code> - условие выполнения метода;</li>
-        <li><code>$components</code> - замыкание возвращающее массив элементов при выполнении условия;</li>
-        <li><code>$default</code> - замыкание возвращающее массив элементов по умолчанию.</li>
-    </ul>
-</x-p>
+<x-ul>
+    <li><code>$condition</code> - условие выполнения метода;</li>
+    <li><code>$components</code> - замыкание возвращающее массив элементов при выполнении условия;</li>
+    <li><code>$default</code> - замыкание возвращающее массив элементов по умолчанию.</li>
+</x-ul>
 
 <x-code language="php">
 namespace App\MoonShine;

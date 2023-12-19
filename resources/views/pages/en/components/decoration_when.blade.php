@@ -21,13 +21,11 @@
 make(Closure $condition, Closure $components, ?Closure $default = null)
 </x-code>
 
-<x-p>
-    <ul>
-        <li><code>$condition</code> - method execution condition;</li>
-        <li><code>$components</code> - a closure that returns an array of elements when the condition is met;</li>
-        <li><code>$default</code> - a closure that returns an array of default elements.</li>
-    </ul>
-</x-p>
+<x-ul>
+    <li><code>$condition</code> - method execution condition;</li>
+    <li><code>$components</code> - a closure that returns an array of elements when the condition is met;</li>
+    <li><code>$default</code> - a closure that returns an array of default elements.</li>
+</x-ul>
 
 <x-code language="php">
 namespace App\MoonShine;

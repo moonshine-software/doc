@@ -25,14 +25,12 @@
 make(Closure|string $title, Closure|View|string $content, Closure|string $toggler = '', Closure|string|null $asyncUrl = '')
 </x-code>
 
-<x-p>
-    <ul>
-        <li><code>$title</code> - заголовок боковой панели,</li>
-        <li><code>$content</code> - контент боковой панели,</li>
-        <li><code>$toggler</code> - заголовок для переключателя,</li>
-        <li><code>$asyncUrl</code> - url для асинхронного контента.</li>
-    </ul>
-</x-p>
+<x-ul>
+    <li><code>$title</code> - заголовок боковой панели,</li>
+    <li><code>$content</code> - контент боковой панели,</li>
+    <li><code>$toggler</code> - заголовок для переключателя,</li>
+    <li><code>$asyncUrl</code> - url для асинхронного контента.</li>
+</x-ul>
 
 <x-code language="php">
 use MoonShine\Components\FormBuilder;

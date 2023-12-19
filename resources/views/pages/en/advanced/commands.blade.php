@@ -32,10 +32,10 @@
     Available options:
 </x-p>
 
-<ul>
+<x-ul>
     <li><code>-u</code>, <code>--without-user</code> - without creating a super user;</li>
     <li><code>-m</code>, <code>--without-migrations </code> - without performing migrations.</li>
-</ul>
+</x-ul>
 
 <x-moonshine::alert class="mt-8" type="default" icon="heroicons.book-open">
     For more detailed information, please refer to the section
@@ -154,7 +154,7 @@
     Available options:
 </x-p>
 
-<ul>
+<x-ul>
     <li><code>--crud</code> - creates a group of pages: index, detail and form page;</li>
     <li>
         <code>--dir=</code> - the directory in which the files will be located relative to <code>app/MoonShine</code>,
@@ -163,7 +163,7 @@
     <li>
         <code>--extends=</code> - a class that the page will extend, for example IndexPage, FormPage or DetailPage.
     </li>
-</ul>
+</x-ul>
 
 <x-p>
     After executing the command, a default page (or group of pages) will be created in the directory
@@ -208,16 +208,16 @@
     Available options:
 </x-p>
 
-<ul>
+<x-ul>
     <li><code>--m|model=</code> - Eloquent model for model resource;</li>
     <li>
         <code>--t|title=</code> - section title.
     </li>
-</ul>
+</x-ul>
 
 <x-p>
     There are several options available when creating a <em>Resource</em>:
-    <ul>
+    <x-ul>
         <li>
             <x-link :link="route('moonshine.page', 'resources-fields') . '#default'"><strong>Default model resource</strong></x-link>
             - model resource with common fields;
@@ -234,7 +234,7 @@
             <strong>Empty resource</strong>
             - empty resource.
         </li>
-    </ul>
+    </x-ul>
 </x-p>
 
 <x-p>
@@ -281,11 +281,11 @@
     Available options:
 </x-p>
 
-<ul>
+<x-ul>
     <li><code>--u|username=</code> - user login/email;</li>
     <li><code>--N|name=</code> - user name;</li>
     <li><code>--p|password=</code> - password.</li>
-</ul>
+</x-ul>
 
 <x-sub-title id="publish">Publish</x-sub-title>
 
@@ -299,7 +299,7 @@
 
 <x-p>
    There are several options available for publishing:
-    <ul>
+    <x-ul>
         <li><strong>Assets</strong> - <strong>MoonShine</strong> admin panel assets;</li>
         <li>
             <x-link :link="route('moonshine.page', 'appearance-layout_builder')"><strong>Layout</strong></x-link>
@@ -309,7 +309,7 @@
             <strong>System Resources</strong> - system MoonShineUserResource, MoonShineUserRoleResource,
             which you can change.
         </li>
-    </ul>
+    </x-ul>
 </x-p>
 
 </x-page>

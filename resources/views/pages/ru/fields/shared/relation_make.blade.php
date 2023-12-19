@@ -16,14 +16,14 @@
 )
 </x-code>
 
-<x-p>
-    <code>$label</code> - лейбл, заголовок поля,<br>
-    <code>$relationName</code> - название отношения,<br>
+<x-ul>
+    <li><code>$label</code> - лейбл, заголовок поля,</li>
+    <li><code>$relationName</code> - название отношения,</li>
     @if($field !== 'HasMany')
-    <code>$formatted</code> - замыкание или поле в связанной таблице для отображения значений,<br>
+    <li><code>$formatted</code> - замыкание или поле в связанной таблице для отображения значений,</li>
     @endif
-    <code>$resource</code> - ресурс модели на которую ссылается отношение.
-</x-p>
+    <li><code>$resource</code> - ресурс модели на которую ссылается отношение.</li>
+</x-ul>
 
 @if($field === 'HasMany')
 <x-moonshine::alert type="error" icon="heroicons.information-circle">
