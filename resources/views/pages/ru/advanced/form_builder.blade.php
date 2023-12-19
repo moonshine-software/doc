@@ -28,12 +28,12 @@ make(
 )
 </x-code>
 
-<ul>
+<x-ul>
     <li><code>action</code> - обработчик,</li>
     <li><code>method</code> - тип запроса,</li>
     <li><code>fields</code> - поля и декорации.</li>
     <li><code>values </code> - значения полей.</li>
-</ul>
+</x-ul>
 
 <x-code language="php">
 FormBuilder::make('/crud/update', 'PUT')
@@ -210,11 +210,11 @@ FormBuilder::make('/crud/update', 'PUT')
     В MoonShine уже есть набор готовых событий
 </x-moonshine::alert>
 
-<ul>
+<x-ul>
     <li><code>table-updated-{name}</code> - Обновление асинхронной таблицы по ее имени</li>
     <li><code>form-reset-{name}</code> - Сброс значений формы по ее имени</li>
     <li><code>fragment-updated-{name}</code> - Обновление blade fragment по его имени</li>
-</ul>
+</x-ul>
 
 <x-p>
     Если необходимо предварительно выполнить precognition валидацию, необходим метод <code>precognitive</code>.
@@ -243,13 +243,13 @@ apply(
 )
 </x-code>
 
-<ul>
+<x-ul>
     <li><code>$apply</code> - callback функция;</li>
     <li><code>$default</code> - apply для поля по умолчанию;</li>
     <li><code>$before</code> - callback функция до apply;</li>
     <li><code>$after</code> - callback функция после apply;</li>
     <li><code>$throw</code> - вызывать исключения.</li>
-</ul>
+</x-ul>
 
 <x-moonshine::divider label="Примеры" />
 

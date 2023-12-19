@@ -26,14 +26,12 @@
 make(Closure|string $title, Closure|View|string $content, Closure|View|ActionButton|string $outer = '', Closure|string|null $asyncUrl = '')
 </x-code>
 
-<x-p>
-    <ul>
-        <li><code>$title</code> - modal window title,</li>
-        <li><code>$content</code> - контент модального окна,</li>
-        <li><code>$outer</code> - external block with window call handler,</li>
-        <li><code>$asyncUrl</code> - url for asynchronous content.</li>
-    </ul>
-</x-p>
+<x-ul>
+    <li><code>$title</code> - modal window title,</li>
+    <li><code>$content</code> - контент модального окна,</li>
+    <li><code>$outer</code> - external block with window call handler,</li>
+    <li><code>$asyncUrl</code> - url for asynchronous content.</li>
+</x-ul>
 
 <x-code language="php">
 use MoonShine\ActionButtons\ActionButton;

@@ -26,11 +26,11 @@ make(
 )
 </x-code>
 
-<ul>
+<x-ul>
     <li><code>label</code> - Button text,</li>
     <li><code>url</code> - Url,</li>
     <li><code>item</code> - Optional button data available in closures.</li>
-</ul>
+</x-ul>
 
 <x-code>
 public function components(): array
@@ -291,14 +291,12 @@ async(
 )
 </x-code>
 
-<x-p>
-    <ul>
-        <li><code>$method</code> - asynchronous request method;</li>
-        <li><code>$selector</code> - selector of the element whose content will change;</li>
-        <li><code>$events</code> - events raised after a successful request;</li>
-	<li><code>$callback</code> - js callback function after receiving the response.</li>
-    </ul>
-</x-p>
+<x-ul>
+    <li><code>$method</code> - asynchronous request method;</li>
+    <li><code>$selector</code> - selector of the element whose content will change;</li>
+    <li><code>$events</code> - events raised after a successful request;</li>
+    <li><code>$callback</code> - js callback function after receiving the response.</li>
+</x-ul>
 
 <x-code language="php">
 public function components(): array

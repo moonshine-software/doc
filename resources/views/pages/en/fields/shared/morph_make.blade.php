@@ -10,11 +10,11 @@
 )
 </x-code>
 
-<x-p>
-    <code>$label</code> - label, field header,<br>
-    <code>$relationName</code> - name of the relationship<br>
-    <code>$formatted</code> - a closure or field in a related table to display values.
-</x-p>
+<x-ul>
+    <li><code>$label</code> - label, field header,</li>
+    <li><code>$relationName</code> - name of the relationship</li>
+    <li><code>$formatted</code> - a closure or field in a related table to display values.</li>
+</x-ul>
 
 @if($field === 'MorphMany')
 <x-moonshine::alert type="error" icon="heroicons.information-circle">

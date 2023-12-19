@@ -95,7 +95,7 @@ class PostIndexPage extends IndexPage
     which are responsible for displaying a specific area on the page.
 </x-p>
 
-<ul>
+<x-ul>
     <li>
        <code>TopLayer</code> - by default used to display metrics on the index page
         and for additional buttons on the edit page
@@ -106,7 +106,7 @@ class PostIndexPage extends IndexPage
         <x-link link="{{ route('moonshine.page', 'advanced-table_builder') }}">TableBuilder</x-link>
     </li>
     <li><code>BottomLayer</code> - default is used to display additional information</li>
-</ul>
+</x-ul>
 
 <x-p>
     To customize layers, the corresponding methods are used: <code>topLayer()</code>, <code>mainLayer()</code> and

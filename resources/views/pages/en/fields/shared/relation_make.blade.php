@@ -16,14 +16,14 @@
 )
 </x-code>
 
-<x-p>
-    <code>$label</code> - label, field header,<br>
-    <code>$relationName</code> - name of the relationship<br>
+<x-ul>
+    <li></li><code>$label</code> - label, field header,</li>
+    <li><code>$relationName</code> - name of the relationship,</li>
     @if($field !== 'HasMany')
-    <code>$formatted</code> - a closure or field in a related table to display values,<br>
+    <li><code>$formatted</code> - a closure or field in a related table to display values,</li>
     @endif
-    <code>$resource</code> - the model resource referenced by the relation.
-</x-p>
+    <li><code>$resource</code> - the model resource referenced by the relation.</li>
+</x-ul>
 
 @if($field === 'HasMany')
 <x-moonshine::alert type="error" icon="heroicons.information-circle">

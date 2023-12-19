@@ -12,13 +12,11 @@ withImage(
 )
 </x-code>
 
-<x-p>
-    <ul>
-        <li><code>$column</code> - field with an image;</li>
-        <li><code>$disk</code> - file system disk;</li>
-        <li><code>$dir</code> - directory relative to the root of the disk.</li>
-    </ul>
-</x-p>
+<x-ul>
+    <li><code>$column</code> - field with an image;</li>
+    <li><code>$disk</code> - file system disk;</li>
+    <li><code>$dir</code> - directory relative to the root of the disk.</li>
+</x-ul>
 
 <x-code language="php">
 use MoonShine\Fields\Relationships\{{ $field }};

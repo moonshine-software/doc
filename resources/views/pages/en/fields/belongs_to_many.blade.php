@@ -203,10 +203,10 @@ inLine(string $separator = '', bool $badge = false)
 
 <x-p>
     You can pass optional parameters to the method:
-    <ul>
+    <x-ul>
         <li><code>separator</code> - separator between elements;</li>
         <li><code>badge</code> - display elements as badge.</li>
-    </ul>
+    </x-ul>
 </x-p>
 
 <x-code language="php">

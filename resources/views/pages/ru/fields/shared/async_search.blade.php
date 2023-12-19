@@ -39,16 +39,14 @@ public function fields(): array
     В метод <code>asyncSearch()</code> можно передавать параметры:
 </x-p>
 
-<x-p>
-    <ul>
-        <li><code>$asyncSearchColumn</code> - поле по которому происходит поиск;</li>
-        <li><code>$asyncSearchCount</code> - количество элементов в выдаче;</li>
-        <li><code>$asyncSearchQuery</code> - callback-функция для фильтрации значений;</li>
-        <li><code>$asyncSearchValueCallback</code> - callback-функция для кастомизации вывода;</li>
-        <li><code>$associatedWith</code> - поле с которым необходимо установить связь;</li>
-        <li><code>$url</code> - url для обработки асинхронного запроса.</li>
-    </ul>
-</x-p>
+<x-ul>
+    <li><code>$asyncSearchColumn</code> - поле по которому происходит поиск;</li>
+    <li><code>$asyncSearchCount</code> - количество элементов в выдаче;</li>
+    <li><code>$asyncSearchQuery</code> - callback-функция для фильтрации значений;</li>
+    <li><code>$asyncSearchValueCallback</code> - callback-функция для кастомизации вывода;</li>
+    <li><code>$associatedWith</code> - поле с которым необходимо установить связь;</li>
+    <li><code>$url</code> - url для обработки асинхронного запроса.</li>
+</x-ul>
 
 <x-code language="php">
 use Illuminate\Contracts\Database\Eloquent\Builder; // [tl! focus]

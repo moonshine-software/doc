@@ -25,11 +25,11 @@ make(
 )
 </x-code>
 
-<ul>
+<x-ul>
     <li><code>fields</code> - поля,</li>
     <li><code>items</code> - значения полей,</li>
     <li><code>paginator</code> - объект пагинатора.</li>
-</ul>
+</x-ul>
 
 <x-code language="php">
 TableBuilder::make([Text::make('Text')], [['text' => 'Value']])
@@ -375,11 +375,11 @@ sortable(
 )
 </x-code>
 
-<ul>
+<x-ul>
     <li><code>url</code> - url-обработчика,</li>
     <li><code>key</code> - ключ элемента,</li>
     <li><code>group</code> - группировка.</li>
-</ul>
+</x-ul>
 
 <x-code language="php">
 TableBuilder::make()
