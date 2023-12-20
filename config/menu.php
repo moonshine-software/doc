@@ -109,6 +109,7 @@ return [
         'System:_divider_',
         ['slug' => 'components-system_layout', 'label' => 'Layout', 'title' => 'System component Layout'],
         ['slug' => 'components-system_flash', 'label' => 'Flash', 'title' => 'System component Flash'],
+        ['slug' => 'components-system_footer', 'label' => 'Footer', 'title' => 'System component Footer'],
         ['slug' => 'components-system_header', 'label' => 'Header', 'title' => 'System component Header'],
         ['slug' => 'components-system_profile', 'label' => 'Profile', 'title' => 'System component Profile'],
         ['slug' => 'components-system_search', 'label' => 'Search', 'title' => 'System component Search'],
