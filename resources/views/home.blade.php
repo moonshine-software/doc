@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+    @production
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-27X6XFV0GK"></script>
     <script>
@@ -10,6 +11,7 @@
 
         gtag('config', 'G-27X6XFV0GK');
     </script>
+    @endproduction
     <meta charset="utf-8" />
     <title>MoonShine - админ панель для проектов на Laravel</title>
     <meta name="description" content="MoonShine - пакет для ускоренной разработки web-проектов на Laravel.
