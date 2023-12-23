@@ -197,6 +197,7 @@ return [
         ['slug' => 'advanced-notifications', 'label' => 'Notifications'],
         ['slug' => 'advanced-socialite', 'label' => 'Socialite'],
         ['slug' => 'advanced-localization', 'label' => 'Localization'],
+        ['slug' => 'advanced-testings', 'label' => 'Testing'],
     ],
 
     ':_divider_',

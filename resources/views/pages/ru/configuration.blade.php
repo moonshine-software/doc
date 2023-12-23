@@ -60,6 +60,8 @@ return [ // [tl! focus]
     # Filesystem Disk по умолчанию
     'disk' => 'public', // [tl! focus]
 
+    'cache' => 'file', // [tl! focus]
+
     'forms' => [ // [tl! focus]
         # форма аутентификации
         'login' => LoginForm::class // [tl! focus]
