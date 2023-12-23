@@ -56,7 +56,7 @@
 </x-moonshine::grid>
 
 <x-moonshine::alert type="default" icon="heroicons.book-open" class="mt-8">
-    Все доступные <x-link link="{{ route('moonshine.page', 'appearance-icons') }}">иконки</x-link>.
+    Все доступные <x-link link="{{ route('moonshine.page', 'icons') }}">иконки</x-link>.
 </x-moonshine::alert>
 
 </x-page>

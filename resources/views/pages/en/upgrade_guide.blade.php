@@ -110,7 +110,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider // [t
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
     For more information, please refer to the section
-    <x-link link="{{ route('moonshine.page', 'appearance-icons') }}">Icons</x-link>.
+    <x-link link="{{ route('moonshine.page', 'icons') }}">Icons</x-link>.
 </x-moonshine::alert>
 
 <x-sub-title id="resources" hashtag="5">Resources</x-sub-title>
@@ -257,16 +257,14 @@ class ArticleResource extends ModelResource
     The <em>BelongsToMany</em> relationship field has a <em>BelongsToMany</em> method <code>select()</code> renamed to <code>selectMode()</code>.
 </x-p>
 
-<x-p>
-    <ul>
-        <li>
-            <code>SwitchBoolean</code> renamed to <code>Switcher</code>
-        </li>
-        <li>
-            <code>SlideField</code> renamed to <code>RangeSlider</code>
-        </li>
-    </ul>
-</x-p>
+<x-ul>
+    <li>
+        <code>SwitchBoolean</code> renamed to <code>Switcher</code>
+    </li>
+    <li>
+        <code>SlideField</code> renamed to <code>RangeSlider</code>
+    </li>
+</x-ul>
 
 <x-sub-title id="filters" hashtag="7">Filters</x-sub-title>
 

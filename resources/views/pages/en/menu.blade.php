@@ -28,13 +28,11 @@
 MenuItem::make(Closure|string $label, Closure|MenuFiller|string $filler, null|string $icon = null)
 </x-code>
 
-<x-p>
-    <ul>
-        <li><code>$label</code> - name of the menu item</li>
-        <li><code>$filler</code> - element for forming url</li>
-        <li><code>$icon</code> - icon for the menu item.</li>
-    </ul>
-</x-p>
+<x-ul>
+    <li><code>$label</code> - name of the menu item</li>
+    <li><code>$filler</code> - element for forming url</li>
+    <li><code>$icon</code> - icon for the menu item.</li>
+</x-ul>
 
 <x-p>
     <x-moonshine::alert type="default" icon="heroicons.information-circle">
@@ -116,13 +114,11 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 MenuGroup::make(Closure|string $label, iterable $items, null|string $icon = null)
 </x-code>
 
-<x-p>
-    <ul>
-        <li><code>$label</code> - group name</li>
-        <li><code>$items</code> - array of menu components</li>
-        <li><code>$icon</code> - icon for the group.</li>
-    </ul>
-</x-p>
+<x-ul>
+    <li><code>$label</code> - group name</li>
+    <li><code>$items</code> - array of menu components</li>
+    <li><code>$icon</code> - icon for the group.</li>
+</x-ul>
 
 <x-code language="php">
 namespace App\Providers;
@@ -391,7 +387,7 @@ class MoonShineUserResource extends ModelResource
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
     For more detailed information, please refer to the section
-    <x-link link="{{ route('moonshine.page', 'appearance-icons') }}">Icons</x-link>.
+    <x-link link="{{ route('moonshine.page', 'icons') }}">Icons</x-link>.
 </x-moonshine::alert>
 
 <x-sub-title id="badge">Label</x-sub-title>

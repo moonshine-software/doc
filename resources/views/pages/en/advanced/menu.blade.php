@@ -148,7 +148,7 @@ app(MoonShine::class)->menu([
 </x-code>
 
 <x-p>
-    For more detailed information, please refer to the section <x-link link="{{ route('moonshine.page', 'appearance-icons') }}">Icons</x-link>.
+    For more detailed information, please refer to the section <x-link link="{{ route('moonshine.page', 'icons') }}">Icons</x-link>.
 </x-p>
 
 <x-sub-title id="badge">Label</x-sub-title>

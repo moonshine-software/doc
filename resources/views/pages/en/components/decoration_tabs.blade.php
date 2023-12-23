@@ -4,6 +4,7 @@
         'Sections' => [
             ['url' => '#make', 'label' => 'Make'],
             ['url' => '#active-tab', 'label' => 'Active tab'],
+            ['url' => '#tab-icon', 'label' => 'Icon'],
         ]
     ]"
 >
@@ -66,6 +67,32 @@ public function components(): array
                 //...
             ])
                 ->active() // [tl! focus]
+        ])
+    ];
+}
+
+//...
+</x-code>
+
+<x-sub-title id="tab-icon">Icon</x-sub-title>
+
+<x-code language="php">
+use MoonShine\Decorations\Tabs;
+use MoonShine\Decorations\Tab;
+
+//...
+
+public function components(): array
+{
+    return [
+        Tabs::make([
+            Tab::make('Seo', [
+                //...
+            ]),
+            Tab::make('Categories', [
+                //...
+            ])
+                ->icon('heroicons.outline.pencil') // [tl! focus]
         ])
     ];
 }

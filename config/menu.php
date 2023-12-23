@@ -17,78 +17,6 @@ return [
         ['slug' => 'page-class', 'label' => 'Create class'],
         ['slug' => 'page-instance', 'label' => 'Make instance'],
     ],
-
-    'Components:rectangle-group' => [
-        ['slug' => 'components-index', 'label' => 'Basics'],
-        ['slug' => 'components-moonshine_component', 'label' => 'MoonShineComponent'],
-
-        // System
-        'System:_divider_',
-        ['slug' => 'components-system_layout', 'label' => 'Layout', 'title' => 'System component Layout'],
-        ['slug' => 'components-system_flash', 'label' => 'Flash', 'title' => 'System component Flash'],
-        ['slug' => 'components-system_profile', 'label' => 'Profile', 'title' => 'System component Profile'],
-        ['slug' => 'components-system_sidebar', 'label' => 'Sidebar', 'title' => 'System component Sidebar'],
-        ['slug' => 'components-system_top_bar', 'label' => 'TopBar', 'title' => 'System component TopBar'],
-
-        // Decorations
-        'Decorations:_divider_',
-        ['slug' => 'components-decoration_block', 'label' => 'Block', 'title' => 'Decoration Block'],
-        ['slug' => 'components-decoration_collapse', 'label' => 'Collapse', 'title' => 'Decoration Collapse'],
-        ['slug' => 'components-decoration_divider', 'label' => 'Divider', 'title' => 'Decoration Divider'],
-        ['slug' => 'components-decoration_fragment', 'label' => 'Fragment', 'title' => 'Decoration Fragment'],
-        ['slug' => 'components-decoration_flexible_render', 'label' => 'FlexibleRender', 'title' => 'Decoration FlexibleRender'],
-        ['slug' => 'components-decoration_heading', 'label' => 'Heading', 'title' => 'Decoration Heading'],
-        ['slug' => 'components-decoration_layout', 'label' => 'Layout', 'title' => 'Decoration Layout'],
-        ['slug' => 'components-decoration_modal', 'label' => 'Modal', 'title' => 'Decoration Modal'],
-        ['slug' => 'components-decoration_tabs', 'label' => 'Tabs', 'title' => ' Tabs'],
-        ['slug' => 'components-decoration_when', 'label' => 'When', 'title' => 'Decoration When'],
-
-        // Metrics
-        'Metrics:_divider_',
-        ['slug' => 'components-metric_donut_chart', 'label' => 'Donut Chart', 'title' => 'Metric Donut Chart'],
-        ['slug' => 'components-metric_line_chart', 'label' => 'Line Chart', 'title' => 'Metric Line Chart'],
-        ['slug' => 'components-metric_value', 'label' => 'Value', 'title' => 'Metric Value'],
-    ],
-
-    'UI components:code-bracket-square' => [
-        ['slug' => 'ui-index', 'label' => 'Basics'],
-        ['slug' => 'ui-alert', 'label' => 'Alert'],
-        ['slug' => 'ui-badge', 'label' => 'Badge'],
-        ['slug' => 'ui-boolean', 'label' => 'Boolean'],
-        ['slug' => 'ui-box', 'label' => 'Box'],
-        ['slug' => 'ui-breadcrumbs', 'label' => 'Breadcrumbs'],
-        ['slug' => 'ui-card', 'label' => 'Card'],
-        ['slug' => 'ui-collapse', 'label' => 'Collapse'],
-        ['slug' => 'ui-divider', 'label' => 'Divider'],
-        ['slug' => 'ui-dropdown', 'label' => 'Dropdown'],
-        ['slug' => 'ui-icon', 'label' => 'Icon'],
-        ['slug' => 'ui-files', 'label' => 'Files'],
-        ['slug' => 'ui-form', 'label' => 'Form elements'],
-        ['slug' => 'ui-grid', 'label' => 'Grid/Column'],
-        ['slug' => 'ui-link', 'label' => 'Link'],
-        ['slug' => 'ui-loader', 'label' => 'Loader'],
-        ['slug' => 'ui-modal', 'label' => 'Modal'],
-        ['slug' => 'ui-offcanvas', 'label' => 'Offcanvas'],
-        ['slug' => 'ui-paginations', 'label' => 'Paginations'],
-        ['slug' => 'ui-popover', 'label' => 'Popover'],
-        ['slug' => 'ui-progress_bar', 'label' => 'Progress bar'],
-        ['slug' => 'ui-rating', 'label' => 'Rating'],
-        ['slug' => 'ui-spinner', 'label' => 'Spinner'],
-        ['slug' => 'ui-table', 'label' => 'Table'],
-        ['slug' => 'ui-tabs', 'label' => 'Tabs'],
-        ['slug' => 'ui-thumbnail', 'label' => 'Thumbnail'],
-        ['slug' => 'ui-title', 'label' => 'Title'],
-        ['slug' => 'ui-toast', 'label' => 'Toast'],
-        ['slug' => 'ui-tooltip', 'label' => 'Tooltip'],
-    ],
-
-    'Appearance:photo' => [
-        ['slug' => 'appearance-index', 'label' => 'Basics'],
-        ['slug' => 'appearance-layout_builder', 'label' => 'LayoutBuilder'],
-        ['slug' => 'appearance-assets', 'label' => 'AssetsManager'],
-        ['slug' => 'appearance-icons', 'label' => 'Icons'],
-    ],
-
     'Models Resources:document-duplicate' => [
         ['slug' => 'resources-index', 'label' => 'Basics'],
         ['slug' => 'resources-fields', 'label' => 'Fields'],
@@ -173,8 +101,86 @@ return [
         ['slug' => 'fields-stack_fields', 'label' => 'StackFields'],
     ],
 
+    'Components:rectangle-group' => [
+        ['slug' => 'components-index', 'label' => 'Basics'],
+        ['slug' => 'components-moonshine_component', 'label' => 'MoonShineComponent'],
+
+        // System
+        'System:_divider_',
+        ['slug' => 'components-system_layout', 'label' => 'Layout', 'title' => 'System component Layout'],
+        ['slug' => 'components-system_flash', 'label' => 'Flash', 'title' => 'System component Flash'],
+        ['slug' => 'components-system_footer', 'label' => 'Footer', 'title' => 'System component Footer'],
+        ['slug' => 'components-system_header', 'label' => 'Header', 'title' => 'System component Header'],
+        ['slug' => 'components-system_profile', 'label' => 'Profile', 'title' => 'System component Profile'],
+        ['slug' => 'components-system_search', 'label' => 'Search', 'title' => 'System component Search'],
+        ['slug' => 'components-system_sidebar', 'label' => 'Sidebar', 'title' => 'System component Sidebar'],
+        ['slug' => 'components-system_top_bar', 'label' => 'TopBar', 'title' => 'System component TopBar'],
+
+        // Decorations
+        'Decorations:_divider_',
+        ['slug' => 'components-decoration_block', 'label' => 'Block', 'title' => 'Decoration Block'],
+        ['slug' => 'components-decoration_collapse', 'label' => 'Collapse', 'title' => 'Decoration Collapse'],
+        ['slug' => 'components-decoration_divider', 'label' => 'Divider', 'title' => 'Decoration Divider'],
+        ['slug' => 'components-decoration_fragment', 'label' => 'Fragment', 'title' => 'Decoration Fragment'],
+        ['slug' => 'components-decoration_flexible_render', 'label' => 'FlexibleRender', 'title' => 'Decoration FlexibleRender'],
+        ['slug' => 'components-decoration_heading', 'label' => 'Heading', 'title' => 'Decoration Heading'],
+        ['slug' => 'components-decoration_layout', 'label' => 'Layout', 'title' => 'Decoration Layout'],
+        ['slug' => 'components-decoration_modal', 'label' => 'Modal', 'title' => 'Decoration Modal'],
+        ['slug' => 'components-decoration_offcanvas', 'label' => 'Offcanvas', 'title' => 'Decoration Offcanvas'],
+        ['slug' => 'components-decoration_tabs', 'label' => 'Tabs', 'title' => ' Tabs'],
+        ['slug' => 'components-decoration_when', 'label' => 'When', 'title' => 'Decoration When'],
+
+        // Metrics
+        'Metrics:_divider_',
+        ['slug' => 'components-metric_donut_chart', 'label' => 'Donut Chart', 'title' => 'Metric Donut Chart'],
+        ['slug' => 'components-metric_line_chart', 'label' => 'Line Chart', 'title' => 'Metric Line Chart'],
+        ['slug' => 'components-metric_value', 'label' => 'Value', 'title' => 'Metric Value'],
+    ],
+
     'ActionButton:cursor-arrow-ripple' => [
         ['slug' => 'action_button', 'label' => 'ActionButton'],
+    ],
+
+    'Appearance:photo' => [
+        ['slug' => 'appearance-index', 'label' => 'Basics'],
+        ['slug' => 'appearance-layout_builder', 'label' => 'LayoutBuilder'],
+        ['slug' => 'appearance-assets', 'label' => 'AssetsManager'],
+    ],
+
+    'UI components:code-bracket-square' => [
+        ['slug' => 'ui-index', 'label' => 'Basics'],
+        ['slug' => 'ui-alert', 'label' => 'Alert'],
+        ['slug' => 'ui-badge', 'label' => 'Badge'],
+        ['slug' => 'ui-boolean', 'label' => 'Boolean'],
+        ['slug' => 'ui-box', 'label' => 'Box'],
+        ['slug' => 'ui-breadcrumbs', 'label' => 'Breadcrumbs'],
+        ['slug' => 'ui-card', 'label' => 'Card'],
+        ['slug' => 'ui-collapse', 'label' => 'Collapse'],
+        ['slug' => 'ui-divider', 'label' => 'Divider'],
+        ['slug' => 'ui-dropdown', 'label' => 'Dropdown'],
+        ['slug' => 'ui-icon', 'label' => 'Icon'],
+        ['slug' => 'ui-files', 'label' => 'Files'],
+        ['slug' => 'ui-form', 'label' => 'Form elements'],
+        ['slug' => 'ui-grid', 'label' => 'Grid/Column'],
+        ['slug' => 'ui-link', 'label' => 'Link'],
+        ['slug' => 'ui-loader', 'label' => 'Loader'],
+        ['slug' => 'ui-modal', 'label' => 'Modal'],
+        ['slug' => 'ui-offcanvas', 'label' => 'Offcanvas'],
+        ['slug' => 'ui-paginations', 'label' => 'Paginations'],
+        ['slug' => 'ui-popover', 'label' => 'Popover'],
+        ['slug' => 'ui-progress_bar', 'label' => 'Progress bar'],
+        ['slug' => 'ui-rating', 'label' => 'Rating'],
+        ['slug' => 'ui-spinner', 'label' => 'Spinner'],
+        ['slug' => 'ui-table', 'label' => 'Table'],
+        ['slug' => 'ui-tabs', 'label' => 'Tabs'],
+        ['slug' => 'ui-thumbnail', 'label' => 'Thumbnail'],
+        ['slug' => 'ui-title', 'label' => 'Title'],
+        ['slug' => 'ui-toast', 'label' => 'Toast'],
+        ['slug' => 'ui-tooltip', 'label' => 'Tooltip'],
+    ],
+
+    'Icons:trophy' => [
+        ['slug' => 'icons', 'label' => 'Icons'],
     ],
 
     'Advanced:moon' => [

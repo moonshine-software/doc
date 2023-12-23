@@ -13,10 +13,13 @@
     <em>Systems</em> - components are used to create the main blocks of the admin panel:
     <x-link link="{{ route('moonshine.page', 'components-system_layout') }}">Layout</x-link>,
     <x-link link="{{ route('moonshine.page', 'components-system_flash') }}">Flash</x-link>,
-    Footer, Header, LayoutBlock, LayoutBuilder, Menu,
+    <x-link link="{{ route('moonshine.page', 'components-system_footer') }}">Footer</x-link>,
+    <x-link link="{{ route('moonshine.page', 'components-system_header') }}">Header</x-link>,
+    LayoutBlock, LayoutBuilder, Menu,
     <x-link link="{{ route('moonshine.page', 'components-system_profile') }}">Profile</x-link>,
+    <x-link link="{{ route('moonshine.page', 'components-system_search') }}">Search</x-link>,
     <x-link link="{{ route('moonshine.page', 'components-system_sidebar') }}">Sidebar</x-link>,
-    TopBar.
+    <x-link link="{{ route('moonshine.page', 'components-system_top_bar') }}">TopBar</x-link>.
 </x-p>
 
 <x-p>
@@ -30,6 +33,8 @@
     <x-link link="{{ route('moonshine.page', 'components-decoration_layout') . '#grid-column' }}">Grid</x-link>,
     <x-link link="{{ route('moonshine.page', 'components-decoration_heading') }}">Heading</x-link>,
     LineBreak,
+    <x-link link="{{ route('moonshine.page', 'components-decoration_modal') }}">Modal</x-link>,
+    <x-link link="{{ route('moonshine.page', 'components-decoration_offcanvas') }}">Offcanvas</x-link>,
     <x-link link="{{ route('moonshine.page', 'components-decoration_tabs') }}">Tabs</x-link>,
     <x-link link="{{ route('moonshine.page', 'components-decoration_when') }}">When</x-link>.
 </x-p>

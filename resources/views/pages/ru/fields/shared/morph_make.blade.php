@@ -10,11 +10,11 @@
 )
 </x-code>
 
-<x-p>
-    <code>$label</code> - лейбл, заголовок поля,<br>
-    <code>$relationName</code> - название отношения,<br>
-    <code>$formatted</code> - замыкание или поле в связанной таблице для отображения значений.
-</x-p>
+<x-ul>
+    <li><code>$label</code> - лейбл, заголовок поля,</li>
+    <li><code>$relationName</code> - название отношения,</li>
+    <li><code>$formatted</code> - замыкание или поле в связанной таблице для отображения значений.</li>
+</x-ul>
 
 @if($field === 'MorphMany')
 <x-moonshine::alert type="error" icon="heroicons.information-circle">

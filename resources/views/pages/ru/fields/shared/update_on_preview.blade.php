@@ -8,11 +8,11 @@
 updateOnPreview(?Closure $url = null, ?ResourceContract $resource = null, mixed $condition = null)
 </x-code>
 
-<x-p>
-    <code>$url</code> - url для обработки асинхронного запроса,<br>
-    <code>$resource</code> - ресурс модели на которую ссылается отношение,<br>
-    <code>$condition</code> - условие выполнения метода.
-</x-p>
+<x-ul>
+    <li><code>$url</code> - url для обработки асинхронного запроса,</li>
+    <li><code>$resource</code> - ресурс модели на которую ссылается отношение,</li>
+    <li><code>$condition</code> - условие выполнения метода.</li>
+</x-ul>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     Параметры не являются обязательными и их необходимо передавать, если поле работает вне ресурса.

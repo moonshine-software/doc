@@ -39,16 +39,14 @@ public function fields(): array
     You can pass parameters to the <code>asyncSearch()</code> method:
 </x-p>
 
-<x-p>
-    <ul>
-        <li><code>$asyncSearchColumn</code> - the field in which the search takes place;</li>
-        <li><code>$asyncSearchCount</code> - number of elements in the search results;</li>
-        <li><code>$asyncSearchQuery</code> - callback-function for filtering values;</li>
-        <li><code>$asyncSearchValueCallback</code> - callback-function for customizing output;</li>
-        <li><code>$associatedWith</code> - the field with which to establish a connection;</li>
-        <li><code>$url</code> - url to process the asynchronous request.</li>
-    </ul>
-</x-p>
+<x-ul>
+    <li><code>$asyncSearchColumn</code> - the field in which the search takes place;</li>
+    <li><code>$asyncSearchCount</code> - number of elements in the search results;</li>
+    <li><code>$asyncSearchQuery</code> - callback-function for filtering values;</li>
+    <li><code>$asyncSearchValueCallback</code> - callback-function for customizing output;</li>
+    <li><code>$associatedWith</code> - the field with which to establish a connection;</li>
+    <li><code>$url</code> - url to process the asynchronous request.</li>
+</x-ul>
 
 <x-code language="php">
 use Illuminate\Contracts\Database\Eloquent\Builder; // [tl! focus]

@@ -55,15 +55,17 @@
 </x-code>
 
 <x-p>
-    <ul>
-        <li>- change your resource name if required</li>
-        <li>- select resource type</li>
-    </ul>
+    <x-ul
+        :items="[
+            'change your resource name if required<',
+            'select resource type',
+        ]"
+    />
 </x-p>
 
 <x-p>
     There are several options available when creating a <em>ModelResource</em>:
-    <ul>
+    <x-ul>
         <li>
             <x-link :link="route('moonshine.page', 'resources-fields') . '#default'" ><strong>Default model resource</strong></x-link>
             - model resource with common fields
@@ -76,7 +78,7 @@
             <x-link :link="route('moonshine.page', 'resources-pages')" ><strong>Model resource with pages</strong></x-link>
             - model resource with pages.
         </li>
-    </ul>
+    </x-ul>
 </x-p>
 
 <x-p>

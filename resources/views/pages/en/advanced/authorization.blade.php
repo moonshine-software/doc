@@ -53,7 +53,7 @@ class PostResource extends ModelResource
 <x-p>
     Available Policy methods:
 </x-p>
-<ul>
+<x-ul>
     <li><code>viewAny</code> - index page;</li>
     <li><code>view</code> - detailed page;</li>
     <li><code>create</code> - creating a record;</li>
@@ -62,7 +62,7 @@ class PostResource extends ModelResource
     <li><code>massDelete</code> - mass deletion of records;</li>
     <li><code>restore</code> - restoring a record after soft deletion;</li>
     <li><code>forceDelete</code> - permanently deletes a record from the database.</li>
-</ul>
+</x-ul>
 
 <x-code language="php">
 namespace App\Policies;
@@ -131,7 +131,7 @@ use MoonShine\MoonShine;
 
 public function boot(): void
 {
-    MoonShine::defineAuthorization(
+    moonshine()->defineAuthorization(
         static function (ResourceContract $resource, Model $user, string $ability): bool {
             return true;
         }

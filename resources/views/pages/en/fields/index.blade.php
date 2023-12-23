@@ -46,11 +46,11 @@
     Text::make(Closure|string|null $label = null, ?string $column = null, ?Closure $formatted = null)
 </x-code>
 
-<x-p>
-    $label - label, field title<br>
-    $column - a field in the database (for example name) or a relation (for example countries)<br>
-    $formatted - closure for formatting the field value during preview (everywhere except the form).
-</x-p>
+<x-ul>
+    <li><code>$label</code> - label, field title,</li>
+    <li><code>$column</code> - a field in the database (for example name) or a relation (for example countries),</li>
+    <li><code>$formatted</code> - closure for formatting the field value during preview (everywhere except the form).</li>
+</x-ul>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     If you do not specify <code>$column</code>,

@@ -55,15 +55,17 @@
 </x-code>
 
 <x-p>
-    <ul>
-        <li>- измените название вашего ресурса, если требуется</li>
-        <li>- выберите тип ресурса</li>
-    </ul>
+    <x-ul
+        :items="[
+            'измените название вашего ресурса, если требуется',
+            'выберите тип ресурса',
+        ]"
+    />
 </x-p>
 
 <x-p>
     При создания <em>ModelResource</em> доступно несколько вариантов:
-    <ul>
+    <x-ul>
         <li>
             <x-link :link="route('moonshine.page', 'resources-fields') . '#default'" ><strong>Default model resource</strong></x-link>
             - ресурс модели с общими полями
@@ -76,7 +78,7 @@
             <x-link :link="route('moonshine.page', 'resources-pages')" ><strong>Model resource with pages</strong></x-link>
             - ресурс модели со страницами.
         </li>
-    </ul>
+    </x-ul>
 </x-p>
 
 <x-p>

@@ -91,13 +91,13 @@ onlyLink(?string $linkRelation = null, Closure|bool|null $condition = null)
 
 <x-p>
     Методу можно передать необязательные параметры:
-    <ul>
+    <x-ul>
         <li><code>linkRelation</code> - ссылка на отношение;</li>
         <li>
             <code>condition</code> - замыкание или булево значение,
             отвечающее за отображение отношения как ссылки.
         </li>
-    </ul>
+    </x-ul>
 </x-p>
 
 <x-code language="php">

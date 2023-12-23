@@ -43,14 +43,14 @@ form(
 <x-sub-title>TableBuilder</x-sub-title>
 
 <x-code>
-form(
+table(
     Fields|array $fields = [],
     iterable $items = [],
     ?LengthAwarePaginator $paginator = null
 )
 </x-code>
 
-<x-sub-title>TableBuilder</x-sub-title>
+<x-sub-title>ActionButton</x-sub-title>
 
 <x-code>
 actionBtn(

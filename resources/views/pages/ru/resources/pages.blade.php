@@ -95,7 +95,7 @@ class PostIndexPage extends IndexPage
     которые отвечают за отображение определенной области на странице.
 </x-p>
 
-<ul>
+<x-ul>
     <li>
         <code>TopLayer</code> - по умолчанию используется для вывода метрик на индексной странице
         и для дополнительных кнопок на странице редактирования
@@ -106,7 +106,7 @@ class PostIndexPage extends IndexPage
         <x-link link="{{ route('moonshine.page', 'advanced-table_builder') }}">TableBuilder</x-link>
     </li>
     <li><code>BottomLayer</code> - по умолчанию используется для вывода дополнительной информации</li>
-</ul>
+</x-ul>
 
 <x-p>
     Для кастомизации слоев используются соответствующие методы: <code>topLayer()</code>, <code>mainLayer()</code> и

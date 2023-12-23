@@ -41,7 +41,7 @@
 
     <x-sub-title>Features</x-sub-title>
     <x-p>
-        <ul>
+        <x-ul>
             <li>Using MoonShine in projects is like a designer, helping you to create the functionality much faster.</li>
             <li>There is no binding to models, you can take whatever data you like</li>
             <li>Form and table builder</li>
@@ -49,7 +49,7 @@
             <li>TailwindCSS and Blade, familiar to the vast majority of Laravel developers</li>
             <li>Ability to use Blade and Livewire components</li>
             <li>Convenient template builder, change colors and overall design</li>
-        </ul>
+        </x-ul>
     </x-p>
 
     <x-sub-title>History of the name</x-sub-title>
