@@ -131,7 +131,7 @@ use MoonShine\MoonShine;
 
 public function boot(): void
 {
-    MoonShine::defineAuthorization(
+    moonshine()->defineAuthorization(
         static function (ResourceContract $resource, Model $user, string $ability): bool {
             return true;
         }

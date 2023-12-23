@@ -167,11 +167,11 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 {
     public function register(): void
     {
-        MoonShine::home(CustomPage::class); // [tl! focus]
+        moonshine()->home(CustomPage::class); // [tl! focus]
         // or
-        MoonShine::home(PostResource::class); // [tl! focus]
+        moonshine()->home(PostResource::class); // [tl! focus]
         // or
-        MoonShine::home(function () {
+        moonshine()->home(function () {
             return PostResource::class;
         }); // [tl! focus:-2]
     }
