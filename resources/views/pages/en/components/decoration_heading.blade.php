@@ -10,12 +10,12 @@
 <x-sub-title id="make">Make</x-sub-title>
 
 <x-p>
-    The <em>Heading</em> decorator allows you to add headings to your content.
+    The <em>Heading</em> decorator allows you to add headings to the content.
 </x-p>
 
 <x-p>
-    You can create a <em>Heading</em> using the static <code>make()</code> method,
-    to which you need to pass the header text.
+    You can create a <em>Heading</em> by using the static method <code>make()</code>
+    by passing the text heading to it.
 </x-p>
 
 <x-code language="php">

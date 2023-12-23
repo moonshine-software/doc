@@ -86,7 +86,7 @@ public function components(): array
 </x-p>
 
 <x-p>
-    The <code>columnSpan()</code> method allows you to set the width of a block in a <em>Grid</em> grid.
+    The <code>columnSpan()</code> method allows you to set the width of a block in a <em>Grid</em>.
 </x-p>
 
 <x-code language="php">
@@ -97,8 +97,8 @@ columnSpan(
 </x-code>
 
 <x-p>
-    <code>$columnSpan</code> - value for desktop version,<br>
-    <code>$adaptiveColumnSpan</code> - meaning for the mobile version.
+    <code>$columnSpan</code> - relevant for desktop version,<br>
+    <code>$adaptiveColumnSpan</code> - relevant for the mobile version.
 </x-p>
 
 <x-code language="php">

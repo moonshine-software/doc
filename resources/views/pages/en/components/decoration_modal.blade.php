@@ -19,7 +19,7 @@
 </x-p>
 
 <x-p>
-    You can create a <em>Modal</em> using the static <code>make()</code> method.
+    You can create <em>Modal</em> using the static method <code>make()</code>.
 </x-p>
 
 <x-code language="php">
@@ -28,7 +28,7 @@ make(Closure|string $title, Closure|View|string $content, Closure|View|ActionBut
 
 <x-ul>
     <li><code>$title</code> - modal window title,</li>
-    <li><code>$content</code> - контент модального окна,</li>
+    <li><code>$content</code> - modal window content,</li>
     <li><code>$outer</code> - external block with window call handler,</li>
     <li><code>$asyncUrl</code> - url for asynchronous content.</li>
 </x-ul>
@@ -76,7 +76,7 @@ public function components(): array
 <x-sub-title id="events">Events</x-sub-title>
 
 <x-p>
-    You can open or close a modal window not from a component through <em>javascript</em> events.<br />
+    You can open or close a modal window not using component via <em>javascript</em> events.<br />
     To have access to events, you must set a unique name for the modal window using the <code>name()</code> method.
 </x-p>
 
@@ -145,7 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
 <x-moonshine::divider label="calling an event using the Alpine.js method" />
 
 <x-p>
-    Or use the magic <code>$dispatch()</code> method from <em>Alpine.js</em>:
+    Or using the magic <code>$dispatch()</code> method from <em>Alpine.js</em>:
 </x-p>
 
 <x-code language="javascript">
@@ -161,7 +161,7 @@ this.$dispatch('modal-toggled-my-modal')
 <x-sub-title id="open">Default state</x-sub-title>
 
 <x-p>
-    The <code>open()</code> method allows you to open a modal window when the page loads.
+    The <code>open()</code> method allows you to open a modal window when loading the page.
 </x-p>
 
 <x-code language="php">
@@ -185,13 +185,13 @@ public function components(): array
 </x-code>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-    By default, the modal window will be closed when the page loads.
+    By default, the modal window will remain closed when the page loads..
 </x-moonshine::alert>
 
 <x-sub-title id="close-outside">Click outside</x-sub-title>
 
 <x-p>
-    By default, a modal window is closed when clicked outside the window area.<br />
+    By default, a modal window closes when clicked outside the window area.<br />
     The <code>closeOutside()</code> method allows you to override this behavior.
 </x-p>
 
