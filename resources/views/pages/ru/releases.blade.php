@@ -1,6 +1,17 @@
 <x-page title="Обновления" :sectionMenu="null">
 <ul class="tree-list">
     <li class="my-2">
+        <x-moonshine::link-button href="https://github.com/moonshine-software/moonshine/releases/tag/2.5.0">
+            v2.5.0 "Mojito Supreme"
+        </x-moonshine::link-button>
+
+        <div class="">
+            <x-moonshine::link-native href="https://cutcode.dev/articles/moonshine-25-mojito-supreme">
+                Подробности
+            </x-moonshine::link-native>
+        </div>
+    </li>
+    <li class="my-2">
         <x-moonshine::link-button href="https://github.com/moonshine-software/moonshine/releases/tag/2.4.0">
             v2.4.0 "Midnight Jubilee"
         </x-moonshine::link-button>
