@@ -6,7 +6,7 @@
 </x-p>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-    The sect consists of 12 columns.
+    The grid consists of 12 columns.
 </x-moonshine::alert>
 
 <x-code language="blade" file="resources/views/examples/components/grid.blade.php"></x-code>

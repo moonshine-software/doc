@@ -6,7 +6,7 @@
 </x-p>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-    Секта состоит из 12 столбцов.
+    Сетка состоит из 12 столбцов.
 </x-moonshine::alert>
 
 <x-code language="blade" file="resources/views/examples/components/grid.blade.php"></x-code>
