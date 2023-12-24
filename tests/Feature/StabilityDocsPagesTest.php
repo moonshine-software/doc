@@ -6,10 +6,12 @@ use MoonShine\Pages\Page;
 use Torchlight\Middleware\RenderTorchlight;
 
 foreach (config('moonshine.locales') as $locale) {
-    describe('Stability ' . str($locale)->upper() . ' docs', fn() => stabilityLocale($locale));
+    describe('Stability ' . str($locale)->upper(), fn() => stabilityLocale($locale));
 }
 
 function stabilityLocale(string $locale): void {
+    stabilityDocPage(config('app.url'), $locale);
+
     collect(moonshine()->getPages())
         ->map(fn(Page $page) => $page->url())
         ->each(fn (string $url) => stabilityDocPage($url, $locale));
