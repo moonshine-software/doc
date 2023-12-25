@@ -32,7 +32,9 @@
 @endif
 
 <x-moonshine::alert type="warning" icon="heroicons.information-circle">
-    The presence of the model resource referenced by the relation is mandatory!
+    The presence of the model resource referenced by the relation is mandatory!<br />
+    The resource also needs to be registered with the service provider <em>MoonShineApplicationServiceProvider</em> in the method
+    <code>menu()</code> or <code>resources()</code>. Otherwise, there will be a 404 error.
 </x-moonshine::alert>
 
 <x-code language="php">
