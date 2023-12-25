@@ -27,6 +27,11 @@ public function indexButtons(): array
 }
 </x-code>
 
+<x-moonshine::alert type="primary" icon="heroicons.outline.book-open">
+    An example of creating custom buttons for the index table in the section
+    <x-link link="{{ route('moonshine.page', 'recipes') }}#custom-buttons">Recipes</x-link>
+</x-moonshine::alert>
+
 <x-p>
     For bulk actions you need to add the <code>bulk</code> method
 </x-p>
@@ -209,4 +214,5 @@ class PostResource extends ModelResource
     // ...
 }
 </x-code>
+
 </x-page>
