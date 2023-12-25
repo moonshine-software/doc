@@ -185,6 +185,7 @@ return [
 
     'Advanced:moon' => [
         //['slug' => 'advanced-resource', 'label' => 'Resource'],
+        ['slug' => 'advanced-routes', 'label' => 'Routes'],
         //['slug' => 'advanced-development', 'label' => 'Development'],
         ['slug' => 'advanced-commands', 'label' => 'Commands'],
         ['slug' => 'advanced-controller', 'label' => 'Controllers'],
