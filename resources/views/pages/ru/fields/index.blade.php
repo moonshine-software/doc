@@ -20,6 +20,7 @@
             ['url' => '#events', 'label' => 'События'],
             ['url' => '#assets', 'label' => 'Assets'],
             ['url' => '#wrapper', 'label' => 'Wrapper'],
+            ['url' => '#scheme', 'label' => 'Схема работы поля'],
         ]
     ]"
 >
@@ -933,5 +934,11 @@ public function fields(): array
 
 <x-image theme="light" src="{{ asset('screenshots/without_wrapper.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/without_wrapper_dark.png') }}"></x-image>
+
+<x-sub-title id="scheme">Схема работы поля</x-sub-title>
+
+<x-link link="{{ asset('files/field_scheme.pdf') }}" target="_blank">
+    <x-image src="{{ asset('screenshots/field_scheme.png') }}"></x-image>
+</x-link>
 
 </x-page>

@@ -32,7 +32,9 @@
 @endif
 
 <x-moonshine::alert type="warning" icon="heroicons.information-circle">
-    Наличие ресурса модели, на которую ссылается отношение, обязательно!
+    Наличие ресурса модели, на которую ссылается отношение, обязательно!<br />
+    Ресурс также необходимо зарегистрировать в сервис провайдере <em>MoonShineApplicationServiceProvider</em> в методе
+    <code>menu()</code> или <code>resources()</code>. Иначе, будет 404 ошибка.
 </x-moonshine::alert>
 
 <x-code language="php">

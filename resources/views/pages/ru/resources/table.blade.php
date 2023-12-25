@@ -27,6 +27,11 @@ public function indexButtons(): array
 }
 </x-code>
 
+<x-moonshine::alert type="primary" icon="heroicons.outline.book-open">
+    Пример создания кастомных кнопок у индексной таблицы в разделе
+    <x-link link="{{ route('moonshine.page', 'recipes') }}#custom-buttons">Recipes</x-link>
+</x-moonshine::alert>
+
 <x-p>
     Для массовых действий необходимо добавить метод <code>bulk</code>
 </x-p>
@@ -209,4 +214,5 @@ class PostResource extends ModelResource
     // ...
 }
 </x-code>
+
 </x-page>

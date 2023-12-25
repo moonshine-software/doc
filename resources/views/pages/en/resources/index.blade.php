@@ -194,20 +194,22 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 <x-sub-title id="item">Current element/model</x-sub-title>
 
 <x-p>
-    In a resource, you have access to the current element and model through the corresponding methods.
+    If the url of the detail page or editing page contains the <code>resourceItem</code> parameter,
+    then in a resource you can access the current item through the <code>getItem()</code> method.
 </x-p>
 
 <x-code language="php">
-    $this->getItem();
+$this->getItem();
 </x-code>
+
+<x-p>
+    You can access the model through the <code>getModel()</code> method.
+</x-p>
 
 <x-code language="php">
     $this->getModel();
 </x-code>
 
-<x-moonshine::alert type="default" icon="heroicons.information-circle">
-    If the element does not yet exist (action create), then the <code>getItem()</code> method will return <code>NULL</code>.
-</x-moonshine::alert>
 
 <x-sub-title id="modal">Modal windows</x-sub-title>
 
