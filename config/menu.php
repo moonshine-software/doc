@@ -21,6 +21,7 @@ return [
         ['slug' => 'resources-index', 'label' => 'Basics'],
         ['slug' => 'resources-fields', 'label' => 'Fields'],
         ['slug' => 'resources-pages', 'label' => 'With pages'],
+        ['slug' => 'resources-routes', 'label' => 'Routes'],
         ['slug' => 'resources-filters', 'label' => 'Filters'],
         ['slug' => 'resources-search', 'label' => 'Search'],
         ['slug' => 'resources-table', 'label' => 'Table'],
@@ -185,7 +186,6 @@ return [
 
     'Advanced:moon' => [
         //['slug' => 'advanced-resource', 'label' => 'Resource'],
-        ['slug' => 'advanced-routes', 'label' => 'Routes'],
         //['slug' => 'advanced-development', 'label' => 'Development'],
         ['slug' => 'advanced-commands', 'label' => 'Commands'],
         ['slug' => 'advanced-controller', 'label' => 'Controllers'],
