@@ -3,6 +3,7 @@
     :sectionMenu="[
         'Разделы' => [
             ['url' => '#basics', 'label' => 'Основы'],
+            ['url' => '#page-type', 'label' => 'PageType'],
             ['url' => '#fields', 'label' => 'Добавление полей'],
             ['url' => '#layers', 'label' => 'Слои на странице'],
         ]
@@ -59,6 +60,32 @@ class PostResource extends ModelResource
 
     //...
 }
+</x-code>
+
+<x-sub-title id="page-type">PageType</x-sub-title>
+
+<x-p>
+    Для указания типа страницы в <strong>ModelResource</strong> используется <em>enum class</em> <code>PageType</code>
+</x-p>
+
+<x-p>
+    Доступны следующие типы страниц:
+</x-p>
+
+<x-ul>
+    <li><code>INDEX</code> - индексная страница,</li>
+    <li><code>FORM</code> - страница с формой,</li>
+    <li><code>DETAIL</code> - детальная страница.</li>
+</x-ul>
+
+<x-code language="php">
+use MoonShine\Enums\PageType;
+
+//...
+
+PageType::INDEX;
+PageType::FORM;
+PageType::DETAIL;
 </x-code>
 
 <x-sub-title id="fields">Добавление полей</x-sub-title>

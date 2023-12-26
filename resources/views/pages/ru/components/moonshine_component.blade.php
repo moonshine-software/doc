@@ -54,28 +54,6 @@ public function components(): array
 //...
 </x-code>
 
-<x-sub-title id="view_data">Передача данных</x-sub-title>
-
-<x-p>
-    Метод <code>viewData()</code> позволяет передать данные в шаблон компонента.
-</x-p>
-
-<x-code language="php">
-namespace App\MoonShine\Components;
-
-//...
-
-final class MyComponent extends MoonShineComponent
-{
-    protected function viewData(): array
-    {
-        return [];
-    } // [tl! focus:-3]
-}
-
-//...
-</x-code>
-
 <x-sub-title id="name">Имя компонента</x-sub-title>
 
 <x-p>
@@ -93,6 +71,28 @@ public function components(): array
         MyComponent::make()
             ->name('my-component') // [tl! focus]
     ];
+}
+
+//...
+</x-code>
+
+<x-sub-title id="view_data">Передача данных</x-sub-title>
+
+<x-p>
+    Метод <code>viewData()</code> позволяет передать данные в шаблон компонента.
+</x-p>
+
+<x-code language="php">
+namespace App\MoonShine\Components;
+
+//...
+
+final class MyComponent extends MoonShineComponent
+{
+    protected function viewData(): array
+    {
+        return [];
+    } // [tl! focus:-3]
 }
 
 //...

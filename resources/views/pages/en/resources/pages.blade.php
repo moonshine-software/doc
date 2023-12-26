@@ -3,6 +3,7 @@
     :sectionMenu="[
         'Sections' => [
             ['url' => '#basics', 'label' => 'Basics'],
+            ['url' => '#page-type', 'label' => 'PageType'],
             ['url' => '#fields', 'label' => 'Adding fields'],
             ['url' => '#layers', 'label' => 'Layers on a page'],
         ]
@@ -60,6 +61,22 @@ class PostResource extends ModelResource
     //...
 }
 </x-code>
+
+<x-sub-title id="page-type">PageType</x-sub-title>
+
+<x-p>
+    To specify the page type in <strong>ModelResource</strong>, use <em>enum class</em> <code>PageType</code>
+</x-p>
+
+<x-p>
+    The following page types are available:
+</x-p>
+
+<x-ul>
+    <li><code>INDEX</code> - index page,</li>
+    <li><code>FORM</code> - form page,</li>
+    <li><code>DETAIL</code> - detail page.</li>
+</x-ul>
 
 <x-sub-title id="fields">Adding fields</x-sub-title>
 

@@ -12,6 +12,8 @@ $resource->url(); // First page of the resource
 
 $resource->route($name, $key, $params); // Advanced method for obtaining routes
 
+$resource->pageUrl($page, $params, $fragment); // Advanced method for obtaining page`s route
+
 $resource->indexPageUrl(); // index page
 $resource->indexPageUrl(['query-tag' => $tag->uri()]); // query tag
 
@@ -70,12 +72,17 @@ to_page(
 </x-ul>
 
 <x-code>
-to_page(page: 'form-page');
+to_page(page: PageType::FORM);
 to_page(page: IndexPage::class);
 to_page(page: IndexPage::class, resource: PostResource::class);
 to_page(page: new IndexPage(), resource: new PostResource());
-to_page(page: 'form-page', redirect: true);
-to_page(page: 'form-page', fragment: true);
+to_page(page: PageType::FORM, redirect: true);
+to_page(page: PageType::FORM, fragment: true);
 </x-code>
+
+<x-moonshine::alert type="default" icon="heroicons.book-open">
+    For more information about page types, see
+    <x-link link="{{ route('moonshine.page', 'resources-pages') }}#page-type">PageType</x-link>.
+</x-moonshine::alert>
 
 </x-page>
