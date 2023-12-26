@@ -1,7 +1,7 @@
 <x-page
     title="MoonShine Component"
     :sectionMenu="[
-        'Разделы' => [
+        'Sections' => [
             ['url' => '#create', 'label' => 'Creating'],
             ['url' => '#make', 'label' => 'Make'],
             ['url' => '#name', 'label' => 'Component name'],
@@ -54,28 +54,6 @@ public function components(): array
 //...
 </x-code>
 
-<x-sub-title id="view_data">View data</x-sub-title>
-
-<x-p>
-    The <code>viewData()</code> method allows you to pass data to the component template.
-</x-p>
-
-<x-code language="php">
-namespace App\MoonShine\Components;
-
-//...
-
-final class MyComponent extends MoonShineComponent
-{
-    protected function viewData(): array
-    {
-        return [];
-    } // [tl! focus:-3]
-}
-
-//...
-</x-code>
-
 <x-sub-title id="name">Component name</x-sub-title>
 
 <x-p>
@@ -93,6 +71,28 @@ public function components(): array
         MyComponent::make()
             ->name('my-component') // [tl! focus]
     ];
+}
+
+//...
+</x-code>
+
+<x-sub-title id="view_data">View data</x-sub-title>
+
+<x-p>
+    The <code>viewData()</code> method allows you to pass data to the component template.
+</x-p>
+
+<x-code language="php">
+namespace App\MoonShine\Components;
+
+//...
+
+final class MyComponent extends MoonShineComponent
+{
+    protected function viewData(): array
+    {
+        return [];
+    } // [tl! focus:-3]
 }
 
 //...
