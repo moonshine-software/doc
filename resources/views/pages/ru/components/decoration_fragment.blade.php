@@ -56,8 +56,7 @@ public function components(): array
 
 <x-code>
 Fragment::make($fields)
-    ->name('fragment-name')
-    ->updateAsync(),
+    ->name('fragment-name'),
 </x-code>
 
 <x-p>
