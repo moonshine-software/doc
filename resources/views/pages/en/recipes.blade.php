@@ -6,6 +6,7 @@
             ['url' => '#make-component', 'label' => 'View component with AlpineJs'],
             ['url' => '#assets-vite', 'label' => 'Vite build connection'],
             ['url' => '#custom-buttons', 'label' => 'Custom buttons'],
+            ['url' => '#hasone-through-template', 'label' => 'HasOne through the Template field'],
         ]
     ]"
 >
@@ -14,5 +15,6 @@
 @include('pages.en.recipes.make-component', ['title' => 'View component with AlpineJs'])
 @include('pages.en.recipes.assets-vite', ['title' => 'Vite build connection'])
 @include('pages.en.recipes.custom-buttons', ['title' => 'Custom buttons'])
+@include('pages.en.recipes.hasone-through-template', ['title' => 'HasOne through the Template field'])
 
 </x-page>
