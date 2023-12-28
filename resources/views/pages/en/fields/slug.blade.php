@@ -5,6 +5,7 @@
             ['url' => '#basics', 'label' => 'Basics'],
             ['url' => '#from', 'label' => 'Slug generation'],
             ['url' => '#separator', 'label' => 'Delimiter'],
+            ['url' => '#locale', 'label' => 'Locale'],
             ['url' => '#unique', 'label' => 'Unique value'],
         ]
     ]"
@@ -87,6 +88,33 @@ public function fields(): array
     return [
         Slug::make('Slug')
             ->separator('_') // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
+
+<x-sub-title id="locale">Locale</x-sub-title>
+
+<x-p>
+    By default, <em>slug</em> generation takes into account the specified application locale,
+    The <code>locale()</code> method allows you to change this behavior for a field.
+</x-p>
+
+<x-code language="php">
+locale(string $local)
+</x-code>
+
+<x-code language="php">
+use MoonShine\Fields\Slug;
+
+//...
+
+public function fields(): array
+{
+    return [
+        Slug::make('Slug')
+            ->locale('ru') // [tl! focus]
     ];
 }
 

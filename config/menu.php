@@ -100,6 +100,7 @@ return [
         ['slug' => 'fields-preview', 'label' => 'Preview'],
         ['slug' => 'fields-position', 'label' => 'Position'],
         ['slug' => 'fields-stack_fields', 'label' => 'StackFields'],
+        ['slug' => 'fields-template', 'label' => 'Template'],
     ],
 
     'Components:rectangle-group' => [
