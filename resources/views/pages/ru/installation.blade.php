@@ -17,7 +17,7 @@
     Для использования MoonShine необходимо выполнение следующих требований перед установкой:
 </x-p>
 
-<x-ul :items="['php >=8.1', 'laravel >= 10.23', 'composer']"></x-ul>
+<x-ul :items="['php >= 8.1', 'laravel >= 10.23', 'composer > 2']"></x-ul>
 
 <x-sub-title id="composer">Composer</x-sub-title>
 
