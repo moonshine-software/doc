@@ -40,10 +40,7 @@
 
 @include("examples/components/alert-icon")
 
-<x-moonshine::alert type="default" icon="heroicons.book-open">
-    For more detailed information, please refer to the section
-    <x-link link="{{ route('moonshine.page', 'icons') }}">Icons</x-link>.
-</x-moonshine::alert>
+@include('pages.en.shared.alert_icons')
 
 <x-sub-title id="removable">Deleting notifications</x-sub-title>
 

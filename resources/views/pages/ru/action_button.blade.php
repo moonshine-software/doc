@@ -2,24 +2,33 @@
     :sectionMenu="[
         'Разделы' => [
             ['url' => '#basics', 'label' => 'Основы'],
-            ['url' => '#methods', 'label' => 'Методы'],
+            ['url' => '#blank', 'label' => 'Blank'],
+            ['url' => '#icon', 'label' => 'Icon'],
+            ['url' => '#color', 'label' => 'Цвет'],
+            ['url' => '#onclick', 'label' => 'onClick'],
             ['url' => '#modal', 'label' => 'Modal'],
             ['url' => '#offcanvas', 'label' => 'Offcanvas'],
-            ['url' => '#group', 'label' => 'Методы группы'],
+            ['url' => '#group', 'label' => 'Группы'],
+            ['url' => '#bulk', 'label' => 'Bulk'],
             ['url' => '#async', 'label' => 'Асинхронный режим'],
+            ['url' => '#method', 'label' => 'Вызов методов'],
         ]
     ]"
 >
+
+<x-extendby :href="route('moonshine.page', 'components-moonshine_component')">
+    MoonShineComponent
+</x-extendby>
 
 <x-sub-title id="basics">Основы</x-sub-title>
 
 <x-p>
     Когда Вам необходимо добавить кнопку с определенным действием, на помощь приходят ActionButton.
-    В MoonShine они уже используются - в формах, таблицах, на страницах
+    В MoonShine они уже используются - в формах, таблицах, на страницах.
 </x-p>
 
 <x-code language="php">
-make(
+ActionButton::make(
     Closure|string $label,
     Closure|string|null $url = null,
     mixed $item = null
@@ -27,25 +36,27 @@ make(
 </x-code>
 
 <x-ul>
-    <li><code>label</code> - Текст кнопки,</li>
-    <li><code>url</code> - Url,</li>
-    <li><code>item</code> - Опциональные данные кнопки, доступные в замыканиях.</li>
+    <li><code>label</code> - текст кнопки,</li>
+    <li><code>url</code> - url ссылки у кнопки,</li>
+    <li><code>item</code> - опциональные данные кнопки, доступные в замыканиях.</li>
 </x-ul>
 
 <x-code>
+use MoonShine\ActionButtons\ActionButton; // [tl! focus]
+
 public function components(): array
 {
     return [
         ActionButton::make(
             label: 'Button title',
             url: 'https://moonshine-laravel.com',
-        ),
+        ) // [tl! focus:-3]
     ];
 }
 </x-code>
 
 <x-p>
-    Также доступен helper, который можно применить в blade
+    Также доступен helper, который можно применить в blade:
 </x-p>
 
 <x-code>
@@ -56,60 +67,75 @@ public function components(): array
 
 {!! actionBtn('Example', 'https://moonshine-laravel.com') !!}
 
-<x-sub-title id="methods">Методы</x-sub-title>
-
-<x-moonshine::divider label="blank" />
+<x-sub-title id="blank">Blank</x-sub-title>
 
 <x-p>
-    Открыть в новом окне
+    Метод <code>blank()</code> позволяет открывать url в новом окне.
 </x-p>
+
 <x-code>
-ActionButton::make(
-    label: 'Click me',
-    url: 'https://moonshine-laravel.com',
-)->blank(),
+use MoonShine\ActionButtons\ActionButton;
+
+public function components(): array
+{
+    return [
+        ActionButton::make(
+            label: fn() => 'Click me',
+            url: 'https://moonshine-laravel.com',
+        )
+            ->blank() // [tl! focus]
+    ];
+}
 </x-code>
 
 {!! actionBtn('Example', 'https://moonshine-laravel.com')->blank() !!}
 
-<x-moonshine::divider label="icon" />
+<x-sub-title id="icon">Icon</x-sub-title>
 
 <x-p>
-    Иконка
+    Метод <code>icon()</code> позволяет указать иконку у кнопки.
 </x-p>
+
 <x-code>
-ActionButton::make(
-    label: 'Click me',
-    url: 'https://moonshine-laravel.com',
-)->icon('heroicons.outline.pencil'),
+use MoonShine\ActionButtons\ActionButton;
+
+public function components(): array
+{
+    return [
+        ActionButton::make(
+            label: fn() => 'Click me',
+            url: 'https://moonshine-laravel.com',
+        )
+            ->icon('heroicons.outline.pencil') // [tl! focus]
+    ];
+}
 </x-code>
 
 {!! actionBtn('Example', 'https://moonshine-laravel.com')->icon('heroicons.outline.pencil') !!}
 
-<x-moonshine::divider label="Attributes" />
+@include('pages.ru.shared.alert_icons')
+
+<x-sub-title id="color">Цвет</x-sub-title>
 
 <x-p>
-    Вы можете задать любые html атрибуты для кнопки через метод customAttributes
+    Для <em>ActionButton</em> есть набор методов которые позволяют задать цвет кнопки:
+    <code>primary()</code>, <code>secondary()</code>, <code>warning()</code>, <code>success()</code>
+    и <code>error()</code>.
 </x-p>
+
 <x-code>
-ActionButton::make(
-    label: 'Click me',
-    url: 'https://moonshine-laravel.com',
-)->customAttributes(['class' => 'btn-primary']),
-</x-code>
+use MoonShine\ActionButtons\ActionButton;
 
-{!! actionBtn('Example', 'https://moonshine-laravel.com')->customAttributes(['class' => 'btn-primary']) !!}
-
-<x-moonshine::divider label="Цвета" />
-
-<x-p>
-    Чтобы не держать в голове классы для изменения цвета кнопки, мы подготовили для вас готовые класы
-</x-p>
-<x-code>
-ActionButton::make(
-    label: 'Click me',
-    url: 'https://moonshine-laravel.com',
-)->primary(), //secondary, warning, success, error
+public function components(): array
+{
+    return [
+        ActionButton::make(
+            label: 'Click me',
+            url: fn() => 'https://moonshine-laravel.com',
+        )
+            ->primary() // [tl! focus]
+    ];
+}
 </x-code>
 
 {!! actionBtn('Primary', 'https://moonshine-laravel.com')->primary() !!}
@@ -118,40 +144,57 @@ ActionButton::make(
 {!! actionBtn('Success', 'https://moonshine-laravel.com')->success() !!}
 {!! actionBtn('Error', 'https://moonshine-laravel.com')->error() !!}
 
-<x-moonshine::divider label="onClick" />
+<x-sub-title id="onclick">onClick</x-sub-title>
 
 <x-p>
-    Возможность выполнить js по клику
+    Метод <code>onClick</code> позволяет выполнить js код по клику:
 </x-p>
 
 <x-code>
-ActionButton::make(
-    label: 'Click me',
-    url: 'https://moonshine-laravel.com',
-)->onClick(fn() => 'alert("Example")', 'prevent'),
+use MoonShine\ActionButtons\ActionButton;
+
+public function components(): array
+{
+    return [
+        ActionButton::make(
+            label: 'Click me',
+            url: 'https://moonshine-laravel.com',
+        )
+            ->onClick(fn() => 'alert("Example")', 'prevent') // [tl! focus]
+    ];
+}
 </x-code>
 
 {!! actionBtn('Example', 'https://moonshine-laravel.com')->onClick(fn() => 'alert("Example")', 'prevent') !!}
 
 <x-sub-title id="modal">Modal</x-sub-title>
+
 <x-moonshine::divider label="Basics" />
 
 <x-p>
-    Для того, чтобы по клику на кнопку произошел вызов модального окна, воспользуйтесь методом <code>inModal</code>
+    Для того, чтобы по клику на кнопку произошел вызов модального окна, воспользуйтесь методом <code>inModal()</code>.
 </x-p>
 
 <x-code>
-ActionButton::make(
-    label: 'Click me',
-    url: 'https://moonshine-laravel.com',
-)->inModal(
-    title: fn() => 'Modal title',
-    content: fn() => 'Modal content',
-    buttons: [
-        ActionButton::make('Click me in modal', 'https://moonshine-laravel.com')
-    ],
-    async: false
-),
+use MoonShine\ActionButtons\ActionButton;
+
+public function components(): array
+{
+    return [
+        ActionButton::make(
+            label: 'Click me',
+            url: 'https://moonshine-laravel.com',
+        )
+            ->inModal(
+                title: fn() => 'Modal title',
+                content: fn() => 'Modal content',
+                buttons: [
+                    ActionButton::make('Click me in modal', 'https://moonshine-laravel.com')
+                ],
+                async: false
+            ) // [tl! focus:-7]
+    ];
+}
 </x-code>
 
 {!! actionBtn('Example', 'https://moonshine-laravel.com')
@@ -159,95 +202,113 @@ ActionButton::make(
         actionBtn('Click me in modal', 'https://moonshine-laravel.com')
 ]) !!}
 
-<x-moonshine::divider label="withConfirm" />
-
-<x-p>
-    Быстрый способ создать кнопку с подтверждением действия <code>withConfirm</code>
-</x-p>
-
-<x-code>
-ActionButton::make(
-    label: 'Click me',
-    url: 'https://moonshine-laravel.com',
-)->withConfirm(
-    'Confirm modal title',
-    'Confirm modal content',
-    'Confirm modal button',
-),
-</x-code>
-
 <x-moonshine::divider label="Async" />
 
 <x-p>
-    Если требуется подгрузить контент в модальное окно асинхронно, то переключите параметр async в true
+    Если требуется подгрузить контент в модальное окно асинхронно,
+    то переключите параметр async в <code>true</code>.
 </x-p>
 
-@fragment('action-btn-fragment')
 <x-code>
-ActionButton::make(
-    label: 'Click me',
-    url: route('moonshine.page', ['pageUri' => 'action_button', '_fragment-load' => 'doc-content']),
-)->inModal(
-    title: fn() => 'Modal title',
-    async: true
-),
+use MoonShine\ActionButtons\ActionButton;
+
+public function components(): array
+{
+    return [
+        ActionButton::make(
+            label: 'Click me',
+            url: route('moonshine.page', ['pageUri' => 'action_button', '_fragment-load' => 'doc-content']),
+        )
+            ->inModal(
+                title: fn() => 'Modal title',
+                async: true // [tl! focus]
+            )
+    ];
+}
 </x-code>
-@endfragment
 
 {!! actionBtn('Example', route('moonshine.page', ['pageUri' => 'action_button', '_fragment-load' => 'doc-content']))->inModal(
     title: fn() => 'Modal title',
     async: true
 ) !!}
 
+<x-moonshine::alert class="my-4" type="default" icon="heroicons.book-open">
+    О <x-link link="{{ route('moonshine.page', 'components-decoration_fragment') }}">Fragment</x-link>
+    можно узнать в разделе "Components"
+</x-moonshine::alert>
+
+<x-moonshine::divider label="withConfirm" />
+
 <x-p>
-    <x-moonshine::alert type="default" icon="heroicons.book-open">
-        О Fragment можно узнать в разделе "Декорации"
-    </x-moonshine::alert>
+    Метод <code>withConfirm()</code> позволяет создать кнопку с подтверждением действия.
 </x-p>
+
+<x-code>
+use MoonShine\ActionButtons\ActionButton;
+
+public function components(): array
+{
+    return [
+        ActionButton::make(
+            label: 'Click me',
+            url: 'https://moonshine-laravel.com',
+        )
+            ->withConfirm(
+                'Confirm modal title',
+                'Confirm modal content',
+                'Confirm modal button',
+            ) // [tl! focus:-4]
+    ];
+}
+</x-code>
 
 <x-sub-title id="offcanvas">Offcanvas</x-sub-title>
 
 <x-p>
-    Для того, чтобы по клику на кнопку произошел вызов offcanvas, воспользуйтесь методом <code>inOffCanvas</code>
+    Для того, чтобы по клику на кнопку произошел вызов offcanvas, воспользуйтесь методом <code>inOffCanvas()</code>.
 </x-p>
 
 <x-code>
-ActionButton::make(
-    label: 'Click me',
-    url: 'https://moonshine-laravel.com',
-)->inOffCanvas(fn() => 'OffCanvas title', fn() => form()->fields([Text::make('Text')]), isLeft: false) ,
+use MoonShine\ActionButtons\ActionButton;
+
+public function components(): array
+{
+    return [
+        ActionButton::make(
+            label: 'Click me',
+            url: 'https://moonshine-laravel.com',
+        )
+            ->inOffCanvas(
+                fn() => 'OffCanvas title',
+                fn() => form()->fields([Text::make('Text')]),
+                isLeft: false
+            ) // [tl! focus:-4]
+    ];
+}
 </x-code>
 
 {!! actionBtn('Example', 'https://moonshine-laravel.com')
     ->inOffCanvas(fn() => 'OffCanvas title', fn() => form()->fields([MoonShine\Fields\Text::make('Text')])) !!}
 
-<x-p>
-    <x-moonshine::alert type="default" icon="heroicons.book-open">
-        О FormBuilder можно узнать в разделе "Advanced"
-    </x-moonshine::alert>
-</x-p>
-
-<x-sub-title id="group">Методы группы</x-sub-title>
+<x-sub-title id="group">Группы</x-sub-title>
 
 <x-p>
-    Если Вам необходимо выстроить логику с несколькими <code>ActionButton</code>, при этом некоторые должны быть скрыты или отображаться в выпадающем меню,
+    Если Вам необходимо выстроить логику с несколькими <code>ActionButton</code>,
+    при этом некоторые должны быть скрыты или отображаться в выпадающем меню,
     в таком случае воспользуйтесь компонентом <code>ActionGroup</code>
 </x-p>
 
-<x-moonshine::divider label="canSee" />
-
-<x-p>
-    Условие отображения
-</x-p>
-
 <x-code>
+use MoonShine\ActionButtons\ActionButton;
+use MoonShine\Components\ActionGroup; // [tl! focus]
+
 public function components(): array
 {
     return [
         ActionGroup::make([
             ActionButton::make('Button 1', '/')->canSee(fn() => false),
             ActionButton::make('Button 2', '/', $model)->canSee(fn($model) => $model->active)
-        ])
+        ]) // [tl! focus:-3]
     ];
 }
 </x-code>
@@ -255,10 +316,14 @@ public function components(): array
 <x-moonshine::divider label="Отображение" />
 
 <x-p>
-    Вы также благодаря ActionGroup можете изменить отображение кнопок, отображать их в линию или же в выпадающем меню для экономии места
+    Вы также благодаря <em>ActionGroup</em> можете изменить отображение кнопок,
+    отображать их в линию или же в выпадающем меню для экономии места.
 </x-p>
 
 <x-code>
+use MoonShine\ActionButtons\ActionButton;
+use MoonShine\Components\ActionGroup;
+
 public function components(): array
 {
     return [
@@ -270,11 +335,24 @@ public function components(): array
 }
 </x-code>
 
+<x-sub-title id="bulk">Bulk</x-sub-title>
+
 <x-p>
-    <x-moonshine::alert type="default" icon="heroicons.book-open">
-        Метод <code>bulk()</code>, используется только внутри ModelResource
-    </x-moonshine::alert>
+    Метод <code>bulk()</code> позволяет создать кнопку для массовых действий для <em>ModelResource</em>.
 </x-p>
+
+<x-code>
+public function indexButtons(): array
+{
+    return [
+        ActionButton::make('Link', '/endpoint')->bulk(),
+    ];
+}
+</x-code>
+
+<x-moonshine::alert type="default" icon="heroicons.book-open">
+    Метод <code>bulk()</code>, используется только внутри <em>ModelResource</em>.
+</x-moonshine::alert>
 
 <x-sub-title id="async">Асинхронный режим</x-sub-title>
 
@@ -398,5 +476,52 @@ window.myFunction = function(response, element, events, component)
     }
 }
 </x-code>
+
+<x-sub-title id="method">Вызов методов</x-sub-title>
+
+<x-p>
+    <code>method()</code> позволяют указать название метода в ресурсе и асинхронно вызывать его при клике по
+    <em>ActionButton</em> без необходимости создавать дополнительные контроллеры.
+</x-p>
+
+<x-code language="php">
+public function components(): array
+{
+    return [
+        ActionButton::make('Click me')
+            ->method('updateSomething'), // [tl! focus]
+    ];
+}
+</x-code>
+
+<x-code language="php">
+// With toast
+public function updateSomething(MoonShineRequest $request)
+{
+    // $request->getResource();
+    // $request->getResource()->getItem();
+    // $request->getPage();
+
+    MoonShineUI::toast('MyMessage', 'success');
+
+    return back();
+}
+
+// Exception
+public function updateSomething(MoonShineRequest $request)
+{
+    throw new \Exception('My message');
+}
+
+// Custom json response
+public function updateSomething(MoonShineRequest $request)
+{
+    return response()->json(['message' => 'MyMessage']);
+}
+</x-code>
+
+<x-moonshine::alert type="warning" icon="heroicons.information-circle">
+    Методы в вызываемые через <em>ActionButton</em> в ресурсе должны быть публичными!
+</x-moonshine::alert>
 
 </x-page>

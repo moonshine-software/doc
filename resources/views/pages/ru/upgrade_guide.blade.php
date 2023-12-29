@@ -108,10 +108,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider // [t
     bookmark, clip, delete, edit, export, filter, search, show и users).
 </x-p>
 
-<x-moonshine::alert type="default" icon="heroicons.book-open">
-    За более подробной информацией обратитесь к разделу
-    <x-link link="{{ route('moonshine.page', 'icons') }}">Icons</x-link>.
-</x-moonshine::alert>
+@include('pages.ru.shared.alert_icons')
 
 <x-sub-title id="resources" hashtag="5">Resources</x-sub-title>
 
