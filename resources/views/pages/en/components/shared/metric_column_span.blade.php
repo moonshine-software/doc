@@ -1,5 +1,5 @@
 <x-p>
-    The <code>columnSpan()</code> method allows you to set the width of a block in a <em>Grid</em> grid.
+    Method <code>columnSpan()</code> allows you to set the block width in the <em>Grid</em> grid.
 </x-p>
 
 <x-code language="php">
@@ -10,8 +10,8 @@ columnSpan(
 </x-code>
 
 <x-p>
-    <code>$columnSpan</code> - value for desktop version,<br>
-    <code>$adaptiveColumnSpan</code> - meaning for the mobile version.
+    <code>$columnSpan</code> - relevant for desktop,<br>
+    <code>$adaptiveColumnSpan</code> - relevant for mobile version.
 </x-p>
 
 <x-code language="php">
@@ -77,8 +77,8 @@ public function components(): array
 </x-code>
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
-    For more detailed information, please refer to the section
-    <x-link link="{{ route('moonshine.page', 'components-decoration_layout') }}">Decoration Layout</x-link>.
+    See the <x-link link="{{ route('moonshine.page', 'components-decoration_layout') }}">Decoration Layout</x-link>
+    section for more details.
 </x-moonshine::alert>
 
 

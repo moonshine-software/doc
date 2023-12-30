@@ -23,7 +23,7 @@ make(Closure|string $label)
 </x-code>
 
 <x-p>
-    The <code>values()</code> method allows you to specify a value for a metric.
+    Method <code>values()</code> allows you to specify the relevance for a metric.
 </x-p>
 
 <x-code language="php">
@@ -51,6 +51,6 @@ public function components(): array
 
 <x-sub-title id="column-span">Block width</x-sub-title>
 
-@include('pages.ru.components.shared.metric_column_span', ['metric' => 'DonutChartMetric'])
+@include('pages.en.components.shared.metric_column_span', ['metric' => 'DonutChartMetric'])
 
 </x-page>
