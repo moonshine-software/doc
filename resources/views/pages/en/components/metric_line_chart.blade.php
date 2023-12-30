@@ -36,7 +36,7 @@ line(
 </x-code>
 
 <x-p>
-    <code>$line</code> - values for plotting,<br>
+    <code>$line</code> - values for charting,<br>
     <code>$color</code> - line color.
 </x-p>
 
@@ -126,6 +126,6 @@ LineChartMetric::make('Orders')
 
 <x-sub-title id="column-span">Block width</x-sub-title>
 
-@include('pages.ru.components.shared.metric_column_span', ['metric' => 'LineChartMetric'])
+@include('pages.en.components.shared.metric_column_span', ['metric' => 'LineChartMetric'])
 
 </x-page>
