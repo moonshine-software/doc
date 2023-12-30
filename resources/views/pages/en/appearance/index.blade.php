@@ -9,7 +9,7 @@
 <x-sub-title id="logo">Logo</x-sub-title>
 
 <x-p>
-    Changes in the configuration file <code>config/moonshine.php</code>.
+    Can be changed in the configuration file <code>config/moonshine.php</code>.
 </x-p>
 
 <x-code language="php">
@@ -86,7 +86,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 
 <x-p>
     If you need to override certain light scheme colors,
-    then from the <code>theme()</code> method you need to return an array containing the <code>colors</code> key.
+    then from method <code>theme()</code> you need to return an array containing key <code>colors</code>.
 </x-p>
 
 <x-code language="php">
@@ -193,7 +193,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 <x-sub-title id="color-manager">Color manager</x-sub-title>
 
 <x-p>
-    The <em>Color Manager</em> in the <strong>MoonShine</strong> admin panel allows you to more conveniently manage your color scheme.
+    The <em>Color Manager</em> in the <strong>MoonShine</strong> admin panel allows you to manage your color scheme more conveniently.
 </x-p>
 
 <x-code language="php">
@@ -230,7 +230,7 @@ keyName(string $value, string $shade, string $dark)
 
 <x-ul>
     <li><code>keyName</code> - key in color array;</li>
-    <li><code>$value</code> - color meaning;</li>
+    <li><code>$value</code> - color value;</li>
     <li><code>$shade</code> - color tint (optional parameter);</li>
     <li><code>$dark</code> - dark theme, default light theme (optional parameter).</li>
 </x-ul>

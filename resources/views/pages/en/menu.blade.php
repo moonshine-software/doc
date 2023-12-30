@@ -68,7 +68,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     If the menu is created for <x-link :link="route('moonshine.page', 'resources-index')">ModelResource</x-link>
     or <x-link :link="route('moonshine.page', 'advanced-resource')">Resource</x-link>,
-    then for the menu element the first page declared in the <code>pages()</code> method will be used.
+    then the menu item will use the first page advertised in method <code>pages()</code>.
 </x-moonshine::alert>
 
 <x-moonshine::divider label="Menu via Closure" />
@@ -107,7 +107,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 
 <x-p>
     Menu items can be combined into groups. To do this, use the <strong>MoonShine\Menu\MenuGroup</strong> class
-    with the static <code>make()</code> method.
+    with the static method <code>make()</code>.
 </x-p>
 
 <x-code language="php">
@@ -149,7 +149,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 <x-image theme="dark" src="{{ asset('screenshots/menu_dark.png') }}"></x-image>
 
 <x-p>
-    You can also add elements to a group using the <code>setItems()</code> method
+    You can also add elements to a group using method <code>setItems()</code>
 </x-p>
 
 <x-code language="php">
@@ -297,7 +297,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 <x-moonshine::divider label="Via parameter" />
 
 <x-p>
-    The icon can be set by passing the name as the third parameter in the static <code>make()</code> method.
+    The icon can be set by passing the name as the third parameter in static method <code>make()</code>.
 </x-p>
 
 <x-code language="php">
@@ -328,7 +328,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 <x-moonshine::divider label="Via method" />
 
 <x-p>
-    Use the <code>icon()</code> method.
+    Use method <code>icon()</code>.
 </x-p>
 
 <x-code language="php">
@@ -396,7 +396,7 @@ class MoonShineUserResource extends ModelResource
 <x-moonshine::divider label="Via menu item" />
 
 <x-p>
-    To add a badge to a menu item or group, use the <code>badge()</code> method,
+    To add a badge to a menu item or group, use method <code>badge()</code>,
     which takes a closure as a parameter.
 </x-p>
 
@@ -432,7 +432,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
     For <em><x-link link="{{ route('moonshine.page', 'resources-index') }}">ModelResource</x-link></em>,
     <em><x-link link="{{ route('moonshine.page', 'page-class') }}">Page</x-link></em>
     or <em><x-link link="{{ route('moonshine.page', 'advanced-resource') }}">Resource</x-link></em>
-    There is an alternative way to set the badge - the <code>getBadge()</code> method.
+    There is an alternative way to set the badge - method <code>getBadge()</code>.
 </x-p>
 
 <x-code language="php">
@@ -461,7 +461,7 @@ class PostResource extends ModelResource
 
 <x-p>
     To translate menu items, you need to pass the translation key as the name
-    and add the <code>translatable()</code> method
+    and add method <code>translatable()</code>
 </x-p>
 
 <x-code language="php">

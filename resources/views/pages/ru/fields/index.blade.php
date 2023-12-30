@@ -584,7 +584,7 @@ public function fields(): array
 
 <x-p>
     Методы <code>beforeRender()</code> и <code>afterRender()</code>
-    позволяю вывести какую-то информацию перед и после поля соответственно.
+    позволяют вывести какую-то информацию перед и после поля соответственно.
 </x-p>
 
 <x-code language="php">
