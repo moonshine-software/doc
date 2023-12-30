@@ -1,7 +1,7 @@
 <x-sub-title id="placeholder">Placeholder</x-sub-title>
 
 <x-p>
-    The <code>placeholder()</code> method allows you to set the <em>placeholder</em> attribute to a field.
+    The <code>placeholder()</code> method allows you to set <em>placeholder</em> attribute on the field.
 </x-p>
 
 <x-code language="php">

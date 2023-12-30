@@ -25,7 +25,7 @@ public function fields(): array
 </x-code>
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
-    To mask the phone, use the <code>mask('7 999 999-99-99')</code> method
+    To use a mask for the phone, use the <code>mask('7 999 999-99-99')</code> method
 </x-moonshine::alert>
 
 </x-page>
