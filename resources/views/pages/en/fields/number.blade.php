@@ -45,7 +45,7 @@ public function fields(): array
 
 <x-p>
     Methods <code>min()</code> and <code>max()</code>
-    are used to set the minimum and maximum values for a field.
+    are used to set the minimum and maximum values of a field.
 </x-p>
 
 <x-code language="php">
@@ -57,7 +57,7 @@ max(int|float $max)
 </x-code>
 
 <x-p>
-    The <code>step()</code> method is used to set the value step for a field.
+    The <code>step()</code> method is used to specify a step value for a field.
 </x-p>
 
 <x-code language="php">
@@ -121,7 +121,7 @@ public function fields(): array
 <x-sub-title id="buttons">+/- buttons</x-sub-title>
 
 <x-p>
-    The <code>buttons()</code> method allows you to add buttons to a field to increase or decrease a value.
+    The <code>buttons()</code> method allows you to add buttons to a field for increasing or decreasing a value.
 </x-p>
 
 <x-code language="php">

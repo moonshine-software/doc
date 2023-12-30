@@ -40,6 +40,6 @@ public function fields(): array
 <x-image theme="light" src="{{ asset('screenshots/slide.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/slide_dark.png') }}"></x-image>
 
-@include('pages.ru.fields.shared.filter_range', ['field' => 'RangeSlider'])
+@include('pages.en.fields.shared.filter_range', ['field' => 'RangeSlider'])
 
 </x-page>

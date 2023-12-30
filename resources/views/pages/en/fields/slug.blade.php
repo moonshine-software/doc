@@ -18,7 +18,7 @@
 <x-sub-title id="basics">Basics</x-sub-title>
 
 <x-p>
-    With this field you can generate a slug based on the selected field,
+    Using this field you can generate a slug based on the selected field,
     and also store only unique values.
 </x-p>
 
@@ -124,7 +124,7 @@ public function fields(): array
 <x-sub-title id="unique">Unique value</x-sub-title>
 
 <x-p>
-    If you need to save only unique slugs, then you need to use the <code>unique()</code> method.
+    If you need to save only unique slugs, you need to use the <code>unique()</code> method.
 </x-p>
 
 <x-code language="php">

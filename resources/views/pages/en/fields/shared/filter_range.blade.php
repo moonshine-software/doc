@@ -1,8 +1,8 @@
 <x-sub-title id="filter">Filter</x-sub-title>
 
 <x-p>
-    When using the <em>{{ $field }}</em> field to build a filter, the <code>fromTo()</code> method is not used,
-    since filtering occurs by one field in the database table.
+    While using the <em>{{ $field }}</em> field to construct a filter, method <code>fromTo()</code> is not used,
+    because filtering occurs on one field in the database table.
 </x-p>
 
 <x-code language="php">

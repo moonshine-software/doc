@@ -80,6 +80,6 @@ public function fields(): array
 //...
 </x-code>
 
-@include('pages.ru.fields.shared.filter_range', ['field' => 'Range'])
+@include('pages.en.fields.shared.filter_range', ['field' => 'Range'])
 
 </x-page>

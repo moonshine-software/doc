@@ -34,13 +34,13 @@
     therefore, the range of their applications is limited only by your imagination.<br />
 </x-p>
 <x-p>
-    For convenience, the fields have a <em>fluent interface</em>.
+    For convenience, fields have <em>fluent interface</em>.
 </x-p>
 
 <x-sub-title id="make">Make</x-sub-title>
 
 <x-p>
-    To create an instance of a field, use the static <code>make()</code> method.
+    To create an instance of a field, use static method <code>make()</code>.
 </x-p>
 
 <x-code language="php">
@@ -58,7 +58,7 @@
     then the field in the database will be determined automatically based on <code>$label</code>.
 </x-moonshine::alert>
 
-<x-sub-title id="formatted">Formatting a value</x-sub-title>
+<x-sub-title id="formatted">Value formatting</x-sub-title>
 
 <x-code language="php">
 //...
@@ -152,7 +152,7 @@ public function fields(): array
 
 <x-p>
     Basic html attributes such as <code>required</code>,
-    <code>disabled</code> and <code>readonly</code>, the field must be set through the appropriate methods.
+    <code>disabled</code> and <code>readonly</code>, must be specified by the appropriate methods on the field.
 </x-p>
 
 <x-code language="php">
@@ -206,7 +206,7 @@ public function fields(): array
 </x-code>
 
 <x-p>
-    The <code>customWrapperAttributes()</code> method allows you to add attributes for a <em>wrapper</em> field.
+    Method <code>customWrapperAttributes()</code> allows you to add attributes for a <em>wrapper</em> field.
 </x-p>
 
 <x-code language="php">
@@ -230,7 +230,7 @@ public function fields(): array
 <x-sub-title id="hint">Clue</x-sub-title>
 
 <x-p>
-    You can add a hint with a description to a field by calling the <code>hint()</code> method
+    You can add a hint with a description to a field by calling method <code>hint()</code>
 </x-p>
 
 <x-code language="php">
@@ -294,7 +294,7 @@ public function fields(): array
 <x-sub-title id="nullable">Nullable</x-sub-title>
 
 <x-p>
-    If you need to keep NULL for a field by default, you must use the <code>nullable()</code> method.
+    If you need to keep NULL for a field by default, you must use method <code>nullable()</code>.
 </x-p>
 
 <x-code language="php">
@@ -318,7 +318,7 @@ public function fields(): array
 <x-sub-title id="sortable">Sorting</x-sub-title>
 
 <x-p>
-    To be able to sort a field on the main resource page, you need to add the <code>sortable()</code> method.
+    To be able to sort a field on the main resource page, you need to add method <code>sortable()</code>.
 </x-p>
 
 <x-code language="php">
@@ -340,7 +340,7 @@ public function fields(): array
 </x-code>
 
 <x-p>
-    The <code>sortable()</code> method can take the name of a field in the database or a closure as a parameter.
+    Method <code>sortable()</code> can take the name of a field in the database or a closure as a parameter.
 </x-p>
 
 <x-code language="php">
@@ -447,9 +447,9 @@ public function fields(): array
 <x-sub-title id="show-when">Dynamic display</x-sub-title>
 
 <x-p>
-    There may be a need to display a field only if another field has a value
-    in the form has a certain meaning (For example: display the phone only if there is a checkmark that there is a phone).<br />
-    For these purposes, the <code>showWhen()</code> method is used.
+    It may be necessary to display a field only if the value of another field in the form has a certain value
+    (for example: display the phone only if there is a checkmark that there is a phone).<br />
+    Method <code>showWhen()</code> is used for this purpose.
 </x-p>
 
 <x-code language="php">
@@ -557,7 +557,7 @@ public function fields(): array
 </x-code>
 
 <x-p>
-    The <code>changePreview()</code> method allows you to override the view for the preview (everywhere except the form).
+    Method <code>changePreview()</code> allows you to override the view for the preview (everywhere except the form).
 </x-p>
 
 <x-code language="php">
@@ -584,7 +584,7 @@ public function fields(): array
 
 <x-p>
     <code>beforeRender()</code> and <code>afterRender()</code> methods
-    I allow you to display some information before and after the field, respectively.
+    allows you to display some information before and after the field, respectively.
 </x-p>
 
 <x-code language="php">
@@ -614,8 +614,8 @@ public function fields(): array
 <x-sub-title id="when-unless">Methods by condition</x-sub-title>
 
 <x-p>
-    The <code>when()</code> method implements the <em>fluent interface</em>
-    and will execute a callback when the first argument passed to the method evaluates to true.
+    Method <code>when()</code> implements a <em>fluent interface</em>
+    and exucutes callback when the first argument passed to the method is true.
 </x-p>
 
 <x-code language="php">
@@ -641,7 +641,7 @@ public function fields(): array
 </x-moonshine::alert>
 
 <x-p>
-    The second callback can be passed to the <code>when()</code> method, it will be executed,
+    The second callback can be passed to method <code>when()</code>, it will be executed,
     when the first argument passed to the method is false.
 </x-p>
 
@@ -668,7 +668,7 @@ public function fields(): array
 </x-code>
 
 <x-p>
-    The <code>unless()</code> method is the inverse of the <code>when()</code> method and will execute the first callback,
+    Method <code>unless()</code> is the inverse of method <code>when()</code> and will execute the first callback,
     when the first argument is false, otherwise the second callback will be executed if it is passed to the method.
 </x-p>
 
@@ -913,7 +913,7 @@ public function fields(): array
 <x-p>
     When displayed on forms, fields use a special <em>wrapper</em> for titles, tooltips, links, etc.
     Sometimes a situation may arise when you want to display a field without additional elements.<br />
-    The <code>withoutWrapper()</code> method allows you to disable the creation of <em>wrapper</em>.
+    Method <code>withoutWrapper()</code> allows you to disable the creation of <em>wrapper</em>.
 </x-p>
 
 <x-code language="php">

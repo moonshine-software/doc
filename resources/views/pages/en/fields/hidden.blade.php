@@ -5,7 +5,7 @@
 </x-extendby>
 
 <x-p>
-    The <em>Hidden</em> field will default to <code>type="hidden"</code>.<br />
+    The <em>Hidden</em> field will be set by default to <code>type="hidden"</code>.<br />
     The field will be hidden when building forms, but displayed in preview, and its wrapper will also be hidden.
 </x-p>
 

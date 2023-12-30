@@ -118,7 +118,7 @@ public function fields(): array
 <x-image theme="light" src="{{ asset('screenshots/mask.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/mask_dark.png') }}"></x-image>
 
-@include('pages.ru.fields.shared.placeholder', ['field' => 'Text'])
+@include('pages.en.fields.shared.placeholder', ['field' => 'Text'])
 
 <x-sub-title id="extensions">Extensions</x-sub-title>
 
@@ -199,6 +199,6 @@ public function fields(): array
 //...
 </x-code>
 
-@include('pages.ru.fields.shared.update_on_preview', ['field' => 'Text'])
+@include('pages.en.fields.shared.update_on_preview', ['field' => 'Text'])
 
 </x-page>
