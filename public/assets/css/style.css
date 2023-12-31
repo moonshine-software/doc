@@ -120,7 +120,7 @@ code:not(.torchlight) {
     flex-direction: row-reverse;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     .sticky-menu {
         position: sticky;
         top: 0;
