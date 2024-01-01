@@ -200,6 +200,7 @@ return [
         ['slug' => 'advanced-socialite', 'label' => 'Socialite'],
         ['slug' => 'advanced-localization', 'label' => 'Localization'],
         ['slug' => 'advanced-testings', 'label' => 'Testing'],
+        ['slug' => 'advanced-development', 'label' => 'Package development'],
     ],
 
     ':_divider_',
