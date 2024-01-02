@@ -83,6 +83,15 @@ public function fields(): array
 <x-image theme="light" src="{{ asset('screenshots/belongs_to_many_pivot.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/belongs_to_many_pivot_dark.png') }}"></x-image>
 
+<x-moonshine::alert type="warning" icon="heroicons.information-circle">
+    The relationship must specify which <em>pivot</em> fields are used in the staging table!<br />
+    More details in the official documentation
+    <x-link
+      link="https://laravel.com/docs/eloquent-relationships#retieving-intermediate-table-columns"
+      target="_blank"
+    >Laravel</x-link>.
+</x-moonshine::alert>
+
 <x-sub-title id="creatable">Creating a Relationship Object</x-sub-title>
 
 @include('pages.ru.fields.shared.relation_creatable', ['field' => 'BelongsToMany', 'label' => 'Categories'])
