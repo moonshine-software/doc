@@ -83,6 +83,15 @@ public function fields(): array
 <x-image theme="light" src="{{ asset('screenshots/belongs_to_many_pivot.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/belongs_to_many_pivot_dark.png') }}"></x-image>
 
+<x-moonshine::alert type="warning" icon="heroicons.information-circle">
+    У отношения необходимо указать какие <em>pivot</em> поля используются в промежуточной таблице!<br />
+    Подробнее в официальной документации
+    <x-link
+        link="https://laravel.com/docs/eloquent-relationships#retrieving-intermediate-table-columns"
+        target="_blank"
+    >Laravel</x-link>.
+</x-moonshine::alert>
+
 <x-sub-title id="creatable">Создание объекта отношения</x-sub-title>
 
 @include('pages.ru.fields.shared.relation_creatable', ['field' => 'BelongsToMany', 'label' => 'Categories'])
