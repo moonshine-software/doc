@@ -2,6 +2,23 @@
 <ul>
     <li class="mb-4">
         <x-moonshine::link-button
+            href="https://github.com/moonshine-software/moonshine/releases/tag/2.6.0"
+            target="_blank"
+        >
+            v2.6.0 "Jet Punch"
+        </x-moonshine::link-button>
+
+        <div class="my-2">
+            <x-moonshine::link-native
+                href="https://cutcode.dev/articles/moonshine-26-jet-punch"
+                target="_blank"
+            >
+                Details
+            </x-moonshine::link-native>
+        </div>
+    </li>
+    <li class="mb-4">
+        <x-moonshine::link-button
             href="https://github.com/moonshine-software/moonshine/releases/tag/2.5.0"
             target="_blank"
         >
