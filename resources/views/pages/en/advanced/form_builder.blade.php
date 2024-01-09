@@ -4,9 +4,17 @@
     :sectionMenu="[
         'Sections' => [
             ['url' => '#basics', 'label' => 'Basics'],
-            ['url' => '#methods', 'label' => 'Methods'],
+            ['url' => '#fields', 'label' => 'Fields'],
+            ['url' => '#fill', 'label' => 'Field values'],
+            ['url' => '#cast', 'label' => 'Casting'],
+            ['url' => '#fillCast', 'label' => 'FillCast'],
+            ['url' => '#buttons', 'label' => 'Buttons'],
+            ['url' => '#attributes', 'label' => 'Attributes'],
+            ['url' => '#name', 'label' => 'Form name'],
             ['url' => '#async', 'label' => 'Asynchronous mode'],
+            ['url' => '#precognitive', 'label' => 'Precognitive'],
             ['url' => '#apply', 'label' => 'Apply'],
+            ['url' => '#method', 'label' => 'Calling methods'],
         ]
     ]"
 >
@@ -14,9 +22,9 @@
 <x-sub-title id="basics">Basics</x-sub-title>
 
 <x-p>
-    Fields and decorations in MoonShine are used inside forms, which are handled by FormBuilder.
-    Thanks to FormBuilder, fields are displayed and filled with data.
-    You can also use FormBuilder on your own pages or even outside of MoonShine.
+    Fields and decorations in <em>FormBuilder</em>  are used inside forms, which are handled by FormBuilder.<br />
+    Thanks to <em>FormBuilder</em> , fields are displayed and filled with data.<br />
+    You can also use <em>FormBuilder</em>  on your own pages or even outside of <strong>MoonShine</strong>.
 </x-p>
 
 <x-code language="php">
@@ -36,11 +44,14 @@ make(
 </x-ul>
 
 <x-code language="php">
-FormBuilder::make('/crud/update', 'PUT')
-    ->fields([
+FormBuilder::make(
+    action:'/crud/update',
+    method: 'PUT',
+    fields: [
         Text::make('Text')
-    ])
-    ->fill(['text' => 'Value'])
+    ],
+    values: ['text' => 'Value']
+)
 </x-code>
 
 <x-p>
@@ -78,14 +89,33 @@ FormBuilder::make()
         ->fill(['text' => 'Value'])
 !!}
 
-
-<x-sub-title id="methods">Methods</x-sub-title>
-
-<x-moonshine::divider label="fields" />
+<x-sub-title id="fields">Fields</x-sub-title>
 
 <x-p>
-    The <code>fields</code> method for declaring form fields and decorations:
+    The <code>fields()</code> method for declaring form fields and decorations:
 </x-p>
+
+<x-code language="php">
+fields(Fields|Closure|array $fields)
+</x-code>
+
+<x-code language="php">
+FormBuilder::make('/crud/update', 'PUT')
+    ->fields([
+        Heading::make('Title'),
+        Text::make('Text'),
+    ]) // [tl! focus:-3]
+</x-code>
+
+<x-sub-title id="fill">Field values</x-sub-title>
+
+<x-p>
+    <code>fill()</code> method for filling fields with values:
+</x-p>
+
+<x-code language="php">
+fill(mixed $values = [])
+</x-code>
 
 <x-code language="php">
 FormBuilder::make('/crud/update', 'PUT')
@@ -93,29 +123,19 @@ FormBuilder::make('/crud/update', 'PUT')
         Heading::make('Title'),
         Text::make('Text'),
     ])
+    ->fill(['text' => 'value']) // [tl! focus]
 </x-code>
 
-<x-moonshine::divider label="fill" />
+<x-sub-title id="cast">Casting</x-sub-title>
 
 <x-p>
-    <code>fill</code> method for filling fields with values:
-</x-p>
-
-<x-code language="php">
-FormBuilder::make('/crud/update', 'PUT')
-    ->fields([
-        Heading::make('Title'),
-        Text::make('Text'),
-    ])
-    ->fill(['text' => 'value'])
-</x-code>
-
-<x-moonshine::divider label="cast" />
-
-<x-p>
-    The <code>cast</code> method for casting form values to a specific type.
+    The <code>cast()</code> method for casting form values to a specific type.
     Since by default fields work with primitive types:
 </x-p>
+
+<x-code language="php">
+cast(MoonShineDataCast $cast)
+</x-code>
 
 <x-code language="php">
 use MoonShine\TypeCasts\ModelCast;
@@ -125,75 +145,142 @@ FormBuilder::make('/crud/update', 'PUT')
         Heading::make('Title'),
         Text::make('Text'),
     ])
-    ->fillCast(['text' => 'value'], ModelCast::make(User::class))
-</x-code>
-
-<x-code language="php">
-    use MoonShine\TypeCasts\ModelCast;
-
-    FormBuilder::make('/crud/update', 'PUT')
-    ->fields([
-    Heading::make('Title'),
-    Text::make('Text'),
-    ])
-    ->fillCast(User::query()->first(), ModelCast::make(User::class))
+    ->cast(ModelCast::make(User::class)) // [tl! focus]
 </x-code>
 
 <x-p>
     In this example, we cast the data to the <code>User</code> model format using <code>ModelCast</code>.
 </x-p>
 
+<x-moonshine::alert type="default" icon="heroicons.book-open">
+    For more detailed information, please refer to the section
+    <x-link link="{{ route('moonshine.page', 'advanced-type_casts') }}">TypeCasts</x-link>
+</x-moonshine::alert>
+
+<x-sub-title id="fillCast">FillCast</x-sub-title>
+
 <x-p>
-    <x-moonshine::alert type="default" icon="heroicons.book-open">
-        Read more about TypeCasts in the section of the same name
-    </x-moonshine::alert>
+    The <code>fillCast()</code> method allows you to cast data to a specific type and immediately fill it with values:
 </x-p>
 
-<x-moonshine::divider label="buttons" />
+<x-code language="php">
+fillCast(mixed $values, MoonShineDataCast $cast)
+</x-code>
+
+<x-code language="php">
+use MoonShine\TypeCasts\ModelCast;
+
+FormBuilder::make('/crud/update', 'PUT')
+    ->fields([
+        Heading::make('Title'),
+        Text::make('Text'),
+    ])
+    ->fillCast(
+        ['text' => 'value'],
+        ModelCast::make(User::class)
+    ) // [tl! focus:-3]
+</x-code>
+
+<x-p>or</x-p>
+
+<x-code language="php">
+use MoonShine\TypeCasts\ModelCast;
+
+FormBuilder::make('/crud/update', 'PUT')
+    ->fields([
+        Heading::make('Title'),
+        Text::make('Text'),
+    ])
+    ->fillCast(
+        User::query()->first(),
+        ModelCast::make(User::class)
+    ) // [tl! focus:-3]
+</x-code>
+
+<x-sub-title id="buttons">Buttons</x-sub-title>
 
 <x-p>
     Form buttons can be modified and added.
 </x-p>
 
 <x-p>
-    To customize the "submit" button, use the <code>submit</code> method
+    To customize the "submit" button, use the <code>submit()</code> method.
 </x-p>
 
 <x-code language="php">
+submit(string $label, array $attributes = [])
+</x-code>
+
+<x-ul>
+    <li><code>label</code> - button name,</li>
+    <li><code>attributes</code> - additional attributes.</li>
+</x-ul>
+
+<x-code language="php">
 FormBuilder::make('/crud/update', 'PUT')
-    ->submit(label: 'Click me', attributes: ['class' => 'btn-primary'])
+    ->submit(label: 'Click me', attributes: ['class' => 'btn-primary']) // [tl! focus]
 </x-code>
 
 <x-p>
-    To add new buttons based on <code>ActionButton</code>, use the <code>buttons</code> method
+    To add new buttons based on <code>ActionButton</code>, use the <code>buttons()</code> method
 </x-p>
+
+<x-code language="php">
+buttons(array $buttons = [])
+</x-code>
 
 <x-code language="php">
 FormBuilder::make('/crud/update', 'PUT')
     ->buttons([
         ActionButton::make('Delete', route('name.delete'))
-    ])
+    ]) // [tl! focus:-2]
 </x-code>
 
-<x-moonshine::divider label="Attributes" />
+<x-sub-title id="attributes">Attributes</x-sub-title>
 
 <x-p>
-    You can set any html attributes for the form using the <code>customAttributes</code> method.
+    You can set any html attributes for the form using the <code>customAttributes()</code> method.
 </x-p>
 
 <x-code>
-FormBuilder::make()->customAttributes(['class' => 'custom-form']),
+FormBuilder::make()
+    ->customAttributes(['class' => 'custom-form']) // [tl! focus]
+</x-code>
+
+<x-sub-title id="name">Form name</x-sub-title>
+
+<x-p>
+    The <code>name()</code> method allows you to set a unique name for the form through which events can be raised.
+</x-p>
+
+<x-code language="php">
+FormBuilder::make('/crud/update', 'PUT')
+    ->name('main-form') // [tl! focus]
 </x-code>
 
 <x-sub-title id="async">Asynchronous mode</x-sub-title>
 
 <x-p>
-    If you need to submit the form asynchronously, use the <code>async</code> method.
+    If you need to submit the form asynchronously, use the <code>async()</code> method.
 </x-p>
 
 <x-code language="php">
+async(
+    ?string $asyncUrl = null,
+    string|array|null $asyncEvents = null,
+    ?string $asyncCallback = null
+)
+</x-code>
+
+<x-ul>
+    <li><code>asyncUrl</code> - request url (by default the request is sent via action url),</li>
+    <li><code>asyncEvents</code> - events raised after a successful request,</li>
+    <li><code>asyncCallback</code> - js callback function after receiving a response.</li>
+</x-ul>
+
+<x-code language="php">
 FormBuilder::make('/crud/update', 'PUT')
-    ->async()
+    ->async() // [tl! focus]
 </x-code>
 
 <x-p>
@@ -203,29 +290,36 @@ FormBuilder::make('/crud/update', 'PUT')
 <x-code language="php">
     FormBuilder::make('/crud/update', 'PUT')
         ->name('main-form')
-        ->async(asyncEvents: ['table-updated-crud', 'form-reset-main-form'])
+        ->async(asyncEvents: ['table-updated-crud', 'form-reset-main-form']) // [tl! focus]
 </x-code>
 
-<x-moonshine::alert type="primary" icon="heroicons.information-circle">
-    MoonShine already has a set of ready-made events
-</x-moonshine::alert>
+<x-p>
+    MoonShine already has a set of ready-made events:
+</x-p>
 
 <x-ul>
-    <li><code>table-updated-{name}</code> - Updating an asynchronous table by its name</li>
-    <li><code>form-reset-{name}</code> - Reset form values by its name</li>
-    <li><code>fragment-updated-{name}</code> - Updates a blade fragment by its name</li>
+    <li><code>table-updated-{name}</code> - updating an asynchronous table by its name,</li>
+    <li><code>form-reset-{name}</code> - reset form values by its name,</li>
+    <li><code>fragment-updated-{name}</code> - updates a blade fragment by its name.</li>
 </x-ul>
 
+<x-moonshine::alert type="primary" icon="heroicons.outline.book-open">
+    Recipe:
+    <x-link link="{{ route('moonshine.page', 'recipes') }}#form-with-events">
+        Upon a successful request, the form updates the table and resets the values
+    </x-link>.
+</x-moonshine::alert>
+
+<x-sub-title id="precognitive">Precognitive</x-sub-title>
+
 <x-p>
-    If you need to perform precognition validation first, you need the <code>precognitive</code> method.
+    If you need to perform precognition validation first, you need the <code>precognitive()</code> method.
 </x-p>
 
 <x-code language="php">
 FormBuilder::make('/crud/update', 'PUT')
-    ->precognitive()
+    ->precognitive() // [tl! focus]
 </x-code>
-
-@include('pages.en.recipes.form-with-events')
 
 <x-sub-title id="apply">Apply</x-sub-title>
 
@@ -296,6 +390,49 @@ $form->apply(
     },
     throw: true
 );
+</x-code>
+
+<x-sub-title id="method">Calling methods</x-sub-title>
+
+<x-p>
+    <code>asyncMethod()</code> allow you to specify the name of the method in the resource and call it asynchronously when sending
+    <em>FormBuilder</em> without the need to create additional controllers.
+</x-p>
+
+<x-code language="php">
+public function components(): array
+{
+    return [
+        FormBuilder::make()
+            ->asyncMethod('updateSomething'), // [tl! focus]
+    ];
+}
+</x-code>
+
+<x-code language="php">
+// With toast
+public function updateSomething(MoonShineRequest $request)
+{
+    // $request->getResource();
+    // $request->getResource()->getItem();
+    // $request->getPage();
+
+    MoonShineUI::toast('MyMessage', 'success');
+
+    return back();
+}
+
+// Exception
+public function updateSomething(MoonShineRequest $request)
+{
+    throw new \Exception('My message');
+}
+
+// Custom json response
+public function updateSomething(MoonShineRequest $request)
+{
+    return response()->json(['message' => 'MyMessage']);
+}
 </x-code>
 
 </x-page>
