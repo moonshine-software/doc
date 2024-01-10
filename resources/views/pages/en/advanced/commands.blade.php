@@ -210,9 +210,8 @@
 
 <x-ul>
     <li><code>--m|model=</code> - Eloquent model for model resource;</li>
-    <li>
-        <code>--t|title=</code> - section title.
-    </li>
+    <li><code>--t|title=</code> - section title;</li>
+    <li><code>--test</code> or <code>--pest</code> - additionally generate a test class.</li>
 </x-ul>
 
 <x-p>

@@ -210,9 +210,8 @@
 
 <x-ul>
     <li><code>--m|model=</code> - Eloquent модель для ресурса модели;</li>
-    <li>
-        <code>--t|title=</code> - заголовок раздела.
-    </li>
+    <li><code>--t|title=</code> - заголовок раздела;</li>
+    <li><code>--test</code> или <code>--pest</code> - дополнительно сгенерировать тестовый класс.</li>
 </x-ul>
 
 <x-p>
@@ -311,5 +310,7 @@
         </li>
     </x-ul>
 </x-p>
+
+<x-sub-title id="test">Test</x-sub-title>
 
 </x-page>
