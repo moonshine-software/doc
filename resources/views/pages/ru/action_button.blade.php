@@ -175,6 +175,32 @@ public function components(): array
     Для того, чтобы по клику на кнопку произошел вызов модального окна, воспользуйтесь методом <code>inModal()</code>.
 </x-p>
 
+<x-code language="php">
+inModal(
+    Closure|string|null $title = null,
+    Closure|string|null $content = null,
+    array $buttons = [],
+    bool $async = false,
+    bool $wide = false,
+    bool $auto = false,
+    bool $closeOutside = false,
+    array $attributes = [],
+    bool $autoClose = true,
+)
+</x-code>
+
+<x-ul>
+    <li><code>title</code> - заголовок окна,</li>
+    <li><code>content</code> - контент модального окна,</li>
+    <li><code>buttons</code> - кнопки модального окна,</li>
+    <li><code>async</code> - асинхронный режим,</li>
+    <li><code>wide</code> - максимальная ширина модального окна,</li>
+    <li><code>auto</code> - ширина модального окна по контенту,</li>
+    <li><code>closeOutside</code> - закрывать модальное окно при клике вне области окна,</li>
+    <li><code>attributes</code> - дополнительные аттрибуты,</li>
+    <li><code>autoClose</code> - автозакрытие модального окна после успешного запроса.</li>
+</x-ul>
+
 <x-code>
 use MoonShine\ActionButtons\ActionButton;
 

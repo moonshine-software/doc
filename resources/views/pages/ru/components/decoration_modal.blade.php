@@ -6,6 +6,7 @@
             ['url' => '#events', 'label' => 'События'],
             ['url' => '#open', 'label' => 'Состояние по умолчанию'],
             ['url' => '#close-outside', 'label' => 'Клик вне окна'],
+            ['url' => '#autoclose', 'label' => 'Автозакрытие'],
             ['url' => '#wide', 'label' => 'Ширина окна'],
             ['url' => '#outer-attributes', 'label' => 'Аттрибуты внешнего блока'],
         ]
@@ -213,6 +214,55 @@ public function components(): array
 
 {!!
     MoonShine\Components\Modal::make('Title', 'Content...', '<a class="btn">Show modal</a>')->closeOutside(false)
+!!}
+
+<x-sub-title id="autoclose">Автозакрытие</x-sub-title>
+
+<x-p>
+    По умолчанию модальные окна после успешного запроса закрываются,
+    метод <code>autoClose()</code> позволяет контролировать это поведение.
+</x-p>
+
+<x-code language="php">
+autoClose(Closure|bool|null $autoClose = null)
+</x-code>
+
+<x-code language="php">
+use MoonShine\Components\Modal;
+
+//...
+
+public function components(): array
+{
+    return [
+        Modal::make(
+            'Demo modal',
+            static fn() => FormBuilder::make(route('alert.post'))
+                ->fields([
+                    Text::make('Text'),
+                ])
+                ->submit('Send', ['class' => 'btn-primary'])
+                ->async(),
+        )
+            ->name('demo-modal')
+            ->autoClose(false), // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
+
+{!!
+    MoonShine\Components\Modal::make(
+        'Confirm',
+        static fn() => MoonShine\Components\FormBuilder::make(route('async'))
+            ->async()
+            ->fields([
+                MoonShine\Fields\Password::make('Password')->eye(),
+            ])
+            ->submit('Confirm'),
+        '<a class="btn">Show modal</a>'
+    )->autoClose(false);
 !!}
 
 <x-sub-title id="wide">Ширина окна</x-sub-title>
