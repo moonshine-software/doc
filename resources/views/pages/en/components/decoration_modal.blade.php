@@ -6,6 +6,7 @@
             ['url' => '#events', 'label' => 'Events'],
             ['url' => '#open', 'label' => 'Default state'],
             ['url' => '#close-outside', 'label' => 'Click outside'],
+            ['url' => '#autoclose', 'label' => 'Auto close'],
             ['url' => '#wide', 'label' => 'Width'],
             ['url' => '#outer-attributes', 'label' => 'Outer attributes'],
         ]
@@ -213,6 +214,55 @@ public function components(): array
 
 {!!
     MoonShine\Components\Modal::make('Title', 'Content...', '<a class="btn">Show modal</a>')->closeOutside(false)
+!!}
+
+<x-sub-title id="autoclose">Auto close</x-sub-title>
+
+<x-p>
+    By default, modal windows close after a successful request.
+    the <code>autoClose()</code> method allows you to control this behavior.
+</x-p>
+
+<x-code language="php">
+autoClose(Closure|bool|null $autoClose = null)
+</x-code>
+
+<x-code language="php">
+use MoonShine\Components\Modal;
+
+//...
+
+public function components(): array
+{
+    return [
+        Modal::make(
+            'Demo modal',
+            static fn() => FormBuilder::make(route('alert.post'))
+                ->fields([
+                    Text::make('Text'),
+                ])
+                ->submit('Send', ['class' => 'btn-primary'])
+                ->async(),
+        )
+            ->name('demo-modal')
+            ->autoClose(false), // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
+
+{!!
+    MoonShine\Components\Modal::make(
+        'Confirm',
+        static fn() => MoonShine\Components\FormBuilder::make(route('async'))
+            ->async()
+            ->fields([
+                MoonShine\Fields\Password::make('Password')->eye(),
+            ])
+            ->submit('Confirm'),
+        '<a class="btn">Show modal</a>'
+    )->autoClose(false);
 !!}
 
 <x-sub-title id="wide">Wide</x-sub-title>

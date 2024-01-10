@@ -175,6 +175,32 @@ public function components(): array
     To trigger a modal window when a button is clicked, use the <code>inModal()</code> method.
 </x-p>
 
+<x-code language="php">
+inModal(
+    Closure|string|null $title = null,
+    Closure|string|null $content = null,
+    array $buttons = [],
+    bool $async = false,
+    bool $wide = false,
+    bool $auto = false,
+    bool $closeOutside = false,
+    array $attributes = [],
+    bool $autoClose = true,
+)
+</x-code>
+
+<x-ul>
+    <li><code>title</code> - modal title,</li>
+    <li><code>content</code> - modal content,</li>
+    <li><code>buttons</code> - modal buttons,</li>
+    <li><code>async</code> - async mode,</li>
+    <li><code>wide</code> - maximum modal width,</li>
+    <li><code>auto</code> - width of modal window by content,</li>
+    <li><code>closeOutside</code> - close the modal window when clicking outside the window area,</li>
+    <li><code>attributes</code> - additional attributes,</li>
+    <li><code>autoClose</code> - auto close modal window after successful request.</li>
+</x-ul>
+
 <x-code>
 use MoonShine\ActionButtons\ActionButton;
 
