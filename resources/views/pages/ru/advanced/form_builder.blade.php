@@ -431,7 +431,7 @@ public function updateSomething(MoonShineRequest $request)
 // Custom json response
 public function updateSomething(MoonShineRequest $request)
 {
-    return response()->json(['message' => 'MyMessage']);
+    return MoonShineJsonResponse::make()->toast('MyMessage', ToastType::SUCCESS);
 }
 </x-code>
 

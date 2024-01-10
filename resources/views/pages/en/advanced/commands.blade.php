@@ -34,7 +34,7 @@
 
 <x-ul>
     <li><code>-u</code>, <code>--without-user</code> - without creating a super user;</li>
-    <li><code>-m</code>, <code>--without-migrations </code> - without performing migrations.</li>
+    <li><code>-m</code>, <code>--without-migrations</code> - without performing migrations.</li>
 </x-ul>
 
 <x-moonshine::alert class="mt-8" type="default" icon="heroicons.book-open">
@@ -210,9 +210,8 @@
 
 <x-ul>
     <li><code>--m|model=</code> - Eloquent model for model resource;</li>
-    <li>
-        <code>--t|title=</code> - section title.
-    </li>
+    <li><code>--t|title=</code> - section title;</li>
+    <li><code>--test</code> or <code>--pest</code> - additionally generate a test class.</li>
 </x-ul>
 
 <x-p>
