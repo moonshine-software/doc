@@ -34,7 +34,7 @@
 
 <x-ul>
     <li><code>-u</code>, <code>--without-user</code> - without creating a super user;</li>
-    <li><code>-m</code>, <code>--without-migrations </code> - without performing migrations.</li>
+    <li><code>-m</code>, <code>--without-migrations</code> - without performing migrations.</li>
 </x-ul>
 
 <x-moonshine::alert class="mt-8" type="default" icon="heroicons.book-open">

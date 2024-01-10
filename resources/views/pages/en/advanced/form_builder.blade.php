@@ -40,7 +40,7 @@ make(
     <li><code>action</code> - handler</li>
     <li><code>method</code> - request type,</li>
     <li><code>fields</code> - fields and decorations.</li>
-    <li><code>values </code> - field values.</li>
+    <li><code>values</code> - field values.</li>
 </x-ul>
 
 <x-code language="php">

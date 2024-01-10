@@ -34,7 +34,7 @@
 
 <x-ul>
     <li><code>-u</code>, <code>--without-user</code> - без создания супер пользователя;</li>
-    <li><code>-m</code>, <code>--without-migrations </code> - без выполнения миграций.</li>
+    <li><code>-m</code>, <code>--without-migrations</code> - без выполнения миграций.</li>
 </x-ul>
 
 <x-moonshine::alert class="mt-8" type="default" icon="heroicons.book-open">
