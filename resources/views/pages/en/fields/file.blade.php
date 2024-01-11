@@ -179,8 +179,16 @@ public function fields(): array
 </x-p>
 
 <x-code language="php">
-removable()
+removable(
+    Closure|bool|null $condition = null,
+    array $attributes = []
+)
 </x-code>
+
+<x-ul>
+    <li><code>$condition</code> - condition for executing the method,</li>
+    <li><code>$attributes</code> - additional button attributes.</li>
+</x-ul>
 
 <x-code language="php">
 use MoonShine\Fields\File;
@@ -197,6 +205,28 @@ public function fields(): array
 
 //...
 </x-code>
+
+<x-moonshine::divider label="Attributes" />
+
+<x-code language="php">
+use MoonShine\Fields\File;
+
+//...
+
+public function fields(): array
+{
+    return [
+        File::make('File')
+            ->removable(
+                attributes: ['@click.prevent' => '$event.target.closest(`.x-removeable`).remove()']
+            ) // [tl! focus:-2]
+    ];
+}
+
+//...
+</x-code>
+
+<x-moonshine::divider label="disableDeleteFiles()" />
 
 <x-p>
     The <code>disableDeleteFiles()</code> method will allow you to delete only a record in the database,
@@ -223,6 +253,8 @@ public function fields(): array
 
 //...
 </x-code>
+
+<x-moonshine::divider label="enableDeleteDir()" />
 
 <x-p>
     The <code>enableDeleteDir()</code> method deletes the directory specified in the <code>dir()</code> method if it is empty.
