@@ -210,7 +210,6 @@ $this->getItem();
     $this->getModel();
 </x-code>
 
-
 <x-sub-title id="modal">Modal windows</x-sub-title>
 
 <x-p>
@@ -309,6 +308,13 @@ class PostResource extends ModelResource
     // ...
 }
 </x-code>
+
+<x-moonshine::alert type="primary" icon="heroicons.outline.book-open">
+    Recipe:
+    <x-link link="{{ route('moonshine.page', 'recipes') }}#custom-breadcrumbs">
+        Changing breadcrumbs from a resource
+    </x-link>.
+</x-moonshine::alert>
 
 <x-p>
     You can also connect trait to a resource and inside trait add a method according to the naming convention -

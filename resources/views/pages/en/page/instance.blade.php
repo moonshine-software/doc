@@ -6,6 +6,7 @@
             ['url' => '#define', 'label' => 'Announcement'],
             ['url' => '#title', 'label' => 'Heading'],
             ['url' => '#layout', 'label' => 'Layout'],
+            ['url' => '#breadcrumbs', 'label' => 'Breadcrumbs'],
             ['url' => '#alias', 'label' => 'Alias'],
             ['url' => '#view-page', 'label' => 'Quick page'],
             ['url' => '#render', 'label' => 'Render'],
@@ -156,6 +157,30 @@ public function pages(): array
     return [
         CustomPage::make('Title page', 'custom_page')
             ->setLayout('custom_layouts.app') // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
+
+<x-sub-title id="breadcrumbs">Breadcrumbs</x-sub-title>
+
+<x-p>
+    The <code>setBreadcrumbs()</code> method allows you to change the breadcrumbs of a page.
+</x-p>
+
+<x-code language="php">
+use App\MoonShine\Pages\CustomPage;
+
+//...
+
+public function pages(): array
+{
+    return [
+        CustomPage::make('Title page', 'custom_page')
+            ->setBreadcrumbs([
+                '#' => $this->title()
+            ]) // [tl! focus:-2]
     ];
 }
 

@@ -179,8 +179,16 @@ public function fields(): array
 </x-p>
 
 <x-code language="php">
-removable()
+removable(
+    Closure|bool|null $condition = null,
+    array $attributes = []
+)
 </x-code>
+
+<x-ul>
+    <li><code>$condition</code> - условие выполнения метода,</li>
+    <li><code>$attributes</code> - дополнительные аттрибуты кнопки.</li>
+</x-ul>
 
 <x-code language="php">
 use MoonShine\Fields\File;
@@ -197,6 +205,28 @@ public function fields(): array
 
 //...
 </x-code>
+
+<x-moonshine::divider label="Attributes" />
+
+<x-code language="php">
+use MoonShine\Fields\File;
+
+//...
+
+public function fields(): array
+{
+    return [
+        File::make('File')
+            ->removable(
+                attributes: ['@click.prevent' => '$event.target.closest(`.x-removeable`).remove()']
+            ) // [tl! focus:-2]
+    ];
+}
+
+//...
+</x-code>
+
+<x-moonshine::divider label="disableDeleteFiles()" />
 
 <x-p>
     Метод <code>disableDeleteFiles()</code> позволят удалить только запись в базе данных,
@@ -223,6 +253,8 @@ public function fields(): array
 
 //...
 </x-code>
+
+<x-moonshine::divider label="enableDeleteDir()" />
 
 <x-p>
     Метод <code>enableDeleteDir()</code> удаляет директорию указанную в методе <code>dir()</code>, если она пуста.

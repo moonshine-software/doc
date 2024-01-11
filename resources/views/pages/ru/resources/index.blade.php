@@ -309,6 +309,13 @@ class PostResource extends ModelResource
 }
 </x-code>
 
+<x-moonshine::alert type="primary" icon="heroicons.outline.book-open">
+    Рецепт:
+    <x-link link="{{ route('moonshine.page', 'recipes') }}#custom-breadcrumbs">
+        Изменение breadcrumbs из ресурса
+    </x-link>.
+</x-moonshine::alert>
+
 <x-p>
     Вы также можете подключить trait к ресурсу и внутри trait добавить метод согласно конвенции наименований -
     boot{TraitName} и через трейт обратится к boot ресурса

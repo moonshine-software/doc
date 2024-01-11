@@ -12,6 +12,7 @@
             ['url' => '#vertical', 'label' => 'Вертикальное отображение'],
             ['url' => '#relation', 'label' => 'Отношения через Json'],
             ['url' => '#filter', 'label' => 'Фильтр'],
+            ['url' => '#buttons', 'label' => 'Кнопки'],
         ]
     ]"
 >
@@ -198,21 +199,30 @@ public function fields(): array
 </x-p>
 
 <x-code language="php">
-creatable(Closure|bool|null $condition = null, ?int $limit = null)
+creatable(
+    Closure|bool|null $condition = null,
+    ?int $limit = null,
+    ?ActionButton $button = null
+)
 </x-code>
 
-<x-p>
-    <code>$condition</code> - условие выполнения метода,<br>
-    <code>$limit</code> - количество записей которые можно добавить.
-</x-p>
+<x-ul>
+    <li><code>$condition</code> - условие выполнения метода,</li>
+    <li><code>$limit</code> - количество записей которые можно добавить,</li>
+    <li><code>$button</code> - кастомная кнопка добавления.</li>
+</x-ul>
 
 <x-code language="php">
-removable(Closure|bool|null $condition = null)
+removable(
+    Closure|bool|null $condition = null,
+    array $attributes = []
+)
 </x-code>
 
-<x-p>
-    <code>$condition</code> - условие выполнения метода.
-</x-p>
+<x-ul>
+    <li><code>$condition</code> - условие выполнения метода,</li>
+    <li><code>$attributes</code> - дополнительные аттрибуты кнопки.</li>
+</x-ul>
 
 <x-code language="php">
 use MoonShine\Fields\Json;
@@ -234,6 +244,50 @@ public function fields(): array
 
 <x-image theme="light" src="{{ asset('screenshots/json_removable.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/json_removable_dark.png') }}"></x-image>
+
+<x-moonshine::divider label="Кастомная кнопка добавления" />
+
+<x-code language="php">
+use MoonShine\Fields\Json;
+
+//...
+
+public function fields(): array
+{
+    return [
+        Json::make('Data')
+            ->keyValue()
+            ->creatable(
+                button: ActionButton::make('New', '#')->primary()
+            ) // [tl! focus:-2]
+    ];
+}
+
+//...
+</x-code>
+
+<x-moonshine::divider label="Аттрибуты для кнопки удаления" />
+
+<x-code language="php">
+use MoonShine\Fields\Json;
+
+//...
+
+public function fields(): array
+{
+    return [
+        Json::make('Data', 'data.content')->fields([
+            Text::make('Title'),
+            Image::make('Image'),
+            Text::make('Value'),
+        ])
+            ->removable(attributes: ['@click.prevent' => 'customAsyncRemove']) // [tl! focus]
+            ->creatable()
+    ];
+}
+
+//...
+</x-code>
 
 <x-sub-title id="nesting">Вложенные значения</x-sub-title>
 
@@ -370,6 +424,42 @@ public function filters(): array
                 Text::make('Value', 'value')
             ])
             ->filterMode() // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
+
+<x-sub-title id="buttons">Кнопки</x-sub-title>
+
+<x-p>
+    Метод <code>buttons()</code> позволяет добавить дополнительные кнопки к полю <em>Json</em>.
+</x-p>
+
+<x-code language="php">
+buttons(array $buttons)
+</x-code>
+
+<x-code language="php">
+use MoonShine\ActionButtons\ActionButton;
+use MoonShine\Fields\Json;
+
+//...
+
+public function fields(): array
+{
+    return [
+        Json::make('Data', 'data.content')->fields([
+            Text::make('Title'),
+            Image::make('Image'),
+            Text::make('Value'),
+        ])->buttons([
+            ActionButton::make('', '#')
+                ->icon('heroicons.outline.trash')
+                ->onClick(fn() => 'remove()', 'prevent')
+                ->customAttributes(['class' => 'btn-secondary'])
+                ->showInLine()
+        ]) // [tl! focus:-5]
     ];
 }
 

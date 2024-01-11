@@ -15,6 +15,7 @@
             ['url' => '#async-search', 'label' => 'Асинхронный поиск'],
 		    ['url' => '#associated', 'label' => 'Связанные поля'],
             ['url' => '#with-image', 'label' => 'Значения с изображением'],
+            ['url' => '#buttons', 'label' => 'Кнопки'],
         ]
     ]"
 >
@@ -249,5 +250,62 @@ public function fields(): array
 @include('pages.ru.fields.shared.with_associated', ['field' => 'BelongsToMany'])
 
 @include('pages.ru.fields.shared.with_image', ['field' => 'BelongsToMany'])
+
+<x-sub-title id="buttons">Кнопки</x-sub-title>
+
+<x-p>
+    Метод <code>buttons()</code> позволяет добавить дополнительные кнопки к полю <em>BelongsToMany</em>.
+</x-p>
+
+<x-code language="php">
+buttons(array $buttons)
+</x-code>
+
+<x-code language="php">
+use MoonShine\ActionButtons\ActionButton;
+use MoonShine\Fields\Relationships\BelongsToMany;
+
+//...
+
+public function fields(): array
+{
+    return [
+        BelongsToMany::make('Categories', resource: new CategoryResource())
+            ->buttons([
+                ActionButton::make('Check all', '')
+                    ->onClick(fn() => 'checkAll', 'prevent'),
+
+                ActionButton::make('Uncheck all', '')
+                    ->onClick(fn() => '', 'prevent')
+            ]) // [tl! focus:-6]
+    ];
+}
+
+//...
+</x-code>
+
+<x-moonshine::divider label="withCheckAll" />
+
+<x-p>
+    Метод <code>withCheckAll()</code> позволяет добавить кнопки checkAll/uncheckAll к полю <em>BelongsToMany</em>
+    аналогично предыдущему примеру.
+</x-p>
+
+<x-code language="php">
+use MoonShine\ActionButtons\ActionButton;
+use MoonShine\Fields\Relationships\BelongsToMany;
+
+//...
+
+public function fields(): array
+{
+    return [
+        BelongsToMany::make('Categories', resource: new CategoryResource())
+            ->withCheckAll() // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
 
 </x-page>
