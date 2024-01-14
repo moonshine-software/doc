@@ -15,6 +15,10 @@
     Text
 </x-extendby>
 
+<x-moonshine::alert type="info">
+    Field depends on Eloquent Model
+</x-moonshine::alert>
+
 <x-sub-title id="basics">Basics</x-sub-title>
 
 <x-p>

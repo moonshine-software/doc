@@ -30,7 +30,7 @@
     They are used in <code>FormBuilder</code> to build forms, in <code>TableBuilder</code> to create tables,
     as well as in forming a filter for <code>ModelResource</code>.
     They can be used in your custom pages and even outside the admin panel.<br />
-    Fields in <strong>MoonShine</strong> are not tied to the model,
+    Fields in <strong>MoonShine</strong> are not tied to the model (except Slug field, ModelRelationFields, Json in asRelation mode),
     therefore, the range of their applications is limited only by your imagination.<br />
 </x-p>
 <x-p>
@@ -575,6 +575,30 @@ public function fields(): array
                 return view('moonshine::ui.image', [
                     'value' => Storage::url($value)
                 ]);
+            }) // [tl! focus:-4]
+    ];
+}
+
+//...
+</x-code>
+
+<x-p>
+    The <code>requestValueResolver()</code> method allows you to override the logic for getting a value from Request
+</x-p>
+
+<x-code language="php">
+requestValueResolver(Closure $closure)
+</x-code>
+
+<x-code language="php">
+//...
+
+public function fields(): array
+{
+    return [
+        Text::make('Thumbnail')
+            ->requestValueResolver(function (string $nameDot, mixed $default, Field $field) {
+                return request($nameDot, $default);
             }) // [tl! focus:-4]
     ];
 }
