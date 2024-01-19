@@ -19,15 +19,15 @@
 <x-ul>
     <li><code>$label</code> - лейбл, заголовок поля,</li>
     <li><code>$relationName</code> - название отношения,</li>
-    @if($field !== 'HasMany')
+    @if($field !== 'HasOne' &&  $field !== 'HasMany')
     <li><code>$formatted</code> - замыкание или поле в связанной таблице для отображения значений,</li>
     @endif
     <li><code>$resource</code> - ресурс модели на которую ссылается отношение.</li>
 </x-ul>
 
-@if($field === 'HasMany')
+@if($field === 'HasOne' || $field === 'HasMany')
 <x-moonshine::alert type="error" icon="heroicons.information-circle">
-    Параметр <code>$formatted</code> не используется в поле <code>HasMany</code>!
+    Параметр <code>$formatted</code> не используется в поле <code>{{ $field }}</code>!
 </x-moonshine::alert>
 @endif
 
@@ -94,7 +94,7 @@ public function fields(): array
 //...
 </x-code>
 
-@if($field !== 'HasMany')
+@if($field !== 'HasOne' && $field !== 'HasMany')
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     По умолчанию для отображения значения используется поле в связанной таблице,
