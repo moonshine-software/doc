@@ -175,6 +175,6 @@ public function fields(): array
 //...
 </x-code>
 
-@include('pages.ru.fields.shared.filter_range', ['field' => 'DateRange'])
+@include('pages.en.fields.shared.filter_range', ['field' => 'DateRange'])
 
 </x-page>

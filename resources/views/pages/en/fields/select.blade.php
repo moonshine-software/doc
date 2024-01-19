@@ -108,7 +108,7 @@ public function fields(): array
 <x-image theme="light" src="{{ asset('screenshots/select_nullable.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/select_nullable_dark.png') }}"></x-image>
 
-@include('pages.ru.fields.shared.placeholder', ['field' => 'Select'])
+@include('pages.en.fields.shared.placeholder', ['field' => 'Select'])
 
 <x-sub-title id="groups">Groups</x-sub-title>
 
@@ -265,7 +265,7 @@ public function fields(): array
 //...
 </x-code>
 
-@include('pages.ru.fields.shared.update_on_preview', ['field' => 'Select'])
+@include('pages.en.fields.shared.update_on_preview', ['field' => 'Select'])
 
 <x-sub-title id="with-image">Values with picture</x-sub-title>
 
@@ -304,6 +304,6 @@ public function fields(): array
 <x-image theme="light" src="{{ asset('screenshots/belongs_to_image.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/belongs_to_image_dark.png') }}"></x-image>
 
-@include('pages.ru.fields.shared.choices_options', ['field' => 'Select'])
+@include('pages.en.fields.shared.choices_options', ['field' => 'Select'])
 
 </x-page>

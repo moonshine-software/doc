@@ -371,7 +371,7 @@ public function fields(): array
 badge(string|Closure|null $color = null)
 </x-code>
 
-@include('pages.ru.ui.shared.colors')
+@include('pages.en.ui.shared.colors')
 
 <x-code language="php">
 //...

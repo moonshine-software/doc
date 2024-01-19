@@ -11,7 +11,7 @@
     <code>MoonShine\Fields\Relationships\MorphMany</code>
 </x-p>
 
-@include('pages.ru.fields.shared.morph_make', ['field' => 'MorphMany', 'label' => 'Comments'])
+@include('pages.en.fields.shared.morph_make', ['field' => 'MorphMany', 'label' => 'Comments'])
 
 </x-page>
 

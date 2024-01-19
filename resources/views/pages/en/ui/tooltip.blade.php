@@ -11,7 +11,7 @@
     Using the <code>moonshine::tooltip</code> component, you can create convenient tooltips.
 </x-p>
 
-@include('pages.ru.ui.shared.placement')
+@include('pages.en.ui.shared.placement')
 
 <x-code language="blade" file="resources/views/examples/components/tooltip.blade.php"></x-code>
 

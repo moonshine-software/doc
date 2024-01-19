@@ -62,6 +62,6 @@ public function fields(): array
 //...
 </x-code>
 
-@include('pages.ru.fields.shared.update_on_preview', ['field' => 'Checkbox'])
+@include('pages.en.fields.shared.update_on_preview', ['field' => 'Checkbox'])
 
 </x-page>

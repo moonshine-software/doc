@@ -11,7 +11,7 @@
     <code>MoonShine\Fields\Relationships\MorphToMany</code>
 </x-p>
 
-@include('pages.ru.fields.shared.morph_make', ['field' => 'MorphToMany', 'label' => 'Categories'])
+@include('pages.en.fields.shared.morph_make', ['field' => 'MorphToMany', 'label' => 'Categories'])
 
 </x-page>
 

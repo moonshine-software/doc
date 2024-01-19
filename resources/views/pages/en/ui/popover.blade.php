@@ -10,7 +10,7 @@
     Using the <code>moonshine::popover</code> component you can create a pop-up window.
 </x-p>
 
-@include('pages.ru.ui.shared.placement')
+@include('pages.en.ui.shared.placement')
 
 <x-code language="blade" file="resources/views/examples/components/popover.blade.php"></x-code>
 

@@ -120,10 +120,10 @@ public function components(): array
 
 <x-sub-title id="icon">Icon</x-sub-title>
 
-@include('pages.ru.components.shared.metric_icon', ['metric' => 'ValueMetric'])
+@include('pages.en.components.shared.metric_icon', ['metric' => 'ValueMetric'])
 
 <x-sub-title id="column-span">Block width</x-sub-title>
 
-@include('pages.ru.components.shared.metric_column_span', ['metric' => 'ValueMetric'])
+@include('pages.en.components.shared.metric_column_span', ['metric' => 'ValueMetric'])
 
 </x-page>
