@@ -19,15 +19,15 @@
 <x-ul>
     <li></li><code>$label</code> - label, field header,</li>
     <li><code>$relationName</code> - name of the relationship,</li>
-    @if($field !== 'HasMany')
+    @if($field !== 'HasOne' &&  $field !== 'HasMany')
     <li><code>$formatted</code> - a closure or field in a related table to display values,</li>
     @endif
     <li><code>$resource</code> - the model resource referenced by the relation.</li>
 </x-ul>
 
-@if($field === 'HasMany')
+@if($field === 'HasOne' || $field === 'HasMany')
 <x-moonshine::alert type="error" icon="heroicons.information-circle">
-    The <code>$formatted</code> parameter is not used in the <code>HasMany</code> field!
+    The <code>$formatted</code> parameter is not used in the <code>{{ $field }}</code> field!
 </x-moonshine::alert>
 @endif
 
@@ -94,7 +94,7 @@ public function fields(): array
 //...
 </x-code>
 
-@if($field !== 'HasMany')
+@if($field !== 'HasOne' && $field !== 'HasMany')
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     By default, a field in the related table is used to display the value.
