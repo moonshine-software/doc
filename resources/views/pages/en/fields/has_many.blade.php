@@ -13,7 +13,7 @@
 
 <x-sub-title id="basics">Basics</x-sub-title>
 
-@include('pages.ru.fields.shared.relation_make', ['field' => 'HasMany', 'label' => 'Comments'])
+@include('pages.en.fields.shared.relation_make', ['field' => 'HasMany', 'label' => 'Comments'])
 
 <x-sub-title id="fields">Fields</x-sub-title>
 
@@ -51,7 +51,7 @@ public function fields(): array
 
 <x-sub-title id="creatable">Creating a Relationship Object</x-sub-title>
 
-@include('pages.ru.fields.shared.relation_creatable', ['field' => 'HasMany', 'label' => 'Comments'])
+@include('pages.en.fields.shared.relation_creatable', ['field' => 'HasMany', 'label' => 'Comments'])
 
 <x-sub-title id="limit">Number of records</x-sub-title>
 

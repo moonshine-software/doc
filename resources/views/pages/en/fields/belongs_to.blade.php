@@ -15,7 +15,7 @@
 
 <x-sub-title id="basics">Basics</x-sub-title>
 
-@include('pages.ru.fields.shared.relation_make', ['field' => 'BelongsTo', 'label' => 'Country'])
+@include('pages.en.fields.shared.relation_make', ['field' => 'BelongsTo', 'label' => 'Country'])
 
 
 <x-moonshine::alert type="warning" icon="heroicons.information-circle">
@@ -90,7 +90,7 @@ public function fields(): array
     Don't forget to indicate in the database table that the field can take the value <code>Null</code>.
 </x-moonshine::alert>
 
-@include('pages.ru.fields.shared.placeholder', ['field' => 'BelongsTo'])
+@include('pages.en.fields.shared.placeholder', ['field' => 'BelongsTo'])
 
 <x-sub-title id="searchable">Finding values</x-sub-title>
 
@@ -115,14 +115,14 @@ public function fields(): array
 //...
 </x-code>
 
-@include('pages.ru.fields.shared.values_query', ['field' => 'BelongsTo'])
+@include('pages.en.fields.shared.values_query', ['field' => 'BelongsTo'])
 
-@include('pages.ru.fields.shared.async_search', ['field' => 'BelongsTo'])
+@include('pages.en.fields.shared.async_search', ['field' => 'BelongsTo'])
 
-@include('pages.ru.fields.shared.with_associated', ['field' => 'BelongsTo'])
+@include('pages.en.fields.shared.with_associated', ['field' => 'BelongsTo'])
 
-@include('pages.ru.fields.shared.with_image', ['field' => 'BelongsTo'])
+@include('pages.en.fields.shared.with_image', ['field' => 'BelongsTo'])
 
-@include('pages.ru.fields.shared.choices_options', ['field' => 'BelongsTo'])
+@include('pages.en.fields.shared.choices_options', ['field' => 'BelongsTo'])
 
 </x-page>

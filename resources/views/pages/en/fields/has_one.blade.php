@@ -10,7 +10,7 @@
 
 <x-sub-title id="basics">Basics</x-sub-title>
 
-@include('pages.ru.fields.shared.relation_make', ['field' => 'HasOne', 'label' => 'Profile'])
+@include('pages.en.fields.shared.relation_make', ['field' => 'HasOne', 'label' => 'Profile'])
 
 <x-sub-title id="fields">Fields</x-sub-title>
 

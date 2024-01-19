@@ -74,7 +74,7 @@ enum StatusEmun: string
     then the <em>preview</em> field will appear as an icon of a certain color.
 </x-p>
 
-@include('pages.ru.ui.shared.colors')
+@include('pages.en.ui.shared.colors')
 
 <x-code language="php">
 namespace App\Enums;

@@ -11,7 +11,7 @@
     <code>MoonShine\Fields\Relationships\MorphOne</code>
 </x-p>
 
-@include('pages.ru.fields.shared.morph_make', ['field' => 'MorphOne', 'label' => 'Profile'])
+@include('pages.en.fields.shared.morph_make', ['field' => 'MorphOne', 'label' => 'Profile'])
 
 </x-page>
 

@@ -22,7 +22,7 @@
 
 <x-sub-title id="basics">Basics</x-sub-title>
 
-@include('pages.ru.fields.shared.relation_make', ['field' => 'BelongsToMany', 'label' => 'Categories'])
+@include('pages.en.fields.shared.relation_make', ['field' => 'BelongsToMany', 'label' => 'Categories'])
 
 <x-sub-title id="label-column">Column header</x-sub-title>
 
@@ -95,7 +95,7 @@ public function fields(): array
 
 <x-sub-title id="creatable">Creating a Relationship Object</x-sub-title>
 
-@include('pages.ru.fields.shared.relation_creatable', ['field' => 'BelongsToMany', 'label' => 'Categories'])
+@include('pages.en.fields.shared.relation_creatable', ['field' => 'BelongsToMany', 'label' => 'Categories'])
 
 <x-sub-title id="select">Select</x-sub-title>
 
@@ -123,9 +123,9 @@ public function fields(): array
 <x-image theme="light" src="{{ asset('screenshots/belongs_to_many_select.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/belongs_to_many_select_dark.png') }}"></x-image>
 
-@include('pages.ru.fields.shared.choices_options', ['field' => 'BelongsToMany'])
+@include('pages.en.fields.shared.choices_options', ['field' => 'BelongsToMany'])
 
-@include('pages.ru.fields.shared.placeholder', ['field' => 'BelongsToMany'])
+@include('pages.en.fields.shared.placeholder', ['field' => 'BelongsToMany'])
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     The <code>placeholder()</code> method is only used
@@ -238,18 +238,18 @@ public function fields(): array
 <x-image theme="light" src="{{ asset('screenshots/belongs_to_many_preview_in_line.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/belongs_to_many_preview_in_line_dark.png') }}"></x-image>
 
-@include('pages.ru.fields.shared.values_query', ['field' => 'BelongsToMany'])
+@include('pages.en.fields.shared.values_query', ['field' => 'BelongsToMany'])
 
-@include('pages.ru.fields.shared.async_search', ['field' => 'BelongsToMany'])
+@include('pages.en.fields.shared.async_search', ['field' => 'BelongsToMany'])
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     Requests must be customized using the <code>asyncSearch()</code> method.
     Don't use <code>valuesQuery()</code>!
 </x-moonshine::alert>
 
-@include('pages.ru.fields.shared.with_associated', ['field' => 'BelongsToMany'])
+@include('pages.en.fields.shared.with_associated', ['field' => 'BelongsToMany'])
 
-@include('pages.ru.fields.shared.with_image', ['field' => 'BelongsToMany'])
+@include('pages.en.fields.shared.with_image', ['field' => 'BelongsToMany'])
 
 <x-sub-title id="buttons">Buttons</x-sub-title>
 

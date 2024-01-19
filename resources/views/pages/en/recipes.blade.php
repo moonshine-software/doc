@@ -17,6 +17,6 @@
 @include('pages.en.recipes.assets-vite', ['title' => 'Vite build connection'])
 @include('pages.en.recipes.custom-buttons', ['title' => 'Custom buttons'])
 @include('pages.en.recipes.hasone-through-template', ['title' => 'HasOne through the Template field'])
-@include('pages.ru.recipes.custom-breadcrumbs', ['title' => 'Changing breadcrumbs from a resource'])
+@include('pages.en.recipes.custom-breadcrumbs', ['title' => 'Changing breadcrumbs from a resource'])
 
 </x-page>

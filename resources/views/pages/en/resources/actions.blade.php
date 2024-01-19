@@ -49,6 +49,6 @@ class PostResource extends Resource
 <x-image theme="light" src="{{ asset('screenshots/export.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/export_dark.png') }}"></x-image>
 
-@include('pages.ru.resources.shared.actions_view', ['action' => 'ExportAction'])
+@include('pages.en.resources.shared.actions_view', ['action' => 'ExportAction'])
 
 </x-page>
