@@ -35,8 +35,8 @@
 <x-code language="php">
 TableBuilder::make(
     Fields|array $fields = [],
-    protected iterable $items = [],
-    protected ?Paginator $paginator = null
+    array|Paginator|iterable $items = [],
+    ?Paginator $paginator = null
 )
 </x-code>
 
