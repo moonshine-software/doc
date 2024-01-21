@@ -364,14 +364,14 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 }
 </x-code>
 
-<x-moonshine::divider label="Через аттрибут" />
+<x-moonshine::divider label="Через атрибут" />
 
 <x-p>
     У пункта меню отобразится иконка, если у класса
     <em><x-link link="{{ route('moonshine.page', 'resources-index') }}">ModelResource</x-link></em>,
     <em><x-link link="{{ route('moonshine.page', 'page-class') }}">Page</x-link></em>
     или <em><x-link link="{{ route('moonshine.page', 'advanced-resource') }}">Resource</x-link></em>
-    задан аттрибут <code>Icon</code> и иконка не переопределена другими способами.
+    задан атрибут <code>Icon</code> и иконка не переопределена другими способами.
 </x-p>
 
 <x-code language="php">

@@ -49,7 +49,7 @@ class PostResource extends ModelResource
 <x-sub-title id="fulltext">Полнотекстовый поиск</x-sub-title>
 
 <x-p>
-    Если требуется fulltext поиск, то необходимо воспользоваться аттрибутом <code>MoonShine\Attributes\SearchUsingFullText</code>.
+    Если требуется fulltext поиск, то необходимо воспользоваться атрибутом <code>MoonShine\Attributes\SearchUsingFullText</code>.
 </x-p>
 
 <x-code language="php">

@@ -3,7 +3,7 @@
     :sectionMenu="[
         'Разделы' => [
             ['url' => '#make', 'label' => 'Make'],
-            ['url' => '#attributes', 'label' => 'Аттрибуты'],
+            ['url' => '#attributes', 'label' => 'Атрибуты'],
             ['url' => '#stars', 'label' => 'Stars'],
             ['url' => '#buttons', 'label' => 'Кнопки +/-'],
         ]
@@ -36,10 +36,10 @@ public function fields(): array
 //...
 </x-code>
 
-<x-sub-title id="attributes">Аттрибуты</x-sub-title>
+<x-sub-title id="attributes">Атрибуты</x-sub-title>
 
 <x-p>
-    Поле <em>Number</em> имеет дополнительные аттрибуты (кроме стандартных аттрибутов поля <em>Text</em>),
+    Поле <em>Number</em> имеет дополнительные атрибуты (кроме стандартных атрибутов поля <em>Text</em>),
     которые можно задать через соответствующие методы.
 </x-p>
 

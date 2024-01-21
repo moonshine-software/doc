@@ -187,7 +187,7 @@ removable(
 
 <x-ul>
     <li><code>$condition</code> - условие выполнения метода,</li>
-    <li><code>$attributes</code> - дополнительные аттрибуты кнопки.</li>
+    <li><code>$attributes</code> - дополнительные атрибуты кнопки.</li>
 </x-ul>
 
 <x-code language="php">

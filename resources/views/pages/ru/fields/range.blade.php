@@ -3,7 +3,7 @@
     :sectionMenu="[
         'Разделы' => [
             ['url' => '#make', 'label' => 'Make'],
-            ['url' => '#attributes', 'label' => 'Аттрибуты'],
+            ['url' => '#attributes', 'label' => 'Атрибуты'],
             ['url' => '#filter', 'label' => 'Фильтр'],
         ]
     ]"
@@ -47,10 +47,10 @@ public function fields(): array
 <x-image theme="light" src="{{ asset('screenshots/range.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/range_dark.png') }}"></x-image>
 
-<x-sub-title id="attributes">Аттрибуты</x-sub-title>
+<x-sub-title id="attributes">Атрибуты</x-sub-title>
 
 <x-p>
-    Если требуется добавить кастомные аттрибуты для полей, то можно воспользоваться соответствующими методами
+    Если требуется добавить кастомные атрибуты для полей, то можно воспользоваться соответствующими методами
     <code>fromAttributes()</code> и <code>toAttributes()</code>.
 </x-p>
 

@@ -221,7 +221,7 @@ removable(
 
 <x-ul>
     <li><code>$condition</code> - условие выполнения метода,</li>
-    <li><code>$attributes</code> - дополнительные аттрибуты кнопки.</li>
+    <li><code>$attributes</code> - дополнительные атрибуты кнопки.</li>
 </x-ul>
 
 <x-code language="php">
@@ -266,7 +266,7 @@ public function fields(): array
 //...
 </x-code>
 
-<x-moonshine::divider label="Аттрибуты для кнопки удаления" />
+<x-moonshine::divider label="Атрибуты для кнопки удаления" />
 
 <x-code language="php">
 use MoonShine\Fields\Json;
