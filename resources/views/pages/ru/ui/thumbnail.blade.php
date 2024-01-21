@@ -22,7 +22,7 @@
 </x-moonshine::grid>
 
 <x-p>
-    Также можно указать аттрибут <code>alt</code>.
+    Также можно указать атрибут <code>alt</code>.
 </x-p>
 
 <x-code language="blade" file="resources/views/examples/components/thumbnails-alt.blade.php"></x-code>

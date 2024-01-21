@@ -11,7 +11,7 @@
             ['url' => '#cast', 'label' => 'Приведение к типу'],
             ['url' => '#buttons', 'label' => 'Кнопки'],
             ['url' => '#async', 'label' => 'Асинхронный режим'],
-            ['url' => '#attributes', 'label' => 'Аттрибуты'],
+            ['url' => '#attributes', 'label' => 'Атрибуты'],
             ['url' => '#notfound', 'label' => 'Отсутствие элементов'],
             ['url' => '#simple', 'label' => 'Упрощённый стиль'],
             ['url' => '#preview', 'label' => 'Preview'],
@@ -195,7 +195,7 @@ TableBuilder::make()
     ->async('/async_url') // [tl! focus]
 </x-code>
 
-<x-sub-title id="attributes">Аттрибуты</x-sub-title>
+<x-sub-title id="attributes">Атрибуты</x-sub-title>
 
 <x-p>
     Вы можете задать любые html атрибуты для таблицы через метод <code>customAttributes()</code>:
@@ -359,7 +359,7 @@ creatable(
     <li><code>$limit</code> - количество записей которые можно добавить,</li>
     <li><code>$label</code> - название кнопки,</li>
     <li><code>$icon</code> - иконка у кнопки,</li>
-    <li><code>$attributes</code> - дополнительные аттрибуты,</li>
+    <li><code>$attributes</code> - дополнительные атрибуты,</li>
     <li><code>$button</code> - кастомная кнопка добавления.</li>
 </x-ul>
 

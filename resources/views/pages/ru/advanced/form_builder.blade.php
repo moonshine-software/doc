@@ -9,7 +9,7 @@
             ['url' => '#cast', 'label' => 'Приведение к типу'],
             ['url' => '#fillCast', 'label' => 'FillCast'],
             ['url' => '#buttons', 'label' => 'Кнопки'],
-            ['url' => '#attributes', 'label' => 'Аттрибуты'],
+            ['url' => '#attributes', 'label' => 'Атрибуты'],
             ['url' => '#name', 'label' => 'Наименование формы'],
             ['url' => '#async', 'label' => 'Асинхронный режим'],
             ['url' => '#precognitive', 'label' => 'Precognitive'],
@@ -213,7 +213,7 @@ submit(string $label, array $attributes = [])
 
 <x-ul>
     <li><code>label</code> - название кнопки,</li>
-    <li><code>attributes</code> - дополнительные аттрибуты.</li>
+    <li><code>attributes</code> - дополнительные атрибуты.</li>
 </x-ul>
 
 <x-code language="php">
@@ -236,7 +236,7 @@ FormBuilder::make('/crud/update', 'PUT')
     ]) // [tl! focus:-2]
 </x-code>
 
-<x-sub-title id="attributes">Аттрибуты</x-sub-title>
+<x-sub-title id="attributes">Атрибуты</x-sub-title>
 
 <x-p>
     Вы можете задать любые html атрибуты для формы через метод <code>customAttributes()</code>.

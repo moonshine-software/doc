@@ -5,7 +5,7 @@
             ['url' => '#make', 'label' => 'Make'],
             ['url' => '#formatted', 'label' => 'Форматирование значения'],
             ['url' => '#label', 'label' => 'Label'],
-            ['url' => '#attributes', 'label' => 'Аттрибуты'],
+            ['url' => '#attributes', 'label' => 'Атрибуты'],
             ['url' => '#hint', 'label' => 'Подсказка'],
             ['url' => '#link', 'label' => 'Ссылка'],
             ['url' => '#nullable', 'label' => 'Nullable'],
@@ -148,10 +148,10 @@ public function fields(): array
 //...
 </x-code>
 
-<x-sub-title id="attributes">Аттрибуты</x-sub-title>
+<x-sub-title id="attributes">Атрибуты</x-sub-title>
 
 <x-p>
-    Основные html аттрибуты, такие как <code>required</code>,
+    Основные html атрибуты, такие как <code>required</code>,
     <code>disabled</code> и <code>readonly</code>, у поля необходимо задавать через соответствующие методы.
 </x-p>
 
@@ -184,7 +184,7 @@ public function fields(): array
 </x-code>
 
 <x-p>
-    Возможность указать и любые другие аттрибуты используя метод <code>customAttributes()</code>.
+    Возможность указать и любые другие атрибуты используя метод <code>customAttributes()</code>.
 </x-p>
 
 <x-code language="php">
@@ -206,7 +206,7 @@ public function fields(): array
 </x-code>
 
 <x-p>
-    Метод <code>customWrapperAttributes()</code> позволяет добавить аттрибуты для <em>wrapper</em> поля.
+    Метод <code>customWrapperAttributes()</code> позволяет добавить атрибуты для <em>wrapper</em> поля.
 </x-p>
 
 <x-code language="php">

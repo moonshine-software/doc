@@ -5,7 +5,7 @@
             ['url' => '#make', 'label' => 'Make'],
             ['url' => '#with-time', 'label' => 'Дата и время'],
             ['url' => '#format', 'label' => 'Формат'],
-            ['url' => '#attributes', 'label' => 'Аттрибуты'],
+            ['url' => '#attributes', 'label' => 'Атрибуты'],
             ['url' => '#filter', 'label' => 'Фильтр'],
         ]
     ]"
@@ -98,10 +98,10 @@ public function fields(): array
 //...
 </x-code>
 
-<x-sub-title id="attributes">Аттрибуты</x-sub-title>
+<x-sub-title id="attributes">Атрибуты</x-sub-title>
 
 <x-p>
-    Поле <em>DateRange</em> имеет аттрибуты? которые можно задать через соответствующие методы.
+    Поле <em>DateRange</em> имеет атрибуты? которые можно задать через соответствующие методы.
 </x-p>
 
 <x-p>
@@ -145,7 +145,7 @@ public function fields(): array
 </x-code>
 
 <x-p>
-    Если требуется добавить кастомные аттрибуты для полей, то можно воспользоваться соответствующими методами
+    Если требуется добавить кастомные атрибуты для полей, то можно воспользоваться соответствующими методами
     <code>fromAttributes()</code> и <code>toAttributes()</code>.
 </x-p>
 

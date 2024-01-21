@@ -195,7 +195,7 @@ TableBuilder::make()
     ->async('/async_url') // [tl! focus]
 </x-code>
 
-<x-sub-title id="attributes">Аттрибуты</x-sub-title>
+<x-sub-title id="attributes">Attributes</x-sub-title>
 
 <x-p>
     You can set any html attributes for the table using the <code>customAttributes()</code> method:

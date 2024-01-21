@@ -6,7 +6,7 @@
             ['url' => '#events', 'label' => 'События'],
             ['url' => '#open', 'label' => 'Состояние по умолчанию'],
             ['url' => '#position', 'label' => 'Расположение'],
-            ['url' => '#toggler-attributes', 'label' => 'Аттрибуты переключателя'],
+            ['url' => '#toggler-attributes', 'label' => 'Атрибуты переключателя'],
         ]
     ]"
 >
@@ -217,10 +217,10 @@ public function components(): array
         ->left()
 !!}
 
-<x-sub-title id="toggler-attributes">Аттрибуты переключателя</x-sub-title>
+<x-sub-title id="toggler-attributes">Атрибуты переключателя</x-sub-title>
 
 <x-p>
-    Метод <code>togglerAttributes()</code> позволяет установить дополнительные аттрибуты для переключателя <code>$toggler</code>.
+    Метод <code>togglerAttributes()</code> позволяет установить дополнительные атрибуты для переключателя <code>$toggler</code>.
 </x-p>
 
 <x-code language="php">

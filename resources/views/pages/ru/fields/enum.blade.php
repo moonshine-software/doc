@@ -19,7 +19,7 @@
 </x-p>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-    Аттрибуту модели необходим EnumCast.
+    Атрибуту модели необходим EnumCast.
 </x-moonshine::alert>
 
 <x-code language="php">

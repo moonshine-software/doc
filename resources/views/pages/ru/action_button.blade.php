@@ -197,7 +197,7 @@ inModal(
     <li><code>wide</code> - максимальная ширина модального окна,</li>
     <li><code>auto</code> - ширина модального окна по контенту,</li>
     <li><code>closeOutside</code> - закрывать модальное окно при клике вне области окна,</li>
-    <li><code>attributes</code> - дополнительные аттрибуты,</li>
+    <li><code>attributes</code> - дополнительные атрибуты,</li>
     <li><code>autoClose</code> - автозакрытие модального окна после успешного запроса.</li>
 </x-ul>
 

@@ -8,7 +8,7 @@
             ['url' => '#close-outside', 'label' => 'Клик вне окна'],
             ['url' => '#autoclose', 'label' => 'Автозакрытие'],
             ['url' => '#wide', 'label' => 'Ширина окна'],
-            ['url' => '#outer-attributes', 'label' => 'Аттрибуты внешнего блока'],
+            ['url' => '#outer-attributes', 'label' => 'Атрибуты внешнего блока'],
         ]
     ]"
 >
@@ -327,10 +327,10 @@ public function components(): array
     MoonShine\Components\Modal::make('Title', 'Content...', '<a class="btn">Show modal</a>')->auto()
 !!}
 
-<x-sub-title id="outer-attributes">Аттрибуты внешнего блока</x-sub-title>
+<x-sub-title id="outer-attributes">Атрибуты внешнего блока</x-sub-title>
 
 <x-p>
-    Метод <code>outerAttributes()</code> позволяет установить дополнительные аттрибуты для внешнего блока <code>$outer</code>.
+    Метод <code>outerAttributes()</code> позволяет установить дополнительные атрибуты для внешнего блока <code>$outer</code>.
 </x-p>
 
 <x-code language="php">

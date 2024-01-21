@@ -6,7 +6,7 @@
             ['url' => '#make', 'label' => 'Make'],
             ['url' => '#name', 'label' => 'Имя компонента'],
             ['url' => '#view_data', 'label' => 'Передача данных'],
-            ['url' => '#attributes', 'label' => 'Аттрибуты'],
+            ['url' => '#attributes', 'label' => 'Атрибуты'],
             ['url' => '#custom-view', 'label' => 'Изменение отображения'],
             ['url' => '#can-see', 'label' => 'Условие отображения'],
             ['url' => '#when-unless', 'label' => 'Методы по условию'],
@@ -98,10 +98,10 @@ final class MyComponent extends MoonShineComponent
 //...
 </x-code>
 
-<x-sub-title id="attributes">Аттрибуты</x-sub-title>
+<x-sub-title id="attributes">Атрибуты</x-sub-title>
 
 <x-p>
-    Для экземпляра компонента можно указать аттрибуты используя метод <code>customAttributes()</code>.
+    Для экземпляра компонента можно указать атрибуты используя метод <code>customAttributes()</code>.
 </x-p>
 
 <x-code language="php">
