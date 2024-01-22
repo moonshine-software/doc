@@ -39,7 +39,7 @@ MoonShine отлично подходит для создания админ п�
         <div class="header-inner flex items-center justify-between gap-x-6 lg:gap-x-12 lg:justify-start">
             <div class="header-logo shrink-0">
                 <a href="{{ route('home') }}" class="relative w-[114px]" rel="home">
-                    <img src="{{ Vite::asset('resources/images/logo-moon-ny.svg') }}" class="animate-wiggle w-[67px] h-[70px]" alt="MoonShine" />
+                    <img src="{{ Vite::asset('resources/images/logo-moon.svg') }}" class="animate-wiggle w-[67px] h-[70px]" alt="MoonShine" />
                     <img src="{{ Vite::asset('resources/images/logo-text.svg') }}" class="absolute top-1/2 left-[42px] z-2 -translate-y-1/2 w-[71px] h-[21px]" alt="MoonShine" />
                 </a>
             </div>
