@@ -38,7 +38,7 @@
 <x-sub-title id="custom">Custom icons</x-sub-title>
 
 <x-p>
-    It is also possible to create a blade file with your custom icon. To do this, you need to go to <code>resources/views/vendor/moonshine/shared/icons</code>
+    It is also possible to create a blade file with your custom icon. To do this, you need to go to <code>resources/views/vendor/moonshine/ui/icons</code>
     create a blade file (for example <code>my-icon.blade.php</code>) with an icon displayed inside (for example, the code of an svg file)
     and then specify <code>icon('my-icon')</code>
 </x-p>
