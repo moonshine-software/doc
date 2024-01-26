@@ -38,7 +38,7 @@
 <x-sub-title id="custom">Кастомные иконки</x-sub-title>
 
 <x-p>
-    Также есть возможность создать blade-файл с вашей кастомной иконкой. Для этого необходимо в <code>resources/views/vendor/moonshine/shared/icons</code>
+    Также есть возможность создать blade-файл с вашей кастомной иконкой. Для этого необходимо в <code>resources/views/vendor/moonshine/ui/icons</code>
     создать blade-файл (например <code>my-icon.blade.php</code>) с отображением иконки внутри (например, код svg-файла)
     и далее указать <code>icon('my-icon')</code>
 </x-p>
