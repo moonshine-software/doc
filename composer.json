@@ -10,7 +10,7 @@
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.0",
         "lee-to/moonshine-algolia-search": "^1.0",
-        "moonshine/moonshine": "^2.6",
+        "moonshine/moonshine": "^2.7",
         "torchlight/torchlight-laravel": "^0.5.11"
     },
     "require-dev": {
