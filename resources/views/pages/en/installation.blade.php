@@ -105,7 +105,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     Once installed, several resources will be registered in the <code>MoonShineServiceProvider</code>.<br />
-    <x-link link="{{ route('moonshine.page', 'advanced-menu') }}">More about Menu</x-link>.
+    <x-link link="{{ route('moonshine.page', 'menu') }}">More about Menu</x-link>.
 </x-moonshine::alert>
 
 <x-p>
