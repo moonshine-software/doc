@@ -30,6 +30,12 @@ jobs:
       - name: Build CSS and JS files
         run: npm install && npm run build
 
+      - name: Copy .env
+        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+
+      - name: Generate key
+        run: php artisan key:generate
+
       - name: Execute tests via PEST(PHPUnit)
         env:
           TORCHLIGHT_TOKEN: ${{ secrets.TORCHLIGHT_TOKEN }}
