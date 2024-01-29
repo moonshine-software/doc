@@ -493,14 +493,15 @@ public function components(): array
 </x-code>
 
 <x-code language="javascript">
-window.myFunction = function(response, element, events, component)
-{
-    if(response.confirmed === true) {
-        component.$dispatch('toast', {type: 'success', text: 'Success'})
-    } else {
-        component.$dispatch('toast', {type: 'error', text: 'Error'})
-    }
-}
+document.addEventListener("moonshine:init", () => {
+    MoonShine.onCallback('myFunction', function(response, element, events, component) {
+        if(response.confirmed === true) {
+            component.$dispatch('toast', {type: 'success', text: 'Success'})
+        } else {
+            component.$dispatch('toast', {type: 'error', text: 'Error'})
+        }
+    })
+})
 </x-code>
 
 <x-sub-title id="method">Вызов методов</x-sub-title>
