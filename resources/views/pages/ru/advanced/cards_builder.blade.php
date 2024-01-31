@@ -14,7 +14,7 @@
             ['url' => '#overlay', 'label' => 'Режим overlay'],
             ['url' => '#paginator', 'label' => 'Пагинация'],
             ['url' => '#async', 'label' => 'Асинхронный режим'],
-            ['url' => '#attributes', 'label' => 'Аттрибуты'],
+            ['url' => '#attributes', 'label' => 'Атрибуты'],
             ['url' => '#columns', 'label' => 'Колонки'],
             ['url' => '#custom-component', 'label' => 'Кастомный компонент'],
         ]
@@ -345,7 +345,7 @@ CardsBuilder::make(
 
 @include('pages.ru.advanced.shared.async', ['element' => 'CardsBuilder'])
 
-<x-sub-title id="attributes">Аттрибуты</x-sub-title>
+<x-sub-title id="attributes">Атрибуты</x-sub-title>
 
 <x-p>
     Вы можете задать любые html атрибуты для таблицы через метод <code>customAttributes()</code>:
