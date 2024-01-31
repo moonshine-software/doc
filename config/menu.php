@@ -190,6 +190,7 @@ return [
         //['slug' => 'advanced-development', 'label' => 'Development'],
         ['slug' => 'advanced-commands', 'label' => 'Commands'],
         ['slug' => 'advanced-controller', 'label' => 'Controllers'],
+        ['slug' => 'advanced-cards_builder', 'label' => 'CardsBuilder'],
         ['slug' => 'advanced-form_builder', 'label' => 'FormBuilder'],
         ['slug' => 'advanced-table_builder', 'label' => 'TableBuilder'],
         ['slug' => 'advanced-type_casts', 'label' => 'TypeCasts'],
