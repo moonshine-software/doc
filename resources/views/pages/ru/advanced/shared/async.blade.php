@@ -35,7 +35,7 @@ async(
     ->items(Article::paginate())
     ->fields([ID::make(), Switcher::make('Active')])
     ->name('crud') // [tl! focus]
-    ->async(asyncEvents: [{{ $element == 'CardsBuilder' ? 'cards-updated-crud' : 'table-updated-crud' }}]) // [tl! focus]
+    ->async(asyncEvents: ['{{ $element == 'CardsBuilder' ? 'cards-updated-crud' : 'table-updated-crud' }}']) // [tl! focus]
 </x-code>
 
 <x-p>
