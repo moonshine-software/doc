@@ -627,7 +627,7 @@ public function fields(): array
     return [
         Image::make('Thumbnail')
             ->beforeRender(function (Field $field) {
-                return $field->preview());
+                return $field->preview();
             }) // [tl! focus:-2]
     ];
 }
