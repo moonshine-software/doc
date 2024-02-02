@@ -1,6 +1,6 @@
 <x-page title="Position">
 
-<x-extendby :href="route('moonshine.page', 'fields-preview')">
+<x-extendby :href="to_page('fields-preview')">
     Preview
 </x-extendby>
 

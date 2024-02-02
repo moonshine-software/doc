@@ -81,7 +81,7 @@ class PostResource extends ModelResource
 <x-sub-title id="fields">Adding fields</x-sub-title>
 
 <x-p>
-    <x-link link="{{ route('moonshine.page', 'fields-index') }}">Fields</x-link>
+    <x-link link="{{ to_page('fields-index') }}">Fields</x-link>
     in <strong>MoonShine</strong> are used not only for data input, but also for their output.<br />
     The <code>fields()</code> method in the page <em>crud</em> class allows you to specify the required fields.
 </x-p>
@@ -119,15 +119,15 @@ class PostIndexPage extends IndexPage
     </li>
     <li>
         <code>MainLayer</code> - by default, this layer is used to display basic information using
-        <x-link link="{{ route('moonshine.page', 'advanced-form_builder') }}">FormBuilder</x-link> and
-        <x-link link="{{ route('moonshine.page', 'advanced-table_builder') }}">TableBuilder</x-link>
+        <x-link link="{{ to_page('advanced-form_builder') }}">FormBuilder</x-link> and
+        <x-link link="{{ to_page('advanced-table_builder') }}">TableBuilder</x-link>
     </li>
     <li><code>BottomLayer</code> - default is used to display additional information</li>
 </x-ul>
 
 <x-p>
     To customize layers, the corresponding methods are used: <code>topLayer()</code>, <code>mainLayer()</code> and
-    <code>bottomLayer()</code>. Methods must return <x-link link="{{ route('moonshine.page', 'page-class') . '#components' }}">Components</x-link> an array.
+    <code>bottomLayer()</code>. Methods must return <x-link link="{{ to_page('page-class') . '#components' }}">Components</x-link> an array.
 </x-p>
 
 <x-code language="php">

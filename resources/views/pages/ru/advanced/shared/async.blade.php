@@ -51,5 +51,5 @@ async(
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     Для вызова события обязательно необходимо задать уникальное
-    <x-link link="{{ route('moonshine.page', 'components-moonshine_component') }}#name">имя компонента</x-link>!
+    <x-link link="{{ to_page('components-moonshine_component') }}#name">имя компонента</x-link>!
 </x-moonshine::alert>

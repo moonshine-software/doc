@@ -21,7 +21,7 @@
 <x-moonshine::alert type="warning" icon="heroicons.information-circle">
     When using the <em>BelongsTo</em> field to sort or filter positions, you must use the method
     <code>setColumn()</code> set a field in a database table or override a method
-    <x-link :link="route('moonshine.page', 'resources-query') . '#order'" >
+    <x-link :link="to_page('resources-query') . '#order'" >
          sorting
     </x-link> at the model resource.
 </x-moonshine::alert>

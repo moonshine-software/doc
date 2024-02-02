@@ -440,7 +440,7 @@ public function fields(): array
 <x-moonshine::alert type="default" icon="heroicons.book-open">
     If you just need to specify which fields to display on pages or change the order of display,
     then you can use a convenient method
-    <x-link :link="route('moonshine.page', 'resources-fields') . '#override'" >
+    <x-link :link="to_page('resources-fields') . '#override'" >
         field overrides
     </x-link>.
 </x-moonshine::alert>

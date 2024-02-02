@@ -8,7 +8,7 @@
     ]"
 >
 
-<x-extendby :href="route('moonshine.page', 'fields-textarea')">
+<x-extendby :href="to_page('fields-textarea')">
     Textarea
 </x-extendby>
 

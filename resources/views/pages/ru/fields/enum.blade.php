@@ -10,7 +10,7 @@
 
 <x-sub-title id="make">Make</x-sub-title>
 
-<x-extendby :href="route('moonshine.page', 'fields-select')">
+<x-extendby :href="to_page('fields-select')">
     Select
 </x-extendby>
 

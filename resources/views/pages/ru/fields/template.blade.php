@@ -26,7 +26,7 @@ public function fields(): array
 </x-code>
 
 <x-moonshine::alert type="primary" icon="heroicons.outline.book-open">
-    Рецепт: <x-link link="{{ route('moonshine.page', 'recipes') }}#hasone-through-template">HasOne отношение через поле Template</x-link>.
+    Рецепт: <x-link link="{{ to_page('recipes') }}#hasone-through-template">HasOne отношение через поле Template</x-link>.
 </x-moonshine::alert>
 
 </x-page>

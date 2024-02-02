@@ -39,7 +39,7 @@
 
 <x-moonshine::alert class="mt-8" type="default" icon="heroicons.book-open">
     For more detailed information, please refer to the section
-    <x-link link="{{ route('moonshine.page', 'installation') }}">Installation</x-link>.
+    <x-link link="{{ to_page('installation') }}">Installation</x-link>.
 </x-moonshine::alert>
 
 <x-sub-title id="apply">Apply</x-sub-title>
@@ -74,7 +74,7 @@
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
     For more detailed information, please refer to the section
-    <x-link link="{{ route('moonshine.page', 'components-index') }}">Components</x-link>.
+    <x-link link="{{ to_page('components-index') }}">Components</x-link>.
 </x-moonshine::alert>
 
 <x-sub-title id="controller">Controller</x-sub-title>
@@ -94,7 +94,7 @@
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
     For more detailed information, please refer to the section
-    <x-link link="{{ route('moonshine.page', 'advanced-controller') }}">Controllers</x-link>.
+    <x-link link="{{ to_page('advanced-controller') }}">Controllers</x-link>.
 </x-moonshine::alert>
 
 <x-sub-title id="field">Field</x-sub-title>
@@ -118,7 +118,7 @@
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
     For more detailed information, please refer to the section
-    <x-link link="{{ route('moonshine.page', 'fields-index') }}">Fields</x-link>.
+    <x-link link="{{ to_page('fields-index') }}">Fields</x-link>.
 </x-moonshine::alert>
 
 <x-sub-title id="handler">Handler</x-sub-title>
@@ -137,7 +137,7 @@
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
     For more detailed information, please refer to the section
-    <x-link link="{{ route('moonshine.page', 'resources-import-export') }}">Import/Export</x-link>.
+    <x-link link="{{ to_page('resources-import_export') }}">Import/Export</x-link>.
 </x-moonshine::alert>
 
 <x-sub-title id="page">Page</x-sub-title>
@@ -172,7 +172,7 @@
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
     For more detailed information, please refer to the section
-    <x-link link="{{ route('moonshine.page', 'page-class') }}">Page</x-link>.
+    <x-link link="{{ to_page('page-class') }}">Page</x-link>.
 </x-moonshine::alert>
 
 <x-sub-title id="policy">Policy</x-sub-title>
@@ -191,7 +191,7 @@
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
     For more detailed information, please refer to the section
-    <x-link link="{{ route('moonshine.page', 'advanced-authorization') }}">Authorization</x-link>.
+    <x-link link="{{ to_page('advanced-authorization') }}">Authorization</x-link>.
 </x-moonshine::alert>
 
 <x-sub-title id="resource">Resource</x-sub-title>
@@ -218,15 +218,15 @@
     There are several options available when creating a <em>Resource</em>:
     <x-ul>
         <li>
-            <x-link :link="route('moonshine.page', 'resources-fields') . '#default'"><strong>Default model resource</strong></x-link>
+            <x-link :link="to_page('resources-fields') . '#default'"><strong>Default model resource</strong></x-link>
             - model resource with common fields;
         </li>
         <li>
-            <x-link :link="route('moonshine.page', 'resources-fields') . '#separate'"><strong>Separate model resource</strong></x-link>
+            <x-link :link="to_page('resources-fields') . '#separate'"><strong>Separate model resource</strong></x-link>
             - model resource with field separation;
         </li>
         <li>
-            <x-link :link="route('moonshine.page', 'resources-pages')"><strong>Model resource with pages</strong></x-link>
+            <x-link :link="to_page('resources-pages')"><strong>Model resource with pages</strong></x-link>
             - model resource with pages;
         </li>
         <li>
@@ -244,7 +244,7 @@
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
     For more detailed information, please refer to the section
-    <x-link link="{{ route('moonshine.page', 'resources-index') }}">Models Resources</x-link>.
+    <x-link link="{{ to_page('resources-index') }}">Models Resources</x-link>.
 </x-moonshine::alert>
 
 <x-sub-title id="type_cast">Type Cast</x-sub-title>
@@ -263,7 +263,7 @@
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
     For more detailed information, please refer to the section
-    <x-link link="{{ route('moonshine.page', 'advanced-type_casts') }}">TypeCasts</x-link>.
+    <x-link link="{{ to_page('advanced-type_casts') }}">TypeCasts</x-link>.
 </x-moonshine::alert>
 
 <x-sub-title id="user">User</x-sub-title>
@@ -301,7 +301,7 @@
     <x-ul>
         <li><strong>Assets</strong> - <strong>MoonShine</strong> admin panel assets;</li>
         <li>
-            <x-link :link="route('moonshine.page', 'appearance-layout_builder')"><strong>Layout</strong></x-link>
+            <x-link :link="to_page('appearance-layout_builder')"><strong>Layout</strong></x-link>
             - MoonShineLayout class, responsible for the general appearance of the admin panel;
         </li>
         <li>

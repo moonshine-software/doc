@@ -154,7 +154,7 @@ FormBuilder::make('/crud/update', 'PUT')
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
     For more detailed information, please refer to the section
-    <x-link link="{{ route('moonshine.page', 'advanced-type_casts') }}">TypeCasts</x-link>
+    <x-link link="{{ to_page('advanced-type_casts') }}">TypeCasts</x-link>
 </x-moonshine::alert>
 
 <x-sub-title id="fillCast">FillCast</x-sub-title>
@@ -305,7 +305,7 @@ FormBuilder::make('/crud/update', 'PUT')
 
 <x-moonshine::alert type="primary" icon="heroicons.outline.book-open">
     Recipe:
-    <x-link link="{{ route('moonshine.page', 'recipes') }}#form-with-events">
+    <x-link link="{{ to_page('recipes') }}#form-with-events">
         Upon a successful request, the form updates the table and resets the values
     </x-link>.
 </x-moonshine::alert>

@@ -16,7 +16,7 @@
     ]"
 >
 
-<x-extendby :href="route('moonshine.page', 'components-moonshine_component')">
+<x-extendby :href="to_page('components-moonshine_component')">
     MoonShineComponent
 </x-extendby>
 
@@ -243,7 +243,7 @@ public function components(): array
     return [
         ActionButton::make(
             label: 'Click me',
-            url: route('moonshine.page', ['pageUri' => 'action_button', '_fragment-load' => 'doc-content']),
+            url: to_page(['pageUri' => 'action_button', '_fragment-load' => 'doc-content']),
         )
             ->inModal(
                 title: fn() => 'Modal title',
@@ -259,7 +259,7 @@ public function components(): array
 ) !!}
 
 <x-moonshine::alert class="my-4" type="default" icon="heroicons.book-open">
-    О <x-link link="{{ route('moonshine.page', 'components-decoration_fragment') }}">Fragment</x-link>
+    О <x-link link="{{ to_page('components-decoration_fragment') }}">Fragment</x-link>
     можно узнать в разделе "Components"
 </x-moonshine::alert>
 

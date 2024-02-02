@@ -67,15 +67,15 @@
     При создания <em>ModelResource</em> доступно несколько вариантов:
     <x-ul>
         <li>
-            <x-link :link="route('moonshine.page', 'resources-fields') . '#default'" ><strong>Default model resource</strong></x-link>
+            <x-link :link="to_page('resources-fields') . '#default'" ><strong>Default model resource</strong></x-link>
             - ресурс модели с общими полями
         </li>
         <li>
-            <x-link :link="route('moonshine.page', 'resources-fields') . '#separate'" ><strong>Separate model resource</strong></x-link>
+            <x-link :link="to_page('resources-fields') . '#separate'" ><strong>Separate model resource</strong></x-link>
             - ресурс модели с разделением полей
         </li>
         <li>
-            <x-link :link="route('moonshine.page', 'resources-pages')" ><strong>Model resource with pages</strong></x-link>
+            <x-link :link="to_page('resources-pages')" ><strong>Model resource with pages</strong></x-link>
             - ресурс модели со страницами.
         </li>
     </x-ul>
@@ -165,7 +165,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
     О расширенных настройках можно узнать в разделе
-    <x-link :link="route('moonshine.page', 'menu')" ><code>Меню</code></x-link>.
+    <x-link :link="to_page('menu')" ><code>Меню</code></x-link>.
 </x-moonshine::alert>
 
 <x-p>
@@ -311,7 +311,7 @@ class PostResource extends ModelResource
 
 <x-moonshine::alert type="primary" icon="heroicons.outline.book-open">
     Рецепт:
-    <x-link link="{{ route('moonshine.page', 'recipes') }}#custom-breadcrumbs">
+    <x-link link="{{ to_page('recipes') }}#custom-breadcrumbs">
         Изменение breadcrumbs из ресурса
     </x-link>.
 </x-moonshine::alert>

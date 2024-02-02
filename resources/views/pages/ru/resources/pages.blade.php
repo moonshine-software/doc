@@ -91,7 +91,7 @@ PageType::DETAIL;
 <x-sub-title id="fields">Добавление полей</x-sub-title>
 
 <x-p>
-    <x-link link="{{ route('moonshine.page', 'fields-index') }}">Поля</x-link>
+    <x-link link="{{ to_page('fields-index') }}">Поля</x-link>
     в <strong>MoonShine</strong> используются не только для ввода данных, но и для их вывода.<br />
     Метод <code>fields()</code> в классе <em>crud</em> страницы позволяет указать необходимые поля.
 </x-p>
@@ -129,15 +129,15 @@ class PostIndexPage extends IndexPage
     </li>
     <li>
         <code>MainLayer</code> - по умолчанию данный слой используется для вывода основной информации используя
-        <x-link link="{{ route('moonshine.page', 'advanced-form_builder') }}">FormBuilder</x-link> и
-        <x-link link="{{ route('moonshine.page', 'advanced-table_builder') }}">TableBuilder</x-link>
+        <x-link link="{{ to_page('advanced-form_builder') }}">FormBuilder</x-link> и
+        <x-link link="{{ to_page('advanced-table_builder') }}">TableBuilder</x-link>
     </li>
     <li><code>BottomLayer</code> - по умолчанию используется для вывода дополнительной информации</li>
 </x-ul>
 
 <x-p>
     Для кастомизации слоев используются соответствующие методы: <code>topLayer()</code>, <code>mainLayer()</code> и
-    <code>bottomLayer()</code>. Методы должны возвращать массив <x-link link="{{ route('moonshine.page', 'page-class') . '#components' }}">Компонентов</x-link>.
+    <code>bottomLayer()</code>. Методы должны возвращать массив <x-link link="{{ to_page('page-class') . '#components' }}">Компонентов</x-link>.
 </x-p>
 
 <x-code language="php">

@@ -65,7 +65,7 @@
     <x-sub-title>Where to start?</x-sub-title>
     <x-p>
         MoonShine is ready to appear in your project. Simply follow the
-        <x-link link="{{ route('moonshine.page', 'installation') }}">installation guide</x-link>,
+        <x-link link="{{ to_page('installation') }}">installation guide</x-link>,
         and then find in the documentation how to implement the required functionality and add it to your project.
     </x-p>
 

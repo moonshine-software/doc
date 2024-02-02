@@ -440,7 +440,7 @@ public function fields(): array
 <x-moonshine::alert type="default" icon="heroicons.book-open">
     Если вам необходимо просто указать какие поля отображать на страницах или изменить очередность вывода,
     то можно воспользоваться удобным способом
-    <x-link :link="route('moonshine.page', 'resources-fields') . '#override'" >
+    <x-link :link="to_page('resources-fields') . '#override'" >
         переопределения полей
     </x-link>.
 </x-moonshine::alert>

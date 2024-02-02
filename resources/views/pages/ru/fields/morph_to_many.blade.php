@@ -1,6 +1,6 @@
 <x-page title="MorphToMany">
 
-<x-extendby :href="route('moonshine.page', 'fields-belongs_to_many')">
+<x-extendby :href="to_page('fields-belongs_to_many')">
     BelongsToMany
 </x-extendby>
 

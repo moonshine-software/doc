@@ -78,7 +78,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
     You can learn about advanced settings in the section
-    <x-link :link="route('moonshine.page', 'menu')" ><code>Menu</code></x-link>.
+    <x-link :link="to_page('menu')" ><code>Menu</code></x-link>.
 </x-moonshine::alert>
 
 <x-p>

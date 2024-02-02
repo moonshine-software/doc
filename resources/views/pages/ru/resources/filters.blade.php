@@ -51,7 +51,7 @@ class PostResource extends ModelResource
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     Поля являются ключевым звеном построения форм в админ-панели <strong>Moonshine</strong>.<br />
-    <x-link link="{{ route('moonshine.page', 'fields-index') }}">Подробнее о Полях</x-link>
+    <x-link link="{{ to_page('fields-index') }}">Подробнее о Полях</x-link>
 </x-moonshine::alert>
 
 <x-p>

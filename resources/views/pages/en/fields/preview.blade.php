@@ -125,7 +125,7 @@ link(
 
 <x-moonshine::alert type="default" icon="heroicons.book-open" class="my-4">
     For more detailed information, please refer to the section
-    <x-link link="{{ route('moonshine.page', 'icons') }}">Icons</x-link>.
+    <x-link link="{{ to_page('icons') }}">Icons</x-link>.
 </x-moonshine::alert>
 
 <x-code language="php">

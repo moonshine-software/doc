@@ -76,7 +76,7 @@ public function fields(): array
 <x-moonshine::alert type="default" icon="heroicons.book-open">
     The default is <em>disk</em> <code>public</code>.<br />
     You can change it in the file
-    <x-link :link="route('moonshine.page', 'resources-configuration')">
+    <x-link :link="to_page('configuration')">
          configurations
     </x-link>.
 </x-moonshine::alert>
