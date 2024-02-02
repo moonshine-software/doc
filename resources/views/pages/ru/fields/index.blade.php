@@ -20,6 +20,7 @@
             ['url' => '#events', 'label' => 'События'],
             ['url' => '#assets', 'label' => 'Assets'],
             ['url' => '#wrapper', 'label' => 'Wrapper'],
+            ['url' => '#reactive', 'label' => 'Реактивность'],
             ['url' => '#scheme', 'label' => 'Схема работы поля'],
         ]
     ]"
@@ -958,6 +959,56 @@ public function fields(): array
 
 <x-image theme="light" src="{{ asset('screenshots/without_wrapper.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/without_wrapper_dark.png') }}"></x-image>
+
+
+
+<x-sub-title id="reactive">Реактивность</x-sub-title>
+
+<x-p>
+    Метод <code>reactive()</code> позволяет реактивно изменять поля.
+</x-p>
+
+<x-code language="php">
+reactive(
+    ?Closure $callback = null,
+    bool $lazy = false,
+    int $debounce = 0,
+    int $throttle = 0,
+)
+</x-code>
+
+<x-ul>
+    <li><code>$callback</code> - <em>callback</em> функция,</li>
+    <li><code>$lazy</code> - отложенный вызов функции,</li>
+    <li><code>$debounce</code> - время между вызовами функций (ms.),</li>
+    <li><code>$throttle</code> - интервал вызова функций (ms.).</li>
+</x-ul>
+
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    Поля поддерживающие реактивность: <code>Text</code>, <code>Checkbox</code>, <code>Select</code>
+    и их наследующие.
+</x-moonshine::alert>
+
+<x-code language="php">
+FormBuilder::make()
+    ->name('my-form')
+    ->fields([
+        Text::make('Title')
+            ->reactive(function(Fields $fields, ?string $value): Fields {
+                return tap($fields, static fn ($fields) => $fields
+                    ->findByColumn('slug')
+                    ?->setValue(str($value ?? '')->slug()->value())
+                );
+            }),
+
+        Text::make('Slug')->reactive(),
+    ])
+</x-code>
+
+<x-p>
+    В данном пример реализовано формирование slug-поля на основе заголовка.<br/>
+    Slug будет генерироваться в процессе ввода текста.
+</x-p>
 
 <x-sub-title id="scheme">Схема работы поля</x-sub-title>
 

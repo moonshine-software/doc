@@ -20,6 +20,7 @@
             ['url' => '#events', 'label' => 'Events'],
             ['url' => '#assets', 'label' => 'Assets'],
             ['url' => '#wrapper', 'label' => 'Wrapper'],
+            ['url' => '#reactive', 'label' => 'Reactive'],
             ['url' => '#scheme', 'label' => 'Scheme field\'s work'],
         ]
     ]"
@@ -958,6 +959,54 @@ public function fields(): array
 
 <x-image theme="light" src="{{ asset('screenshots/without_wrapper.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/without_wrapper_dark.png') }}"></x-image>
+
+<x-sub-title id="reactive">Reactive</x-sub-title>
+
+<x-p>
+    The <code>reactive()</code> method allows you to change fields reactively.
+</x-p>
+
+<x-code language="php">
+reactive(
+    ?Closure $callback = null,
+    bool $lazy = false,
+    int $debounce = 0,
+    int $throttle = 0,
+)
+</x-code>
+
+<x-ul>
+    <li><code>$callback</code> - <em>callback</em> function,</li>
+    <li><code>$lazy</code> - deferred function call</li>
+    <li><code>$debounce</code> - time between function calls (ms.),</li>
+    <li><code>$throttle</code> - function call interval (ms.).</li>
+</x-ul>
+
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    Fields that support reactivity: <code>Text</code>, <code>Checkbox</code>, <code>Select</code>
+    and their successors.
+</x-moonshine::alert>
+
+<x-code language="php">
+FormBuilder::make()
+    ->name('my-form')
+    ->fields([
+        Text::make('Title')
+            ->reactive(function(Fields $fields, ?string $value): Fields {
+                return tap($fields, static fn ($fields) => $fields
+                    ->findByColumn('slug')
+                    ?->setValue(str($value ?? '')->slug()->value())
+                );
+            }),
+
+        Text::make('Slug')->reactive(),
+    ])
+</x-code>
+
+<x-p>
+    This example implements the formation of a slug field based on the header.<br/>
+    The Slug will be generated as you enter text.
+</x-p>
 
 <x-sub-title id="scheme">Scheme field's work</x-sub-title>
 
