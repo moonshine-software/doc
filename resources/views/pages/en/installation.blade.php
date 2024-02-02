@@ -33,18 +33,18 @@
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     Once executed, a <code>config/moonshine.php</code> with basic settings will be added.<br />
-    <x-link link="{{ route('moonshine.page', 'configuration') }}">More information about the configuration file</x-link>
+    <x-link link="{{ to_page('configuration') }}">More information about the configuration file</x-link>
 </x-moonshine::alert>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     A directory with the administration panel and resources will also be added - <code>app/MoonShine</code>.<br />
-    <x-link link="{{ route('moonshine.page', 'resources-index') }}">More about Resources</x-link>
+    <x-link link="{{ to_page('resources-index') }}">More about Resources</x-link>
 </x-moonshine::alert>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     And a <code>MoonShineServiceProvider</code> provider will also be added,
     where resources should be registered.<br />
-    <x-link link="{{ route('moonshine.page', 'resources-index') }}">More about Resources</x-link>
+    <x-link link="{{ to_page('resources-index') }}">More about Resources</x-link>
 </x-moonshine::alert>
 
 <x-sub-title id="admin">Creating an administrator</x-sub-title>
@@ -105,7 +105,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     Once installed, several resources will be registered in the <code>MoonShineServiceProvider</code>.<br />
-    <x-link link="{{ route('moonshine.page', 'menu') }}">More about Menu</x-link>.
+    <x-link link="{{ to_page('menu') }}">More about Menu</x-link>.
 </x-moonshine::alert>
 
 <x-p>
@@ -116,7 +116,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     By default, the admin panel can be accessed by url <code>/admin</code>.<br />
     You can change the url in
-    <x-link link="{{ route('moonshine.page', 'configuration') }}">configuration file</x-link>.
+    <x-link link="{{ to_page('configuration') }}">configuration file</x-link>.
 </x-moonshine::alert>
 
 </x-page>

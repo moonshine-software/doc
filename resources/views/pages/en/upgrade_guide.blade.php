@@ -133,7 +133,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider // [t
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
     For more information, please refer to the section
-    <x-link link="{{ route('moonshine.page', 'resources-index') . '#redirects' }}">Resources</x-link>.
+    <x-link link="{{ to_page('resources-index') . '#redirects' }}">Resources</x-link>.
 </x-moonshine::alert>
 
 <x-p>
@@ -242,7 +242,7 @@ class ArticleResource extends ModelResource
     are only displayed in resourceMode. Methods <code>removable()</code> and <code>fullPage()</code> have been excluded.<br />
     If these fields should be placed in the main form,
     you can use the field
-    <x-link link="{{ route('moonshine.page', 'fields-json') . '#relation' }}"><em>Json</em> in relationship mode</x-link>.
+    <x-link link="{{ to_page('fields-json') . '#relation' }}"><em>Json</em> in relationship mode</x-link>.
 </x-p>
 
 <x-p>
@@ -272,7 +272,7 @@ class ArticleResource extends ModelResource
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
     For more information, please refer to the section
-    <x-link link="{{ route('moonshine.page', 'resources-filters') }}">Filters</x-link>.
+    <x-link link="{{ to_page('resources-filters') }}">Filters</x-link>.
 </x-moonshine::alert>
 
 <x-sub-title id="import_export" hashtag="8">Import / Export</x-sub-title>
@@ -301,7 +301,7 @@ class ArticleResource extends ModelResource
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
     For more information, please refer to the section
-    <x-link link="{{ route('moonshine.page', 'resources-import-export') }}">Import/Export</x-link>.
+    <x-link link="{{ to_page('resources-import_export') }}">Import/Export</x-link>.
 </x-moonshine::alert>
 
 <x-sub-title id="actions" hashtag="9">Actions</x-sub-title>
@@ -334,7 +334,7 @@ class ArticleResource extends ModelResource
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
     For more information, please refer to the section
-    <x-link link="{{ route('moonshine.page', 'action_button') }}">ActionButton</x-link>.
+    <x-link link="{{ to_page('action_button') }}">ActionButton</x-link>.
 </x-moonshine::alert>
 
 <x-sub-title id="update" hashtag="10">Updating dependencies</x-sub-title>
@@ -378,7 +378,7 @@ php artisan moonshine:install
 
 <x-p>
     <em>Dashboard</em> as well as <em>CustomPage</em> are now
-    <x-link link="{{ route('moonshine.page', 'page-class') }}">Pages</x-link>.
+    <x-link link="{{ to_page('page-class') }}">Pages</x-link>.
     Once installed, a page is generated for the <em>Dashboard</em> <code>app/MoonShine/Pages/Dashboard.php</code>.
     You need to move all components to a new page.
 </x-p>

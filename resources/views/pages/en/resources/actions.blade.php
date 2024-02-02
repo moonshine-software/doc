@@ -15,7 +15,7 @@
 
 <x-p>
     Adding new actions is easy, and everything is done in the same style. Enough in the <code>actions</code> method, which returns an array,
-    return all necessary actions. We will look at more details about actions in the <x-link link="{{ route('moonshine.page', 'actions-index') }}">"Actions"</x-link> section.
+    return all necessary actions. We will look at more details about actions in the <x-link link="{{ to_page('actions-index') }}">"Actions"</x-link> section.
 </x-p>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">

@@ -82,7 +82,7 @@ to_page(page: PageType::FORM, fragment: true);
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
     For more information about page types, see
-    <x-link link="{{ route('moonshine.page', 'resources-pages') }}#page-type">PageType</x-link>.
+    <x-link link="{{ to_page('resources-pages') }}#page-type">PageType</x-link>.
 </x-moonshine::alert>
 
 </x-page>

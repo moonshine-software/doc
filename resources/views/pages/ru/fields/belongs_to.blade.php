@@ -21,7 +21,7 @@
 <x-moonshine::alert type="warning" icon="heroicons.information-circle">
     При использовании поля <em>BelongsTo</em> для сортировки или фильтрации позиций необходимо через метод
     <code>setColumn()</code> задать поле в таблице базы данных или переопределить метод
-    <x-link :link="route('moonshine.page', 'resources-query') . '#order'" >
+    <x-link :link="to_page('resources-query') . '#order'" >
         сортировки
     </x-link> у ресурса модели.
 </x-moonshine::alert>

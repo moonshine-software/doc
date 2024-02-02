@@ -37,9 +37,9 @@ MenuItem::make(Closure|string $label, Closure|MenuFiller|string $filler, null|st
 <x-p>
     <x-moonshine::alert type="default" icon="heroicons.information-circle">
         You can pass as the second parameter
-        <x-link :link="route('moonshine.page', 'resources-index')">ModelResource</x-link>,
-        <x-link :link="route('moonshine.page', 'page-class')">Page</x-link> or
-        <x-link :link="route('moonshine.page', 'advanced-resource')">Resource</x-link>.
+        <x-link :link="to_page('resources-index')">ModelResource</x-link>,
+        <x-link :link="to_page('page-class')">Page</x-link> or
+        Resource.
     </x-moonshine::alert>
 </x-p>
 
@@ -66,8 +66,8 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 </x-code>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-    If the menu is created for <x-link :link="route('moonshine.page', 'resources-index')">ModelResource</x-link>
-    or <x-link :link="route('moonshine.page', 'advanced-resource')">Resource</x-link>,
+    If the menu is created for <x-link :link="to_page('resources-index')">ModelResource</x-link>
+    or Resource,
     then the menu item will use the first page advertised in method <code>pages()</code>.
 </x-moonshine::alert>
 
@@ -367,9 +367,9 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 
 <x-p>
     The menu item will display an icon if the class
-    <em><x-link link="{{ route('moonshine.page', 'resources-index') }}">ModelResource</x-link></em>,
-    <em><x-link link="{{ route('moonshine.page', 'page-class') }}">Page</x-link></em>
-    or <em><x-link link="{{ route('moonshine.page', 'advanced-resource') }}">Resource</x-link></em>
+    <em><x-link link="{{ to_page('resources-index') }}">ModelResource</x-link></em>,
+    <em><x-link link="{{ to_page('page-class') }}">Page</x-link></em>
+    or <em>Resource</em>
     the <code>Icon</code> attribute is specified and the icon is not overridden in other ways.
 </x-p>
 
@@ -429,9 +429,9 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 <x-moonshine::divider label="Through a class method" />
 
 <x-p>
-    For <em><x-link link="{{ route('moonshine.page', 'resources-index') }}">ModelResource</x-link></em>,
-    <em><x-link link="{{ route('moonshine.page', 'page-class') }}">Page</x-link></em>
-    or <em><x-link link="{{ route('moonshine.page', 'advanced-resource') }}">Resource</x-link></em>
+    For <em><x-link link="{{ to_page('resources-index') }}">ModelResource</x-link></em>,
+    <em><x-link link="{{ to_page('page-class') }}">Page</x-link></em>
+    or <em>Resource</em>
     There is an alternative way to set the badge - method <code>getBadge()</code>.
 </x-p>
 

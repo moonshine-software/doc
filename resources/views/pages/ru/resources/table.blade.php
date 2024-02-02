@@ -15,7 +15,7 @@
     Для добавления кнопок в таблицу используются ActionButton и методы <code>indexButtons</code> или <code>buttons</code> в ресурсе
 </x-p>
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-    <x-link link="{{ route('moonshine.page', 'action_button') }}">Подробнее ActionButton</x-link>
+    <x-link link="{{ to_page('action_button') }}">Подробнее ActionButton</x-link>
 </x-moonshine::alert>
 
 <x-code>
@@ -29,7 +29,7 @@ public function indexButtons(): array
 
 <x-moonshine::alert type="primary" icon="heroicons.outline.book-open">
     Пример создания кастомных кнопок у индексной таблицы в разделе
-    <x-link link="{{ route('moonshine.page', 'recipes') }}#custom-buttons">Recipes</x-link>
+    <x-link link="{{ to_page('recipes') }}#custom-buttons">Recipes</x-link>
 </x-moonshine::alert>
 
 <x-p>
@@ -63,7 +63,7 @@ public function buttons(): array
 <x-p>
     Через ресурсы модели есть возможность кастомизировать <code>tr</code> и <code>td</code> у таблицы с данными.<br />
     Для это необходимо использовать соответствующие методы <code>trAttributes()</code> и <code>tdAttributes()</code>,
-    которым нужно передать замыкание, возвращающее атрибуты для <x-link link="{{ route('moonshine.page', 'components-table') }}">компонента таблица</x-link>.
+    которым нужно передать замыкание, возвращающее атрибуты для компонента таблица.
 </x-p>
 
 <x-code language="php">

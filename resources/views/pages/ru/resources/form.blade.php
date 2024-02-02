@@ -119,7 +119,7 @@ class PostResource extends ModelResource
     Для добавления кнопок используются ActionButton и методы <code>FormButtons</code> или <code>buttons</code> в ресурсе
 </x-p>
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-    <x-link link="{{ route('moonshine.page', 'action_button') }}">Подробнее ActionButton</x-link>
+    <x-link link="{{ to_page('action_button') }}">Подробнее ActionButton</x-link>
 </x-moonshine::alert>
 
 <x-code>

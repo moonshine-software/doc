@@ -23,8 +23,7 @@
 </x-p>
 
 <x-p>
-    Pages with the same logic can be combined into
-    <x-link :link="route('moonshine.page', 'advanced-resource')" ><code>Resource</code></x-link>.
+    Pages with the same logic can be combined into <code>Resource</code>.
 </x-p>
 
 <x-sub-title id="create">Creating a class</x-sub-title>
@@ -102,8 +101,8 @@ class CustomPage extends Page
 
 <x-p>
     The page is built from components, which can be both decorations and components of the admin panel itself,
-    <x-link :link="route('moonshine.page', 'advanced-form_builder')" >FormBuilder</x-link>,
-    <x-link :link="route('moonshine.page', 'advanced-table_builder')" >TableBuilder</x-link>,
+    <x-link :link="to_page('advanced-form_builder')" >FormBuilder</x-link>,
+    <x-link :link="to_page('advanced-table_builder')" >TableBuilder</x-link>,
     and just <em>blade</em> components, and even <em>Livewire</em> components.
 </x-p>
 
@@ -146,7 +145,7 @@ class CustomPage extends Page
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
     For more detailed information, please refer to the section
-    <x-link link="{{ route('moonshine.page', 'components-index') }}">Components</x-link>.
+    <x-link link="{{ to_page('components-index') }}">Components</x-link>.
 </x-moonshine::alert>
 
 <x-sub-title id="breadcrumbs">Bread crumbs</x-sub-title>

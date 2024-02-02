@@ -28,7 +28,7 @@
 
 <x-p>
     В <em>ModelResource</em> по умолчанию необходимо в методе <code>fields()</code>
-    вернуть массив со всеми <x-link link="{{ route('moonshine.page', 'fields-index') }}">Полями</x-link>.
+    вернуть массив со всеми <x-link link="{{ to_page('fields-index') }}">Полями</x-link>.
 </x-p>
 
 <x-code language="php">

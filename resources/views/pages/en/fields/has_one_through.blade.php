@@ -1,6 +1,6 @@
 <x-page title="HasOneThrough">
 
-<x-extendby :href="route('moonshine.page', 'fields-has_one')">
+<x-extendby :href="to_page('fields-has_one')">
     HasMany
 </x-extendby>
 

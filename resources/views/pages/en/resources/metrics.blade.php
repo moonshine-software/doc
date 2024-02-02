@@ -37,9 +37,9 @@ class PostResource extends ModelResource
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
     For more detailed information, please refer to the sections
-    <x-link link="{{ route('moonshine.page', 'components-metric_donut_chart') }}">Donut Chart</x-link>,
-    <x-link link="{{ route('moonshine.page', 'components-metric_line_chart') }}">Line Chart</x-link> and
-    <x-link link="{{ route('moonshine.page', 'components-metric_value') }}">Value</x-link>.
+    <x-link link="{{ to_page('components-metric_donut_chart') }}">Donut Chart</x-link>,
+    <x-link link="{{ to_page('components-metric_line_chart') }}">Line Chart</x-link> and
+    <x-link link="{{ to_page('components-metric_value') }}">Value</x-link>.
 </x-moonshine::alert>
 
 </x-page>

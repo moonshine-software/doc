@@ -21,7 +21,7 @@
     ]"
 >
 
-<x-extendby :href="route('moonshine.page', 'components-moonshine_component')">
+<x-extendby :href="to_page('components-moonshine_component')">
     MoonShineComponent
 </x-extendby>
 
@@ -101,7 +101,7 @@ CardsBuilder::make()
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     The correspondence of data with fields is carried out through the value
-    <x-link link="{{ route('moonshine.page', 'fields-index') }}#make">column</x-link>
+    <x-link link="{{ to_page('fields-index') }}#make">column</x-link>
     fields!
 </x-moonshine::alert>
 
@@ -126,7 +126,7 @@ CardsBuilder::make(items: User::paginate())
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
     For more detailed information, please refer to the section
-    <x-link link="{{ route('moonshine.page', 'advanced-type_casts') }}">TypeCasts</x-link>
+    <x-link link="{{ to_page('advanced-type_casts') }}">TypeCasts</x-link>
 </x-moonshine::alert>
 
 <x-sub-title id="header">Header</x-sub-title>

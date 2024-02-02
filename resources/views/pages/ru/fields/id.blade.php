@@ -1,6 +1,6 @@
 <x-page title="ID">
 
-<x-extendby :href="route('moonshine.page', 'fields-hidden')">
+<x-extendby :href="to_page('fields-hidden')">
     Hidden
 </x-extendby>
 

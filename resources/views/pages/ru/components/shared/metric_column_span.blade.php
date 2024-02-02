@@ -78,7 +78,7 @@ public function components(): array
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
     За более подробной информацией обратитесь к разделу
-    <x-link link="{{ route('moonshine.page', 'components-decoration_layout') }}">Декорация Layout</x-link>.
+    <x-link link="{{ to_page('components-decoration_layout') }}">Декорация Layout</x-link>.
 </x-moonshine::alert>
 
 

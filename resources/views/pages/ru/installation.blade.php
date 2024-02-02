@@ -33,18 +33,18 @@
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     После выполнения будет добавлен <code>config/moonshine.php</code> с основными настройками.<br />
-    <x-link link="{{ route('moonshine.page', 'configuration') }}">Подробнее о файле конфигурации</x-link>
+    <x-link link="{{ to_page('configuration') }}">Подробнее о файле конфигурации</x-link>
 </x-moonshine::alert>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     Также будет добавлена директория с административной панелью и ресурсами - <code>app/MoonShine</code>.<br />
-    <x-link link="{{ route('moonshine.page', 'resources-index') }}">Подробнее о Ресурсах</x-link>
+    <x-link link="{{ to_page('resources-index') }}">Подробнее о Ресурсах</x-link>
 </x-moonshine::alert>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     А также будет добавлен провайдер <code>MoonShineServiceProvider</code>,
     где необходимо регистрировать ресурсы.<br />
-    <x-link link="{{ route('moonshine.page', 'resources-index') }}">Подробнее о Ресурсах</x-link>
+    <x-link link="{{ to_page('resources-index') }}">Подробнее о Ресурсах</x-link>
 </x-moonshine::alert>
 
 <x-sub-title id="admin">Создание администратора</x-sub-title>
@@ -105,7 +105,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     После установки в <code>MoonShineServiceProvider</code> будет зарегистрировано несколько ресурсов.<br />
-    <x-link link="{{ route('moonshine.page', 'menu') }}">Подробнее о Меню</x-link>.
+    <x-link link="{{ to_page('menu') }}">Подробнее о Меню</x-link>.
 </x-moonshine::alert>
 
 <x-p>
@@ -116,7 +116,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     По умолчанию админ-панель доступна по url <code>/admin</code>.<br />
     Изменить url можно в
-    <x-link link="{{ route('moonshine.page', 'configuration') }}">файле конфигурации</x-link>.
+    <x-link link="{{ to_page('configuration') }}">файле конфигурации</x-link>.
 </x-moonshine::alert>
 
 </x-page>

@@ -1,6 +1,6 @@
 <x-page title="E-mail">
 
-<x-extendby :href="route('moonshine.page', 'fields-text')">
+<x-extendby :href="to_page('fields-text')">
     Text
 </x-extendby>
 

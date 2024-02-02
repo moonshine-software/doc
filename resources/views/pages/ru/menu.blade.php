@@ -38,9 +38,9 @@ MenuItem::make(Closure|string $label, Closure|MenuFiller|string $filler, null|st
 <x-p>
     <x-moonshine::alert type="default" icon="heroicons.information-circle">
         В качестве второго параметра можно передать
-        <x-link :link="route('moonshine.page', 'resources-index')">ModelResource</x-link>,
-        <x-link :link="route('moonshine.page', 'page-class')">Page</x-link> или
-        <x-link :link="route('moonshine.page', 'advanced-resource')">Resource</x-link>.
+        <x-link :link="to_page('resources-index')">ModelResource</x-link>,
+        <x-link :link="to_page('page-class')">Page</x-link> или
+        Resource.
     </x-moonshine::alert>
 </x-p>
 
@@ -67,8 +67,8 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 </x-code>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-    Если меню создается для <x-link :link="route('moonshine.page', 'resources-index')">ModelResource</x-link>
-    или <x-link :link="route('moonshine.page', 'advanced-resource')">Resource</x-link>,
+    Если меню создается для <x-link :link="to_page('resources-index')">ModelResource</x-link>
+    или Resource,
     то для элемента меню будет использоваться первая страница объявленная в методе <code>pages()</code>.
 </x-moonshine::alert>
 
@@ -368,9 +368,9 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 
 <x-p>
     У пункта меню отобразится иконка, если у класса
-    <em><x-link link="{{ route('moonshine.page', 'resources-index') }}">ModelResource</x-link></em>,
-    <em><x-link link="{{ route('moonshine.page', 'page-class') }}">Page</x-link></em>
-    или <em><x-link link="{{ route('moonshine.page', 'advanced-resource') }}">Resource</x-link></em>
+    <em><x-link link="{{ to_page('resources-index') }}">ModelResource</x-link></em>,
+    <em><x-link link="{{ to_page('page-class') }}">Page</x-link></em>
+    или <em>Resource</em>
     задан атрибут <code>Icon</code> и иконка не переопределена другими способами.
 </x-p>
 
@@ -430,9 +430,9 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 <x-moonshine::divider label="Через метод класса" />
 
 <x-p>
-    Для <em><x-link link="{{ route('moonshine.page', 'resources-index') }}">ModelResource</x-link></em>,
-    <em><x-link link="{{ route('moonshine.page', 'page-class') }}">Page</x-link></em>
-    или <em><x-link link="{{ route('moonshine.page', 'advanced-resource') }}">Resource</x-link></em>
+    Для <em><x-link link="{{ to_page('resources-index') }}">ModelResource</x-link></em>,
+    <em><x-link link="{{ to_page('page-class') }}">Page</x-link></em>
+    или <em>Resource</em>
     существует альтернативный способ задать значок - метод <code>getBadge()</code>.
 </x-p>
 

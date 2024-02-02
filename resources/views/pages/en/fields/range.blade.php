@@ -9,7 +9,7 @@
     ]"
 >
 
-<x-extendby :href="route('moonshine.page', 'fields-number')">
+<x-extendby :href="to_page('fields-number')">
     Number
 </x-extendby>
 

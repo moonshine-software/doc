@@ -51,7 +51,7 @@ class PostResource extends ModelResource
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     Fields are a key element in building forms in the <strong>Moonshine</strong> admin panel.<br />
-    <x-link link="{{ route('moonshine.page', 'fields-index') }}">More about Fields</x-link>
+    <x-link link="{{ to_page('fields-index') }}">More about Fields</x-link>
 </x-moonshine::alert>
 
 <x-p>

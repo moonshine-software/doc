@@ -8,7 +8,7 @@
     ]"
 >
 
-<x-extendby :href="route('moonshine.page', 'fields-range')">
+<x-extendby :href="to_page('fields-range')">
     Range
 </x-extendby>
 

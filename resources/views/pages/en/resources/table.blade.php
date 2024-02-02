@@ -15,7 +15,7 @@
     To add buttons to the table, use ActionButton and the <code>indexButtons</code> or <code>buttons</code> methods in the resource
 </x-p>
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-    <x-link link="{{ route('moonshine.page', 'action_button') }}">More details ActionButton</x-link>
+    <x-link link="{{ to_page('action_button') }}">More details ActionButton</x-link>
 </x-moonshine::alert>
 
 <x-code>
@@ -29,7 +29,7 @@ public function indexButtons(): array
 
 <x-moonshine::alert type="primary" icon="heroicons.outline.book-open">
     An example of creating custom buttons for the index table in the section
-    <x-link link="{{ route('moonshine.page', 'recipes') }}#custom-buttons">Recipes</x-link>
+    <x-link link="{{ to_page('recipes') }}#custom-buttons">Recipes</x-link>
 </x-moonshine::alert>
 
 <x-p>
@@ -63,7 +63,7 @@ public function buttons(): array
 <x-p>
     Through model resources, it is possible to customize the data table <code>tr</code> and <code>td</code>.<br />
     To do this, you must use the appropriate <code>trAttributes()</code> and <code>tdAttributes()</code> methods,
-    which need to pass a closure that returns attributes for the <x-link link="{{ route('moonshine.page', 'components-table') }}">table component</x-link>.
+    which need to pass a closure that returns attributes for the table component.
 </x-p>
 
 <x-code language="php">

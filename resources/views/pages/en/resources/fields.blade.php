@@ -28,7 +28,7 @@
 
 <x-p>
     In <em>ModelResource</em> by default it is necessary in the <code>fields()</code> method
-    return an array with all <x-link link="{{ route('moonshine.page', 'fields-index') }}">Fields</x-link>.
+    return an array with all <x-link link="{{ to_page('fields-index') }}">Fields</x-link>.
 </x-p>
 
 <x-code language="php">
