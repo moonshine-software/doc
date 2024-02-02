@@ -7,6 +7,7 @@
             ['url' => '#separator', 'label' => 'Delimiter'],
             ['url' => '#locale', 'label' => 'Locale'],
             ['url' => '#unique', 'label' => 'Unique value'],
+            ['url' => '#live', 'label' => 'Live slug'],
         ]
     ]"
 >
@@ -136,7 +137,7 @@ unique()
 </x-code>
 
 <x-code language="php">
-use MoonShine\Fields\Slug; // [tl! focus]
+use MoonShine\Fields\Slug;
 
 //...
 
@@ -150,5 +151,36 @@ public function fields(): array
 
 //...
 </x-code>
+
+<x-sub-title id="live">Live slug</x-sub-title>
+
+<x-p>
+    The <code>live()</code> method allows you to create a live field that will track changes to the original field.
+</x-p>
+
+<x-code language="php">
+use MoonShine\Fields\Slug;
+use MoonShine\Fields\Text;
+
+//...
+
+public function fields(): array
+{
+    return [
+        Text::make('Title')
+            ->reactive(), // [tl! focus]
+        Slug::make('Slug')
+            ->from('title')
+            ->live() // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
+
+<x-moonshine::alert class="my-4" type="default" icon="heroicons.book-open">
+    Lives is based on
+    <x-link link="{{ to_page('fields-index') }}#reactive">field reactivity</x-link>.
+</x-moonshine::alert>
 
 </x-page>
