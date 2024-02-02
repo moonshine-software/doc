@@ -7,6 +7,7 @@
             ['url' => '#separator', 'label' => 'Разделитель'],
             ['url' => '#locale', 'label' => 'Локаль'],
             ['url' => '#unique', 'label' => 'Уникальное значение'],
+            ['url' => '#live', 'label' => 'Динамический slug'],
         ]
     ]"
 >
@@ -136,7 +137,7 @@ unique()
 </x-code>
 
 <x-code language="php">
-use MoonShine\Fields\Slug; // [tl! focus]
+use MoonShine\Fields\Slug;
 
 //...
 
@@ -150,5 +151,36 @@ public function fields(): array
 
 //...
 </x-code>
+
+<x-sub-title id="live">Динамический slug</x-sub-title>
+
+<x-p>
+    Метод <code>live()</code> позволяет создать динамическое поле, которое будет отслеживать изменения в исходном поле.
+</x-p>
+
+<x-code language="php">
+use MoonShine\Fields\Slug;
+use MoonShine\Fields\Text;
+
+//...
+
+public function fields(): array
+{
+    return [
+        Text::make('Title')
+            ->reactive(), // [tl! focus]
+        Slug::make('Slug')
+            ->from('title')
+            ->live() // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
+
+<x-moonshine::alert class="my-4" type="default" icon="heroicons.book-open">
+    Динамичность основано на
+    <x-link link="{{ to_page('fields-index') }}#reactive">реактивности полей</x-link>.
+</x-moonshine::alert>
 
 </x-page>
