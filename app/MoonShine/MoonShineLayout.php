@@ -24,15 +24,19 @@ final class MoonShineLayout implements MoonShineLayoutContract
                     new DocSearch()
                 ]),
                 Content::make(),
-                Footer::make()->copyright(fn (): string => <<<'HTML'
-                        &copy; 2021-2023 Made with ❤️ by
-                        <a href="https://cutcode.dev"
-                            class="font-semibold text-primary hover:text-secondary"
-                            target="_blank"
-                        >
-                            CutCode
-                        </a>
-                    HTML)
+                Footer::make()
+                    ->copyright(fn(): string => sprintf(
+                        <<<'HTML'
+                            &copy; 2021-%d Made with ❤️ by
+                            <a href="https://cutcode.dev"
+                                class="font-semibold text-primary hover:text-secondary"
+                                target="_blank"
+                            >
+                                CutCode
+                            </a>
+                        HTML,
+                        now()->year
+                    ))
                     ->menu([
                         'https://www.youtube.com/playlist?list=PLTucyHptHtTnfDI18bZnYEgvJIFmW8fGy' => 'Screencasts',
                         'https://cutcode.dev/articles/moonshine-tips-tricks' => 'Tips & Tricks',
