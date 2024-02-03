@@ -70,7 +70,7 @@ public function components(): array
                 MoonShine\Fields\Password::make('Password')->eye(),
             ])
             ->submit('Confirm'),
-        '<a class="btn">Show modal</a>'
+        '<a class="btn" @click.prevent="toggleModal">Show modal</a>'
     )
 !!}
 
@@ -120,6 +120,13 @@ public function components(): array
         )
             ->name('my-modal'),
 
+        ActionButton::make(
+            'Show modal',
+            '#'
+        )
+            ->toggleModal('my-modal') // [tl! focus:-4]
+
+        // or async
         ActionButton::make(
             'Show modal',
             '/endpoint'
@@ -204,7 +211,7 @@ use MoonShine\Components\Modal;
 public function components(): array
 {
     return [
-        Modal::make('Title', 'Content...', '<a class="btn">Show modal</a>')
+        Modal::make('Title', 'Content...', ActionButton::make('Show modal', '#'))
             ->closeOutside(false), // [tl! focus]
     ];
 }
@@ -213,7 +220,7 @@ public function components(): array
 </x-code>
 
 {!!
-    MoonShine\Components\Modal::make('Title', 'Content...', '<a class="btn">Show modal</a>')->closeOutside(false)
+    MoonShine\Components\Modal::make('Title', 'Content...', '<a class="btn" @click.prevent="toggleModal">Show modal</a>')->closeOutside(false)
 !!}
 
 <x-sub-title id="autoclose">Auto close</x-sub-title>
@@ -261,7 +268,7 @@ public function components(): array
                 MoonShine\Fields\Password::make('Password')->eye(),
             ])
             ->submit('Confirm'),
-        '<a class="btn">Show modal</a>'
+        '<a @click.prevent="toggleModal" class="btn">Show modal</a>'
     )->autoClose(false);
 !!}
 
@@ -285,7 +292,7 @@ use MoonShine\Components\Modal;
 public function components(): array
 {
     return [
-        Modal::make('Title', 'Content...', '<a class="btn">Show modal</a>')
+        Modal::make('Title', 'Content...', ActionButton::make('Show modal', '#'))
             ->wide(), // [tl! focus]
     ];
 }
@@ -294,7 +301,7 @@ public function components(): array
 </x-code>
 
 {!!
-    MoonShine\Components\Modal::make('Title', 'Content...', '<a class="btn">Show modal</a>')->wide()
+    MoonShine\Components\Modal::make('Title', 'Content...', '<a @click.prevent="toggleModal" class="btn">Show modal</a>')->wide()
 !!}
 
 <x-moonshine::divider label="auto" />
@@ -315,7 +322,7 @@ use MoonShine\Components\Modal;
 public function components(): array
 {
     return [
-        Modal::make('Title', 'Content...', '<a class="btn">Show modal</a>')
+        Modal::make('Title', 'Content...', ActionButton::make('Show modal', '#'))
             ->auto(), // [tl! focus]
     ];
 }
@@ -324,7 +331,7 @@ public function components(): array
 </x-code>
 
 {!!
-    MoonShine\Components\Modal::make('Title', 'Content...', '<a class="btn">Show modal</a>')->auto()
+    MoonShine\Components\Modal::make('Title', 'Content...', '<a @click.prevent="toggleModal" class="btn">Show modal</a>')->auto()
 !!}
 
 <x-sub-title id="outer-attributes">Outer attributes</x-sub-title>
@@ -345,7 +352,7 @@ use MoonShine\Components\Modal;
 public function components(): array
 {
     return [
-        Modal::make('Title', 'Content...', '<a class="btn">Show modal</a>')
+        Modal::make('Title', 'Content...', ActionButton::make('Show modal', '#'))
             ->outerAttributes([
                 'class' => 'mt-2'
             ]), // [tl! focus:-2]

@@ -160,12 +160,12 @@ public function components(): array
             label: 'Click me',
             url: 'https://moonshine-laravel.com',
         )
-            ->onClick(fn() => 'alert("Example")', 'prevent') // [tl! focus]
+            ->onClick(fn() => "alert('Example')", 'prevent') // [tl! focus]
     ];
 }
 </x-code>
 
-{!! actionBtn('Example', 'https://moonshine-laravel.com')->onClick(fn() => 'alert("Example")', 'prevent') !!}
+{!! actionBtn('Example', 'https://moonshine-laravel.com')->onClick(fn() => "alert('Example')", 'prevent') !!}
 
 <x-sub-title id="modal">Modal</x-sub-title>
 
@@ -228,6 +228,32 @@ public function components(): array
         actionBtn('Click me in modal', 'https://moonshine-laravel.com')
 ]) !!}
 
+
+<x-p>
+    You can also open a modal window using the <code>toggleModal</code> method, and if the ActionButton is inside
+    modal window then just <code>openModal</code>
+</x-p>
+
+<x-code>
+use MoonShine\ActionButtons\ActionButton;
+use MoonShine\Components\Modal;
+
+public function components(): array
+{
+    return [
+        MoonShine\Components\Modal::make(
+            'Title',
+            fn() => 'Content',
+        )->name('my-modal')
+
+        ActionButton::make(
+            label: 'Open modal',
+            url: '#',
+        )->toggleModal('my-modal') // [tl! focus:-7]
+    ];
+}
+</x-code>
+
 <x-moonshine::divider label="Async" />
 
 <x-p>
@@ -243,7 +269,7 @@ public function components(): array
     return [
         ActionButton::make(
             label: 'Click me',
-            url: to_page(['pageUri' => 'action_button', '_fragment-load' => 'doc-content']),
+            url: to_page('action_button', fragment: 'doc-content'),
         )
             ->inModal(
                 title: fn() => 'Modal title',
@@ -253,7 +279,7 @@ public function components(): array
 }
 </x-code>
 
-{!! actionBtn('Example', route('moonshine.page', ['pageUri' => 'action_button', '_fragment-load' => 'doc-content']))->inModal(
+{!! actionBtn('Example', to_page('action_button', fragment: 'doc-content'))->inModal(
     title: fn() => 'Modal title',
     async: true
 ) !!}

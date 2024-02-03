@@ -119,7 +119,7 @@ app(MoonShine::class)->menu([
 //...
 app(MoonShine::class)->menu([
     MenuItem::make('Admins', function () { // [tl! focus:start]
-        return (new MoonShineUserResource())->route('index');
+        return (new MoonShineUserResource())->indexPageUrl();
     }),
     MenuItem::make('Home', fn() => route('home')) // [tl! focus:end]
 ]);
