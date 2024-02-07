@@ -44,7 +44,7 @@ async(
 
 <x-ul>
     <li><code>table-updated-{name}</code> - асинхронное обновление таблицы по имени,</li>
-    <li><code>cards-updated-{name}</code> - асинхронное обновление группы каточек по имени,</li>
+    <li><code>cards-updated-{name}</code> - асинхронное обновление группы карточек по имени,</li>
     <li><code>form-reset-{name}</code> - сброс значений формы по имени,</li>
     <li><code>fragment-updated-{name}</code> - обновление blade fragment по имени.</li>
 </x-ul>

@@ -222,7 +222,7 @@
 <x-p>
     <code>download</code> - скачивание загруженного файла <br>
     <code>removable</code> - удаление из списка загруженных файлов <br>
-    <code>imageable</code> - отображение привью изображений
+    <code>imageable</code> - отображение превью изображений
 </x-p>
 
 <x-code language="blade" file="resources/views/examples/components/form/file-full.blade.php"></x-code>
