@@ -765,6 +765,10 @@ public function fields(): array
 //...
 </x-code>
 
+<x-moonshine::alert type="default" icon="heroicons.book-open">
+    Relationship fields do not support the <code>changeFill</code> method
+</x-moonshine::alert>
+
 <x-sub-title id="apply">Apply</x-sub-title>
 
 <x-p>

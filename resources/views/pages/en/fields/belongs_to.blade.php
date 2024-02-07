@@ -26,6 +26,17 @@
     </x-link> at the model resource.
 </x-moonshine::alert>
 
+<x-p>
+    If you need to change column when working with models, use the <code>onAfterFill</code> method
+</x-p>
+
+<x-code language="php">
+BelongsTo::make(
+    'Category',
+    resource: new CategoryResource()
+)->afterFill(fn($field) => $field->setColumn('changed_category_id'))
+</x-code>
+
 <x-sub-title id="default">Default value</x-sub-title>
 
 <x-p>
