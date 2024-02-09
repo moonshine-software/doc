@@ -758,7 +758,9 @@ public function fields(): array
 {
     return [
         Text::make('Categories')
-            ->changeFill(Article $data, Field $field) => $data->categories->implode('title', ',')) // [tl! focus]
+            ->changeFill(
+                fn(Article $data, Field $field) => $data->categories->implode('title', ',')
+            ) // [tl! focus:-2]
     ];
 }
 
