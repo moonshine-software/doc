@@ -8,6 +8,7 @@
             ['url' => '#custom-buttons', 'label' => 'Custom buttons'],
             ['url' => '#hasone-through-template', 'label' => 'HasOne through the Template field'],
             ['url' => '#custom-breadcrumbs', 'label' => 'Changing breadcrumbs from a resource'],
+            ['url' => '#index-page-cards', 'label' => 'Index page via CardsBuilder'],
         ]
     ]"
 >
@@ -18,5 +19,6 @@
 @include('pages.en.recipes.custom-buttons', ['title' => 'Custom buttons'])
 @include('pages.en.recipes.hasone-through-template', ['title' => 'HasOne through the Template field'])
 @include('pages.en.recipes.custom-breadcrumbs', ['title' => 'Changing breadcrumbs from a resource'])
+@include('pages.en.recipes.index-page-cards', ['title' => 'Index page via CardsBuilder'])
 
 </x-page>
