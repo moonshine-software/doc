@@ -5,6 +5,7 @@
             ['url' => '#basics', 'label' => 'Основы'],
             ['url' => '#page-type', 'label' => 'PageType'],
             ['url' => '#fields', 'label' => 'Добавление полей'],
+            ['url' => '#components', 'label' => 'Основные компоненты'],
             ['url' => '#layers', 'label' => 'Слои на странице'],
         ]
     ]"
@@ -112,6 +113,204 @@ class PostIndexPage extends IndexPage
     } // [tl! focus:end]
 
     //...
+}
+</x-code>
+
+<x-sub-title id="components">Основные компоненты</x-sub-title>
+
+<x-p>
+    В админ-панели <strong>MoonShine</strong> можно быстро изменить основной компонент на странице.
+</x-p>
+
+<x-moonshine::divider label="IndexPage" />
+
+<x-p>
+    Метод <code>itemsComponent()</code> позволяет изменить основной компонент индексной страницы.
+</x-p>
+
+<x-code language="php">
+itemsComponent(iterable $items, Fields $fields)
+</x-code>
+
+<x-ul>
+    <li><code>$items</code> - значения полей,</li>
+    <li><code>$fields</code> - поля.</li>
+</x-ul>
+
+<x-code language="php">
+use MoonShine\Components\TableBuilder;
+use MoonShine\Contracts\MoonShineRenderable;
+use MoonShine\Fields\Fields;
+use MoonShine\Pages\Crud\IndexPage;
+
+class ArticleIndexPage extends IndexPage
+{
+    // ...
+
+    protected function itemsComponent(iterable $items, Fields $fields): MoonShineRenderable
+    {
+        return TableBuilder::make(items: $items)
+            ->name($this->listComponentName())
+            ->fields($fields)
+            ->cast($this->getResource()->getModelCast())
+            ->withNotFound()
+            ->when(
+                ! is_null($this->getResource()->trAttributes()),
+                fn (TableBuilder $table): TableBuilder => $table->trAttributes(
+                    $this->getResource()->trAttributes()
+                )
+            )
+            ->when(
+                ! is_null($this->getResource()->tdAttributes()),
+                fn (TableBuilder $table): TableBuilder => $table->tdAttributes(
+                    $this->getResource()->tdAttributes()
+                )
+            )
+            ->buttons($this->getResource()->getIndexItemButtons())
+            ->customAttributes([
+                'data-click-action' => $this->getResource()->getClickAction(),
+            ])
+            ->when($this->getResource()->isAsync(), function (TableBuilder $table): void {
+                $table->async()->customAttributes([
+                    'data-pushstate' => 'true',
+                ]);
+            });
+    } // [tl! focus:-28]
+}
+</x-code>
+
+<x-moonshine::divider label="DetailPage" />
+
+<x-p>
+    Метод <code>detailComponent()</code> позволяет изменить основной компонент детальной страницы.
+</x-p>
+
+<x-code language="php">
+detailComponent(?Model $item, Fields $fields)
+</x-code>
+
+<x-ul>
+    <li><code>$item</code> - Eloquent Model</li>
+    <li><code>$fields</code> - поля.</li>
+</x-ul>
+
+<x-code language="php">
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\View\ComponentAttributeBag;
+use MoonShine\Components\TableBuilder;
+use MoonShine\Contracts\MoonShineRenderable;
+use MoonShine\Fields\Fields;
+use MoonShine\Pages\Crud\DetailPage;
+
+class ArticleDetailPage extends DetailPage
+{
+    // ...
+
+    protected function detailComponent(?Model $item, Fields $fields): MoonShineRenderable
+    {
+        return TableBuilder::make($fields)
+            ->cast($this->getResource()->getModelCast())
+            ->items([$item])
+            ->vertical()
+            ->simple()
+            ->preview()
+            ->tdAttributes(fn (
+                $data,
+                int $row,
+                int $cell,
+                ComponentAttributeBag $attributes
+            ): ComponentAttributeBag => $attributes->when(
+                $cell === 0,
+                fn (ComponentAttributeBag $attr): ComponentAttributeBag => $attr->merge([
+                    'class' => 'font-semibold',
+                    'width' => '20%',
+                ])
+            ));
+    } // [tl! focus:-18]
+}
+</x-code>
+
+<x-moonshine::divider label="FormPage" />
+
+<x-p>
+    Метод <code>formComponent()</code> позволяет изменить основной компонент на странице с формой.
+</x-p>
+
+<x-code language="php">
+formComponent(
+    string $action,
+    ?Model $item,
+    Fields $fields,
+    bool $isAsync = false,
+): MoonShineRenderable
+</x-code>
+
+<x-ul>
+    <li><code>$action</code> - обработчик,</li>
+    <li><code>$item</code> - Eloquent Model,</li>
+    <li><code>$fields</code> - поля,</li>
+    <li><code>$isAsync</code> - асинхронный режим.</li>
+</x-ul>
+
+<x-code language="php">
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\View\ComponentAttributeBag;
+use MoonShine\Components\FormBuilder;
+use MoonShine\Contracts\MoonShineRenderable;
+use MoonShine\Enums\JsEvent;
+use MoonShine\Fields\Fields;
+use MoonShine\Fields\Hidden;
+use MoonShine\Pages\Crud\FormPage;
+use MoonShine\Support\AlpineJs;
+
+class ArticleFormPage extends FormPage
+{
+    // ...
+
+    protected function formComponent(
+        string $action,
+        ?Model $item,
+        Fields $fields,
+        bool $isAsync = false,
+    ): MoonShineRenderable {
+        $resource = $this->getResource();
+
+        return FormBuilder::make($action)
+            ->fillCast(
+                $item,
+                $resource->getModelCast()
+            )
+            ->fields(
+                $fields
+                    ->when(
+                        ! is_null($item),
+                        fn (Fields $fields): Fields => $fields->push(
+                            Hidden::make('_method')->setValue('PUT')
+                        )
+                    )
+                    ->when(
+                        ! $item?->exists && ! $resource->isCreateInModal(),
+                        fn (Fields $fields): Fields => $fields->push(
+                            Hidden::make('_force_redirect')->setValue(true)
+                        )
+                    )
+                    ->toArray()
+            )
+            ->when(
+                $isAsync,
+                fn (FormBuilder $formBuilder): FormBuilder => $formBuilder
+                    ->async(asyncEvents: [
+                        $resource->listEventName(request('_component_name', 'default')),
+                        AlpineJs::event(JsEvent::FORM_RESET, 'crud'),
+                    ])
+            )
+            ->when(
+                $resource->isPrecognitive() || (moonshineRequest()->isFragmentLoad('crud-form') && ! $isAsync),
+                fn (FormBuilder $form): FormBuilder => $form->precognitive()
+            )
+            ->name('crud')
+            ->submit(__('moonshine::ui.save'), ['class' => 'btn-primary btn-lg']);
+    } // [tl! focus:-43]
 }
 </x-code>
 
