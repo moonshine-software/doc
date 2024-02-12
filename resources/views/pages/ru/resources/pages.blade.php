@@ -179,6 +179,11 @@ class ArticleIndexPage extends IndexPage
 }
 </x-code>
 
+<x-moonshine::alert type="primary" icon="heroicons.outline.book-open">
+    Пример индексной страницы с компонентом <em>CardsBuilder</em> в разделе
+    <x-link link="{{ to_page('recipes') }}#index-page-cards">Recipes</x-link>
+</x-moonshine::alert>
+
 <x-moonshine::divider label="DetailPage" />
 
 <x-p>
