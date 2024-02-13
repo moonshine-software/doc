@@ -449,7 +449,7 @@ public function components(): array
 </x-p>
 
 <x-code language="json">
-{message: 'Toast', type: 'success', redirect: '/url'}
+{message: 'Toast', messageType: 'success', redirect: '/url'}
 </x-code>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
