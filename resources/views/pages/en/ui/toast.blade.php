@@ -2,6 +2,7 @@
     'Sections' => [
         ['url' => '#basics', 'label' => 'Basics'],
         ['url' => '#without', 'label' => 'Without component'],
+        ['url' => '#js', 'label' => 'Js'],
     ]
 ]">
 <x-sub-title id="basics">Basics</x-sub-title>
@@ -36,6 +37,12 @@
 use MoonShine\MoonShineUI;
 
 MoonShineUI::toast('Toast content', 'error');
+</x-code>
+
+<x-sub-title id="js">JS</x-sub-title>
+
+<x-code language="js">
+$dispatch('toast', {type: 'error', text: 'Error'})
 </x-code>
 
 </x-page>
