@@ -101,7 +101,7 @@ class PostResource extends ModelResource
 
     public function prepareForValidation(): void // [tl! focus:start]
     {
-        request()?->merge([
+        moonshineRequest()?->merge([
             'email' => request()
                 ?->string('email')
                 ->lower()
