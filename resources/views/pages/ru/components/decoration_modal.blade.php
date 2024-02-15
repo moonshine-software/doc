@@ -24,14 +24,21 @@
 </x-p>
 
 <x-code language="php">
-make(Closure|string $title, Closure|View|string $content, Closure|View|ActionButton|string $outer = '', Closure|string|null $asyncUrl = '')
+make(
+    Closure|string $title,
+    Closure|View|string $content,
+    Closure|View|ActionButton|string $outer = '',
+    Closure|string|null $asyncUrl = '',
+    MoonShineRenderElements|null $components = null
+)
 </x-code>
 
 <x-ul>
     <li><code>$title</code> - заголовок модального окна,</li>
     <li><code>$content</code> - контент модального окна,</li>
     <li><code>$outer</code> - внешний блок с обработчиком вызова окна,</li>
-    <li><code>$asyncUrl</code> - url для асинхронного контента.</li>
+    <li><code>$asyncUrl</code> - url для асинхронного контента,</li>
+    <li><code>$components</code> - компоненты для модального окна.</li>
 </x-ul>
 
 <x-code language="php">
@@ -39,6 +46,7 @@ use MoonShine\ActionButtons\ActionButton;
 use MoonShine\Components\FormBuilder;
 use MoonShine\Components\Modal; // [tl! focus]
 use MoonShine\Fields\Password;
+use MoonShine\Pages\PageComponents;
 
 //...
 
@@ -46,14 +54,16 @@ public function components(): array
 {
     return [
         Modal::make( // [tl! focus:start]
-            'Confirm',
-            static fn() => FormBuilder::make(route('password.confirm'))
-                ->async()
-                ->fields([
-                    Password::make('Password')->eye(),
-                ])
-                ->submit('Confirm'),
-            ActionButton::make('Show modal', '#')
+            title: 'Confirm',
+            outer: ActionButton::make('Show modal', '#'),
+            components: PageComponents::make([
+                FormBuilder::make(route('password.confirm'))
+                    ->async()
+                    ->fields([
+                        Password::make('Password')->eye(),
+                    ])
+                    ->submit('Confirm'),
+            ])
         ) // [tl! focus:end]
     ];
 }
