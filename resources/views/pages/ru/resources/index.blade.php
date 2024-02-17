@@ -10,6 +10,7 @@
             ['url' => '#modal', 'label' => 'Модальные окна'],
             ['url' => '#redirects', 'label' => 'Редиректы'],
             ['url' => '#active_actions', 'label' => 'Активные действия'],
+            ['url' => '#components', 'label' => 'Компоненты'],
             ['url' => '#boot', 'label' => 'Boot'],
         ]
     ]"
@@ -284,6 +285,39 @@ class PostResource extends ModelResource
     //...
 }
 </x-code>
+
+<x-sub-title id="components">Components</x-sub-title>
+
+<x-p>
+    Лучший способ изменять компоненты страниц это опубликовать страницы
+    и взаимодействовать через них, но если вы хотите быстро добавить компоненты на страницы,
+    то можете воспользоваться методами ресурса <code>pageComponents</code>,
+    <code>indexPageComponents</code>,
+    <code>formPageComponents</code>,
+    <code>detailPageComponents</code>
+</x-p>
+
+<x-code>
+// or indexPageComponents/formPageComponents/detailPageComponents
+public function pageComponents(): array
+{
+    return [
+        Modal::make(
+            'My Modal',
+            components: PageComponents::make([
+                FormBuilder::make()->fields([
+                    Text::make('Title')
+                ])
+            ])
+        )
+        ->name('demo-modal')
+    ];
+}
+</x-code>
+
+<x-moonshine::alert type="primary" icon="heroicons.outline.book-open">
+    Компоненты будут добавлены в <code>bottomLayer</code>
+</x-moonshine::alert>
 
 <x-sub-title id="boot">Boot</x-sub-title>
 

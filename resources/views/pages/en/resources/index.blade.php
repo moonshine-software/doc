@@ -10,6 +10,7 @@
             ['url' => '#modal', 'label' => 'Modal windows'],
             ['url' => '#redirects', 'label' => 'Redirects'],
             ['url' => '#active_actions', 'label' => 'Active actions'],
+            ['url' => '#components', 'label' => 'Components'],
             ['url' => '#boot', 'label' => 'Boot'],
         ]
     ]"
@@ -284,6 +285,39 @@ class PostResource extends ModelResource
     //...
 }
 </x-code>
+
+<x-sub-title id="components">Components</x-sub-title>
+
+<x-p>
+    The best way to change page components is to publish the pages
+    and interact through them, but if you want to quickly add components to pages,
+    then you can use the methods of the <code>pageComponents</code> resource,
+    <code>indexPageComponents</code>,
+    <code>formPageComponents</code>,
+    <code>detailPageComponents</code>
+</x-p>
+
+<x-code>
+// or indexPageComponents/formPageComponents/detailPageComponents
+public function pageComponents(): array
+{
+    return [
+        Modal::make(
+            'My Modal'
+            components: PageComponents::make([
+                FormBuilder::make()->fields([
+                    Text::make('Title')
+                ])
+            ])
+        )
+        ->name('demo-modal')
+    ];
+}
+</x-code>
+
+<x-moonshine::alert type="primary" icon="heroicons.outline.book-open">
+    The components will be added to the <code>bottomLayer</code>
+</x-moonshine::alert>
 
 <x-sub-title id="boot">Boot</x-sub-title>
 

@@ -8,6 +8,7 @@
             ['url' => '#close-outside', 'label' => 'Click outside'],
             ['url' => '#autoclose', 'label' => 'Auto close'],
             ['url' => '#wide', 'label' => 'Width'],
+            ['url' => '#async', 'label' => 'Async'],
             ['url' => '#outer-attributes', 'label' => 'Outer attributes'],
         ]
     ]"
@@ -343,6 +344,26 @@ public function components(): array
 {!!
     MoonShine\Components\Modal::make('Title', 'Content...', '<a @click.prevent="toggleModal" class="btn">Show modal</a>')->auto()
 !!}
+
+<x-sub-title id="async">Async</x-sub-title>
+
+<x-code>
+Modal::make('Title', '', ActionButton::make('Show modal', '#'), asyncUrl: '/endpoint'), // [tl! focus]
+</x-code>
+
+{!! MoonShine\Components\Modal::make('Title', '', '<a class="btn" @click.prevent="toggleModal">Show modal</a>', asyncUrl: to_page('action_button', fragment : 'doc-content')) !!}
+
+<br />
+
+<x-moonshine::alert>
+    The request will be sent once, but if you need to send a request every time you open it,
+    then use the <code>data-always-load</code> attribute
+</x-moonshine::alert>
+
+<x-code>
+    Modal::make(...)
+        ->customAttributes(['data-always-load' => true]), // [tl! focus]
+</x-code>
 
 <x-sub-title id="outer-attributes">Outer attributes</x-sub-title>
 

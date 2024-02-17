@@ -8,6 +8,7 @@
             ['url' => '#close-outside', 'label' => 'Клик вне окна'],
             ['url' => '#autoclose', 'label' => 'Автозакрытие'],
             ['url' => '#wide', 'label' => 'Ширина окна'],
+            ['url' => '#async', 'label' => 'Async'],
             ['url' => '#outer-attributes', 'label' => 'Атрибуты внешнего блока'],
         ]
     ]"
@@ -343,6 +344,26 @@ public function components(): array
 {!!
     MoonShine\Components\Modal::make('Title', 'Content...', '<a class="btn" @click.prevent="toggleModal">Show modal</a>')->auto()
 !!}
+
+<x-sub-title id="async">Async</x-sub-title>
+
+<x-code>
+Modal::make('Title', '', ActionButton::make('Show modal', '#'), asyncUrl: '/endpoint'), // [tl! focus]
+</x-code>
+
+{!! MoonShine\Components\Modal::make('Title', '', '<a class="btn" @click.prevent="toggleModal">Show modal</a>', asyncUrl: to_page('action_button', fragment: 'doc-content')) !!}
+
+<br />
+
+<x-moonshine::alert>
+    Запрос будет отправлен единоразово, но если вам необходимо при каждом открытии отправлять запрос,
+    то воспользуйтесь атрибутом <code>data-always-load</code>
+</x-moonshine::alert>
+
+<x-code>
+    Modal::make(...)
+        ->customAttributes(['data-always-load' => true]), // [tl! focus]
+</x-code>
 
 <x-sub-title id="outer-attributes">Атрибуты внешнего блока</x-sub-title>
 
