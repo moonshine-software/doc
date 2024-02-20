@@ -1130,6 +1130,11 @@ public function someMethod(MoonShineRequest $request): void
 }
 </x-code>
 
+<x-moonshine::alert type="primary" icon="heroicons.outline.book-open">
+    Example of sorting the <em>CardsBuilder</em> component in the section
+    <x-link link="{{ to_page('recipes') }}#sorting-for-cards-builder">Recipes</x-link>
+</x-moonshine::alert>
+
 <x-sub-title id="scheme">Scheme field's work</x-sub-title>
 
 <x-link link="{{ asset('files/field_scheme.pdf') }}" target="_blank">
