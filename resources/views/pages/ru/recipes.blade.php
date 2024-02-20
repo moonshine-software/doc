@@ -9,6 +9,7 @@
             ['url' => '#hasone-through-template', 'label' => 'HasOne через поле Template'],
             ['url' => '#custom-breadcrumbs', 'label' => 'Изменение breadcrumbs из ресурса'],
             ['url' => '#index-page-cards', 'label' => 'Индексная страница через CardsBuilder'],
+            ['url' => '#sorting-for-cards-builder', 'label' => 'Сортировка для CardsBuilder'],
         ]
     ]"
 >
@@ -20,5 +21,6 @@
 @include('pages.ru.recipes.hasone-through-template', ['title' => 'HasOne через поле Template'])
 @include('pages.ru.recipes.custom-breadcrumbs', ['title' => 'Изменение breadcrumbs из ресурса'])
 @include('pages.ru.recipes.index-page-cards', ['title' => 'Индексная страница через CardsBuilder'])
+@include('pages.ru.recipes.sorting-for-cards-builder', ['title' => 'Сортировка для CardsBuilder'])
 
 </x-page>
