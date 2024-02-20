@@ -21,6 +21,7 @@
             ['url' => '#assets', 'label' => 'Assets'],
             ['url' => '#wrapper', 'label' => 'Wrapper'],
             ['url' => '#reactive', 'label' => 'Реактивность'],
+            ['url' => '#on-change', 'label' => 'Методы onChange'],
             ['url' => '#scheme', 'label' => 'Схема работы поля'],
         ]
     ]"
@@ -966,8 +967,6 @@ public function fields(): array
 <x-image theme="light" src="{{ asset('screenshots/without_wrapper.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/without_wrapper_dark.png') }}"></x-image>
 
-
-
 <x-sub-title id="reactive">Реактивность</x-sub-title>
 
 <x-p>
@@ -1015,6 +1014,121 @@ FormBuilder::make()
     В данном пример реализовано формирование slug-поля на основе заголовка.<br/>
     Slug будет генерироваться в процессе ввода текста.
 </x-p>
+
+<x-sub-title id="on-change">Методы onChange</x-sub-title>
+
+<x-p>
+    C помощью методов <code>onChangeMethod()</code> и <code>onChangeUrl()</code>
+    можно добавить логику при изменении значений полей.
+</x-p>
+
+<x-moonshine::alert type="warning" icon="heroicons.information-circle">
+    Методы <code>onChangeUrl()</code> или <code>onChangeMethod()</code> присутствуют у всех полей,
+    кроме полей отношений <em>HasOne</em> и <em>HasMany</em>.
+</x-moonshine::alert>
+
+<x-moonshine::divider label="onChangeUrl()" />
+
+<x-p>
+    Метод <code>onChangeUrl()</code> позволяет асинхронно отправить запрос при изменении поля.
+</x-p>
+
+<x-code language="php">
+onChangeUrl(
+    Closure $url,
+    string $method = 'PUT',
+    array $events = [],
+    ?string $selector = null,
+    ?string $callback = null,
+)
+</x-code>
+
+<x-ul>
+    <li><code>$url</code> - url запроса,</li>
+    <li><code>$method</code> - метод асинхронного запроса,</li>
+    <li><code>$events</code> - вызываемые события после успешного запроса,</li>
+    <li><code>$selector</code> - selector элемента у которого будет изменяться контент,</li>
+    <li><code>$callback</code> - js callback функция после получения ответа.</li>
+</x-ul>
+
+<x-code language="php">
+//...
+
+public function fields(): array
+{
+    return [
+        Switcher::make('Active')
+            ->onChangeUrl('/endpoint') // [tl! focus]
+    ];
+}
+</x-code>
+
+<x-p>
+    Если требуется заменить область с html после успешного запроса,
+    вы можете в ответе вернуть HTML контент или json с ключом html.
+</x-p>
+
+<x-code language="php">
+//...
+
+public function fields(): array
+{
+    return [
+        Switcher::make('Active')
+            ->onChangeUrl('/endpoint', selector: '#my-selector') // [tl! focus]
+    ];
+}
+</x-code>
+
+<x-moonshine::divider label="onChangeMethod()" />
+
+<x-p>
+    Метод <code>onChangeMethod()</code> позволяет асинхронно вызывать метод ресурса или страницы при изменении поля
+    без необходимости создавать дополнительные контроллеры.
+</x-p>
+
+<x-code language="php">
+onChangeMethod(
+    string $method,
+    array|Closure $params = [],
+    ?string $message = null,
+    ?string $selector = null,
+    array $events = [],
+    ?string $callback = null,
+    ?Page $page = null,
+    ?ResourceContract $resource = null,
+)
+</x-code>
+
+<x-ul>
+    <li><code>$method</code> - наименование метода,</li>
+    <li><code>$params</code> - параметры для запроса,</li>
+    <li><code>$message</code> - сообщения,</li>
+    <li><code>$selector</code> - selector элемента у которого будет изменяться контент,</li>
+    <li><code>$events</code> - вызываемые события после успешного запроса,</li>
+    <li><code>$callback</code> - js callback функция после получения ответа,</li>
+    <li><code>$page</code> - страница содержащая метод,</li>
+    <li><code>$resource</code> - ресурс содержащий метод.</li>
+</x-ul>
+
+<x-code language="php">
+//...
+
+public function fields(): array
+{
+    return [
+        Switcher::make('Active')
+            ->onChangeMethod('someMethod') // [tl! focus]
+    ];
+}
+</x-code>
+
+<x-code language="php">
+public function someMethod(MoonShineRequest $request): void
+{
+    // Logic
+}
+</x-code>
 
 <x-sub-title id="scheme">Схема работы поля</x-sub-title>
 

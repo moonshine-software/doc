@@ -21,6 +21,7 @@
             ['url' => '#assets', 'label' => 'Assets'],
             ['url' => '#wrapper', 'label' => 'Wrapper'],
             ['url' => '#reactive', 'label' => 'Reactive'],
+            ['url' => '#on-change', 'label' => 'onChange methods'],
             ['url' => '#scheme', 'label' => 'Scheme field\'s work'],
         ]
     ]"
@@ -1013,6 +1014,121 @@ FormBuilder::make()
     This example implements the formation of a slug field based on the header.<br/>
     The Slug will be generated as you enter text.
 </x-p>
+
+<x-sub-title id="on-change">onChange methods</x-sub-title>
+
+<x-p>
+    Using the <code>onChangeMethod()</code> and <code>onChangeUrl()</code> methods
+    You can add logic when changing field values.
+</x-p>
+
+<x-moonshine::alert type="warning" icon="heroicons.information-circle">
+    The <code>onChangeUrl()</code> or <code>onChangeMethod()</code> methods are present for all fields,
+    except for the <em>HasOne</em> and <em>HasMany</em> relationship fields.
+</x-moonshine::alert>
+
+<x-moonshine::divider label="onChangeUrl()" />
+
+<x-p>
+    The <code>onChangeUrl()</code> method allows you to send a request asynchronously when a field changes.
+</x-p>
+
+<x-code language="php">
+onChangeUrl(
+    Closure $url,
+    string $method = 'PUT',
+    array $events = [],
+    ?string $selector = null,
+    ?string $callback = null,
+)
+</x-code>
+
+<x-ul>
+    <li><code>$url</code> - request url</li>
+    <li><code>$method</code> - asynchronous request method</li>
+    <li><code>$events</code> - events to be called after a successful request,</li>
+    <li><code>$selector</code> - selector of the element whose content will change</li>
+    <li><code>$callback</code> - js callback function after receiving a response.</li>
+</x-ul>
+
+<x-code language="php">
+//...
+
+public function fields(): array
+{
+    return [
+        Switcher::make('Active')
+            ->onChangeUrl('/endpoint') // [tl! focus]
+    ];
+}
+</x-code>
+
+<x-p>
+    If you need to replace the area with html after a successful request,
+    you can return HTML content or json with the html key in the response.
+</x-p>
+
+<x-code language="php">
+//...
+
+public function fields(): array
+{
+    return [
+        Switcher::make('Active')
+            ->onChangeUrl('/endpoint', selector: '#my-selector') // [tl! focus]
+    ];
+}
+</x-code>
+
+<x-moonshine::divider label="onChangeMethod()" />
+
+<x-p>
+    The <code>onChangeMethod()</code> method allows you to asynchronously call a resource or page method when a field changes
+    without the need to create additional controllers.
+</x-p>
+
+<x-code language="php">
+onChangeMethod(
+    string $method,
+    array|Closure $params = [],
+    ?string $message = null,
+    ?string $selector = null,
+    array $events = [],
+    ?string $callback = null,
+    ?Page $page = null,
+    ?ResourceContract $resource = null,
+)
+</x-code>
+
+<x-ul>
+    <li><code>$method</code> - name of the method</li>
+    <li><code>$params</code> - parameters for the request,</li>
+    <li><code>$message</code> - messages</li>
+    <li><code>$selector</code> - selector of the element whose content will change</li>
+    <li><code>$events</code> - events to be called after a successful request,</li>
+    <li><code>$callback</code> - js callback function after receiving a response</li>
+    <li><code>$page</code> - page containing the method</li>
+    <li><code>$resource</code> - resource containing the method.</li>
+</x-ul>
+
+<x-code language="php">
+//...
+
+public function fields(): array
+{
+    return [
+        Switcher::make('Active')
+            ->onChangeMethod('someMethod') // [tl! focus]
+    ];
+}
+</x-code>
+
+<x-code language="php">
+public function someMethod(MoonShineRequest $request): void
+{
+    // Logic
+}
+</x-code>
 
 <x-sub-title id="scheme">Scheme field's work</x-sub-title>
 
