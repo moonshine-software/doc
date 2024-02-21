@@ -194,6 +194,7 @@ return [
         ['slug' => 'advanced-form_builder', 'label' => 'FormBuilder'],
         ['slug' => 'advanced-table_builder', 'label' => 'TableBuilder'],
         ['slug' => 'advanced-type_casts', 'label' => 'TypeCasts'],
+        ['slug' => 'advanced-js_events', 'label' => 'Js events'],
         ['slug' => 'advanced-helpers', 'label' => 'Helpers'],
         ['slug' => 'advanced-authentication', 'label' => 'Authentication'],
         ['slug' => 'advanced-authorization', 'label' => 'Authorization'],
