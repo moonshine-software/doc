@@ -137,6 +137,10 @@ return [
         ['slug' => 'components-metric_donut_chart', 'label' => 'Donut Chart', 'title' => 'Metric Donut Chart'],
         ['slug' => 'components-metric_line_chart', 'label' => 'Line Chart', 'title' => 'Metric Line Chart'],
         ['slug' => 'components-metric_value', 'label' => 'Value', 'title' => 'Metric Value'],
+
+        // UI components
+        'UI:_divider_',
+        ['slug' => 'components-card', 'label' => 'Card', 'title' => 'Card Component'],
     ],
 
     'ActionButton:cursor-arrow-ripple' => [
