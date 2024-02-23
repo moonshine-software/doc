@@ -32,6 +32,21 @@ return [
         'category' => 'Fields'
     ],
     [
+        'title' => 'Moonshine CKEditor Field',
+        'url' => 'moonshine-software/ckeditor',
+        'category' => 'Fields'
+    ],
+    [
+        'title' => 'Moonshine Trix Field',
+        'url' => 'moonshine-software/trix',
+        'category' => 'Fields'
+    ],
+    [
+        'title' => 'Moonshine Quill Field',
+        'url' => 'moonshine-software/quill',
+        'category' => 'Fields'
+    ],
+    [
         'title' => 'MoonShine Roles-Permissions',
         'url' => 'SWEET1S/moonshine-roles-permissions',
         'category' => 'Auth'
