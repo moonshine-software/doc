@@ -585,6 +585,14 @@ public function fields(): array
 </x-code>
 
 <x-p>
+    Метод <code>forcePreview()</code> укажет что поле должно быть всегда в режиме preview
+</x-p>
+
+<x-code language="php">
+    Text::make('Label')->forcePreview()
+</x-code>
+
+<x-p>
     Метод <code>requestValueResolver()</code> позволяет переопределить логику получения значения из Request
 </x-p>
 

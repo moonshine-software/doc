@@ -585,6 +585,14 @@ public function fields(): array
 </x-code>
 
 <x-p>
+    The <code>forcePreview()</code> method will indicate that the field should always be in preview mode
+</x-p>
+
+<x-code language="php">
+    Text::make('Label')->forcePreview()
+</x-code>
+
+<x-p>
     The <code>requestValueResolver()</code> method allows you to override the logic for getting a value from Request
 </x-p>
 
