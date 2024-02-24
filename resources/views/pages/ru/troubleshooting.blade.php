@@ -27,4 +27,22 @@
         <li>Убедитесь что у вас качественный ssl сертификат</li>
         <li>В middleware <code>TrustProxies</code> установите <code>protected $proxies = ['*']</code></li>
     </ol>
+
+    <x-sub-title>Ошибка Page not found</x-sub-title>
+
+    <ol>
+        <li>
+            Проверьте <code>config/app.php</code> на наличие в нем MoonShineServiceProvider.
+            К примеру пакет Apiato меняет его структуру и MoonShine не может добавить провайдер автоматически.
+            Добавьте самостоятельно
+        </li>
+
+        <li>
+            Убедитесь что ресурс или страница объявлены в MoonShineServiceProvider
+        </li>
+
+        <li>
+            Сбросьте кеш
+        </li>
+    </ol>
 </x-page>

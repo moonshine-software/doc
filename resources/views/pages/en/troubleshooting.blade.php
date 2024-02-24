@@ -27,4 +27,22 @@
         <li>Make sure you have a quality ssl certificate</li>
         <li>In middleware <code>TrustProxies</code> set <code>protected $proxies = ['*']</code></li>
     </ol>
+
+    <x-sub-title>Error Page not found</x-sub-title>
+
+    <ol>
+        <li>
+            Check <code>config/app.php</code> for MoonShineServiceProvider.
+            For example, the Apiato package changes its structure and MoonShine cannot be added by the provider automatically.
+            Add it yourself
+        </li>
+
+        <li>
+            Make sure the resource or page is declared in MoonShineServiceProvider
+        </li>
+
+        <li>
+            Clear cache
+        </li>
+    </ol>
 </x-page>
