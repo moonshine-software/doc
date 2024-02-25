@@ -140,6 +140,7 @@ return [
 
         // UI components
         'UI:_divider_',
+        ['slug' => 'components-badge', 'label' => 'Badge', 'title' => 'Badge Component'],
         ['slug' => 'components-card', 'label' => 'Card', 'title' => 'Card Component'],
     ],
 

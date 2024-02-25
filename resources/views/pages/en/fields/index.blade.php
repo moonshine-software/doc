@@ -103,7 +103,7 @@ public function fields(): array
     return [
         Slug::make('Slug')
             ->setLabel(
-                fn($label, Field $field) => $field->getData()?->exists
+                fn(Field $field) => $field->getData()?->exists
                     ? 'Slug (do not change)'
                     : 'Slug'
             ) // [tl! focus:-4]

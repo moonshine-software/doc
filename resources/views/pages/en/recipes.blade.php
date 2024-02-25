@@ -10,6 +10,7 @@
             ['url' => '#custom-breadcrumbs', 'label' => 'Changing breadcrumbs from a resource'],
             ['url' => '#index-page-cards', 'label' => 'Index page via CardsBuilder'],
             ['url' => '#sorting-for-cards-builder', 'label' => 'Sorting for CardsBuilder'],
+            ['url' => '#update-on-preview-pivot', 'label' => 'updateOnPreview for pivot fields'],
         ]
     ]"
 >
@@ -22,5 +23,6 @@
 @include('pages.en.recipes.custom-breadcrumbs', ['title' => 'Changing breadcrumbs from a resource'])
 @include('pages.en.recipes.index-page-cards', ['title' => 'Index page via CardsBuilder'])
 @include('pages.en.recipes.sorting-for-cards-builder', ['title' => 'Сортировка для CardsBuilder'])
+@include('pages.en.recipes.update-on-preview-pivot', ['title' => 'updateOnPreview for pivot fields'])
 
 </x-page>
