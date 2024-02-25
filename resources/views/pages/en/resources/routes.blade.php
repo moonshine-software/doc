@@ -2,6 +2,7 @@
     'Sections' => [
         ['url' => '#basics', 'label' => 'Basics'],
         ['url' => '#helper', 'label' => 'Helper'],
+        ['url' => '#current-page', 'label' => 'Current page'],
     ]
 ]">
 
@@ -84,5 +85,19 @@ to_page(page: PageType::FORM, fragment: true);
     For more information about page types, see
     <x-link link="{{ to_page('resources-pages') }}#page-type">PageType</x-link>.
 </x-moonshine::alert>
+
+<x-sub-title id="current-page">Current page</x-sub-title>
+
+<x-p>
+    The model resource has methods that allow you to check which page is the current one to build further logic.
+</x-p>
+
+<x-code language="php">
+$resource->isNowOnIndex(); // index page
+$resource->isNowOnForm(); // creation or editing page
+$resource->isNowOnCreateForm(); // creation page
+$resource->isNowOnUpdateForm(); // edit page
+$resource->isNowOnDetail(); // detail page
+</x-code>
 
 </x-page>

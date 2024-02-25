@@ -2,6 +2,7 @@
     'Разделы' => [
         ['url' => '#basics', 'label' => 'Основы'],
         ['url' => '#helper', 'label' => 'Helper'],
+        ['url' => '#current-page', 'label' => 'Текущая страница'],
     ]
 ]">
 
@@ -84,5 +85,19 @@ to_page(page: PageType::FORM, fragment: true);
     За более подробной информацией о типах страниц обратитесь к разделу
     <x-link link="{{ to_page('resources-pages') }}#page-type">PageType</x-link>.
 </x-moonshine::alert>
+
+<x-sub-title id="current-page">Текущая страница</x-sub-title>
+
+<x-p>
+    Ресурс модели имеет методы позволяющие проверить какой страницей является текущая для построения дальнейшей логики.
+</x-p>
+
+<x-code language="php">
+$resource->isNowOnIndex(); // индексная страница
+$resource->isNowOnForm(); // страница создания или редактирования
+$resource->isNowOnCreateForm(); // страница создания
+$resource->isNowOnUpdateForm(); // страница редактирования
+$resource->isNowOnDetail(); // детальная страница
+</x-code>
 
 </x-page>
