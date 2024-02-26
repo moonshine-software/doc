@@ -104,6 +104,12 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
     Будет полезно если вы решили использовать <em>multi tenancy</em> или же у вас и веб и админ часть реализована на MoonShine.
 </x-moonshine::alert>
 
+<x-moonshine::alert type="warning" icon="heroicons.information-circle">
+    При объявлении меню через <em>Closure</em>,
+    необходимо вручную зарегистрировать <x-link link="{{ to_page('page-instance') }}#define">страницы</x-link>
+    и <x-link link="{{ to_page('resources-index') }}#define">ресурсы</x-link> в соответствующих методах.
+</x-moonshine::alert>
+
 <x-sub-title id="group">Группы</x-sub-title>
 
 <x-p>
