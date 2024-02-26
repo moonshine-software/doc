@@ -1066,7 +1066,7 @@ public function fields(): array
 {
     return [
         Switcher::make('Active')
-            ->onChangeUrl('/endpoint') // [tl! focus]
+            ->onChangeUrl(fn() => '/endpoint') // [tl! focus]
     ];
 }
 </x-code>
@@ -1083,7 +1083,7 @@ public function fields(): array
 {
     return [
         Switcher::make('Active')
-            ->onChangeUrl('/endpoint', selector: '#my-selector') // [tl! focus]
+            ->onChangeUrl(fn() => '/endpoint', selector: '#my-selector') // [tl! focus]
     ];
 }
 </x-code>

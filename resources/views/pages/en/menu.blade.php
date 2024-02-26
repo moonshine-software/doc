@@ -103,6 +103,12 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
     It will be useful if you decide to use <em>multi tenancy</em> or if you have both the web and admin parts implemented on MoonShine.
 </x-moonshine::alert>
 
+<x-moonshine::alert type="warning" icon="heroicons.information-circle">
+    When declaring a menu using <em>Closure</em>,
+    you need to manually register <x-link link="{{ to_page('page-instance') }}#define">pages</x-link>
+    and <x-link link="{{ to_page('resources-index') }}#define">resources</x-link> in the corresponding methods.
+</x-moonshine::alert>
+
 <x-sub-title id="group">Groups</x-sub-title>
 
 <x-p>
