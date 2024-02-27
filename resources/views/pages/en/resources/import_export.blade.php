@@ -2,6 +2,7 @@
     title="Import / Export"
     :sectionMenu="[
         'Sections' => [
+            ['url' => '#basics', 'label' => 'Basics'],
             ['url' => '#import ', 'label' => 'Import'],
             ['url' => '#export', 'label' => 'Export'],
             ['url' => '#methods ', 'label' => 'Handler methods'],
@@ -9,6 +10,51 @@
         ]
     ]"
 >
+<x-sub-title id="basics">Basics</x-sub-title>
+
+<x-p>
+    By default, import and export are enabled for all model resources.<br />
+    To override this behavior, you need to change the <code>moonshine</code> configuration.
+</x-p>
+
+<x-code language="php">
+// config/moonshine.php
+
+'model_resources' => [
+    'default_with_import' => false,
+    'default_with_export' => false,
+],
+</x-code>
+
+<x-p>
+    You can also disable import and export in a resource; for this, the corresponding methods must return <code>null</code>.
+</x-p>
+
+<x-code language="php">
+namespace App\MoonShine\Resources;
+
+use App\Models\Post;
+use MoonShine\Resources\ModelResource;
+
+class PostResource extends ModelResource
+{
+    protected string $model = Post::class;
+
+    protected string $title = 'Posts';
+
+    public function import() // [tl! focus:start]
+    {
+        return null;
+    }
+
+    public function export()
+    {
+        return null;
+    } // [tl! focus:end]
+
+    //...
+}
+</x-code>
 
 <x-sub-title id="import">Import</x-sub-title>
 

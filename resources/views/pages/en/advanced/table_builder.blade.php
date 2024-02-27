@@ -191,9 +191,47 @@ TableBuilder::make(items: Article::paginate())
 </x-p>
 
 <x-code language="php">
+async(
+    ?string $asyncUrl = null,
+    string|array|null $asyncEvents = null,
+    ?string $asyncCallback = null
+)
+</x-code>
+
+<x-ul>
+    <li><code>asyncUrl</code> - request url</li>
+    <li><code>asyncEvents</code> - events called after a successful request,</li>
+    <li><code>asyncCallback</code> - js callback function after receiving a response.</li>
+</x-ul>
+
+<x-code language="php">
 TableBuilder::make()
     ->async('/async_url') // [tl! focus]
 </x-code>
+
+<x-p>
+    After a successful request, you can raise events by adding the <code>asyncEvents</code> parameter.
+</x-p>
+
+<x-code language="php">
+    TableBuilder::make()
+        ->name('crud')
+        ->async(asyncEvents: ['table-updated-crud', 'form-reset-main-form']) // [tl! focus]
+</x-code>
+
+<x-p>
+    <strong>MoonShine</strong> already has a set of ready-made events:
+</x-p>
+
+<x-ul>
+    <li><code>table-updated-{name}</code> - updating an asynchronous table by its name</li>
+    <li><code>form-reset-{name}</code> - reset the form values by its name,</li>
+    <li><code>fragment-updated-{name}</code> - updating a blade fragment by its name.</li>
+</x-ul>
+
+<x-moonshine::alert type="warning" icon="heroicons.information-circle">
+    The <code>async()</code> method must come after the <code>name()</code> method!
+</x-moonshine::alert>
 
 <x-sub-title id="attributes">Attributes</x-sub-title>
 

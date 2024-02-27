@@ -7,6 +7,7 @@
             ['url' => '#creatable', 'label' => 'Creating a Relationship Object'],
             ['url' => '#limit', 'label' => 'Number of records'],
             ['url' => '#only-link', 'label' => 'Link only'],
+            ['url' => '#parent-id', 'label' => 'Parent ID'],
         ]
     ]"
 >
@@ -189,5 +190,7 @@ public function fields(): array
 
 //...
 </x-code>
+
+@include('pages.en.fields.shared.parent_id')
 
 </x-page>

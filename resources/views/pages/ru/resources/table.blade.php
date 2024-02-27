@@ -1,5 +1,6 @@
 <x-page title="Таблица" :sectionMenu="[
     'Разделы' => [
+        ['url' => '#properties', 'label' => 'Свойства'],
         ['url' => '#buttons', 'label' => 'Кнопки'],
         ['url' => '#attributes', 'label' => 'Атрибуты'],
         ['url' => '#click', 'label' => 'Действия по клику'],
@@ -9,11 +10,32 @@
     ]
 ]">
 
+<x-sub-title id="properties">Свойства</x-sub-title>
+
+<x-code language="php">
+namespace App\MoonShine\Resources;
+
+use App\Models\Post;
+use MoonShine\Resources\ModelResource;
+
+class PostResource extends ModelResource
+{
+    protected string $sortColumn = ''; // Поле сортировки по умолчанию [tl! focus]
+
+    protected string $sortDirection = 'DESC'; // Тип сортировки по умолчанию [tl! focus]
+
+    protected int $itemsPerPage = 25; // Количество элементов на странице [tl! focus]
+
+    //...
+}
+</x-code>
+
 <x-sub-title id="buttons">Кнопки</x-sub-title>
 
 <x-p>
     Для добавления кнопок в таблицу используются ActionButton и методы <code>indexButtons</code> или <code>buttons</code> в ресурсе
 </x-p>
+
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     <x-link link="{{ to_page('action_button') }}">Подробнее ActionButton</x-link>
 </x-moonshine::alert>

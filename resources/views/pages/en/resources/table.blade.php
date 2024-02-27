@@ -1,5 +1,6 @@
 <x-page title="Table" :sectionMenu="[
     'Sections' => [
+        ['url' => '#properties', 'label' => 'Properties'],
         ['url' => '#buttons', 'label' => 'Buttons'],
         ['url' => '#attributes', 'label' => 'Attributes'],
         ['url' => '#click', 'label' => 'Click Actions'],
@@ -9,11 +10,32 @@
     ]
 ]">
 
+<x-sub-title id="properties">Properties</x-sub-title>
+
+<x-code language="php">
+namespace App\MoonShine\Resources;
+
+use App\Models\Post;
+use MoonShine\Resources\ModelResource;
+
+class PostResource extends ModelResource
+{
+    protected string $sortColumn = ''; // Default sort field [tl! focus]
+
+    protected string $sortDirection = 'DESC'; // Default sort type [tl! focus]
+
+    protected int $itemsPerPage = 25; // Number of elements per page [tl! focus]
+
+    //...
+}
+</x-code>
+
 <x-sub-title id="buttons">Buttons</x-sub-title>
 
 <x-p>
     To add buttons to the table, use ActionButton and the <code>indexButtons</code> or <code>buttons</code> methods in the resource
 </x-p>
+
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     <x-link link="{{ to_page('action_button') }}">More details ActionButton</x-link>
 </x-moonshine::alert>

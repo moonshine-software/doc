@@ -191,9 +191,47 @@ TableBuilder::make(items: Article::paginate())
 </x-p>
 
 <x-code language="php">
+async(
+    ?string $asyncUrl = null,
+    string|array|null $asyncEvents = null,
+    ?string $asyncCallback = null
+)
+</x-code>
+
+<x-ul>
+    <li><code>asyncUrl</code> - url запроса,</li>
+    <li><code>asyncEvents</code> - вызываемые события после успешного запроса,</li>
+    <li><code>asyncCallback</code> - js callback функция после получения ответа.</li>
+</x-ul>
+
+<x-code language="php">
 TableBuilder::make()
     ->async('/async_url') // [tl! focus]
 </x-code>
+
+<x-p>
+    После успешного запроса, можно вызвать события, добавив параметр <code>asyncEvents</code>.
+</x-p>
+
+<x-code language="php">
+    TableBuilder::make()
+        ->name('crud')
+        ->async(asyncEvents: ['table-updated-crud', 'form-reset-main-form']) // [tl! focus]
+</x-code>
+
+<x-p>
+    В <strong>MoonShine</strong> уже есть набор готовых событий:
+</x-p>
+
+<x-ul>
+    <li><code>table-updated-{name}</code> - обновление асинхронной таблицы по ее имени,</li>
+    <li><code>form-reset-{name}</code> - сброс значений формы по ее имени,</li>
+    <li><code>fragment-updated-{name}</code> - обновление blade fragment по его имени.</li>
+</x-ul>
+
+<x-moonshine::alert type="warning" icon="heroicons.information-circle">
+    Метод <code>async()</code> должен быть после метода <code>name()</code>!
+</x-moonshine::alert>
 
 <x-sub-title id="attributes">Атрибуты</x-sub-title>
 

@@ -121,12 +121,6 @@ class PostResource extends ModelResource
 
     protected array $with = ['category']; // Eager load [tl! focus]
 
-    protected string $sortColumn = ''; // Поле сортировки по умолчанию [tl! focus]
-
-    protected string $sortDirection = 'DESC'; // Тип сортировки по умолчанию [tl! focus]
-
-    protected int $itemsPerPage = 25; // Количество элементов на странице [tl! focus]
-
     public string $column = 'id'; // Поле для отображения значений в связях и хлебных крошках [tl! focus]
 
     //...
