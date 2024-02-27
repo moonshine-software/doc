@@ -7,6 +7,7 @@
             ['url' => '#creatable', 'label' => 'Создание объекта отношения'],
             ['url' => '#limit', 'label' => 'Количество записей'],
             ['url' => '#only-link', 'label' => 'Только ссылка'],
+            ['url' => '#parent-id', 'label' => 'ID родителя'],
         ]
     ]"
 >
@@ -189,5 +190,7 @@ public function fields(): array
 
 //...
 </x-code>
+
+@include('pages.ru.fields.shared.parent_id')
 
 </x-page>

@@ -1,4 +1,4 @@
-<x-recipe id="hasone-through-template" title="{{ $title ?? 'Рецепт' }}">
+<x-recipe id="hasone-through-template" title="{{ $title ?? 'Receipt' }}">
 
 <x-p>
     An example of implementing the <em>HasOne</em> relationship through the <code>Template</code> field.

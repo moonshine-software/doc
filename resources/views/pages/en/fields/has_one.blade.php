@@ -4,6 +4,7 @@
         'Sections' => [
             ['url' => '#basics', 'label' => 'Basics'],
             ['url' => '#fields', 'label' => 'Fields'],
+            ['url' => '#parent-id', 'label' => 'Parent ID'],
         ]
     ]"
 >
@@ -45,5 +46,7 @@ public function fields(): array
 
 <x-image theme="light" src="{{ asset('screenshots/has_one_preview.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/has_one_preview_dark.png') }}"></x-image>
+
+@include('pages.en.fields.shared.parent_id')
 
 </x-page>

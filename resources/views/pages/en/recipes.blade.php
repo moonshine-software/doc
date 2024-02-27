@@ -11,6 +11,7 @@
             ['url' => '#index-page-cards', 'label' => 'Index page via CardsBuilder'],
             ['url' => '#sorting-for-cards-builder', 'label' => 'Sorting for CardsBuilder'],
             ['url' => '#update-on-preview-pivot', 'label' => 'updateOnPreview for pivot fields'],
+            ['url' => '#hasmany-parent-id', 'label' => 'Parent ID in HasMany'],
         ]
     ]"
 >
@@ -24,5 +25,6 @@
 @include('pages.en.recipes.index-page-cards', ['title' => 'Index page via CardsBuilder'])
 @include('pages.en.recipes.sorting-for-cards-builder', ['title' => 'Сортировка для CardsBuilder'])
 @include('pages.en.recipes.update-on-preview-pivot', ['title' => 'updateOnPreview for pivot fields'])
+@include('pages.en.recipes.hasmany-parent-id', ['title' => 'Parent ID in HasMany'])
 
 </x-page>

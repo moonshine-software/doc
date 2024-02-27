@@ -4,6 +4,7 @@
         'Разделы' => [
             ['url' => '#basics', 'label' => 'Основы'],
             ['url' => '#fields', 'label' => 'Поля'],
+            ['url' => '#parent-id', 'label' => 'ID родителя'],
         ]
     ]"
 >
@@ -45,5 +46,7 @@ public function fields(): array
 
 <x-image theme="light" src="{{ asset('screenshots/has_one_preview.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/has_one_preview_dark.png') }}"></x-image>
+
+@include('pages.ru.fields.shared.parent_id')
 
 </x-page>
