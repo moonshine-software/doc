@@ -294,7 +294,7 @@ FormBuilder::make('/crud/update', 'PUT')
 </x-code>
 
 <x-p>
-    MoonShine already has a set of ready-made events:
+    <strong>MoonShine</strong> already has a set of ready-made events:
 </x-p>
 
 <x-ul>
@@ -308,6 +308,10 @@ FormBuilder::make('/crud/update', 'PUT')
     <x-link link="{{ to_page('recipes') }}#form-with-events">
         Upon a successful request, the form updates the table and resets the values
     </x-link>.
+</x-moonshine::alert>
+
+<x-moonshine::alert type="warning" icon="heroicons.information-circle">
+    The <code>async()</code> method must come after the <code>name()</code> method!
 </x-moonshine::alert>
 
 <x-sub-title id="precognitive">Precognitive</x-sub-title>
