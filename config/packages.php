@@ -56,4 +56,9 @@ return [
         'url' => 'Jampire/moonshine-impersonate',
         'category' => 'Auth'
     ],
+    [
+        'title' => 'MoonShine FileManager',
+        'url' => 'SWEET1S/moonshine-filemanager',
+        'category' => 'Fields'
+    ],
 ];
