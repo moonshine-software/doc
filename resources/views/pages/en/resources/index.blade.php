@@ -121,7 +121,7 @@ class PostResource extends ModelResource
 
     protected array $with = ['category']; // Eager load [tl! focus]
 
-    public string $column = 'id'; // Field to display values in links and breadcrumbs [tl! focus]
+    protected string $column = 'id'; // Field to display values in links and breadcrumbs [tl! focus]
 
     //...
 }

@@ -121,7 +121,7 @@ class PostResource extends ModelResource
 
     protected array $with = ['category']; // Eager load [tl! focus]
 
-    public string $column = 'id'; // Поле для отображения значений в связях и хлебных крошках [tl! focus]
+    protected string $column = 'id'; // Поле для отображения значений в связях и хлебных крошках [tl! focus]
 
     //...
 }
