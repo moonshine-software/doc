@@ -17,7 +17,7 @@
 </x-ul>
 </x-p>
 
-<x-sub-title id="basics">ServiceProvider</x-sub-title>
+<x-sub-title id="service-provider">ServiceProvider</x-sub-title>
 
 <x-p>
     Через ServiceProvider Вашего пакета вы можете добавлять автоматически ресурсы, страницы, формировать меню и правила авторизации и многое другое.

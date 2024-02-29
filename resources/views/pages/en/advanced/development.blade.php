@@ -17,7 +17,7 @@ MoonShine is based on Laravel packages. If you're new to Laravel package develop
 </x-ul>
 </x-p>
 
-<x-sub-title id="basics">ServiceProvider</x-sub-title>
+<x-sub-title id="service-provider">ServiceProvider</x-sub-title>
 
 <x-p>
     Through the ServiceProvider of your package, you can automatically add resources, pages, create menus and authorization rules, and much more.
