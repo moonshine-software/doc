@@ -393,13 +393,23 @@ public function fields(): array
 
 <x-p>
     В ресурсе модели поля отображаются на странице со списком (главная страница)
-    и на страницах создания/редактирования/просмотра.<br />
+    и на страницах создания/редактирования/просмотра.
+</x-p>
+
+<x-p>
     Чтобы исключить вывод поля на какой-либо странице, можно воспользоваться соответствующими методами
     <code>hideOnIndex()</code>, <code>hideOnForm()</code>, <code>hideOnDetail()</code> или
-    обратные методы <code>showOnIndex()</code>, <code>showOnForm()</code>, <code>showOnDetail()</code>.<br />
+    обратные методы <code>showOnIndex()</code>, <code>showOnForm()</code>, <code>showOnDetail()</code>.
+</x-p>
+
+<x-p>
     Чтобы исключить только со страницы редактирования или добавления -
     <code>hideOnCreate()</code>, <code>hideOnUpdate()</code>,
-    а также обратные <code>showOnCreate()</code>, <code>showOnUpdate</code>
+    а также обратные <code>showOnCreate()</code>, <code>showOnUpdate</code>.
+</x-p>
+
+<x-p>
+    Для того чтобы исключить поле на всех страниц можно воспользоваться методом <code>hideOnAll()</code>.
 </x-p>
 
 <x-code language="php">
@@ -424,14 +434,22 @@ showOnDetail(Closure|bool|null $condition = null)
 </x-code>
 
 <x-code language="php">
+hideOnAll(Closure|bool|null $condition = null)
+</x-code>
+
+<x-code language="php">
 //...
 
 public function fields(): array
 {
     return [
-        Text::make('Title') // [tl! focus:start]
+        Text::make('Title')
             ->hideOnIndex()
-            ->hideOnForm(), // [tl! focus:end]
+            ->hideOnForm(), // [tl! focus:-1]
+
+        Switcher::make('Active')
+            ->hideOnAll()
+            ->showOnIndex(static fn() => true) // [tl! focus:-1]
     ];
 }
 

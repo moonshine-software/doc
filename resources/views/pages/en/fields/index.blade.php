@@ -393,13 +393,23 @@ public function fields(): array
 
 <x-p>
     In a model resource, fields are displayed on the list page (main page)
-    and on the create/edit/view pages.<br />
+    and on the create/edit/view pages.
+</x-p>
+
+<x-p>
     To exclude the display of a field on any page, you can use the appropriate methods
     <code>hideOnIndex()</code>, <code>hideOnForm()</code>, <code>hideOnDetail()</code> or
-    reverse methods <code>showOnIndex()</code>, <code>showOnForm()</code>, <code>showOnDetail()</code>.<br />
+    reverse methods <code>showOnIndex()</code>, <code>showOnForm()</code>, <code>showOnDetail()</code>.
+</x-p>
+
+<x-p>
     To exclude only from the edit or add page -
     <code>hideOnCreate()</code>, <code>hideOnUpdate()</code>,
     as well as reverse <code>showOnCreate()</code>, <code>showOnUpdate</code>
+</x-p>
+
+<x-p>
+    In order to exclude a field on all pages, you can use the <code>hideOnAll()</code> method.
 </x-p>
 
 <x-code language="php">
@@ -424,14 +434,22 @@ showOnDetail(Closure|bool|null $condition = null)
 </x-code>
 
 <x-code language="php">
+hideOnAll(Closure|bool|null $condition = null)
+</x-code>
+
+<x-code language="php">
 //...
 
 public function fields(): array
 {
     return [
-        Text::make('Title') // [tl! focus:start]
+        Text::make('Title')
             ->hideOnIndex()
-            ->hideOnForm(), // [tl! focus:end]
+            ->hideOnForm(), // [tl! focus:-1]
+
+        Switcher::make('Active')
+            ->hideOnAll()
+            ->showOnIndex(static fn() => true) // [tl! focus:-1]
     ];
 }
 
