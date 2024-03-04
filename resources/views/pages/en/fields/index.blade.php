@@ -393,13 +393,23 @@ public function fields(): array
 
 <x-p>
     In a model resource, fields are displayed on the list page (main page)
-    and on the create/edit/view pages.<br />
+    and on the create/edit/view pages.
+</x-p>
+
+<x-p>
     To exclude the display of a field on any page, you can use the appropriate methods
     <code>hideOnIndex()</code>, <code>hideOnForm()</code>, <code>hideOnDetail()</code> or
-    reverse methods <code>showOnIndex()</code>, <code>showOnForm()</code>, <code>showOnDetail()</code>.<br />
+    reverse methods <code>showOnIndex()</code>, <code>showOnForm()</code>, <code>showOnDetail()</code>.
+</x-p>
+
+<x-p>
     To exclude only from the edit or add page -
     <code>hideOnCreate()</code>, <code>hideOnUpdate()</code>,
     as well as reverse <code>showOnCreate()</code>, <code>showOnUpdate</code>
+</x-p>
+
+<x-p>
+    In order to exclude a field on all pages, you can use the <code>hideOnAll()</code> method.
 </x-p>
 
 <x-code language="php">
@@ -424,14 +434,22 @@ showOnDetail(Closure|bool|null $condition = null)
 </x-code>
 
 <x-code language="php">
+hideOnAll(Closure|bool|null $condition = null)
+</x-code>
+
+<x-code language="php">
 //...
 
 public function fields(): array
 {
     return [
-        Text::make('Title') // [tl! focus:start]
+        Text::make('Title')
             ->hideOnIndex()
-            ->hideOnForm(), // [tl! focus:end]
+            ->hideOnForm(), // [tl! focus:-1]
+
+        Switcher::make('Active')
+            ->hideOnAll()
+            ->showOnIndex(static fn() => true) // [tl! focus:-1]
     ];
 }
 
@@ -997,6 +1015,24 @@ reactive(
     <li><code>$throttle</code> - function call interval (ms.).</li>
 </x-ul>
 
+<x-moonshine::divider label="Callback" />
+
+<x-p>
+    The <em>Callback</em> function in the <code>reactive()</code> method accepts parameters
+    which you can use to build your logic.
+</x-p>
+
+<x-code language="php">
+function(Fields $fields, ?string $value, Field $field, array $values)
+</x-code>
+
+<x-ul>
+    <li><code>$fields</code> - reactive fields</li>
+    <li><code>$value</code> - the value of the field that triggers reactivity</li>
+    <li><code>$field</code> - field that initiates reactivity</li>
+    <li><code>$values</code> - values of reactive fields.</li>
+</x-ul>
+
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     Fields that support reactivity: <code>Text</code>, <code>Checkbox</code>, <code>Select</code>
     and their successors.
@@ -1012,9 +1048,10 @@ FormBuilder::make()
                     ->findByColumn('slug')
                     ?->setValue(str($value ?? '')->slug()->value())
                 );
-            }),
+            }), // [tl! focus:-5]
 
-        Text::make('Slug')->reactive(),
+        Text::make('Slug')
+            ->reactive() // [tl! focus]
     ])
 </x-code>
 
@@ -1022,6 +1059,33 @@ FormBuilder::make()
     This example implements the formation of a slug field based on the header.<br/>
     The Slug will be generated as you enter text.
 </x-p>
+
+<x-moonshine::alert type="default" icon="heroicons.book-open">
+    A reactive field can change the state of other fields, but does not change its own state!
+</x-moonshine::alert>
+
+<x-p>
+    To change the state of the field that initiates reactivity,
+    it is convenient to use the parameters of the <em>callback</em> function.
+</x-p>
+
+<x-code language="php">
+Select::make('Category', 'category_id')
+    ->reactive(function(Fields $fields, ?string $value, Field $field, array $values): Fields {
+        $field->setValue($value);  // [tl! focus]
+
+        return tap($fields, static fn ($fields) =>
+            $fields
+                ->findByColumn('article_id')
+                ?->options(
+                    Article::where('category_id', $value)
+                        ->get()
+                        ->pluck('title', 'id')
+                        ->toArray()
+                );
+        );
+    })
+</x-code>
 
 <x-sub-title id="on-change">onChange methods</x-sub-title>
 
