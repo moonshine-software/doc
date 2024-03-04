@@ -997,6 +997,24 @@ reactive(
     <li><code>$throttle</code> - function call interval (ms.).</li>
 </x-ul>
 
+<x-moonshine::divider label="Callback" />
+
+<x-p>
+    The <em>Callback</em> function in the <code>reactive()</code> method accepts parameters
+    which you can use to build your logic.
+</x-p>
+
+<x-code language="php">
+function(Fields $fields, ?string $value, Field $field, array $values)
+</x-code>
+
+<x-ul>
+    <li><code>$fields</code> - reactive fields</li>
+    <li><code>$value</code> - the value of the field that triggers reactivity</li>
+    <li><code>$field</code> - field that initiates reactivity</li>
+    <li><code>$values</code> - values of reactive fields.</li>
+</x-ul>
+
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     Fields that support reactivity: <code>Text</code>, <code>Checkbox</code>, <code>Select</code>
     and their successors.
@@ -1012,9 +1030,10 @@ FormBuilder::make()
                     ->findByColumn('slug')
                     ?->setValue(str($value ?? '')->slug()->value())
                 );
-            }),
+            }), // [tl! focus:-5]
 
-        Text::make('Slug')->reactive(),
+        Text::make('Slug')
+            ->reactive() // [tl! focus]
     ])
 </x-code>
 
@@ -1022,6 +1041,33 @@ FormBuilder::make()
     This example implements the formation of a slug field based on the header.<br/>
     The Slug will be generated as you enter text.
 </x-p>
+
+<x-moonshine::alert type="default" icon="heroicons.book-open">
+    A reactive field can change the state of other fields, but does not change its own state!
+</x-moonshine::alert>
+
+<x-p>
+    To change the state of the field that initiates reactivity,
+    it is convenient to use the parameters of the <em>callback</em> function.
+</x-p>
+
+<x-code language="php">
+Select::make('Category', 'category_id')
+    ->reactive(function(Fields $fields, ?string $value, Field $field, array $values): Fields {
+        $field->setValue($value);  // [tl! focus]
+
+        return tap($fields, static fn ($fields) =>
+            $fields
+                ->findByColumn('article_id')
+                ?->options(
+                    Article::where('category_id', $value)
+                        ->get()
+                        ->pluck('title', 'id')
+                        ->toArray()
+                );
+        );
+    })
+</x-code>
 
 <x-sub-title id="on-change">onChange methods</x-sub-title>
 

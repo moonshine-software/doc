@@ -997,6 +997,24 @@ reactive(
     <li><code>$throttle</code> - интервал вызова функций (ms.).</li>
 </x-ul>
 
+<x-moonshine::divider label="Callback" />
+
+<x-p>
+    <em>Callback</em> функция в методе <code>reactive()</code> принимает параметры,
+    которыми вы можете воспользоваться для построения своей логики.
+</x-p>
+
+<x-code language="php">
+function(Fields $fields, ?string $value, Field $field, array $values)
+</x-code>
+
+<x-ul>
+    <li><code>$fields</code> - реактивные поля,</li>
+    <li><code>$value</code> - значение поля которе инициирует реактивность,</li>
+    <li><code>$field</code> - поле инициирующее реактивность,</li>
+    <li><code>$values</code> - значения реактивных полей.</li>
+</x-ul>
+
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     Поля поддерживающие реактивность: <code>Text</code>, <code>Checkbox</code>, <code>Select</code>
     и их наследующие.
@@ -1012,9 +1030,10 @@ FormBuilder::make()
                     ->findByColumn('slug')
                     ?->setValue(str($value ?? '')->slug()->value())
                 );
-            }),
+            }), // [tl! focus:-5]
 
-        Text::make('Slug')->reactive(),
+        Text::make('Slug')
+            ->reactive() // [tl! focus]
     ])
 </x-code>
 
@@ -1022,6 +1041,33 @@ FormBuilder::make()
     В данном пример реализовано формирование slug-поля на основе заголовка.<br/>
     Slug будет генерироваться в процессе ввода текста.
 </x-p>
+
+<x-moonshine::alert type="default" icon="heroicons.book-open">
+    Реактивное поле может менять состояние других полей, но не изменяет свое состояние!
+</x-moonshine::alert>
+
+<x-p>
+    Для изменения состояния поля инициирующего реактивность
+    удобно воспользоваться параметрами <em>callback</em> функции.
+</x-p>
+
+<x-code language="php">
+Select::make('Category', 'category_id')
+    ->reactive(function(Fields $fields, ?string $value, Field $field, array $values): Fields {
+        $field->setValue($value);  // [tl! focus]
+
+        return tap($fields, static fn ($fields) =>
+            $fields
+                ->findByColumn('article_id')
+                ?->options(
+                    Article::where('category_id', $value)
+                        ->get()
+                        ->pluck('title', 'id')
+                        ->toArray()
+                );
+        );
+    })
+</x-code>
 
 <x-sub-title id="on-change">Методы onChange</x-sub-title>
 
