@@ -2,6 +2,7 @@
     title="File"
     :sectionMenu="[
         'Sections' => [
+            ['url' => '#basics', 'label' => 'Basics'],
             ['url' => '#disk', 'label' => 'Disk'],
             ['url' => '#dir', 'label' => 'Directory'],
             ['url' => '#allowed-extensions', 'label' => 'Valid extensions'],
@@ -10,9 +11,13 @@
             ['url' => '#download', 'label' => 'Ban on downloading'],
             ['url' => '#filename', 'label' => 'Original file name'],
             ['url' => '#customname', 'label' => 'Custom file name'],
+            ['url' => '#names', 'label' => 'Element names'],
+            ['url' => '#item-attributes', 'label' => 'Item attributes'],
         ]
     ]"
 >
+
+<x-sub-title id="basics">Basics</x-sub-title>
 
 <x-moonshine::alert type="info" class="mt-8" icon="heroicons.information-circle">
     Before use, you must make sure that the <strong>storage</strong> directory
@@ -357,6 +362,68 @@ public function fields(): array
     return [
         File::make('File', 'file')
             ->customName(fn(UploadedFile $file, Field $field) =>  Str::random(10) . '.' . $file->extension()) // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
+
+<x-sub-title id="names">Element names</x-sub-title>
+
+<x-p>
+    The <code>names()</code> method allows you to change the display name without changing the file name.
+</x-p>
+
+<x-code language="php">
+names(Closure $closure)
+</x-code>
+
+<x-ul>
+    <li><code>$closure</code> - the closure takes the file name and file index.</li>
+</x-ul>
+
+<x-code language="php">
+use MoonShine\Fields\File;
+
+//...
+
+public function fields(): array
+{
+    return [
+        File::make('File', 'file')
+            ->names(fn(string $filename, int $index = 0) => 'File ' . $index + 1) // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
+
+<x-sub-title id="item-attributes">Item attributes</x-sub-title>
+
+<x-p>
+    The <code>itemAttributes()</code> method allows you to add additional attributes to elements.
+</x-p>
+
+<x-code language="php">
+itemAttributes(Closure $closure)
+</x-code>
+
+<x-ul>
+    <li><code>$closure</code> - the closure takes the file name and file index.</li>
+</x-ul>
+
+<x-code language="php">
+use MoonShine\Fields\File;
+
+//...
+
+public function fields(): array
+{
+    return [
+        File::make('File', 'file')
+            ->itemAttributes(fn(string $filename, int $index = 0) => [
+                'style' => 'width: 250px; height: 250px;'
+            ]) // [tl! focus:-2]
     ];
 }
 

@@ -2,6 +2,7 @@
     title="Файл"
     :sectionMenu="[
         'Разделы' => [
+            ['url' => '#basics', 'label' => 'Основы'],
             ['url' => '#disk', 'label' => 'Disk'],
             ['url' => '#dir', 'label' => 'Директория'],
             ['url' => '#allowed-extensions', 'label' => 'Допустимые расширения'],
@@ -10,9 +11,13 @@
             ['url' => '#download', 'label' => 'Запрет на скачивание'],
             ['url' => '#filename', 'label' => 'Оригинальное имя файла'],
             ['url' => '#customname', 'label' => 'Произвольное имя файла'],
+            ['url' => '#names', 'label' => 'Названия элементов'],
+            ['url' => '#item-attributes', 'label' => 'Атрибуты элементов'],
         ]
     ]"
 >
+
+<x-sub-title id="basics">Основы</x-sub-title>
 
 <x-moonshine::alert type="info" class="mt-8" icon="heroicons.information-circle">
     Перед использованием необходимо убедиться, что на директорию <strong>storage</strong>
@@ -357,6 +362,68 @@ public function fields(): array
     return [
         File::make('File', 'file')
             ->customName(fn(UploadedFile $file, Field $field) =>  Str::random(10) . '.' . $file->extension()) // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
+
+<x-sub-title id="names">Названия элементов</x-sub-title>
+
+<x-p>
+    Метод <code>names()</code> позволяет изменить отображаемое название, без изменения имени файла.
+</x-p>
+
+<x-code language="php">
+names(Closure $closure)
+</x-code>
+
+<x-ul>
+    <li><code>$closure</code> - замыкание принимает название файла и порядковый индекс файла.</li>
+</x-ul>
+
+<x-code language="php">
+use MoonShine\Fields\File;
+
+//...
+
+public function fields(): array
+{
+    return [
+        File::make('File', 'file')
+            ->names(fn(string $filename, int $index = 0) => 'File ' . $index + 1) // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
+
+<x-sub-title id="item-attributes">Атрибуты элементов</x-sub-title>
+
+<x-p>
+    Метод <code>itemAttributes()</code> позволяет добавить дополнительные атрибуты для элементов.
+</x-p>
+
+<x-code language="php">
+itemAttributes(Closure $closure)
+</x-code>
+
+<x-ul>
+    <li><code>$closure</code> - замыкание принимает название файла и порядковый индекс файла.</li>
+</x-ul>
+
+<x-code language="php">
+use MoonShine\Fields\File;
+
+//...
+
+public function fields(): array
+{
+    return [
+        File::make('File', 'file')
+            ->itemAttributes(fn(string $filename, int $index = 0) => [
+                'style' => 'width: 250px; height: 250px;'
+            ]) // [tl! focus:-2]
     ];
 }
 
