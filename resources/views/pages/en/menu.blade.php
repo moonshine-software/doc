@@ -8,7 +8,8 @@
             ['url' => '#condition', 'label' => 'Display condition'],
             ['url' => '#icon', 'label' => 'Icon'],
             ['url' => '#badge', 'label' => 'Label'],
-            ['url' => '#translation', 'label' => 'Translation']
+            ['url' => '#translation', 'label' => 'Translation'],
+            ['url' => '#target-blank', 'label' => 'Open in new tab']
         ]
     ]"
 >
@@ -25,13 +26,14 @@
 </x-p>
 
 <x-code language="php">
-MenuItem::make(Closure|string $label, Closure|MenuFiller|string $filler, null|string $icon = null)
+MenuItem::make(Closure|string $label, Closure|MenuFiller|string $filler, null|string $icon = null, Closure|bool $blank = false)
 </x-code>
 
 <x-ul>
     <li><code>$label</code> - name of the menu item</li>
     <li><code>$filler</code> - element for forming url</li>
-    <li><code>$icon</code> - icon for the menu item.</li>
+    <li><code>$icon</code> - icon for the menu item,</li>
+    <li><code>$blank</code> - open in new tab.</li>
 </x-ul>
 
 <x-p>
@@ -57,7 +59,8 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
         return [
             MenuItem::make('Admins', new MoonShineUserResource()),
             MenuItem::make('Home', fn() => route('home')),
-            MenuItem::make('Docs', 'https://moonshine-laravel.com/docs')
+            MenuItem::make('Docs', 'https://moonshine-laravel.com/docs'),
+            MenuItem::make('Laravel Docs', 'https://laravel.com/docs', blank: true)
         ];
     } // [tl! focus:end]
 
@@ -530,6 +533,78 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 
     //...
 }
+</x-code>
+
+<x-sub-title id="target-blank">Open in new tab</x-sub-title>
+
+<x-p>
+    A menu item can have a flag indicating whether the link should be opened in a new tab or not. This can be implemented in several ways.
+</x-p>
+
+<x-moonshine::divider label="Через параметр" />
+
+<x-p>
+    The flag can be set by passing as the fourth parameter <code>true/false</code> or a closure in a static method <code>make()</code>.
+</x-p>
+
+<x-code language="php">
+    namespace App\Providers;
+
+    use MoonShine\Menu\MenuGroup;
+    use MoonShine\Menu\MenuItem;
+    use MoonShine\Providers\MoonShineApplicationServiceProvider;
+    use MoonShine\Resources\MoonShineUserResource;
+    use MoonShine\Resources\MoonShineUserRoleResource;
+
+    class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
+    {
+        protected function menu(): array
+        {
+            return [
+                MenuGroup::make('System', [
+                    MenuItem::make('MoonShine Docs', 'https://moonshine-laravel.com/docs', 'heroicons.arrow-up', true), // [tl! focus]
+                    MenuItem::make('Laravel Docs', 'https://laravel.com/docs', 'heroicons.arrow-up', fn() => true), // [tl! focus]
+                ])
+            ];
+        }
+
+        //...
+    }
+</x-code>
+
+<x-moonshine::divider label="Via method" />
+
+<x-p>
+    Use method <code>blank()</code>.
+</x-p>
+
+<x-code language="php">
+    blank(Closure|bool $blankCondition = true)
+</x-code>
+
+<x-code language="php">
+    namespace App\Providers;
+
+    use MoonShine\Menu\MenuGroup;
+    use MoonShine\Menu\MenuItem;
+    use MoonShine\Providers\MoonShineApplicationServiceProvider;
+    use MoonShine\Resources\MoonShineUserResource;
+    use MoonShine\Resources\MoonShineUserRoleResource;
+
+    class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
+    {
+        protected function menu(): array
+        {
+            return [
+                MenuItem::make('MoonShine Docs', 'https://moonshine-laravel.com/docs')
+                    ->blank(), // [tl! focus]
+                MenuItem::make('Laravel Docs', 'https://laravel.com/docs')
+                    ->blank(fn() => true), // [tl! focus]
+            ];
+        }
+
+        //...
+    }
 </x-code>
 
 </x-page>

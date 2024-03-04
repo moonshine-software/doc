@@ -563,8 +563,8 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
         {
             return [
                 MenuGroup::make('System', [
-                    MenuItem::make('MoonShine Docs', 'https://moonshine-laravel.com/docs', 'heroicons.arrow-top-right-on-square', true), // [tl! focus]
-                    MenuItem::make('Laravel Docs', 'https://laravel.com/docs', 'heroicons.arrow-top-right-on-square', fn() => true), // [tl! focus]
+                    MenuItem::make('MoonShine Docs', 'https://moonshine-laravel.com/docs', 'heroicons.arrow-up', true), // [tl! focus]
+                    MenuItem::make('Laravel Docs', 'https://laravel.com/docs', 'heroicons.arrow-up', fn() => true), // [tl! focus]
                 ])
             ];
         }
