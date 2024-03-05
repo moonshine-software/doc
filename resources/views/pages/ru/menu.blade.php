@@ -8,7 +8,8 @@
             ['url' => '#condition', 'label' => 'Условие отображения'],
             ['url' => '#icon', 'label' => 'Иконка'],
             ['url' => '#badge', 'label' => 'Метка'],
-            ['url' => '#translation', 'label' => 'Перевод']
+            ['url' => '#translation', 'label' => 'Перевод'],
+            ['url' => '#target-blank', 'label' => 'Открытие в новой вкладке']
         ]
     ]"
 >
@@ -26,13 +27,14 @@
 </x-p>
 
 <x-code language="php">
-MenuItem::make(Closure|string $label, Closure|MenuFiller|string $filler, null|string $icon = null)
+MenuItem::make(Closure|string $label, Closure|MenuFiller|string $filler, null|string $icon = null, Closure|bool $blank = false)
 </x-code>
 
 <x-ul>
     <li><code>$label</code> - название пункта меню,</li>
     <li><code>$filler</code> - элемент для формирования url,</li>
-    <li><code>$icon</code> - иконка для пункта меню.</li>
+    <li><code>$icon</code> - иконка для пункта меню,</li>
+    <li><code>$blank</code> - открыть в новой вкладке.</li>
 </x-ul>
 
 <x-p>
@@ -58,7 +60,8 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
         return [
             MenuItem::make('Admins', new MoonShineUserResource()),
             MenuItem::make('Home', fn() => route('home')),
-            MenuItem::make('Docs', 'https://moonshine-laravel.com/docs')
+            MenuItem::make('Docs', 'https://moonshine-laravel.com/docs'),
+            MenuItem::make('Laravel Docs', 'https://laravel.com/docs', blank: true)
         ];
     } // [tl! focus:end]
 
@@ -531,6 +534,78 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 
     //...
 }
+</x-code>
+
+<x-sub-title id="target-blank">Открытие в новой вкладке</x-sub-title>
+
+<x-p>
+    У пункта меню можно указать флаг, указывающий, открывать ссылку в новой вкладке или нет. Это можно реализовать несколькими способами.
+</x-p>
+
+<x-moonshine::divider label="Через параметр" />
+
+<x-p>
+    Флаг можно задать, передав четвёртым параметром <code>true/false</code> или замыкание в статическом методе <code>make()</code>.
+</x-p>
+
+<x-code language="php">
+    namespace App\Providers;
+
+    use MoonShine\Menu\MenuGroup;
+    use MoonShine\Menu\MenuItem;
+    use MoonShine\Providers\MoonShineApplicationServiceProvider;
+    use MoonShine\Resources\MoonShineUserResource;
+    use MoonShine\Resources\MoonShineUserRoleResource;
+
+    class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
+    {
+        protected function menu(): array
+        {
+            return [
+                MenuGroup::make('System', [
+                    MenuItem::make('MoonShine Docs', 'https://moonshine-laravel.com/docs', 'heroicons.arrow-up', true), // [tl! focus]
+                    MenuItem::make('Laravel Docs', 'https://laravel.com/docs', 'heroicons.arrow-up', fn() => true), // [tl! focus]
+                ])
+            ];
+        }
+
+        //...
+    }
+</x-code>
+
+<x-moonshine::divider label="Через метод" />
+
+<x-p>
+    Воспользоваться методом <code>blank()</code>.
+</x-p>
+
+<x-code language="php">
+    blank(Closure|bool $blankCondition = true)
+</x-code>
+
+<x-code language="php">
+    namespace App\Providers;
+
+    use MoonShine\Menu\MenuGroup;
+    use MoonShine\Menu\MenuItem;
+    use MoonShine\Providers\MoonShineApplicationServiceProvider;
+    use MoonShine\Resources\MoonShineUserResource;
+    use MoonShine\Resources\MoonShineUserRoleResource;
+
+    class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
+    {
+        protected function menu(): array
+        {
+            return [
+                MenuItem::make('MoonShine Docs', 'https://moonshine-laravel.com/docs')
+                    ->blank(), // [tl! focus]
+                MenuItem::make('Laravel Docs', 'https://laravel.com/docs')
+                    ->blank(fn() => true), // [tl! focus]
+            ];
+        }
+
+        //...
+    }
 </x-code>
 
 </x-page>
