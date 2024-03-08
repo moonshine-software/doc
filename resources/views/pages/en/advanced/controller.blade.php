@@ -25,11 +25,11 @@ namespace App\MoonShine\Controllers;
 
 use MoonShine\MoonShineRequest;
 use MoonShine\Http\Controllers\MoonshineController;
-use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Contracts\View\View;
 
 final class CustomViewController extends MoonshineController
 {
-    public function __invoke(MoonShineRequest $request): Response
+    public function __invoke(MoonShineRequest $request): View
     {
         return $this
             ->view('path_to_blade', ['param' => 'value'])
@@ -108,7 +108,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 final class CustomViewController extends MoonshineController
 {
-    public function __invoke(MoonShineRequest $request): Response
+    public function __invoke(MoonShineRequest $request)
     {
         // $request->getPage();
         // $request->getResource();
