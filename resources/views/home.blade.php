@@ -505,7 +505,7 @@ MoonShine отлично подходит для создания админ п�
                 </div>
                 <div class="questions-actions">
                     <a href="{{ config('links.chat') }}" class="btn btn-purple" target="_blank" rel="noopener nofollow">Перейти в Telegram-канал</a>
-                    <a href="{{ config('promo_menu.consult.link') }}" class="btn btn-pink" target="_blank" rel="noopener nofollow">Консультация</a>
+                    {{--<a href="{{ config('promo_menu.consult.link') }}" class="btn btn-pink" target="_blank" rel="noopener nofollow">Консультация</a>--}}
                 </div>
                 <img src="{{ Vite::asset('resources/images/question.svg') }}" class="questions-image" alt="Возникли трудности?" />
             </div>

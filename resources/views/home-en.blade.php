@@ -505,7 +505,7 @@ MoonShine is great for creating admin panel, MVP, backoffice, and CMS. Simple fo
                 </div>
                 <div class="questions-actions">
                     <a href="{{ config('links.chat') }}" class="btn btn-purple" target="_blank" rel="noopener nofollow">Go to Telegram channel</a>
-                    <a href="{{ config('promo_menu.consult.link') }}" class="btn btn-pink" target="_blank" rel="noopener nofollow">Consultation</a>
+                    {{--<a href="{{ config('promo_menu.consult.link') }}" class="btn btn-pink" target="_blank" rel="noopener nofollow">Consultation</a>--}}
                 </div>
                 <img src="{{ Vite::asset('resources/images/question.svg') }}" class="questions-image" alt="Difficulties have arisen?" />
             </div>
