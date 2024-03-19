@@ -23,7 +23,7 @@ make(Closure|View|string $content, Closure|array $additionalData = [])
 </x-code>
 
 <x-code language="php">
-use MoonShine\Decorations\FlexibleRender; // [tl! focus]
+use MoonShine\Components\FlexibleRender; // [tl! focus]
 
 //...
 
