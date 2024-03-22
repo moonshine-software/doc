@@ -80,8 +80,8 @@ MoonShine is great for creating admin panel, MVP, backoffice, and CMS. Simple fo
                         </svg>
                     </a>
                     <div class="h-4 w-[1px] bg-white/25"></div>
-                    {{--
-                    <a href="#" class="flex items-center gap-x-2 text-white hover:text-pink">
+
+                    <a href="{{ route('home', ['change-moonshine-locale' => 'ru']) }}" class="flex items-center gap-x-2 text-white hover:text-pink">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6 fill-pink" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M6.502 6.422h-.301l-.562 2.812h1.425l-.562-2.812Zm11.375 5.625a7.35 7.35 0 0 0 1.154 2.037c.447-.561.898-1.222 1.201-2.037h-2.355Z" />
                             <path
@@ -91,9 +91,8 @@ MoonShine is great for creating admin panel, MVP, backoffice, and CMS. Simple fo
                                 d="M11.445 1.848A2.112 2.112 0 0 0 9.352 0H2.11C.946 0 0 .946 0 2.11v15.562c0 1.163.946 2.11 2.11 2.11h11.088c.205-.235.377-.382.384-.688.002-.077-2.127-17.17-2.137-17.246ZM8.622 13.439a.703.703 0 0 1-.827-.551l-.45-2.247H5.359l-.45 2.247a.703.703 0 0 1-1.379-.276l1.407-7.031a.704.704 0 0 1 .689-.565h1.453c.335 0 .624.237.69.565l1.406 7.031a.703.703 0 0 1-.552.827Zm-.407 7.748.121.965c.08.646.51 1.305 1.216 1.634l2.36-2.599H8.215Z"
                             />
                         </svg>
-                        <span class="text-xs sm:text-sm font-medium">EN</span>
+                        <span class="text-xs sm:text-sm font-medium">RU</span>
                     </a>
-                     --}}
                 </div>
                 {{--
                     <a href="#" class="btn btn-purple ml-8 !hidden md:!flex 2xl:ml-12">MoonShine PRO</a>
