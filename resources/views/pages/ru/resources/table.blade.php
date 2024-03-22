@@ -7,6 +7,7 @@
         ['url' => '#simple-pagination', 'label' => 'Simple pagination'],
         ['url' => '#disable-pagination', 'label' => 'Отключение пагинации'],
         ['url' => '#async', 'label' => 'Асинхронный режим'],
+        ['url' => '#update-row', 'label' => 'Обновление ряда'],
     ]
 ]">
 
@@ -235,6 +236,94 @@ class PostResource extends ModelResource
 
     // ...
 }
+</x-code>
+
+<x-sub-title id="update-row">Обновление ряда</x-sub-title>
+
+<x-p>
+    У таблицы можно асинхронно обновить ряд, для этого необходимо вызвать событие:
+</x-p>
+
+<x-code>
+table-row-updated-@{{componentName}}-@{{row-key}}
+</x-code>
+
+<x-ul>
+    <li><code>@{{componentName}}</code> - название компонента;</li>
+    <li><code>@{{row-key}}</code> - ключ ряда.</li>
+</x-ul>
+
+<x-p>
+    Для добавления события можно воспользоваться классом-помощником:
+</x-p>
+
+<x-code>
+    AlpineJs::event(JsEvent::TABLE_ROW_UPDATED, 'main-table-{row-id}')
+</x-code>
+
+<x-ul>
+    <li><code>{row-id}</code> - shortcode для id текущей записи модели.</li>
+</x-ul>
+
+<x-moonshine::alert type="warning" icon="heroicons.information-circle">
+    Наличие поля ID и асинхронный режим является обязательными.
+</x-moonshine::alert>
+
+<x-code>
+namespace App\MoonShine\Resources;
+
+use App\Models\Post;
+use MoonShine\Enums\JsEvent;
+use MoonShine\Fields\ID;
+use MoonShine\Fields\Switcher;
+use MoonShine\Fields\Text;
+use MoonShine\Fields\Textarea;
+use MoonShine\Resources\ModelResource;
+use MoonShine\Support\AlpineJs;
+
+class PostResource extends ModelResource
+{
+    protected string $model = Post::class;
+
+    protected string $title = 'Posts';
+
+    protected bool $isAsync = true;
+
+    //...
+
+    public function fields(): array
+    {
+        return [
+            ID::make(),
+            Text::make('Title'),
+            Textarea::make('Body'),
+            Switcher::make('Active')
+                ->updateOnPreview(
+                    events: [AlpineJs::event(JsEvent::TABLE_ROW_UPDATED, 'index-table-{row-id}')] // [tl! focus]
+                )
+        ];
+    }
+
+    //...
+}
+</x-code>
+
+<x-p>
+    Также доступен метод <code>withUpdateRow()</code>, который помогает упростить назначение событий:
+</x-p>
+
+<x-code>
+TableBuilder::make()
+    ->fields([
+        ID::make()->sortable(),
+        Text::make('Title'),
+        Textarea::make('Body'),
+        Switcher::make('Active')
+            ->withUpdateRow('main-table') // [tl! focus]
+    ])
+    ->items($this->fetch())
+    ->name('main-table')
+    ->async(),
 </x-code>
 
 </x-page>
