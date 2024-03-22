@@ -7,6 +7,7 @@
         ['url' => '#simple-pagination', 'label' => 'Simple pagination'],
         ['url' => '#disable-pagination', 'label' => 'Disabling pagination'],
         ['url' => '#async', 'label' => 'Asynchronous mode'],
+        ['url' => '#update-row', 'label' => 'Updating a row'],
     ]
 ]">
 
@@ -235,6 +236,94 @@ class PostResource extends ModelResource
 
     // ...
 }
+</x-code>
+
+<x-sub-title id="update-row">Updating a row</x-sub-title>
+
+<x-p>
+    You can update a row of a table asynchronously; to do this, you need to trigger the event:
+</x-p>
+
+<x-code>
+table-row-updated-@{{componentName}}-@{{row-key}}
+</x-code>
+
+<x-ul>
+    <li><code>@{{componentName}}</code> - name of the component;</li>
+    <li><code>@{{row-key}}</code> - row key.</li>
+</x-ul>
+
+<x-p>
+    To add an event, you can use the helper class:
+</x-p>
+
+<x-code>
+    AlpineJs::event(JsEvent::TABLE_ROW_UPDATED, 'main-table-{row-id}')
+</x-code>
+
+<x-ul>
+    <li><code>{row-id}</code> - shortcode for the id of the current model record.</li>
+</x-ul>
+
+<x-moonshine::alert type="warning" icon="heroicons.information-circle">
+    The presence of the ID field and asynchronous mode are required.
+</x-moonshine::alert>
+
+<x-code>
+namespace App\MoonShine\Resources;
+
+use App\Models\Post;
+use MoonShine\Enums\JsEvent;
+use MoonShine\Fields\ID;
+use MoonShine\Fields\Switcher;
+use MoonShine\Fields\Text;
+use MoonShine\Fields\Textarea;
+use MoonShine\Resources\ModelResource;
+use MoonShine\Support\AlpineJs;
+
+class PostResource extends ModelResource
+{
+    protected string $model = Post::class;
+
+    protected string $title = 'Posts';
+
+    protected bool $isAsync = true;
+
+    //...
+
+    public function fields(): array
+    {
+        return [
+            ID::make(),
+            Text::make('Title'),
+            Textarea::make('Body'),
+            Switcher::make('Active')
+                ->updateOnPreview(
+                    events: [AlpineJs::event(JsEvent::TABLE_ROW_UPDATED, 'index-table-{row-id}')] // [tl! focus]
+                )
+        ];
+    }
+
+    //...
+}
+</x-code>
+
+<x-p>
+    The <code>withUpdateRow()</code> method is also available to help simplify event assignment:
+</x-p>
+
+<x-code>
+TableBuilder::make()
+    ->fields([
+        ID::make()->sortable(),
+        Text::make('Title'),
+        Textarea::make('Body'),
+        Switcher::make('Active')
+            ->withUpdateRow('main-table') // [tl! focus]
+    ])
+    ->items($this->fetch())
+    ->name('main-table')
+    ->async(),
 </x-code>
 
 </x-page>
