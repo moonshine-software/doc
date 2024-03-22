@@ -51,7 +51,7 @@ MoonShine отлично подходит для создания админ п�
                             href="{{ $menu['link'] }}"
                             class="font-semibold text-white hover:text-pink"
                         >
-                            {{ $menu['title'] }}
+                            {{ __($menu['title']) }}
                         </a>
                     @endforeach
                 </nav>
@@ -1048,7 +1048,7 @@ MoonShine отлично подходит для создания админ п�
                             href="{{ $menu['link'] }}"
                             class="font-semibold text-white hover:text-pink"
                         >
-                            {{ $menu['title'] }}
+                            {{ __($menu['title']) }}
                         </a>
                     @endforeach
                 </nav>
