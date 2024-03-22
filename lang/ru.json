@@ -41,5 +41,10 @@
     "System component Flash": "Системный компонент Flash",
     "System component Profile": "Системный компонент Profile",
     "System component Sidebar": "Системный компонент Sidebar",
-    "System component TopBar": "Системный компонент TopBar"
+    "System component TopBar": "Системный компонент TopBar",
+    "Documentation": "Документация",
+    "Demo": "Демо",
+    "Video guide": "Видео-гайд",
+    "Blog": "Блог",
+    "Consultation": "Консультация"
 }

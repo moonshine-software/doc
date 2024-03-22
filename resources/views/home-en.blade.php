@@ -51,7 +51,7 @@ MoonShine is great for creating admin panel, MVP, backoffice, and CMS. Simple fo
                             href="{{ $menu['link'] }}"
                             class="font-semibold text-white hover:text-pink"
                         >
-                            {{ $menu['title'] }}
+                            {{ __($menu['title']) }}
                         </a>
                     @endforeach
                 </nav>
@@ -1127,7 +1127,7 @@ MoonShine is great for creating admin panel, MVP, backoffice, and CMS. Simple fo
                             href="{{ $menu['link'] }}"
                             class="text-md font-semibold text-white hover:text-pink"
                         >
-                            {{ $menu['title'] }}
+                            {{ __($menu['title']) }}
                         </a>
                     @endforeach
                 </nav>
