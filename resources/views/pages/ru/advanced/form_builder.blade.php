@@ -15,6 +15,7 @@
             ['url' => '#precognitive', 'label' => 'Precognitive'],
             ['url' => '#apply', 'label' => 'Apply'],
             ['url' => '#method', 'label' => 'Вызов методов'],
+            ['url' => '#event', 'label' => 'Вызов событий'],
         ]
     ]"
 >
@@ -437,6 +438,21 @@ public function updateSomething(MoonShineRequest $request)
 {
     return MoonShineJsonResponse::make()->toast('MyMessage', ToastType::SUCCESS);
 }
+</x-code>
+
+<x-sub-title id="event">Вызов событий</x-sub-title>
+
+<x-p>
+    Для вызова событий javascript можно воспользоваться методом <code>dispatchEvent()</code>.
+</x-p>
+
+<x-code language="php">
+dispatchEvent(array|string $events)
+</x-code>
+
+<x-code language="php">
+FormBuilder::make()
+    ->dispatchEvent(JsEvent::OFF_CANVAS_TOGGLED, 'default'), // [tl! focus]
 </x-code>
 
 </x-page>
