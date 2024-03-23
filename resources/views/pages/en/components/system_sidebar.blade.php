@@ -3,6 +3,8 @@
     :sectionMenu="[
         'Sections' => [
             ['url' => '#make', 'label' => 'Make'],
+            ['url' => '#hide-logo', 'label' => 'Hide logo'],
+            ['url' => '#hide-switcher', 'label' => 'Hide theme switcher'],
         ]
     ]"
 >
@@ -54,5 +56,79 @@ final class MoonShineLayout implements MoonShineLayoutContract
 
 <x-image theme="light" src="{{ asset('screenshots/sidebar.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/sidebar_dark.png') }}"></x-image>
+
+<x-sub-title id="hide-logo">Hide logo</x-sub-title>
+
+<x-p>
+    The <code>hideLogo()</code> method allows you to hide the logo.
+</x-p>
+
+<x-code language="php">
+hideLogo()
+</x-code>
+
+<x-code language="php">
+namespace App\MoonShine;
+
+use MoonShine\Components\Layout\LayoutBlock;
+use MoonShine\Components\Layout\LayoutBuilder;
+use MoonShine\Components\Layout\Menu;
+use MoonShine\Components\Layout\Profile;
+use MoonShine\Components\Layout\Sidebar;
+use MoonShine\Contracts\MoonShineLayoutContract;
+
+final class MoonShineLayout implements MoonShineLayoutContract
+{
+    public static function build(): LayoutBuilder
+    {
+        return LayoutBuilder::make([
+            Sidebar::make([
+                Menu::make(),
+                Profile::make(withBorder: true)
+            ])
+                ->hideLogo(), // [tl! focus]
+
+            //...
+        ]);
+    }
+}
+</x-code>
+
+<x-sub-title id="hide-switcher">Hide theme switcher</x-sub-title>
+
+<x-p>
+    The <code>hideSwitcher()</code> method allows you to hide the theme switcher.
+</x-p>
+
+<x-code language="php">
+    hideSwitcher()
+</x-code>
+
+<x-code language="php">
+namespace App\MoonShine;
+
+use MoonShine\Components\Layout\LayoutBlock;
+use MoonShine\Components\Layout\LayoutBuilder;
+use MoonShine\Components\Layout\Menu;
+use MoonShine\Components\Layout\Profile;
+use MoonShine\Components\Layout\Sidebar;
+use MoonShine\Contracts\MoonShineLayoutContract;
+
+final class MoonShineLayout implements MoonShineLayoutContract
+{
+    public static function build(): LayoutBuilder
+    {
+        return LayoutBuilder::make([
+            Sidebar::make([
+                Menu::make(),
+                Profile::make(withBorder: true)
+            ])
+                ->hideSwitcher(), // [tl! focus]
+
+            //...
+        ]);
+    }
+}
+</x-code>
 
 </x-page>
