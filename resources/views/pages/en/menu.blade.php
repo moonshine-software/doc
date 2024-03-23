@@ -9,7 +9,8 @@
             ['url' => '#icon', 'label' => 'Icon'],
             ['url' => '#badge', 'label' => 'Label'],
             ['url' => '#translation', 'label' => 'Translation'],
-            ['url' => '#target-blank', 'label' => 'Open in new tab']
+            ['url' => '#target-blank', 'label' => 'Open in new tab'],
+            ['url' => '#force-active', 'label' => 'Active item'],
         ]
     ]"
 >
@@ -548,28 +549,26 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 </x-p>
 
 <x-code language="php">
-    namespace App\Providers;
+namespace App\Providers;
 
-    use MoonShine\Menu\MenuGroup;
-    use MoonShine\Menu\MenuItem;
-    use MoonShine\Providers\MoonShineApplicationServiceProvider;
-    use MoonShine\Resources\MoonShineUserResource;
-    use MoonShine\Resources\MoonShineUserRoleResource;
+use MoonShine\Menu\MenuGroup;
+use MoonShine\Menu\MenuItem;
+use MoonShine\Providers\MoonShineApplicationServiceProvider;
 
-    class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
+class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
+{
+    protected function menu(): array
     {
-        protected function menu(): array
-        {
-            return [
-                MenuGroup::make('System', [
-                    MenuItem::make('MoonShine Docs', 'https://moonshine-laravel.com/docs', 'heroicons.arrow-up', true), // [tl! focus]
-                    MenuItem::make('Laravel Docs', 'https://laravel.com/docs', 'heroicons.arrow-up', fn() => true), // [tl! focus]
-                ])
-            ];
-        }
-
-        //...
+        return [
+            MenuGroup::make('System', [
+                MenuItem::make('MoonShine Docs', 'https://moonshine-laravel.com/docs', 'heroicons.arrow-up', true), // [tl! focus]
+                MenuItem::make('Laravel Docs', 'https://laravel.com/docs', 'heroicons.arrow-up', fn() => true), // [tl! focus]
+            ])
+        ];
     }
+
+    //...
+}
 </x-code>
 
 <x-moonshine::divider label="Via method" />
@@ -583,28 +582,56 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 </x-code>
 
 <x-code language="php">
-    namespace App\Providers;
+namespace App\Providers;
 
-    use MoonShine\Menu\MenuGroup;
-    use MoonShine\Menu\MenuItem;
-    use MoonShine\Providers\MoonShineApplicationServiceProvider;
-    use MoonShine\Resources\MoonShineUserResource;
-    use MoonShine\Resources\MoonShineUserRoleResource;
+use MoonShine\Menu\MenuItem;
+use MoonShine\Providers\MoonShineApplicationServiceProvider;
 
-    class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
+class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
+{
+    protected function menu(): array
     {
-        protected function menu(): array
-        {
-            return [
-                MenuItem::make('MoonShine Docs', 'https://moonshine-laravel.com/docs')
-                    ->blank(), // [tl! focus]
-                MenuItem::make('Laravel Docs', 'https://laravel.com/docs')
-                    ->blank(fn() => true), // [tl! focus]
-            ];
-        }
-
-        //...
+        return [
+            MenuItem::make('MoonShine Docs', 'https://moonshine-laravel.com/docs')
+                ->blank(), // [tl! focus]
+            MenuItem::make('Laravel Docs', 'https://laravel.com/docs')
+                ->blank(fn() => true), // [tl! focus]
+        ];
     }
+
+    //...
+}
+</x-code>
+
+<x-sub-title id="force-active">Active item</x-sub-title>
+
+<x-p>
+    The menu item becomes active if it matches the url,
+    but the <code>forceActive()</code> method allows you to force the item to be active.
+</x-p>
+
+<x-code language="php">
+forceActive(Closure|bool $forceActive)
+</x-code>
+
+<x-code language="php">
+namespace App\Providers;
+
+use MoonShine\Menu\MenuItem;
+use MoonShine\Providers\MoonShineApplicationServiceProvider;
+
+class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
+{
+    protected function menu(): array
+    {
+        return [
+            MenuItem::make('Label', '/endpoint')
+                ->forceActive(fn() => request()->fullUrlIs('*admin/endpoint/*')), // [tl! focus]
+        ];
+    }
+
+    //...
+}
 </x-code>
 
 </x-page>
