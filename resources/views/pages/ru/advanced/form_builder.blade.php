@@ -223,6 +223,15 @@ FormBuilder::make('/crud/update', 'PUT')
 </x-code>
 
 <x-p>
+    Метод <code>hideSubmit()</code> позволяет скрыть кнопку <strong>"submit"</strong>.
+</x-p>
+
+<x-code language="php">
+FormBuilder::make('/crud/update', 'PUT')
+    ->hideSubmit() // [tl! focus]
+</x-code>
+
+<x-p>
     Для добавления новых кнопок на основе <code>ActionButton</code>, воспользуйтесь методом <code>buttons()</code>.
 </x-p>
 
