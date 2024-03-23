@@ -12,6 +12,7 @@
             ['url' => '#bulk', 'label' => 'Bulk'],
             ['url' => '#async', 'label' => 'Асинхронный режим'],
             ['url' => '#method', 'label' => 'Вызов методов'],
+            ['url' => '#event', 'label' => 'Вызов событий'],
         ]
     ]"
 >
@@ -575,5 +576,20 @@ public function updateSomething(MoonShineRequest $request)
 <x-moonshine::alert type="warning" icon="heroicons.information-circle">
     Методы в вызываемые через <em>ActionButton</em> в ресурсе должны быть публичными!
 </x-moonshine::alert>
+
+<x-sub-title id="event">Вызов событий</x-sub-title>
+
+<x-p>
+    Для вызова событий javascript можно воспользоваться методом <code>dispatchEvent()</code>.
+</x-p>
+
+<x-code language="php">
+dispatchEvent(array|string $events)
+</x-code>
+
+<x-code language="php">
+ActionButton::make('Refresh', '#')
+    ->dispatchEvent(AlpineJs::event(JsEvent::TABLE_UPDATED, 'index-table')), // [tl! focus]
+</x-code>
 
 </x-page>
