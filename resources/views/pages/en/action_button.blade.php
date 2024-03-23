@@ -12,6 +12,7 @@
             ['url' => '#bulk', 'label' => 'Bulk'],
             ['url' => '#async', 'label' => 'Async mode'],
             ['url' => '#method', 'label' => 'Calling methods'],
+            ['url' => '#event', 'label' => 'Dispatch events'],
         ]
     ]"
 >
@@ -576,5 +577,20 @@ public function updateSomething(MoonShineRequest $request)
 <x-moonshine::alert type="warning" icon="heroicons.information-circle">
     Methods called via <em>ActionButton</em> in a resource must be public!
 </x-moonshine::alert>
+
+<x-sub-title id="event">Dispatch events</x-sub-title>
+
+<x-p>
+    To dispatch javascript events, you can use the <code>dispatchEvent()</code> method.
+</x-p>
+
+<x-code language="php">
+dispatchEvent(array|string $events)
+</x-code>
+
+<x-code language="php">
+ActionButton::make('Refresh', '#')
+    ->dispatchEvent(AlpineJs::event(JsEvent::TABLE_UPDATED, 'index-table')), // [tl! focus]
+</x-code>
 
 </x-page>

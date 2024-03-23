@@ -15,6 +15,7 @@
             ['url' => '#precognitive', 'label' => 'Precognitive'],
             ['url' => '#apply', 'label' => 'Apply'],
             ['url' => '#method', 'label' => 'Calling methods'],
+            ['url' => '#event', 'label' => 'Dispatch events'],
         ]
     ]"
 >
@@ -219,6 +220,15 @@ submit(string $label, array $attributes = [])
 <x-code language="php">
 FormBuilder::make('/crud/update', 'PUT')
     ->submit(label: 'Click me', attributes: ['class' => 'btn-primary']) // [tl! focus]
+</x-code>
+
+<x-p>
+    The <code>hideSubmit()</code> method allows you to hide the <strong>"submit"</strong> button.
+</x-p>
+
+<x-code language="php">
+FormBuilder::make('/crud/update', 'PUT')
+    ->hideSubmit() // [tl! focus]
 </x-code>
 
 <x-p>
@@ -437,6 +447,21 @@ public function updateSomething(MoonShineRequest $request)
 {
     return MoonShineJsonResponse::make()->toast('MyMessage', ToastType::SUCCESS);
 }
+</x-code>
+
+<x-sub-title id="event">Dispatch events</x-sub-title>
+
+<x-p>
+    To dispatch javascript events, you can use the <code>dispatchEvent()</code> method.
+</x-p>
+
+<x-code language="php">
+dispatchEvent(array|string $events)
+</x-code>
+
+<x-code language="php">
+FormBuilder::make()
+    ->dispatchEvent(JsEvent::OFF_CANVAS_TOGGLED, 'default'), // [tl! focus]
 </x-code>
 
 </x-page>
