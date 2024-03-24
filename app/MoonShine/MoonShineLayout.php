@@ -19,11 +19,16 @@ final class MoonShineLayout implements MoonShineLayoutContract
             MobileBar::make([
                 Menu::make(),
                 Divider::make(),
+                ActionButton::make(__('Screencasts'), 'https://www.youtube.com/playlist?list=PLTucyHptHtTnfDI18bZnYEgvJIFmW8fGy')
+                    ->primary()
+                    ->icon('heroicons.outline.play')
+                    ->blank()
+                    ->customAttributes(['class' => 'rounded-full']),
                 ActionButton::make(__('Online consultation'), 'https://forms.gle/U41uLZzXBCibmwbE7')
                     ->secondary()
                     ->icon('heroicons.outline.rocket-launch')
                     ->blank()
-                    ->customAttributes(['class' => 'rounded-full']),
+                    ->customAttributes(['class' => 'rounded-full mt-2']),
             ]),
             Sidebar::make([
                 Menu::make(),
@@ -31,11 +36,16 @@ final class MoonShineLayout implements MoonShineLayoutContract
             LayoutBlock::make([
                 Flash::make(),
                 Header::make([
+                    ActionButton::make(__('Screencasts'), 'https://www.youtube.com/playlist?list=PLTucyHptHtTnfDI18bZnYEgvJIFmW8fGy')
+                        ->primary()
+                        ->icon('heroicons.outline.play')
+                        ->blank()
+                        ->customAttributes(['class' => 'rounded-full hidden lg:flex']),
                     ActionButton::make(__('Online consultation'), 'https://forms.gle/U41uLZzXBCibmwbE7')
                         ->secondary()
                         ->icon('heroicons.outline.rocket-launch')
                         ->blank()
-                        ->customAttributes(['class' => 'rounded-full hidden md:flex']),
+                        ->customAttributes(['class' => 'rounded-full hidden lg:flex']),
                     new DocSearch(),
                     new ChangeVersion(),
                 ]),
