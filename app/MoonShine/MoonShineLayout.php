@@ -6,22 +6,38 @@ namespace App\MoonShine;
 
 use App\View\Components\ChangeVersion;
 use App\View\Components\DocSearch;
-use MoonShine\Components\Layout\{Content, Flash, Footer, Header, LayoutBlock, LayoutBuilder, Menu, Sidebar};
+use MoonShine\Components\Layout\{Content, Flash, Footer, Header, LayoutBlock, LayoutBuilder, Menu, MobileBar, Sidebar};
+use MoonShine\ActionButtons\ActionButton;
 use MoonShine\Contracts\MoonShineLayoutContract;
+use MoonShine\Decorations\Divider;
 
 final class MoonShineLayout implements MoonShineLayoutContract
 {
     public static function build(): LayoutBuilder
     {
         return LayoutBuilder::make([
+            MobileBar::make([
+                Menu::make(),
+                Divider::make(),
+                ActionButton::make(__('Online consultation'), 'https://forms.gle/U41uLZzXBCibmwbE7')
+                    ->secondary()
+                    ->icon('heroicons.outline.rocket-launch')
+                    ->blank()
+                    ->customAttributes(['class' => 'rounded-full']),
+            ]),
             Sidebar::make([
-                Menu::make()->customAttributes(['class' => 'mt-2']),
+                Menu::make(),
             ]),
             LayoutBlock::make([
                 Flash::make(),
                 Header::make([
+                    ActionButton::make(__('Online consultation'), 'https://forms.gle/U41uLZzXBCibmwbE7')
+                        ->secondary()
+                        ->icon('heroicons.outline.rocket-launch')
+                        ->blank()
+                        ->customAttributes(['class' => 'rounded-full hidden md:flex']),
+                    new DocSearch(),
                     new ChangeVersion(),
-                    new DocSearch()
                 ]),
                 Content::make(),
                 Footer::make()

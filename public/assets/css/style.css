@@ -1,3 +1,8 @@
+@media (min-width: 768px) {
+    .md\:flex {
+        display: flex !important;
+    }
+}
 .dark .dark\:block {display: block !important;}
 .dark .dark\:hidden {display: none !important;}
 
