@@ -681,7 +681,7 @@ public function fields(): array
 {
     return [
         Text::make('Slug')
-            ->when(fn($field) => $field->getData()?->exists, fn(Field $field) => $field->locked()) // [tl! focus]
+            ->when(fn() => true, fn(Field $field) => $field->locked()) // [tl! focus]
     ];
 }
 
@@ -709,9 +709,9 @@ public function fields(): array
     return [
         Text::make('Slug')
             ->when(
-                fn($field) => $field->getData()?->exists,
+                auth('moonshine')->user()->moonshine_user_role_id === 1,
                 fn(Field $field) => $field->locked(),
-                fn(Field $field) => $field->hidden()
+                fn(Field $field) => $field->readonly()
             ) // [tl! focus:-4]
     ];
 }
