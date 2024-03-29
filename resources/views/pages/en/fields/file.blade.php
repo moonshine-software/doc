@@ -172,7 +172,7 @@ public function fields(): array
 //...
 </x-code>
 
-<x-moonshine::alert type="default" icon="heroicons.information-circle">
+<x-moonshine::alert type="error" icon="heroicons.information-circle">
     The field in the database must be of text or json type.<br>
     You also need to add a cast for the eloquent model - json, or array, or collection.
 </x-moonshine::alert>
