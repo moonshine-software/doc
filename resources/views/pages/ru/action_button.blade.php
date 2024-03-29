@@ -7,6 +7,7 @@
             ['url' => '#color', 'label' => 'Цвет'],
             ['url' => '#onclick', 'label' => 'onClick'],
             ['url' => '#modal', 'label' => 'Modal'],
+            ['url' => '#confirm', 'label' => 'Confirm'],
             ['url' => '#offcanvas', 'label' => 'Offcanvas'],
             ['url' => '#group', 'label' => 'Группы'],
             ['url' => '#bulk', 'label' => 'Bulk'],
@@ -289,7 +290,7 @@ public function components(): array
     можно узнать в разделе "Components"
 </x-moonshine::alert>
 
-<x-moonshine::divider label="withConfirm" />
+<x-sub-title id="confirm">Confirm</x-sub-title>
 
 <x-p>
     Метод <code>withConfirm()</code> позволяет создать кнопку с подтверждением действия.
@@ -313,6 +314,13 @@ public function components(): array
     ];
 }
 </x-code>
+
+<x-moonshine::alert type="warning" icon="heroicons.information-circle">
+    <code>withConfirm</code> не работает с <code>async</code> режимами. Для асинхронного режима,
+    необходимо сделать свою реализацию через
+    <x-link link="{{ to_page('components-decoration_modal') }}">Modal</x-link> или
+    <x-link link="#modal">inModal()</x-link>.
+</x-moonshine::alert>
 
 <x-sub-title id="offcanvas">Offcanvas</x-sub-title>
 

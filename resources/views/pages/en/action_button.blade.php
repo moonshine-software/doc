@@ -7,6 +7,7 @@
             ['url' => '#color', 'label' => 'Color'],
             ['url' => '#onclick', 'label' => 'onClick'],
             ['url' => '#modal', 'label' => 'Modal'],
+            ['url' => '#confirm', 'label' => 'Confirm'],
             ['url' => '#offcanvas', 'label' => 'Offcanvas'],
             ['url' => '#group', 'label' => 'Group'],
             ['url' => '#bulk', 'label' => 'Bulk'],
@@ -229,7 +230,6 @@ public function components(): array
         actionBtn('Click me in modal', 'https://moonshine-laravel.com')
 ]) !!}
 
-
 <x-p>
     You can also open a modal window using the <code>toggleModal</code> method, and if the ActionButton is inside
     modal window then just <code>openModal</code>
@@ -290,7 +290,7 @@ public function components(): array
     can be found in the "Components" section
 </x-moonshine::alert>
 
-<x-moonshine::divider label="withConfirm" />
+<x-sub-title id="confirm">Confirm</x-sub-title>
 
 <x-p>
     The <code>withConfirm()</code> method allows you to create a button with confirmation of an action.
@@ -314,6 +314,13 @@ public function components(): array
     ];
 }
 </x-code>
+
+<x-moonshine::alert type="warning" icon="heroicons.information-circle">
+    <code>withConfirm</code> does not work with <code>async</code> modes. For asynchronous mode,
+    you need to make your own implementation via
+    <x-link link="{{ to_page('components-decoration_modal') }}">Modal</x-link> or
+    <x-link link="#modal">inModal()</x-link>.
+</x-moonshine::alert>
 
 <x-sub-title id="offcanvas">Offcanvas</x-sub-title>
 
