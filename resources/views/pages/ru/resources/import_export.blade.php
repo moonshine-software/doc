@@ -355,8 +355,8 @@ unless($value = null, callable $callback = null, callable $default = null)
 <x-sub-title id="custom">Кастомная реализация</x-sub-title>
 
 <x-p>
-    Может возникнуть ситуация, когда вы захотите изменить <em>ImportHandler</em> или <em>ExportHandler</em>.
-    Для этого необходимо реализовать свой класс расширяющий базовый <em>Handler</em>.
+    Может возникнуть ситуация, когда вы захотите изменить реализацию импорта или экспорта.
+    Для этого необходимо реализовать свой класс расширяющий <em>ImportHandler</em> или <em>ExportHandler</em>.
 </x-p>
 
 <x-p>

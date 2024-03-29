@@ -354,8 +354,8 @@ unless($value = null, callable $callback = null, callable $default = null)
 <x-sub-title id="custom">Custom implementation</x-sub-title>
 
 <x-p>
-    There may be a situation where you want to change the <em>ImportHandler</em> or <em>ExportHandler</em>.
-    To do this, you need to implement your own class that extends the base <em>Handler</em>.
+    There may be a situation where you want to change your import or export implementation.
+    To do this, you need to implement your own class extending <em>ImportHandler</em> or <em>ExportHandler</em>.
 </x-p>
 
 <x-p>
