@@ -43,12 +43,12 @@ class PostResource extends ModelResource
 
     protected string $title = 'Posts';
 
-    public function import() // [tl! focus:start]
+    public function import(): ?ImportHandler // [tl! focus:start]
     {
         return null;
     }
 
-    public function export()
+    public function export(): ?ExportHandler
     {
         return null;
     } // [tl! focus:end]

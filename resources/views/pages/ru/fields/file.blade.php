@@ -172,7 +172,7 @@ public function fields(): array
 //...
 </x-code>
 
-<x-moonshine::alert type="default" icon="heroicons.information-circle">
+<x-moonshine::alert type="error" icon="heroicons.information-circle">
     Поле в базе необходимо типа text или json.<br>
     Также необходимо добавить cast для eloquent модели - json, или array, или collection.
 </x-moonshine::alert>
