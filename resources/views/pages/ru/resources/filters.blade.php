@@ -55,7 +55,7 @@ class PostResource extends ModelResource
 </x-moonshine::alert>
 
 <x-p>
-    Если необходимо кешировать состояние фильтров, воспользуйтесь свойство <code>saveFilterState</code> в ресурсе
+    Если необходимо кешировать состояние фильтров, воспользуйтесь свойством <code>saveFilterState</code> в ресурсе.
 </x-p>
 <x-code language="php">
 namespace App\MoonShine\Resources;
