@@ -36,7 +36,7 @@
 </x-code>
 
 <x-code language="php">
-    Route::resources('resources', Controller::class);
+    Route::resource('resources', Controller::class);
 </x-code>
 
 <x-p>
