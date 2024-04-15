@@ -2,6 +2,11 @@
 
 return [
     [
+        'title' => 'Creating projects using schemas for the MoonShine',
+        'url' => 'dev-lnk/moonshine-builder.git',
+        'category' => 'Builders'
+    ],
+    [
         'title' => 'Permissions',
         'url' => 'moonshine-software/permissions',
         'category' => 'GUI'
