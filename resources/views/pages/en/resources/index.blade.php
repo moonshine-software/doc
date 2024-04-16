@@ -10,6 +10,7 @@
             ['url' => '#modal', 'label' => 'Modal windows'],
             ['url' => '#redirects', 'label' => 'Redirects'],
             ['url' => '#active_actions', 'label' => 'Active actions'],
+            ['url' => '#actions', 'label' => 'Buttons'],
             ['url' => '#components', 'label' => 'Components'],
             ['url' => '#boot', 'label' => 'Boot'],
         ]
@@ -271,9 +272,64 @@ namespace MoonShine\Resources;
 class PostResource extends ModelResource
 {
     //...
+
     public function getActiveActions(): array // [tl! focus:start]
     {
         return ['create', 'view', 'update', 'delete', 'massDelete'];
+    } // [tl! focus:end]
+
+    //...
+}
+</x-code>
+
+<x-sub-title id="actions">Buttons</x-sub-title>
+
+<x-p>
+    By default, the model resource index page only has a button to create.<br />
+    The <code>actions()</code> method allows you to add additional <x-link link="{{ to_page('action_button') }}">buttons</x-link>.
+</x-p>
+
+<x-code language="php">
+namespace MoonShine\Resources;
+
+class PostResource extends ModelResource
+{
+    //...
+
+    public function actions(): array // [tl! focus:start]
+    {
+        return [
+            ActionButton::make('Refresh', '#')
+                ->dispatchEvent(AlpineJs::event(JsEvent::TABLE_UPDATED, 'index-table'))
+        ];
+    } // [tl! focus:end]
+
+    //...
+}
+</x-code>
+
+<x-moonshine::divider label="Display" />
+
+<x-p>
+    You can also change the display of the buttons,
+    display them in a line or in a drop-down menu to save space.
+</x-p>
+
+<x-code language="php">
+namespace MoonShine\Resources;
+
+class PostResource extends ModelResource
+{
+    //...
+
+    public function actions(): array
+    {
+        return [
+            ActionButton::make('Button 1', '/')
+                ->showInLine(),  // [tl! focus]
+            ActionButton::make('Button 2', '/')
+                ->showInDropdown()  // [tl! focus]
+        ];
     } // [tl! focus:end]
 
     //...
