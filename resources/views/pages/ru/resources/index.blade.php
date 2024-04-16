@@ -10,6 +10,7 @@
             ['url' => '#modal', 'label' => 'Модальные окна'],
             ['url' => '#redirects', 'label' => 'Редиректы'],
             ['url' => '#active_actions', 'label' => 'Активные действия'],
+            ['url' => '#actions', 'label' => 'Кнопки'],
             ['url' => '#components', 'label' => 'Компоненты'],
             ['url' => '#boot', 'label' => 'Boot'],
         ]
@@ -271,6 +272,7 @@ namespace MoonShine\Resources;
 class PostResource extends ModelResource
 {
     //...
+
     public function getActiveActions(): array // [tl! focus:start]
     {
         return ['create', 'view', 'update', 'delete', 'massDelete'];
@@ -280,7 +282,61 @@ class PostResource extends ModelResource
 }
 </x-code>
 
-<x-sub-title id="components">Components</x-sub-title>
+<x-sub-title id="actions">Кнопки</x-sub-title>
+
+<x-p>
+    По умолчанию на индексной странице ресурса модели присутствует только кнопка для создания.<br />
+    Метод <code>actions()</code> позволяет добавить дополнительные <x-link link="{{ to_page('action_button') }}">кнопки</x-link>.
+</x-p>
+
+<x-code language="php">
+namespace MoonShine\Resources;
+
+class PostResource extends ModelResource
+{
+    //...
+
+    public function actions(): array // [tl! focus:start]
+    {
+        return [
+            ActionButton::make('Refresh', '#')
+                ->dispatchEvent(AlpineJs::event(JsEvent::TABLE_UPDATED, 'index-table'))
+        ];
+    } // [tl! focus:end]
+
+    //...
+}
+</x-code>
+
+<x-moonshine::divider label="Отображение" />
+
+<x-p>
+    Вы также можете изменить отображение кнопок,
+    отображать их в линию или же в выпадающем меню для экономии места.
+</x-p>
+
+<x-code language="php">
+namespace MoonShine\Resources;
+
+class PostResource extends ModelResource
+{
+    //...
+
+    public function actions(): array
+    {
+        return [
+            ActionButton::make('Button 1', '/')
+                ->showInLine(),  // [tl! focus]
+            ActionButton::make('Button 2', '/')
+                ->showInDropdown()  // [tl! focus]
+        ];
+    } // [tl! focus:end]
+
+    //...
+}
+</x-code>
+
+<x-sub-title id="components">Компоненты</x-sub-title>
 
 <x-p>
     Лучший способ изменять компоненты страниц это опубликовать страницы

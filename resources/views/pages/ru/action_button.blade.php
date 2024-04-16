@@ -506,6 +506,11 @@ public function components(): array
 }
 </x-code>
 
+<x-moonshine::alert type="default" icon="heroicons.book-open">
+    Для работы события <code>table-updated-index-table</code>
+    должен быть включен <x-link link="{{ to_page('resources-table') }}#async">асинхронный режим</x-link>.
+</x-moonshine::alert>
+
 <x-moonshine::divider label="Callback" />
 
 <x-p>
@@ -546,6 +551,30 @@ document.addEventListener("moonshine:init", () => {
 </x-p>
 
 <x-code language="php">
+method(
+    string $method,
+    array|Closure $params = [],
+    ?string $message = null,
+    ?string $selector = null,
+    array $events = [],
+    string|AsyncCallback|null $callback = null,
+    ?Page $page = null,
+    ?ResourceContract $resource = null
+)
+</x-code>
+
+<x-ul>
+    <li><code>$method</code> - наименование метода,</li>
+    <li><code>$params</code> - параметры для запроса,</li>
+    <li><code>$message</code> - сообщения,</li>
+    <li><code>$selector</code> - selector элемента у которого будет изменяться контент,</li>
+    <li><code>$events</code> - вызываемые события после успешного запроса,</li>
+    <li><code>$callback</code> - js callback функция после получения ответа,</li>
+    <li><code>$page</code> - страница содержащая метод,</li>
+    <li><code>$resource</code> - ресурс содержащий метод.</li>
+</x-ul>
+
+<x-code language="php">
 public function components(): array
 {
     return [
@@ -584,6 +613,47 @@ public function updateSomething(MoonShineRequest $request)
 <x-moonshine::alert type="warning" icon="heroicons.information-circle">
     Методы в вызываемые через <em>ActionButton</em> в ресурсе должны быть публичными!
 </x-moonshine::alert>
+
+<x-moonshine::alert type="error" icon="heroicons.information-circle">
+    Для доступа к данным из реквеста, необходимо передать их в параметрах.
+</x-moonshine::alert>
+
+<x-moonshine::divider label="Передача текущего элемента" />
+
+<x-p>
+    Если в запросе присутствует <em>resourceItem</em>,
+    то в ресурсе вы можете получить доступ к текущему элементу через метод <code>getItem()</code>.
+</x-p>
+
+<x-ul>
+    <li>
+        Когда в данных присутствует модель и кнопка создается в методе <code>buttons()</code>
+        <x-link link="{{ to_page('advanced-table_builder') }}#buttons">TableBuilder</x-link>,
+        <x-link link="{{ to_page('advanced-cards_builder') }}#buttons">CardsBuilder</x-link>
+        или <x-link link="{{ to_page('advanced-form_builder') }}#buttons">FormBuilder</x-link>,
+        то она автоматически наполняется данными и в параметрах будет <code>resourceItem</code>.
+    </li>
+    <li>
+        Когда кнопка находится на странице формы <em>ModelResource</em> то можно передать id текущего элемента.
+<x-code language="php">
+ActionButton::make('Click me')
+    ->method(
+        'updateSomething',
+        params: ['resourceItem' => $this->getResource()->getItemID()] // [tl! focus]
+    )
+</x-code>
+    </li>
+    <li>
+        Когда кнопка находится в индексной таблице <em>ModelResource</em>, то необходимо воспользоваться замыканием.
+<x-code language="php">
+ActionButton::make('Click me')
+    ->method(
+        'updateSomething',
+        params: ['resourceItem' => fn($item) ['resourceItem' => $item->getKey()]] // [tl! focus]
+    )
+</x-code>
+    </li>
+</x-ul>
 
 <x-sub-title id="event">Вызов событий</x-sub-title>
 
