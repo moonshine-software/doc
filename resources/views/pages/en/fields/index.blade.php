@@ -516,7 +516,7 @@ public function fields(): array
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     If the operator is <code>in</code> or <code>not in</code>,
-    then in <code>$value</code> you need to pass an array
+    then in <code>$value</code> you need to pass an array, and the values as a string.
 </x-moonshine::alert>
 
 <x-code language="php">
