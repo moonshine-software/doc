@@ -61,7 +61,7 @@ public function fields(): array
             ->asyncSearch(
                 'title',
                 10,
-                asyncSearchQuery: function (Builder $query, Field $field) {
+                asyncSearchQuery: function (Builder $query, Request $request, Field $field) {
                     return $query->where('id', '!=', 2);
                 },
                 asyncSearchValueCallback: function ($country, Field $field) {

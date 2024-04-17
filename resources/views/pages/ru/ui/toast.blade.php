@@ -42,6 +42,17 @@ MoonShineUI::toast('Toast content', 'error');
 <x-sub-title id="js">JS</x-sub-title>
 
 <x-code language="js">
+// native js
+dispatchEvent(
+    new CustomEvent('toast', {
+        detail: {type: 'success', text: 'SomeText'}
+    })
+)
+
+// AlpineJs внутри компонента
+this.$dispatch('toast', {type: 'error', text: 'Error'})
+
+// AlpineJs вне компонента
 $dispatch('toast', {type: 'error', text: 'Error'})
 </x-code>
 

@@ -516,7 +516,7 @@ public function fields(): array
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     Если оператор имеет значение <code>in</code> или <code>not in</code>,
-    то в <code>$value</code> необходимо передать массив
+    то в <code>$value</code> необходимо передать массив, а значения в виде строки.
 </x-moonshine::alert>
 
 <x-code language="php">
