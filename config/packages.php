@@ -66,4 +66,9 @@ return [
         'url' => 'SWEET1S/moonshine-filemanager',
         'category' => 'Fields'
     ],
+    [
+        'title' => 'MoonShine Heroicons Field',
+        'url' => 'dragomano/moonshine-heroicons-field',
+        'category' => 'Fields'
+    ],
 ];
