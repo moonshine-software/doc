@@ -9,7 +9,7 @@
 >
 
 <x-p>
-    Поле <em>HiddenIds</em> используется передачи primary key выбранных элементов.
+    Поле <em>HiddenIds</em> используется для передачи primary key выбранных элементов.
 </x-p>
 
 <x-sub-title id="make">Make</x-sub-title>

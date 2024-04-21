@@ -9,7 +9,7 @@
 >
 
 <x-p>
-    The <em>HiddenIds</em> field is used to transmit the primary key of the selected elements.
+    The <em>HiddenIds</em> field is used to pass the primary key of the selected elements.
 </x-p>
 
 <x-sub-title id="make">Make</x-sub-title>
