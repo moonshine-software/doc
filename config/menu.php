@@ -97,6 +97,7 @@ return [
         ['slug' => 'fields-morph_to_many', 'label' => 'MorphToMany'],
 
         'Other:_divider_',
+        ['slug' => 'fields-hidden_ids', 'label' => 'HiddenIds'],
         ['slug' => 'fields-preview', 'label' => 'Preview'],
         ['slug' => 'fields-position', 'label' => 'Position'],
         ['slug' => 'fields-stack_fields', 'label' => 'StackFields'],
