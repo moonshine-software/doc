@@ -8,6 +8,7 @@
             ['url' => '#limit', 'label' => 'Количество записей'],
             ['url' => '#only-link', 'label' => 'Только ссылка'],
             ['url' => '#parent-id', 'label' => 'ID родителя'],
+            ['url' => '#advanced', 'label' => 'Продвинутое применение'],
         ]
     ]"
 >
@@ -192,5 +193,92 @@ public function fields(): array
 </x-code>
 
 @include('pages.ru.fields.shared.parent_id')
+
+<x-sub-title id="advanced">Продвинутое применение</x-sub-title>
+
+<x-moonshine::divider label="Отношение через поле JSON" />
+
+<x-p>
+    Поле <em>HasMany</em> по умолчанию отображается вне основной формы ресурса.<br />
+    Если необходимо отобразить поля отношения внутри основной формы,
+    то можно воспользоваться полем <em>JSON</em> в режиме <code>asRelation()</code>.
+</x-p>
+
+<x-code language="php">
+//...
+
+public function fields(): array
+{
+    return [
+        Json::make('Comments', 'comments')
+            ->asRelation(new CommentResource()) // [tl! focus]
+            //...
+    ]
+}
+
+//...
+</x-code>
+
+<x-moonshine::alert class="my-4" type="default" icon="heroicons.book-open">
+    За более подробной информацией обратитесь к разделу
+    <x-link link="{{ to_page('fields-json') }}#relation">поле Json</x-link>.
+</x-moonshine::alert>
+
+<x-moonshine::divider label="Отношение через поле Template" />
+
+<x-p>
+    Используя поле <em>Template</em> можно конструировать поле для отношений <em>HasMany</em>
+    используя fluent interface в процессе объявления.
+</x-p>
+
+<x-moonshine::alert class="my-4" type="default" icon="heroicons.book-open">
+    За более подробной информацией обратитесь к разделу
+    <x-link link="{{ to_page('fields-template') }}">поле Template</x-link>.
+</x-moonshine::alert>
+
+<x-moonshine::divider label="Вкладки для полей HasMany" />
+
+<x-p>
+    В <strong>Moonshine</strong> можно кастомизировать страницу формы и разместить поля <em>HasMany</em> во
+    вкладках используя декорации <em>Tabs</em> и <em>Tab</em>.
+</x-p>
+
+<x-code language="php">
+class PostFormPage extends FormPage
+{
+    public function components(): array
+	{
+        if(! $this->getResource()->getItemID()) {
+            return parent::components();
+        }
+
+        $bottomComponents = $this->getLayerComponents(Layer::BOTTOM);
+        $imagesComponent = collect($bottomComponents)->filter(fn($component) => $component->getName() === 'images')->first();
+        $commentsComponent = collect($bottomComponents)->filter(fn($component) => $component->getName() === 'comments')->first();
+
+        $tabLayer = [
+            Block::make('', [
+                Tabs::make([
+                    Tab::make('Edit', $this->mainLayer()),
+                    Tab::make('Images', [$imagesComponent]),
+                    Tab::make('Comments', [$commentsComponent])
+                ])
+            ])
+        ];
+
+        return [
+            ...$this->getLayerComponents(Layer::TOP),
+            ...$tabLayer,
+        ];
+	}
+}
+</x-code>
+
+<x-moonshine::alert class="my-4" type="default" icon="heroicons.book-open">
+    За более подробно можно прочитать в статье
+    <x-link link="https://cutcode.dev/articles/kastomizaciia-stranicy-formy-moonshine-20">
+        Кастомизация страницы формы. MoonShine 2.0
+    </x-link>.
+</x-moonshine::alert>
 
 </x-page>
