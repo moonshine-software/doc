@@ -8,6 +8,7 @@
             ['url' => '#limit', 'label' => 'Number of records'],
             ['url' => '#only-link', 'label' => 'Link only'],
             ['url' => '#parent-id', 'label' => 'Parent ID'],
+            ['url' => '#advanced', 'label' => 'Advanced'],
         ]
     ]"
 >
@@ -192,5 +193,92 @@ public function fields(): array
 </x-code>
 
 @include('pages.en.fields.shared.parent_id')
+
+<x-sub-title id="advanced">Advanced</x-sub-title>
+
+<x-moonshine::divider label="Relation via JSON field" />
+
+<x-p>
+    The <em>HasMany</em> field is displayed outside the main resource form by default.<br />
+    If you need to display relation fields inside the main form,
+    then you can use the <em>JSON</em> field in the <code>asRelation()</code> mode.
+</x-p>
+
+<x-code language="php">
+//...
+
+public function fields(): array
+{
+    return [
+        Json::make('Comments', 'comments')
+            ->asRelation(new CommentResource()) // [tl! focus]
+            //...
+    ]
+}
+
+//...
+</x-code>
+
+<x-moonshine::alert class="my-4" type="default" icon="heroicons.book-open">
+    For more detailed information, please refer to the section
+    <x-link link="{{ to_page('fields-json') }}#relation">Json field</x-link>.
+</x-moonshine::alert>
+
+<x-moonshine::divider label="Relationship via Template field" />
+
+<x-p>
+    Using the <em>Template</em> field you can construct a field for <em>HasMany</em> relationships
+    using fluent interface during the declaration process.
+</x-p>
+
+<x-moonshine::alert class="my-4" type="default" icon="heroicons.book-open">
+    For more detailed information, please refer to the section
+    <x-link link="{{ to_page('fields-template') }}">Template field</x-link>.
+</x-moonshine::alert>
+
+<x-moonshine::divider label="HasMany field tabs" />
+
+<x-p>
+    In <strong>Moonshine</strong> you can customize the form page and place <em>HasMany</em> fields in
+    tabs using the <em>Tabs</em> and <em>Tab</em> decorations.
+</x-p>
+
+<x-code language="php">
+class PostFormPage extends FormPage
+{
+    public function components(): array
+	{
+        if(! $this->getResource()->getItemID()) {
+            return parent::components();
+        }
+
+        $bottomComponents = $this->getLayerComponents(Layer::BOTTOM);
+        $imagesComponent = collect($bottomComponents)->filter(fn($component) => $component->getName() === 'images')->first();
+        $commentsComponent = collect($bottomComponents)->filter(fn($component) => $component->getName() === 'comments')->first();
+
+        $tabLayer = [
+            Block::make('', [
+                Tabs::make([
+                    Tab::make('Edit', $this->mainLayer()),
+                    Tab::make('Images', [$imagesComponent]),
+                    Tab::make('Comments', [$commentsComponent])
+                ])
+            ])
+        ];
+
+        return [
+            ...$this->getLayerComponents(Layer::TOP),
+            ...$tabLayer,
+        ];
+	}
+}
+</x-code>
+
+<x-moonshine::alert class="my-4" type="default" icon="heroicons.book-open">
+    For more details you can read the article
+    <x-link link="https://cutcode.dev/articles/kastomizaciia-stranicy-formy-moonshine-20">
+        Form page customization. Moon Shine 2.0
+    </x-link>.
+</x-moonshine::alert>
 
 </x-page>
