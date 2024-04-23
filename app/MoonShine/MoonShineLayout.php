@@ -69,7 +69,7 @@ final class MoonShineLayout implements MoonShineLayoutContract
                         'https://github.com/moonshine-software/moonshine/blob/1.x/LICENSE.md' => 'License',
                         'https://demo.moonshine-laravel.com' => 'Demo',
                         'https://github.com/moonshine-software/moonshine' => 'GitHub',
-                        'https://t.me/laravel_chat/24568' => 'Telegram chat',
+                        'https://t.me/moonshine_ru' => 'Telegram chat',
                     ]),
             ])->customAttributes(['class' => 'layout-page']),
         ]);
