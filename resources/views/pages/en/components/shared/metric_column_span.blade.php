@@ -25,7 +25,7 @@ public function components(): array
 {
     return [
         Grid::make([ // [tl! focus]
-            {{ $metric }}::make({{ $metric === 'DonutChartMetric' ? 'Subscribers' : 'Articles' }})
+            {{ $metric }}::make('{{ $metric === 'DonutChartMetric' ? 'Subscribers' : 'Articles' }}')
 @if( $metric === 'ValueMetric')
                 ->value(Article::count())
 @elseif( $metric === 'DonutChartMetric')
@@ -47,7 +47,7 @@ public function components(): array
                 ])
 @endif
                 ->columnSpan(6), // [tl! focus]
-            {{ $metric }}::make( {{ $metric === 'DonutChartMetric' ? 'Tasks' : 'Comments' }})
+            {{ $metric }}::make('{{ $metric === 'DonutChartMetric' ? 'Tasks' : 'Comments' }}')
 @if( $metric === 'ValueMetric')
                 ->value(Comment::count())
 @elseif( $metric === 'DonutChartMetric')
