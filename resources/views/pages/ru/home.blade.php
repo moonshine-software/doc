@@ -79,7 +79,7 @@
 
     <x-p>
         Понадобилась помощь по MoonShine? Можете задать вопрос в
-        <x-link link="https://t.me/laravel_chat/24568">telegram-чате</x-link> или
+        <x-link link="https://t.me/moonshine_ru">telegram-чате</x-link> или
         <x-link link="https://forms.gle/U41uLZzXBCibmwbE7">заказать консультацию</x-link>.
     </x-p>
 

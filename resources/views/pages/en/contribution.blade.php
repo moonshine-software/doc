@@ -46,7 +46,7 @@
 
 <x-p>
     A separate chat in telegram has been created for active participants of the project. If you are ready to take part in the development,
-    then join - <x-link link="https://t.me/laravel_chat/24568">MoonShine</x-link>.
+    then join - <x-link link="https://t.me/moonshine_ru">MoonShine</x-link>.
 </x-p>
 
 

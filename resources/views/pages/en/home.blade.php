@@ -77,7 +77,7 @@
 
     <x-p>
         Need help with MoonShine? You can ask a question at
-        <x-link link="https://t.me/laravel_chat/24568">telegram-chat</x-link> or
+        <x-link link="https://t.me/moonshine_ru">telegram-chat</x-link> or
         <x-link link="https://forms.gle/U41uLZzXBCibmwbE7">book a consultation</x-link>.
     </x-p>
 

@@ -46,7 +46,7 @@
 
 <x-p>
     Для активных участников проекта создан отдельный чат в telegram. Если Вы готовы принять участие в разработке,
-    то вступайте - <x-link link="https://t.me/laravel_chat/24568">MoonShine</x-link>.
+    то вступайте - <x-link link="https://t.me/moonshine_ru">MoonShine</x-link>.
 </x-p>
 
 
