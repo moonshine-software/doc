@@ -68,7 +68,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
                         )->setResource($resources[$slug]);
 
                         $inner[] = MenuItem::make($item['label'], $page)
-                            ->badge(fn () => $item['badge'] ?? null);
+                            ->badge(fn () => $item['badge'] ?? null)->translatable();
                     }
                 }
 
@@ -77,7 +77,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
                         ->icon("heroicons.outline.$icon");
                 } else {
                     $menu[] = MenuGroup::make($title, $inner)
-                        ->icon("heroicons.outline.$icon");
+                        ->icon("heroicons.outline.$icon")->translatable();
                 }
             }
         }

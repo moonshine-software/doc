@@ -64,12 +64,12 @@ final class MoonShineLayout implements MoonShineLayoutContract
                         now()->year
                     ))
                     ->menu([
-                        'https://www.youtube.com/playlist?list=PLTucyHptHtTnfDI18bZnYEgvJIFmW8fGy' => 'Screencasts',
-                        'https://cutcode.dev/articles/moonshine-tips-tricks' => 'Tips & Tricks',
-                        'https://github.com/moonshine-software/moonshine/blob/1.x/LICENSE.md' => 'License',
-                        'https://demo.moonshine-laravel.com' => 'Demo',
+                        'https://www.youtube.com/playlist?list=PLTucyHptHtTnfDI18bZnYEgvJIFmW8fGy' => __('Screencasts'),
+                        'https://cutcode.dev/articles/moonshine-tips-tricks' => __('Tips & Tricks'),
+                        'https://github.com/moonshine-software/moonshine/blob/1.x/LICENSE.md' => __('License'),
+                        'https://demo.moonshine-laravel.com' => __('Demo'),
                         'https://github.com/moonshine-software/moonshine' => 'GitHub',
-                        'https://t.me/moonshine_ru' => 'Telegram chat',
+                        'https://t.me/moonshine_ru' => __('Telegram chat'),
                     ]),
             ])->customAttributes(['class' => 'layout-page']),
         ]);
