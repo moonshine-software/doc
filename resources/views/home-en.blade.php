@@ -295,10 +295,10 @@ MoonShine is great for creating admin panel, MVP, backoffice, and CMS. Simple fo
                 <!-- /.how-it-works-items -->
                 <div class="how-it-works-preview">
                     <video load="lazy" class="how-it-works-preview-video" :class="{ '_is-active': lvlTab_2_ActiveTab === 1 }" autoplay muted preload="auto" playsinline loop>
-                        <source src="/video/p1.mp4" type="video/mp4" />
+                        <source src="/video/p1-en.mp4" type="video/mp4" />
                     </video>
                     <video load="lazy" class="how-it-works-preview-video" :class="{ '_is-active': lvlTab_2_ActiveTab === 2 }" autoplay muted preload="auto" playsinline loop>
-                        <source src="/video/p2.mp4" type="video/mp4" />
+                        <source src="/video/p2-en.mp4" type="video/mp4" />
                     </video>
                     <video load="lazy" class="how-it-works-preview-video" :class="{ '_is-active': lvlTab_2_ActiveTab === 3 }" autoplay muted preload="auto" playsinline loop>
                         <source src="/video/p3.mp4" type="video/mp4" />
