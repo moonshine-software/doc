@@ -116,7 +116,7 @@ MoonShine is great for creating admin panel, MVP, backoffice, and CMS. Simple fo
     <section class="heroes">
         <div class="container">
             <div class="flex flex-col">
-                <a href="{{ config('links.chat') }}" class="heroes-telegram" target="_blank" rel="noopener nofollow">Telegram-channel</a>
+                <a href="{{ config('links.chat_en') }}" class="heroes-telegram" target="_blank" rel="noopener nofollow">Telegram-channel</a>
                 <h1 class="heroes-title">
                     Admin panel for<br />
                     your <span class="px-2 text-transparent bg-[url('/images/laravel-title.svg')] bg-no-repeat bg-contain bg-center">Laravel</span>
@@ -295,10 +295,10 @@ MoonShine is great for creating admin panel, MVP, backoffice, and CMS. Simple fo
                 <!-- /.how-it-works-items -->
                 <div class="how-it-works-preview">
                     <video load="lazy" class="how-it-works-preview-video" :class="{ '_is-active': lvlTab_2_ActiveTab === 1 }" autoplay muted preload="auto" playsinline loop>
-                        <source src="/video/p1.mp4" type="video/mp4" />
+                        <source src="/video/p1-en.mp4" type="video/mp4" />
                     </video>
                     <video load="lazy" class="how-it-works-preview-video" :class="{ '_is-active': lvlTab_2_ActiveTab === 2 }" autoplay muted preload="auto" playsinline loop>
-                        <source src="/video/p2.mp4" type="video/mp4" />
+                        <source src="/video/p2-en.mp4" type="video/mp4" />
                     </video>
                     <video load="lazy" class="how-it-works-preview-video" :class="{ '_is-active': lvlTab_2_ActiveTab === 3 }" autoplay muted preload="auto" playsinline loop>
                         <source src="/video/p3.mp4" type="video/mp4" />
@@ -503,7 +503,7 @@ MoonShine is great for creating admin panel, MVP, backoffice, and CMS. Simple fo
                     <p class="description">Ask in the community or use consultation.</p>
                 </div>
                 <div class="questions-actions">
-                    <a href="{{ config('links.chat') }}" class="btn btn-purple" target="_blank" rel="noopener nofollow">Go to Telegram channel</a>
+                    <a href="{{ config('links.chat_en') }}" class="btn btn-purple" target="_blank" rel="noopener nofollow">Go to Telegram channel</a>
                     {{--<a href="{{ config('promo_menu.consult.link') }}" class="btn btn-pink" target="_blank" rel="noopener nofollow">Consultation</a>--}}
                 </div>
                 <img src="{{ Vite::asset('resources/images/question.svg') }}" class="questions-image" alt="Difficulties have arisen?" />
@@ -579,7 +579,7 @@ MoonShine is great for creating admin panel, MVP, backoffice, and CMS. Simple fo
                                 <path d="M12.307 1.145 1.645 11.805a.677.677 0 0 1-.95 0 .676.676 0 0 1 0-.95L11.355.196c.26-.26.69-.26.95 0a.676.676 0 0 1 0 .95h.002Z" />
                             </svg>
                         </a>
-                        <a href="{{ config('links.chat') }}" class="btn btn-dark" target="_blank" rel="noopener nofollow">Ask in chat</a>
+                        <a href="{{ config('links.chat_en') }}" class="btn btn-dark" target="_blank" rel="noopener nofollow">Ask in chat</a>
                     </div>
                 </div>
                 <!-- /.advantages-heading -->
@@ -1072,7 +1072,7 @@ MoonShine is great for creating admin panel, MVP, backoffice, and CMS. Simple fo
                         <span class="ml-2 lg:ml-3 text-xxs font-semibold">YouTube</span>
                     </a>
                     <div class="h-4 w-[2px] bg-white/25"></div>
-                    <a href="{{ config('links.chat') }}" class="inline-flex items-center text-white hover:text-pink" target="_blank"
+                    <a href="{{ config('links.chat_en') }}" class="inline-flex items-center text-white hover:text-pink" target="_blank"
                        rel="nofollow noopener">
                         <img class="h-5 lg:h-6" src="{{ Vite::asset('resources/images/icons/telegram.svg') }}" alt="Telegram">
                         <span class="ml-2 lg:ml-3 text-xxs font-semibold">Telegram</span>
@@ -1148,7 +1148,7 @@ MoonShine is great for creating admin panel, MVP, backoffice, and CMS. Simple fo
                         <span class="ml-2 lg:ml-3 text-xxs font-medium">YouTube</span>
                     </a>
                     <div class="h-4 w-[2px] bg-white/25"></div>
-                    <a href="{{ config('links.chat') }}" class="inline-flex items-center text-white hover:text-pink" target="_blank"
+                    <a href="{{ config('links.chat_en') }}" class="inline-flex items-center text-white hover:text-pink" target="_blank"
                        rel="nofollow noopener">
                         <img class="h-5 lg:h-6" src="{{ Vite::asset('resources/images/icons/telegram.svg') }}" alt="Telegram">
                         <span class="ml-2 lg:ml-3 text-xxs font-medium">Telegram</span>

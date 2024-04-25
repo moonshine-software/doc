@@ -115,7 +115,7 @@ MoonShine отлично подходит для создания админ п�
     <section class="heroes">
         <div class="container">
             <div class="flex flex-col">
-                <a href="{{ config('links.chat') }}" class="heroes-telegram" target="_blank" rel="noopener nofollow">Telegram-канал</a>
+                <a href="{{ config('links.chat_ru') }}" class="heroes-telegram" target="_blank" rel="noopener nofollow">Telegram-канал</a>
                 <h1 class="heroes-title">
                     Админ-панель для<br />
                     Ваших <span class="px-2 text-transparent bg-[url('/images/laravel-title.svg')] bg-no-repeat bg-contain bg-center">Laravel</span>
@@ -502,7 +502,7 @@ MoonShine отлично подходит для создания админ п�
                     <p class="description">Спросите в комьюнити или воспользуйтесь консультацией.</p>
                 </div>
                 <div class="questions-actions">
-                    <a href="{{ config('links.chat') }}" class="btn btn-purple" target="_blank" rel="noopener nofollow">Перейти в Telegram-канал</a>
+                    <a href="{{ config('links.chat_ru') }}" class="btn btn-purple" target="_blank" rel="noopener nofollow">Перейти в Telegram-канал</a>
                     <a href="{{ config('promo_menu.consult.link') }}" class="btn btn-pink" target="_blank" rel="noopener nofollow">Консультация</a>
                 </div>
                 <img src="{{ Vite::asset('resources/images/question.svg') }}" class="questions-image" alt="Возникли трудности?" />
@@ -578,7 +578,7 @@ MoonShine отлично подходит для создания админ п�
                                 <path d="M12.307 1.145 1.645 11.805a.677.677 0 0 1-.95 0 .676.676 0 0 1 0-.95L11.355.196c.26-.26.69-.26.95 0a.676.676 0 0 1 0 .95h.002Z" />
                             </svg>
                         </a>
-                        <a href="{{ config('links.chat') }}" class="btn btn-dark" target="_blank" rel="noopener nofollow">Спросить в чате</a>
+                        <a href="{{ config('links.chat_ru') }}" class="btn btn-dark" target="_blank" rel="noopener nofollow">Спросить в чате</a>
                     </div>
                 </div>
                 <!-- /.advantages-heading -->
@@ -1071,7 +1071,7 @@ MoonShine отлично подходит для создания админ п�
                         <span class="ml-2 lg:ml-3 text-xxs font-semibold">YouTube</span>
                     </a>
                     <div class="h-4 w-[2px] bg-white/25"></div>
-                    <a href="{{ config('links.chat') }}" class="inline-flex items-center text-white hover:text-pink" target="_blank"
+                    <a href="{{ config('links.chat_ru') }}" class="inline-flex items-center text-white hover:text-pink" target="_blank"
                        rel="nofollow noopener">
                         <img class="h-5 lg:h-6" src="{{ Vite::asset('resources/images/icons/telegram.svg') }}" alt="Telegram">
                         <span class="ml-2 lg:ml-3 text-xxs font-semibold">Telegram</span>
@@ -1126,7 +1126,7 @@ MoonShine отлично подходит для создания админ п�
                             href="{{ $menu['link'] }}"
                             class="text-md font-semibold text-white hover:text-pink"
                         >
-                            {{ $menu['title'] }}
+                            {{ __($menu['title']) }}
                         </a>
                     @endforeach
                 </nav>
@@ -1147,7 +1147,7 @@ MoonShine отлично подходит для создания админ п�
                         <span class="ml-2 lg:ml-3 text-xxs font-medium">YouTube</span>
                     </a>
                     <div class="h-4 w-[2px] bg-white/25"></div>
-                    <a href="{{ config('links.chat') }}" class="inline-flex items-center text-white hover:text-pink" target="_blank"
+                    <a href="{{ config('links.chat_ru') }}" class="inline-flex items-center text-white hover:text-pink" target="_blank"
                        rel="nofollow noopener">
                         <img class="h-5 lg:h-6" src="{{ Vite::asset('resources/images/icons/telegram.svg') }}" alt="Telegram">
                         <span class="ml-2 lg:ml-3 text-xxs font-medium">Telegram</span>
