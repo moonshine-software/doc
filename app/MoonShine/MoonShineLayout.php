@@ -68,8 +68,8 @@ final class MoonShineLayout implements MoonShineLayoutContract
                         'https://cutcode.dev/articles/moonshine-tips-tricks' => __('Tips & Tricks'),
                         'https://github.com/moonshine-software/moonshine/blob/1.x/LICENSE.md' => __('License'),
                         'https://demo.moonshine-laravel.com' => __('Demo'),
-                        'https://github.com/moonshine-software/moonshine' => 'GitHub',
-                        'https://t.me/moonshine_ru' => __('Telegram chat'),
+                        config('links.github') => 'GitHub',
+                        config(app()->getLocale() === 'en' ? 'links.chat_en' : 'links.chat_ru') => __('Telegram chat'),
                     ]),
             ])->customAttributes(['class' => 'layout-page']),
         ]);
