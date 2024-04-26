@@ -98,7 +98,7 @@ public function fields(): array
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     По умолчанию для отображения значения используется поле в связанной таблице,
-    которе задано свойством <code>$column</code> в ресурсе модели.<br />
+    которое задано свойством <code>$column</code> в ресурсе модели.<br />
     Аргумент <code>$formatted</code> позволяет это переопределить.
 </x-moonshine::alert>
 
