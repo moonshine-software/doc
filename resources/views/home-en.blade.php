@@ -117,7 +117,10 @@ MoonShine is great for creating admin panel, MVP, backoffice, and CMS. Simple fo
     <section class="heroes">
         <div class="container">
             <div class="flex flex-col">
-                <a href="{{ config('links_' . app()->getLocale() . '.chat') }}" class="heroes-telegram" target="_blank" rel="noopener nofollow">Telegram-channel</a>
+                <div class="flex flex-row gap-4 justify-center">
+                    <a href="{{ config('links_' . app()->getLocale() . '.discord') }}" class="heroes-telegram" target="_blank" rel="noopener nofollow">Discord-channel</a>
+                    <a href="{{ config('links_' . app()->getLocale() . '.chat') }}" class="heroes-telegram" target="_blank" rel="noopener nofollow">Telegram-channel</a>
+                </div>
                 <h1 class="heroes-title">
                     Admin panel for<br />
                     your <span class="px-2 text-transparent bg-[url('/images/laravel-title.svg')] bg-no-repeat bg-contain bg-center">Laravel</span>
@@ -504,7 +507,8 @@ MoonShine is great for creating admin panel, MVP, backoffice, and CMS. Simple fo
                     <p class="description">Ask in the community.</p>
                 </div>
                 <div class="questions-actions">
-                    <a href="{{ config('links_' . app()->getLocale() . '.chat') }}" class="btn btn-purple" target="_blank" rel="noopener nofollow">Go to Telegram channel</a>
+                    <a href="{{ config('links_' . app()->getLocale() . '.discord') }}" class="btn btn-purple" target="_blank" rel="noopener nofollow">Go to Discord channel</a>
+                    <a href="{{ config('links_' . app()->getLocale() . '.chat') }}" class="btn btn-pink" target="_blank" rel="noopener nofollow">Go to Telegram channel</a>
                     {{--<a href="{{ config('promo_menu_' . app()->getLocale() . '.consult.link') }}" class="btn btn-pink" target="_blank" rel="noopener nofollow">Consultation</a>--}}
                 </div>
                 <img src="{{ Vite::asset('resources/images/question.svg') }}" class="questions-image" alt="Difficulties have arisen?" />
@@ -1052,6 +1056,12 @@ MoonShine is great for creating admin panel, MVP, backoffice, and CMS. Simple fo
                         <span class="ml-2 lg:ml-3 text-xxs font-semibold">YouTube</span>
                     </a>
                     <div class="h-4 w-[2px] bg-white/25"></div>
+                    <a href="{{ config('links_' . app()->getLocale() . '.discord') }}" class="inline-flex items-center text-white hover:text-pink" target="_blank"
+                       rel="nofollow noopener">
+                        <img class="h-5 lg:h-6" src="{{ Vite::asset('resources/images/icons/discord.svg') }}" alt="Discord">
+                        <span class="ml-2 lg:ml-3 text-xxs font-semibold">Discord</span>
+                    </a>
+                    <div class="h-4 w-[2px] bg-white/25"></div>
                     <a href="{{ config('links_' . app()->getLocale() . '.chat') }}" class="inline-flex items-center text-white hover:text-pink" target="_blank"
                        rel="nofollow noopener">
                         <img class="h-5 lg:h-6" src="{{ Vite::asset('resources/images/icons/telegram.svg') }}" alt="Telegram">
@@ -1127,6 +1137,12 @@ MoonShine is great for creating admin panel, MVP, backoffice, and CMS. Simple fo
                        rel="nofollow noopener">
                         <img class="h-5 lg:h-6" src="{{ Vite::asset('resources/images/icons/youtube.svg') }}" alt="YouTube">
                         <span class="ml-2 lg:ml-3 text-xxs font-medium">YouTube</span>
+                    </a>
+                    <div class="h-4 w-[2px] bg-white/25"></div>
+                    <a href="{{ config('links_' . app()->getLocale() . '.discord') }}" class="inline-flex items-center text-white hover:text-pink" target="_blank"
+                       rel="nofollow noopener">
+                        <img class="h-5 lg:h-6" src="{{ Vite::asset('resources/images/icons/discord.svg') }}" alt="Discord">
+                        <span class="ml-2 lg:ml-3 text-xxs font-medium">Discord</span>
                     </a>
                     <div class="h-4 w-[2px] bg-white/25"></div>
                     <a href="{{ config('links_' . app()->getLocale() . '.chat') }}" class="inline-flex items-center text-white hover:text-pink" target="_blank"
