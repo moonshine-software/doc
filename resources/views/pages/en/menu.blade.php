@@ -283,10 +283,10 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
     protected function menu(): array
     {
         return [
-            MenuGroup::make('System',
+            MenuGroup::make('System', [
                 MenuItem::make('Admins', new MoonShineUserResource()),
                 MenuItem::make('Roles', new MoonShineUserRoleResource())
-                    ->canSee(fn()=> false), [ // [tl! focus]
+                    ->canSee(fn()=> false) // [tl! focus]
             ])
                 ->canSee(function(Request $request) {
                     return $request->user('moonshine')?->id === 1;
