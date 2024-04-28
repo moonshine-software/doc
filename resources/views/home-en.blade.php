@@ -46,12 +46,13 @@ MoonShine is great for creating admin panel, MVP, backoffice, and CMS. Simple fo
             <!-- /.header-logo -->
             <div class="header-menu hidden grow lg:block">
                 <nav class="hidden flex-wrap gap-10 2xl:flex">
-                    @foreach(config('promo_menu', []) as $menu)
+                    @foreach(config('promo_menu_' . app()->getLocale(), []) as $menu)
                         <a
                             href="{{ $menu['link'] }}"
                             class="font-semibold text-white hover:text-pink"
+                            target="_blank"
                         >
-                            {{ __($menu['title']) }}
+                            {{ $menu['title'] }}
                         </a>
                     @endforeach
                 </nav>
@@ -72,7 +73,7 @@ MoonShine is great for creating admin panel, MVP, backoffice, and CMS. Simple fo
 
                     <div class="h-4 w-[1px] bg-white/25"></div>
 
-                    <a href="{{ config('links.github') }}" class="text-white hover:text-pink" target="_blank" rel="noopener nofollow">
+                    <a href="{{ config('links_' . app()->getLocale() . '.github') }}" class="text-white hover:text-pink" target="_blank" rel="noopener nofollow">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6" fill="currentColor" viewBox="0 0 24 24">
                             <path
                                 d="M12 .5C5.37.5 0 5.78 0 12.292c0 5.211 3.438 9.63 8.205 11.188.6.111.82-.254.82-.567 0-.28-.01-1.022-.015-2.005-3.338.711-4.042-1.582-4.042-1.582-.546-1.361-1.335-1.725-1.335-1.725-1.087-.731.084-.716.084-.716 1.205.082 1.838 1.215 1.838 1.215 1.07 1.803 2.809 1.282 3.495.981.108-.763.417-1.282.76-1.577-2.665-.295-5.466-1.309-5.466-5.827 0-1.287.465-2.339 1.235-3.164-.135-.298-.54-1.497.105-3.121 0 0 1.005-.316 3.3 1.209.96-.262 1.98-.392 3-.398 1.02.006 2.04.136 3 .398 2.28-1.525 3.285-1.209 3.285-1.209.645 1.624.24 2.823.12 3.121.765.825 1.23 1.877 1.23 3.164 0 4.53-2.805 5.527-5.475 5.817.42.354.81 1.077.81 2.182 0 1.578-.015 2.846-.015 3.229 0 .309.21.678.825.56C20.565 21.917 24 17.495 24 12.292 24 5.78 18.627.5 12 .5Z"
@@ -116,7 +117,7 @@ MoonShine is great for creating admin panel, MVP, backoffice, and CMS. Simple fo
     <section class="heroes">
         <div class="container">
             <div class="flex flex-col">
-                <a href="{{ config('links.chat_en') }}" class="heroes-telegram" target="_blank" rel="noopener nofollow">Telegram-channel</a>
+                <a href="{{ config('links_' . app()->getLocale() . '.chat') }}" class="heroes-telegram" target="_blank" rel="noopener nofollow">Telegram-channel</a>
                 <h1 class="heroes-title">
                     Admin panel for<br />
                     your <span class="px-2 text-transparent bg-[url('/images/laravel-title.svg')] bg-no-repeat bg-contain bg-center">Laravel</span>
@@ -127,14 +128,14 @@ MoonShine is great for creating admin panel, MVP, backoffice, and CMS. Simple fo
                     limitless for professionals
                 </h2>
                 <div class="heroes-buttons">
-                    <a href="{{ config('promo_menu.demo.link') }}" class="btn btn-purple" target="_blank" rel="noopener nofollow">
+                    <a href="{{ config('promo_menu_' . app()->getLocale() . '.demo.link') }}" class="btn btn-purple" target="_blank" rel="noopener nofollow">
                         Try demo
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" fill="currentColor" viewBox="0 0 12 12">
                             <path d="M12.308 11.808a.649.649 0 0 1-.462.192.659.659 0 0 1-.654-.654V1.307H1.154A.658.658 0 0 1 .5.654C.5.296.796 0 1.154 0h10.692c.357 0 .654.296.654.654v10.692a.646.646 0 0 1-.192.462Z" />
                             <path d="M12.307 1.145 1.645 11.805a.677.677 0 0 1-.95 0 .676.676 0 0 1 0-.95L11.355.196c.26-.26.69-.26.95 0a.676.676 0 0 1 0 .95h.002Z" />
                         </svg>
                     </a>
-                    <a href="{{ route('moonshine.index') }}" class="btn btn-outline btn-pink" rel="noopener nofollow">
+                    <a href="{{ config('promo_menu_' . app()->getLocale() . '.doc.link') }}" class="btn btn-outline btn-pink" target="_blank">
                         Documentation
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-pink" fill="currentColor" viewBox="0 0 21 20">
                             <path
@@ -500,11 +501,11 @@ MoonShine is great for creating admin panel, MVP, backoffice, and CMS. Simple fo
             <div class="questions-wrapper">
                 <div class="questions-heading">
                     <h2 class="title">Having difficulties?</h2>
-                    <p class="description">Ask in the community or use consultation.</p>
+                    <p class="description">Ask in the community.</p>
                 </div>
                 <div class="questions-actions">
-                    <a href="{{ config('links.chat_en') }}" class="btn btn-purple" target="_blank" rel="noopener nofollow">Go to Telegram channel</a>
-                    {{--<a href="{{ config('promo_menu.consult.link') }}" class="btn btn-pink" target="_blank" rel="noopener nofollow">Consultation</a>--}}
+                    <a href="{{ config('links_' . app()->getLocale() . '.chat') }}" class="btn btn-purple" target="_blank" rel="noopener nofollow">Go to Telegram channel</a>
+                    {{--<a href="{{ config('promo_menu_' . app()->getLocale() . '.consult.link') }}" class="btn btn-pink" target="_blank" rel="noopener nofollow">Consultation</a>--}}
                 </div>
                 <img src="{{ Vite::asset('resources/images/question.svg') }}" class="questions-image" alt="Difficulties have arisen?" />
             </div>
@@ -572,14 +573,14 @@ MoonShine is great for creating admin panel, MVP, backoffice, and CMS. Simple fo
                         <h2 class="section-heading-title">Still unsure whether MoonShine is right for you?</h2>
                     </div>
                     <div class="advantages-heading-links">
-                        <a href="{{ config('promo_menu.demo.link') }}" class="btn btn-purple" target="_blank" rel="noopener nofollow">
+                        <a href="{{ config('promo_menu_' . app()->getLocale() . '.demo.link') }}" class="btn btn-purple" target="_blank" rel="noopener nofollow">
                             Try demo
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" fill="currentColor" viewBox="0 0 12 12">
                                 <path d="M12.308 11.808a.649.649 0 0 1-.462.192.659.659 0 0 1-.654-.654V1.307H1.154A.658.658 0 0 1 .5.654C.5.296.796 0 1.154 0h10.692c.357 0 .654.296.654.654v10.692a.646.646 0 0 1-.192.462Z" />
                                 <path d="M12.307 1.145 1.645 11.805a.677.677 0 0 1-.95 0 .676.676 0 0 1 0-.95L11.355.196c.26-.26.69-.26.95 0a.676.676 0 0 1 0 .95h.002Z" />
                             </svg>
                         </a>
-                        <a href="{{ config('links.chat_en') }}" class="btn btn-dark" target="_blank" rel="noopener nofollow">Ask in chat</a>
+                        <a href="{{ config('links_' . app()->getLocale() . '.chat') }}" class="btn btn-dark" target="_blank" rel="noopener nofollow">Ask in chat</a>
                     </div>
                 </div>
                 <!-- /.advantages-heading -->
@@ -748,28 +749,6 @@ MoonShine is great for creating admin panel, MVP, backoffice, and CMS. Simple fo
                             </div>
                             <div class="testimonials-item-text">
                                 <p>I tried it. Comfortable. Before that, I wrote SPA separately in Vue (quasar) and always took care to write about creating a template, routes, and getting data via the API. It's too long for one person (difficult)</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.swiper-slide -->
-                    <div class="swiper-slide">
-                        <div class="testimonials-item">
-                            <div class="testimonials-item-heading">
-                                <div class="photo">
-                                    <img src="{{ Vite::asset('resources/images/IgorPetrovPRO.jpg') }}" alt="Игорь Петров" />
-                                </div>
-                                <div class="author">
-                                    <h5 class="author-name">Игорь Петров</h5>
-                                    <a href="https://ipetrov.pro" class="author-link" target="_blank" rel="noopener nofollow">ipetrov.pro</a>
-                                </div>
-                            </div>
-                            <div class="testimonials-item-video">
-                                <a href="https://youtu.be/y_JNQP9qIVw" target="_blank" rel="noopener nofollow">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 48 48">
-                                        <path d="M10.21 1.058C5.884-1.424 2.376.61 2.376 5.597V42.4c0 4.992 3.508 7.023 7.836 4.543L42.38 28.495c4.329-2.483 4.329-6.506 0-8.989L10.21 1.058Z" />
-                                    </svg>
-                                    <img src="{{ Vite::asset('resources/images/thumb1.jpg') }}" alt="Игорь Петров" />
-                                </a>
                             </div>
                         </div>
                     </div>
@@ -1044,10 +1023,11 @@ MoonShine is great for creating admin panel, MVP, backoffice, and CMS. Simple fo
 
             <div class="footer-menu grow">
                 <nav class="flex flex-wrap justify-center 2xl:justify-start gap-x-6 gap-y-3">
-                    @foreach(config('promo_menu', []) as $menu)
+                    @foreach(config('promo_menu_' . app()->getLocale(), []) as $menu)
                         <a
                             href="{{ $menu['link'] }}"
                             class="font-semibold text-white hover:text-pink"
+                            target="_blank"
                         >
                             {{ $menu['title'] }}
                         </a>
@@ -1056,7 +1036,7 @@ MoonShine is great for creating admin panel, MVP, backoffice, and CMS. Simple fo
             </div>
             <div class="footer-social">
                 <div class="flex flex-wrap items-center justify-center sm:justify-end gap-x-4 md:gap-x-6 gap-y-3">
-                    <a href="{{ config('links.github') }}"
+                    <a href="{{ config('links_' . app()->getLocale() . '.github') }}"
                        class="inline-flex items-center text-white hover:text-pink" target="_blank" rel="noopener nofollow">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 lg:h-6" fill="white" viewBox="0 0 24 24">
                             <path
@@ -1066,13 +1046,13 @@ MoonShine is great for creating admin panel, MVP, backoffice, and CMS. Simple fo
                         <span class="ml-2 lg:ml-3 text-xxs font-semibold">GitHub</span>
                     </a>
                     <div class="h-4 w-[2px] bg-white/25"></div>
-                    <a href="{{ config('links.youtube') }}" class="inline-flex items-center text-white hover:text-pink" target="_blank"
+                    <a href="{{ config('links_' . app()->getLocale() . '.youtube') }}" class="inline-flex items-center text-white hover:text-pink" target="_blank"
                        rel="nofollow noopener">
                         <img class="h-5 lg:h-6" src="{{ Vite::asset('resources/images/icons/youtube.svg') }}" alt="YouTube">
                         <span class="ml-2 lg:ml-3 text-xxs font-semibold">YouTube</span>
                     </a>
                     <div class="h-4 w-[2px] bg-white/25"></div>
-                    <a href="{{ config('links.chat_en') }}" class="inline-flex items-center text-white hover:text-pink" target="_blank"
+                    <a href="{{ config('links_' . app()->getLocale() . '.chat') }}" class="inline-flex items-center text-white hover:text-pink" target="_blank"
                        rel="nofollow noopener">
                         <img class="h-5 lg:h-6" src="{{ Vite::asset('resources/images/icons/telegram.svg') }}" alt="Telegram">
                         <span class="ml-2 lg:ml-3 text-xxs font-semibold">Telegram</span>
@@ -1122,17 +1102,18 @@ MoonShine is great for creating admin panel, MVP, backoffice, and CMS. Simple fo
             <div class="mmenu-inner pt-6">
                 {{--<a href="#" class="btn btn-purple">MoonShine Pro</a>--}}
                 <nav class="flex flex-col gap-y-3 mt-8">
-                    @foreach(config('promo_menu', []) as $menu)
+                    @foreach(config('promo_menu_' . app()->getLocale(), []) as $menu)
                         <a
                             href="{{ $menu['link'] }}"
                             class="text-md font-semibold text-white hover:text-pink"
+                            target="_blank"
                         >
-                            {{ __($menu['title']) }}
+                            {{ $menu['title'] }}
                         </a>
                     @endforeach
                 </nav>
                 <div class="flex flex-wrap items-center gap-x-4 md:gap-x-6 gap-y-3 mt-10">
-                    <a href="{{ config('links.github') }}"
+                    <a href="{{ config('links_' . app()->getLocale() . '.github') }}"
                        class="inline-flex items-center text-white hover:text-pink" target="_blank" rel="noopener nofollow">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 lg:h-6" fill="white" viewBox="0 0 24 24">
                             <path
@@ -1142,13 +1123,13 @@ MoonShine is great for creating admin panel, MVP, backoffice, and CMS. Simple fo
                         <span class="ml-2 lg:ml-3 text-xxs font-medium">GitHub</span>
                     </a>
                     <div class="h-4 w-[2px] bg-white/25"></div>
-                    <a href="{{ config('links.youtube') }}" class="inline-flex items-center text-white hover:text-pink" target="_blank"
+                    <a href="{{ config('links_' . app()->getLocale() . '.youtube') }}" class="inline-flex items-center text-white hover:text-pink" target="_blank"
                        rel="nofollow noopener">
                         <img class="h-5 lg:h-6" src="{{ Vite::asset('resources/images/icons/youtube.svg') }}" alt="YouTube">
                         <span class="ml-2 lg:ml-3 text-xxs font-medium">YouTube</span>
                     </a>
                     <div class="h-4 w-[2px] bg-white/25"></div>
-                    <a href="{{ config('links.chat_en') }}" class="inline-flex items-center text-white hover:text-pink" target="_blank"
+                    <a href="{{ config('links_' . app()->getLocale() . '.chat') }}" class="inline-flex items-center text-white hover:text-pink" target="_blank"
                        rel="nofollow noopener">
                         <img class="h-5 lg:h-6" src="{{ Vite::asset('resources/images/icons/telegram.svg') }}" alt="Telegram">
                         <span class="ml-2 lg:ml-3 text-xxs font-medium">Telegram</span>
