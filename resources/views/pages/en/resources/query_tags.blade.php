@@ -4,6 +4,7 @@
         ['url' => '#icon', 'label' => 'Icon'],
         ['url' => '#default', 'label' => 'Active item'],
         ['url' => '#can-see', 'label' => 'Display condition'],
+        ['url' => '#alias', 'label' => 'URL Alias'],
     ]
 ]">
 
@@ -98,6 +99,24 @@ QueryTag::make(
     fn(Builder $query) => $query->whereNotNull('author_id')
 )
     ->canSee(fn() => auth()->user()->moonshine_user_role_id === 1) // [tl! focus]
+</x-code>
+
+<x-sub-title id="alias">Alias</x-sub-title>
+
+<x-p>
+    By default, the value for the URL is generated automatically from the `Title` parameter.
+    In the case when the `Title` is set not in English, but in Russian,
+    it is forced transliterated: <code>'Заголовок фильтра' => 'zagolovok-filtra'</code>
+
+    You can define the value for the URL yourself using the <code>alias()</code> method.
+</x-p>
+
+<x-code language="php">
+QueryTag::make(
+    'Archived Posts', // Tag title
+    fn(Builder $query) => $query->where('is_archived', true) 
+)
+    ->alias('archive') // [tl! focus]
 </x-code>
 
 </x-page>
