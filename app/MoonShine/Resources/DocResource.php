@@ -21,4 +21,9 @@ class DocResource extends Resource
     {
         return $this->docPages;
     }
+
+    public function title(): string
+    {
+        return __($this->title);
+    }
 }
