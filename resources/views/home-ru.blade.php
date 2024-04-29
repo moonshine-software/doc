@@ -81,7 +81,7 @@ MoonShine отлично подходит для создания админ п�
                         </svg>
                     </a>
                     <div class="h-4 w-[1px] bg-white/25"></div>
-                    <a href="{{ route('home', ['change-moonshine-locale' => 'en']) }}" class="flex items-center gap-x-2 text-white hover:text-pink">
+                    <a href="{{ route('locale', ['local' => 'en']) }}" class="flex items-center gap-x-2 text-white hover:text-pink">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6 fill-pink" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M6.502 6.422h-.301l-.562 2.812h1.425l-.562-2.812Zm11.375 5.625a7.35 7.35 0 0 0 1.154 2.037c.447-.561.898-1.222 1.201-2.037h-2.355Z" />
                             <path

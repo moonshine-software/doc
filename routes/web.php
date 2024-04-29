@@ -9,6 +9,14 @@ Route::get('/', function () {
     ->middleware(ChangeLocale::class)
     ->name('home');
 
+Route::get('{local}', function ($local) {
+    session()->put('change-moonshine-locale', $local);
+    return redirect()->intended(route('home'));
+})
+    ->where('local', 'en|ru')
+    ->name('locale');
+
 Route::match(['get', 'post'], 'async', function (){
    return fake()->text();
-})->name('async');
+})
+    ->name('async');
