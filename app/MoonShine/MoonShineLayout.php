@@ -19,7 +19,10 @@ final class MoonShineLayout implements MoonShineLayoutContract
             MobileBar::make([
                 Menu::make(),
                 Divider::make(),
-                ActionButton::make(__('Screencasts'), 'https://www.youtube.com/playlist?list=PLTucyHptHtTnfDI18bZnYEgvJIFmW8fGy')
+                ActionButton::make(
+                    __('Screencasts'),
+                    config(app()->getLocale() === 'ru' ? 'links_ru.screencasts' : 'links_en.screencasts')
+                )
                     ->primary()
                     ->icon('heroicons.outline.play')
                     ->blank()
@@ -28,7 +31,8 @@ final class MoonShineLayout implements MoonShineLayoutContract
                     ->secondary()
                     ->icon('heroicons.outline.rocket-launch')
                     ->blank()
-                    ->customAttributes(['class' => 'rounded-full mt-2']),
+                    ->customAttributes(['class' => 'rounded-full mt-2'])
+                    ->canSee(fn() => app()->getLocale() === 'ru'),
             ]),
             Sidebar::make([
                 Menu::make(),
@@ -36,7 +40,10 @@ final class MoonShineLayout implements MoonShineLayoutContract
             LayoutBlock::make([
                 Flash::make(),
                 Header::make([
-                    ActionButton::make(__('Screencasts'), 'https://www.youtube.com/playlist?list=PLTucyHptHtTnfDI18bZnYEgvJIFmW8fGy')
+                    ActionButton::make(
+                        __('Screencasts'),
+                        config(app()->getLocale() === 'ru' ? 'links_ru.screencasts' : 'links_en.screencasts')
+                    )
                         ->primary()
                         ->icon('heroicons.outline.play')
                         ->blank()
@@ -45,7 +52,8 @@ final class MoonShineLayout implements MoonShineLayoutContract
                         ->secondary()
                         ->icon('heroicons.outline.rocket-launch')
                         ->blank()
-                        ->customAttributes(['class' => 'rounded-full hidden lg:flex']),
+                        ->customAttributes(['class' => 'rounded-full hidden lg:flex'])
+                        ->canSee(fn() => app()->getLocale() === 'ru'),
                     new DocSearch(),
                     new ChangeVersion(),
                 ]),
@@ -63,14 +71,32 @@ final class MoonShineLayout implements MoonShineLayoutContract
                         HTML,
                         now()->year
                     ))
-                    ->menu([
-                        'https://www.youtube.com/playlist?list=PLTucyHptHtTnfDI18bZnYEgvJIFmW8fGy' => __('Screencasts'),
-                        'https://cutcode.dev/articles/moonshine-tips-tricks' => __('Tips & Tricks'),
-                        'https://github.com/moonshine-software/moonshine/blob/1.x/LICENSE.md' => __('License'),
-                        'https://demo.moonshine-laravel.com' => __('Demo'),
-                        config('links.github') => 'GitHub',
-                        config(app()->getLocale() === 'en' ? 'links.chat_en' : 'links.chat_ru') => __('Telegram chat'),
-                    ]),
+                    ->when(
+                        app()->getLocale() === 'ru',
+                        function (Footer $footer) {
+                            return $footer->menu([
+                                config('links_ru.screencasts') => __('Screencasts'),
+                                'https://cutcode.dev/articles/moonshine-tips-tricks' => __('Tips & Tricks'),
+                                'https://github.com/moonshine-software/moonshine/blob/1.x/LICENSE.md' => __('License'),
+                                'https://demo.moonshine-laravel.com' => __('Demo'),
+                                config('links.github') => 'GitHub',
+                                config('links_ru.chat') => __('Telegram chat')
+                            ]);
+                        }
+                    )
+                    ->when(
+                        app()->getLocale() === 'en',
+                        function (Footer $footer) {
+                            return $footer->menu([
+                                config('links_en.screencasts') => __('Screencasts'),
+                                'https://github.com/moonshine-software/moonshine/blob/1.x/LICENSE.md' => __('License'),
+                                'https://demo.moonshine-laravel.com' => __('Demo'),
+                                config('links.github') => 'GitHub',
+                                config('links_en.discord') => __('Discord chat'),
+                                config('links_en.chat') => __('Telegram chat')
+                            ]);
+                        }
+                    ),
             ])->customAttributes(['class' => 'layout-page']),
         ]);
     }
