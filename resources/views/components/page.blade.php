@@ -5,7 +5,7 @@
 ])
 <x-video :data="$videos"/>
 <x-menu :data="$sectionMenu"></x-menu>
-<article>
+<article class="DocSearch-content">
     {{ $slot }}
 
     <x-page-nav />
