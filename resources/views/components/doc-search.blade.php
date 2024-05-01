@@ -16,6 +16,9 @@
         apiKey: '{{ config('algolia.doc.key')  }}',
         indexName: 'moonshine-laravel',
         placeholder: '{{ __('Search docs') }}',
+        searchParameters: {
+            facetFilters: ['language:{{ app()->getLocale() }}'],
+        },
         translations: {
             button: {
                 buttonText: '{{ __('Search') }}',
