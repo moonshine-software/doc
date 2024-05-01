@@ -17,7 +17,7 @@
         indexName: 'moonshine-laravel',
         placeholder: '{{ __('Search docs') }}',
         searchParameters: {
-            facetFilters: ['language:{{ app()->getLocale() }}'],
+            facetFilters: ['lang:{{ app()->getLocale() }}'],
         },
         translations: {
             button: {
