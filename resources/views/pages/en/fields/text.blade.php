@@ -8,6 +8,7 @@
             ['url' => '#mask', 'label' => 'Mask'],
             ['url' => '#placeholder', 'label' => 'Placeholder'],
             ['url' => '#extensions', 'label' => 'Extensions'],
+            ['url' => '#tags', 'label' => 'Tags'],
             ['url' => '#update-on-preview', 'label' => 'Editing in preview'],
         ]
     ]"
@@ -193,6 +194,36 @@ public function fields(): array
     return [
         Text::make('Title')
             ->extension(new InputCustomExtension()) // [tl! focus]
+        ];
+    }
+
+//...
+</x-code>
+
+<x-sub-title id="tags">Tags</x-sub-title>
+
+<x-p>
+    The <code>tags()</code> method allows you to enter data in the form of tags.
+</x-p>
+
+<x-code language="php">
+tags(?int $limit = null)
+</x-code>
+
+<x-ul>
+    <li><code>$limit</code> - number of available tags, unlimited by default.</li>
+</x-ul>
+
+<x-code language="php">
+use MoonShine\Fields\Text;
+
+//...
+
+public function fields(): array
+{
+    return [
+        Text::make('Keywords')
+            ->tags() // [tl! focus]
         ];
     }
 

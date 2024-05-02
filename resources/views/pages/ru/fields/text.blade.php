@@ -8,6 +8,7 @@
             ['url' => '#mask', 'label' => 'Маска'],
             ['url' => '#placeholder', 'label' => 'Placeholder'],
             ['url' => '#extensions', 'label' => 'Расширения'],
+            ['url' => '#tags', 'label' => 'Теги'],
             ['url' => '#update-on-preview', 'label' => 'Редактирование в preview'],
         ]
     ]"
@@ -193,6 +194,36 @@ public function fields(): array
     return [
         Text::make('Title')
             ->extension(new InputCustomExtension()) // [tl! focus]
+        ];
+    }
+
+//...
+</x-code>
+
+<x-sub-title id="tags">Теги</x-sub-title>
+
+<x-p>
+    Метод <code>tags()</code> позволяет вводить данные в виде тегов.
+</x-p>
+
+<x-code language="php">
+tags(?int $limit = null)
+</x-code>
+
+<x-ul>
+    <li><code>$limit</code> - количества доступных тегов, по умолчанию неограниченно.</li>
+</x-ul>
+
+<x-code language="php">
+use MoonShine\Fields\Text;
+
+//...
+
+public function fields(): array
+{
+    return [
+        Text::make('Keywords')
+            ->tags() // [tl! focus]
         ];
     }
 
