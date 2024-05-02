@@ -71,4 +71,29 @@ return [
         'url' => 'dragomano/moonshine-heroicons-field',
         'category' => 'Fields'
     ],
+    [
+        'title' => 'Layouts field for MoonShine',
+        'url' => 'moonshine-software/layouts-field',
+        'category' => 'Fields'
+    ],
+    [
+        'title' => 'Composer Viewer for MoonShine',
+        'url' => 'yurizoom/moonshine-composer-viewer',
+        'category' => 'GUI'
+    ],
+    [
+        'title' => 'Scheduling task manager for MoonShine',
+        'url' => 'yurizoom/moonshine-currency',
+        'category' => 'Fields'
+    ],
+    [
+        'title' => 'Log viewer for MoonShine',
+        'url' => 'yurizoom/moonshine-log-viewer',
+        'category' => 'GUI'
+    ],
+    [
+        'title' => 'Scheduling task manager for MoonShine',
+        'url' => 'yurizoom/moonshine-scheduling',
+        'category' => 'GUI'
+    ],
 ];
