@@ -82,7 +82,7 @@ return [
         'category' => 'GUI'
     ],
     [
-        'title' => 'Scheduling task manager for MoonShine',
+        'title' => 'Currency field for MoonShine',
         'url' => 'yurizoom/moonshine-currency',
         'category' => 'Fields'
     ],
