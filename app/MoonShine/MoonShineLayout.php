@@ -79,7 +79,7 @@ final class MoonShineLayout implements MoonShineLayoutContract
                                 'https://cutcode.dev/articles/moonshine-tips-tricks' => __('Tips & Tricks'),
                                 'https://github.com/moonshine-software/moonshine/blob/1.x/LICENSE.md' => __('License'),
                                 'https://demo.moonshine-laravel.com' => __('Demo'),
-                                config('links.github') => 'GitHub',
+                                config('links_ru.github') => 'GitHub',
                                 config('links_ru.chat') => __('Telegram chat')
                             ]);
                         }
@@ -91,7 +91,7 @@ final class MoonShineLayout implements MoonShineLayoutContract
                                 config('links_en.screencasts') => __('Screencasts'),
                                 'https://github.com/moonshine-software/moonshine/blob/1.x/LICENSE.md' => __('License'),
                                 'https://demo.moonshine-laravel.com' => __('Demo'),
-                                config('links.github') => 'GitHub',
+                                config('links_en.github') => 'GitHub',
                                 config('links_en.discord') => __('Discord chat'),
                                 config('links_en.chat') => __('Telegram chat')
                             ]);
