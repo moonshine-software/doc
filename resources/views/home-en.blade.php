@@ -634,7 +634,7 @@ MoonShine is great for creating admin panel, MVP, backoffice, and CMS. Simple fo
                         The main thing is that it is on Laravel.
                     </p>
                 </div>
-                <h3 class="mt-6 text-md xl:text-lg font-semibold"><span class="text-pink">Projects already implemented</span>on MoonShine:</h3>
+                <h3 class="mt-6 text-md xl:text-lg font-semibold"><span class="text-pink">Projects already implemented</span> on MoonShine:</h3>
             </div>
         </div>
         <div class="cases-list">
@@ -648,7 +648,7 @@ MoonShine is great for creating admin panel, MVP, backoffice, and CMS. Simple fo
                 <h5 class="title">CRM</h5>
             </div>
             <div class="cases-item-middle">
-                <img src="{{ Vite::asset('resources/images/cases/your-project.svg') }}" class="picture" alt="Your future project" />
+                <img src="{{ Vite::asset('resources/images/cases/your-future-project.svg') }}" class="picture" alt="Your future project" />
             </div>
             <div class="cases-item" style="--bg-url: url({{ Vite::asset('resources/images/cases/blog.jpg') }})">
                 <h5 class="title">Blog</h5>
@@ -702,7 +702,7 @@ MoonShine is great for creating admin panel, MVP, backoffice, and CMS. Simple fo
                 <div class="section-heading">
                     <h2 class="section-heading-title">
                         That's why others<br />
-                        <span class="text-pink">developers chose MoonShine</span>
+                        <span class="text-pink">developers choose MoonShine</span>
                     </h2>
                 </div>
                 <div class="testimonials-navigation">
