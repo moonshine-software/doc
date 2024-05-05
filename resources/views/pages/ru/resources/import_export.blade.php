@@ -88,7 +88,7 @@ class PostResource extends ModelResource
 
     //...
 
-    public function filters(): array
+    public function fields(): array
     {
         return [
             ID::make()
@@ -207,7 +207,7 @@ class PostResource extends ModelResource
 
     //...
 
-    public function filters(): array
+    public function fields(): array
     {
         return [
             Text::make('Title', 'title')
