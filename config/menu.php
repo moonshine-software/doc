@@ -5,7 +5,6 @@ return [
         ['slug' => 'installation', 'label' => 'Installation'],
         ['slug' => 'configuration', 'label' => 'Configuration'],
         ['slug' => 'contribution', 'label' => 'Contribution Guide'],
-        ['slug' => 'releases', 'label' => 'Releases'],
         ['slug' => 'upgrade_guide', 'label' => 'Upgrade guide'],
         ['slug' => 'support_policy', 'label' => 'Support policy'],
         ['slug' => 'troubleshooting', 'label' => 'Troubleshooting'],
