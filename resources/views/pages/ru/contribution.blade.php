@@ -1,11 +1,20 @@
 <x-page title="Contribution Guide" :sectionMenu="[
      'Sections' => [
+         ['url' => '#how-can-we-help', 'label' => 'Чем можно помочь?'],
+         ['url' => '#lets-use', 'label' => 'Что используем'],
+         ['url' => '#where-do-we-start', 'label' => 'С чего мы начнем?'],
+         ['url' => '#pull-requests', 'label' => 'Pull requests'],
+         ['url' => '#where-to-discuss-the-development', 'label' => 'Где обсуждать разработку?'],
+         ['url' => '#if-you-find-a-mistake', 'label' => 'Если нашли ошибку'],
+         ['url' => '#main-branch', 'label' => 'Основная ветка'],
+         ['url' => '#coding-style', 'label' => 'Coding style'],
          ['url' => '#dev-guide', 'label' => 'Инструкция для разработчиков'],
          ['url' => '#pr', 'label' => 'Как сделать pull request'],
+         ['url' => '#any-questions', 'label' => 'Возникли вопросы?'],
      ]
 ]">
 
-<x-sub-title>Чем можно помочь?</x-sub-title>
+<x-sub-title id="how-can-we-help">Чем можно помочь?</x-sub-title>
 
 <x-p>
     Сообществу нужны активные пользователи. Можно помочь разными формами:
@@ -20,7 +29,7 @@
 'Заниматься популяризацией проекта'
 ]"></x-ul>
 
-<x-sub-title>Используем</x-sub-title>
+<x-sub-title id="lets-use">Используем</x-sub-title>
 
 <x-ul :items="[
 'Blade',
@@ -28,21 +37,21 @@
 'AlpineJs',
 ]"></x-ul>
 
-<x-sub-title>С чего мы начнем?</x-sub-title>
+<x-sub-title id="where-do-we-start">С чего мы начнем?</x-sub-title>
 
 <x-p>
     Есть уже функционирующий продукт, полностью работоспособный и поддающийся тестированию. Работающий не означает великолепный,
     поэтому наша задача - сделать его лучше.
 </x-p>
 
-<x-sub-title>Pull requests</x-sub-title>
+<x-sub-title id="pull-requests">Pull requests</x-sub-title>
 
 <x-p>
     Вы можете предложить новые функции или улучшения для <strong>MoonShine</strong>! Ошибки и баги - все это можно зафиксировать и отправить на доработку.
     Также я рад новым специалистам по развитию open source проекта.
 </x-p>
 
-<x-sub-title>Где обсуждать разработку?</x-sub-title>
+<x-sub-title id="where-to-discuss-the-development">Где обсуждать разработку?</x-sub-title>
 
 <x-p>
     Для активных участников проекта создан отдельный чат в telegram. Если Вы готовы принять участие в разработке,
@@ -50,12 +59,14 @@
 </x-p>
 
 
-<x-sub-title>Если нашли ошибку</x-sub-title>
+<x-sub-title id="if-you-find-a-mistake">Если нашли ошибку</x-sub-title>
 
 <x-p>
-    1. У вас достаточно опыта, чтобы предложить её решение.
-    Я буду крайне рад вашему PR с описанием ошибки и вариантом её исправления.<br />
-    2. Если не знаете, как решить проблему - создавайте GitHub issues, и в ближайшее время мы исправим эту проблему.
+    <x-moonshine::badge color="green">1</x-moonshine::badge> У вас достаточно опыта, чтобы предложить её решение.
+    Я буду крайне рад вашему PR с описанием ошибки и вариантом её исправления.
+</x-p>
+<x-p>
+    <x-moonshine::badge color="green">2</x-moonshine::badge> Если не знаете, как решить проблему - создавайте GitHub issues, и в ближайшее время мы исправим эту проблему.
 
 </x-p>
 
@@ -65,13 +76,13 @@
 </x-moonshine::alert>
 
 
-<x-sub-title>Основная ветка</x-sub-title>
+<x-sub-title id="main-branch">Основная ветка</x-sub-title>
 
 <x-p>
     На данный момент основная ветка <code>2.x</code>
 </x-p>
 
-<x-sub-title>Coding style</x-sub-title>
+<x-sub-title id="coding-style">Coding style</x-sub-title>
 
 <x-p>
     <strong>MoonShine</strong> придерживается PSR-12 стандарта и PSR-4 autoload стандарта.
@@ -128,7 +139,7 @@ php artisan serve
 
 <x-sub-title id="pr">Как делать pull request?</x-sub-title>
 
-<ul class="tree-list">
+<x-ul>
     <li>Перейдите в MoonShine репозиторий и нажмите "Fork"</li>
     <li>Сделайте git clone вашего fork</li>
     <li>Создайте новую ветку для ваших изменений</li>
@@ -137,9 +148,9 @@ php artisan serve
     <li>Снова перейдите в репозиторий MoonShine и нажмите "New pull request"</li>
     <li>Подробно прокомментируйте сделанные изменения в поле "Описание"</li>
     <li>Ожидайте ревью!</li>
-</ul>
+</x-ul>
 
-<x-sub-title>Возникли вопросы?</x-sub-title>
+<x-sub-title id="any-questions">Возникли вопросы?</x-sub-title>
 
 <x-p>
     Меня зовут Данил! Пишите мне на почту <x-link link="mailto:thecutcode@gmail.com">thecutcode@gmail.com</x-link>
