@@ -16,10 +16,6 @@ Route::get('{local}', function ($local) {
     ->where('local', 'en|ru')
     ->name('locale');
 
-Route::get('/docs/section/{pageUri?}', function ($pageUri = '') {
-    return redirect(to_page(page: $pageUri), 301);
-});
-
 Route::match(['get', 'post'], 'async', function (){
    return fake()->text();
 })
