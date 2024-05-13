@@ -100,7 +100,7 @@ TableBuilder::make()
     ]) // [tl! focus:-2]
 </x-code>
 
-<x-sub-title id="items">Data</x-sub-title>
+<x-sub-title id="items">Items</x-sub-title>
 
 <x-p>
     The <code>items()</code> method is used to fill the table with data:
