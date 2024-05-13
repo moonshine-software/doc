@@ -35,7 +35,7 @@
 <x-code language="php">
 TableBuilder::make(
     Fields|array $fields = [],
-    array|Paginator|iterable $items = [],
+    Paginator|iterable $items = [],
     ?Paginator $paginator = null
 )
 </x-code>
@@ -47,6 +47,8 @@ TableBuilder::make(
 </x-ul>
 
 <x-code language="php">
+use MoonShine\Components\TableBuilder;
+
 TableBuilder::make(
     [Text::make('Text')],
     [['text' => 'Value']]
@@ -98,7 +100,7 @@ TableBuilder::make()
     ]) // [tl! focus:-2]
 </x-code>
 
-<x-sub-title id="items">Данные</x-sub-title>
+<x-sub-title id="items">Data</x-sub-title>
 
 <x-p>
     The <code>items()</code> method is used to fill the table with data:
@@ -139,6 +141,21 @@ TableBuilder::make(
 )
     ->fields([Text::make('Text')])
 </x-code>
+
+The <em>TableBuilder</em> works with arrays of items;<br/>
+
+if you don't have arrays, you need to cast the paginator to arrays:
+
+<x-code language="php">
+$paginator = Article::paginate();
+
+TableBuilder::make()
+    ->fields([Text::make('Text')])
+    ->items($paginator->through(fn ($item) => $item->toArray()))  // [tl! focus]
+    ->paginator($paginator)
+</x-code>
+
+Or you can use <code>cast()</code> method instead.
 
 <x-sub-title id="cast">Casting</x-sub-title>
 
