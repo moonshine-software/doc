@@ -35,7 +35,7 @@
 <x-code language="php">
 TableBuilder::make(
     Fields|array $fields = [],
-    array|Paginator|iterable $items = [],
+    Paginator|iterable $items = [],
     ?Paginator $paginator = null
 )
 </x-code>
@@ -47,6 +47,8 @@ TableBuilder::make(
 </x-ul>
 
 <x-code language="php">
+use MoonShine\Components\TableBuilder;
+
 TableBuilder::make(
     [Text::make('Text')],
     [['text' => 'Value']]
@@ -139,6 +141,21 @@ TableBuilder::make(
 )
     ->fields([Text::make('Text')])
 </x-code>
+
+<em>TableBuilder</em> работает с массивами элементов;<br />
+
+если у вас нет массивов, вам нужно преобразовать пагинатор в массивы:
+
+<x-code language="php">
+$paginator = Article::paginate();
+
+TableBuilder::make()
+    ->fields([Text::make('Text')])
+    ->items($paginator->through(fn ($item) => $item->toArray()))  // [tl! focus]
+    ->paginator($paginator)
+</x-code>
+
+Или вместо этого вы можете использовать метод <code>cast()</code>.
 
 <x-sub-title id="cast">Приведение к типу</x-sub-title>
 
