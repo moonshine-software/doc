@@ -107,7 +107,7 @@ public function boot(): void
 <x-sub-title id="custom-field">Custom field example</x-sub-title>
 
 <x-p>
-    Рассмотрим небольшой пример создания собственного поля! Это будет визуальный редактор на основе js плагина CKEditor
+    Рассмотрим небольшой пример создания собственного поля! Это будет визуальный редактор на основе js плагина Quill
 </x-p>
 
 <x-p>
@@ -115,36 +115,74 @@ public function boot(): void
 </x-p>
 
 <x-code language="shell">
-php artisan moonshine:field CKEditor
+php artisan moonshine:field Quill
 </x-code>
 
 <x-p>
-    Уберем лишние методы и добавим css
+    Уберем лишние методы и добавим css/js
 </x-p>
 
 <x-code>
+declare(strict_types=1);
+
 namespace App\MoonShine\Fields;
 
 use MoonShine\Fields\Textarea;
-use Closure;
 
-class CKEditor extends Textarea
+final class Quill extends Textarea
 {
-    protected string $view = 'admin.fields.c-k-editor';
+    protected string $view = 'moonshine-quill::fields.quill';
 
     protected array $assets = [
-        'https://cdn.ckeditor.com/ckeditor5/35.3.0/super-build/ckeditor.js'
+        '/css/moonshine/quill/quill.snow.css', // theme
+        '/js/moonshine/quill/quill.js', // lib
+        '/js/moonshine/quill/quill-init.js', // init
     ];
 }
 </x-code>
 
 <x-p>
-    Также изменим view поля, реализуем js прямо в blade, но лучшим решением будет вынести в отдельный js файл
+    Также изменим view поля
 </x-p>
 
 <x-code
     language="js"
-    file="resources/views/examples/components/ckeditor.blade.php"
+    file="resources/views/examples/components/quill.blade.php"
 />
 
+<x-p>
+    quill.snow.css и quill.js мы взяли из библиотеки, а вот js инициализации с использованием alpineJs представлен ниже
+</x-p>
+
+<x-code language="js">
+document.addEventListener('alpine:init', () => {
+    Alpine.data('quill', () => ({
+        textarea: null,
+        editor: null,
+
+        init() {
+            this.textarea = this.$root.querySelector('.ql-textarea')
+            this.editor = this.$root.querySelector('.ql-editor')
+
+            const t = this
+
+            this.$nextTick(function() {
+                let quill = new Quill(`#${t.editor.id}`, {
+                    theme: 'snow'
+                });
+
+                quill.on('text-change', () => {
+                    t.textarea.value = t.editor.innerHTML || '';
+                    t.textarea.dispatchEvent(new Event('change'));
+                });
+            })
+        },
+    }))
+})
+</x-code>
+
+<x-p>
+    Пример выноса этого поля в отдельный пакет можно найти
+    <x-link link="https://github.com/moonshine-software/quill">в репозитории</x-link>
+</x-p>
 </x-page>
