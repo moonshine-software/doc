@@ -71,14 +71,13 @@
 
     <x-p>
         If you want to learn MoonShine quickly, I recommend checking out my
-        <x-link link="https://www.youtube.com/playlist?list=PLTucyHptHtTnfDI18bZnYEgvJIFmW8fGy">video guides</x-link>
-        and <x-link link="https://cutcode.dev/articles/moonshine-tips-tricks">articles</x-link>.
+        <x-link :link="config('links_en.screencasts')" target="_blank">video guides</x-link>.
     </x-p>
 
     <x-p>
         Need help with MoonShine? You can ask a question at
-        <x-link link="https://t.me/moonshine_ru">telegram-chat</x-link> or
-        <x-link link="https://forms.gle/U41uLZzXBCibmwbE7">book a consultation</x-link>.
+        <x-link :link="config('links_en.chat')" target="_blank">Telegram chat</x-link> or
+        <x-link :link="config('links_en.discord')" target="_blank">Discord chat</x-link>.
     </x-p>
 
     <x-image theme="light" src="{{ asset('screenshots/main.png') }}"></x-image>

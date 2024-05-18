@@ -73,14 +73,14 @@
 
     <x-p>
         Если хотите быстро освоить MoonShine, рекомендую посмотреть мои
-        <x-link link="https://www.youtube.com/playlist?list=PLTucyHptHtTnfDI18bZnYEgvJIFmW8fGy">видео гайды</x-link>
-        и <x-link link="https://cutcode.dev/articles/moonshine-tips-tricks">статьи</x-link>.
+        <x-link :link="config('links_ru.screencasts')" target="_blank">видео гайды</x-link>
+        и <x-link link="https://cutcode.dev/articles/moonshine-tips-tricks" target="_blank">статьи</x-link>.
     </x-p>
 
     <x-p>
         Понадобилась помощь по MoonShine? Можете задать вопрос в
-        <x-link link="https://t.me/moonshine_ru">telegram-чате</x-link> или
-        <x-link link="https://forms.gle/U41uLZzXBCibmwbE7">заказать консультацию</x-link>.
+        <x-link :link="config('links_ru.chat')" target="_blank">Telegram чате</x-link> или
+        <x-link link="https://forms.gle/U41uLZzXBCibmwbE7" target="_blank">заказать консультацию</x-link>.
     </x-p>
 
     <x-image theme="light" src="{{ asset('screenshots/main.png') }}"></x-image>
