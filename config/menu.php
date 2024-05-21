@@ -62,6 +62,7 @@ return [
         ['slug' => 'fields-textarea', 'label' => 'Textarea'],
         ['slug' => 'fields-code', 'label' => 'Code'],
         ['slug' => 'fields-tinymce', 'label' => 'TinyMce'],
+        ['slug' => 'fields-markdown', 'label' => 'Markdown'],
 
         // Select
         'Select:_divider_',
