@@ -96,4 +96,9 @@ return [
         'url' => 'yurizoom/moonshine-scheduling',
         'category' => 'GUI'
     ],
+    [
+        'title' => 'Decimal field for MoonShine',
+        'url' => 'forest-lynx/moonshine-decimal-field',
+        'category' => 'Fields'
+    ],
 ];

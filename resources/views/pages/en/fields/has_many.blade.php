@@ -8,6 +8,7 @@
             ['url' => '#limit', 'label' => 'Number of records'],
             ['url' => '#only-link', 'label' => 'Link only'],
             ['url' => '#parent-id', 'label' => 'Parent ID'],
+            ['url' => '#modify', 'label' => 'Modify'],
             ['url' => '#advanced', 'label' => 'Advanced'],
         ]
     ]"
@@ -193,6 +194,98 @@ public function fields(): array
 </x-code>
 
 @include('pages.en.fields.shared.parent_id')
+
+<x-sub-title id="modify">Modify</x-sub-title>
+
+<x-p>
+    The <em>HasMany</em> field has methods that can be used to modify the edit (add) button,
+    change <em>TableBuilder</em> for preview and form, and change <em>onlyLink</em> button.
+</x-p>
+
+<x-moonshine::divider label="modifyOnlyLinkButton()" />
+
+<x-p>
+    The <code>modifyOnlyLinkButton()</code> method allows you to change the <em>onlyLink</em> button.
+</x-p>
+
+<x-code language="php">
+use MoonShine\Fields\Relationships\HasMany;
+
+//...
+
+public function fields(): array
+{
+    return [
+        HasMany::make('Comments', resource: new CommentResource())
+            ->onlyLink()
+            ->modifyOnlyLinkButton(
+                fn(ActionButton $button, bool $preview) => $button
+                    ->when(
+                        $preview,
+                        fn(ActionButton $btn) => $btn->primary()
+                        fn(ActionButton $btn) => $btn->secondary()
+                    )
+            ) // [tl! focus:-7]
+    ];
+}
+
+//...
+</x-code>
+
+<x-moonshine::divider label="modifyCreateButton() / modifyEditButton()" />
+
+<x-p>
+    <code>modifyCreateButton()</code> and <code>modifyEditButton()</code> methods
+    allow you to change the create and edit buttons.
+</x-p>
+
+<x-code language="php">
+use MoonShine\Fields\Relationships\HasMany;
+
+//...
+
+public function fields(): array
+{
+    return [
+        HasMany::make('Comments', resource: new CommentResource())
+            ->modifyCreateButton(
+                fn(ActionButton $button) => $button->setLabel('Custom create button')
+            )
+            ->modifyEditButton(
+                fn(ActionButton $button) => $button->setLabel('Custom edit button')
+            ) // [tl! focus:-5]
+            ->creatable(true)
+    ];
+}
+
+//...
+</x-code>
+
+<x-moonshine::divider label="modifyTable()" />
+
+<x-p>
+    The <code>modifyTable()</code> method allows you to change the <em>TableBuilder</em> for the preview and form.
+</x-p>
+
+<x-code language="php">
+use MoonShine\Fields\Relationships\HasMany;
+
+//...
+
+public function fields(): array
+{
+    return [
+        HasMany::make('Comments', resource: new CommentResource())
+            ->modifyTable(
+                fn(TableBuilder $table, bool $preview) => $table
+                    ->when($preview, fn(TableBuilder $tbl) => $tbl->customAttributes(['style' => 'background: blue']))
+                    ->unless($preview, fn(TableBuilder $tbl) => $tbl->customAttributes(['style' => 'background: green']))
+            ) // [tl! focus:-4]
+    ];
+}
+
+//...
+</x-code>
 
 <x-sub-title id="advanced">Advanced</x-sub-title>
 
