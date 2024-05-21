@@ -3,6 +3,7 @@
     :sectionMenu="[
         'Разделы' => [
             ['url' => '#make', 'label' => 'Make'],
+            ['url' => '#vertical-tab', 'label' => 'Вертикальные вкладки'],
             ['url' => '#active-tab', 'label' => 'Активная вкладка'],
             ['url' => '#tab-icon', 'label' => 'Иконка'],
         ]
@@ -43,6 +44,55 @@ public function components(): array
 
 <x-image theme="light" src="{{ asset('screenshots/tabs.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/tabs_dark.png') }}"></x-image>
+
+<x-sub-title id="vertical-tab">Вертикальное отображение вкладок.</x-sub-title>
+
+<x-p>
+    Метод <code>vertical()</code> позволяет отобразить вкладки в вертикальном режиме.
+</x-p>
+
+<x-code language="php">
+vertical(Closure|bool|null $condition = null)
+</x-code>
+
+<x-code language="php">
+use MoonShine\Decorations\Tabs;
+use MoonShine\Decorations\Tab;
+
+//...
+
+public function components(): array
+{
+    return [
+        Tabs::make([
+            Tab::make('Seo', [
+                //...
+            ]),
+            Tab::make('Categories', [
+                //...
+            ])
+
+        ])->vertical() // [tl! focus]
+    ];
+}
+//...
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/tabs_vertical.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/tabs_vertical_dark.png') }}"></x-image>
+
+<x-p>
+    По умолчанию минимальная ширина блока с вкладками, при котором происходит изминение их отображения в линию, равна <code>480px</code>. Изменить минимальное значение ширины можно через метод <code>customAttributes()</code>:
+</x-p>
+<x-code language="php">
+    Tabs::make([
+        //...
+    ])
+    ->customAttributes([ // [tl! focus]
+        'data-tabs-vertical-min-width' = 600// [tl! focus]
+    ]) // [tl! focus]
+
+</x-code>
 
 <x-sub-title id="active-tab">Активная вкладка</x-sub-title>
 
