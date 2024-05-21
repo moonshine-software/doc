@@ -101,6 +101,7 @@ return [
         ['slug' => 'fields-preview', 'label' => 'Preview'],
         ['slug' => 'fields-position', 'label' => 'Position'],
         ['slug' => 'fields-stack_fields', 'label' => 'StackFields'],
+        ['slug' => 'fields-td', 'label' => 'Td', 'badge' => 'new'],
         ['slug' => 'fields-template', 'label' => 'Template'],
     ],
 

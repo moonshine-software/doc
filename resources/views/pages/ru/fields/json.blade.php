@@ -65,6 +65,30 @@ public function fields(): array
 <x-image theme="light" src="{{ asset('screenshots/json_key_value.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/json_key_value_dark.png') }}"></x-image>
 
+<x-p>
+    В качестве ключей и значений по умолчанию используется поле <em>Text</em>,
+    но можно использовать и другие поля для примитивных данных.
+</x-p>
+
+<x-code language="php">
+use MoonShine\Fields\Json; // [tl! focus]
+use MoonShine\Fields\Select;
+
+//...
+
+public function fields(): array
+{
+    return [
+        Json::make('Label', 'data')->keyValue(
+            keyField: Select::make('Key')->options(['vk' => 'VK', 'email' => 'E-mail']),
+            valueField: Select::make('Value')->options(['1' => '1', '2' => '2']),
+        ), // [tl! focus:-3]
+    ];
+}
+
+//...
+</x-code>
+
 <x-sub-title id="fields">С набором полей</x-sub-title>
 
 <x-p>
