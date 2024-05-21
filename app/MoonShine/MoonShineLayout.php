@@ -16,6 +16,9 @@ final class MoonShineLayout implements MoonShineLayoutContract
     public static function build(): LayoutBuilder
     {
         return LayoutBuilder::make([
+            Sidebar::make([
+                Menu::make(),
+            ]),
             MobileBar::make([
                 Menu::make(),
                 Divider::make(),
@@ -33,9 +36,6 @@ final class MoonShineLayout implements MoonShineLayoutContract
                     ->blank()
                     ->customAttributes(['class' => 'rounded-full mt-2'])
                     ->canSee(fn() => app()->getLocale() === 'ru'),
-            ]),
-            Sidebar::make([
-                Menu::make(),
             ]),
             LayoutBlock::make([
                 Flash::make(),
