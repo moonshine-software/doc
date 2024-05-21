@@ -82,7 +82,7 @@ public function components(): array
 <x-image theme="dark" src="{{ asset('screenshots/tabs_vertical_dark.png') }}"></x-image>
 
 <x-p>
-    По умолчанию минимальная ширина блока с вкладками, при котором происходит изминение их отображения в линию, равна <code>480px</code>. Изменить минимальное значение ширины можно через метод <code>customAttributes()</code>:
+    По умолчанию минимальная ширина блока с вкладками, при котором происходит изменение их отображения в линию, равна <code>480px</code>. Изменить минимальное значение ширины можно через метод <code>customAttributes()</code>:
 </x-p>
 <x-code language="php">
     Tabs::make([
