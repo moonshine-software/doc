@@ -655,6 +655,26 @@ ActionButton::make('Click me')
     </li>
 </x-ul>
 
+<x-moonshine::divider label="Download" />
+
+<x-p>
+    The called method can return <code>BinaryFileResponse</code>,
+    which allows you to download a file.
+</x-p>
+
+<x-code language="php">
+ActionButton::make('Download')->method('download')
+</x-code>
+
+<x-code language="php">
+public function download(): BinaryFileResponse
+{
+    // ...
+
+    return response()->download($file);
+}
+</x-code>
+
 <x-sub-title id="event">Dispatch events</x-sub-title>
 
 <x-p>
