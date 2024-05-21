@@ -89,7 +89,7 @@ public function components(): array
         //...
     ])
     ->customAttributes([ // [tl! focus]
-        'data-tabs-vertical-min-width' = 600// [tl! focus]
+        'data-tabs-vertical-min-width' => 600// [tl! focus]
     ]) // [tl! focus]
 
 </x-code>
