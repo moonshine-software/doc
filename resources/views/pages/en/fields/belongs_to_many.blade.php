@@ -208,18 +208,20 @@ public function fields(): array
 </x-p>
 
 <x-code language="php">
-inLine(string $separator = '', bool $badge = false)
+inLine(string $separator = '', bool $badge = false, ?Closure $link = null)
 </x-code>
 
 <x-p>
     You can pass optional parameters to the method:
     <x-ul>
         <li><code>separator</code> - separator between elements;</li>
-        <li><code>badge</code> - display elements as badge.</li>
+        <li><code>badge</code> - display elements as badge;</li>
+        <li><code>$link</code> - a closure that should return <em>url</em> links or components.</li>
     </x-ul>
 </x-p>
 
 <x-code language="php">
+use MoonShine\Components\Link;
 use MoonShine\Fields\Relationships\BelongsToMany;
 
 //...
@@ -228,7 +230,14 @@ public function fields(): array
 {
     return [
         BelongsToMany::make('Categories', resource: new CategoryResource())
-            ->inLine(separator: ' ', badge: true) // [tl! focus]
+            ->inLine(
+                separator: ' ',
+                badge: true,
+                link: fn(Category $category, $value, $field) => Link::make(
+                    (new CategoryResource())->detailPageUrl($category),
+                    $value
+                )
+            ) // [tl! focus:-7]
     ];
 }
 
