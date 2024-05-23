@@ -12,10 +12,16 @@ return [
 
     ':_divider_',
 
-    'Page:newspaper' => [
-        ['slug' => 'page-class', 'label' => 'Create class'],
-        ['slug' => 'page-instance', 'label' => 'Make instance'],
+    'Menu:bars-3' => [
+        ['slug' => 'menu', 'label' => 'Menu'],
     ],
+
+    'Appearance:photo' => [
+        ['slug' => 'appearance-index', 'label' => 'Basics'],
+        ['slug' => 'appearance-layout_builder', 'label' => 'LayoutBuilder'],
+        ['slug' => 'appearance-assets', 'label' => 'AssetsManager'],
+    ],
+
     'Models Resources:document-duplicate' => [
         ['slug' => 'resources-index', 'label' => 'Basics'],
         ['slug' => 'resources-fields', 'label' => 'Fields'],
@@ -31,11 +37,11 @@ return [
         ['slug' => 'resources-metrics', 'label' => 'Metrics'],
         ['slug' => 'resources-events', 'label' => 'Events'],
         ['slug' => 'resources-authorization', 'label' => 'Authorization'],
-        //['slug' => 'resources-routes', 'label' => 'Routes'],
     ],
 
-    'Menu:bars-3' => [
-        ['slug' => 'menu', 'label' => 'Menu'],
+    'Page:newspaper' => [
+        ['slug' => 'page-class', 'label' => 'Create class'],
+        ['slug' => 'page-instance', 'label' => 'Make instance'],
     ],
 
     'Fields:table-cells' => [
@@ -148,12 +154,6 @@ return [
 
     'ActionButton:cursor-arrow-ripple' => [
         ['slug' => 'action_button', 'label' => 'ActionButton'],
-    ],
-
-    'Appearance:photo' => [
-        ['slug' => 'appearance-index', 'label' => 'Basics'],
-        ['slug' => 'appearance-layout_builder', 'label' => 'LayoutBuilder'],
-        ['slug' => 'appearance-assets', 'label' => 'AssetsManager'],
     ],
 
     'UI components:code-bracket-square' => [
