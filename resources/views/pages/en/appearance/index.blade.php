@@ -4,6 +4,7 @@
         ['url' => '#theme', 'label' => 'Main theme'],
         ['url' => '#colors', 'label' => 'Color scheme'],
         ['url' => '#color-manager', 'label' => 'Color manager'],
+        ['url' => '#favicons', 'label' => 'Favicons'],
         ['url' => '#minimalistic', 'label' => 'Minimalistic theme'],
     ]
 ]">
@@ -240,6 +241,22 @@ keyName(string $value, string $shade, string $dark)
 <x-code language="php">
     moonshineColors()->successBg('#000000', dark: true);
 </x-code>
+
+<x-sub-title id="favicons">Favicons</x-sub-title>
+
+<x-p>
+    To change <em>favicons</em> in the <strong>MoonShine</strong> admin panel,
+    you need to override the corresponding template.
+</x-p>
+
+<x-p>
+    To do this, copy the file <code>vendor/moonshine/moonshine/resources/views/layouts/shared/favicon.blade.php</code>
+    in <code>resources/views/vendor/moonshine/layouts/shared/favicon.blade.php</code>.
+</x-p>
+
+<x-p>
+    Then change the file links in this template to point to your own favicons.
+</x-p>
 
 <x-sub-title id="minimalistic">Minimalistic theme</x-sub-title>
 

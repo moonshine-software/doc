@@ -4,6 +4,7 @@
         ['url' => '#theme', 'label' => 'Основная тема'],
         ['url' => '#colors', 'label' => 'Цветовая схема'],
         ['url' => '#color-manager', 'label' => 'Менеджер цветов'],
+        ['url' => '#favicons', 'label' => 'Favicons'],
         ['url' => '#minimalistic', 'label' => 'Минимальная тема'],
     ]
 ]">
@@ -240,6 +241,22 @@ keyName(string $value, string $shade, string $dark)
 <x-code language="php">
     moonshineColors()->successBg('#000000', dark: true);
 </x-code>
+
+<x-sub-title id="favicons">Favicons</x-sub-title>
+
+<x-p>
+    Чтобы изменить <em>favicons</em> в админ-панели <strong>MoonShine</strong>,
+    вам необходимо переопределить соответствующий шаблон.
+</x-p>
+
+<x-p>
+    Для этого скопируйте файл <code>vendor/moonshine/moonshine/resources/views/layouts/shared/favicon.blade.php</code>
+    в <code>resources/views/vendor/moonshine/layouts/shared/favicon.blade.php</code>.
+</x-p>
+
+<x-p>
+    Затем измените ссылки на файлы в этом шаблоне, чтобы они указывали на ваши собственные favicons.
+</x-p>
 
 <x-sub-title id="minimalistic">Минимальная тема</x-sub-title>
 
