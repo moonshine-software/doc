@@ -22,6 +22,10 @@
 HiddenIds::make('index-table')
 </x-code>
 
+<x-moonshine::alert type="warning" icon="heroicons.information-circle">
+    The table must contain the <x-link link="{{ to_page('fields-id') }}">ID</x-link> field.
+</x-moonshine::alert>
+
 <x-sub-title id="use">Use</x-sub-title>
 
 <x-code language="php">

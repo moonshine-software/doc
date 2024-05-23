@@ -17,7 +17,6 @@
 
 @include('pages.en.fields.shared.relation_make', ['field' => 'BelongsTo', 'label' => 'Country'])
 
-
 <x-moonshine::alert type="warning" icon="heroicons.information-circle">
     When using the <em>BelongsTo</em> field to sort or filter positions, you must use the method
     <code>setColumn()</code> set a field in a database table or override a method

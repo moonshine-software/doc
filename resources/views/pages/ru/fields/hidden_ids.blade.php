@@ -18,6 +18,10 @@
     В качестве параметра метод <code>make()</code> принимает название компонента.
 </x-p>
 
+<x-moonshine::alert type="warning" icon="heroicons.information-circle">
+    В таблице должно присутствовать поле <x-link link="{{ to_page('fields-id') }}">ID</x-link>.
+</x-moonshine::alert>
+
 <x-code language="php">
 HiddenIds::make('index-table')
 </x-code>

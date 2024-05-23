@@ -19,6 +19,8 @@
 php artisan moonshine:publish
 </x-code>
 
+@include('pages.ru.shared.alert_select_item_console')
+
 <x-p>
     После публикации <em>Layout</em>, в директории <code>app/MoonShine</code> появится класс <code>MoonShineLayout.php</code>.
 </x-p>
