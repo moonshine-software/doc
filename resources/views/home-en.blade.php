@@ -50,7 +50,7 @@ MoonShine is great for creating admin panel, MVP, backoffice, and CMS. Simple fo
                         <a
                             href="{{ $menu['link'] }}"
                             class="font-semibold text-white hover:text-pink"
-                            target="_blank"
+                            @if($menu['blank']) target="_blank" @endif
                         >
                             {{ $menu['title'] }}
                         </a>
@@ -138,7 +138,7 @@ MoonShine is great for creating admin panel, MVP, backoffice, and CMS. Simple fo
                             <path d="M12.307 1.145 1.645 11.805a.677.677 0 0 1-.95 0 .676.676 0 0 1 0-.95L11.355.196c.26-.26.69-.26.95 0a.676.676 0 0 1 0 .95h.002Z" />
                         </svg>
                     </a>
-                    <a href="{{ config('promo_menu_' . app()->getLocale() . '.doc.link') }}" class="btn btn-outline btn-pink" target="_blank">
+                    <a href="{{ config('promo_menu_' . app()->getLocale() . '.doc.link') }}" class="btn btn-outline btn-pink">
                         Documentation
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-pink" fill="currentColor" viewBox="0 0 21 20">
                             <path
@@ -1031,7 +1031,7 @@ MoonShine is great for creating admin panel, MVP, backoffice, and CMS. Simple fo
                         <a
                             href="{{ $menu['link'] }}"
                             class="font-semibold text-white hover:text-pink"
-                            target="_blank"
+                            @if($menu['blank']) target="_blank" @endif
                         >
                             {{ $menu['title'] }}
                         </a>
@@ -1116,7 +1116,7 @@ MoonShine is great for creating admin panel, MVP, backoffice, and CMS. Simple fo
                         <a
                             href="{{ $menu['link'] }}"
                             class="text-md font-semibold text-white hover:text-pink"
-                            target="_blank"
+                            @if($menu['blank']) target="_blank" @endif
                         >
                             {{ $menu['title'] }}
                         </a>
