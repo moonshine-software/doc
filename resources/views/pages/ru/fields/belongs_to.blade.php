@@ -17,7 +17,6 @@
 
 @include('pages.ru.fields.shared.relation_make', ['field' => 'BelongsTo', 'label' => 'Country'])
 
-
 <x-moonshine::alert type="warning" icon="heroicons.information-circle">
     При использовании поля <em>BelongsTo</em> для сортировки или фильтрации позиций необходимо через метод
     <code>setColumn()</code> задать поле в таблице базы данных или переопределить метод
