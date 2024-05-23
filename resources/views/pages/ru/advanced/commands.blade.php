@@ -18,6 +18,8 @@
     ]"
 >
 
+@include('pages.ru.shared.alert_select_item_console')
+
 <x-sub-title id="install">Install</x-sub-title>
 
 <x-p>

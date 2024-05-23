@@ -19,6 +19,8 @@
 php artisan moonshine:publish
 </x-code>
 
+@include('pages.en.shared.alert_select_item_console')
+
 <x-p>
     After publishing <em>Layout</em>, the <code>MoonShineLayout.php</code> class will appear in the <code>app/MoonShine</code> directory.
 </x-p>
