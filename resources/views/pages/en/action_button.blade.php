@@ -649,7 +649,7 @@ ActionButton::make('Click me')
 ActionButton::make('Click me')
     ->method(
         'updateSomething',
-        params: ['resourceItem' => fn($item) ['resourceItem' => $item->getKey()]] // [tl! focus]
+        params: fn($item) => ['resourceItem' => $item->getKey()] // [tl! focus]
     )
 </x-code>
     </li>

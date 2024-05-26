@@ -20,6 +20,7 @@ return [
         ['slug' => 'appearance-index', 'label' => 'Basics'],
         ['slug' => 'appearance-layout_builder', 'label' => 'LayoutBuilder'],
         ['slug' => 'appearance-assets', 'label' => 'AssetsManager'],
+        ['slug' => 'icons', 'label' => 'Icons'],
     ],
 
     'Models Resources:document-duplicate' => [
@@ -186,10 +187,6 @@ return [
         ['slug' => 'ui-title', 'label' => 'Title'],
         ['slug' => 'ui-toast', 'label' => 'Toast'],
         ['slug' => 'ui-tooltip', 'label' => 'Tooltip'],
-    ],
-
-    'Icons:trophy' => [
-        ['slug' => 'icons', 'label' => 'Icons'],
     ],
 
     'Advanced:moon' => [
