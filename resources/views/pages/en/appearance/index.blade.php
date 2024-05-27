@@ -250,7 +250,17 @@ keyName(string $value, string $shade, string $dark)
 </x-p>
 
 <x-p>
-    To do this, copy the file <code>vendor/moonshine/moonshine/resources/views/layouts/shared/favicon.blade.php</code>
+    To do this, run the console command and select <code>Favicons</code>.
+</x-p>
+
+<x-code language="shell">
+    php artisan moonshine:publish
+</x-code>
+
+@include('pages.ru.shared.alert_select_item_console')
+
+<x-p>
+    Or copy the file <code>vendor/moonshine/moonshine/resources/views/layouts/shared/favicon.blade.php</code>
     in <code>resources/views/vendor/moonshine/layouts/shared/favicon.blade.php</code>.
 </x-p>
 
