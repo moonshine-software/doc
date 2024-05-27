@@ -655,6 +655,36 @@ ActionButton::make('Click me')
     </li>
 </x-ul>
 
+<x-moonshine::divider label="Passing parameters" />
+
+<x-p>
+    The <code>withParams()</code> method allows you to pass field values with the request using an element selector.
+</x-p>
+
+<x-code language="php">
+ActionButton::make('Async method')
+    ->method('updateSomething')
+    ->withParams([
+        'alias' => '[data-column="title"]',
+        'slug' => '#slug']
+    ), // [tl! focus:-3]
+</x-code>
+
+<x-code language="php">
+use MoonShine\Http\Responses\MoonShineJsonResponse;
+use MoonShine\MoonShineRequest;
+
+public function updateSomething(MoonShineRequest $request): MoonShineJsonResponse
+{
+    return MoonShineJsonResponse::make()
+        ->toast($request->get('slug', 'Error'));
+}
+</x-code>
+
+<x-moonshine::alert type="warning" icon="heroicons.information-circle">
+    When using the <em>withParams()</em> method, requests will be sent via <code>POST</code>.
+</x-moonshine::alert>
+
 <x-moonshine::divider label="Download" />
 
 <x-p>

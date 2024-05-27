@@ -655,6 +655,36 @@ ActionButton::make('Click me')
     </li>
 </x-ul>
 
+<x-moonshine::divider label="Передача параметров" />
+
+<x-p>
+    Метод <code>withParams()</code> позволяет передать с запросом значения полей, используя селектор элемента.
+</x-p>
+
+<x-code language="php">
+ActionButton::make('Async method')
+    ->method('updateSomething')
+    ->withParams([
+        'alias' => '[data-column="title"]',
+        'slug' => '#slug']
+    ), // [tl! focus:-3]
+</x-code>
+
+<x-code language="php">
+use MoonShine\Http\Responses\MoonShineJsonResponse;
+use MoonShine\MoonShineRequest;
+
+public function updateSomething(MoonShineRequest $request): MoonShineJsonResponse
+{
+    return MoonShineJsonResponse::make()
+        ->toast($request->get('slug', 'Error'));
+}
+</x-code>
+
+<x-moonshine::alert type="warning" icon="heroicons.information-circle">
+    При использовании метода <em>withParams()</em> запросы будут отправляться через <code>POST</code>.
+</x-moonshine::alert>
+
 <x-moonshine::divider label="Скачивание файла" />
 
 <x-p>
