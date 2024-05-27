@@ -655,10 +655,10 @@ ActionButton::make('Click me')
     </li>
 </x-ul>
 
-<x-moonshine::divider label="Passing parameters" />
+<x-moonshine::divider label="Field values" />
 
 <x-p>
-    The <code>withParams()</code> method allows you to pass field values with the request using an element selector.
+    The <code>withParams()</code> method allows you to pass field values with the request using element selectors.
 </x-p>
 
 <x-code language="php">
@@ -666,8 +666,8 @@ ActionButton::make('Async method')
     ->method('updateSomething')
     ->withParams([
         'alias' => '[data-column="title"]',
-        'slug' => '#slug']
-    ), // [tl! focus:-3]
+        'slug' => '#slug'
+    ]), // [tl! focus:-3]
 </x-code>
 
 <x-code language="php">

@@ -658,7 +658,7 @@ ActionButton::make('Click me')
 <x-moonshine::divider label="Передача параметров" />
 
 <x-p>
-    Метод <code>withParams()</code> позволяет передать с запросом значения полей, используя селектор элемента.
+    Метод <code>withParams()</code> позволяет передать с запросом значения полей, используя селекторы элементов.
 </x-p>
 
 <x-code language="php">
@@ -666,8 +666,8 @@ ActionButton::make('Async method')
     ->method('updateSomething')
     ->withParams([
         'alias' => '[data-column="title"]',
-        'slug' => '#slug']
-    ), // [tl! focus:-3]
+        'slug' => '#slug'
+    ]), // [tl! focus:-3]
 </x-code>
 
 <x-code language="php">

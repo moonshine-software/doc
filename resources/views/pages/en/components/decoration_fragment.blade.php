@@ -77,4 +77,19 @@ Fragment::make($fields)
     ->updateAsync(['resourceItem' => request('resourceItem')]),
 </x-code>
 
+<x-moonshine::divider label="Passing parameters" />
+
+<x-p>
+    The <code>withParams()</code> method allows you to pass field values with the request using element selectors.
+</x-p>
+
+<x-code language="php">
+Fragment::make($fields)
+    ->withParams([
+        'start_date' => '#start_date',
+        'end_date' => '#end_date'
+    ]) // [tl! focus:-3]
+    ->name('fragment-name'),
+</x-code>
+
 </x-page>
