@@ -5,7 +5,7 @@
         'Sections' => [
             ['url' => '#basics', 'label' => 'Basics'],
             ['url' => '#fields', 'label' => 'Fields'],
-            ['url' => '#fill', 'label' => 'Field values'],
+            ['url' => '#fill', 'label' => 'Fill fields'],
             ['url' => '#cast', 'label' => 'Casting'],
             ['url' => '#fillCast', 'label' => 'FillCast'],
             ['url' => '#buttons', 'label' => 'Buttons'],
@@ -108,7 +108,7 @@ FormBuilder::make('/crud/update', 'PUT')
     ]) // [tl! focus:-3]
 </x-code>
 
-<x-sub-title id="fill">Field values</x-sub-title>
+<x-sub-title id="fill">Fill fields</x-sub-title>
 
 <x-p>
     <code>fill()</code> method for filling fields with values:

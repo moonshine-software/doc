@@ -173,8 +173,8 @@ public function fields(): array
 </x-code>
 
 <x-moonshine::alert type="error" icon="heroicons.information-circle">
-    Поле в базе необходимо типа text или json.<br>
-    Также необходимо добавить cast для eloquent модели - json, или array, или collection.
+    Поле в базе данных должно иметь тип <em>text</em> или <em>json</em>.<br>
+    Также необходимо добавить cast для eloquent модели - <em>json</em>, или <em>array</em>, или <em>collection</em>.
 </x-moonshine::alert>
 
 <x-sub-title id="removable">Удаление файлов</x-sub-title>

@@ -77,4 +77,19 @@ Fragment::make($fields)
     ->updateAsync(['resourceItem' => request('resourceItem')]),
 </x-code>
 
+<x-moonshine::divider label="Значения полей" />
+
+<x-p>
+    Метод <code>withParams()</code> позволяет передать с запросом значения полей, используя селекторы элементов.
+</x-p>
+
+<x-code language="php">
+Fragment::make($fields)
+    ->withParams([
+        'start_date' => '#start_date',
+        'end_date' => '#end_date'
+    ]) // [tl! focus:-3]
+    ->name('fragment-name'),
+</x-code>
+
 </x-page>

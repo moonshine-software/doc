@@ -303,9 +303,16 @@
     <x-ul>
         <li><strong>Assets</strong> - <strong>MoonShine</strong> admin panel assets;</li>
         <li>
+            <x-link link="{{ to_page('appearance-assets') }}#vite"><strong>Assets template</strong></x-link>
+            - creates a template for adding your own styles to the<strong>MoonShine</strong>admin panel;
+        </li>
+        <li>
             <x-link :link="to_page('appearance-layout_builder')"><strong>Layout</strong></x-link>
             - MoonShineLayout class, responsible for the general appearance of the admin panel;
         </li>
+        <li>
+            <x-link link="{{ to_page('appearance-index') }}#favicons"><strong>Favicons</strong></x-link>
+            - overrides the template for changing favicons;</li>
         <li>
             <strong>System Resources</strong> - system MoonShineUserResource, MoonShineUserRoleResource,
             which you can change.

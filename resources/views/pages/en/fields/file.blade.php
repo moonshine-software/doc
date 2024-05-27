@@ -173,8 +173,8 @@ public function fields(): array
 </x-code>
 
 <x-moonshine::alert type="error" icon="heroicons.information-circle">
-    The field in the database must be of text or json type.<br>
-    You also need to add a cast for the eloquent model - json, or array, or collection.
+    The field in the database must be of <em>text</em> or <em>json</em> type.<br>
+    You also need to add a cast for the eloquent model - <em>json</em>, or <em>array</em>, or <em>collection</em>.
 </x-moonshine::alert>
 
 <x-sub-title id="removable">Deleting files</x-sub-title>

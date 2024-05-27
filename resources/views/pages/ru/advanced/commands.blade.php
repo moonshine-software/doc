@@ -303,8 +303,16 @@
     <x-ul>
         <li><strong>Assets</strong> - ассеты админ-панели <strong>MoonShine</strong>;</li>
         <li>
+            <x-link link="{{ to_page('appearance-assets') }}#vite"><strong>Assets template</strong></x-link>
+            - создает шаблон для добавления своих стилей в админ-панель<strong>MoonShine</strong>;
+        </li>
+        <li>
             <x-link :link="to_page('appearance-layout_builder')"><strong>Layout</strong></x-link>
             - класс MoonShineLayout, отвечающий за общий вид админ-панели;
+        </li>
+        <li>
+            <x-link link="{{ to_page('appearance-index') }}#favicons"><strong>Favicons</strong></x-link>
+            - переопределяет шаблон для изменения favicons;
         </li>
         <li>
             <strong>System Resources</strong> - системные MoonShineUserResource, MoonShineUserRoleResource,
