@@ -265,6 +265,8 @@ public function export(): ?ExportHandler
     return ExportHandler::make('Export')
         // Disc selection
         ->disk('public') // [tl! focus]
+        // File name
+        ->filename(sprintf('export_%s', date('Ymd-His'))) // [tl! focus]
         // Selecting the directory for saving the export file
         ->dir('/exports') // [tl! focus]
         // If you need to export in csv format
