@@ -1034,7 +1034,7 @@ function(Fields $fields, ?string $value, Field $field, array $values)
 </x-ul>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-    Fields that support reactivity: <code>Text</code>, <code>Checkbox</code>, <code>Select</code>
+    Fields that support reactivity: <code>Text</code>, <code>Number</code>, <code>Checkbox</code>, <code>Select</code>
     and their successors.
 </x-moonshine::alert>
 

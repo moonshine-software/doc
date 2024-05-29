@@ -1034,7 +1034,7 @@ function(Fields $fields, ?string $value, Field $field, array $values)
 </x-ul>
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
-    Поля поддерживающие реактивность: <code>Text</code>, <code>Checkbox</code>, <code>Select</code>
+    Поля поддерживающие реактивность: <code>Text</code>, <code>Number</code>, <code>Checkbox</code>, <code>Select</code>
     и их наследующие.
 </x-moonshine::alert>
 
