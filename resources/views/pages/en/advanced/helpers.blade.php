@@ -1,5 +1,6 @@
 <x-page title="Helpers" :sectionMenu="null">
-<x-sub-title>Basic</x-sub-title>
+
+<x-sub-title id="basic">Basic</x-sub-title>
 
 <x-code>
 moonshine() // MoonShine instance
@@ -10,7 +11,7 @@ moonshineMenu() // Get menu list
 moonshineLayout() // Render template contents
 </x-code>
 
-<x-sub-title>Link to page <code>to_page</code></x-sub-title>
+<x-sub-title id="to_page">Link to page <code>to_page</code></x-sub-title>
 
 <x-p>
     $page - Page or page alias (Optional)<br>
@@ -29,7 +30,7 @@ to_page(page: 'form-page', redirect: true);
 to_page(page: 'form-page', fragment: true);
 </x-code>
 
-<x-sub-title>FormBuilder</x-sub-title>
+<x-sub-title id="form_builder">FormBuilder</x-sub-title>
 
 <x-code>
 form(
@@ -40,7 +41,7 @@ form(
 )
 </x-code>
 
-<x-sub-title>TableBuilder</x-sub-title>
+<x-sub-title id="table_builder">TableBuilder</x-sub-title>
 
 <x-code>
 tabel(
@@ -50,7 +51,7 @@ tabel(
 )
 </x-code>
 
-<x-sub-title>ActionButton</x-sub-title>
+<x-sub-title id="action_button">ActionButton</x-sub-title>
 
 <x-code>
 actionBtn(
@@ -60,7 +61,7 @@ actionBtn(
 )
 </x-code>
 
-<x-sub-title>Find apply field (filter) class</x-sub-title>
+<x-sub-title id="find_field_apply">Find apply field (filter) class</x-sub-title>
 
 <x-code>
 findFieldApply(
@@ -72,9 +73,10 @@ findFieldApply(
 findFieldApply($field, 'filters', ModelResource::class);
 </x-code>
 
-<x-sub-title>Display 404</x-sub-title>
+<x-sub-title id="oops404">Display 404</x-sub-title>
 
 <x-code>
 oops404()
 </x-code>
+
 </x-page>

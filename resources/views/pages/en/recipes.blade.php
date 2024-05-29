@@ -12,6 +12,7 @@
             ['url' => '#sorting-for-cards-builder', 'label' => 'Sorting for CardsBuilder'],
             ['url' => '#update-on-preview-pivot', 'label' => 'updateOnPreview for pivot fields'],
             ['url' => '#hasmany-parent-id', 'label' => 'Parent ID in HasMany'],
+            ['url' => '#tinymce-limit-preview', 'label' => 'TinyMce number of characters in preview'],
         ]
     ]"
 >
@@ -26,5 +27,6 @@
 @include('pages.en.recipes.sorting-for-cards-builder', ['title' => 'Сортировка для CardsBuilder'])
 @include('pages.en.recipes.update-on-preview-pivot', ['title' => 'updateOnPreview for pivot fields'])
 @include('pages.en.recipes.hasmany-parent-id', ['title' => 'Parent ID in HasMany'])
+@include('pages.en.recipes.tinymce-limit-preview', ['title' => 'TinyMce number of characters in preview'])
 
 </x-page>
