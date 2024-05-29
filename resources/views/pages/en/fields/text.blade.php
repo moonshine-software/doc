@@ -10,6 +10,7 @@
             ['url' => '#extensions', 'label' => 'Extensions'],
             ['url' => '#tags', 'label' => 'Tags'],
             ['url' => '#update-on-preview', 'label' => 'Editing in preview'],
+            ['url' => '#unescape', 'label' => 'Special characters'],
         ]
     ]"
 >
@@ -231,5 +232,33 @@ public function fields(): array
 </x-code>
 
 @include('pages.en.fields.shared.update_on_preview', ['field' => 'Text'])
+
+<x-sub-title id="unescape">Special characters</x-sub-title>
+
+<x-moonshine::alert type="warning" icon="heroicons.information-circle">
+    By default, the <strong>Text</strong> field and its descendants
+    convert special characters into HTML entities when outputting values.
+</x-moonshine::alert>
+
+<x-p>
+    The <code>unescape()</code> method allows you to undo the conversion of special characters
+    in the HTML entity when outputting values.
+</x-p>
+
+<x-code language="php">
+use MoonShine\Fields\Text;
+
+//...
+
+public function fields(): array
+{
+    return [
+        Text::make('Title')
+            ->unescape() // [tl! focus]
+        ];
+    }
+
+//...
+</x-code>
 
 </x-page>

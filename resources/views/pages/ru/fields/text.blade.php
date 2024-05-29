@@ -10,6 +10,7 @@
             ['url' => '#extensions', 'label' => 'Расширения'],
             ['url' => '#tags', 'label' => 'Теги'],
             ['url' => '#update-on-preview', 'label' => 'Редактирование в preview'],
+            ['url' => '#unescape', 'label' => 'Спецсимволы'],
         ]
     ]"
 >
@@ -231,5 +232,33 @@ public function fields(): array
 </x-code>
 
 @include('pages.ru.fields.shared.update_on_preview', ['field' => 'Text'])
+
+<x-sub-title id="unescape">Спецсимволы</x-sub-title>
+
+<x-moonshine::alert type="warning" icon="heroicons.information-circle">
+    По умолчанию поле <strong>Text</strong> и его наследующие
+    преобразовывают специальные символы в HTML-сущности при выводе значений.
+</x-moonshine::alert>
+
+<x-p>
+    Метод <code>unescape()</code> позволяет отменить преобразование специальных символов
+    в HTML-сущности при выводе значений.
+</x-p>
+
+<x-code language="php">
+use MoonShine\Fields\Text;
+
+//...
+
+public function fields(): array
+{
+    return [
+        Text::make('Title')
+            ->unescape() // [tl! focus]
+        ];
+    }
+
+//...
+</x-code>
 
 </x-page>
