@@ -3,6 +3,7 @@
     :sectionMenu="[
         'Sections' => [
             ['url' => '#make', 'label' => 'Make'],
+            ['url' => '#colors', 'label' => 'Colors'],
             ['url' => '#column-span', 'label' => 'Block width'],
         ]
     ]"
@@ -46,8 +47,49 @@ public function components(): array
 //...
 </x-code>
 
-<x-image theme="light" src="{{ asset('screenshots/donut_chart_metric.png') }}"></x-image>
-<x-image theme="dark" src="{{ asset('screenshots/donut_chart_metric_dark.png') }}"></x-image>
+<x-moonshine::grid>
+{!!
+    \MoonShine\Metrics\DonutChartMetric::make('Subscribers')
+        ->values(['CutCode' => 10000, 'Apple' => 9999])
+        ->columnSpan(4)
+!!}
+</x-moonshine::grid>
+
+<x-sub-title id="colors">Colors</x-sub-title>
+
+<x-p>
+    The <code>colors()</code> method allows you to specify colors for the metric.
+</x-p>
+
+<x-code language="php">
+colors(array|Closure $values)
+</x-code>
+
+<x-code language="php">
+use MoonShine\Metrics\DonutChartMetric;
+
+//...
+
+public function components(): array
+{
+    return [
+        DonutChartMetric::make('Subscribers')
+            ->values(['CutCode' => 10000, 'Apple' => 9999])
+            ->colors(['#ffcc00', '#00bb00']) // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
+
+<x-moonshine::grid>
+{!!
+    \MoonShine\Metrics\DonutChartMetric::make('Subscribers')
+        ->values(['CutCode' => 10000, 'Apple' => 9999])
+        ->colors(['#ffcc00', '#00bb00'])
+        ->columnSpan(4)
+!!}
+</x-moonshine::grid>
 
 <x-sub-title id="column-span">Block width</x-sub-title>
 
