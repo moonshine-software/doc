@@ -3,9 +3,13 @@
     :sectionMenu="[
         'Sections' => [
             ['url' => '#make', 'label' => 'Make'],
+            ['url' => '#default', 'label' => 'Default value'],
+            ['url' => '#readonly', 'label' => 'Only for reading'],
+            ['url' => '#placeholder', 'label' => 'Placeholder'],
             ['url' => '#attributes', 'label' => 'Attributes'],
             ['url' => '#stars', 'label' => 'Stars'],
             ['url' => '#buttons', 'label' => '+/- buttons'],
+            ['url' => '#update-on-preview', 'label' => 'Editing in preview'],
         ]
     ]"
 >
@@ -36,10 +40,44 @@ public function fields(): array
 //...
 </x-code>
 
+<x-sub-title id="default">Default value</x-sub-title>
+
+<x-p>
+    You can use the <code>default()</code> method if you need to specify a default value for a field.
+</x-p>
+
+<x-code language="php">
+default(mixed $default)
+</x-code>
+
+<x-code language="php">
+use MoonShine\Fields\Number;
+
+//...
+
+public function fields(): array
+{
+    return [
+        Number::make('Title')
+            ->default(2) // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
+
+@include('pages.en.fields.shared.readonly', ['field' => 'Number'])
+
+@include('pages.en.fields.shared.placeholder', [
+    'field' => 'Number',
+    'label' => 'Rating',
+    'placeholder' => 'Product rating'
+])
+
 <x-sub-title id="attributes">Attributes</x-sub-title>
 
 <x-p>
-    The <em>Number</em> field has additional attributes (besides the standard attributes of the <em>Text</em> field),
+    The <em>Number</em> field has additional attributes,
     which can be set through the appropriate methods.
 </x-p>
 
@@ -146,5 +184,7 @@ public function fields(): array
 
 <x-image theme="light" src="{{ asset('screenshots/number_buttons.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/number_buttons_dark.png') }}"></x-image>
+
+@include('pages.en.fields.shared.update_on_preview', ['field' => 'Number'])
 
 </x-page>

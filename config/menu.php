@@ -48,7 +48,7 @@ return [
     'Fields:table-cells' => [
         ['slug' => 'fields-index', 'label' => 'Basics'],
         // Text
-        'Text:_divider_',
+        'Input:_divider_',
         ['slug' => 'fields-text', 'label' => 'Text'],
         ['slug' => 'fields-hidden', 'label' => 'Hidden'],
         ['slug' => 'fields-id', 'label' => 'ID'],

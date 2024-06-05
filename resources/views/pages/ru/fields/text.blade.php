@@ -65,31 +65,7 @@ public function fields(): array
 //...
 </x-code>
 
-<x-sub-title id="readonly">Только для чтения</x-sub-title>
-
-<x-p>
-    Если поле доступно только для чтения, то необходимо воспользоваться методом <code>readonly()</code>.
-</x-p>
-
-<x-code language="php">
-readonly(Closure|bool|null $condition = null)
-</x-code>
-
-<x-code language="php">
-use MoonShine\Fields\Text;
-
-//...
-
-public function fields(): array
-{
-    return [
-        Text::make('Title')
-            ->readonly() // [tl! focus]
-    ];
-}
-
-//...
-</x-code>
+@include('pages.ru.fields.shared.readonly', ['field' => 'Text']))
 
 <x-sub-title id="mask">Маска</x-sub-title>
 

@@ -1,3 +1,7 @@
+@props([
+    'label' => $field === 'BelongsToMany' ? 'Countries' : 'Country',
+    'placeholder' => $field === 'BelongsToMany' ? 'Countries' : 'Country',
+])
 <x-sub-title id="placeholder">Placeholder</x-sub-title>
 
 <x-p>
@@ -16,9 +20,9 @@ use MoonShine\Fields\{!! ($field === 'BelongsTo' || $field === 'BelongsToMany') 
 public function fields(): array
 {
     return [
-        {{ $field }}::make({!! $field === 'BelongsToMany' ? "'Countries'" : "'Country'" !!}, {!! $field === 'BelongsToMany' ? "'countries'" : "'country'" !!})
+        {{ $field }}::make('{{ $label }}', '{{ str($label)->snake() }}')
             ->nullable()
-            ->placeholder('{!! $field === 'BelongsToMany' ? 'Countries' : 'Country' !!}') // [tl! focus]
+            ->placeholder('{{ $placeholder }}') // [tl! focus]
     ];
 }
 
