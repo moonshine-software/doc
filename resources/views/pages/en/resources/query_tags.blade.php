@@ -104,17 +104,19 @@ QueryTag::make(
 <x-sub-title id="alias">Alias</x-sub-title>
 
 <x-p>
-    By default, the value for the URL is generated automatically from the `Title` parameter.
-    In the case when the `Title` is set not in English, but in Russian,
-    it is forced transliterated: <code>'Заголовок фильтра' => 'zagolovok-filtra'</code>
+    By default, the value for the URL is generated automatically from the <em>label</em> parameter.
+    In this case, all non-Latin alphabet characters are replaced with the corresponding transliteration
+    <code>'Заголовок' => 'zagolovok'</code>.
+</x-p>
 
-    You can define the value for the URL yourself using the <code>alias()</code> method.
+<x-p>
+    The <code>alias()</code> method allows you to set your own value for the URL.
 </x-p>
 
 <x-code language="php">
 QueryTag::make(
-    'Archived Posts', // Tag title
-    fn(Builder $query) => $query->where('is_archived', true) 
+    'Archived Posts',
+    fn(Builder $query) => $query->where('is_archived', true)
 )
     ->alias('archive') // [tl! focus]
 </x-code>

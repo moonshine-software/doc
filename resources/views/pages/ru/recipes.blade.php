@@ -13,6 +13,7 @@
             ['url' => '#update-on-preview-pivot', 'label' => 'updateOnPreview для pivot полей'],
             ['url' => '#hasmany-parent-id', 'label' => 'ID родителя в HasMany'],
             ['url' => '#tinymce-limit-preview', 'label' => 'TinyMce количество символов в привью'],
+            ['url' => '#change-field-logic', 'label' => 'Изменение логики поля'],
         ]
     ]"
 >
@@ -28,5 +29,8 @@
 @include('pages.ru.recipes.update-on-preview-pivot', ['title' => 'updateOnPreview для pivot полей'])
 @include('pages.ru.recipes.hasmany-parent-id', ['title' => 'ID родителя в HasMany'])
 @include('pages.ru.recipes.tinymce-limit-preview', ['title' => 'TinyMce количество символов в привью'])
+@include('pages.ru.recipes.change-field-logic', [
+    'title' => 'Пример изменения логики поведения поля Image для сохранения путей к изображениям в отдельной таблице базы данных.'
+])
 
 </x-page>
