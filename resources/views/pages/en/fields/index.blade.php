@@ -826,7 +826,7 @@ public function fields(): array
                 $path = 'thumbnail.jpg';
 
                 if ($value) {
-                    $item->thumbnail = Storage::put($path, file_get_content($value));
+                    $item->thumbnail = Storage::put($path, file_get_contents($value));
                 }
 
                 return $item;
