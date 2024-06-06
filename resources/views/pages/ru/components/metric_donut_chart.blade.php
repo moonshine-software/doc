@@ -4,6 +4,7 @@
         'Разделы' => [
             ['url' => '#make', 'label' => 'Make'],
             ['url' => '#colors', 'label' => 'Цвета'],
+            ['url' => '#decimals', 'label' => 'Дробная часть'],
             ['url' => '#column-span', 'label' => 'Ширина блока'],
         ]
     ]"
@@ -90,6 +91,33 @@ public function components(): array
         ->columnSpan(4)
 !!}
 </x-moonshine::grid>
+
+<x-sub-title id="decimals">Дробная часть</x-sub-title>
+
+<x-p>
+    Метод <code>decimals()</code> позволяет указать максимальное количество знаков после запятой для итогового значения.
+</x-p>
+
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    По умолчанию отображается до трех знаков после запятой.
+</x-moonshine::alert>
+
+<x-code language="php">
+use MoonShine\Metrics\DonutChartMetric;
+
+//...
+
+public function components(): array
+{
+    return [
+        DonutChartMetric::make('Subscribers')
+            ->values(['CutCode' => 10000.12, 'Apple' => 9999.32])
+            ->decimals(0) // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
 
 <x-sub-title id="column-span">Ширина блока</x-sub-title>
 
