@@ -53,6 +53,8 @@ return [ // [tl! focus]
     'use_migrations' => true, // [tl! focus]
     # Вкл/Выкл уведомления
     'use_notifications' => true, // [tl! focus]
+    # Вкл/Выкл переключатель светлой/тёмной темы
+    'use_theme_switcher' => true, // [tl! focus]
 
     # Class для рендеринга основного шаблона страницы
     'layout' => MoonShineLayout::class, // [tl! focus]
@@ -60,7 +62,22 @@ return [ // [tl! focus]
     # Filesystem Disk по умолчанию
     'disk' => 'public', // [tl! focus]
 
+    'disk_options' => [], // [tl! focus]
+
     'cache' => 'file', // [tl! focus]
+
+    'assets' => [  // [tl! focus:start]
+        'js' => [
+            'script_attributes' => [
+                'defer',
+            ]
+        ],
+        'css' => [
+            'link_attributes' => [
+                'rel' => 'stylesheet',
+            ]
+        ]
+    ], // [tl! focus:end]
 
     'forms' => [ // [tl! focus]
         # форма аутентификации
@@ -109,6 +126,10 @@ return [ // [tl! focus]
     'locales' => [ // [tl! focus:start]
         'en',
         'ru',
+    ], // [tl! focus:end]
+
+    'global_search' => [ // [tl! focus:start]
+        // User::class
     ], // [tl! focus:end]
 
     'tinymce' => [ // [tl! focus]
