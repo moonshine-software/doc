@@ -53,6 +53,8 @@ return [ // [tl! focus]
     'use_migrations' => true, // [tl! focus]
     # Notification On/Off
     'use_notifications' => true, // [tl! focus]
+    # On/Off light/dark theme switcher
+    'use_theme_switcher' => true, // [tl! focus]
 
     # Class for rendering the main page template
     'layout' => MoonShineLayout::class, // [tl! focus]
@@ -60,7 +62,22 @@ return [ // [tl! focus]
     # Default Filesystem Disk
     'disk' => 'public', // [tl! focus]
 
+    'disk_options' => [], // [tl! focus]
+
     'cache' => 'file', // [tl! focus]
+
+    'assets' => [  // [tl! focus:start]
+        'js' => [
+            'script_attributes' => [
+                'defer',
+            ]
+        ],
+        'css' => [
+            'link_attributes' => [
+                'rel' => 'stylesheet',
+            ]
+        ]
+    ], // [tl! focus:end]
 
     'forms' => [ // [tl! focus]
         # form of authentication
@@ -109,6 +126,10 @@ return [ // [tl! focus]
     'locales' => [ // [tl! focus:start]
         'en',
         'ru',
+    ], // [tl! focus:end]
+
+    'global_search' => [ // [tl! focus:start]
+        // User::class
     ], // [tl! focus:end]
 
     'tinymce' => [ // [tl! focus]
