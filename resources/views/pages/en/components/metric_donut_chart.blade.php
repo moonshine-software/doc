@@ -4,6 +4,7 @@
         'Sections' => [
             ['url' => '#make', 'label' => 'Make'],
             ['url' => '#colors', 'label' => 'Colors'],
+            ['url' => '#decimals', 'label' => 'Decimal places'],
             ['url' => '#column-span', 'label' => 'Block width'],
         ]
     ]"
@@ -90,6 +91,33 @@ public function components(): array
         ->columnSpan(4)
 !!}
 </x-moonshine::grid>
+
+<x-sub-title id="decimals">Decimal places</x-sub-title>
+
+<x-p>
+    The <code>decimals()</code> method allows you to specify the maximum number of decimal places for the total value.
+</x-p>
+
+<x-moonshine::alert type="default" icon="heroicons.information-circle">
+    By default, up to three decimal places are displayed.
+</x-moonshine::alert>
+
+<x-code language="php">
+use MoonShine\Metrics\DonutChartMetric;
+
+//...
+
+public function components(): array
+{
+    return [
+        DonutChartMetric::make('Subscribers')
+            ->values(['CutCode' => 10000.12, 'Apple' => 9999.32])
+            ->decimals(0) // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
 
 <x-sub-title id="column-span">Block width</x-sub-title>
 
