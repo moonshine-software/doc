@@ -304,7 +304,7 @@
         <li><strong>Assets</strong> - ассеты админ-панели <strong>MoonShine</strong>;</li>
         <li>
             <x-link link="{{ to_page('appearance-assets') }}#vite"><strong>Assets template</strong></x-link>
-            - создает шаблон для добавления своих стилей в админ-панель<strong>MoonShine</strong>;
+            - создает шаблон для добавления своих стилей в админ-панель <strong>MoonShine</strong>;
         </li>
         <li>
             <x-link :link="to_page('appearance-layout_builder')"><strong>Layout</strong></x-link>
@@ -320,7 +320,5 @@
         </li>
     </x-ul>
 </x-p>
-
-<x-sub-title id="test">Test</x-sub-title>
 
 </x-page>
