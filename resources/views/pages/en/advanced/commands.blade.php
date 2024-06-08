@@ -56,7 +56,7 @@
 
 <x-p>
     After executing the command, a file will be created in the <code>app/MoonShine/Applies</code> directory.
-     The created class must be registered with the service provider.
+    The created class must be registered with the service provider.
 </x-p>
 
 <x-sub-title id="component">Component</x-sub-title>
@@ -291,7 +291,7 @@
 <x-sub-title id="publish">Publish</x-sub-title>
 
 <x-p>
-   Posting team:
+    Command for publish:
 </x-p>
 
 <x-code language="shell">
@@ -299,12 +299,12 @@
 </x-code>
 
 <x-p>
-   There are several options available for publishing:
+    There are several options available for publishing:
     <x-ul>
         <li><strong>Assets</strong> - <strong>MoonShine</strong> admin panel assets;</li>
         <li>
             <x-link link="{{ to_page('appearance-assets') }}#vite"><strong>Assets template</strong></x-link>
-            - creates a template for adding your own styles to the<strong>MoonShine</strong>admin panel;
+            - creates a template for adding your own styles to the <strong>MoonShine</strong> admin panel;
         </li>
         <li>
             <x-link :link="to_page('appearance-layout_builder')"><strong>Layout</strong></x-link>
@@ -312,7 +312,8 @@
         </li>
         <li>
             <x-link link="{{ to_page('appearance-index') }}#favicons"><strong>Favicons</strong></x-link>
-            - overrides the template for changing favicons;</li>
+            - overrides the template for changing favicons;
+        </li>
         <li>
             <strong>System Resources</strong> - system MoonShineUserResource, MoonShineUserRoleResource,
             which you can change.
