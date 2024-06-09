@@ -101,4 +101,9 @@ return [
         'url' => 'forest-lynx/moonshine-decimal-field',
         'category' => 'Fields'
     ],
+    [
+        'title' => 'Spatie + Uppy field for uploading files and images for Moonshine admin panel',
+        'url' => 'falur/moonshine-file',
+        'category' => 'Fields'
+    ],
 ];
