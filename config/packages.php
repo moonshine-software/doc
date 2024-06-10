@@ -131,4 +131,9 @@ return [
         'url' => 'SWEET1S/MoonShine-Language-Romanian',
         'category' => 'Localizations'
     ],
+    [
+        'title' => 'EditorJs block editor for MoonShine',
+        'url' => 'Sckatik/moonshine-editorjs',
+        'category' => 'Fields'
+    ],
 ];
