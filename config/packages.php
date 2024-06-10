@@ -106,4 +106,29 @@ return [
         'url' => 'falur/moonshine-file',
         'category' => 'Fields'
     ],
+    [
+        'title' => 'Media manager for MoonShine',
+        'url' => 'yurizoom/moonshine-media-manager',
+        'category' => 'GUI'
+    ],
+    [
+        'title' => 'MoonShine Language Slovak',
+        'url' => 'evan70/MoonShine-Language-Slovak',
+        'category' => 'Localizations'
+    ],
+    [
+        'title' => 'MoonShine Language Uzbek',
+        'url' => 'akbarali1/MoonShine-Language-Uzbek',
+        'category' => 'Localizations'
+    ],
+    [
+        'title' => 'Moonshine Language Ukrainian',
+        'url' => 'JekaSylar/MoonShine-Language-Ukrainian',
+        'category' => 'Localizations'
+    ],
+    [
+        'title' => 'Moonshine Language Romanian',
+        'url' => 'SWEET1S/MoonShine-Language-Romanian',
+        'category' => 'Localizations'
+    ],
 ];
