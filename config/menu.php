@@ -167,6 +167,7 @@ return [
         ['slug' => 'ui-box', 'label' => 'Box'],
         ['slug' => 'ui-breadcrumbs', 'label' => 'Breadcrumbs'],
         ['slug' => 'ui-card', 'label' => 'Card'],
+        ['slug' => 'ui-carousel', 'label' => 'Carousel'],
         ['slug' => 'ui-collapse', 'label' => 'Collapse'],
         ['slug' => 'ui-divider', 'label' => 'Divider'],
         ['slug' => 'ui-dropdown', 'label' => 'Dropdown'],
