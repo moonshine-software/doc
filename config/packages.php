@@ -136,4 +136,9 @@ return [
         'url' => 'Sckatik/moonshine-editorjs',
         'category' => 'Fields'
     ],
+    [
+        'title' => 'Field of coordinates on leaflet map for moonshine admin panel',
+        'url' => 'falur/moonshine-coordinates',
+        'category' => 'Fields'
+    ],
 ];
