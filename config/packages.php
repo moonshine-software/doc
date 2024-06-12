@@ -136,4 +136,9 @@ return [
         'url' => 'Sckatik/moonshine-editorjs',
         'category' => 'Fields'
     ],
+    [
+        'title' => 'Field for selecting points on the map and saving coordinates',
+        'url' => 'falur/moonshine-coordinates',
+        'category' => 'Fields'
+    ],
 ];
