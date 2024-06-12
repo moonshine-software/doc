@@ -36,5 +36,19 @@
         </div>
     </x-moonshine::column>
 </x-moonshine::grid>
+<x-sub-title id="carousel">Карусель изображений</x-sub-title>
 
+<x-p>
+    To add an images carousel to a card, you can add to <code>thumbnails</code> parameter array of images.
+</x-p>
+
+<x-code language="blade" file="resources/views/examples/components/card-carousel.blade.php"></x-code>
+
+<x-moonshine::grid>
+    <x-moonshine::column adaptiveColSpan="12" colSpan="4">
+        <div class="mb-6">
+            @include("examples/components/card-carousel")
+        </div>
+    </x-moonshine::column>
+</x-moonshine::grid>
 </x-page>
