@@ -152,6 +152,7 @@ return [
         'UI:_divider_',
         ['slug' => 'components-badge', 'label' => 'Badge', 'title' => 'Badge Component'],
         ['slug' => 'components-card', 'label' => 'Card', 'title' => 'Card Component'],
+        ['slug' => 'components-carousel', 'label' => 'Carousel', 'title' => 'Carousel Component'],
     ],
 
     'ActionButton:cursor-arrow-ripple' => [
