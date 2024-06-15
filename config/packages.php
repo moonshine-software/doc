@@ -141,4 +141,9 @@ return [
         'url' => 'falur/moonshine-coordinates',
         'category' => 'Fields'
     ],
+    [
+        'title' => 'Input extension - calculator',
+        'url' => 'forest-lynx/moonshine-input-extension-calculator',
+        'category' => 'Fields'
+    ],
 ];
