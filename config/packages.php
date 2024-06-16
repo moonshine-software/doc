@@ -146,4 +146,9 @@ return [
         'url' => 'forest-lynx/moonshine-input-extension-calculator',
         'category' => 'Fields'
     ],
+    [
+        'title' => 'Moonshine Slider',
+        'url' => 'sliva-name/moonshine-carousel',
+        'category' => 'Components'
+    ],
 ];
