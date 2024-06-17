@@ -13,6 +13,7 @@
             ['url' => '#customname', 'label' => 'Custom file name'],
             ['url' => '#names', 'label' => 'Element names'],
             ['url' => '#item-attributes', 'label' => 'Item attributes'],
+            ['url' => '#helper-methods', 'label' => 'Helper methods'],
         ]
     ]"
 >
@@ -429,5 +430,33 @@ public function fields(): array
 
 //...
 </x-code>
+
+<x-sub-title id="helper-methods">Helper methods</x-sub-title>
+
+<x-moonshine::divider label="getRemainingValues()" />
+
+<x-p>
+    The <code>getRemainingValues()</code> method allows you to get the values that remained in the form,
+    taking into account the deletion.
+</x-p>
+
+<x-code language="php">
+getRemainingValues()
+</x-code>
+
+<x-moonshine::divider label="removeExcludedFiles()" />
+
+<x-p>
+    The <code>removeExcludedFiles()</code> method allows you to physically remove files during the process.
+</x-p>
+
+<x-code language="php">
+removeExcludedFiles()
+</x-code>
+
+<x-moonshine::alert type="primary" icon="heroicons.outline.book-open">
+    Recipe: <x-link link="{{ to_page('recipes') }}#images-in-linked-table">saving images</x-link>
+    in the linked table.
+</x-moonshine::alert>
 
 </x-page>
