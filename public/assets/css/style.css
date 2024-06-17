@@ -129,7 +129,7 @@ code:not(.torchlight) {
     .sticky-menu {
         position: sticky;
         top: 0;
-        z-index: 10;
+        z-index: 20;
         padding: .5rem 0;
         background-color: #f8fafc;
     }

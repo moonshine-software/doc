@@ -1,7 +1,7 @@
 <x-moonshine::card
     url="#"
     :overlay="true"
-    :thumbnails="['/images/image_1.jpg', '/images/image_2.jpg']"
+    :thumbnail="['/images/image_1.jpg', '/images/image_2.jpg']"
     :title="fake()->sentence(3)"
     :subtitle="date('d.m.Y')"
     :values="['ID' => 1, 'Author' => fake()->name()]"

@@ -2,6 +2,7 @@
     'Sections' => [
         ['url' => '#basics', 'label' => 'Basics'],
         ['url' => '#overlay', 'label' => 'Overlay mode'],
+        ['url' => '#carousel', 'label' => 'Image carousel'],
     ]
 ]">
 
@@ -36,10 +37,11 @@
         </div>
     </x-moonshine::column>
 </x-moonshine::grid>
-<x-sub-title id="carousel">Карусель изображений</x-sub-title>
+
+<x-sub-title id="carousel">Image carousel</x-sub-title>
 
 <x-p>
-    To add an images carousel to a card, you can add to <code>thumbnails</code> parameter array of images.
+    To add an images carousel to a card, you can add to <code>thumbnail</code> parameter array of images.
 </x-p>
 
 <x-code language="blade" file="resources/views/examples/components/card-carousel.blade.php"></x-code>
@@ -51,4 +53,5 @@
         </div>
     </x-moonshine::column>
 </x-moonshine::grid>
+
 </x-page>
