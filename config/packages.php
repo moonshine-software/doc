@@ -136,4 +136,19 @@ return [
         'url' => 'Sckatik/moonshine-editorjs',
         'category' => 'Fields'
     ],
+    [
+        'title' => 'Field for selecting points on the map and saving coordinates',
+        'url' => 'falur/moonshine-coordinates',
+        'category' => 'Fields'
+    ],
+    [
+        'title' => 'Input extension - calculator',
+        'url' => 'forest-lynx/moonshine-input-extension-calculator',
+        'category' => 'Fields'
+    ],
+    [
+        'title' => 'Moonshine Slider',
+        'url' => 'sliva-name/moonshine-carousel',
+        'category' => 'Components'
+    ],
 ];

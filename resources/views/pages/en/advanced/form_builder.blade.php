@@ -16,6 +16,7 @@
             ['url' => '#apply', 'label' => 'Apply'],
             ['url' => '#method', 'label' => 'Calling methods'],
             ['url' => '#event', 'label' => 'Dispatch events'],
+            ['url' => '#submit', 'label' => '&quot;Submit&quot; event'],
         ]
     ]"
 >
@@ -463,5 +464,31 @@ dispatchEvent(array|string $events)
 FormBuilder::make()
     ->dispatchEvent(JsEvent::OFF_CANVAS_TOGGLED, 'default'), // [tl! focus]
 </x-code>
+
+<x-sub-title id="submit">&quot;Submit&quot; event</x-sub-title>
+
+<x-p>
+    To submit a form, you can call the <em>Submit</em> event.
+</x-p>
+
+<x-code language="php">
+AlpineJs::event(JsEvent::FORM_SUBMIT, 'componentName')
+</x-code>
+
+<x-moonshine::divider label="Example of calling an event on a form page" />
+
+<x-code language="php">
+public function formButtons(): array
+{
+    return [
+       ActionButton::make('Save')->dispatchEvent(AlpineJs::event(JsEvent::FORM_SUBMIT, $this->uriKey()))
+    ];
+}
+</x-code>
+
+<x-moonshine::alert class="my-4" type="default" icon="heroicons.book-open">
+    For more information about AlpineJs helpers, please refer to
+    <x-link link="{{ to_page('advanced-js_events') }}#helper">Js events</x-link>.
+</x-moonshine::alert>
 
 </x-page>

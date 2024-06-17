@@ -38,7 +38,7 @@ public function updatePivot(MoonShineRequest $request): MoonShineJsonResponse
 
     $column = (string) $request->str('field')->remove('pivot.');
 
-    $item-> users()->updateExistingPivot($request->get('resourceItem'), [
+    $item->users()->updateExistingPivot($request->get('resourceItem'), [
         $column => $request->get('value'),
     ]);
 

@@ -7,8 +7,7 @@
             ['url' => '#actions', 'label' => 'Buttons'],
             ['url' => '#subtitle', 'label' => 'Subtitle'],
             ['url' => '#url', 'label' => 'Link'],
-            ['url' => '#thumbnail', 'label' => 'Thumbnail'],
-            ['url' => '#thumbnails', 'label' => 'Thumbnails'],
+            ['url' => '#thumbnail', 'label' => 'Thumbnails'],
             ['url' => '#values', 'label' => 'List of values'],
             ['url' => '#overlay', 'label' => 'Overlay mode'],
         ]
@@ -29,8 +28,7 @@
 <x-code language="php">
 make(
     Closure|string $title = '',
-    Closure|string $thumbnail = '',
-    Closure|string|array $thumbnails = '',
+    Closure|string|array $thumbnail = '',
     Closure|string $url = '#',
     Closure|array $values = [],
     Closure|string|null $subtitle = null
@@ -39,8 +37,7 @@ make(
 
 <x-ul>
     <li><code>$title</code> - card title,</li>
-    <li><code>$thumbnail</code> - image,</li>
-    <li><code>$thumbnails</code> - images,</li>
+    <li><code>$thumbnail</code> - images,</li>
     <li><code>$url</code> - link,</li>
     <li><code>$values</code> - list of values</li>
     <li><code>$subtitle</code> - subtitle.</li>
@@ -213,35 +210,35 @@ Cards::make(
     </x-moonshine::column>
 </x-moonshine::grid>
 
-<x-sub-title id="thumbnail">Thumbnail</x-sub-title>
+<x-sub-title id="thumbnail">Thumbnails</x-sub-title>
 
 <x-p>
-    To add an image to a card, you can use the <code>thumbnail()</code> method.
+    To add an images carousel to a card, you can use the <code>thumbnails()</code> method.
 </x-p>
 
 <x-code language="php">
-thumbnail(Closure|string $value)
+    thumbnails(Closure|string|array $value)
 </x-code>
 
 <x-ul>
-    <li><code>$value</code> - <em>url</em> of the image or closure.</li>
+    <li><code>$value</code> - <em>url</em> of the image or array <em>urls</em> of image or closure.</li>
 </x-ul>
 
 <x-code language="php">
 Cards::make(
     title: fake()->sentence(3),
 )
-    ->thumbnail('/images/image_2.jpg') // [tl! focus]
+    ->thumbnail(['/images/image_2.jpg','/images/image_1.jpg']) // [tl! focus]
 </x-code>
 
 <x-moonshine::grid>
     <x-moonshine::column adaptiveColSpan="12" colSpan="4">
-{!!
-    \MoonShine\Components\Card::make(
-        title: fake()->sentence(3),
-    )
-        ->thumbnail('/images/image_2.jpg')
-!!}
+        {!!
+            \MoonShine\Components\Card::make(
+                title: fake()->sentence(3),
+            )
+                ->thumbnail(['/images/image_2.jpg','/images/image_1.jpg'])
+        !!}
     </x-moonshine::column>
 </x-moonshine::grid>
 

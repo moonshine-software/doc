@@ -41,7 +41,7 @@
 <x-sub-title id="carousel">Карусель изображений</x-sub-title>
 
 <x-p>
-    Для добавления к карточке карусели изображений передать в параметр <code>thumbnails</code> массив изображений.
+    Для добавления к карточке карусели изображений передать в параметр <code>thumbnail</code> массив изображений.
 </x-p>
 
 <x-code language="blade" file="resources/views/examples/components/card-carousel.blade.php"></x-code>
@@ -53,4 +53,5 @@
         </div>
     </x-moonshine::column>
 </x-moonshine::grid>
+
 </x-page>
