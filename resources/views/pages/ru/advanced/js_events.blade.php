@@ -2,6 +2,7 @@
     'Разделы' => [
         ['url' => '#blade-directives', 'label' => 'Blade-директивы'],
         ['url' => '#helper', 'label' => 'Помощник AlpineJs'],
+        ['url' => '#default-events', 'label' => 'События по умолчанию'],
     ]
 ]">
 
@@ -104,5 +105,25 @@ FormBuilder::make('/crud/update', 'PUT')
         AlpineJs::eventBlade(JsEvent::FORM_RESET, 'main-form') => 'formReset',  // [tl! focus]
     ]);
 </x-code>
+
+<x-sub-title id="default-events">События по умолчанию</x-sub-title>
+
+<x-p>
+    В админ-панели <strong>MoonShine</strong> определены несколько событий по умолчанию,
+    названия которых можно удобно получить через enum <em>JsEvent</em>.
+</x-p>
+
+<x-ul>
+    <li><code>JsEvent::FRAGMENT_UPDATED</code> - обновление фрагмента,</li>
+    <li><code>JsEvent::TABLE_UPDATED</code> - обновление таблицы,</li>
+    <li><code>JsEvent::TABLE_REINDEX</code> - обновление индексов таблицы при сортировке,</li>
+    <li><code>JsEvent::TABLE_ROW_UPDATED</code> - обновление строки в таблице,</li>
+    <li><code>JsEvent::CARDS_UPDATED</code> - обновление списка Сards,</li>
+    <li><code>JsEvent::FORM_RESET</code> - сброс формы,</li>
+    <li><code>JsEvent::FORM_SUBMIT</code> - отправка формы,</li>
+    <li><code>JsEvent::MODAL_TOGGLED</code> - открытие / закрытие модального окна,</li>
+    <li><code>JsEvent::OFF_CANVAS_TOGGLED</code> - открытие / закрытие Offcanvas,</li>
+    <li><code>JsEvent::TOAST</code> - вызов Toast.</li>
+</x-ul>
 
 </x-page>

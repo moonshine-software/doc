@@ -2,6 +2,7 @@
     'Разделы' => [
         ['url' => '#blade-directives', 'label' => 'Blade directives'],
         ['url' => '#helper', 'label' => 'AlpineJs helper'],
+        ['url' => '#default-events', 'label' => 'Default events'],
     ]
 ]">
 
@@ -104,5 +105,25 @@ FormBuilder::make('/crud/update', 'PUT')
         AlpineJs::eventBlade(JsEvent::FORM_RESET, 'main-form') => 'formReset',  // [tl! focus]
     ]);
 </x-code>
+
+<x-sub-title id="default-events">Default events</x-sub-title>
+
+<x-p>
+    There are several default events defined in the <strong>MoonShine</strong> admin panel,
+    the names of which can be conveniently obtained via enum <em>JsEvent</em>.
+</x-p>
+
+<x-ul>
+    <li><code>JsEvent::FRAGMENT_UPDATED</code> - fragment update,</li>
+    <li><code>JsEvent::TABLE_UPDATED</code> - table update,</li>
+    <li><code>JsEvent::TABLE_REINDEX</code> - updating table indexes when sorting,</li>
+    <li><code>JsEvent::TABLE_ROW_UPDATED</code> - updating a row in the table,</li>
+    <li><code>JsEvent::CARDS_UPDATED</code> - updating the Cards list,</li>
+    <li><code>JsEvent::FORM_RESET</code> - form reset,</li>
+    <li><code>JsEvent::FORM_SUBMIT</code> - submitting the form,</li>
+    <li><code>JsEvent::MODAL_TOGGLED</code> - opening / closing a modal window,</li>
+    <li><code>JsEvent::OFF_CANVAS_TOGGLED</code> - opening / closing Offcanvas,</li>
+    <li><code>JsEvent::TOAST</code> - call Toast.</li>
+</x-ul>
 
 </x-page>
