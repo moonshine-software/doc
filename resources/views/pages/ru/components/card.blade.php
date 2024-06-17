@@ -7,7 +7,7 @@
             ['url' => '#actions', 'label' => 'Кнопки'],
             ['url' => '#subtitle', 'label' => 'Подзаголовок'],
             ['url' => '#url', 'label' => 'Ссылка'],
-            ['url' => '#thumbnail', 'label' => 'Изображение'],
+            ['url' => '#thumbnail', 'label' => 'Изображения'],
             ['url' => '#values', 'label' => 'Список значений'],
             ['url' => '#overlay', 'label' => 'Режим overlay'],
         ]
@@ -28,7 +28,7 @@
 <x-code language="php">
 make(
     Closure|string $title = '',
-    Closure|string $thumbnail = '',
+    Closure|string|array $thumbnail = '',
     Closure|string $url = '#',
     Closure|array $values = [],
     Closure|string|null $subtitle = null
@@ -37,7 +37,7 @@ make(
 
 <x-ul>
     <li><code>$title</code> - заголовок карточки,</li>
-    <li><code>$thumbnail</code> - изображение,</li>
+    <li><code>$thumbnail</code> - изображения,</li>
     <li><code>$url</code> - ссылка,</li>
     <li><code>$values</code> - список значений,</li>
     <li><code>$subtitle</code> - подзаголовок.</li>
@@ -57,7 +57,7 @@ public function components(): array
             url: fn() => 'https://cutcode.dev',
             values: ['ID' => 1, 'Author' => fake()->name()],
             subtitle: date('d.m.Y')
-        ) // [tl! focus:-8]
+        ) // [tl! focus:-6]
     ];
 }
 
@@ -210,35 +210,35 @@ Cards::make(
     </x-moonshine::column>
 </x-moonshine::grid>
 
-<x-sub-title id="thumbnail">Изображение</x-sub-title>
+<x-sub-title id="thumbnail">Изображения</x-sub-title>
 
 <x-p>
-    Для добавления к карточке изображение можно воспользоваться методом <code>thumbnail()</code>.
+    Для добавления к карточке карусели изображений можно воспользоваться методом <code>thumbnail()</code>.
 </x-p>
 
 <x-code language="php">
-thumbnail(Closure|string $value)
+thumbnail(Closure|string|array $value)
 </x-code>
 
 <x-ul>
-    <li><code>$value</code> - <em>url</em> изображения или замыкание.</li>
+    <li><code>$value</code> - <em>url</em> изображения, или массив <em>url-ов</em> изображений, или замыкание.</li>
 </x-ul>
 
 <x-code language="php">
 Cards::make(
     title: fake()->sentence(3),
 )
-    ->thumbnail('/images/image_2.jpg') // [tl! focus]
+    ->thumbnails(['/images/image_2.jpg','/images/image_1.jpg']) // [tl! focus]
 </x-code>
 
 <x-moonshine::grid>
     <x-moonshine::column adaptiveColSpan="12" colSpan="4">
-{!!
-    \MoonShine\Components\Card::make(
-        title: fake()->sentence(3),
-    )
-        ->thumbnail('/images/image_2.jpg')
-!!}
+        {!!
+            \MoonShine\Components\Card::make(
+                title: fake()->sentence(3),
+            )
+                ->thumbnail(['/images/image_2.jpg','/images/image_1.jpg'])
+        !!}
     </x-moonshine::column>
 </x-moonshine::grid>
 

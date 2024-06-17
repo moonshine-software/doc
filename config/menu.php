@@ -152,6 +152,7 @@ return [
         'UI:_divider_',
         ['slug' => 'components-badge', 'label' => 'Badge', 'title' => 'Badge Component'],
         ['slug' => 'components-card', 'label' => 'Card', 'title' => 'Card Component'],
+        ['slug' => 'components-carousel', 'label' => 'Carousel', 'title' => 'Carousel Component'],
     ],
 
     'ActionButton:cursor-arrow-ripple' => [
@@ -166,6 +167,7 @@ return [
         ['slug' => 'ui-box', 'label' => 'Box'],
         ['slug' => 'ui-breadcrumbs', 'label' => 'Breadcrumbs'],
         ['slug' => 'ui-card', 'label' => 'Card'],
+        ['slug' => 'ui-carousel', 'label' => 'Carousel'],
         ['slug' => 'ui-collapse', 'label' => 'Collapse'],
         ['slug' => 'ui-divider', 'label' => 'Divider'],
         ['slug' => 'ui-dropdown', 'label' => 'Dropdown'],
