@@ -14,6 +14,7 @@
             ['url' => '#hasmany-parent-id', 'label' => 'Parent ID in HasMany'],
             ['url' => '#tinymce-limit-preview', 'label' => 'TinyMce number of characters in preview'],
             ['url' => '#change-field-logic', 'label' => 'Changing field logic'],
+            ['url' => '#images-in-linked-table', 'label' => 'Saving images in a linked table'],
         ]
     ]"
 >
@@ -30,7 +31,8 @@
 @include('pages.en.recipes.hasmany-parent-id', ['title' => 'Parent ID in HasMany'])
 @include('pages.en.recipes.tinymce-limit-preview', ['title' => 'TinyMce number of characters in preview'])
 @include('pages.en.recipes.change-field-logic', [
-    'title' => 'An example of changing the behavior logic of the Image field to save paths to images in a separate database table.'
+    'title' => 'Changing the behavior logic of the Image field to save paths to images in a separate database table'
 ])
+@include('pages.en.recipes.images-in-linked-table', ['title' => 'Saving images in a linked table'])
 
 </x-page>
