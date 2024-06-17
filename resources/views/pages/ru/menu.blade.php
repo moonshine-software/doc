@@ -192,6 +192,10 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 }
 </x-code>
 
+<x-moonshine::alert type="default" icon="heroicons.book-open">
+    Для создания многоуровнего меню, группы можно делать вложенными.
+</x-moonshine::alert>
+
 <x-sub-title id="divider">Разделитель</x-sub-title>
 
 <x-p>

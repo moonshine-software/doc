@@ -13,6 +13,7 @@
             ['url' => '#customname', 'label' => 'Произвольное имя файла'],
             ['url' => '#names', 'label' => 'Названия элементов'],
             ['url' => '#item-attributes', 'label' => 'Атрибуты элементов'],
+            ['url' => '#helper-methods', 'label' => 'Вспомогательные методы'],
         ]
     ]"
 >
@@ -429,5 +430,33 @@ public function fields(): array
 
 //...
 </x-code>
+
+<x-sub-title id="helper-methods">Вспомогательные методы</x-sub-title>
+
+<x-moonshine::divider label="getRemainingValues()" />
+
+<x-p>
+    Метод <code>getRemainingValues()</code> позволяет получить значения
+    которые остались в форме с учетом удаления.
+</x-p>
+
+<x-code language="php">
+getRemainingValues()
+</x-code>
+
+<x-moonshine::divider label="removeExcludedFiles()" />
+
+<x-p>
+    Метод <code>removeExcludedFiles()</code> позволяет физически удалить файлы в процессе.
+</x-p>
+
+<x-code language="php">
+removeExcludedFiles()
+</x-code>
+
+<x-moonshine::alert type="primary" icon="heroicons.outline.book-open">
+    Рецепт: <x-link link="{{ to_page('recipes') }}#images-in-linked-table">сохранение изображений</x-link>
+    в связанной таблице.
+</x-moonshine::alert>
 
 </x-page>

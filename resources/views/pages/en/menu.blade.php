@@ -191,6 +191,10 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 }
 </x-code>
 
+<x-moonshine::alert type="default" icon="heroicons.book-open">
+    To create a multi-level menu, groups can be nested.
+</x-moonshine::alert>
+
 <x-sub-title id="divider">Delimiter</x-sub-title>
 
 <x-p>

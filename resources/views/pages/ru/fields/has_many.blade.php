@@ -8,6 +8,8 @@
             ['url' => '#limit', 'label' => 'Количество записей'],
             ['url' => '#only-link', 'label' => 'Только ссылка'],
             ['url' => '#parent-id', 'label' => 'ID родителя'],
+            ['url' => '#change-edit-button', 'label' => 'Кнопка редактирования'],
+            ['url' => '#without-modals', 'label' => 'Модальные окна'],
             ['url' => '#modify', 'label' => 'Модификация'],
             ['url' => '#advanced', 'label' => 'Продвинутое применение'],
         ]
@@ -194,6 +196,42 @@ public function fields(): array
 </x-code>
 
 @include('pages.ru.fields.shared.parent_id')
+
+<x-sub-title id="change-edit-button">Кнопка редактирования</x-sub-title>
+
+<x-p>
+    Метод <code>changeEditButton()</code> позволяет полностью переопределить кнопку редактирования.
+</x-p>
+
+<x-code language="php">
+use MoonShine\Fields\Relationships\HasMany;
+
+//...
+
+HasMany::make('Comments', 'comments', resource: new CommentResource())
+    ->changeEditButton(
+        ActionButton::make(
+            'Edit',
+            fn(Comment $comment) => (new CommentResource())->formPageUrl($comment)
+        )
+    ) // [tl! focus:-5]
+</x-code>
+
+<x-sub-title id="without-modals">Модальные окна</x-sub-title>
+
+<x-p>
+    По умолчанию создание и редактирование записи поля <em>HasMany</em> происходит в модальном окне,
+    метод <code>withoutModals()</code> позволяет отключить такое поведение.
+</x-p>
+
+<x-code language="php">
+use MoonShine\Fields\Relationships\HasMany;
+
+//...
+
+HasMany::make('Comments', 'comments', resource: new CommentResource())
+    ->withoutModals() // [tl! focus]
+</x-code>
 
 <x-sub-title id="modify">Модификация</x-sub-title>
 

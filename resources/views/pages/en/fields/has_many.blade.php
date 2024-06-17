@@ -8,6 +8,8 @@
             ['url' => '#limit', 'label' => 'Number of records'],
             ['url' => '#only-link', 'label' => 'Link only'],
             ['url' => '#parent-id', 'label' => 'Parent ID'],
+            ['url' => '#change-edit-button', 'label' => 'Edit button'],
+            ['url' => '#without-modals', 'label' => 'Modal'],
             ['url' => '#modify', 'label' => 'Modify'],
             ['url' => '#advanced', 'label' => 'Advanced'],
         ]
@@ -194,6 +196,42 @@ public function fields(): array
 </x-code>
 
 @include('pages.en.fields.shared.parent_id')
+
+<x-sub-title id="change-edit-button">Edit button</x-sub-title>
+
+<x-p>
+    The <code>changeEditButton()</code> method allows you to completely redefine the edit button.
+</x-p>
+
+<x-code language="php">
+use MoonShine\Fields\Relationships\HasMany;
+
+//...
+
+HasMany::make('Comments', 'comments', resource: new CommentResource())
+    ->changeEditButton(
+        ActionButton::make(
+            'Edit',
+            fn(Comment $comment) => (new CommentResource())->formPageUrl($comment)
+        )
+    ) // [tl! focus:-5]
+</x-code>
+
+<x-sub-title id="without-modals">Modal</x-sub-title>
+
+<x-p>
+    By default, creating and editing a <em>HasMany</em> field entry occurs in a modal,
+    The <code>withoutModals()</code> method allows you to disable this behavior.
+</x-p>
+
+<x-code language="php">
+use MoonShine\Fields\Relationships\HasMany;
+
+//...
+
+HasMany::make('Comments', 'comments', resource: new CommentResource())
+    ->withoutModals() // [tl! focus]
+</x-code>
 
 <x-sub-title id="modify">Modify</x-sub-title>
 
