@@ -3,6 +3,7 @@
         ['url' => '#blade-directives', 'label' => 'Blade directives'],
         ['url' => '#helper', 'label' => 'AlpineJs helper'],
         ['url' => '#default-events', 'label' => 'Default events'],
+        ['url' => '#response-events', 'label' => 'Calling events via Response'],
     ]
 ]">
 
@@ -125,5 +126,33 @@ FormBuilder::make('/crud/update', 'PUT')
     <li><code>JsEvent::OFF_CANVAS_TOGGLED</code> - opening / closing Offcanvas,</li>
     <li><code>JsEvent::TOAST</code> - call Toast.</li>
 </x-ul>
+
+<x-sub-title id="response-events">Calling events via Response</x-sub-title>
+
+<x-p>
+    In <strong>MoonShine</strong> you can return events to <em>MoonShineJsonResponse</em>, which will then be called.<br />
+    To do this, you need to use the <code>events()</code> method.
+</x-p>
+
+<x-code language="php">
+events(array $events)
+</x-code>
+
+<x-ul>
+    <li><code>$events</code> - array of events to be called.</li>
+</x-ul>
+
+<x-code language="php">
+use MoonShine\Enums\JsEvent;
+use MoonShine\Http\Responses\MoonShineJsonResponse;
+use MoonShine\Support\AlpineJs;
+
+//...
+
+return MoonShineJsonResponse::make()
+    ->events([
+        AlpineJs::event(JsEvent::TABLE_UPDATED, 'index'),
+    ]); // [tl! focus:-2]
+</x-code>
 
 </x-page>

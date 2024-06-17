@@ -3,6 +3,7 @@
         ['url' => '#blade-directives', 'label' => 'Blade-директивы'],
         ['url' => '#helper', 'label' => 'Помощник AlpineJs'],
         ['url' => '#default-events', 'label' => 'События по умолчанию'],
+        ['url' => '#response-events', 'label' => 'Вызов событий через Response'],
     ]
 ]">
 
@@ -125,5 +126,33 @@ FormBuilder::make('/crud/update', 'PUT')
     <li><code>JsEvent::OFF_CANVAS_TOGGLED</code> - открытие / закрытие Offcanvas,</li>
     <li><code>JsEvent::TOAST</code> - вызов Toast.</li>
 </x-ul>
+
+<x-sub-title id="response-events">Вызов событий через Response</x-sub-title>
+
+<x-p>
+    В <strong>MoonShine</strong> можно вернуть события в <em>MoonShineJsonResponse</em>, которые потом будут вызваны.<br />
+    Для этого необходимо воспользоваться методом <code>events()</code>.
+</x-p>
+
+<x-code language="php">
+events(array $events)
+</x-code>
+
+<x-ul>
+    <li><code>$events</code> - массив вызываемых событий.</li>
+</x-ul>
+
+<x-code language="php">
+use MoonShine\Enums\JsEvent;
+use MoonShine\Http\Responses\MoonShineJsonResponse;
+use MoonShine\Support\AlpineJs;
+
+//...
+
+return MoonShineJsonResponse::make()
+    ->events([
+        AlpineJs::event(JsEvent::TABLE_UPDATED, 'index'),
+    ]); // [tl! focus:-2]
+</x-code>
 
 </x-page>
