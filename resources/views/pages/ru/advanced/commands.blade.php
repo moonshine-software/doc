@@ -321,4 +321,22 @@
     </x-ul>
 </x-p>
 
+<x-moonshine::divider label="Можно сразу указать тип публикации в команде."/>
+
+<x-code language="shell">
+    php artisan moonshine:publish assets
+</x-code>
+
+<x-p>
+    Доступные типы:
+</x-p>
+
+<x-p class="flex flex-wrap gap-1">
+    <x-moonshine::badge>assets</x-moonshine::badge>
+    <x-moonshine::badge>assets-template</x-moonshine::badge>
+    <x-moonshine::badge>layout</x-moonshine::badge>
+    <x-moonshine::badge>favicons</x-moonshine::badge>
+    <x-moonshine::badge>resources</x-moonshine::badge>
+</x-p>
+
 </x-page>
