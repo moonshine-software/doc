@@ -8,6 +8,7 @@
             ['url' => '#edit', 'label' => 'Edit button'],
             ['url' => '#delete', 'label' => 'Delete button'],
             ['url' => '#mass-delete', 'label' => 'Bulk delete button'],
+            ['url' => '#form', 'label' => 'Form buttons'],
             ['url' => '#actions', 'label' => 'Buttons on the index page'],
             ['url' => '#buttons', 'label' => 'Element buttons'],
             ['url' => '#indexButton', 'label' => 'Index table'],
@@ -34,6 +35,12 @@
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     More detailed information about the <x-link link="{{ to_page('action_button') }}">ActionButton</x-link> component.
+</x-moonshine::alert>
+
+<x-moonshine::alert type="warning" icon="heroicons.book-open">
+    The buttons for creating, viewing, editing, deleting and mass deleting are placed in separate classes,
+    in order to apply all the necessary methods to them and thereby eliminate duplication,
+    since these buttons are also used in HasMany, BelongsToMany, etc.
 </x-moonshine::alert>
 
 <x-sub-title id="create">Create button</x-sub-title>
@@ -141,6 +148,34 @@ public function getMassDeleteButton(
         isAsync: $isAsync
     );
 } // [tl! focus:-11]
+</x-code>
+
+<x-sub-title id="form">Form buttons</x-sub-title>
+
+<x-p>
+    The <code>getFormBuilderButtons()</code> method allows you to add additional <x-link link="{{ to_page('action_button') }}">buttons</x-link>
+    into the create or edit form.
+</x-p>
+
+<x-code language="php">
+namespace MoonShine\Resources;
+
+use MoonShine\ActionButtons\ActionButton; // [tl! focus]
+use MoonShine\Resources\ModelResource;
+
+class PostResource extends ModelResource
+{
+    //...
+
+    public function getFormBuilderButtons(): array // [tl! focus:start]
+    {
+        return [
+            ActionButton::make('Back', fn() => $this->indexPageUrl())->customAttributes(['class' => 'btn-lg'])
+        ];
+    } // [tl! focus:end]
+
+    //...
+}
 </x-code>
 
 <x-sub-title id="actions">Buttons on the index page</x-sub-title>
