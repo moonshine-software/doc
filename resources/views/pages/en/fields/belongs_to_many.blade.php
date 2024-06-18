@@ -11,6 +11,7 @@
             ['url' => '#placeholder', 'label' => 'Placeholder'],
             ['url' => '#tree', 'label' => 'Tree'],
             ['url' => '#preview', 'label' => 'Preview'],
+            ['url' => '#only-link', 'label' => 'Link only'],
             ['url' => '#values-query', 'label' => 'Query for values'],
             ['url' => '#async-search', 'label' => 'Asynchronous search'],
 		    ['url' => '#associated', 'label' => 'Related fields'],
@@ -246,6 +247,8 @@ public function fields(): array
 
 <x-image theme="light" src="{{ asset('screenshots/belongs_to_many_preview_in_line.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/belongs_to_many_preview_in_line_dark.png') }}"></x-image>
+
+@include('pages.en.fields.shared.only_link', ['field' => 'BelongsToMany', 'label' => 'Categories'])
 
 @include('pages.en.fields.shared.values_query', ['field' => 'BelongsToMany'])
 
