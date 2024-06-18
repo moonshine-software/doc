@@ -84,116 +84,7 @@ public function fields(): array
 //...
 </x-code>
 
-<x-sub-title id="only-link">Link only</x-sub-title>
-
-<x-p>
-    The <code>onlyLink()</code> method will allow you to display the relationship as a link with the number of elements.
-</x-p>
-
-<x-code language="php">
-onlyLink(?string $linkRelation = null, Closure|bool|null $condition = null)
-</x-code>
-
-<x-p>
-    You can pass optional parameters to the method:
-    <x-ul>
-        <li><code>linkRelation</code> - relation reference;</li>
-        <li>
-            <code>condition</code> - closure or boolean value,
-            responsible for displaying the relationship as a link.
-        </li>
-    </x-ul>
-</x-p>
-
-<x-code language="php">
-use MoonShine\Fields\Relationships\HasMany;
-
-//...
-
-public function fields(): array
-{
-    return [
-        HasMany::make('Comments', resource: new CommentResource())
-            ->onlyLink() // [tl! focus]
-    ];
-}
-
-//...
-</x-code>
-
-<x-image theme="light" src="{{ asset('screenshots/has_many_link.png') }}"></x-image>
-<x-image theme="dark" src="{{ asset('screenshots/has_many_link_dark.png') }}"></x-image>
-
-<x-moonshine::divider label="linkRelation"></x-moonshine::divider>
-
-<x-p>
-    To retrieve relation values for a parent resource,
-    You must set the <code>$parentRelations</code> property in the relationship resource.
-</x-p>
-
-<x-code language="php">
-namespace App\MoonShine\Resources;
-
-use MoonShine\Resources\ModelResource;
-
-class CommentResource extends ModelResource
-{
-    //...
-
-    protected array $parentRelations = ['user'];
-
-    //...
-}
-</x-code>
-
-<x-moonshine::alert type="default" icon="heroicons.book-open">
-    The route will be available:<br />
-    <em>/resource/comment-resource/index-page/user-{id}</em>
-</x-moonshine::alert>
-
-<x-p>
-    The <code>linkRelation</code> parameter allows you to create a link to a relation with a parent resource binding.
-</x-p>
-
-<x-code language="php">
-use MoonShine\Fields\Relationships\HasMany;
-
-//...
-
-public function fields(): array
-{
-    return [
-        HasMany::make('Comments', resource: new CommentResource())
-            ->onlyLink('user') // [tl! focus]
-    ];
-}
-
-//...
-</x-code>
-
-<x-moonshine::divider label="condition"></x-moonshine::divider>
-
-<x-p>
-    The <code>condition</code> parameter via a closure will allow you to change the display method depending on the conditions.
-</x-p>
-
-<x-code language="php">
-use MoonShine\Fields\Relationships\HasMany;
-
-//...
-
-public function fields(): array
-{
-    return [
-        HasMany::make('Comments', resource: new CommentResource())
-            ->onlyLink(condition: function (int $count, Field $field): bool {
-                return $count > 10;
-            }) // [tl! focus:-2]
-    ];
-}
-
-//...
-</x-code>
+@include('pages.en.fields.shared.only_link', ['field' => 'HasMany', 'label' => 'Comments'])
 
 @include('pages.en.fields.shared.parent_id')
 
@@ -236,9 +127,41 @@ HasMany::make('Comments', 'comments', resource: new CommentResource())
 <x-sub-title id="modify">Modify</x-sub-title>
 
 <x-p>
-    The <em>HasMany</em> field has methods that can be used to modify the edit (add) button,
+    The <em>HasMany</em> field has methods that can be used to modify the buttons,
     change <em>TableBuilder</em> for preview and form, and change <em>onlyLink</em> button.
 </x-p>
+
+<x-moonshine::divider label="modifyItemButtons()" />
+
+<x-p>
+    The <code>modifyItemButtons()</code> method allows you to change the view, edit,
+    deletion and mass deletion.
+</x-p>
+
+<x-code language="php">
+/**
+ * @param  Closure(ActionButton $detail, ActionButton $edit, ActionButton $delete, ActionButton $massDelete, self $field): array  $callback
+ */
+modifyItemButtons(Closure $callback)
+</x-code>
+
+<x-code language="php">
+use MoonShine\Fields\Relationships\HasMany;
+
+//...
+
+public function fields(): array
+{
+    return [
+        HasMany::make('Comments', resource: new CommentResource())
+            ->modifyItemButtons(
+                fn(ActionButton $detail, $edit, $delete, $massDelete, $ctx HasMany) => [$detail])
+            ) // [tl! focus:-2]
+    ];
+}
+
+//...
+</x-code>
 
 <x-moonshine::divider label="modifyOnlyLinkButton()" />
 

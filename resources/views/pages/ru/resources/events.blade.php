@@ -5,12 +5,19 @@
     <x-link link="https://laravel.com/docs/eloquent#events">events</x-link>
 </x-p>
 <x-p>
-    Но также возникает потребность привязаться именно к событиям в рамках ресурсов MoonShine! Для этого в ресурсе необходимо реализовать нужные Вам события
+    Но также возникает потребность привязаться именно к событиям в рамках ресурсов MoonShine!
+    Для этого в ресурсе необходимо реализовать нужные Вам события
 </x-p>
 
 <x-code language="php">
 protected function beforeCreating(Model $item): Model
 {
+    if (auth()->user()->moonshine_user_role_id !== 1) {
+        request()->merge([
+            'author_id' => auth()->id(),
+        ]);
+    }
+
     return $item;
 }
 
@@ -21,6 +28,12 @@ protected function afterCreated(Model $item): Model
 
 protected function beforeUpdating(Model $item): Model
 {
+    if (auth()->user()->moonshine_user_role_id !== 1) {
+        request()->merge([
+            'author_id' => auth()->id(),
+        ]);
+    }
+
     return $item;
 }
 
@@ -47,26 +60,6 @@ protected function beforeMassDeleting(array $ids): void
 protected function afterMassDeleted(array $ids): void
 {
     // Logic here
-}
-
-protected function beforeForceDeleting(Model $item): Model
-{
-    return $item;
-}
-
-protected function afterForceDeleted(Model $item): Model
-{
-    return $item;
-}
-
-protected function beforeRestoring(Model $item): Model
-{
-    return $item;
-}
-
-protected function afterRestored(Model $item): Model
-{
-    return $item;
 }
 </x-code>
 

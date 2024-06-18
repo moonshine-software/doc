@@ -8,6 +8,7 @@
             ['url' => '#edit', 'label' => 'Кнопка редактирования'],
             ['url' => '#delete', 'label' => 'Кнопка удаления'],
             ['url' => '#mass-delete', 'label' => 'Кнопка массового удаления'],
+            ['url' => '#form', 'label' => 'Кнопки формы'],
             ['url' => '#actions', 'label' => 'Кнопки на индексной странице'],
             ['url' => '#buttons', 'label' => 'Кнопки элемента'],
             ['url' => '#indexButton', 'label' => 'Индексная таблица'],
@@ -34,6 +35,12 @@
 
 <x-moonshine::alert type="default" icon="heroicons.information-circle">
     Более подробная информация о компоненте <x-link link="{{ to_page('action_button') }}">ActionButton</x-link>.
+</x-moonshine::alert>
+
+<x-moonshine::alert type="warning" icon="heroicons.book-open">
+    Кнопки создания, просмотра, редактирования, удаления и массового удаления вынесены в отдельные классы,
+    чтобы применить к ним все необходимые методы и тем самым исключить дублирование,
+    так как эти кнопки еще используются в HasMany, BelongsToMany и тд.
 </x-moonshine::alert>
 
 <x-sub-title id="create">Кнопка создания</x-sub-title>
@@ -141,6 +148,34 @@ public function getMassDeleteButton(
         isAsync: $isAsync
     );
 } // [tl! focus:-11]
+</x-code>
+
+<x-sub-title id="form">Кнопки формы</x-sub-title>
+
+<x-p>
+    Метод <code>getFormBuilderButtons()</code> позволяет добавить дополнительные <x-link link="{{ to_page('action_button') }}">кнопки</x-link>
+    в форму создания или редактирования.
+</x-p>
+
+<x-code language="php">
+namespace MoonShine\Resources;
+
+use MoonShine\ActionButtons\ActionButton; // [tl! focus]
+use MoonShine\Resources\ModelResource;
+
+class PostResource extends ModelResource
+{
+    //...
+
+    public function getFormBuilderButtons(): array // [tl! focus:start]
+    {
+        return [
+            ActionButton::make('Back', fn() => $this->indexPageUrl())->customAttributes(['class' => 'btn-lg'])
+        ];
+    } // [tl! focus:end]
+
+    //...
+}
 </x-code>
 
 <x-sub-title id="actions">Кнопки на индексной странице</x-sub-title>

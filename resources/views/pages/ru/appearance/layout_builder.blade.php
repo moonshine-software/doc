@@ -16,7 +16,7 @@
 </x-p>
 
 <x-code language="shell">
-php artisan moonshine:publish
+php artisan moonshine:publish layout
 </x-code>
 
 @include('pages.ru.shared.alert_select_item_console')
