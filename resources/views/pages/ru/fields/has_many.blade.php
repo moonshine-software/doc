@@ -127,9 +127,41 @@ HasMany::make('Comments', 'comments', resource: new CommentResource())
 <x-sub-title id="modify">Модификация</x-sub-title>
 
 <x-p>
-    У поля <em>HasMany</em> существуют методы с помощью которых можно модифицировать кнопку редактирования (добавления),
+    У поля <em>HasMany</em> существуют методы с помощью которых можно модифицировать кнопки,
     изменить <em>TableBuilder</em> для превью и формы, а также изменить <em>onlyLink</em> кнопку.
 </x-p>
+
+<x-moonshine::divider label="modifyItemButtons()" />
+
+<x-p>
+    Метод <code>modifyItemButtons()</code> позволяет изменить кнопки просмотра, редактирования,
+    удаления и массового удаления.
+</x-p>
+
+<x-code language="php">
+/**
+ * @param  Closure(ActionButton $detail, ActionButton $edit, ActionButton $delete, ActionButton $massDelete, self $field): array  $callback
+ */
+modifyItemButtons(Closure $callback)
+</x-code>
+
+<x-code language="php">
+use MoonShine\Fields\Relationships\HasMany;
+
+//...
+
+public function fields(): array
+{
+    return [
+        HasMany::make('Comments', resource: new CommentResource())
+            ->modifyItemButtons(
+                fn(ActionButton $detail, $edit, $delete, $massDelete, $ctx HasMany) => [$detail])
+            ) // [tl! focus:-2]
+    ];
+}
+
+//...
+</x-code>
 
 <x-moonshine::divider label="modifyOnlyLinkButton()" />
 

@@ -84,8 +84,6 @@ public function fields(): array
 //...
 </x-code>
 
-
-
 @include('pages.en.fields.shared.only_link', ['field' => 'HasMany', 'label' => 'Comments'])
 
 @include('pages.en.fields.shared.parent_id')
@@ -129,9 +127,41 @@ HasMany::make('Comments', 'comments', resource: new CommentResource())
 <x-sub-title id="modify">Modify</x-sub-title>
 
 <x-p>
-    The <em>HasMany</em> field has methods that can be used to modify the edit (add) button,
+    The <em>HasMany</em> field has methods that can be used to modify the buttons,
     change <em>TableBuilder</em> for preview and form, and change <em>onlyLink</em> button.
 </x-p>
+
+<x-moonshine::divider label="modifyItemButtons()" />
+
+<x-p>
+    The <code>modifyItemButtons()</code> method allows you to change the view, edit,
+    deletion and mass deletion.
+</x-p>
+
+<x-code language="php">
+/**
+ * @param  Closure(ActionButton $detail, ActionButton $edit, ActionButton $delete, ActionButton $massDelete, self $field): array  $callback
+ */
+modifyItemButtons(Closure $callback)
+</x-code>
+
+<x-code language="php">
+use MoonShine\Fields\Relationships\HasMany;
+
+//...
+
+public function fields(): array
+{
+    return [
+        HasMany::make('Comments', resource: new CommentResource())
+            ->modifyItemButtons(
+                fn(ActionButton $detail, $edit, $delete, $massDelete, $ctx HasMany) => [$detail])
+            ) // [tl! focus:-2]
+    ];
+}
+
+//...
+</x-code>
 
 <x-moonshine::divider label="modifyOnlyLinkButton()" />
 
