@@ -155,7 +155,7 @@ public function fields(): array
     return [
         HasMany::make('Comments', resource: new CommentResource())
             ->modifyItemButtons(
-                fn(ActionButton $detail, $edit, $delete, $massDelete, $ctx HasMany) => [$detail])
+                fn(ActionButton $detail, $edit, $delete, $massDelete, HasMany $ctx) => [$detail])
             ) // [tl! focus:-2]
     ];
 }
