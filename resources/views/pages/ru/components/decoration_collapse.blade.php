@@ -4,6 +4,7 @@
         'Разделы' => [
             ['url' => '#make', 'label' => 'Make'],
             ['url' => '#show', 'label' => 'Show'],
+            ['url' => '#persist', 'label' => 'Persist'],
         ]
     ]"
 >
@@ -65,6 +66,37 @@ public function components(): array
             Text::make('Slug')
         ])
             ->show() // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
+
+<x-sub-title id="persist">Persist</x-sub-title>
+
+<x-p>
+    По умолчанию декоратор <em>Collapse</em> запоминает состояние, но бывают случаи, когда этого делать не стоит.
+    Метод <code>persist()</code> позволяет переопределить это поведение.
+</x-p>
+
+<x-code language="php">
+    persist(Closure|bool|null $condition = null)
+</x-code>
+
+<x-code language="php">
+use MoonShine\Decorations\Collapse;
+use MoonShine\Fields\Text;
+
+//...
+
+public function components(): array
+{
+    return [
+        Collapse::make('Title/Slug', [
+            Text::make('Title'),
+            Text::make('Slug')
+        ])
+            ->persist(fn () => false) // [tl! focus]
     ];
 }
 
