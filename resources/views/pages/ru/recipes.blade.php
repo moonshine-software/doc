@@ -15,6 +15,7 @@
             ['url' => '#tinymce-limit-preview', 'label' => 'TinyMce количество символов в привью'],
             ['url' => '#change-field-logic', 'label' => 'Изменение логики поля'],
             ['url' => '#images-in-linked-table', 'label' => 'Сохранение изображений в связанной таблице'],
+            ['url' => '#custom-select-filter', 'label' => 'Кастомный фильтр с селектом'],
         ]
     ]"
 >
@@ -34,5 +35,6 @@
     'title' => 'Изменение логики поведения поля Image для сохранения путей к изображениям в отдельной таблице базы данных'
 ])
 @include('pages.ru.recipes.images-in-linked-table', ['title' => 'Сохранение изображений в связанной таблице'])
+@include('pages.ru.recipes.custom-select-filter', ['title' => 'Кастомный фильтр с селектом'])
 
 </x-page>
