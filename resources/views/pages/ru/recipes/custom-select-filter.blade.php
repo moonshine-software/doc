@@ -7,23 +7,22 @@ use MoonShine\Resources\ModelResource;
 
 class PostResource extends ModelResource
 {
+    //...
 
-//...
+    public function filters(): array
+    {
+        return [
+            Select::make('Статус активности', 'active')
+                ->options([
+                    '0' => 'Только НЕ активные',
+                    '1' => 'Только активные',
+                ])
+                ->nullable()
+                ->onApply(fn(Builder $query, $value) => $query->where('active', $value)), // [tl! focus:-6]
+        ];
+    }
 
-public function filters(): array
-{
-    return [
-        Select::make('Статус активности', 'active')
-            ->options([
-                '0' => 'Только НЕ активные',
-                '1' => 'Только активные',
-            ])
-            ->nullable()
-            ->onApply(fn(Builder $query, $value) => $query->where('active', $value)), // [tl! focus:-6]
-    ];
-}
-
-//...
+    //...
 }
 </x-code>
 
