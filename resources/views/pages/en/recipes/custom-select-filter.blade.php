@@ -1,4 +1,4 @@
-<x-recipe id="custom-select-filter" title="{{ $title ?? 'Рецепт' }}">
+<x-recipe id="custom-select-filter" title="{{ $title ?? 'Recipe' }}">
 
 <x-code language="php">
 namespace App\MoonShine\Resources;
@@ -7,12 +7,13 @@ use MoonShine\Resources\ModelResource;
 
 class PostResource extends ModelResource
 {
+
 //...
 
 public function filters(): array
 {
     return [
-        Select::make('Активность', 'active')
+        Select::make('Activity status', 'active')
             ->options([
                 '0' => 'Only NOT active',
                 '1' => 'Only active',

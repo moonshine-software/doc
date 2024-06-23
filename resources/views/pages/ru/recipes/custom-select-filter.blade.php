@@ -7,12 +7,13 @@ use MoonShine\Resources\ModelResource;
 
 class PostResource extends ModelResource
 {
+
 //...
 
 public function filters(): array
 {
     return [
-        Select::make('Активность', 'active')
+        Select::make('Статус активности', 'active')
             ->options([
                 '0' => 'Только НЕ активные',
                 '1' => 'Только активные',
