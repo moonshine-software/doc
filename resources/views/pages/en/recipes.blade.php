@@ -15,6 +15,7 @@
             ['url' => '#tinymce-limit-preview', 'label' => 'TinyMce number of characters in preview'],
             ['url' => '#change-field-logic', 'label' => 'Changing field logic'],
             ['url' => '#images-in-linked-table', 'label' => 'Saving images in a linked table'],
+            ['url' => '#custom-select-filter', 'label' => 'Custom select filter'],
         ]
     ]"
 >
@@ -34,5 +35,6 @@
     'title' => 'Changing the behavior logic of the Image field to save paths to images in a separate database table'
 ])
 @include('pages.en.recipes.images-in-linked-table', ['title' => 'Saving images in a linked table'])
+@include('pages.en.recipes.custom-select-filter', ['title' => 'Custom select filter'])
 
 </x-page>
