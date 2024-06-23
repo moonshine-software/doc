@@ -12,10 +12,10 @@ class PostResource extends ModelResource
     public function filters(): array
     {
         return [
-            Select::make('Статус активности', 'active')
+            Select::make('Activity status', 'active')
                 ->options([
-                    '0' => 'Только НЕ активные',
-                    '1' => 'Только активные',
+                    '0' => 'Only NOT active',
+                    '1' => 'Only active',
                 ])
                 ->nullable()
                 ->onApply(fn(Builder $query, $value) => $query->where('active', $value)), // [tl! focus:-6]
