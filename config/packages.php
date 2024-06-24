@@ -151,4 +151,9 @@ return [
         'url' => 'sliva-name/moonshine-carousel',
         'category' => 'Components'
     ],
+    [
+        'title' => 'MoonShine Idioma Español',
+        'url' => 'stivenm0/MoonShine-Language-Spanish',
+        'category' => 'Localizations'
+    ],
 ];
