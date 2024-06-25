@@ -45,6 +45,26 @@
 
 <x-sub-title id="create">Кнопка создания</x-sub-title>
 
+<x-moonshine::divider label="Модификация" />
+
+<x-p>
+    Метод <code>modifyCreateButton()</code> позволяет модифицировать кнопку создания нового элемента.
+</x-p>
+
+<x-code language="php">
+use MoonShine\ActionButtons\ActionButton;
+
+protected function modifyCreateButton(ActionButton $button): ActionButton
+{
+    return $button->error();
+} // [tl! focus:-3]
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/resource_button_create.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/resource_button_create_dark.png') }}"></x-image>
+
+<x-moonshine::divider label="Переопределение" />
+
 <x-p>
     Метод <code>getCreateButton()</code> позволяет переопределить кнопку создания нового элемента.
 </x-p>
@@ -65,6 +85,26 @@ public function getCreateButton(?string $componentName = null, bool $isAsync = f
 
 <x-sub-title id="detail">Кнопка просмотра</x-sub-title>
 
+<x-moonshine::divider label="Модификация" />
+
+<x-p>
+    Метод <code>modifyDetailButton()</code> позволяет модифицировать кнопку детального просмотра элемента.
+</x-p>
+
+<x-code language="php">
+use MoonShine\ActionButtons\ActionButton;
+
+protected function modifyDetailButton(ActionButton $button): ActionButton
+{
+    return $button->warning();
+} // [tl! focus:-3]
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/resource_button_detail.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/resource_button_detail_dark.png') }}"></x-image>
+
+<x-moonshine::divider label="Переопределение" />
+
 <x-p>
     Метод <code>getDetailButton()</code> позволяет переопределить кнопку детального просмотра элемента.
 </x-p>
@@ -83,6 +123,26 @@ public function getDetailButton(bool $isAsync = false): ActionButton
 </x-code>
 
 <x-sub-title id="edit">Кнопка редактирования</x-sub-title>
+
+<x-moonshine::divider label="Модификация" />
+
+<x-p>
+    Метод <code>modifyEditButton()</code> позволяет модифицировать кнопку редактирования элемента.
+</x-p>
+
+<x-code language="php">
+use MoonShine\ActionButtons\ActionButton;
+
+protected function modifyEditButton(ActionButton $button): ActionButton
+{
+    return $button->icon('heroicons.pencil-square');
+} // [tl! focus:-3]
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/resource_button_edit.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/resource_button_edit_dark.png') }}"></x-image>
+
+<x-moonshine::divider label="Переопределение" />
 
 <x-p>
     Метод <code>getEditButton()</code> позволяет переопределить кнопку редактирования элемента.
@@ -103,6 +163,26 @@ public function getEditButton(?string $componentName = null, bool $isAsync = fal
 </x-code>
 
 <x-sub-title id="delete">Кнопка удаления</x-sub-title>
+
+<x-moonshine::divider label="Модификация" />
+
+<x-p>
+    Метод <code>modifyDeleteButton()</code> позволяет модифицировать кнопку удаления элемента.
+</x-p>
+
+<x-code language="php">
+use MoonShine\ActionButtons\ActionButton;
+
+protected function modifyDeleteButton(ActionButton $button): ActionButton
+{
+    return $button->icon('heroicons.x-mark');
+} // [tl! focus:-3]
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/resource_button_delete.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/resource_button_delete_dark.png') }}"></x-image>
+
+<x-moonshine::divider label="Переопределение" />
 
 <x-p>
     Метод <code>getDeleteButton()</code> позволяет переопределить кнопку удаления элемента.
@@ -127,6 +207,26 @@ public function getDeleteButton(
 </x-code>
 
 <x-sub-title id="mass-delete">Кнопка массового удаления</x-sub-title>
+
+<x-moonshine::divider label="Модификация" />
+
+<x-p>
+    Метод <code>modifyMassDeleteButton()</code> позволяет модифицировать кнопку массового удаления.
+</x-p>
+
+<x-code language="php">
+use MoonShine\ActionButtons\ActionButton;
+
+protected function modifyMassDeleteButton(ActionButton $button): ActionButton
+{
+    return $button->icon('heroicons.x-mark');
+} // [tl! focus:-3]
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/resource_button_mass_delete.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/resource_button_mass_delete_dark.png') }}"></x-image>
+
+<x-moonshine::divider label="Переопределение" />
 
 <x-p>
     Метод <code>getMassDeleteButton()</code> позволяет переопределить кнопку массового удаления.
@@ -178,6 +278,9 @@ class PostResource extends ModelResource
 }
 </x-code>
 
+<x-image theme="light" src="{{ asset('screenshots/resource_buttons_form_builder.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/resource_buttons_form_builder_dark.png') }}"></x-image>
+
 <x-sub-title id="actions">Кнопки на индексной странице</x-sub-title>
 
 <x-p>
@@ -207,6 +310,9 @@ class PostResource extends ModelResource
 }
 </x-code>
 
+<x-image theme="light" src="{{ asset('screenshots/resource_buttons_actions.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/resource_buttons_actions_dark.png') }}"></x-image>
+
 <x-sub-title id="buttons">Кнопки элемента</x-sub-title>
 
 <x-p>
@@ -228,7 +334,7 @@ class PostResource extends ModelResource
 {
     //...
 
-    public function actions(): array // [tl! focus:start]
+    public function buttons(): array // [tl! focus:start]
     {
         return [
             ActionButton::make('Link', '/endpoint')
@@ -266,6 +372,9 @@ class PostResource extends ModelResource
 }
 </x-code>
 
+<x-image theme="light" src="{{ asset('screenshots/resource_buttons_index.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/resource_buttons_index_dark.png') }}"></x-image>
+
 <x-moonshine::alert type="primary" icon="heroicons.outline.book-open">
     Пример создания кастомных кнопок у индексной таблицы в разделе
     <x-link link="{{ to_page('recipes') }}#custom-buttons">Recipes</x-link>
@@ -284,6 +393,9 @@ public function indexButtons(): array
     ];
 }
 </x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/resource_buttons_bulk.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/resource_buttons_bulk_dark.png') }}"></x-image>
 
 <x-moonshine::divider label="Переопределение группы" />
 
@@ -353,6 +465,9 @@ class PostResource extends ModelResource
 }
 </x-code>
 
+<x-image theme="light" src="{{ asset('screenshots/resource_buttons_form.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/resource_buttons_form_dark.png') }}"></x-image>
+
 <x-moonshine::divider label="Переопределение группы" />
 
 <x-p>
@@ -411,6 +526,9 @@ class PostResource extends ModelResource
     //...
 }
 </x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/resource_buttons_detail.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/resource_buttons_detail_dark.png') }}"></x-image>
 
 <x-moonshine::divider label="Переопределение группы" />
 

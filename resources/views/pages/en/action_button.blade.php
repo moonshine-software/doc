@@ -5,6 +5,7 @@
             ['url' => '#blank', 'label' => 'Blank'],
             ['url' => '#icon', 'label' => 'Icon'],
             ['url' => '#color', 'label' => 'Color'],
+            ['url' => '#badge', 'label' => 'Badge'],
             ['url' => '#onclick', 'label' => 'onClick'],
             ['url' => '#modal', 'label' => 'Modal'],
             ['url' => '#confirm', 'label' => 'Confirm'],
@@ -145,6 +146,27 @@ public function components(): array
 {!! actionBtn('Warning', 'https://moonshine-laravel.com')->warning() !!}
 {!! actionBtn('Success', 'https://moonshine-laravel.com')->success() !!}
 {!! actionBtn('Error', 'https://moonshine-laravel.com')->error() !!}
+
+<x-sub-title id="badge">Badge</x-sub-title>
+
+<x-p>
+    The <code>badge()</code> method allows you to add a badge to a button.
+</x-p>
+    
+<x-code language="php">
+badge(Closure|string|int|float|null $value)
+</x-code>
+
+<x-code language="php">
+use MoonShine\ActionButtons\ActionButton;
+
+//...
+
+ActionButton::make('Button')
+    ->badge(fn() => Comment::count()) // [tl! focus]
+
+//...
+</x-code>
 
 <x-sub-title id="onclick">onClick</x-sub-title>
 

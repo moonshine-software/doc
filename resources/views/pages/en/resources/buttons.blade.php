@@ -45,6 +45,26 @@
 
 <x-sub-title id="create">Create button</x-sub-title>
 
+<x-moonshine::divider label="Modification" />
+
+<x-p>
+    The <code>modifyCreateButton()</code> method allows you to modify the button for creating a new element.
+</x-p>
+
+<x-code language="php">
+use MoonShine\ActionButtons\ActionButton;
+
+protected function modifyCreateButton(ActionButton $button): ActionButton
+{
+    return $button->error();
+} // [tl! focus:-3]
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/resource_button_create.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/resource_button_create_dark.png') }}"></x-image>
+
+<x-moonshine::divider label="Override" />
+
 <x-p>
     The <code>getCreateButton()</code> method allows you to override the button for creating a new element.
 </x-p>
@@ -65,6 +85,26 @@ public function getCreateButton(?string $componentName = null, bool $isAsync = f
 
 <x-sub-title id="detail">Detail button</x-sub-title>
 
+<x-moonshine::divider label="Modification" />
+
+<x-p>
+    The <code>modifyDetailButton()</code> method allows you to modify the detail view button of an element.
+</x-p>
+
+<x-code language="php">
+use MoonShine\ActionButtons\ActionButton;
+
+protected function modifyDetailButton(ActionButton $button): ActionButton
+{
+    return $button->warning();
+} // [tl! focus:-3]
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/resource_button_detail.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/resource_button_detail_dark.png') }}"></x-image>
+
+<x-moonshine::divider label="Override" />
+
 <x-p>
     The <code>getDetailButton()</code> method allows you to override the element's detail view button.
 </x-p>
@@ -83,6 +123,26 @@ public function getDetailButton(bool $isAsync = false): ActionButton
 </x-code>
 
 <x-sub-title id="edit">Edit button</x-sub-title>
+
+<x-moonshine::divider label="Modification" />
+
+<x-p>
+    The <code>modifyEditButton()</code> method allows you to modify the element's edit button.
+</x-p>
+
+<x-code language="php">
+use MoonShine\ActionButtons\ActionButton;
+
+protected function modifyEditButton(ActionButton $button): ActionButton
+{
+    return $button->icon('heroicons.pencil-square');
+} // [tl! focus:-3]
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/resource_button_edit.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/resource_button_edit_dark.png') }}"></x-image>
+
+<x-moonshine::divider label="Override" />
 
 <x-p>
     The <code>getEditButton()</code> method allows you to override an element's edit button.
@@ -103,6 +163,26 @@ public function getEditButton(?string $componentName = null, bool $isAsync = fal
 </x-code>
 
 <x-sub-title id="delete">Delete button</x-sub-title>
+
+<x-moonshine::divider label="Modification" />
+
+<x-p>
+    The <code>modifyDeleteButton()</code> method allows you to modify the button to delete an element.
+</x-p>
+
+<x-code language="php">
+use MoonShine\ActionButtons\ActionButton;
+
+protected function modifyDeleteButton(ActionButton $button): ActionButton
+{
+    return $button->icon('heroicons.x-mark');
+} // [tl! focus:-3]
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/resource_button_delete.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/resource_button_delete_dark.png') }}"></x-image>
+
+<x-moonshine::divider label="Override" />
 
 <x-p>
     The <code>getDeleteButton()</code> method allows you to override the element's delete button.
@@ -127,6 +207,26 @@ public function getDeleteButton(
 </x-code>
 
 <x-sub-title id="mass-delete">Bulk delete button</x-sub-title>
+
+<x-moonshine::divider label="Modification" />
+
+<x-p>
+    The <code>modifyMassDeleteButton()</code> method allows you to modify the mass delete button.
+</x-p>
+
+<x-code language="php">
+use MoonShine\ActionButtons\ActionButton;
+
+protected function modifyMassDeleteButton(ActionButton $button): ActionButton
+{
+    return $button->icon('heroicons.x-mark');
+} // [tl! focus:-3]
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/resource_button_mass_delete.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/resource_button_mass_delete_dark.png') }}"></x-image>
+
+<x-moonshine::divider label="Override" />
 
 <x-p>
     The <code>getMassDeleteButton()</code> method allows you to override the mass delete button.
@@ -178,6 +278,9 @@ class PostResource extends ModelResource
 }
 </x-code>
 
+<x-image theme="light" src="{{ asset('screenshots/resource_buttons_form_builder.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/resource_buttons_form_builder_dark.png') }}"></x-image>
+
 <x-sub-title id="actions">Buttons on the index page</x-sub-title>
 
 <x-p>
@@ -207,6 +310,9 @@ class PostResource extends ModelResource
 }
 </x-code>
 
+<x-image theme="light" src="{{ asset('screenshots/resource_buttons_actions.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/resource_buttons_actions_dark.png') }}"></x-image>
+
 <x-sub-title id="buttons">Element buttons</x-sub-title>
 
 <x-p>
@@ -228,7 +334,7 @@ class PostResource extends ModelResource
 {
     //...
 
-    public function actions(): array // [tl! focus:start]
+    public function buttons(): array // [tl! focus:start]
     {
         return [
             ActionButton::make('Link', '/endpoint')
@@ -266,6 +372,9 @@ class PostResource extends ModelResource
 }
 </x-code>
 
+<x-image theme="light" src="{{ asset('screenshots/resource_buttons_index.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/resource_buttons_index_dark.png') }}"></x-image>
+
 <x-moonshine::alert type="primary" icon="heroicons.outline.book-open">
     An example of creating custom buttons for the index table in the section
     <x-link link="{{ to_page('recipes') }}#custom-buttons">Recipes</x-link>
@@ -284,6 +393,9 @@ public function indexButtons(): array
     ];
 }
 </x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/resource_buttons_bulk.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/resource_buttons_bulk_dark.png') }}"></x-image>
 
 <x-moonshine::divider label="Group override" />
 
@@ -353,6 +465,9 @@ class PostResource extends ModelResource
 }
 </x-code>
 
+<x-image theme="light" src="{{ asset('screenshots/resource_buttons_form.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/resource_buttons_form_dark.png') }}"></x-image>
+
 <x-moonshine::divider label="Group override" />
 
 <x-p>
@@ -411,6 +526,9 @@ class PostResource extends ModelResource
     //...
 }
 </x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/resource_buttons_detail.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/resource_buttons_detail_dark.png') }}"></x-image>
 
 <x-moonshine::divider label="Group override" />
 
