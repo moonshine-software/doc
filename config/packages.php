@@ -152,8 +152,13 @@ return [
         'category' => 'Components'
     ],
     [
-        'title' => 'MoonShine Idioma Español',
+        'title' => 'Moonshine Language Spanish',
         'url' => 'stivenm0/MoonShine-Language-Spanish',
         'category' => 'Localizations'
+    ],
+    [
+        'title' => 'Input extension - display the number of characters',
+        'url' => 'lee-to/moonshine-input-extension-char-count',
+        'category' => 'Fields'
     ],
 ];
