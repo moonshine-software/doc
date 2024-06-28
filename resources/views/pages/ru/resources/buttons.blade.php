@@ -292,7 +292,9 @@ class PostResource extends ModelResource
 namespace MoonShine\Resources;
 
 use MoonShine\ActionButtons\ActionButton; // [tl! focus]
+use MoonShine\Enums\JsEvent;
 use MoonShine\Resources\ModelResource;
+use MoonShine\Support\AlpineJs;
 
 class PostResource extends ModelResource
 {
@@ -364,7 +366,10 @@ class PostResource extends ModelResource
     public function indexButtons(): array // [tl! focus:start]
     {
         return [
-            ActionButton::make('Link', '/endpoint')
+            ActionButton::make(
+                'Link',
+                fn(Model $item) => '/endpoint?id=' . $item->getKey()
+            )
         ];
     } // [tl! focus:end]
 
@@ -457,7 +462,7 @@ class PostResource extends ModelResource
     public function formButtons(): array // [tl! focus:start]
     {
         return [
-            ActionButton::make('Link', '/endpoint')
+            ActionButton::make('Link')->method('updateSomething')
         ];
     } // [tl! focus:end]
 

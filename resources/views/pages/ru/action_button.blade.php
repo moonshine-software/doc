@@ -168,6 +168,8 @@ ActionButton::make('Button')
 //...
 </x-code>
 
+{!! actionBtn('Button', '#')->badge(25) !!}
+
 <x-sub-title id="onclick">onClick</x-sub-title>
 
 <x-p>
