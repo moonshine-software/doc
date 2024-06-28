@@ -152,7 +152,7 @@ public function components(): array
 <x-p>
     The <code>badge()</code> method allows you to add a badge to a button.
 </x-p>
-    
+
 <x-code language="php">
 badge(Closure|string|int|float|null $value)
 </x-code>
@@ -167,6 +167,8 @@ ActionButton::make('Button')
 
 //...
 </x-code>
+
+{!! actionBtn('Button', '#')->badge(25) !!}
 
 <x-sub-title id="onclick">onClick</x-sub-title>
 
