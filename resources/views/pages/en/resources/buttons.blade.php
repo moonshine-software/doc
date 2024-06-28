@@ -292,7 +292,9 @@ class PostResource extends ModelResource
 namespace MoonShine\Resources;
 
 use MoonShine\ActionButtons\ActionButton; // [tl! focus]
+use MoonShine\Enums\JsEvent;
 use MoonShine\Resources\ModelResource;
+use MoonShine\Support\AlpineJs;
 
 class PostResource extends ModelResource
 {
