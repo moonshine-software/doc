@@ -364,7 +364,10 @@ class PostResource extends ModelResource
     public function indexButtons(): array // [tl! focus:start]
     {
         return [
-            ActionButton::make('Link', '/endpoint')
+            ActionButton::make(
+                'Link',
+                fn(Model $item) => '/endpoint?id=' . $item->getKey()
+            )
         ];
     } // [tl! focus:end]
 
@@ -457,7 +460,7 @@ class PostResource extends ModelResource
     public function formButtons(): array // [tl! focus:start]
     {
         return [
-            ActionButton::make('Link', '/endpoint')
+            ActionButton::make('Link')->method('updateSomething')
         ];
     } // [tl! focus:end]
 
