@@ -2,6 +2,7 @@
     'Sections' => [
         ['url' => '#basics', 'label' => 'Basics'],
         ['url' => '#simple', 'label' => 'Simplified view'],
+        ['url' => '#sticky', 'label' => 'Sticky head'],
         ['url' => '#notfound', 'label' => 'Missing elements'],
         ['url' => '#slots', 'label' => 'Slots'],
         ['url' => '#styles', 'label' => 'Stylization'],
@@ -37,6 +38,14 @@
         </x-moonshine::box>
     </x-moonshine::column>
 </x-moonshine::grid>
+
+<x-sub-title id="sticky">Sticky head</x-sub-title>
+
+<x-p>
+    If the table contains a large number of elements, then you can fix the header when scrolling the table.
+</x-p>
+
+<x-code language="blade" file="resources/views/examples/components/table-sticky.blade.php"></x-code>
 
 <x-sub-title id="notfound">Missing elements</x-sub-title>
 
