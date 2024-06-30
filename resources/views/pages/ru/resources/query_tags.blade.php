@@ -19,6 +19,7 @@
 namespace App\MoonShine\Resources;
 
 use App\Models\Post;
+use Illuminate\Database\Eloquent\Builder;
 use MoonShine\QueryTags\QueryTag; // [tl! focus]
 use MoonShine\Resources\ModelResource;
 
@@ -54,6 +55,11 @@ class PostResource extends ModelResource
 </x-p>
 
 <x-code language="php">
+use Illuminate\Database\Eloquent\Builder;
+use MoonShine\QueryTags\QueryTag;
+
+//...
+
 QueryTag::make(
     'Post without an author',
     fn(Builder $query) => $query->whereNull('author_id')
@@ -78,6 +84,11 @@ default(Closure|bool|null $condition = null)
 </x-code>
 
 <x-code language="php">
+use Illuminate\Database\Eloquent\Builder;
+use MoonShine\QueryTags\QueryTag;
+
+//...
+
 QueryTag::make(
     'All posts',
     fn(Builder $query) => $query
@@ -94,6 +105,11 @@ QueryTag::make(
 </x-p>
 
 <x-code language="php">
+use Illuminate\Database\Eloquent\Builder;
+use MoonShine\QueryTags\QueryTag;
+
+//...
+
 QueryTag::make(
     'Post with author', // Заголовок тега
     fn(Builder $query) => $query->whereNotNull('author_id')
@@ -114,6 +130,11 @@ QueryTag::make(
 </x-p>
 
 <x-code language="php">
+use Illuminate\Database\Eloquent\Builder;
+use MoonShine\QueryTags\QueryTag;
+
+//...
+
 QueryTag::make(
     'Archived posts',
     fn(Builder $query) => $query->where('is_archived', true)
