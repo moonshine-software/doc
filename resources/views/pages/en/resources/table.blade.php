@@ -4,6 +4,7 @@
         ['url' => '#buttons', 'label' => 'Buttons'],
         ['url' => '#attributes', 'label' => 'Attributes'],
         ['url' => '#click', 'label' => 'Click Actions'],
+        ['url' => '#sticky-table', 'label' => 'Sticky table header'],
         ['url' => '#simple-pagination', 'label' => 'Simple pagination'],
         ['url' => '#disable-pagination', 'label' => 'Disabling pagination'],
         ['url' => '#async', 'label' => 'Asynchronous mode'],
@@ -160,6 +161,30 @@ class PostResource extends ModelResource
     // ClickAction::SELECT, ClickAction::DETAIL, ClickAction::EDIT
 
     protected ?ClickAction $clickAction = ClickAction::SELECT;
+</x-code>
+
+<x-sub-title id="sticky-table">Sticky table header</x-sub-title>
+
+<x-p>
+    The <code>stickyTable</code> model resource property allows you to fix the header
+    when scrolling a table with a large number of elements.
+</x-p>
+
+<x-code language="php">
+namespace App\MoonShine\Resources;
+
+use MoonShine\Resources\ModelResource;
+
+class PostResource extends ModelResource
+{
+    protected string $model = Post::class;
+
+    protected string $title = 'Posts';
+
+    protected bool $stickyTable = true; // [tl! focus]
+
+    // ...
+}
 </x-code>
 
 <x-sub-title id="simple-pagination">Simple pagination</x-sub-title>
