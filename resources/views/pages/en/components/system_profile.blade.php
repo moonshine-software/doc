@@ -3,6 +3,7 @@
     :sectionMenu="[
         'Sections' => [
             ['url' => '#make', 'label' => 'Make'],
+            ['url' => '#default-avatar', 'label' => 'Default avatar'],
         ]
     ]"
 >
@@ -55,5 +56,28 @@ final class MoonShineLayout implements MoonShineLayoutContract
 
 <x-image theme="light" src="{{ asset('screenshots/profile.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/profile_dark.png') }}"></x-image>
+
+<x-sub-title id="default-avatar">Default avatar</x-sub-title>
+
+<x-p>
+    The <code>defaultAvatar()</code> method allows you to override the default profile avatar.
+</x-p>
+
+<x-code language="php">
+defaultAvatar(string $url)
+</x-code>
+
+<x-ul>
+    <li><code>$url</code> - default avatar url.</li>
+</x-ul>
+
+<x-code language="php">
+use MoonShine\Components\Layout\Profile;
+
+//...
+
+Profile::make()
+    ->defaultAvatar("https://ui-avatars.com/api/?name=$name") // [tl! focus]
+</x-code>
 
 </x-page>
