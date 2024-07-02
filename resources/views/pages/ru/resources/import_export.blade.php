@@ -179,8 +179,31 @@ public function import(): ?ImportHandler
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
     По умолчанию данные экспортируются в формате <code>xlsx</code>,
-    но существует возможность экспортировать в формате <code>csv</code>.
+    но существует возможность изменить формат на <code>csv</code> глобально
+    или через метод <code>csv()</code> класса
+    <code>ExportHandler</code>.
 </x-moonshine::alert>
+
+<x-moonshine::divider label="Глобальный формат экспорта" />
+
+<x-p>
+    Изменить формат экспорта глобально можно в <code>MoonShineServiceProvider</code>:
+</x-p>
+
+<x-code language="php">
+use MoonShine\Providers\MoonShineApplicationServiceProvider;
+use MoonShine\Resources\ModelResource;
+
+class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
+{
+    public function boot(): void
+    {
+        parent::boot();
+
+        ModelResource::defaultExportToCsv(); // [tl! focus]
+    }
+}
+</x-code>
 
 <x-moonshine::divider label="Поля" />
 
