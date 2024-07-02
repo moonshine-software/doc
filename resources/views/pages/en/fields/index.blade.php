@@ -22,6 +22,7 @@
             ['url' => '#wrapper', 'label' => 'Wrapper'],
             ['url' => '#reactive', 'label' => 'Reactive'],
             ['url' => '#on-change', 'label' => 'onChange methods'],
+            ['url' => '#for-value', 'label' => 'Methods for values'],
             ['url' => '#scheme', 'label' => 'Scheme field\'s work'],
         ]
     ]"
@@ -1206,6 +1207,56 @@ public function someMethod(MoonShineRequest $request): void
     Example of sorting the <em>CardsBuilder</em> component in the section
     <x-link link="{{ to_page('recipes') }}#sorting-for-cards-builder">Recipes</x-link>
 </x-moonshine::alert>
+
+<x-sub-title id="for-value">Methods for values</x-sub-title>
+
+<x-moonshine::divider label="Get value from source" />
+
+<x-p>
+    The <code>fromRaw()</code> method allows you to add a closure to get the final value from the original.<br />
+    This closure is used when importing data.
+</x-p>
+
+<x-code language="php">
+/**
+ * @param  Closure(mixed $raw, static): mixed  $callback
+ * @return $this
+ */
+fromRaw(Closure $callback) // [tl! focus]
+</x-code>
+
+<x-code language="php">
+use App\Enums\StatusEnum;
+use MoonShine\Fields\Enum;
+
+Enum::make('Status')
+    ->attach(StatusEnum::class)
+    ->fromRaw(fn(string $raw, Enum $ctx) => StatusEnum::tryFrom($raw)) // [tl! focus]
+</x-code>
+
+<x-moonshine::divider label="Get raw value" />
+
+<x-p>
+    The <code>modifyRawValue()</code> method allows you to add a closure to obtain the raw value.<br />
+    This closure is used when exporting data.
+</x-p>
+
+<x-code language="php">
+/**
+ * @param  Closure(mixed $raw, static): mixed  $callback
+ * @return $this
+ */
+modifyRawValue(Closure $callback) // [tl! focus]
+</x-code>
+
+<x-code language="php">
+use App\Enums\StatusEnum;
+use MoonShine\Fields\Enum;
+
+Enum::make('Status')
+    ->attach(StatusEnum::class)
+    ->modifyRawValue(fn(StatusEnum $raw, Enum $ctx) => $raw->value)) // [tl! focus]
+</x-code>
 
 <x-sub-title id="scheme">Scheme field's work</x-sub-title>
 

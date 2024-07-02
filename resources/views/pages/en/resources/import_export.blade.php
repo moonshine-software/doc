@@ -69,15 +69,21 @@ class PostResource extends ModelResource
 </x-p>
 
 <x-code language="php">
-    useOnImport(mixed $condition = null)
+useOnImport(mixed $condition = null, ?Closure $fromRaw = null)
 </x-code>
+
+<x-ul>
+    <li><code>$condition</code> - method execution condition,</li>
+    <li><code>$fromRaw</code> - a closure that returns values from the raw.</li>
+</x-ul>
 
 <x-code language="php">
 namespace App\MoonShine\Resources;
 
+use App\Enums\StatusEnum;
 use App\Models\Post;
+use MoonShine\Fields\Enum;
 use MoonShine\Fields\ID;
-use MoonShine\Fields\Text;
 use MoonShine\Resources\ModelResource;
 
 class PostResource extends ModelResource
@@ -94,8 +100,9 @@ class PostResource extends ModelResource
             ID::make()
                 ->useOnImport(), // [tl! focus]
 
-            Text::make('Title', 'title')
-                ->useOnImport() // [tl! focus]
+            Enum::make('Status')
+                ->attach(StatusEnum::class)
+                ->useOnImport(fromRaw: static fn(string $raw, Enum $ctx) => StatusEnum::tryFrom($raw)), // [tl! focus]
         ];
     }
 
@@ -212,13 +219,20 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 </x-p>
 
 <x-code language="php">
-    showOnExport(mixed $condition = null)
+showOnExport(mixed $condition = null, ?Closure $modifyRawValue = null)
 </x-code>
+
+<x-ul>
+    <li><code>$condition</code> - method execution condition,</li>
+    <li><code>$modifyRawValue</code> - closure to get the raw value.</li>
+</x-ul>
 
 <x-code language="php">
 namespace App\MoonShine\Resources;
 
+use App\Enums\StatusEnum;
 use App\Models\Post;
+use MoonShine\Fields\Enum;
 use MoonShine\Fields\Text;
 use MoonShine\Resources\ModelResource;
 
@@ -234,7 +248,11 @@ class PostResource extends ModelResource
     {
         return [
             Text::make('Title', 'title')
-                ->showOnExport() // [tl! focus]
+                ->showOnExport(), // [tl! focus]
+
+            Enum::make('Status')
+                ->attach(StatusEnum::class)
+                ->showOnExport(modifyRawValue: static fn(StatusEnum $raw, Enum $ctx) => $raw->value), // [tl! focus]
         ];
     }
 
