@@ -12,6 +12,7 @@ asyncSearch(
     ?Closure $asyncSearchValueCallback = null,
     ?string $associatedWith = null,
     ?string $url = null,
+    bool $replaceQuery = false,
 )
 </x-code>
 
@@ -45,7 +46,8 @@ public function fields(): array
     <li><code>$asyncSearchQuery</code> - callback-функция для фильтрации значений;</li>
     <li><code>$asyncSearchValueCallback</code> - callback-функция для кастомизации вывода;</li>
     <li><code>$associatedWith</code> - поле с которым необходимо установить связь;</li>
-    <li><code>$url</code> - url для обработки асинхронного запроса.</li>
+    <li><code>$url</code> - url для обработки асинхронного запроса,</li>
+    <li><code>$replaceQuery</code> - заменить запрос.</li>
 </x-ul>
 
 <x-code language="php">
@@ -98,6 +100,37 @@ public function fields(): array
                 asyncSearchQuery: function (Builder $query, Request $request, Field $field): Builder {
                     return $query->where('country_id', $request->get('country_id'));
                 } // [tl! focus:-2]
+            )
+    ];
+}
+
+//...
+</x-code>
+
+<x-moonshine::alert type="default" icon="heroicons.book-open">
+    При построении запроса в <code>asyncSearchQuery()</code> исходное состояние builder сохраняется.<br />
+    Если вам требуется заменить на свой builder, то воспользуйтесь флагом <code>replaceQuery</code>.
+</x-moonshine::alert>
+
+<x-code language="php">
+use Illuminate\Contracts\Database\Eloquent\Builder; // [tl! focus]
+use Illuminate\Http\Request; // [tl! focus]
+use MoonShine\Fields\Relationships\{{ $field }};
+use MoonShine\Fields\Select;
+
+//...
+
+public function fields(): array
+{
+    return [
+        Select::make('Country', 'country_id'), // [tl! focus]
+        {{ $field }}::make('{{ $field === 'BelongsToMany' ? 'Cities' : 'City' }}', '{{ $field === 'BelongsToMany' ? 'cities' : 'city' }}',  resource: new CityResource())
+            ->asyncSearch(
+                'title',
+                asyncSearchQuery: function (Builder $query, Request $request, Field $field): Builder {
+                    return $query->where('country_id', $request->get('country_id'));
+                },
+                replaceQuery: true // [tl! focus]
             )
     ];
 }
