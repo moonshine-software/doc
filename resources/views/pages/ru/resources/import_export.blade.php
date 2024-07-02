@@ -177,6 +177,51 @@ public function import(): ?ImportHandler
     то кнопка импорта не будет отображаться на индексной странице.
 </x-moonshine::alert>
 
+<x-moonshine::divider label="События" />
+
+<x-p>
+    Для изменения логики работы импорта можно воспользоваться
+    <x-link link="{{ to_page('resources-events') }}">событиями</x-link> ресурса модели.
+</x-p>
+
+<x-code language="php">
+//  MoonShine\Resources\ModelResource
+
+public function beforeImportFilling(array $data): array // [tl! focus]
+{
+    return $data;
+}
+
+public function beforeImported(Model $item): Model // [tl! focus]
+{
+    return $item;
+}
+
+public function afterImported(Model $item): Model // [tl! focus]
+{
+    return $item;
+}
+</x-code>
+
+<x-p>
+    Данные события вызываются в <code>ImportHandler</code>
+</x-p>
+
+<x-code language="php">
+// MoonShine\Handlers\ImportHandler
+
+$data = $resource->beforeImportFilling($data); // [tl! focus]
+
+$item->forceFill($data);
+
+$item = $resource->beforeImported($item); // [tl! focus]
+
+return tap(
+    $item->save(),
+    fn() => $resource->afterImported($item) // [tl! focus]
+);
+</x-code>
+
 <x-sub-title id="export">Export</x-sub-title>
 
 <x-p>

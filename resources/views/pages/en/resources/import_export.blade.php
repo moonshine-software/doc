@@ -177,6 +177,51 @@ public function import(): ?ImportHandler
     then the import button will not appear on the index page.
 </x-moonshine::alert>
 
+<x-moonshine::divider label="Events" />
+
+<x-p>
+    To change the import logic, you can use
+    <x-link link="{{ to_page('resources-events') }}">events</x-link> of the model resource.
+</x-p>
+
+<x-code language="php">
+//  MoonShine\Resources\ModelResource
+
+public function beforeImportFilling(array $data): array // [tl! focus]
+{
+    return $data;
+}
+
+public function beforeImported(Model $item): Model // [tl! focus]
+{
+    return $item;
+}
+
+public function afterImported(Model $item): Model // [tl! focus]
+{
+    return $item;
+}
+</x-code>
+
+<x-p>
+    These events are called in <code>ImportHandler</code>
+</x-p>
+
+<x-code language="php">
+// MoonShine\Handlers\ImportHandler
+
+$data = $resource->beforeImportFilling($data); // [tl! focus]
+
+$item->forceFill($data);
+
+$item = $resource->beforeImported($item); // [tl! focus]
+
+return tap(
+    $item->save(),
+    fn() => $resource->afterImported($item) // [tl! focus]
+);
+</x-code>
+
 <x-sub-title id="export">Export</x-sub-title>
 
 <x-p>
