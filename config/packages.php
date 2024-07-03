@@ -17,6 +17,11 @@ return [
         'category' => 'GUI'
     ],
     [
+        'title' => 'MoonShine two-factor authentication',
+        'url' => 'moonshine-software/two-factor',
+        'category' => 'Auth'
+    ],
+    [
         'title' => 'Manager Seo',
         'url' => 'lee-to/laravel-seo-by-url',
         'category' => 'GUI'
