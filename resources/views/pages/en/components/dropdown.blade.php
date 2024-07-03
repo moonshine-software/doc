@@ -191,7 +191,7 @@ Dropdown::make(
                         MoonShine\Components\Link::make('#', 'Link 2'),
                         MoonShine\Components\Link::make('#', 'Link 3'),
                     ])
-//                    ->searchable()
+                    ->searchable()
                 !!}
         </x-moonshine::box>
     </x-moonshine::column>
@@ -235,8 +235,8 @@ Dropdown::make(
                         MoonShine\Components\Link::make('#', 'Link 2'),
                         MoonShine\Components\Link::make('#', 'Link 3'),
                     ])
-//                    ->searchable()
-//                    ->searchPlaceholder('Search item')
+                    ->searchable()
+                    ->searchPlaceholder('Search item')
                 !!}
         </x-moonshine::box>
     </x-moonshine::column>
