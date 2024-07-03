@@ -151,6 +151,7 @@ return [
         // UI components
         'UI:_divider_',
         ['slug' => 'components-badge', 'label' => 'Badge', 'title' => 'Badge Component'],
+        ['slug' => 'components-dropdown', 'label' => 'Dropdown', 'title' => 'Dropdown Component'],
         ['slug' => 'components-card', 'label' => 'Card', 'title' => 'Card Component'],
         ['slug' => 'components-carousel', 'label' => 'Carousel', 'title' => 'Carousel Component'],
         ['slug' => 'components-link', 'label' => 'Link', 'title' => 'Link Component'],

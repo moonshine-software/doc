@@ -2,6 +2,7 @@
     'Разделы' => [
         ['url' => '#basics', 'label' => 'Основы'],
         ['url' => '#simple', 'label' => 'Упрощенный вид'],
+        ['url' => '#sticky', 'label' => 'Фиксированная шапка'],
         ['url' => '#notfound', 'label' => 'Отсутствие элементов'],
         ['url' => '#slots', 'label' => 'Слоты'],
         ['url' => '#styles', 'label' => 'Стилизация'],
@@ -37,6 +38,14 @@
         </x-moonshine::box>
     </x-moonshine::column>
 </x-moonshine::grid>
+
+<x-sub-title id="sticky">Фиксированная шапка</x-sub-title>
+
+<x-p>
+    Если в таблице содержится большое количество элементов, то можно зафиксировать шапку при прокрутки таблицы.
+</x-p>
+
+<x-code language="blade" file="resources/views/examples/components/table-sticky.blade.php"></x-code>
 
 <x-sub-title id="notfound">Отсутствие элементов</x-sub-title>
 

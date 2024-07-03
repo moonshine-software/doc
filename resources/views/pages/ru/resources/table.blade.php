@@ -4,7 +4,8 @@
         ['url' => '#buttons', 'label' => 'Кнопки'],
         ['url' => '#attributes', 'label' => 'Атрибуты'],
         ['url' => '#click', 'label' => 'Действия по клику'],
-        ['url' => '#simple-pagination', 'label' => 'Simple pagination'],
+        ['url' => '#sticky-table', 'label' => 'Фиксированная шапка таблицы'],
+        ['url' => '#simple-pagination', 'label' => 'Простая пагинация'],
         ['url' => '#disable-pagination', 'label' => 'Отключение пагинации'],
         ['url' => '#async', 'label' => 'Асинхронный режим'],
         ['url' => '#update-row', 'label' => 'Обновление ряда'],
@@ -162,7 +163,31 @@ class PostResource extends ModelResource
     protected ?ClickAction $clickAction = ClickAction::SELECT;
 </x-code>
 
-<x-sub-title id="simple-pagination">Simple pagination</x-sub-title>
+<x-sub-title id="sticky-table">Фиксированная шапка таблицы</x-sub-title>
+
+<x-p>
+    Свойство ресурса модели <code>stickyTable</code> позволяет зафиксировать шапку
+    при прокрутке таблицы с большим числом элементов.
+</x-p>
+
+<x-code language="php">
+namespace App\MoonShine\Resources;
+
+use MoonShine\Resources\ModelResource;
+
+class PostResource extends ModelResource
+{
+    protected string $model = Post::class;
+
+    protected string $title = 'Posts';
+
+    protected bool $stickyTable = true; // [tl! focus]
+
+    // ...
+}
+</x-code>
+
+<x-sub-title id="simple-pagination">Простая пагинация</x-sub-title>
 
 <x-p>
     Если вы не планируете отображать общее количество страниц, воспользуйтесь <code>Simple Pagination</code>.

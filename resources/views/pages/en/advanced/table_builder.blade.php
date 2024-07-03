@@ -14,6 +14,7 @@
             ['url' => '#attributes', 'label' => 'Attributes'],
             ['url' => '#notfound', 'label' => 'Missing elements'],
             ['url' => '#simple', 'label' => 'Simplified style'],
+            ['url' => '#sticky', 'label' => 'Sticky head'],
             ['url' => '#preview', 'label' => 'Preview'],
             ['url' => '#vertical', 'label' => 'Vertical mode'],
             ['url' => '#creatable', 'label' => 'Adding entries'],
@@ -357,6 +358,17 @@ TableBuilder::make()
             Text::make('Text')
         ])->items([['text' => 'Value']])
 !!}
+
+<x-sub-title id="sticky">Sticky head</x-sub-title>
+
+<x-p>
+    The <code>sticky()</code> method allows you to fix the header when scrolling a table with a large number of elements.
+</x-p>
+
+<x-code language="php">
+TableBuilder::make()
+    ->sticky() // [tl! focus]
+</x-code>
 
 <x-sub-title id="preview">Preview</x-sub-title>
 

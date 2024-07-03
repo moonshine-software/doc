@@ -61,6 +61,21 @@ protected function afterMassDeleted(array $ids): void
 {
     // Logic here
 }
+
+public function beforeImportFilling(array $data): array
+{
+    return $data;
+}
+
+public function beforeImported(Model $item): Model
+{
+    return $item;
+}
+
+public function afterImported(Model $item): Model
+{
+    return $item;
+}
 </x-code>
 
 </x-page>

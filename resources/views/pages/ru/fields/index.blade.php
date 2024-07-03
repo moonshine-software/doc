@@ -22,6 +22,7 @@
             ['url' => '#wrapper', 'label' => 'Wrapper'],
             ['url' => '#reactive', 'label' => 'Реактивность'],
             ['url' => '#on-change', 'label' => 'Методы onChange'],
+            ['url' => '#for-value', 'label' => 'Методы для значений'],
             ['url' => '#scheme', 'label' => 'Схема работы поля'],
         ]
     ]"
@@ -1206,6 +1207,56 @@ public function someMethod(MoonShineRequest $request): void
     Пример сортировки компонента <em>CardsBuilder</em> в разделе
     <x-link link="{{ to_page('recipes') }}#sorting-for-cards-builder">Recipes</x-link>
 </x-moonshine::alert>
+
+<x-sub-title id="for-value">Методы для значений</x-sub-title>
+
+<x-moonshine::divider label="Получение значение из исходного" />
+
+<x-p>
+    Метод <code>fromRaw()</code> позволяет добавить замыкание для получения итоговое значение из исходного.<br />
+    Данное замыкание используется при импорте данных.
+</x-p>
+
+<x-code language="php">
+/**
+ * @param  Closure(mixed $raw, static): mixed  $callback
+ * @return $this
+ */
+    modifyRawValue(Closure $callback) // [tl! focus]
+</x-code>
+
+<x-code language="php">
+use App\Enums\StatusEnum;
+use MoonShine\Fields\Enum;
+
+Enum::make('Status')
+    ->attach(StatusEnum::class)
+    ->fromRaw(fn(string $raw, Enum $ctx) => StatusEnum::tryFrom($raw)) // [tl! focus]
+</x-code>
+
+<x-moonshine::divider label="Получения необработанного значения" />
+
+<x-p>
+    Метод <code>modifyRawValue()</code> позволяет добавить замыкание для получения необработанного значения.<br />
+    Данное замыкание используется при экспорте данных.
+</x-p>
+
+<x-code language="php">
+/**
+ * @param  Closure(mixed $raw, static): mixed  $callback
+ * @return $this
+ */
+modifyRawValue(Closure $callback) // [tl! focus]
+</x-code>
+
+<x-code language="php">
+use App\Enums\StatusEnum;
+use MoonShine\Fields\Enum;
+
+Enum::make('Status')
+    ->attach(StatusEnum::class)
+    ->modifyRawValue(fn(StatusEnum $raw, Enum $ctx) => $raw->value)) // [tl! focus]
+</x-code>
 
 <x-sub-title id="scheme">Схема работы поля</x-sub-title>
 

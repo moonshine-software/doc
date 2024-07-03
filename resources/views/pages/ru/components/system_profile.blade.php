@@ -3,6 +3,7 @@
     :sectionMenu="[
         'Разделы' => [
             ['url' => '#make', 'label' => 'Make'],
+            ['url' => '#default-avatar', 'label' => 'Аватарка по умолчанию'],
         ]
     ]"
 >
@@ -55,5 +56,28 @@ final class MoonShineLayout implements MoonShineLayoutContract
 
 <x-image theme="light" src="{{ asset('screenshots/profile.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/profile_dark.png') }}"></x-image>
+
+<x-sub-title id="default-avatar">Аватарка по умолчанию</x-sub-title>
+
+<x-p>
+    Метод <code>defaultAvatar()</code> позволяет переопределить аватарку профиля по умолчанию.
+</x-p>
+
+<x-code language="php">
+defaultAvatar(string $url)
+</x-code>
+
+<x-ul>
+    <li><code>$url</code> - url адрес аватарки по умолчанию.</li>
+</x-ul>
+
+<x-code language="php">
+use MoonShine\Components\Layout\Profile;
+
+//...
+
+Profile::make()
+    ->defaultAvatar("https://ui-avatars.com/api/?name=$name") // [tl! focus]
+</x-code>
 
 </x-page>

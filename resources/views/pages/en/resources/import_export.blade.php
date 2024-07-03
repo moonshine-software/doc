@@ -10,6 +10,7 @@
         ]
     ]"
 >
+
 <x-sub-title id="basics">Basics</x-sub-title>
 
 <x-p>
@@ -68,15 +69,21 @@ class PostResource extends ModelResource
 </x-p>
 
 <x-code language="php">
-    useOnImport(mixed $condition = null)
+useOnImport(mixed $condition = null, ?Closure $fromRaw = null)
 </x-code>
+
+<x-ul>
+    <li><code>$condition</code> - method execution condition,</li>
+    <li><code>$fromRaw</code> - a closure that returns values from the raw.</li>
+</x-ul>
 
 <x-code language="php">
 namespace App\MoonShine\Resources;
 
+use App\Enums\StatusEnum;
 use App\Models\Post;
+use MoonShine\Fields\Enum;
 use MoonShine\Fields\ID;
-use MoonShine\Fields\Text;
 use MoonShine\Resources\ModelResource;
 
 class PostResource extends ModelResource
@@ -93,8 +100,9 @@ class PostResource extends ModelResource
             ID::make()
                 ->useOnImport(), // [tl! focus]
 
-            Text::make('Title', 'title')
-                ->useOnImport() // [tl! focus]
+            Enum::make('Status')
+                ->attach(StatusEnum::class)
+                ->useOnImport(fromRaw: static fn(string $raw, Enum $ctx) => StatusEnum::tryFrom($raw)), // [tl! focus]
         ];
     }
 
@@ -169,6 +177,51 @@ public function import(): ?ImportHandler
     then the import button will not appear on the index page.
 </x-moonshine::alert>
 
+<x-moonshine::divider label="Events" />
+
+<x-p>
+    To change the import logic, you can use
+    <x-link link="{{ to_page('resources-events') }}">events</x-link> of the model resource.
+</x-p>
+
+<x-code language="php">
+//  MoonShine\Resources\ModelResource
+
+public function beforeImportFilling(array $data): array // [tl! focus]
+{
+    return $data;
+}
+
+public function beforeImported(Model $item): Model // [tl! focus]
+{
+    return $item;
+}
+
+public function afterImported(Model $item): Model // [tl! focus]
+{
+    return $item;
+}
+</x-code>
+
+<x-p>
+    These events are called in <code>ImportHandler</code>
+</x-p>
+
+<x-code language="php">
+// MoonShine\Handlers\ImportHandler
+
+$data = $resource->beforeImportFilling($data); // [tl! focus]
+
+$item->forceFill($data);
+
+$item = $resource->beforeImported($item); // [tl! focus]
+
+return tap(
+    $item->save(),
+    fn() => $resource->afterImported($item) // [tl! focus]
+);
+</x-code>
+
 <x-sub-title id="export">Export</x-sub-title>
 
 <x-p>
@@ -178,8 +231,31 @@ public function import(): ?ImportHandler
 
 <x-moonshine::alert type="default" icon="heroicons.book-open">
     By default, data is exported in <code>xlsx</code> format,
-    but there is an option to export in <code>csv</code> format.
+    but there is an option to change the format to <code>csv</code> globally
+    or through the <code>csv()</code> method of the class
+    <code>ExportHandler</code>.
 </x-moonshine::alert>
+
+<x-moonshine::divider label="Global export format" />
+
+<x-p>
+    You can change the export format globally in <code>MoonShineServiceProvider</code>:
+</x-p>
+
+<x-code language="php">
+use MoonShine\Providers\MoonShineApplicationServiceProvider;
+use MoonShine\Resources\ModelResource;
+
+class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
+{
+    public function boot(): void
+    {
+        parent::boot();
+
+        ModelResource::defaultExportToCsv(); // [tl! focus]
+    }
+}
+</x-code>
 
 <x-moonshine::divider label="Fields" />
 
@@ -188,13 +264,20 @@ public function import(): ?ImportHandler
 </x-p>
 
 <x-code language="php">
-    showOnExport(mixed $condition = null)
+showOnExport(mixed $condition = null, ?Closure $modifyRawValue = null)
 </x-code>
+
+<x-ul>
+    <li><code>$condition</code> - method execution condition,</li>
+    <li><code>$modifyRawValue</code> - closure to get the raw value.</li>
+</x-ul>
 
 <x-code language="php">
 namespace App\MoonShine\Resources;
 
+use App\Enums\StatusEnum;
 use App\Models\Post;
+use MoonShine\Fields\Enum;
 use MoonShine\Fields\Text;
 use MoonShine\Resources\ModelResource;
 
@@ -210,7 +293,11 @@ class PostResource extends ModelResource
     {
         return [
             Text::make('Title', 'title')
-                ->showOnExport() // [tl! focus]
+                ->showOnExport(), // [tl! focus]
+
+            Enum::make('Status')
+                ->attach(StatusEnum::class)
+                ->showOnExport(modifyRawValue: static fn(StatusEnum $raw, Enum $ctx) => $raw->value), // [tl! focus]
         ];
     }
 

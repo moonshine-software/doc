@@ -14,6 +14,7 @@
             ['url' => '#attributes', 'label' => 'Атрибуты'],
             ['url' => '#notfound', 'label' => 'Отсутствие элементов'],
             ['url' => '#simple', 'label' => 'Упрощённый стиль'],
+            ['url' => '#sticky', 'label' => 'Фиксированная шапка'],
             ['url' => '#preview', 'label' => 'Preview'],
             ['url' => '#vertical', 'label' => 'Вертикальный режим'],
             ['url' => '#creatable', 'label' => 'Добавление записей'],
@@ -357,6 +358,17 @@ TableBuilder::make()
             Text::make('Text')
         ])->items([['text' => 'Value']])
 !!}
+
+<x-sub-title id="sticky">Фиксированная шапка</x-sub-title>
+
+<x-p>
+    Метод <code>sticky()</code> позволяет зафиксировать шапку при прокрутке таблицы с большим числом элементов.
+</x-p>
+
+<x-code language="php">
+TableBuilder::make()
+    ->sticky() // [tl! focus]
+</x-code>
 
 <x-sub-title id="preview">Preview</x-sub-title>
 
