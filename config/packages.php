@@ -166,4 +166,9 @@ return [
         'url' => 'lee-to/moonshine-input-extension-char-count',
         'category' => 'Fields'
     ],
+    [
+        'title' => 'Resource blocking',
+        'url' => 'forest-lynx/moonshine-resource-lock',
+        'category' => 'Resources'
+    ],
 ];
