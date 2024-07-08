@@ -209,7 +209,7 @@ public function fields(): array
 </x-p>
 
 <x-code language="php">
-inLine(string $separator = '', bool $badge = false, ?Closure $link = null)
+inLine(string $separator = '', Closure|bool $badge = false, ?Closure $link = null)
 </x-code>
 
 <x-p>
