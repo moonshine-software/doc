@@ -236,7 +236,7 @@ public function fields(): array
         BelongsToMany::make('Categories', resource: new CategoryResource())
             ->inLine(
                 separator: ' ',
-                badge: true,
+                badge: fn($model, $value) => Badge::make($value, 'color'),
                 link: fn(Category $category, $value, $field) => Link::make(
                     (new CategoryResource())->detailPageUrl($category),
                     $value
