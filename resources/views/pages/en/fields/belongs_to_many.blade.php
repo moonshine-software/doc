@@ -216,9 +216,12 @@ inLine(string $separator = '', bool $badge = false, ?Closure $link = null)
     You can pass optional parameters to the method:
     <x-ul>
         <li><code>separator</code> - separator between elements;</li>
-        <li><code>badge</code> - display elements as badge;</li>
+        <li><code>badge</code> - closure or boolean value, responsible for displaying elements as badge;</li>
         <li><code>$link</code> - a closure that should return <em>url</em> links or components.</li>
     </x-ul>
+</x-p>
+<x-p>
+    When passing the boolean value true to the <code>badge</code> parameter, the color  will be used <x-moonshine::badge color="primary">Primary</x-moonshine::badge>. To change the color displayed by <code>badge</code>, use closure and return the <code>Badge::make()</code> component.
 </x-p>
 
 <x-code language="php">
