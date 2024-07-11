@@ -53,6 +53,60 @@ public function fields(): array
 
 <x-sub-title id="settings">Configuration</x-sub-title>
 
+<x-moonshine::divider label="Language" />
+
+<x-code language="php">
+locale(string $locale)
+</x-code>
+
+<x-moonshine::divider label="Plugins" />
+
+<x-code language="php">
+plugins(string|array $plugins)
+</x-code>
+
+<x-code language="php">
+addPlugins(string|array $plugins)
+</x-code>
+
+<x-code language="php">
+removePlugins(string|array $plugins)
+</x-code>
+
+<x-moonshine::divider label="Menubar" />
+
+<x-code language="php">
+menubar(string $menubar)
+</x-code>
+
+<x-moonshine::divider label="Toolbar" />
+
+<x-code language="php">
+toolbar(string $toolbar)
+</x-code>
+
+<x-code language="php">
+addToolbar(string $toolbar)
+</x-code>
+
+<x-moonshine::divider label="Options" />
+
+<x-code language="php">
+addConfig(string $name, mixed $value)
+</x-code>
+
+<x-moonshine::divider label="Tiny Comments" />
+
+<x-code language="php">
+commentAuthor(string $commentAuthor)
+</x-code>
+
+<x-moonshine::divider label="Tags" />
+
+<x-code language="php">
+mergeTags(array $mergeTags)
+</x-code>
+
 <x-code language="php">
 use MoonShine\Fields\TinyMce;
 
@@ -63,9 +117,11 @@ public function fields(): array
     return [
         TinyMce::make('Description')
             // Override plugin set
-            ->plugins('anchor') // [tl! focus]
+            ->plugins('anchor autoresize') // [tl! focus]
             // Adding plugins to the base set
             ->addPlugins('code codesample') // [tl! focus]
+            // Removing plugins from the base set
+            ->removePlugins('autoresize') // [tl! focus]
             // Override toolbar set
             ->toolbar('undo redo | blocks fontfamily fontsize') // [tl! focus]
             // Adding a toolbar to the base set
@@ -76,6 +132,9 @@ public function fields(): array
             ->mergeTags([
                 ['value' => 'tag', 'title' => 'Title']
             ]) // [tl! focus:-2]
+            // Adding configuration
+            ->addConfig('codesample_languages', [['text' => 'HTML/XML', 'value' => 'markup']]) // [tl! focus]
+            ->addConfig('force_br_newlines', true) // [tl! focus]
             // Overriding the current locale
             ->locale('en'), // [tl! focus]
     ];
