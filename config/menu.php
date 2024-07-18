@@ -29,6 +29,7 @@ return [
         ['slug' => 'resources-pages', 'label' => 'With pages'],
         ['slug' => 'resources-table', 'label' => 'Table'],
         ['slug' => 'resources-form', 'label' => 'Form'],
+        ['slug' => 'resources-validation', 'label' => 'Validation rules'],
         ['slug' => 'resources-buttons', 'label' => 'Buttons'],
         ['slug' => 'resources-routes', 'label' => 'Routes'],
         ['slug' => 'resources-filters', 'label' => 'Filters'],
