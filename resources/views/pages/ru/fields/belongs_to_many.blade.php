@@ -209,16 +209,19 @@ public function fields(): array
 </x-p>
 
 <x-code language="php">
-inLine(string $separator = '', bool $badge = false, ?Closure $link = null)
+inLine(string $separator = '', Closure|bool $badge = false, ?Closure $link = null)
 </x-code>
 
 <x-p>
     Методу можно передать необязательные параметры:
     <x-ul>
         <li><code>separator</code> - разделитель между элементами;</li>
-        <li><code>badge</code> - отображать элементы в виде badge;</li>
+        <li><code>badge</code> - замыкание или булево значение, отвечающий за отображение элемента в виде badge;</li>
         <li><code>$link</code> - замыкание которое должно вернуть <em>url</em> ссылки или компонент.</li>
     </x-ul>
+</x-p>
+<x-p>
+    При передаче булевого значения true в параметр <code>badge</code> будет использоваться цвет <x-moonshine::badge color="primary">Primary</x-moonshine::badge>. Для изменения цвета, отображаемого <code>badge</code>, используйте замыкание и возвращайте компонент <code>Badge::make()</code>.
 </x-p>
 
 <x-code language="php">
@@ -233,7 +236,7 @@ public function fields(): array
         BelongsToMany::make('Categories', resource: new CategoryResource())
             ->inLine(
                 separator: ' ',
-                badge: true,
+                badge: fn($model, $value) => Badge::make($value, 'color'),
                 link: fn(Category $category, $value, $field) => Link::make(
                     (new CategoryResource())->detailPageUrl($category),
                     $value
