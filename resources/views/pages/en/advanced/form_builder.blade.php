@@ -16,7 +16,7 @@
             ['url' => '#apply', 'label' => 'Apply'],
             ['url' => '#method', 'label' => 'Calling methods'],
             ['url' => '#event', 'label' => 'Dispatch events'],
-            ['url' => '#submit', 'label' => '&quot;Submit&quot; event'],
+            ['url' => '#submit', 'label' => 'Submit event'],
         ]
     ]"
 >
