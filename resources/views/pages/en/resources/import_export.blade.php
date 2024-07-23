@@ -359,7 +359,9 @@ public function export(): ?ExportHandler
         // If you need to export in csv format
         ->csv() // [tl! focus]
         // Separator for csv
-        ->delimiter(','); // [tl! focus]
+        ->delimiter(',') // [tl! focus]
+        // Export with confirmation
+        ->withConfirm(); // [tl! focus]
 }
 
 //...

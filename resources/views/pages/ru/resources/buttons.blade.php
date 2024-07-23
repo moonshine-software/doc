@@ -8,6 +8,9 @@
             ['url' => '#edit', 'label' => 'Кнопка редактирования'],
             ['url' => '#delete', 'label' => 'Кнопка удаления'],
             ['url' => '#mass-delete', 'label' => 'Кнопка массового удаления'],
+            ['url' => '#export', 'label' => 'Кнопка экспорта'],
+            ['url' => '#import', 'label' => 'Кнопка импорта'],
+            ['url' => '#filters', 'label' => 'Кнопка фильтры'],
             ['url' => '#form', 'label' => 'Кнопки формы'],
             ['url' => '#actions', 'label' => 'Кнопки на индексной странице'],
             ['url' => '#buttons', 'label' => 'Кнопки элемента'],
@@ -247,6 +250,114 @@ public function getMassDeleteButton(
         redirectAfterDelete: $isAsync ? '' : $redirectAfterDelete,
         isAsync: $isAsync
     );
+} // [tl! focus:-11]
+</x-code>
+
+<x-sub-title id="export">Кнопка экспорта</x-sub-title>
+
+<x-moonshine::divider label="Модификация" />
+
+<x-p>
+    Метод <code>modifyExportButton()</code> позволяет модифицировать кнопку экспорта.
+</x-p>
+
+<x-code language="php">
+use MoonShine\ActionButtons\ActionButton;
+
+protected function modifyExportButton(ActionButton $button): ActionButton
+{
+    return $button->secondary();
+} // [tl! focus:-3]
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/resource_button_export.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/resource_button_export_dark.png') }}"></x-image>
+
+<x-moonshine::divider label="Переопределение" />
+
+<x-p>
+    Метод <code>getExportButton()</code> позволяет переопределить кнопку экспорта.
+</x-p>
+
+<x-code language="php">
+use MoonShine\ActionButtons\ActionButton;
+use MoonShine\Buttons\ExportButton;
+
+public function getExportButton(): ActionButton
+{
+    return ExportButton::for($this, export: $this->export());
+} // [tl! focus:-11]
+</x-code>
+
+<x-sub-title id="import">Кнопка импорта</x-sub-title>
+
+<x-moonshine::divider label="Модификация" />
+
+<x-p>
+    Метод <code>modifyImportButton()</code> позволяет модифицировать кнопку импорта.
+</x-p>
+
+<x-code language="php">
+use MoonShine\ActionButtons\ActionButton;
+
+protected function modifyImportButton(ActionButton $button): ActionButton
+{
+    return $button->error();
+} // [tl! focus:-3]
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/resource_button_import.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/resource_button_import_dark.png') }}"></x-image>
+
+<x-moonshine::divider label="Переопределение" />
+
+<x-p>
+    Метод <code>getImportButton()</code> позволяет переопределить кнопку импорта.
+</x-p>
+
+<x-code language="php">
+use MoonShine\ActionButtons\ActionButton;
+use MoonShine\Buttons\ImportButton;
+
+public function getImportButton(): ActionButton
+{
+    return ImportButton::for($this, import: $this->import());
+} // [tl! focus:-11]
+</x-code>
+
+<x-sub-title id="filters">Кнопка фильтры</x-sub-title>
+
+<x-moonshine::divider label="Модификация" />
+
+<x-p>
+    Метод <code>modifyFiltersButton()</code> позволяет модифицировать кнопку фильтры.
+</x-p>
+
+<x-code language="php">
+use MoonShine\ActionButtons\ActionButton;
+
+protected function modifyFiltersButton(ActionButton $button): ActionButton
+{
+    return $button->error();
+} // [tl! focus:-3]
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/resource_button_filters.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/resource_button_filters_dark.png') }}"></x-image>
+
+<x-moonshine::divider label="Переопределение" />
+
+<x-p>
+    Метод <code>getFiltersButton()</code> позволяет переопределить кнопку фильтры.
+</x-p>
+
+<x-code language="php">
+use MoonShine\ActionButtons\ActionButton;
+use MoonShine\Buttons\FiltersButton;
+
+public function getFiltersButton(): ActionButton
+{
+    return FiltersButton::for($this);
 } // [tl! focus:-11]
 </x-code>
 

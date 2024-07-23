@@ -8,6 +8,9 @@
             ['url' => '#edit', 'label' => 'Edit button'],
             ['url' => '#delete', 'label' => 'Delete button'],
             ['url' => '#mass-delete', 'label' => 'Bulk delete button'],
+            ['url' => '#export', 'label' => 'Export button'],
+            ['url' => '#import', 'label' => 'Import button'],
+            ['url' => '#filters', 'label' => 'Filters button'],
             ['url' => '#form', 'label' => 'Form buttons'],
             ['url' => '#actions', 'label' => 'Buttons on the index page'],
             ['url' => '#buttons', 'label' => 'Element buttons'],
@@ -247,6 +250,114 @@ public function getMassDeleteButton(
         redirectAfterDelete: $isAsync ? '' : $redirectAfterDelete,
         isAsync: $isAsync
     );
+} // [tl! focus:-11]
+</x-code>
+
+<x-sub-title id="export">Export button</x-sub-title>
+
+<x-moonshine::divider label="Modification" />
+
+<x-p>
+    The <code>modifyExportButton()</code> method allows you to modify the export button.
+</x-p>
+
+<x-code language="php">
+use MoonShine\ActionButtons\ActionButton;
+
+protected function modifyExportButton(ActionButton $button): ActionButton
+{
+    return $button->secondary();
+} // [tl! focus:-3]
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/resource_button_export.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/resource_button_export_dark.png') }}"></x-image>
+
+<x-moonshine::divider label="Override" />
+
+<x-p>
+    The <code>getExportButton()</code> method allows you to override the export button.
+</x-p>
+
+<x-code language="php">
+use MoonShine\ActionButtons\ActionButton;
+use MoonShine\Buttons\ExportButton;
+
+public function getExportButton(): ActionButton
+{
+    return ExportButton::for($this, export: $this->export());
+} // [tl! focus:-11]
+</x-code>
+
+<x-sub-title id="import">Import button</x-sub-title>
+
+<x-moonshine::divider label="Modification" />
+
+<x-p>
+    The <code>modifyImportButton()</code> method allows you to modify the import button.
+</x-p>
+
+<x-code language="php">
+use MoonShine\ActionButtons\ActionButton;
+
+protected function modifyImportButton(ActionButton $button): ActionButton
+{
+    return $button->error();
+} // [tl! focus:-3]
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/resource_button_import.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/resource_button_import_dark.png') }}"></x-image>
+
+<x-moonshine::divider label="Override" />
+
+<x-p>
+    The <code>getImportButton()</code> method allows you to override the import button.
+</x-p>
+
+<x-code language="php">
+use MoonShine\ActionButtons\ActionButton;
+use MoonShine\Buttons\ImportButton;
+
+public function getImportButton(): ActionButton
+{
+    return ImportButton::for($this, import: $this->import());
+} // [tl! focus:-11]
+</x-code>
+
+<x-sub-title id="filters">Filters button</x-sub-title>
+
+<x-moonshine::divider label="Modification" />
+
+<x-p>
+    The <code>modifyFiltersButton()</code> method allows you to modify the filters button.
+</x-p>
+
+<x-code language="php">
+use MoonShine\ActionButtons\ActionButton;
+
+protected function modifyFiltersButton(ActionButton $button): ActionButton
+{
+    return $button->error();
+} // [tl! focus:-3]
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/resource_button_filters.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/resource_button_filters_dark.png') }}"></x-image>
+
+<x-moonshine::divider label="Override" />
+
+<x-p>
+    The <code>getFiltersButton()</code> method allows you to override the filters button.
+</x-p>
+
+<x-code language="php">
+use MoonShine\ActionButtons\ActionButton;
+use MoonShine\Buttons\FiltersButton;
+
+public function getFiltersButton(): ActionButton
+{
+    return FiltersButton::for($this);
 } // [tl! focus:-11]
 </x-code>
 
