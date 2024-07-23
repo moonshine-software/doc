@@ -8,6 +8,9 @@
             ['url' => '#edit', 'label' => 'Кнопка редактирования'],
             ['url' => '#delete', 'label' => 'Кнопка удаления'],
             ['url' => '#mass-delete', 'label' => 'Кнопка массового удаления'],
+            ['url' => '#export', 'label' => 'Кнопка экспорта'],
+            ['url' => '#import', 'label' => 'Кнопка импорта'],
+            ['url' => '#filters', 'label' => 'Кнопка фильтры'],
             ['url' => '#form', 'label' => 'Кнопки формы'],
             ['url' => '#actions', 'label' => 'Кнопки на индексной странице'],
             ['url' => '#buttons', 'label' => 'Кнопки элемента'],
@@ -250,7 +253,7 @@ public function getMassDeleteButton(
 } // [tl! focus:-11]
 </x-code>
 
-<x-sub-title id="mass-delete">Кнопка экспорта</x-sub-title>
+<x-sub-title id="export">Кнопка экспорта</x-sub-title>
 
 <x-moonshine::divider label="Модификация" />
 
@@ -286,7 +289,7 @@ public function getExportButton(): ActionButton
 } // [tl! focus:-11]
 </x-code>
 
-<x-sub-title id="mass-delete">Кнопка импорта</x-sub-title>
+<x-sub-title id="import">Кнопка импорта</x-sub-title>
 
 <x-moonshine::divider label="Модификация" />
 
@@ -322,7 +325,7 @@ public function getImportButton(): ActionButton
 } // [tl! focus:-11]
 </x-code>
 
-<x-sub-title id="mass-delete">Кнопка фильтры</x-sub-title>
+<x-sub-title id="filters">Кнопка фильтры</x-sub-title>
 
 <x-moonshine::divider label="Модификация" />
 

@@ -8,6 +8,9 @@
             ['url' => '#edit', 'label' => 'Edit button'],
             ['url' => '#delete', 'label' => 'Delete button'],
             ['url' => '#mass-delete', 'label' => 'Bulk delete button'],
+            ['url' => '#export', 'label' => 'Export button'],
+            ['url' => '#import', 'label' => 'Import button'],
+            ['url' => '#filters', 'label' => 'Filters button'],
             ['url' => '#form', 'label' => 'Form buttons'],
             ['url' => '#actions', 'label' => 'Buttons on the index page'],
             ['url' => '#buttons', 'label' => 'Element buttons'],
@@ -250,7 +253,7 @@ public function getMassDeleteButton(
 } // [tl! focus:-11]
 </x-code>
 
-<x-sub-title id="mass-delete">Export button</x-sub-title>
+<x-sub-title id="export">Export button</x-sub-title>
 
 <x-moonshine::divider label="Modification" />
 
@@ -286,7 +289,7 @@ public function getExportButton(): ActionButton
 } // [tl! focus:-11]
 </x-code>
 
-<x-sub-title id="mass-delete">Import button</x-sub-title>
+<x-sub-title id="import">Import button</x-sub-title>
 
 <x-moonshine::divider label="Modification" />
 
@@ -322,7 +325,7 @@ public function getImportButton(): ActionButton
 } // [tl! focus:-11]
 </x-code>
 
-<x-sub-title id="mass-delete">Filters button</x-sub-title>
+<x-sub-title id="filters">Filters button</x-sub-title>
 
 <x-moonshine::divider label="Modification" />
 
