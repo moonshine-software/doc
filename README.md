@@ -9,8 +9,8 @@
 #### Installation
 
 1. Add .env and configure
-2. set **TORCHLIGHT_TOKEN** (https://app.torchlight.dev/tokens)
-3. run sequentially:
+2. Set **TORCHLIGHT_TOKEN** (https://app.torchlight.dev/tokens)
+3. Run sequentially:
 ```
 composer install
 php artisan key:generate
