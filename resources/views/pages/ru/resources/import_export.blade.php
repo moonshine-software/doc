@@ -159,6 +159,8 @@ use MoonShine\Handlers\ImportHandler;
 public function import(): ?ImportHandler
 {
     return ImportHandler::make('Import')
+        // Указать id пользователей, которые получат уведомление об окончании операции
+        ->notifyUsers(fn() => [auth()->id()]) // [tl! focus]
         // Выбор диска
         ->disk('public') // [tl! focus]
         // Выбор директории для сохранения файла импорта
@@ -350,6 +352,8 @@ use MoonShine\Handlers\ExportHandler;
 public function export(): ?ExportHandler
 {
     return ExportHandler::make('Export')
+        // Указать id пользователей, которые получат уведомление об окончании операции
+        ->notifyUsers(fn() => [auth()->id()]) // [tl! focus]
         // Выбор диска
         ->disk('public') // [tl! focus]
         // Наименование файла
