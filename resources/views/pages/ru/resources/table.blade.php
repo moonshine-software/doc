@@ -9,6 +9,7 @@
         ['url' => '#disable-pagination', 'label' => 'Отключение пагинации'],
         ['url' => '#async', 'label' => 'Асинхронный режим'],
         ['url' => '#update-row', 'label' => 'Обновление ряда'],
+        ['url' => '#column-display', 'label' => 'Отображение колонок'],
     ]
 ]">
 
@@ -349,6 +350,72 @@ TableBuilder::make()
     ->items($this->fetch())
     ->name('main-table')
     ->async(),
+</x-code>
+
+<x-sub-title id="column-display">Отображение колонок</x-sub-title>
+
+<x-p>
+    Можно предоставить пользователям самостоятельно определять какие колонки отображать в таблице,
+    с сохранением выбора. Для этого необходимо у ресурса задать параметр <code>$columnSelection</code>.
+</x-p>
+
+<x-code language="php">
+namespace App\MoonShine\Resources;
+
+use App\Models\Post;
+use MoonShine\Resources\ModelResource;
+
+class PostResource extends ModelResource
+{
+    protected string $model = Post::class;
+
+    protected string $title = 'Posts';
+
+    protected bool $columnSelection = true; // [tl! focus]
+
+    //...
+}
+</x-code>
+
+<x-p>
+    Если необходимо исключить поля из выбора, то воспользуйтесь методом <code>columnSelection()</code>.
+</x-p>
+
+<x-code language="php">
+public function columnSelection(bool $active = true)
+</x-code>
+
+<x-code>
+namespace App\MoonShine\Resources;
+
+use App\Models\Post;
+use MoonShine\Fields\ID;
+use MoonShine\Fields\Text;
+use MoonShine\Fields\Textarea;
+use MoonShine\Resources\ModelResource;
+
+class PostResource extends ModelResource
+{
+    protected string $model = Post::class;
+
+    protected string $title = 'Posts';
+
+    protected bool $columnSelection = true;
+
+    //...
+
+    public function fields(): array
+    {
+        return [
+            ID::make()
+                ->columnSelection(false), // [tl! focus]
+            Text::make('Title'),
+            Textarea::make('Body'),
+        ];
+    }
+
+    //...
+}
 </x-code>
 
 </x-page>
