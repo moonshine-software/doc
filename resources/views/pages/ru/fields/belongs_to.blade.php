@@ -4,6 +4,7 @@
         ['url' => '#default', 'label' => 'Значение по умолчанию'],
         ['url' => '#nullable', 'label' => 'Nullable'],
         ['url' => '#placeholder', 'label' => 'Placeholder'],
+        ['url' => '#creatable', 'label' => 'Создание объекта отношения'],
         ['url' => '#searchable', 'label' => 'Поиск значений'],
         ['url' => '#values-query', 'label' => 'Запрос для значений'],
 		['url' => '#async-search', 'label' => 'Асинхронный поиск'],
@@ -124,6 +125,10 @@ public function fields(): array
 
 //...
 </x-code>
+
+<x-sub-title id="creatable">Создание объекта отношения</x-sub-title>
+
+@include('pages.ru.fields.shared.relation_creatable', ['field' => 'BelongsTo', 'label' => 'Author'])
 
 @include('pages.ru.fields.shared.values_query', ['field' => 'BelongsTo'])
 

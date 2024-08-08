@@ -4,6 +4,7 @@
         ['url' => '#default', 'label' => 'Default value'],
         ['url' => '#nullable', 'label' => 'Nullable'],
         ['url' => '#placeholder', 'label' => 'Placeholder'],
+        ['url' => '#creatable', 'label' => 'Creating a Relationship Object'],
         ['url' => '#searchable', 'label' => 'Finding values'],
         ['url' => '#values-query', 'label' => 'Query for values'],
 		['url' => '#async-search', 'label' => 'Asynchronous search'],
@@ -124,6 +125,10 @@ public function fields(): array
 
 //...
 </x-code>
+
+<x-sub-title id="creatable">Creating a Relationship Object</x-sub-title>
+
+@include('pages.en.fields.shared.relation_creatable', ['field' => 'BelongsTo', 'label' => 'Author'])
 
 @include('pages.en.fields.shared.values_query', ['field' => 'BelongsTo'])
 
