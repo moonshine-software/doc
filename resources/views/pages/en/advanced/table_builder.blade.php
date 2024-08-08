@@ -20,6 +20,7 @@
             ['url' => '#creatable', 'label' => 'Adding entries'],
             ['url' => '#editable', 'label' => 'Editable'],
             ['url' => '#sortable', 'label' => 'Sortable'],
+            ['url' => '#column-display', 'label' => 'Column display'],
         ]
     ]"
 >
@@ -564,6 +565,69 @@ TableBuilder::make()
             Text::make('Title'),
             Text::make('Text')
         ])
+!!}
+
+<x-sub-title id="column-display">Column display</x-sub-title>
+
+<x-p>
+    You can let users decide which columns to display in the table,
+    saving the choice. To do this, you need to set the resource parameter <code>$columnSelection</code>.
+</x-p>
+
+<x-code language="php">
+columnSelection(string $uniqueId = '')
+</x-code>
+
+<x-ul>
+    <li><code>$uniqueId</code> - unique table Id to save the selection of displayed columns.</li>
+</x-ul>
+
+<x-code language="php">
+TableBuilder::make()
+    ->fields([
+        Text::make('Title'),
+        Text::make('Text')
+    ])
+    ->columnSelection('unique-id')
+</x-code>
+
+{!!
+    table(items: [['title' => 'Value 1', 'text' => 'Value 2'], ['title' => 'Value 3', 'text' => 'Value 4']])
+        ->sortable()
+        ->fields([
+            Text::make('Title'),
+            Text::make('Text')
+        ])
+        ->columnSelection('unique-id')
+!!}
+
+<x-p>
+    If you need to exclude fields from selection, use the <code>columnSelection()</code> method.
+</x-p>
+
+<x-code language="php">
+public function columnSelection(bool $active = true)
+</x-code>
+
+<x-code>
+TableBuilder::make()
+    ->fields([
+        Text::make('Title')
+            ->columnSelection(false),
+        Text::make('Text')
+    ])
+    ->columnSelection('unique-id')
+</x-code>
+
+{!!
+    table(items: [['title' => 'Value 1', 'text' => 'Value 2'], ['title' => 'Value 3', 'text' => 'Value 4']])
+        ->sortable()
+        ->fields([
+            Text::make('Title')
+                ->columnSelection(false),
+            Text::make('Text')
+        ])
+        ->columnSelection('unique-id')
 !!}
 
 </x-page>
