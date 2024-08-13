@@ -1,6 +1,7 @@
 <x-page title="Validation" :sectionMenu="[
     'Sections' => [
         ['url' => '#basics', 'label' => 'Basics'],
+        ['url' => '#errors', 'label' => 'Displaying validation errors'],
         ['url' => '#messages', 'label' => 'Messages'],
         ['url' => '#prepare', 'label' => 'Preparing Input For Validation'],
     ]
@@ -38,6 +39,32 @@ class PostResource extends ModelResource
 
 <x-image theme="light" src="{{ asset('screenshots/validation.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/validation_dark.png') }}"></x-image>
+<x-sub-title id="errors">Displaying validation errors</x-sub-title>
+<x-p>
+    The <code>$errorsAbove</code> resource parameter is responsible for displaying validation errors at the top of the form. The default value is <code>true</code>, which means that validation errors will be displayed.
+</x-p>
+
+<x-image theme="light" src="{{ asset('screenshots/errors_above_true.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/errors_above_true_dark.png') }}"></x-image>
+
+<x-p>
+    To hide validation errors at the top of the form, set the <code>$errorsAbove</code> resource parameter to <code>false</code>.
+</x-p>
+<x-code language="php">
+namespace App\MoonShine\Resources;
+
+use MoonShine\Resources\ModelResource;
+
+class PostResource extends ModelResource
+{
+    //...
+    protected bool $errorsAbove = false;// [tl! focus]
+    //...
+}
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/errors_above_false.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/errors_above_false_dark.png') }}"></x-image>
 
 <x-sub-title id="messages">Messages</x-sub-title>
 

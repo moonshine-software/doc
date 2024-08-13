@@ -12,6 +12,7 @@
             ['url' => '#attributes', 'label' => 'Attributes'],
             ['url' => '#name', 'label' => 'Form name'],
             ['url' => '#async', 'label' => 'Asynchronous mode'],
+            ['url' => '#errors', 'label' => 'Displaying validation errors'],
             ['url' => '#precognitive', 'label' => 'Precognitive'],
             ['url' => '#apply', 'label' => 'Apply'],
             ['url' => '#method', 'label' => 'Calling methods'],
@@ -324,6 +325,26 @@ FormBuilder::make('/crud/update', 'PUT')
 <x-moonshine::alert type="warning" icon="heroicons.information-circle">
     The <code>async()</code> method must come after the <code>name()</code> method!
 </x-moonshine::alert>
+
+<x-sub-title id="errors">Displaying validation errors</x-sub-title>
+<x-p>
+    By default, validation errors are displayed at the top of the form.
+</x-p>
+
+<x-image theme="light" src="{{ asset('screenshots/errors_above_true.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/errors_above_true_dark.png') }}"></x-image>
+
+<x-p>
+    The <code>errorsAbove(bool $enable = true)</code> method is used to control the display of validation errors at the top of the form. It allows you to enable or disable this feature.
+</x-p>
+
+<x-code language="php">
+FormBuilder::make('/crud/update', 'PUT')
+    ->errorsAbove(false) // [tl! focus]
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/errors_above_false.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/errors_above_false_dark.png') }}"></x-image>
 
 <x-sub-title id="precognitive">Precognitive</x-sub-title>
 
