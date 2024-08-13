@@ -11,6 +11,7 @@
             ['url' => '#nullable', 'label' => 'Nullable'],
             ['url' => '#sortable', 'label' => 'Сортировка'],
             ['url' => '#badge', 'label' => 'Badge'],
+            ['url' => '#horizontal', 'label' => 'Горизонтально отображение'],
             ['url' => '#hide-show', 'label' => 'Отображение'],
             ['url' => '#show-when', 'label' => 'Динамическое отображение'],
             ['url' => '#custom-view', 'label' => 'Изменение отображения'],
@@ -389,6 +390,33 @@ public function fields(): array
 
 //...
 </x-code>
+
+<x-sub-title id="horizontal">Горизонтально отображение</x-sub-title>
+
+<x-p>
+    Метод <code>horizontal()</code> позволяет отображать название и поле горизонтально.
+</x-p>
+
+<x-code language="php">
+horizontal()
+</x-code>
+
+<x-code language="php">
+//...
+
+public function fields(): array
+{
+    return [
+        Text::make('Title')
+            ->horizontal(), // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/horizontal.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/horizontal_dark.png') }}"></x-image>
 
 <x-sub-title id="hide-show">Отображение</x-sub-title>
 

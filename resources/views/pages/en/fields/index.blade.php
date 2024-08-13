@@ -11,6 +11,7 @@
             ['url' => '#nullable', 'label' => 'Nullable'],
             ['url' => '#sortable', 'label' => 'Sorting'],
             ['url' => '#badge', 'label' => 'Badge'],
+            ['url' => '#horizontal', 'label' => 'Horizontal'],
             ['url' => '#hide-show', 'label' => 'Display'],
             ['url' => '#show-when', 'label' => 'Dynamic display'],
             ['url' => '#custom-view', 'label' => 'Changing the display'],
@@ -389,6 +390,33 @@ public function fields(): array
 
 //...
 </x-code>
+
+<x-sub-title id="horizontal">Horizontal display</x-sub-title>
+
+<x-p>
+    The <code>horizontal()</code> method allows you to display the title and field horizontally.
+</x-p>
+
+<x-code language="php">
+horizontal()
+</x-code>
+
+<x-code language="php">
+//...
+
+public function fields(): array
+{
+    return [
+        Text::make('Title')
+            ->horizontal(), // [tl! focus]
+    ];
+}
+
+//...
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/horizontal.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/horizontal_dark.png') }}"></x-image>
 
 <x-sub-title id="hide-show">Display</x-sub-title>
 

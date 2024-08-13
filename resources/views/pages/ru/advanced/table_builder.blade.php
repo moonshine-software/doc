@@ -20,6 +20,7 @@
             ['url' => '#creatable', 'label' => 'Добавление записей'],
             ['url' => '#editable', 'label' => 'Редактируемые записи'],
             ['url' => '#sortable', 'label' => 'Сортируемые записи'],
+            ['url' => '#column-display', 'label' => 'Отображение колонок'],
         ]
     ]"
 >
@@ -565,6 +566,69 @@ TableBuilder::make()
             Text::make('Title'),
             Text::make('Text')
         ])
+!!}
+
+<x-sub-title id="column-display">Отображение колонок</x-sub-title>
+
+<x-p>
+    Можно предоставить пользователям самостоятельно определять какие колонки отображать в таблице,
+    с сохранением выбора. Для этого необходимо воспользоваться методом <code>columnSelection()</code>.
+</x-p>
+
+<x-code language="php">
+columnSelection(string $uniqueId = '')
+</x-code>
+
+<x-ul>
+    <li><code>$uniqueId</code> - уникальное Id таблицы для сохранения выбора отображаемых колонок.</li>
+</x-ul>
+
+<x-code language="php">
+TableBuilder::make()
+    ->fields([
+        Text::make('Title'),
+        Text::make('Text')
+    ])
+    ->columnSelection('unique-id')
+</x-code>
+
+{!!
+    table(items: [['title' => 'Value 1', 'text' => 'Value 2'], ['title' => 'Value 3', 'text' => 'Value 4']])
+        ->sortable()
+        ->fields([
+            Text::make('Title'),
+            Text::make('Text')
+        ])
+        ->columnSelection('unique-id')
+!!}
+
+<x-p>
+    Если необходимо исключить поля из выбора, то воспользуйтесь методом <code>columnSelection()</code>
+</x-p>
+
+<x-code language="php">
+public function columnSelection(bool $active = true)
+</x-code>
+
+<x-code>
+TableBuilder::make()
+    ->fields([
+        Text::make('Title')
+            ->columnSelection(false),
+        Text::make('Text')
+    ])
+    ->columnSelection('unique-id')
+</x-code>
+
+{!!
+    table(items: [['title' => 'Value 1', 'text' => 'Value 2'], ['title' => 'Value 3', 'text' => 'Value 4']])
+        ->sortable()
+        ->fields([
+            Text::make('Title')
+                ->columnSelection(false),
+            Text::make('Text')
+        ])
+        ->columnSelection('unique-id')
 !!}
 
 </x-page>

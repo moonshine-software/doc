@@ -4,6 +4,7 @@
         'Sections' => [
             ['url' => '#basics', 'label' => 'Basics'],
             ['url' => '#group', 'label' => 'Groups'],
+            ['url' => '#attributes', 'label' => 'Attributes'],
             ['url' => '#divider', 'label' => 'Divider'],
             ['url' => '#condition', 'label' => 'Display condition'],
             ['url' => '#icon', 'label' => 'Icon'],
@@ -11,6 +12,7 @@
             ['url' => '#translation', 'label' => 'Translation'],
             ['url' => '#target-blank', 'label' => 'Open in new tab'],
             ['url' => '#force-active', 'label' => 'Active item'],
+            ['url' => '#custom-view', 'label' => 'Custom view'],
         ]
     ]"
 >
@@ -23,7 +25,8 @@
 </x-p>
 
 <x-p>
-    In order to add a menu item, you must use the <strong>MoonShine\Menu\MenuItem</strong> class and its static method <code>make()</code>.
+    In order to add a menu item, you must use the <strong>MoonShine\Menu\MenuItem</strong>
+    class and its static method <code>make()</code>.
 </x-p>
 
 <x-code language="php">
@@ -194,6 +197,90 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 <x-moonshine::alert type="default" icon="heroicons.book-open">
     To create a multi-level menu, groups can be nested.
 </x-moonshine::alert>
+
+<x-sub-title id="attributes">Attributes</x-sub-title>
+
+<x-p>
+    The <code>customAttributes()</code> method allows you to add your own attributes for groups and menu items.
+</x-p>
+
+<x-code language="php">
+customAttributes(array $attributes)
+</x-code>
+
+<x-code language="php">
+namespace App\Providers;
+
+use MoonShine\Menu\MenuGroup;
+use MoonShine\Menu\MenuItem;
+use MoonShine\Providers\MoonShineApplicationServiceProvider;
+use MoonShine\Resources\MoonShineUserResource;
+use MoonShine\Resources\MoonShineUserRoleResource;
+
+class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
+{
+    protected function menu(): array
+    {
+        return [
+            MenuGroup::make(static fn () => __('moonshine::ui.resource.system'), [
+                MenuItem::make(
+                    static fn () => __('moonshine::ui.resource.admins_title'),
+                    new MoonShineUserResource()
+                ),
+                MenuItem::make(
+                    static fn () => __('moonshine::ui.resource.role_title'),
+                    new MoonShineUserRoleResource()
+                )
+                    ->customAttributes(['class' => 'group-li-custom-class']), // [tl! focus]
+            ])
+                ->customAttributes(['class' => 'group-li-custom-class']) // [tl! focus]
+        ];
+    }
+
+    //...
+}
+</x-code>
+
+<x-p>
+    The <code>linkAttributes()</code> method allows you to add attributes to the <code>a</code> link tag.
+</x-p>
+
+<x-code language="php">
+linkAttributes(array $attributes)
+</x-code>
+
+<x-code language="php">
+namespace App\Providers;
+
+use MoonShine\Menu\MenuGroup;
+use MoonShine\Menu\MenuItem;
+use MoonShine\Providers\MoonShineApplicationServiceProvider;
+use MoonShine\Resources\MoonShineUserResource;
+use MoonShine\Resources\MoonShineUserRoleResource;
+
+class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
+{
+    protected function menu(): array
+    {
+        return [
+            MenuGroup::make(static fn () => __('moonshine::ui.resource.system'), [
+                MenuItem::make(
+                    static fn () => __('moonshine::ui.resource.admins_title'),
+                    new MoonShineUserResource()
+                )
+                    ->linkAttributes(['class' => 'group-a-custom-class']), // [tl! focus]
+                MenuItem::make(
+                    static fn () => __('moonshine::ui.resource.role_title'),
+                    new MoonShineUserRoleResource()
+                ),
+            ])
+                ->linkAttributes(['class' => 'group-button-custom-class']) // [tl! focus]
+        ];
+    }
+
+    //...
+}
+</x-code>
 
 <x-sub-title id="divider">Delimiter</x-sub-title>
 
@@ -631,6 +718,40 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
         return [
             MenuItem::make('Label', '/endpoint')
                 ->forceActive(fn() => request()->fullUrlIs('*admin/endpoint/*')), // [tl! focus]
+        ];
+    }
+
+    //...
+}
+</x-code>
+
+<x-sub-title id="custom-view">Custom view</x-sub-title>
+
+<x-p>
+    When you need to change the view using <em>fluent interface</em>
+    you can use the <code>customView()</code> method.
+</x-p>
+
+<x-code language="php">
+customView(string $path)
+</x-code>
+
+<x-code language="php">
+namespace App\Providers;
+
+use MoonShine\Menu\MenuItem;
+use MoonShine\Providers\MoonShineApplicationServiceProvider;
+
+class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
+{
+    protected function menu(): array
+    {
+        return [
+            MenuGroup::make('Group', [
+                MenuItem::make('Label', '/endpoint')
+                    ->customView('admin.custom-menu-item'), // [tl! focus]
+            ])
+                ->customView('admin.custom-menu-group'), // [tl! focus]
         ];
     }
 

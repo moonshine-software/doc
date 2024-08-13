@@ -9,6 +9,7 @@
         ['url' => '#disable-pagination', 'label' => 'Disabling pagination'],
         ['url' => '#async', 'label' => 'Asynchronous mode'],
         ['url' => '#update-row', 'label' => 'Updating a row'],
+        ['url' => '#column-display', 'label' => 'Column display'],
     ]
 ]">
 
@@ -349,6 +350,72 @@ TableBuilder::make()
     ->items($this->fetch())
     ->name('main-table')
     ->async(),
+</x-code>
+
+<x-sub-title id="column-display">Column display</x-sub-title>
+
+<x-p>
+    You can let users decide which columns to display in the table,
+    saving the choice. To do this, you need to set the resource parameter <code>$columnSelection</code>.
+</x-p>
+
+<x-code language="php">
+namespace App\MoonShine\Resources;
+
+use App\Models\Post;
+use MoonShine\Resources\ModelResource;
+
+class PostResource extends ModelResource
+{
+    protected string $model = Post::class;
+
+    protected string $title = 'Posts';
+
+    protected bool $columnSelection = true; // [tl! focus]
+
+    //...
+}
+</x-code>
+
+<x-p>
+    If you need to exclude fields from selection, use the <code>columnSelection()</code> method.
+</x-p>
+
+<x-code language="php">
+public function columnSelection(bool $active = true)
+</x-code>
+
+<x-code>
+namespace App\MoonShine\Resources;
+
+use App\Models\Post;
+use MoonShine\Fields\ID;
+use MoonShine\Fields\Text;
+use MoonShine\Fields\Textarea;
+use MoonShine\Resources\ModelResource;
+
+class PostResource extends ModelResource
+{
+    protected string $model = Post::class;
+
+    protected string $title = 'Posts';
+
+    protected bool $columnSelection = true;
+
+    //...
+
+    public function fields(): array
+    {
+        return [
+            ID::make()
+                ->columnSelection(false), // [tl! focus]
+            Text::make('Title'),
+            Textarea::make('Body'),
+        ];
+    }
+
+    //...
+}
 </x-code>
 
 </x-page>
