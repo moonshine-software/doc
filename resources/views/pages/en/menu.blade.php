@@ -12,6 +12,7 @@
             ['url' => '#translation', 'label' => 'Translation'],
             ['url' => '#target-blank', 'label' => 'Open in new tab'],
             ['url' => '#force-active', 'label' => 'Active item'],
+            ['url' => '#custom-view', 'label' => 'Custom view'],
         ]
     ]"
 >
@@ -717,6 +718,40 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
         return [
             MenuItem::make('Label', '/endpoint')
                 ->forceActive(fn() => request()->fullUrlIs('*admin/endpoint/*')), // [tl! focus]
+        ];
+    }
+
+    //...
+}
+</x-code>
+
+<x-sub-title id="custom-view">Custom view</x-sub-title>
+
+<x-p>
+    When you need to change the view using <em>fluent interface</em>
+    you can use the <code>customView()</code> method.
+</x-p>
+
+<x-code language="php">
+customView(string $path)
+</x-code>
+
+<x-code language="php">
+namespace App\Providers;
+
+use MoonShine\Menu\MenuItem;
+use MoonShine\Providers\MoonShineApplicationServiceProvider;
+
+class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
+{
+    protected function menu(): array
+    {
+        return [
+            MenuGroup::make('Group', [
+                MenuItem::make('Label', '/endpoint')
+                    ->customView('admin.custom-menu-item'), // [tl! focus]
+            ])
+                ->customView('admin.custom-menu-group'), // [tl! focus]
         ];
     }
 

@@ -12,6 +12,7 @@
             ['url' => '#translation', 'label' => 'Перевод'],
             ['url' => '#target-blank', 'label' => 'Открытие в новой вкладке'],
             ['url' => '#force-active', 'label' => 'Активный пункт'],
+            ['url' => '#custom-view', 'label' => 'Изменение отображения'],
         ]
     ]"
 >
@@ -717,6 +718,40 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
         return [
             MenuItem::make('Label', '/endpoint')
                 ->forceActive(fn() => request()->fullUrlIs('*admin/endpoint/*')), // [tl! focus]
+        ];
+    }
+
+    //...
+}
+</x-code>
+
+<x-sub-title id="custom-view">Изменение отображения</x-sub-title>
+
+<x-p>
+    Когда необходимо изменить view с помощью <em>fluent interface</em>
+    можно воспользоваться методом <code>customView()</code>.
+</x-p>
+
+<x-code language="php">
+customView(string $path)
+</x-code>
+
+<x-code language="php">
+namespace App\Providers;
+
+use MoonShine\Menu\MenuItem;
+use MoonShine\Providers\MoonShineApplicationServiceProvider;
+
+class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
+{
+    protected function menu(): array
+    {
+        return [
+            MenuGroup::make('Group', [
+                MenuItem::make('Label', '/endpoint')
+                    ->customView('admin.custom-menu-item'), // [tl! focus]
+            ])
+                ->customView('admin.custom-menu-group'), // [tl! focus]
         ];
     }
 
