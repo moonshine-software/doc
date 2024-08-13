@@ -12,6 +12,7 @@
             ['url' => '#attributes', 'label' => 'Атрибуты'],
             ['url' => '#name', 'label' => 'Наименование формы'],
             ['url' => '#async', 'label' => 'Асинхронный режим'],
+            ['url' => '#errors', 'label' => 'Отображение ошибок валидации'],
             ['url' => '#precognitive', 'label' => 'Precognitive'],
             ['url' => '#apply', 'label' => 'Apply'],
             ['url' => '#method', 'label' => 'Вызов методов'],
@@ -324,6 +325,26 @@ FormBuilder::make('/crud/update', 'PUT')
 <x-moonshine::alert type="warning" icon="heroicons.information-circle">
     Метод <code>async()</code> должен быть после метода <code>name()</code>!
 </x-moonshine::alert>
+
+<x-sub-title id="errors">Отображение ошибок валидации</x-sub-title>
+<x-p>
+    По умолчанию ошибки валидации отображаются в верхней части формы.
+</x-p>
+
+<x-image theme="light" src="{{ asset('screenshots/errors_above_true.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/errors_above_true_dark.png') }}"></x-image>
+
+<x-p>
+    Метод <code>errorsAbove(bool $enable = true)</code> используется для управления отображением ошибок валидации в верхней части формы. Он позволяет включить или отключить эту функцию.
+</x-p>
+
+<x-code language="php">
+FormBuilder::make('/crud/update', 'PUT')
+    ->errorsAbove(false) // [tl! focus]
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/errors_above_false.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/errors_above_false_dark.png') }}"></x-image>
 
 <x-sub-title id="precognitive">Precognitive</x-sub-title>
 

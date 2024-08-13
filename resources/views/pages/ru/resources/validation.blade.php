@@ -1,6 +1,7 @@
 <x-page title="Валидация" :sectionMenu="[
     'Разделы' => [
         ['url' => '#basics', 'label' => 'Основы'],
+        ['url' => '#errors', 'label' => 'Отображение ошибок валидации'],
         ['url' => '#messages', 'label' => 'Сообщения'],
         ['url' => '#prepare', 'label' => 'Подготовка входных данных'],
     ]
@@ -38,6 +39,33 @@ class PostResource extends ModelResource
 
 <x-image theme="light" src="{{ asset('screenshots/validation.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/validation_dark.png') }}"></x-image>
+
+<x-sub-title id="errors">Отображение ошибок валидации</x-sub-title>
+<x-p>
+    Параметр ресурса <code>$errorsAbove</code> отвечает за отображение ошибок валидации в верхней части формы. По умолчанию установлено значение <code>true</code>, что означает, что ошибки валидации будут отображаться.
+</x-p>
+
+<x-image theme="light" src="{{ asset('screenshots/errors_above_true.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/errors_above_true_dark.png') }}"></x-image>
+
+<x-p>
+    Чтобы скрыть ошибки валидации в верхней части формы, установите для параметра ресурса <code>$errorsAbove</code> значение <code>false</code>.
+</x-p>
+<x-code language="php">
+namespace App\MoonShine\Resources;
+
+use MoonShine\Resources\ModelResource;
+
+class PostResource extends ModelResource
+{
+    //...
+    protected bool $errorsAbove = false;// [tl! focus]
+    //...
+}
+</x-code>
+
+<x-image theme="light" src="{{ asset('screenshots/errors_above_false.png') }}"></x-image>
+<x-image theme="dark" src="{{ asset('screenshots/errors_above_false_dark.png') }}"></x-image>
 
 <x-sub-title id="messages">Сообщения</x-sub-title>
 
