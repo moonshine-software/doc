@@ -4,6 +4,7 @@
         'Разделы' => [
             ['url' => '#basics', 'label' => 'Основы'],
             ['url' => '#group', 'label' => 'Группы'],
+            ['url' => '#attributes', 'label' => 'Атрибуты'],
             ['url' => '#divider', 'label' => 'Разделитель'],
             ['url' => '#condition', 'label' => 'Условие отображения'],
             ['url' => '#icon', 'label' => 'Иконка'],
@@ -195,6 +196,90 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 <x-moonshine::alert type="default" icon="heroicons.book-open">
     Для создания многоуровнего меню, группы можно делать вложенными.
 </x-moonshine::alert>
+
+<x-sub-title id="attributes">Атрибуты</x-sub-title>
+
+<x-p>
+    Метод <code>customAttributes()</code> позволяет добавлять свои атрибуты для групп и элементов меню.
+</x-p>
+
+<x-code language="php">
+customAttributes(array $attributes)
+</x-code>
+
+<x-code language="php">
+namespace App\Providers;
+
+use MoonShine\Menu\MenuGroup;
+use MoonShine\Menu\MenuItem;
+use MoonShine\Providers\MoonShineApplicationServiceProvider;
+use MoonShine\Resources\MoonShineUserResource;
+use MoonShine\Resources\MoonShineUserRoleResource;
+
+class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
+{
+    protected function menu(): array
+    {
+        return [
+            MenuGroup::make(static fn () => __('moonshine::ui.resource.system'), [
+                MenuItem::make(
+                    static fn () => __('moonshine::ui.resource.admins_title'),
+                    new MoonShineUserResource()
+                ),
+                MenuItem::make(
+                    static fn () => __('moonshine::ui.resource.role_title'),
+                    new MoonShineUserRoleResource()
+                )
+                    ->customAttributes(['class' => 'group-li-custom-class']), // [tl! focus]
+            ])
+                ->customAttributes(['class' => 'group-li-custom-class']) // [tl! focus]
+        ];
+    }
+
+    //...
+}
+</x-code>
+
+<x-p>
+    Метод <code>linkAttributes()</code> позволяет добавить атрибуты тег ссылки <code>a</code>.
+</x-p>
+
+<x-code language="php">
+linkAttributes(array $attributes)
+</x-code>
+
+<x-code language="php">
+namespace App\Providers;
+
+use MoonShine\Menu\MenuGroup;
+use MoonShine\Menu\MenuItem;
+use MoonShine\Providers\MoonShineApplicationServiceProvider;
+use MoonShine\Resources\MoonShineUserResource;
+use MoonShine\Resources\MoonShineUserRoleResource;
+
+class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
+{
+    protected function menu(): array
+    {
+        return [
+            MenuGroup::make(static fn () => __('moonshine::ui.resource.system'), [
+                MenuItem::make(
+                    static fn () => __('moonshine::ui.resource.admins_title'),
+                    new MoonShineUserResource()
+                )
+                    ->linkAttributes(['class' => 'group-a-custom-class']), // [tl! focus]
+                MenuItem::make(
+                    static fn () => __('moonshine::ui.resource.role_title'),
+                    new MoonShineUserRoleResource()
+                ),
+            ])
+                ->linkAttributes(['class' => 'group-button-custom-class']) // [tl! focus]
+        ];
+    }
+
+    //...
+}
+</x-code>
 
 <x-sub-title id="divider">Разделитель</x-sub-title>
 
