@@ -6,6 +6,7 @@
             ['url' => '#vertical-tab', 'label' => 'Вертикальные вкладки'],
             ['url' => '#active-tab', 'label' => 'Активная вкладка'],
             ['url' => '#tab-icon', 'label' => 'Иконка'],
+            ['url' => '#tab-id', 'label' => 'ID вкладки'],
         ]
     ]"
 >
@@ -149,5 +150,67 @@ public function components(): array
 
 //...
 </x-code>
+
+<x-sub-title id="tab-id">ID вкладки</x-sub-title>
+
+<x-p>
+    Метод <code>uniqueId()</code> позволяет задать ID вкладки.<br />
+    Таким образом можно реализовать свою логику для вкладок используя <strong>Alpine.js</strong>.
+</x-p>
+
+<x-code language="php">
+uniqueId(string $id)
+</x-code>
+
+<x-code language="php">
+use MoonShine\ActionButtons\ActionButton;
+use MoonShine\Decorations\Tabs;
+use MoonShine\Decorations\Tab;
+
+//...
+
+public function components(): array
+{
+    return [
+        Tabs::make([
+            Tab::make('Tab 1', [
+                //...
+
+                ActionButton::make('Go to tab 2')->onClick(fn() => 'setActiveTab(`my-tab-2`)', 'prevent'),
+            ])
+                ->uniqueId('my-tab-1'), // [tl! focus]
+
+            Tab::make('Tab 2', [
+                //...
+
+                ActionButton::make('Go to tab 1')->onClick(fn() => 'setActiveTab(`my-tab-1`)', 'prevent'),
+            ])
+                ->uniqueId('my-tab-2') // [tl! focus]
+        ])
+    ];
+}
+
+//...
+</x-code>
+
+<x-moonshine::grid>
+    <x-moonshine::column adaptiveColSpan="12" colSpan="4">
+        <x-moonshine::box class="flex items-center flex-wrap gap-4">
+            {!!
+                MoonShine\Decorations\Tabs::make([
+                    MoonShine\Decorations\Tab::make('Tab 1', [
+                        MoonShine\ActionButtons\ActionButton::make('Go to tab 2')->onClick(fn() => 'setActiveTab(`my-tab-2`)', 'prevent'),
+                    ])
+                        ->uniqueId('my-tab-1'), // [tl! focus]
+
+                    MoonShine\Decorations\Tab::make('Tab 2', [
+                        MoonShine\ActionButtons\ActionButton::make('Go to tab 1')->onClick(fn() => 'setActiveTab(`my-tab-1`)', 'prevent'),
+                    ])
+                        ->uniqueId('my-tab-2') // [tl! focus]
+                ])
+            !!}
+        </x-moonshine::box>
+    </x-moonshine::column>
+</x-moonshine::grid>
 
 </x-page>
