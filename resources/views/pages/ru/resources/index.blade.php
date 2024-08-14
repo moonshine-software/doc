@@ -11,6 +11,7 @@
             ['url' => '#redirects', 'label' => 'Редиректы'],
             ['url' => '#active_actions', 'label' => 'Активные действия'],
             ['url' => '#actions', 'label' => 'Кнопки'],
+            ['url' => '#modification', 'label' => 'Модификация'],
             ['url' => '#components', 'label' => 'Компоненты'],
             ['url' => '#boot', 'label' => 'Boot'],
         ]
@@ -333,6 +334,43 @@ class PostResource extends ModelResource
     } // [tl! focus:end]
 
     //...
+}
+</x-code>
+
+<x-sub-title id="modification">Модификация</x-sub-title>
+
+<x-p>
+    Для модификации основного компонента <strong>IndexPage</strong>, <strong>FormPage</strong> или <strong>DetailPage</strong>
+    страницы из ресурса можно переопределить соответствующие методы <code>modifyListComponent()</code>,
+    <code>modifyFormComponent()</code> и <code>modifyDetailComponent()</code>.
+</x-p>
+
+<x-code language="php">
+public function modifyListComponent(MoonShineRenderable $component): MoonShineRenderable
+{
+    return parent::modifyListComponent($component)->customAttributes([
+        'data-my-attr' => 'value'
+    ]);
+}
+</x-code>
+
+<x-code language="php">
+public function modifyFormComponent(MoonShineRenderable $component): MoonShineRenderable
+{
+    return parent::modifyFormComponent($component)->fields([
+        FlexibleRender::make('Top'),
+        ...parent::modifyFormComponent($component)->getFields()->toArray(),
+        FlexibleRender::make('Bottom'),
+    ])->submit('Go');
+}
+</x-code>
+
+<x-code language="php">
+public function modifyDetailComponent(MoonShineRenderable $component): MoonShineRenderable
+{
+    return parent::modifyDetailComponent($component)->customAttributes([
+        'data-my-attr' => 'value'
+    ]);
 }
 </x-code>
 

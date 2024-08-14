@@ -11,6 +11,7 @@
             ['url' => '#redirects', 'label' => 'Redirects'],
             ['url' => '#active_actions', 'label' => 'Active actions'],
             ['url' => '#actions', 'label' => 'Buttons'],
+            ['url' => '#modification', 'label' => 'Modification'],
             ['url' => '#components', 'label' => 'Components'],
             ['url' => '#boot', 'label' => 'Boot'],
         ]
@@ -333,6 +334,43 @@ class PostResource extends ModelResource
     } // [tl! focus:end]
 
     //...
+}
+</x-code>
+
+<x-sub-title id="modification">Modification</x-sub-title>
+
+<x-p>
+    To modify the main <strong>IndexPage</strong>, <strong>FormPage</strong> or <strong>DetailPage</strong> component
+    pages from a resource, you can override the corresponding <code>modifyListComponent()</code>,
+    <code>modifyFormComponent()</code> and <code>modifyDetailComponent()</code> methods.
+</x-p>
+
+<x-code language="php">
+public function modifyListComponent(MoonShineRenderable $component): MoonShineRenderable
+{
+    return parent::modifyListComponent($component)->customAttributes([
+        'data-my-attr' => 'value'
+    ]);
+}
+</x-code>
+
+<x-code language="php">
+public function modifyFormComponent(MoonShineRenderable $component): MoonShineRenderable
+{
+    return parent::modifyFormComponent($component)->fields([
+        FlexibleRender::make('Top'),
+        ...parent::modifyFormComponent($component)->getFields()->toArray(),
+        FlexibleRender::make('Bottom'),
+    ])->submit('Go');
+}
+</x-code>
+
+<x-code language="php">
+public function modifyDetailComponent(MoonShineRenderable $component): MoonShineRenderable
+{
+    return parent::modifyDetailComponent($component)->customAttributes([
+        'data-my-attr' => 'value'
+    ]);
 }
 </x-code>
 
