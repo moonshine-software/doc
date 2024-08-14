@@ -208,6 +208,7 @@ public function components(): array
                     ])
                         ->uniqueId('my-tab-2') // [tl! focus]
                 ])
+                    ->customAttributes(['class' => 'w-full'])
             !!}
         </x-moonshine::box>
     </x-moonshine::column>
