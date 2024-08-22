@@ -1,7 +1,5 @@
 # AssetsManager
 
-## Sections
-
 - [Global assets](#global)
 - [Assets for the resource/page](#resource-page)
 - [Vite](#vite)
@@ -13,7 +11,7 @@
 You can connect any of your *css* and *js* files to MoonShine.
 
 <a name="global"></a>
-## Global assets
+## [Global assets](#global)
 
 If you need to publish assets globally for all pages, then you can add them to `MoonShineServiceProvider`.
 
@@ -37,7 +35,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 ```
 
 <a name="resource-page"></a>
-## Assets for a resource/page
+## [Assets for a resource/page](#resource-page)
 
 Assets can be added for a resource or for a separate page, To do this, you need to specify the `$assets` property.
 
@@ -66,7 +64,7 @@ class MyPage extends Page
 ```
 
 <a name="vite"></a>
-## Vite
+## [Vite](#vite)
 
 You can also add your own Vite assets:
 
@@ -91,7 +89,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 ```
 
 <a name="config"></a>
-## Configuration
+## [Configuration](#config)
 
 You can configure the connection of assets in the configuration file `config/moonshine.php`
 
@@ -120,7 +118,7 @@ return [
 ```
 
 <a name="directive"></a>
-## Directive
+## [Directive](#directive)
 
 If you want to use **MoonShine** styles and scripts outside the admin panel, then you need to include the `@moonShineAssets` directive.
 
@@ -129,8 +127,3 @@ If you want to use **MoonShine** styles and scripts outside the admin panel, the
     @moonShineAssets
 </head>
 ```
-
----
-
-[Appearance - LayoutBuilder](https://moonshine-laravel.com/docs/resource/appearance/appearance-layout_builder)
-[Appearance - Icons](https://moonshine-laravel.com/docs/resource/appearance/icons)
