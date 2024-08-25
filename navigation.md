@@ -1,2 +1,4 @@
 - ## Getting Started
     - [Installation](/docs/{{version}}/installation)
+ - ## Components
+    - [All](/docs/{{version}}/all)
