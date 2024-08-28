@@ -11,6 +11,7 @@
 		['url' => '#associated', 'label' => 'Related fields'],
 		['url' => '#with-image', 'label' => 'Values with picture'],
         ['url' => '#options', 'label' => 'Options'],
+        ['url' => '#native', 'label' => 'Native mode'],
     ]
 ]">
 
@@ -139,5 +140,15 @@ public function fields(): array
 @include('pages.en.fields.shared.with_image', ['field' => 'BelongsTo'])
 
 @include('pages.en.fields.shared.choices_options', ['field' => 'BelongsTo'])
+
+<x-sub-title id="native">Native mode</x-sub-title>
+
+<x-p>
+    The <code>native()</code> method disables the Choices.js library and displays select in native mode
+</x-p>
+
+<x-code language="php">
+    BelongsTo::make('Type')->native()
+</x-code>
 
 </x-page>
