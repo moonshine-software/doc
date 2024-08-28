@@ -156,6 +156,7 @@ return [
         ['slug' => 'components-card', 'label' => 'Card', 'title' => 'Card Component'],
         ['slug' => 'components-carousel', 'label' => 'Carousel', 'title' => 'Carousel Component'],
         ['slug' => 'components-link', 'label' => 'Link', 'title' => 'Link Component'],
+        ['slug' => 'components-div', 'label' => 'Div', 'title' => 'Div Component'],
     ],
 
     'ActionButton:cursor-arrow-ripple' => [
