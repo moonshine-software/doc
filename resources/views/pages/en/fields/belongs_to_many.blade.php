@@ -291,7 +291,7 @@ public function fields(): array
                     ->onClick(fn() => 'checkAll', 'prevent'),
 
                 ActionButton::make('Uncheck all', '')
-                    ->onClick(fn() => '', 'prevent')
+                    ->onClick(fn() => 'uncheckAll', 'prevent')
             ]) // [tl! focus:-6]
     ];
 }
