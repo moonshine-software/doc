@@ -16,17 +16,18 @@
 <x-moonshine::divider label="@defineEvent" />
 
 <x-code language="php">
-@@defineEvent(string|JsEvent $event, ?string $name = null, ?string $call = null)
+@@defineEvent(string|JsEvent $event, ?string $name = null, ?string $call = null, array $params = [])
 </x-code>
 
 <x-ul>
     <li><code>$event</code> - событие,</li>
     <li><code>$name</code> - название компонента,</li>
     <li><code>$call</code> - callback функция.</li>
+    <li><code>$params</code> - параметры события.</li>
 </x-ul>
 
 <x-code language="php">
-<div x-data="myComponent"
+<div x-data="myComponent">
     // @table-updated-index.window="asyncRequest"
     @@defineEvent('table-updated', 'index', 'asyncRequest')
 >
@@ -36,7 +37,7 @@
 <x-moonshine::divider label="@defineEventWhen" />
 
 <x-code language="php">
-@@defineEventWhen(mixed $condition, string|JsEvent $event, ?string $name = null, ?string $call = null)
+@@defineEventWhen(mixed $condition, string|JsEvent $event, ?string $name = null, ?string $call = null, array $params = [])
 </x-code>
 
 <x-ul>
@@ -44,10 +45,11 @@
     <li><code>$event</code> - событие,</li>
     <li><code>$name</code> - название компонента,</li>
     <li><code>$call</code> - callback функция.</li>
+    <li><code>$params</code> - параметры события.</li>
 </x-ul>
 
 <x-code language="php">
-<div x-data="myComponent"
+<div x-data="myComponent">
     // @table-updated-index.window="asyncRequest"
     @@defineEventWhen(true, 'table-updated', 'index', 'asyncRequest')
 >
@@ -63,13 +65,13 @@
 <x-moonshine::divider label="AlpineJs::event()" />
 
 <x-code language="php">
-AlpineJs::event(string|JsEvent $event, ?string $name = null, ?string $call = null)
+AlpineJs::event(string|JsEvent $event, ?string $name = null, array $params = [])
 </x-code>
 
 <x-ul>
     <li><code>$event</code> - событие,</li>
     <li><code>$name</code> - название компонента,</li>
-    <li><code>$call</code> - callback функция.</li>
+    <li><code>$params</code> - параметры события</li>
 </x-ul>
 
 <x-code language="php">
@@ -79,19 +81,20 @@ use MoonShine\Support\AlpineJs;
 
 FormBuilder::make('/crud/update', 'PUT')
     ->name('main-form')
-    ->async(asyncEvents: [AlpineJs::event(JsEvent::TABLE_UPDATED, 'index', 'asyncRequest')]) // [tl! focus]
+    ->async(asyncEvents: [AlpineJs::event(JsEvent::TABLE_UPDATED, 'index', ['var' => 'foo])]) // [tl! focus]
 </x-code>
 
 <x-moonshine::divider label="AlpineJs::eventBlade()" />
 
 <x-code language="php">
-AlpineJs::eventBlade(string|JsEvent $event, ?string $name = null, ?string $call = null)
+AlpineJs::eventBlade(string|JsEvent $event, ?string $name = null, ?string $call = null, array $params = [])
 </x-code>
 
 <x-ul>
     <li><code>$event</code> - событие,</li>
     <li><code>$name</code> - название компонента,</li>
     <li><code>$call</code> - callback функция.</li>
+    <li><code>$params</code> - параметры события</li>
 </x-ul>
 
 <x-code language="php">

@@ -16,6 +16,7 @@
             ['url' => '#change-field-logic', 'label' => 'Изменение логики поля'],
             ['url' => '#images-in-linked-table', 'label' => 'Сохранение изображений в связанной таблице'],
             ['url' => '#custom-select-filter', 'label' => 'Кастомный фильтр с селектом'],
+            ['url' => '#async-metrics', 'label' => 'Async метрики'],
         ]
     ]"
 >
@@ -36,5 +37,6 @@
 ])
 @include('pages.ru.recipes.images-in-linked-table', ['title' => 'Сохранение изображений в связанной таблице'])
 @include('pages.ru.recipes.custom-select-filter', ['title' => 'Кастомный фильтр с селектом'])
+@include('pages.ru.recipes.async-metrics', ['title' => 'Async метрики'])
 
 </x-page>

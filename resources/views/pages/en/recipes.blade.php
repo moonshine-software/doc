@@ -16,6 +16,7 @@
             ['url' => '#change-field-logic', 'label' => 'Changing field logic'],
             ['url' => '#images-in-linked-table', 'label' => 'Saving images in a linked table'],
             ['url' => '#custom-select-filter', 'label' => 'Custom select filter'],
+            ['url' => '#async-metrics', 'label' => 'Async metrics'],
         ]
     ]"
 >
@@ -36,5 +37,6 @@
 ])
 @include('pages.en.recipes.images-in-linked-table', ['title' => 'Saving images in a linked table'])
 @include('pages.en.recipes.custom-select-filter', ['title' => 'Custom select filter'])
+@include('pages.en.recipes.async-metrics', ['title' => 'Async metrics'])
 
 </x-page>
