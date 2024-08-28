@@ -6,6 +6,7 @@
             ['url' => '#formatted', 'label' => 'Форматирование значения'],
             ['url' => '#label', 'label' => 'Label'],
             ['url' => '#attributes', 'label' => 'Атрибуты'],
+            ['url' => '#alpinejs', 'label' => 'Alpine.js'],
             ['url' => '#hint', 'label' => 'Подсказка'],
             ['url' => '#link', 'label' => 'Ссылка'],
             ['url' => '#nullable', 'label' => 'Nullable'],
@@ -229,6 +230,144 @@ public function fields(): array
 }
 
 //...
+</x-code>
+
+<x-sub-title id="alpinejs">Alpine.js</x-sub-title>
+
+<x-p>
+    Методы позволяющие удобно взаимодействовать с Alpine.js
+</x-p>
+
+<x-code language="php">
+xData(null|array|string $data = null)
+</x-code>
+
+<x-p>
+    Все в Alpine начинается с директивы <code>x-data</code>.
+    метод <code>xData</code> определяет фрагмент HTML как компонент Alpine и предоставляет реактивные данные для ссылки на этот компонент.
+</x-p>
+
+<x-code language="php">
+Block::make([])->xData(['title' = 'Hello world']) // title реактивная переменная внутри
+</x-code>
+
+<x-code language="php">
+xDataMethod(string $method, ...$parameters)
+</x-code>
+
+<x-p>
+    <code>x-data</code> с указанием компонента и его параметров
+</x-p>
+
+<x-code language="php">
+Block::make([])->xDataMethod('some-component', 'var', ['foo' => 'bar'])
+</x-code>
+
+<x-code language="php">
+xModel(?string $column = null)
+</x-code>
+
+<x-p>
+    <code>x-model</code> связывание поля с реактивной переменной
+</x-p>
+
+<x-code language="php">
+Block::make([
+    Text::make('Title')->xModel()
+])->xData(['title' = 'Hello world'])
+
+// или
+
+Block::make([
+    Text::make('Name')->xModel('title')
+])->xData(['title' = 'Hello world'])
+</x-code>
+
+<x-code language="php">
+xIf(
+    string|Closure $variable,
+    ?string $operator = null,
+    ?string $value = null,
+    bool $wrapper = true
+)
+</x-code>
+
+<x-p>
+    <code>x-if</code> скрывает поле, удаляя его из DOM
+</x-p>
+
+<x-code language="php">
+Block::make([
+    Select::make('Type')->native()->options([1 => 1, 2 => 2])->xModel(),
+    Text::make('Title')->xModel()->xIf('type', 1)
+])->xData(['title' = 'Hello world', 'type' => 1])
+
+// или
+
+Block::make([
+    Select::make('Type')->options([1 => 1, 2 => 2])->xModel(),
+    Text::make('Title')->xModel()->xIf(fn() => 'type==2||type.value==2')
+])->xData(['title' = 'Hello world', 'type' => 1])
+
+// если нужно скрыть поле без контейнера
+
+Block::make([
+    Select::make('Type')->native()->options([1 => 1, 2 => 2])->xModel(),
+    Text::make('Title')->xModel()->xIf('type', '=', 2, wrapper: false)
+])->xData(['title' = 'Hello world', 'type' => 1])
+</x-code>
+
+<x-code language="php">
+xShow(
+    string|Closure $variable,
+    ?string $operator = null,
+    ?string $value = null,
+    bool $wrapper = true
+)
+</x-code>
+
+<x-p>
+    <code>x-show</code> тоже самое что и x-if, но не удаляет элемент из DOM, а только скрывает
+</x-p>
+
+<x-code language="php">
+xDisplay(string $value, bool $html = true)
+</x-code>
+
+<x-p>
+    <code>x-html</code> вывод значения
+</x-p>
+
+<x-code language="php">
+Block::make([
+    Select::make('Type')
+        ->native()
+        ->options([
+            1 => 'Платно',
+            2 => 'Бесплатно',
+        ])
+        ->xModel(),
+
+    Number::make('Стоимость', 'price')
+        ->xModel()
+        ->xIf('type', '1'),
+
+    Number::make('Ставка', 'rate')
+        ->xModel()
+        ->xIf('type', '1')
+        ->setValue(90),
+
+    LineBreak::make(),
+
+    Div::make()
+        ->xShow('type', '1')
+        ->xDisplay('"Result:" + (price * rate)')
+    ,
+])->xData([
+    'price' => 0,
+    'rate' => 90,
+    'type' => '2',
+]),
 </x-code>
 
 <x-sub-title id="hint">Подсказка</x-sub-title>
