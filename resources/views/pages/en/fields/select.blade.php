@@ -13,6 +13,7 @@
             ['url' => '#update-on-preview', 'label' => 'Editing in preview'],
 		    ['url' => '#with-image', 'label' => 'Values with picture'],
 		    ['url' => '#options', 'label' => 'Options'],
+		    ['url' => '#native', 'label' => 'Native mode'],
         ]
     ]"
 >
@@ -305,5 +306,15 @@ public function fields(): array
 <x-image theme="dark" src="{{ asset('screenshots/belongs_to_image_dark.png') }}"></x-image>
 
 @include('pages.en.fields.shared.choices_options', ['field' => 'Select'])
+
+<x-sub-title id="native">Native mode</x-sub-title>
+
+<x-p>
+    The <code>native()</code> method disables the Choices.js library and displays select in native mode
+</x-p>
+
+<x-code language="php">
+    Select::make('Type')->native()
+</x-code>
 
 </x-page>

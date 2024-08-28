@@ -13,6 +13,7 @@
             ['url' => '#update-on-preview', 'label' => 'Редактирование в preview'],
 		    ['url' => '#with-image', 'label' => 'Значения с изображением'],
 		    ['url' => '#options', 'label' => 'Опции'],
+		    ['url' => '#native', 'label' => 'Нативный режим'],
         ]
     ]"
 >
@@ -306,4 +307,13 @@ public function fields(): array
 
 @include('pages.ru.fields.shared.choices_options', ['field' => 'Select'])
 
+<x-sub-title id="native">Нативный режим</x-sub-title>
+
+<x-p>
+    Метод <code>native()</code> отключает библиотеку Choices.js и выводит select в нативном режиме
+</x-p>
+
+<x-code language="php">
+    Select::make('Type')->native()
+</x-code>
 </x-page>
