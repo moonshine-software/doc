@@ -491,13 +491,13 @@ class MoonShineUserResource extends ModelResource
 <x-sub-title id="badge">Label</x-sub-title>
 
 <x-p>
-    It is also possible to add an icon to a menu item or group.
+    It is also possible to add an icon to a menu item.
 </x-p>
 
 <x-moonshine::divider label="Via menu item" />
 
 <x-p>
-    To add a badge to a menu item or group, use method <code>badge()</code>,
+    To add a badge to a menu item, use method <code>badge()</code>,
     which takes a closure as a parameter.
 </x-p>
 

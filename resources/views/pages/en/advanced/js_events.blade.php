@@ -81,7 +81,7 @@
 
         FormBuilder::make('/crud/update', 'PUT')
         ->name('main-form')
-        ->async(asyncEvents: [AlpineJs::event(JsEvent::TABLE_UPDATED, 'index', ['var' => 'foo])]) // [tl! focus]
+        ->async(asyncEvents: [AlpineJs::event(JsEvent::TABLE_UPDATED, 'index', ['var' => 'foo'])]) // [tl! focus]
     </x-code>
 
     <x-moonshine::divider label="AlpineJs::eventBlade()" />
