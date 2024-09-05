@@ -21,12 +21,26 @@
 </x-p>
 
 <x-code language="php">
-make(bool $withBorder = false)
+make(
+    ?string $route = null,
+    ?string $logOutRoute = null,
+    Closure|false|null|string $avatar = null,
+    Closure|null|string $nameOfUser = null,
+    Closure|null|string $username = null,
+    bool $withBorder = false,
+    ?string $guard = null
+)
 </x-code>
 
-<x-p>
-    <code>$withBorder</code> - разделить перед компонентом.
-</x-p>
+<x-ul>
+    <li><code>$route</code> - маршрут страницы профиля,</li>
+    <li><code>$logOutRoute</code> - маршрут для разлогинивания,</li>
+    <li><code>$avatar</code> - аватарка пользователя,</li>
+    <li><code>$nameOfUser</code> - имя пользователя,</li>
+    <li><code>$username</code> - username (email|login|tel ...),</li>
+    <li><code>$withBorder</code> - разделить перед компонентом,</li>
+    <li><code>$guard</code> - используемый <em>Guard</em> для авторизации пользователя.</li>
+</x-ul>
 
 <x-code language="php">
 namespace App\MoonShine;
