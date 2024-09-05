@@ -13,6 +13,7 @@
             ['url' => '#relation', 'label' => 'Отношения через Json'],
             ['url' => '#filter', 'label' => 'Фильтр'],
             ['url' => '#buttons', 'label' => 'Кнопки'],
+            ['url' => '#modify', 'label' => 'Модификация'],
         ]
     ]"
 >
@@ -484,6 +485,81 @@ public function fields(): array
                 ->customAttributes(['class' => 'btn-secondary'])
                 ->showInLine()
         ]) // [tl! focus:-5]
+    ];
+}
+
+//...
+</x-code>
+
+<x-sub-title id="modify">Модификация</x-sub-title>
+
+<x-p>
+    У поля <em>Json</em> существуют методы с помощью которых можно модифицировать кнопку удаления или
+    изменить <em>TableBuilder</em> для превью и формы.
+</x-p>
+
+<x-moonshine::divider label="modifyRemoveButton()" />
+
+<x-p>
+    Метод <code>modifyRemoveButton()</code> позволяет изменить кнопку удаления.
+</x-p>
+
+<x-code language="php">
+/**
+ * @param  Closure(ActionButton $button, self $field): ActionButton  $callback
+ */
+modifyRemoveButton(Closure $callback)
+</x-code>
+
+<x-code language="php">
+use MoonShine\ActionButtons\ActionButton;
+use MoonShine\Fields\Json;
+
+//...
+
+public function fields(): array
+{
+    return [
+        Json::make('Data')
+            ->modifyRemoveButton(
+                fn(ActionButton $button) => $button->customAttributes([
+                    'class' => 'btn-secondary'
+                ])
+            ) // [tl! focus:-4]
+    ];
+}
+
+//...
+</x-code>
+
+<x-moonshine::divider label="modifyTable()" />
+
+<x-p>
+    Метод <code>modifyTable()</code> позволяет изменить <em>TableBuilder</em> для превью и формы.
+</x-p>
+
+<x-code language="php">
+/**
+ * @param  Closure(TableBuilder $table, bool $preview): TableBuilder $callback
+ */
+modifyTable(Closure $callback)
+</x-code>
+
+<x-code language="php">
+use MoonShine\Components\TableBuilder;
+use MoonShine\Fields\Json;
+
+//...
+
+public function fields(): array
+{
+    return [
+        Json::make('Data')
+            ->modifyTable(
+                fn(TableBuilder $table, bool $preview) => $table->customAttributes([
+                    'style' => 'width: 50%;'
+                ])
+            ) // [tl! focus:-4]
     ];
 }
 
