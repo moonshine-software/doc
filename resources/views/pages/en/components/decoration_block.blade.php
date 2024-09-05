@@ -4,6 +4,7 @@
         'Sections' => [
             ['url' => '#make', 'label' => 'Make'],
             ['url' => '#wihtout-heading', 'label' => 'No title'],
+            ['url' => '#icon', 'label' => 'Icon'],
         ]
     ]"
 >
@@ -70,5 +71,9 @@ public function components(): array
 
 <x-image theme="light" src="{{ asset('screenshots/block_without_title.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/block_without_title_dark.png') }}"></x-image>
+
+<x-sub-title id="icon">Icon</x-sub-title>
+
+@include('pages.en.components.shared.decoration_icon', ['decoration' => 'Block'])
 
 </x-page>

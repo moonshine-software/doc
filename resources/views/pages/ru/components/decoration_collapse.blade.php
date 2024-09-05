@@ -3,6 +3,7 @@
     :sectionMenu="[
         'Разделы' => [
             ['url' => '#make', 'label' => 'Make'],
+            ['url' => '#icon', 'label' => 'Icon'],
             ['url' => '#show', 'label' => 'Show'],
             ['url' => '#persist', 'label' => 'Persist'],
         ]
@@ -40,6 +41,10 @@ public function components(): array
 
 <x-image theme="light" src="{{ asset('screenshots/collapse.png') }}"></x-image>
 <x-image theme="dark" src="{{ asset('screenshots/collapse_dark.png') }}"></x-image>
+
+<x-sub-title id="icon">Icon</x-sub-title>
+
+@include('pages.ru.components.shared.decoration_icon', ['decoration' => 'Collapse'])
 
 <x-sub-title id="show">Show</x-sub-title>
 
