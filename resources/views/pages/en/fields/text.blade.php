@@ -105,7 +105,29 @@ public function fields(): array
 <x-p><x-moonshine::badge color="green">+</x-moonshine::badge> ability to copy a value using a button</x-p>
 
 <x-code language="php">
-copy()
+copy(string $value = '@{{value}}')
+</x-code>
+
+<x-ul>
+    <li><code>@{{value}}</code> - field value.</li>
+</x-ul>
+
+<x-code language="php">
+use MoonShine\Fields\Text;
+
+//...
+
+public function fields(): array
+{
+    return [
+        Text::make('Title')
+            ->copy(), // [tl! focus]
+        Text::make('Token')
+            ->copy('https://domain.com?token=@{{value}}') // [tl! focus]
+        ];
+    }
+
+//...
 </x-code>
 
 <x-p><x-moonshine::badge color="green">+</x-moonshine::badge> lock with change blocking</x-p>

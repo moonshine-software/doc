@@ -123,6 +123,18 @@ return [
      then specify <code>'avatar'=>''</code> or <code>'avatar'=>false</code>.
 </x-moonshine::alert>
 
+<x-p>
+    It is possible to change <em>Guard</em> in the Profile component.
+</x-p>
+
+<x-code language="php">
+Profile::make(guard: 'custom')
+</x-code>
+
+<x-code language="php">
+MoonShineAuth::guard('custom')->user()
+</x-code>
+
 <x-sub-title id="pipelines">Pipelines</x-sub-title>
 
 <x-p>

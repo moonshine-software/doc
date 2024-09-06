@@ -21,12 +21,26 @@
 </x-p>
 
 <x-code language="php">
-make(bool $withBorder = false)
+make(
+    ?string $route = null,
+    ?string $logOutRoute = null,
+    Closure|false|null|string $avatar = null,
+    Closure|null|string $nameOfUser = null,
+    Closure|null|string $username = null,
+    bool $withBorder = false,
+    ?string $guard = null
+)
 </x-code>
 
-<x-p>
-    <code>$withBorder</code> - to split before the component.
-</x-p>
+<x-ul>
+    <li><code>$route</code> - profile page route,</li>
+    <li><code>$logOutRoute</code> - route for logout</li>
+    <li><code>$avatar</code> - user avatar</li>
+    <li><code>$nameOfUser</code> - user name</li>
+    <li><code>$username</code> - username (email|login|tel ...),</li>
+    <li><code>$withBorder</code> - split before the component</li>
+    <li><code>$guard</code> - used by <em>Guard</em> for user authorization.</li>
+</x-ul>
 
 <x-code language="php">
 namespace App\MoonShine;

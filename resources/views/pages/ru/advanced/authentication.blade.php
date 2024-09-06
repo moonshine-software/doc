@@ -123,6 +123,18 @@ return [
     то укажите <code>'avatar'=>''</code> или <code>'avatar'=>false</code>.
 </x-moonshine::alert>
 
+<x-p>
+    Возможно изменить <em>Guard</em> в Profile компоненте.
+</x-p>
+
+<x-code language="php">
+Profile::make(guard: 'custom')
+</x-code>
+
+<x-code language="php">
+MoonShineAuth::guard('custom')->user()
+</x-code>
+
 <x-sub-title id="pipelines">Pipelines</x-sub-title>
 
 <x-p>
