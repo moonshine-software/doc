@@ -21,6 +21,18 @@
     </x-moonshine::column>
 </x-moonshine::grid>
 
+<x-moonshine::divider label="Via slots" />
+
+<x-code language="blade" file="resources/views/examples/components/tabs-slots.blade.php"></x-code>
+
+<x-moonshine::grid>
+    <x-moonshine::column adaptiveColSpan="12" colSpan="6">
+        <x-moonshine::box>
+            @include("examples/components/tabs-slots")
+        </x-moonshine::box>
+    </x-moonshine::column>
+</x-moonshine::grid>
+
 <x-sub-title id="active">Active tab</x-sub-title>
 
 <x-p>
