@@ -10,6 +10,7 @@
         ['url' => '#async', 'label' => 'Асинхронный режим'],
         ['url' => '#update-row', 'label' => 'Обновление ряда'],
         ['url' => '#column-display', 'label' => 'Отображение колонок'],
+        ['url' => '#modify', 'label' => 'Модификация'],
     ]
 ]">
 
@@ -415,6 +416,108 @@ class PostResource extends ModelResource
     }
 
     //...
+}
+</x-code>
+
+<x-sub-title id="modify">Модификация</x-sub-title>
+
+<x-p>
+    Вы можете заменить <code>thead</code> или <code>tbody</code> или <code>tfoot</code>,
+    а также добавить элементы в таблицу в <code>tbody</code> до первого row и после.
+</x-p>
+
+<x-moonshine::divider label="thead()" />
+
+<x-code language="php">
+namespace App\MoonShine\Resources;
+
+use MoonShine\Fields\Fields;
+use MoonShine\Resources\ModelResource;
+
+class PostResource extends ModelResource
+{
+    // ...
+
+    public function thead(): ?Closure
+    {
+        return static fn(Fields $headFields): string => '<tr><th>Title</th></tr>';
+    } // [tl! focus:-3]
+}
+</x-code>
+
+<x-moonshine::divider label="tbody()" />
+
+<x-code language="php">
+namespace App\MoonShine\Resources;
+
+use Illuminate\Support\Collection;
+use MoonShine\Resources\ModelResource;
+
+class PostResource extends ModelResource
+{
+    // ...
+
+    public function tbody(): ?Closure
+    {
+        return static fn(Collection $rows): string => '<tr><td>Content</td></tr>';
+    } // [tl! focus:-3]
+}
+</x-code>
+
+<x-moonshine::divider label="tfoot()" />
+
+<x-code language="php">
+namespace App\MoonShine\Resources;
+
+use MoonShine\ActionButtons\ActionButtons;
+use MoonShine\Resources\ModelResource;
+
+class PostResource extends ModelResource
+{
+    // ...
+
+    public function tfoot(): ?Closure
+    {
+        return static fn(ActionButtons $bulkButtons): string => '<tr><td>Footer</td></tr>';
+    } // [tl! focus:-3]
+}
+</x-code>
+
+<x-moonshine::divider label="tbodyBefore()" />
+
+<x-code language="php">
+namespace App\MoonShine\Resources;
+
+use Illuminate\Support\Collection;
+use MoonShine\Resources\ModelResource;
+
+class PostResource extends ModelResource
+{
+    // ...
+
+    public function tbodyBefore(): ?Closure
+    {
+        return static fn(Collection $rows): string => '<tr><td>Before</td></tr>';
+    } // [tl! focus:-3]
+}
+</x-code>
+
+<x-moonshine::divider label="tbodyAfter()" />
+
+<x-code language="php">
+namespace App\MoonShine\Resources;
+
+use Illuminate\Support\Collection;
+use MoonShine\Resources\ModelResource;
+
+class PostResource extends ModelResource
+{
+    // ...
+
+    public function tbodyAfter(): ?Closure
+    {
+        return static fn(Collection $rows): string => '<tr><td>After</td></tr>';
+    } // [tl! focus:-3]
 }
 </x-code>
 
