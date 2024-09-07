@@ -171,4 +171,9 @@ return [
         'url' => 'forest-lynx/moonshine-resource-lock',
         'category' => 'Resources'
     ],
+    [
+        'title' => 'Input extension - display the datalist for input',
+        'url' => 'khlystou/moonshine-input-datalist',
+        'category' => 'Fields'
+    ],
 ];
