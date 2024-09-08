@@ -35,7 +35,7 @@
 - `Install migrations? - yes` (там нечего обновлять, но нужно для генерации сервис провайдера)
 
 #### Обновляем конфиг из бэкапа
-Параметры `'logo'` и `'logo_small'` нужно удалить, так как настройка Logo переместилась в MoonShineLayout _(тут ссылку на документацию с примером)_
+Параметры `'logo'` и `'logo_small'` нужно удалить, так как настройка Logo переместилась в MoonShineLayout _(пример: https://github.com/orgs/moonshine-software/discussions/1255#discussioncomment-10580920)_
 
 #### Удаляем бэкап конфига
 `rm config/moonshine_2.php`
@@ -118,6 +118,27 @@ find app/MoonShine/Resources -type f | sed "s/.*\///" | sed "s/.php//" | awk '{p
               SettingPage::class,
           ];
       }
+  ```
+- `getActiveActions()` теперь меняется на `activeActions()`, было
+  ```
+    public function getActiveActions(): array
+    {
+        return ['view','update'];
+    }
+  ```
+  стало так
+  ```
+    protected function activeActions(): ListOf
+    {
+        return parent::activeActions()->except(Action::DELETE, Action::MASS_DELETE);
+    }
+  ```
+  или так
+  ```
+    protected function activeActions(): ListOf
+    {
+        return new ListOf(Action::class, [Action::VIEW, Action::UPDATE]);
+    }
   ```
 ##### Обновить поля
 - `public function fields(): array` → `protected function indexFields(): iterable` и добавить
