@@ -30,6 +30,7 @@
     - Социалайт
 - ## Advanced
     - Resources (CrudResource)
+    - Routes
     - Commands
     - Controllers
     - Handlers
