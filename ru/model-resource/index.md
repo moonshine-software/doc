@@ -1,0 +1,2 @@
+- [ ] onBoot/onLoad с кейсами
+- [ ] alias (uriKey)
