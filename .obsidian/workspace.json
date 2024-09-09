@@ -1,0 +1,191 @@
+{
+  "main": {
+    "id": "d43bd26336b209e9",
+    "type": "split",
+    "children": [
+      {
+        "id": "2ad6d407155db4c4",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4e686b6acb2c86ed",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          }
+        ]
+      },
+      {
+        "id": "46aab19f2304d02d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "11a0b485705b1825",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "f6fa4f1b2940fbd8",
+    "type": "split",
+    "children": [
+      {
+        "id": "a64cba4c1b25b948",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "182cd2ceb4092bff",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "2feaa82906716e34",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "7781a1a3d1fe5bdc",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "c792d6d56874daf1",
+    "type": "split",
+    "children": [
+      {
+        "id": "8fcb0d5004b6d08a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0f3fe327c8d5ada8",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "73f112bb56109cea",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "021189e1f38c885e",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "8a197157a756eb22",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "doc/navigation.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "github-sync:Sync with Remote": false
+    }
+  },
+  "active": "182cd2ceb4092bff",
+  "lastOpenFiles": [
+    "ru/model-resource/index.md",
+    "ru/fields/show-when.md",
+    "ru/fields/index.md",
+    "ru/advanced/routes.md",
+    "ru/model-resource",
+    "ru/installation.md",
+    "ru/fields",
+    "ru/components.md",
+    "ru/advanced",
+    "ru",
+    "resources",
+    "navigation.md",
+    "README.md",
+    "doc/MSDoc/Welcome.md",
+    "doc/MSDoc",
+    "doc/ru/model-resource/index.md",
+    "doc/ru/fields/show-when.md",
+    "doc/ru/fields/index.md",
+    "doc/ru/advanced/routes.md",
+    "doc/ru/model-resource",
+    "doc/ru/installation.md",
+    "doc/ru/fields",
+    "doc/ru/components.md",
+    "doc/ru/advanced",
+    "doc/ru",
+    "doc/navigation.md",
+    "doc/README.md",
+    "Test.md",
+    "Welcome.md",
+    "fdfdf.md"
+  ]
+}
