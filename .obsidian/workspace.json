@@ -11,22 +11,12 @@
             "id": "4e686b6acb2c86ed",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
-            }
-          }
-        ]
-      },
-      {
-        "id": "46aab19f2304d02d",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "11a0b485705b1825",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "ru/advanced/routes.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -95,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "ru/advanced/routes.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "ru/advanced/routes.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "doc/navigation.md"
+                "file": "ru/advanced/routes.md"
               }
             }
           }
@@ -155,16 +147,17 @@
       "github-sync:Sync with Remote": false
     }
   },
-  "active": "182cd2ceb4092bff",
+  "active": "4e686b6acb2c86ed",
   "lastOpenFiles": [
     "ru/model-resource/index.md",
+    "ru/components.md",
+    "doc/navigation.md",
     "ru/fields/show-when.md",
     "ru/fields/index.md",
     "ru/advanced/routes.md",
     "ru/model-resource",
     "ru/installation.md",
     "ru/fields",
-    "ru/components.md",
     "ru/advanced",
     "ru",
     "resources",
@@ -182,7 +175,6 @@
     "doc/ru/components.md",
     "doc/ru/advanced",
     "doc/ru",
-    "doc/navigation.md",
     "doc/README.md",
     "Test.md",
     "Welcome.md",
