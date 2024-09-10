@@ -13,6 +13,7 @@
 - ## Fields
 - ## Components
     - Основы
+    - [Attributes](/docs/{{version}}/components/attributes)
     - ActionButton
     - FormBuilder
     - TableBuilder
