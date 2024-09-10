@@ -38,7 +38,7 @@ Route::moonshine(static function (Router $router) {
         'permissions/{resourceItem}',  
         PermissionController::class  
     )->name('permissions');  
-}, resource: true, page: true, authenticate: true);
+}, withResource: true, withPage: true, withAuthenticate: true);
 
 // result
 // POST /admin/{resourceUri}/{pageUri}/permissions/{resourceItem}
@@ -50,11 +50,11 @@ Route::moonshine(static function (Router $router) {
     // 
 }, 
 // add prefix {resourceUri}
-resource: false, 
+withResource: false, 
 // add prefix {pageUri}
-page: false, 
+withPage: false, 
 // add middleware Authenticate::class
-authenticate: false
+withAuthenticate: false
 );
 ```
 
