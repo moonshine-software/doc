@@ -3,7 +3,7 @@
     - [Installation](/docs/{{version}}/installation)
     - Конфигурация
 - ## Внешний вид
-    - Меню
+    - [Меню](/docs/{{version}}/appearance/menu)
     - Шаблон
     - Ассеты
     - Цвета
