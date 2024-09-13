@@ -9,6 +9,7 @@
 - [Настройки маршрутизации](#routing-settings)
 - [Настройки локализации](#localization-settings)
 - [Дополнительные настройки](#additional-settings)
+- [Полный список параметров конфигурации](#configuration-options)
 - [Выбор метода конфигурации](#choosing-configuration-method)
 
 ---
@@ -222,6 +223,104 @@ $config->disk('public');
 // В MoonShineServiceProvider
 $config->layout(\App\MoonShine\Layouts\CustomLayout::class);
 ```
+
+<a name="configuration-options"></a>
+## Полный список параметров конфигурации
+
+Ниже приведен полный список параметров конфигурации, доступных как в файле `moonshine.php`, так и через методы `MoonShineConfigurator`.
+
+### Основные настройки
+
+| Параметр в moonshine.php | Метод MoonShineConfigurator | Описание |
+|--------------------------|---------------------------|-----------|
+| `title` | `title(string $title)` | Заголовок приложения |
+| `dir` | `dir(string $dir, string $namespace)` | Директория и пространство имен для компонентов MoonShine |
+| `disk` | `disk(string $disk, array $options = [])` | Диск для хранения файлов |
+| `disk_options` | - | Дополнительные опции для диска |
+| `cache` | `cacheDriver(string $driver)` | Драйвер кэширования |
+| `layout` | `layout(string $layout)` | Класс макета приложения |
+
+### Настройки маршрутизации
+
+| Параметр в moonshine.php | Метод MoonShineConfigurator | Описание |
+|--------------------------|---------------------------|-----------|
+| `domain` | `domain(string $domain)` | Домен для административной панели |
+| `prefix` | `prefixes(string $route, string $page)` | Префикс маршрута |
+| `page_prefix` | `prefixes(string $route, string $page)` | Префикс страницы |
+| `middlewares` | `middlewares(array $middlewares)` | Middleware для административной панели |
+| - | `addMiddlewares(array|string $middlewares)` | Добавление middleware |
+| - | `exceptMiddlewares(array|string $except)` | Исключение middleware |
+| `home_route` | `homeRoute(string $route)` | Домашний маршрут |
+
+### Настройки аутентификации
+
+| Параметр в moonshine.php | Метод MoonShineConfigurator | Описание |
+|--------------------------|---------------------------|-----------|
+| `auth.guard` | `guard(string $guard)` | Guard для аутентификации |
+| `auth.enable` | `authDisable()` | Включение/отключение встроенной аутентификации |
+| `auth.fields` | `userField(string $field, string $value)` | Поля пользователя для аутентификации |
+| `auth.middleware` | `authMiddleware(string $middleware)` | Middleware для аутентификации |
+| `auth.pipelines` | `authPipelines(array $pipelines)` | Pipelines для аутентификации |
+
+### Настройки локализации
+
+| Параметр в moonshine.php | Метод MoonShineConfigurator | Описание |
+|--------------------------|---------------------------|-----------|
+| `locale` | `locale(string $locale)` | Текущая локаль |
+| `locales` | `locales(array $locales)` | Доступные локали |
+| - | `addLocales(array|string $locales)` | Добавление локалей |
+
+### Дополнительные настройки
+
+| Параметр в moonshine.php | Метод MoonShineConfigurator | Описание |
+|--------------------------|---------------------------|-----------|
+| `use_migrations` | `useMigrations()` | Использование миграций |
+| `use_notifications` | `useNotifications()` | Использование уведомлений |
+| `use_database_notifications` | - | Использование уведомлений базы данных |
+| - | `notFoundException(string $exception)` | Исключение для страницы "не найдено" |
+
+### Настройки ресурсов и страниц
+
+| Параметр в moonshine.php | Метод MoonShineConfigurator | Описание |
+|--------------------------|---------------------------|-----------|
+| `pages` | - | Список страниц |
+| `forms` | - | Список форм |
+| - | `changePage(string $old, string $new)` | Изменение класса страницы |
+| - | `authorizationRules(Closure $rule)` | Добавление правил авторизации |
+
+> [!NOTE]
+> Некоторые методы `MoonShineConfigurator` не имеют прямых аналогов в файле `moonshine.php` и наоборот. Это связано с различиями в подходах к конфигурации через файл и через код.
+
+### Пример использования в MoonShineServiceProvider
+
+```php
+use MoonShine\Laravel\DependencyInjection\MoonShineConfigurator;
+
+class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
+{
+    protected function configure(MoonShineConfigurator $config): MoonShineConfigurator
+    {
+        return $config
+            ->title('Мое приложение')
+            ->dir('app/MoonShine', 'App\MoonShine')
+            ->domain(env('MOONSHINE_DOMAIN'))
+            ->prefix('admin')
+            ->guard('moonshine')
+            ->middlewares(['web', 'auth'])
+            ->layout(\App\MoonShine\Layouts\CustomLayout::class)
+            ->locale('ru')
+            ->locales(['en', 'ru'])
+            ->useMigrations()
+            ->useNotifications()
+            ->cacheDriver('redis')
+            ->authorizationRules(function($resource, $user, $ability) {
+                // Ваши правила авторизации
+            });
+    }
+}
+```
+
+Этот полный список параметров и методов позволяет настроить практически все аспекты работы MoonShine. Выбирайте те опции, которые наилучшим образом соответствуют требованиям вашего проекта.
 
 <a name="choosing-configuration-method"></a>
 ## Выбор метода конфигурации
