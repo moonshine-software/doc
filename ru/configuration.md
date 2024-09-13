@@ -38,9 +38,9 @@ return [
     'title' => env('MOONSHINE_TITLE', 'MoonShine'),
     'domain' => env('MOONSHINE_DOMAIN'),
     'prefix' => 'admin',
-    'guard' => 'moonshine',
     'auth' => [
         'enable' => true,
+        'guard' => 'moonshine',
         'fields' => [
             'username' => 'email',
             'password' => 'password',
