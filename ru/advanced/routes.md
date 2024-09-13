@@ -1,6 +1,6 @@
 # Routes
 
-MoonShine под капотом использует стандартный Laravel Routing. Все отображаемые страницы рендерятся через PageController, который имеет очень простой вид
+`MoonShine` под капотом использует стандартный `Laravel Routing`. Все отображаемые страницы рендерятся через `PageController`, который имеет очень простой вид
 
 ```php
 public function __invoke(MoonShineRequest $request): PageContract  
@@ -28,9 +28,9 @@ Route::get('/admin/{resourceUri}/{pageUri}', CustomController::class)
 	->name('moonshine.name');
 ```
 
-Данный пример включает в себя роут с параметрами ресурса и страницы, а также группу middlewares moonshine список которой распалагается в конфиге moonshine.php и middleware Authenticate для доступа к ендпоинту только для авторизованного пользователя
+Данный пример включает в себя роут с параметрами ресурса и страницы, а также группу `middlewares` `moonshine` список которой распалагается в конфиге `moonshine.php` и `middleware` `Authenticate` для доступа к ендпоинту только для авторизованного пользователя
 
-Для быстрый реализации примера выше, можно воспользоваться Route директивой moonshine
+Для быстрый реализации примера выше, можно воспользоваться `Route` директивой `moonshine`
 
 ```php
 Route::moonshine(static function (Router $router) {  
@@ -65,6 +65,6 @@ withAuthenticate: false
 >
 
 > [!WARNING]
-> Нельзя одновременно использовать группы middlewares web и moonshine, так как они делают одно и тоже и одновременно запускают сессии
+> Нельзя одновременно использовать группы `middlewares` `web` и `moonshine`, так как они делают одно и тоже и одновременно запускают сессии
 >
 
