@@ -315,7 +315,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
             ->useMigrations()
             ->useNotifications()
             ->cacheDriver('redis')
-            ->authorizationRules(function($resource, $user, $ability) {
+            ->authorizationRules(function(ResourceContract $ctx, mixed $user, Ability $ability, mixed $data): bool {
                 // Ваши правила авторизации
             });
     }
