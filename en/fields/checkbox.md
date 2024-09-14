@@ -1,9 +1,9 @@
 https://moonshine-laravel.com/docs/resource/fields/fields-checkbox?change-moonshine-locale=en
 
-## Checkbox
+# Checkbox
 
 <a name="make"></a>
-### Make
+## Make
 The *Checkbox* field includes all the basic methods.
 
 ```php
@@ -22,7 +22,7 @@ public function fields(): array
 ```
  
 <a name="on-off"></a>
-### On/off values
+## On/off values
 
 By default, the field has the values `1` and `0` for the selected and unselected states, respectively. The `onValue()` and `offValue()` methods allow you to override these values.
 
@@ -53,7 +53,7 @@ public function fields(): array
 ```
 
 <a name="editing-in-preview"></a>
-### Editing in preview
+## Editing in preview
 The `updateOnPreview()` method allows you to edit the *Checkbox* field in *preview* mode.
 
 ```php

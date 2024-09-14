@@ -10,6 +10,7 @@ https://moonshine-laravel.com/docs/resource/models-resources/resources-search?ch
   - [Search by relationship](#relation)
   - [Global search](#global)
 
+<a name="basics"></a>
 ## Basics
 
 To search, you must specify which model fields will participate in the search. To do this, you need to list them in the returned array in the `search()` method.
@@ -43,6 +44,7 @@ class PostResource extends ModelResource
 
 ![MoonShine Search Dark](https://moonshine-laravel.com/screenshots/search_dark.png)
 
+<a name="fulltext"></a>
 ## Full text search
 
 If a fulltext search is required, then you must use the `MoonShine\Attributes\SearchUsingFullText` attribute.
@@ -76,6 +78,7 @@ class PostResource extends ModelResource
 >[!TIP] 
 >Don't forget to add fulltext index
 
+<a name="json"></a>
 ## Search by json keys
 
 For Json fields that are used as a key-value `keyValue()`, you can specify which field key is involved in the search.
@@ -130,6 +133,7 @@ class PostResource extends ModelResource
 }
 ```
 
+<a name="relation"></a>
 ## Search by relationship
 
 You can search by relationships; to do this, you need to specify which the relationship field to search.
@@ -158,6 +162,7 @@ class PostResource extends ModelResource
 }
 ```
 
+<a name="global"></a>
 ## Global search
 
 In the MoonShine admin panel, global search can be implemented based on integration

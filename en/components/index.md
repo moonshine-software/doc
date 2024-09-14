@@ -1,26 +1,28 @@
 https://moonshine-laravel.com/docs/resource/components/components-index?change-moonshine-locale=en
 
 ------
-## Basics
+# Basics
 
 Components in **MoonShine** are the basis for building an interface.  
 Many components have already been implemented in the Admin Panel, which can be divided into several groups:
 Systems, Decorations and Metrics.
 
-### Systems
+## Systems
 
 Components are used to create the main blocks of the admin panel:
 - [Layout](https://moonshine-laravel.com/docs/resource/components/components-system_layout)
 - [Flash](https://moonshine-laravel.com/docs/resource/components/components-system_flash)
 - [Footer](https://moonshine-laravel.com/docs/resource/components/components-system_footer)
 - [Header](https://moonshine-laravel.com/docs/resource/components/components-system_header)
-- LayoutBlock, LayoutBuilder, Menu,
+- LayoutBlock, 
+- LayoutBuilder, 
+- Menu,
 - [Profile](https://moonshine-laravel.com/docs/resource/components/components-system_profile)
 - [Search](https://moonshine-laravel.com/docs/resource/components/components-system_search)
 - [Sidebar](https://moonshine-laravel.com/docs/resource/components/components-system_sidebar)
 - [TopBar](https://moonshine-laravel.com/docs/resource/components/components-system_top_bar).
 
-### Decorations
+## Decorations
 
 Components are used for visual design of user interface:
 - [Block](https://moonshine-laravel.com/docs/resource/components/components-decoration_block)
@@ -37,7 +39,7 @@ Components are used for visual design of user interface:
 - [Tabs](https://moonshine-laravel.com/docs/resource/components/components-decoration_tabs)
 - [When](https://moonshine-laravel.com/docs/resource/components/components-decoration_when).
 
-### Metrics
+## Metrics
 
 Components are used to create information blocks:
 - [DonutChartMetric](https://moonshine-laravel.com/docs/resource/components/components-metric_donut_chart)

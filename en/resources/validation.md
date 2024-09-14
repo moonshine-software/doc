@@ -2,14 +2,12 @@ https://moonshine-laravel.com/docs/resource/models-resources/resources-validatio
 
 ------
 
-## Validation rules
+# Validation rules
 
    - [Basics](#basics)
    - [Displaying validation errors](#errors)
    - [Messages](#messages)
    - [Preparing Input For Validation](#prepare)
-
-
 
 <a name="basics"></a>
 ### Basics

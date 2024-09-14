@@ -2,12 +2,12 @@ https://moonshine-laravel.com/docs/resource/fields/fields-td?change-moonshine-lo
 
 ------
 
-## Td
+# Td
 
-[Make](#make)
-[Fields](#fields)
-[Labels](#labels)
-[Attributes](#attributes)
+- [Make](#make)
+- [Fields](#fields)
+- [Labels](#labels)
+- [Attributes](#attributes)
 
 <a name="make"></a>
 ## Make

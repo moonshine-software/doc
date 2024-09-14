@@ -2,7 +2,7 @@ https://moonshine-laravel.com/docs/resource/fields/fields-tinymce?change-moonshi
 
 ------
 
-## TinyMce  
+# TinyMce  
 
 - [Make](#make)  
 - [Configuration](#settings)  
@@ -46,13 +46,13 @@ public function fields(): array
 <a name="settings"></a>  
 ## Configuration  
 
-###Language  
+### Language  
  
  ```php
  locale(string $locale)
  ```
 
-###Plugins 
+### Plugins 
 ```php
 plugins(string|array $plugins)
 ```
@@ -64,13 +64,13 @@ addPlugins(string|array $plugins)
 ```php
 removePlugins(string|array $plugins)
 ```
-###Menubar
+### Menubar
 
 ``php
 menubar(string $menubar)
 ```
 
-###Toolbar
+### Toolbar
 
 ```php
 toolbar(string $toolbar)
@@ -80,19 +80,19 @@ toolbar(string $toolbar)
 addToolbar(string $toolbar)
 ```
 
-###Options
+### Options
 
 ```php
 addConfig(string $name, mixed $value)
 ```
 
-###Tiny Comments
+### Tiny Comments
 
 ```php
 commentAuthor(string $commentAuthor)
 ```
 
-###Tags
+### Tags
 ```php
 mergeTags(array $mergeTags)
 ```
@@ -164,7 +164,7 @@ public function fields(): array
 
 If you want to use the file manager in *TinyMce*, then you need to install the package [Laravel FileManager](https://github.com/UniSharp/laravel-filemanager)
 
-###Installation  
+### Installation  
 ```php
 composer require unisharp/laravel-filemanager
 
@@ -183,7 +183,7 @@ return [
     // ...
 ];
 ```
-###Routes file
+### Routes file
 
 Create a routes file like `routes/moonshine.php` and register the *LaravelFilemanager* routes.
 

@@ -1,7 +1,7 @@
 https://moonshine-laravel.com/docs/resource/fields/fields-has_many?change-moonshine-locale=en
 
 ------
-## HasMany
+# HasMany
 
    - [Basics](#basics)
    - [Fields](#fields)
@@ -254,7 +254,7 @@ public function fields(): array
 //...
 ```
 
-###condition
+### condition
 
 The `condition` parameter via a closure will allow you to change the display method depending on the conditions.
 
@@ -354,7 +354,7 @@ HasMany::make('Comments', 'comments', resource: new CommentResource())
 
 The *HasMany* field has methods that can be used to modify the buttons, change *TableBuilder* for preview and form, and change *onlyLink* button.
 
-###modifyItemButtons()
+### modifyItemButtons()
 
 The `modifyItemButtons()` method allows you to change the view, edit, deletion and mass deletion.
 
@@ -381,7 +381,7 @@ public function fields(): array
 }
 ```
 
-###modifyOnlyLinkButton()
+### modifyOnlyLinkButton()
 
 The `modifyOnlyLinkButton()` method allows you to change the *onlyLink* button.
 
@@ -404,7 +404,7 @@ public function fields(): array
 }
 ```
 
-###modifyCreateButton() / modifyEditButton()
+### modifyCreateButton() / modifyEditButton()
 
 `modifyCreateButton()` and `modifyEditButton()` methods allow you to change the create and edit buttons.
 
@@ -428,7 +428,7 @@ public function fields(): array
 }
 ```
 
-#### modifyTable()
+### modifyTable()
 
 The `modifyTable()` method allows you to change the *TableBuilder* for the preview and form.
 
@@ -453,7 +453,7 @@ public function fields(): array
 <a name="advanced"></a> 
 ### Advanced
 
-###Relation via JSON field
+### Relation via JSON field
 The *HasMany* field is displayed outside the main resource form by default. If you need to display relation fields inside the main form, then you can use the *JSON* field in the `asRelation()` mode. 
 
 ```php
@@ -473,14 +473,14 @@ public function fields(): array
 >[!NOTE]
 >For more detailed information, please refer to the section [Json field](https://moonshine-laravel.com/docs/resource/fields/fields-json#relation).
 
-###Relationship via Template field
+#### Relationship via Template field
 
 Using the *Template field* you can construct a field for *HasMany* relationships using fluent interface during the declaration process.
 
 >[!NOTE]
 >For more detailed information, please refer to the section [Template field](https://moonshine-laravel.com/docs/resource/fields/fields-template).
 
-###HasMany field tabs
+#### HasMany field tabs
 
 In **Moonshine** you can customize the form page and place *HasMany* fields in tabs using the *Tabs* and *Tab* decorations.
 

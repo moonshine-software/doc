@@ -2,8 +2,7 @@ https://moonshine-laravel.com/docs/resource/ui-components/ui-index?change-moonsh
 
 ------
 
-## Basics
-
+# Basics
 
 To create the *MoonShine* admin panel interface, many *UI components* are used.  
 You can use these components to build your templates, custom fields, filters, decorations or pages.  

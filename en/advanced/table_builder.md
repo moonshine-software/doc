@@ -50,7 +50,7 @@ Helper `table()` is also available:
 !!}
 ```
 
-###Text
+### Text
 ###Value
 
 
@@ -221,8 +221,8 @@ TableBuilder::make()
          
 
 
-###Text
-###Value
+### Text
+### Value
         
 ```php
 TableBuilder::make()
@@ -238,8 +238,8 @@ TableBuilder::make()
     )
 ```
 
-###Text
-###Value 
+### Text
+### Value 
 
 <a name="notfound"></a>
 ### Missing elements
@@ -252,7 +252,7 @@ TableBuilder::make()
     ->withNotFound()
 ```
 
-###Records not found
+### Records not found
 
 <a name="simple"></a>
 ### Simplified style
@@ -265,8 +265,8 @@ TableBuilder::make()
     ->simple()
 ```
 
-###Text	
-###Value
+### Text	
+### Value
 
 <a name="sticky"></a>
 ### Sticky head
@@ -299,10 +299,10 @@ TableBuilder::make()
 ```
 
 
-###Property 1
-###Value 1
-###Property 2
-###Value 2
+### Property 1
+### Value 1
+### Property 2
+### Value 2
 
 
 <a name="creatable"></a>
@@ -350,13 +350,13 @@ TableBuilder::make()
 
 ```
 
-###Title	Text	
-###Value 1	Value 2
+### Title	Text	
+### Value 1	Value 2
 
 > [!NOTE]
 > In append mode, the last element must be empty (the skeleton of the new entry)!
 
-###reindex
+### reindex
 
 If the table contains fields in edit mode with a dynamic name,
 then you need to add a method or parameter `reindex`:
@@ -374,14 +374,14 @@ TableBuilder::make()
     ->reindex()
 ```
 
-###limit
+### limit
 
 If you want to limit the number of records that can be added, you must specify the `limit` parameter:
 ```php
 TableBuilder::make()
     ->creatable(limit: 6)
 ```
-###Custom add button
+### Custom add button
 ```php
 TableBuilder::make()
     ->creatable(
@@ -400,9 +400,9 @@ then you need to use the `editable()` method:
 TableBuilder::make()
     ->editable()
 ```
-###Title	Text	
-###Value 1
-###Value 2
+### Title	Text	
+### Value 1
+### Value 2
 
 <a name="sortable"></a>
 ### Sortable
@@ -432,9 +432,9 @@ TableBuilder::make()
         group: 'nested'
     )
 ```
-###Title	Text	
-###Value 1	Value 2	
-###Value 3	Value 4
+### Title	Text	
+### Value 1	Value 2	
+### Value 3	Value 4
 
 <a name="column-display"></a>
 ### Column display 
@@ -456,9 +456,9 @@ TableBuilder::make()
     ])
     ->columnSelection('unique-id')
 ```
-###Title	Text	
-###Value 3	Value 4	
-###Value 1	Value 2
+### Title	Text	
+### Value 3	Value 4	
+### Value 1	Value 2
 
 If you need to exclude fields from selection, use the `columnSelection()` method.
 
@@ -478,7 +478,7 @@ TableBuilder::make()
 ```
 
 
-###Title	Text	
-###Value 1	Value 2	
-###Value 3	Value 4	
+### Title	Text	
+### Value 1	Value 2	
+### Value 3	Value 4	
 

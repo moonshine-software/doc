@@ -1,7 +1,7 @@
 https://moonshine-laravel.com/docs/resource/fields/fields-json?change-moonshine-locale=en
 
 ------
-## Json
+# Json
   - [Basics](#basics)
   - [Key/Value](#key-value)
   - [With a set of fields](#fields)
@@ -264,7 +264,7 @@ public function fields(): array
 //...
 ```
 
-###Attributes for the delete button
+### Attributes for the delete button
 
 ```php
 use MoonShine\Fields\Json;
@@ -456,7 +456,7 @@ public function fields(): array
 
 The *Json* field has methods with which you can modify the delete button or change *TableBuilder* for preview and form.
 
-###modifyRemoveButton()
+#### modifyRemoveButton()
 
 The `modifyRemoveButton()` method allows you to change the remove button.
 
@@ -488,7 +488,7 @@ public function fields(): array
 //...
 ```
 
-###modifyTable()
+#### modifyTable()
 
 The `modifyTable()` method allows you to change the *TableBuilder* for the preview and form.
 

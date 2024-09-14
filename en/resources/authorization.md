@@ -2,7 +2,7 @@ https://moonshine-laravel.com/docs/resource/models-resources/resources-authoriza
 
 ------
 
-## Authorization
+# Authorization
 
 We do not deviate from the Laravel concept and with the Laravel policy help we can work with access rights within the MoonShine admin panel.
 

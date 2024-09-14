@@ -1,7 +1,7 @@
 https://moonshine-laravel.com/docs/resource/page/page-instance?change-moonshine-locale=en
 
 ------
-## Make instance
+# Make instance
 
   - [Make](#make)
   - [Announcement](#define)
@@ -14,8 +14,8 @@ https://moonshine-laravel.com/docs/resource/page/page-instance?change-moonshine-
 
 You can create instances of pages from classes and register them in the admin panel.
 
-<a name="Make"></a>
-## make
+<a name="make"></a>
+## Make
 
 To create a page instance, use the static `make()` method:
 
@@ -39,8 +39,8 @@ CustomPage::make('Custom page', 'custom_page')
 //...
 ```
 
-<a name="Declaring pages in the system"></a>
-## define
+<a name="define"></a>
+## Declaring pages in the system
 
 
 To register the page in the system and immediately add its link in the navigation menu, use the service provider `MoonShineServiceProvider`:
@@ -90,8 +90,8 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 }
 ```
 
-<a name="Title/Subtitle"></a>
-## title
+<a name="title"></a>
+## Title/Subtitle
 
 The `setTitle()` method allows you to change the page title, and the `setSubTitle()` method consequently the subtitle.
 
@@ -120,8 +120,8 @@ public function pages(): array
 //...
 ```
 
-<a name="Layout"></a>
-## layout
+<a name="layout"></a>
+## Layout
 
 The `setLayout()` method allows you to change the Layout template of a page instance.
 
@@ -146,8 +146,8 @@ public function pages(): array
 ]
 ```
 
-<a name="Breadcrumbs"></a>
-## breadcrumbs
+<a name="breadcrumbs"></a>
+## Breadcrumbs
 
 The `setBreadcrumbs()` method allows you to change the breadcrumbs of a page.
 
@@ -168,8 +168,8 @@ public function pages(): array
 //...
 ```
 
-<a name="Alias"></a>
-## alias
+<a name="alias"></a>
+## Alias
 
 The `alias()` method allows you to change the alias for a page instance.
 
@@ -193,8 +193,8 @@ public function pages(): array
 //...
 ```
 
-<a name="Quick page"></a>
-## view-page
+<a name="view-page"></a>
+## Quick page
 
 If you need to add a page without creating a class, but simply specifying a blade view, we recommend using `ViewPage`.
 
@@ -208,8 +208,8 @@ MenuItem::make(
 ),
 ```
 
-<a name="Render"></a>
-## render
+<a name="render"></a>
+## Render
 
 You can display the quick page outside of MoonShine by simply returning it to the Controller.
 

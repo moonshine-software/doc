@@ -2,7 +2,7 @@ https://moonshine-laravel.com/docs/resource/fields/fields-email?change-moonshine
 
 
 ------
-## E-mail
+# E-mail
 
 Extends [Text](https://moonshine-laravel.com/docs/resource/fields/fields-text)  
 * has the same features  

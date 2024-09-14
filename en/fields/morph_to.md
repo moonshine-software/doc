@@ -2,7 +2,7 @@ https://moonshine-laravel.com/docs/resource/fields/fields-morph_to?change-moonsh
 
 ------
 
-## MorphTo
+# MorphTo
 
 Extends [BelongsTo](https://moonshine-laravel.com/docs/resource/fields/fields-belongs_to)
 * has the same features    

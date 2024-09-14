@@ -10,8 +10,8 @@ https://moonshine-laravel.com/docs/resource/appearance/appearance-index?change-m
 - [Favicons](#favicons)
 - [Minimalistic theme](#minimalistic)
 
-<a name="Logo"></a>
-### logo
+<a name="logo"></a>
+### Logo
 
 Can be changed in the configuration file `config/moonshine.php`.
 
@@ -25,8 +25,8 @@ return [
 ];
 ```
 
-<a name="Main theme"></a>
-### theme
+<a name="theme"></a>
+### Main theme
 
 `theme()` method in the `MoonShineServiceProvider` provider allows you to configure the *MoonShine* admin panel theme.
 
@@ -181,8 +181,8 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 }
 ```
 
-<a name="Color-manager"></a>
-### color-manager
+<a name="color-manager"></a>
+### Color-manager
 
 The *Color Manager* in the MoonShine admin panel allows you to manage your color scheme more conveniently.
 
@@ -225,8 +225,8 @@ keyName(string $value, string $shade, string $dark)
 moonshineColors()->successBg('#000000', dark: true);
 ```
 
-<a name="Favicons"></a>
-### favicons
+<a name="favicons"></a>
+### Favicons
 
 To change *favicons* in the *MoonShine* admin panel,you need to override the corresponding template.
 

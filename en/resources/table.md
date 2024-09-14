@@ -1,7 +1,7 @@
 https://moonshine-laravel.com/docs/resource/models-resources/resources-table?change-moonshine-locale=en
 
 ------
-## Table
+# Table
 
   - [Properties](#properties)
   - [Buttons](#buttons)
@@ -391,7 +391,7 @@ class PostResource extends ModelResource
 
 You can replace `thead` or `tbody` or `tfoot`, and also add elements to the table in `tbody` before and after the first row.
 
-###thead()
+#### thead()
 
 ```php
 namespace App\MoonShine\Resources;
@@ -410,7 +410,7 @@ class PostResource extends ModelResource
 }
 ```
 
-###tbody()
+#### tbody()
 
 ```php
 namespace App\MoonShine\Resources;
@@ -429,7 +429,7 @@ class PostResource extends ModelResource
 }
 ```
 
- ###tfoot()
+#### tfoot()
 
 ```php
 namespace App\MoonShine\Resources;
@@ -448,7 +448,7 @@ class PostResource extends ModelResource
 }
 ```
 
-###tbodyBefore()
+#### tbodyBefore()
 
 ```php
 namespace App\MoonShine\Resources;
@@ -467,7 +467,7 @@ class PostResource extends ModelResource
 }
 ```
 
-###tbodyAfter()
+#### tbodyAfter()
 
 ```php
 namespace App\MoonShine\Resources;

@@ -1,9 +1,9 @@
 https://moonshine-laravel.com/docs/resource/fields/fields-color?change-moonshine-locale=en
 
 ------
-## Color
+# Color
 
-### Extends [Text](https://moonshine-laravel.com/docs/resource/fields/fields-text)
+## Extends [Text](https://moonshine-laravel.com/docs/resource/fields/fields-text)
 * has the same features    
 
 The *Color* field is an extension of *Text*, which provides a convenient way to enter colors.

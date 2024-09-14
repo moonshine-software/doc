@@ -1,8 +1,7 @@
 https://moonshine-laravel.com/docs/resource/ui-components/ui-toast?change-moonshine-locale=en
 
 ------
-## Toast
-
+# Toast
 
   - [Basics](#basics)
   - [Without using a component](#without)

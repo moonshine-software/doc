@@ -1,7 +1,7 @@
 https://moonshine-laravel.com/docs/resource/fields/fields-image?change-moonshine-locale=en
 
 ------
-## Image
+# Image
 
 Extends [File](https://moonshine-laravel.com/docs/resource/fields/fields-file)
 * has the same features  

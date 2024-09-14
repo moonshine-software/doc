@@ -2,7 +2,7 @@ https://moonshine-laravel.com/docs/resource/fields/fields-date?change-moonshine-
 
 ------
 
-## Date
+# Date
 
 Extends [Text](https://moonshine-laravel.com/docs/resource/fields/fields-text)  
 * has the same features
@@ -27,7 +27,7 @@ public function fields(): array
 ![Creation date](https://moonshine-laravel.com/screenshots/date_dark.png)
 ![Creation date](https://moonshine-laravel.com/screenshots/date.png)
 
-### Date and time
+## Date and time
 Using the `withTime()` method allows you to enter a date and time into a field.
 
 ```php
@@ -54,7 +54,7 @@ public function fields(): array
 
 ![date_time_dark](https://moonshine-laravel.com/screenshots/date_time_dark.png)
 
-### Format
+## Format
 
 The `format()` method allows you to change the display format of the field value in preview.
 

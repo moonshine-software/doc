@@ -1,7 +1,7 @@
 https://moonshine-laravel.com/docs/resource/ui-components/ui-grid?change-moonshine-locale=en
 
 ------
-## Grid/Column
+# Grid/Column
 
 To arrange elements on the page, you can use `moonshine::grid` and `moonshine::column` components.
 

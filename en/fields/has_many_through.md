@@ -2,7 +2,7 @@ https://moonshine-laravel.com/docs/resource/fields/fields-has_many_through?chang
 
 ------
 
-## HasManyThrough
+# HasManyThrough
 
 Extends [HasMany](https://moonshine-laravel.com/docs/resource/fields/fields-has_many)
 * has the same features    

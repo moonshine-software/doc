@@ -1,7 +1,7 @@
 https://moonshine-laravel.com/docs/resource/fields/fields-has_one?change-moonshine-locale=en
 
 ------
-## HasOne
+# HasOne
 
 [Basics](#basics)
 [Fields](#fields)

@@ -1,7 +1,7 @@
 https://moonshine-laravel.com/docs/resource/models-resources/resources-routes?change-moonshine-locale=en
 
 ------
-## Routes
+# Routes
 
   - [Basics](#basics)
   - [Helper](#helper)

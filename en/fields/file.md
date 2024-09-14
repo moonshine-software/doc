@@ -2,7 +2,7 @@ https://moonshine-laravel.com/docs/resource/fields/fields-file?change-moonshine-
 
 
 ------
-## File
+# File
   - [Basics](#basics)  
   - [Disk](#disk)  
   - [Directory](#dir)  
@@ -191,7 +191,7 @@ public function fields(): array
 //...
 ```
 
-###Attributes
+### Attributes
 
 ```php
 use MoonShine\Fields\File;
@@ -210,7 +210,7 @@ public function fields(): array
 
 //...
 ```
-###disableDeleteFiles()
+### disableDeleteFiles()
 The `disableDeleteFiles()` method will allow you to delete only a record in the database, but do not delete the file itself.
 
 ```php
@@ -233,7 +233,7 @@ public function fields(): array
 //...
 ```
 
-###enableDeleteDir()
+### enableDeleteDir()
 The `enableDeleteDir()` method deletes the directory specified in the `dir()` method if it is empty.
 
 ```php

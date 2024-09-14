@@ -1,13 +1,13 @@
 https://moonshine-laravel.com/docs/resource/appearance/appearance-layout_builder?change-moonshine-locale=en
 -----
 
-##LayoutBuilder
+## LayoutBuilder
 
 - [Publishing a template](#publish)
 - [Top Menu](#top-menu)
 
 <a name="publish"></a>
-###Publishing a template
+### Publishing a template
 
 To change the structure of the template, you must use `LayoutBuilder`.
     
