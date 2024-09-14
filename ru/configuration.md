@@ -345,7 +345,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 
 Выберите метод, который лучше всего соответствует вашему стилю разработки и требованиям проекта. Вы также можете комбинировать эти подходы, например, используя файл `moonshine.php` для базовых настроек и `MoonShineServiceProvider` для более сложной конфигурации.
 
-<a name="pages-forms></a>
+<a name="pages-forms"></a>
 ## Получение страниц и форм
 
 MoonShine предоставляет удобные методы для получения страниц и форм в вашем приложении.
