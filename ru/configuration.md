@@ -12,6 +12,7 @@
 - [Дополнительные настройки](#additional-settings)
 - [Полный список параметров конфигурации](#configuration-options)
 - [Выбор метода конфигурации](#choosing-configuration-method)
+- [Получение страниц и форм](#pages-forms)
 
 ---
 
@@ -343,3 +344,102 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
    - Конфигурация через `MoonShineServiceProvider` лучше интегрируется с остальным кодом приложения и позволяет использовать зависимости и сервисы Laravel.
 
 Выберите метод, который лучше всего соответствует вашему стилю разработки и требованиям проекта. Вы также можете комбинировать эти подходы, например, используя файл `moonshine.php` для базовых настроек и `MoonShineServiceProvider` для более сложной конфигурации.
+
+<a name="pages-forms></a>
+## Получение страниц и форм
+
+MoonShine предоставляет удобные методы для получения страниц и форм в вашем приложении.
+
+### Получение страниц
+
+Метод `getPage` позволяет получить экземпляр страницы по её имени или использовать страницу по умолчанию.
+
+```php
+public function getPage(string $name, string $default, mixed ...$parameters): PageContract
+```
+
+Параметры:
+- `$name`: Имя страницы в конфиге
+- `$default`: Класс страницы по умолчанию, если не найдена в конфиге
+- `$parameters`: Дополнительные параметры для конструктора страницы
+
+Пример использования:
+
+```php
+// Helper
+
+$customPage = moonshineConfig()->getPage('custom');
+```
+
+```php
+// DI
+
+use MoonShine\Contracts\Core\DependencyInjection\ConfiguratorContract;
+use MoonShine\Laravel\DependencyInjection\MoonShineConfigurator;
+
+/**
+ * @param  MoonShineConfigurator  $configurator
+ */
+public function index(ConfiguratorContract $config)
+{
+  $customPage = $config->getPage('custom');
+}
+```
+
+### Получение форм
+
+Метод `getForm` позволяет получить экземпляр формы по её имени или использовать форму по умолчанию.
+
+```php
+public function getForm(string $name, string $default, mixed ...$parameters): FormBuilderContract
+```
+
+Параметры:
+- `$name`: Имя формы в конфиге
+- `$default`: Класс формы по умолчанию
+- `$parameters`: Дополнительные параметры для конструктора формы
+
+Пример использования:
+
+```php
+// Helper
+
+$form = moonshineConfig()->getForm('login');
+```
+
+```php
+// DI
+
+use MoonShine\Contracts\Core\DependencyInjection\ConfiguratorContract;
+use MoonShine\Laravel\DependencyInjection\MoonShineConfigurator;
+
+/**
+ * @param  MoonShineConfigurator  $configurator
+ */
+public function index(ConfiguratorContract $config)
+{
+  $form = $config->getForm('login');
+}
+```
+
+### Объявление страниц и форм в конфигурации
+
+Вы можете настроить соответствие между именами и классами страниц и форм в файле `moonshine.php`:
+
+```php
+return [
+    // Другие настройки...
+
+    'pages' => [
+        'dashboard' => \App\MoonShine\Pages\DashboardPage::class,
+        'custom' => \App\MoonShine\Pages\CustomPage::class,
+    ],
+
+    'forms' => [
+        'login' => \App\MoonShine\Forms\LoginForm::class,
+        'custom' => \App\MoonShine\Forms\CustomForm::class,
+    ],
+];
+```
+
+Это позволит вам легко получать нужные страницы и формы по их именам, используя методы `getPage` и `getForm`.
