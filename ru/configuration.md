@@ -1,3 +1,4 @@
+
 # Конфигурация MoonShine
 
 - [Введение](#introduction)
@@ -42,12 +43,8 @@ return [
     'auth' => [
         'enable' => true,
         'guard' => 'moonshine',
-        'fields' => [
-            'username' => 'email',
-            'password' => 'password',
-        ],
     ],
-    'middlewares' => [
+    'middleware' => [
         // ...список middleware
     ],
     'layout' => \MoonShine\Laravel\Layouts\AppLayout::class,
@@ -91,7 +88,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
             ->domain(env('MOONSHINE_DOMAIN'))
             ->prefix('admin')
             ->guard('moonshine')
-            ->middlewares([
+            ->middleware([
                 // ...список middleware
             ])
             ->layout(\MoonShine\Laravel\Layouts\AppLayout::class)
@@ -126,16 +123,16 @@ $config->title('Мое приложение');
 
 ```php
 // В moonshine.php
-'middlewares' => [
+'middleware' => [
     'web',
     'auth',
     // ...
 ],
 
 // В MoonShineServiceProvider
-$config->middlewares(['web', 'auth'])
-       ->addMiddlewares('custom-middleware')
-       ->exceptMiddlewares(['auth']);
+$config->middleware(['web', 'auth'])
+       ->addMiddleware('custom-middleware')
+       ->exceptMiddleware(['auth']);
 ```
 
 <a name="authentication-settings"></a>
@@ -145,7 +142,10 @@ $config->middlewares(['web', 'auth'])
 
 ```php
 // В moonshine.php
-'guard' => 'admin',
+'auth' => [
+    'guard' => 'admin',
+    // ...
+],
 
 // В MoonShineServiceProvider
 $config->guard('admin');
@@ -209,12 +209,13 @@ $config->locales(['en', 'ru']);
 ```php
 // В moonshine.php
 'disk' => 'public',
+'disk_options' => [],
 
 // В MoonShineServiceProvider
-$config->disk('public');
+$config->disk('public', options: []);
 ```
 
-### Настройка макета
+### Настройка макета по умолчанию
 
 ```php
 // В moonshine.php
@@ -235,8 +236,9 @@ $config->layout(\App\MoonShine\Layouts\CustomLayout::class);
 |--------------------------|---------------------------|-----------|
 | `title` | `title(string $title)` | Заголовок приложения |
 | `dir` | `dir(string $dir, string $namespace)` | Директория и пространство имен для компонентов MoonShine |
+| `namespace` | `dir(string $dir, string $namespace)` | Директория и пространство имен для компонентов MoonShine |
 | `disk` | `disk(string $disk, array $options = [])` | Диск для хранения файлов |
-| `disk_options` | - | Дополнительные опции для диска |
+| `disk_options` | `disk(string $disk, array $options = [])` | Дополнительные опции для диска |
 | `cache` | `cacheDriver(string $driver)` | Драйвер кэширования |
 | `layout` | `layout(string $layout)` | Класс макета приложения |
 
@@ -247,9 +249,9 @@ $config->layout(\App\MoonShine\Layouts\CustomLayout::class);
 | `domain` | `domain(string $domain)` | Домен для административной панели |
 | `prefix` | `prefixes(string $route, string $page)` | Префикс маршрута |
 | `page_prefix` | `prefixes(string $route, string $page)` | Префикс страницы |
-| `middlewares` | `middlewares(array $middlewares)` | Middleware для административной панели |
-| - | `addMiddlewares(array|string $middlewares)` | Добавление middleware |
-| - | `exceptMiddlewares(array|string $except)` | Исключение middleware |
+| `middleware` | `middleware(array $middleware)` | Middleware для административной панели |
+| - | `addMiddleware(array|string $middleware)` | Добавление middleware |
+| - | `exceptMiddleware(array|string $except)` | Исключение middleware |
 | `home_route` | `homeRoute(string $route)` | Домашний маршрут |
 
 ### Настройки аутентификации
@@ -258,7 +260,7 @@ $config->layout(\App\MoonShine\Layouts\CustomLayout::class);
 |--------------------------|---------------------------|-----------|
 | `auth.guard` | `guard(string $guard)` | Guard для аутентификации |
 | `auth.enable` | `authDisable()` | Включение/отключение встроенной аутентификации |
-| `auth.fields` | `userField(string $field, string $value)` | Поля пользователя для аутентификации |
+| `user_fields` | `userField(string $field, string $value)` | Поля пользователя для аутентификации |
 | `auth.middleware` | `authMiddleware(string $middleware)` | Middleware для аутентификации |
 | `auth.pipelines` | `authPipelines(array $pipelines)` | Pipelines для аутентификации |
 
@@ -267,8 +269,7 @@ $config->layout(\App\MoonShine\Layouts\CustomLayout::class);
 | Параметр в moonshine.php | Метод MoonShineConfigurator | Описание |
 |--------------------------|---------------------------|-----------|
 | `locale` | `locale(string $locale)` | Текущая локаль |
-| `locales` | `locales(array $locales)` | Доступные локали |
-| - | `addLocales(array|string $locales)` | Добавление локалей |
+| `locales` | `locales(array $locales)`, `addLocales(array $locales)` | Доступные локали |
 
 ### Дополнительные настройки
 
@@ -277,7 +278,7 @@ $config->layout(\App\MoonShine\Layouts\CustomLayout::class);
 | `use_migrations` | `useMigrations()` | Использование миграций |
 | `use_notifications` | `useNotifications()` | Использование уведомлений |
 | `use_database_notifications` | - | Использование уведомлений базы данных |
-| - | `notFoundException(string $exception)` | Исключение для страницы "не найдено" |
+| `not_found_exception` | `notFoundException(string $exception)` | class Исключение для страницы "не найдено" |
 
 ### Настройки ресурсов и страниц
 
@@ -306,7 +307,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
             ->domain(env('MOONSHINE_DOMAIN'))
             ->prefix('admin')
             ->guard('moonshine')
-            ->middlewares(['web', 'auth'])
+            ->middleware(['web', 'auth'])
             ->layout(\App\MoonShine\Layouts\CustomLayout::class)
             ->locale('ru')
             ->locales(['en', 'ru'])
