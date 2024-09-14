@@ -28,7 +28,7 @@ Route::get('/admin/{resourceUri}/{pageUri}', CustomController::class)
 	->name('moonshine.name');
 ```
 
-Данный пример включает в себя роут с параметрами ресурса и страницы, а также группу `middlewares` `moonshine` список которой распалагается в конфиге `moonshine.php` и `middleware` `Authenticate` для доступа к ендпоинту только для авторизованного пользователя
+Данный пример включает в себя роут с параметрами ресурса и страницы, а также группу middleware `moonshine` список которой распалагается в конфиге `moonshine.php` и middleware `Authenticate` для доступа к ендпоинту только для авторизованного пользователя
 
 Для быстрый реализации примера выше, можно воспользоваться `Route` директивой `moonshine`
 
@@ -42,7 +42,7 @@ Route::moonshine(static function (Router $router) {
 
 // result
 // POST /admin/{resourceUri}/{pageUri}/permissions/{resourceItem}
-// middlewares: moonshine, Authenticate::class
+// middleware: moonshine, Authenticate::class
 ```
 
 ```php
@@ -65,6 +65,6 @@ withAuthenticate: false
 >
 
 > [!WARNING]
-> Нельзя одновременно использовать группы `middlewares` `web` и `moonshine`, так как они делают одно и тоже и одновременно запускают сессии
+> Нельзя одновременно использовать группы middleware `web` и `moonshine`, так как они делают одно и тоже и одновременно запускают сессии
 >
 
