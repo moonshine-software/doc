@@ -2,7 +2,10 @@
 
 - [Обновление пакета](#update)
 - [Первоначальная настройка](#install)
-- [Рефакторинг](#refactor)
+- [Список изменений](#refactor)
+  - [Namespace](#namespace)
+  - [Методы](#methods)
+  - [Переменные](#vars)
 
 ---
 <a name="update"></a>
@@ -71,11 +74,14 @@ find app/MoonShine/Resources -type f | sed "s/.*\///" | sed "s/.php//" | awk '{p
 #### Удалить старый Layout, если был
 `rm app/MoonShine/MoonShineLayout.php`
 
-<a name="refactor"></a>
-## [Рефакторинг](#refactor)
+#### Обновить Dashboard (создан новый)
+`app/MoonShine/Pages/Dashboard.php`
 
-### Обновить ресурсы
-##### Заменить во всех файлах названия классов
+<a name="refactor"></a>
+## [Список изменений](#refactor)
+
+<a name="namespace"></a>
+### [Namespace](#namespace)
 - `MoonShine\Resources\` → `MoonShine\Laravel\Resources\`
 - `MoonShine\Fields\Relationships\` → `MoonShine\Laravel\Fields\Relationships\`
 - `MoonShine\Fields\Slug` → `MoonShine\Laravel\Fields\Slug`
@@ -92,20 +98,23 @@ find app/MoonShine/Resources -type f | sed "s/.*\///" | sed "s/.php//" | awk '{p
 - `MoonShine\ActionButtons\` → `MoonShine\UI\Components\`
 - `MoonShine\Http\Responses\` → `MoonShine\Laravel\Http\Responses\`
 - `MoonShine\Http\Controllers\` → `MoonShine\Laravel\Http\Controllers\`
+- `MoonShine\MoonShineAuth` → `MoonShine\Laravel\MoonShineAuth`
 
 ##### Удалить
-- `MoonShine\Laravel\Handlers\ExportHandler;` (меняется на пакет https://github.com/moonshine-software/import-export)
-- `MoonShine\Laravel\Handlers\ImportHandler;` (меняется на пакет https://github.com/moonshine-software/import-export)
+- `MoonShine\Laravel\Handlers\ExportHandler` (меняется на пакет https://github.com/moonshine-software/import-export)
+- `MoonShine\Laravel\Handlers\ImportHandler` (меняется на пакет https://github.com/moonshine-software/import-export)
 - ```
     /**
      * @return list<MoonShineComponent|Field>
      */
   ```
   
-##### Обновить свойства
-  - удалить `protected bool $isAsync = true;` (теперь по умолчанию)
-  
-##### Обновить функции
+<a name="methods"></a>
+### [Методы](#methods)
+- Если нужно создать ресурс: `app(NameResource::class)`
+- `public function components(): array` → `protected function components(): iterable`
+- `public function title(): string` → `public function getTitle(): string`
+- `public function breadcrumbs(): string` → `public function getBreadcrumbs(): string`
 - `public function rules(Model $item): array` → `protected function rules($item): array`
 - `protected function afterUpdated(Model $user): Model` → `protected function afterUpdated($user): Model`
 - `public function detailButtons(): array` → `public function detailButtons(): ListOf` (добавить `MoonShine\Support\ListOf`)
@@ -140,37 +149,42 @@ find app/MoonShine/Resources -type f | sed "s/.*\///" | sed "s/.php//" | awk '{p
         return new ListOf(Action::class, [Action::VIEW, Action::UPDATE]);
     }
   ```
-##### Обновить поля
+- `detailPageUrl` → `getDetailPageUrl`,
+- `MoonShineAuth::guard()` → `MoonShineAuth::getGuard()`
+- `$field->getData()` → `$field->getData()->getOriginal()`
 - `public function fields(): array` → `protected function indexFields(): iterable` и добавить
   - ```
     protected function detailFields(): iterable
     {
-        return $this→indexFields();
+        return $this->indexFields();
     }
 
     protected function formFields(): iterable
     {
-        return $this→indexFields();
+        return $this->indexFields();
     }
     ```
-- удалить `Block::` и прочие декорации из indexFields
-- Экземпляры ресурсов замененить на строковые классы (точно также как в меню)
-- Удалить методы полей `hideOn*` и `showOn*` (сразу настроить indexFields/detailFields/formFields)
-
-### Обновить страницы
-##### Обновить функции
-- `public function components(): array` → `protected function components(): iterable`
-- `public function title(): string` → `public function getTitle(): string`
-- `public function breadcrumbs(): string` → `public function getBreadcrumbs(): string`
-
-### Остальное
-##### Обновить Dashboard (создан новый)
-`app/MoonShine/Pages/Dashboard.php`
-
-##### Прочие функции и классы
-- Удалить `heroicons.outline` и `heroicons.outline.solid` из всех файлов.
-- `detailPageUrl` → `getDetailPageUrl`,
-- `MoonShine\MoonShineAuth` → `MoonShine\Laravel\MoonShineAuth`
-- `MoonShineAuth::getGuard()` → `MoonShineAuth::getGuard()`
-- Если нужно создать ресурс: `(new NameResource($this->getCore()))`
-- Убрать `?->exists` из `setLabel(fn(Field $field) => $field->getData()?->exists` _(из рецепта на изменение имени поля в index\form, в целом неактуально, если сразу задавать fields раздельно)_
+  - удалить `Block::` и прочие декорации из indexFields 
+ - Удалить методы полей `hideOn*` и `showOn*` (сразу настроить indexFields/detailFields/formFields)
+  - `hideOnIndex`
+  - `showOnIndex`
+  - `hideOnForm`
+  - `showOnForm`
+  - `hideOnCreate`
+  - `showOnCreate`
+  - `hideOnUpdate`
+  - `showOnUpdate`
+  - `hideOnDetail`
+  - `showOnDetail`
+  - `hideOnAll`
+  - `hideOnExport`
+  - `showOnExport`
+ - А также `useOnImport` (использовать пакет https://github.com/moonshine-software/import-export)
+<a name="vars"></a>
+### [Переменные](#vars)
+- Во всех методах нужно удалить префикс `heroicons.outline` и `heroicons.outline.solid` из всех файлов (эти иконки и outline теперь по-умолчанию).
+- Все экземпляры ресурсов нужно заменить на строковые классы, пример:
+  - `MenuItem::make('Settings', new SettingResource(), 'heroicons.outline.adjustments-vertical')` → `MenuItem::make('Settings', SettingResource::class, 'adjustments-vertical')`
+##### Удалить
+  - `protected bool $isAsync = true;` (теперь по умолчанию)
+  
