@@ -11,6 +11,8 @@
 - ## Models Resources
 - ## Pages
 - ## Fields
+	- [Основы](/docs/{{version}}/fields/index)
+  	- [Json](/docs/{{version}}/fields/json)
 - ## Components
     - Основы
     - ActionButton
