@@ -118,7 +118,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 }
 ```
 
->![TIP]
+> ![TIP]
 >You can learn about advanced settings in the section [Menu](https://moonshine-laravel.com/docs/resource/menu/menu).
 
 If you only need to register the resource in the system without adding it to the navigation menu:
@@ -334,8 +334,8 @@ public function pageComponents(): array
 }
 ```
 
->[!TIP]
->The components will be added to the `bottomLayer`
+> [!TIP]
+> The components will be added to the `bottomLayer`
 
 <a name="boot"></a>
 ## Boot
@@ -359,8 +359,8 @@ class PostResource extends ModelResource
 }
 ```
 
->[!TIP]
->Recipe: [Changing breadcrumbs from a resource](https://moonshine-laravel.com/docs/resource/recipes/recipes#custom-breadcrumbs).
+> [!TIP]
+> Recipe: [Changing breadcrumbs from a resource](https://moonshine-laravel.com/docs/resource/recipes/recipes#custom-breadcrumbs).
 
 You can also connect trait to a resource and inside trait add a method according to the naming convention - `boot{TraitName}` and through the trait will access the boot resource
 
