@@ -118,7 +118,7 @@ find app/MoonShine/Resources -type f | sed "s/.*\///" | sed "s/.php//" | awk '{p
 - `public function rules(Model $item): array` → `protected function rules($item): array`
 - `protected function afterUpdated(Model $user): Model` → `protected function afterUpdated($user): Model`
 - `public function detailButtons(): array` → `public function detailButtons(): ListOf` (добавить `MoonShine\Support\ListOf`)
-- `public function modifyListComponent(MoonShineRenderable|TableBuilder $table): MoonShineRenderable` → `public function modifyListComponent(RenderableContract $table): RenderableContract`
+- `public function modifyListComponent(MoonShineRenderable|TableBuilder $table): MoonShineRenderable` → `public function modifyListComponent(ComponentContract $table): ComponentContract`
 - `pages()` теперь принимает массив названий классов:
   ```
       protected function pages(): array
