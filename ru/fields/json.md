@@ -13,7 +13,7 @@
   - [Модификаторы](#modify)
 
 <a name="basics"></a>
-### Основы
+## Основы
 
 Поле `Json` предназначено для удобной работы с типом данных `json`. В большинстве случаев оно используется с массивами объектов через `TableBuilder`, но также поддерживает режим работы с одним объектом.
 
@@ -21,7 +21,7 @@
 > В базе данных поле должно быть типа `text` или `json`. Также необходимо указать Eloquent Cast — `array`, `json` или `collection`.
 
 <a name="fields"></a>
-### Набор полей
+## Набор полей
 
 Предположим, что структура вашего json имеет следующий вид:
 
@@ -91,7 +91,7 @@ protected function indexFields(): iterable
 ```
 
 <a name="key-value"></a>
-### Режим "Ключ/Значение"
+## Режим "Ключ/Значение"
 
 Когда ваши данные имеют структуру ключ/значение, как в следующем примере `{key: value}`, используется метод `keyValue`.
 
@@ -151,7 +151,7 @@ protected function formFields(): iterable
 ```
 
 <a name="only-value"></a>
-### Режим "Только значения"
+## Режим "Только значения"
 
 Если необходимо хранить только значения, как в примере `['value_1', 'value_2']`, используется метод `onlyValue()`:
 
@@ -186,7 +186,7 @@ protected function formFields(): iterable
 ![json_only_value_dark](https://moonshine-laravel.com/screenshots/json_only_value_dark.png)
 
 <a name="object-mode"></a>
-### Режим "Объект"
+## Режим "Объект"
 
 В большинстве случаев поле `Json` работает с массивом объектов через `TableBuilder`. Однако возможен и режим работы с объектом, например, `{title: 'Title', active: false}`. Для этого используется метод `object()`:
 
@@ -216,7 +216,7 @@ protected function formFields(): iterable
 ```
 
 <a name="default"></a>
-### Значение по умолчанию
+## Значение по умолчанию
 
 Как и в других полях, здесь есть возможность указать значение по умолчанию с помощью метода `default()`. В данном случае необходимо передать массив.
 
@@ -271,7 +271,7 @@ protected function formFields(): iterable
 ```
 
 <a name="creatable-removable"></a>
-### Добавление/Удаление
+## Добавление/Удаление
 
 По умолчанию поле `Json` содержит только один элемент. Метод `creatable()` позволяет добавлять новые элементы, а `removable()` — удалять их.
 
@@ -322,7 +322,7 @@ protected function formFields(): iterable
 ![json_removable](https://moonshine-laravel.com/screenshots/json_removable.png)
 ![json_removable_dark](https://moonshine-laravel.com/screenshots/json_removable_dark.png)
 
-#### Кастомизация кнопки добавления
+### Кастомизация кнопки добавления
 
 ```php
 use MoonShine\Fields\Json;
@@ -343,7 +343,7 @@ protected function formFields(): iterable
 //...
 ```
 
-#### HTML атрибуты для кнопки удаления
+### HTML атрибуты для кнопки удаления
 
 ```php
 use MoonShine\Fields\Json;
@@ -367,7 +367,7 @@ protected function formFields(): iterable
 ```
 
 <a name="vertical"></a>
-### Вертикальный режим
+## Вертикальный режим
 
 Метод `vertical()` позволяет изменить отображение таблицы из горизонтального режима на вертикальный.
 
@@ -397,7 +397,7 @@ protected function formFields(): iterable
 ![json_vertical_dark](https://moonshine-laravel.com/screenshots/json_vertical_dark.png)
 
 <a name="filter"></a>
-### Применение в фильтрах
+## Применение в фильтрах
 
 Если поле используется в фильтрах, необходимо включить режим фильтрации с помощью метода `filterMode()`. Этот метод адаптирует поведение поля для фильтрации и отключает возможность добавления новых элементов.
 
@@ -423,7 +423,7 @@ public function filters(): array
 ```
 
 <a name="buttons"></a>
-### Кнопки
+## Кнопки
 
 Метод `buttons()` позволяет переопределить кнопки, используемые в поле. По умолчанию доступна только кнопка удаления.
 
@@ -459,12 +459,12 @@ protected function formFields(): iterable
 //...
 ```
 
-<a name="#modify"></a>
-### Модификаторы
+<a name="modify"></a>
+## Модификаторы
 
 Поле `Json` предоставляет возможность модифицировать кнопки или таблицу в режимах `preview` или `default`, вместо их полного замещения.
 
-#### Модификатор кнопки удаления
+### Модификатор кнопки удаления
 
 Метод `modifyRemoveButton()` позволяет изменить кнопку удаления.
 
@@ -498,7 +498,7 @@ protected function formFields(): iterable
 //...
 ```
 
-#### Модификатор таблицы
+### Модификатор таблицы
 
 Метод `modifyTable()` позволяет модифицировать таблицу (`TableBuilder`) для всех визуальных режимов поля.
 
