@@ -1,18 +1,19 @@
-# Оглавление
+# showWhen
 - [Описание](#description)
-- [showWhen](#showwhen)
-- [showWhenDate](#showwhendate)
+- [showWhen](#show-when)
+- [showWhenDate](#show-when-date)
 - [Вложенные поля](#nested-fields)
 - [Множественные условия](#multiple-conditions)
 - [Поддерживаемые операторы](#supported-operators)
 ---
 
-## [Описание](#description)
+<a name="description"></a>
+## Описание
 
 Для изменения отображения полей в зависимости от значений других полей в реальном времени, без перезагрузки страницы и запросов к серверу, используются методы `showWhen` и `showWhenDate`.
 
-<a name="showwhen"></a>
-## [Метод showWhen](#showwhen)
+<a name="show-when"></a>
+## Метод showWhen
 
 Метод `showWhen` позволяет задать условие отображения поля в зависимости от значения другого поля.
 
@@ -51,8 +52,8 @@ Text::make('Name')
 
 В этом примере поле "Name" будет отображаться только если значение поля "category_id" равно 1, 2 или 3.
 
-<a name="showwhendate"></a>
-## [Метод showWhenDate](#showwhendate)
+<a name="show-when-date"></a>
+## Метод showWhenDate
 
 Метод `showWhenDate` позволяет задать условие отображения поля в зависимости от значения поля типа `date`. Логика для работы с датами была вынесена в отдельный метод из за специфики конвертации и сравнения типа `date` и `datetime` на backend и frontent
 
@@ -88,7 +89,7 @@ Text::make('Content')
 
 
 <a name="nested-fields"></a>
-## [Вложенные поля](#nested-fields)
+## Вложенные поля
 
 Методы `showWhen` и `showWhenDate` поддерживают работу с вложенными полями, например для работы с полем `Json`. Для обращения к вложенным полям используется точечная нотация.
 
@@ -120,7 +121,7 @@ Json::make('Attributes', 'attributes')->fields([
 В данном примере весь столбец `Parts` внтури `attributes` и весь столбец `Width` внтури `attributes.[n].settings` будет отображаться только если значение поля `category_id` равно 3.
 
 <a name="multiple-conditions"></a>
-## [Множественные условия](#multiple-conditions)
+## Множественные условия
 
 Методы `showWhen` и `showWhenDate` могут быть вызваны несколько раз для одного поля, что позволяет задать несколько условий отображения.
 
@@ -139,7 +140,7 @@ BelongsTo::make('Category', 'category', , resource: CategoryResource::class)
 > При использовании нескольких условий они объединяются логическим "И" (AND). Поле будет отображаться только если выполняются все заданные условия.
 
 <a name="supported-operators"></a>
-## [Поддерживаемые операторы](#supported-operators)
+## Поддерживаемые операторы
 
 - `=`
 - `!=`
