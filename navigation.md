@@ -1,35 +1,34 @@
-- ## Пролог
+- ## Prologue
 - ## Getting Started
     - [Installation](/docs/{{version}}/installation)
-    - Конфигурация
-- ## Внешний вид
-    - Меню
-    - Шаблон
-    - Ассеты
-    - Цвета
-    - Иконки
-- ## Models Resources
+    - Configuration
+- ## Appearance
+    - Menu
+    - Template
+    - Assets
+    - Colors
+    - Icons
+- ## ModelResources
 - ## Pages
 - ## Fields
-	- [Основы](/docs/{{version}}/fields/index)
-  	- [Json](/docs/{{version}}/fields/json)
+    - [Basics](/docs/{{version}}/fields/index)
+    - [Json](/docs/{{version}}/fields/json)
 - ## Components
-    - Основы
+    - Basics
     - ActionButton
     - FormBuilder
     - TableBuilder
     - CardsBuilder
-    - ...
 - ## Frontend
     - AlpineJs
     - Events
     - Request/Response callbacks
     - SDUI
     - API
-- ## Безопасность
-    - Авторизация
-    - Аутентификация
-    - Социалайт
+- ## Security
+    - Authorization
+    - Authentication
+    - Socialite
 - ## Advanced
     - Resources (CrudResource)
     - Routes
@@ -41,5 +40,4 @@
     - Localization
     - Testing
     - Package Development
-- ## Рецепты
-	
+- ## Recipes
