@@ -62,7 +62,7 @@ Column::make(components: [])->columnSpan(6, 6)
 <x-moonshine::layout.column colSpan="6" adaptiveColSpan="6">components[]</x-moonshine::layout.column>
 ```
 
-~~~~tabs
+~~~tabs
 
 tab: Class
 ```php
@@ -73,7 +73,7 @@ tab: Blade
 ```blade
 <x-moonshine::layout.column colSpan="6" adaptiveColSpan="6">components[]</x-moonshine::layout.column>
 ```
-~~~~
+~~~
 
 ### Content
 
