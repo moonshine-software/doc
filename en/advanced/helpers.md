@@ -3,6 +3,14 @@ https://moonshine-laravel.com/docs/resource/advanced/advanced-helpers?change-moo
 ------
 # Helpers
 
+- [Basic](#basic)
+- [Link to page `to_page`](#to_page)
+- [FormBuilder](#form_builder)
+- [TableBuilder](#table_builder)
+- [ActionButton](#action_button)
+- [Find apply field (filter) class](#find_field_apply)
+- [Display 404](#oops404)
+
 <a name="basic"></a>
 ## Basic
 
