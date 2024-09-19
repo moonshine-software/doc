@@ -1,5 +1,3 @@
-# Оглавление
-
 ## Root
 - [Action Button](/docs/{{version}}/action-button)
 - [Documentation](/docs/{{version}}/docs)
