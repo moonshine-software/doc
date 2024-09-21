@@ -77,8 +77,8 @@ to_page(page: PageType::FORM, redirect: true);
 to_page(page: PageType::FORM, fragment: true);
 ```
 
->[!TIP] 
->For more information about page types, see [PageType](https://moonshine-laravel.com/docs/resource/models-resources/resources-pages#page-type).
+> [!TIP] 
+> For more information about page types, see [PageType](https://moonshine-laravel.com/docs/resource/models-resources/resources-pages#page-type).
 
 <a name="current-page"></a>
 ### Current page

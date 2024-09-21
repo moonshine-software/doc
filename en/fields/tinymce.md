@@ -17,8 +17,8 @@ Extends [Textarea](https://moonshine-laravel.com/docs/resource/fields/fields-tex
 
 *TinyMce* is one of the most popular web editors. To use it in the **MoonShine** admin panel, there is a field of the same name.  
 
->[!NOTE]
->Before using this field, you must register on the site at [Tiny.Cloud](https://www.tiny.cloud/) , get the token and add it to the `config/moonshine.php` config.
+> [!NOTE]
+> Before using this field, you must register on the site at [Tiny.Cloud](https://www.tiny.cloud/) , get the token and add it to the `config/moonshine.php` config.
 
 ```php
 'tinymce' => [
@@ -132,8 +132,8 @@ public function fields(): array
 
 //...
 ```
->[!TIP]
->Translation files are located in the `public/vendor/moonshine/libs/tinymce/langs` directory.
+> [!TIP]
+> Translation files are located in the `public/vendor/moonshine/libs/tinymce/langs` directory.
 
 <a name="custom-config"></a>  
 ## Additional settings 
@@ -171,8 +171,9 @@ composer require unisharp/laravel-filemanager
 php artisan vendor:publish --tag=lfm_config
 php artisan vendor:publish --tag=lfm_public
 ```
->[!TIP]
->Be sure to set the 'use_package_routes' flag in the lfm config to false, otherwise caching routes will cause an error.
+
+> [!TIP]
+> Be sure to set the 'use_package_routes' flag in the lfm config to false, otherwise caching routes will cause an error.
 
 ```php
 return [
@@ -199,8 +200,8 @@ Route::prefix('laravel-filemanager')->group(function () {
 
 Register the generated routes file in `app/Providers/RouteServiceProvider.php`.
 
->[!TIP]
->The route file must be in the middleware `moonshine` group!
+> [!TIP]
+> The route file must be in the middleware `moonshine` group!
 
 ```php
 // ...
@@ -221,8 +222,8 @@ public function boot()
 // ...
 ```
 
->[!TIP]
->In order to allow access only to users authorized in the admin panel you need to add middleware `MoonShine\Http\Middleware\Authenticate`.
+> [!TIP]
+> In order to allow access only to users authorized in the admin panel you need to add middleware `MoonShine\Http\Middleware\Authenticate`.
 
 ```php
 use MoonShine\Http\Middleware\Authenticate;

@@ -192,8 +192,8 @@ public function fields(): array
 ![belongs_to_many_pivot](https://moonshine-laravel.com/screenshots/belongs_to_many_pivot.png)
 ![belongs_to_many_pivot_dark](https://moonshine-laravel.com/screenshots/belongs_to_many_pivot_dark.png)
 
->[!WARNING]
->The relationship must specify which *pivot* fields are used in the staging table!
+> [!WARNING]
+> The relationship must specify which *pivot* fields are used in the staging table!
 More details in the official documentation [Laravel](https://laravel.com/docs/eloquent-relationships#retieving-intermediate-table-columns).
 
 <a name="creatable"></a> 
@@ -555,8 +555,8 @@ public function fields(): array
 //...
 ```
 
->[!TIP]
->The search will be carried out using the resource relationship field `column`. By default `column=id`
+> [!TIP]
+> The search will be carried out using the resource relationship field `column`. By default `column=id`
 
 You can pass parameters to the `asyncSearch()` method:
 
@@ -595,8 +595,8 @@ public function fields(): array
 //...
 ```
 
->[!TIP]
->When building a query in `asyncSearchQuery()`, you can use the current form values. To do this, you need to pass `Request` to the callback function.
+> [!TIP]
+> When building a query in `asyncSearchQuery()`, you can use the current form values. To do this, you need to pass `Request` to the callback function.
 
 ```php
 use Illuminate\Contracts\Database\Eloquent\Builder;
@@ -623,8 +623,8 @@ public function fields(): array
 //...
 ```
 
->[!TIP]
->When building a query in `asyncSearchQuery()`, the original state of the builder is preserved.
+> [!TIP]
+> When building a query in `asyncSearchQuery()`, the original state of the builder is preserved.
 If you need to replace it with your builder, then use the `replaceQuery` flag.
 
 ```php
@@ -653,8 +653,8 @@ public function fields(): array
 //...
 ```
 
->[!TIP]
->Requests must be customized using the `asyncSearch()` method. Don't use `valuesQuery()`!
+> [!TIP]
+> Requests must be customized using the `asyncSearch()` method. Don't use `valuesQuery()`!
 
 <a name="associated"></a> 
 ### Related fields
@@ -682,8 +682,8 @@ public function fields(): array
 }
 ```
 
->[TIP]
->For more complex setup, you can use `asyncSearch()`.
+> [TIP]
+> For more complex setup, you can use `asyncSearch()`.
 
 <a name="with-image"></a> 
 ### Values with picture

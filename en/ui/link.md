@@ -60,5 +60,5 @@ You can pass the `icon` parameter.
 </x-moonshine::link-native>
 ```
 
->[!NOTE]
->All available [icons](https://moonshine-laravel.com/docs/resource/appearance/icons) .
+> [!NOTE]
+> All available [icons](https://moonshine-laravel.com/docs/resource/appearance/icons) .

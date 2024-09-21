@@ -75,8 +75,8 @@ CardsBuilder::make()
     ->items([['text' => 'Value']])
 ```
 
->[!TIP]
->The correspondence of data with fields is carried out through the value [column](https://moonshine-laravel.com/docs/resource/fields/fields-index#make) fields!
+> [!TIP]
+> The correspondence of data with fields is carried out through the value [column](https://moonshine-laravel.com/docs/resource/fields/fields-index#make) fields!
 
 <a name="cast"></a>
 ## Casting
@@ -94,8 +94,8 @@ CardsBuilder::make(items: User::paginate())
 
 In this example, we cast the data to the `User` model format using `ModelCast`.
 
->[!NOTE]
->For more detailed information, please refer to the section [TypeCasts](https://moonshine-laravel.com/docs/resource/advanced/advanced-type_casts" class="text-purple underline" link="https://moonshine-laravel.com/docs/resource/advanced/advanced-type_casts)
+> [!NOTE]
+> For more detailed information, please refer to the section [TypeCasts](https://moonshine-laravel.com/docs/resource/advanced/advanced-type_casts" class="text-purple underline" link="https://moonshine-laravel.com/docs/resource/advanced/advanced-type_casts)
 
 <a name="header"></a>
 ## Header
@@ -315,8 +315,8 @@ MoonShine already has a set of ready-made events:
 - `form-reset-{name}` - reset form values by name,
 - `fragment-updated-{name}` - updating blade fragment by name.
 
->[!NOTE]
->To trigger an event, you must specify a unique [component name](https://moonshine-laravel.com/docs/resource/components/components-moonshine_component#name)!
+> [!NOTE]
+> To trigger an event, you must specify a unique [component name](https://moonshine-laravel.com/docs/resource/components/components-moonshine_component#name)!
 
 <a name="attributes"></a>
 ## Attributes

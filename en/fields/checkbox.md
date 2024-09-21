@@ -63,8 +63,8 @@ updateOnPreview(?Closure $url = null, ?ResourceContract $resource = null, mixed 
 -`$resource` - model resource referenced by the relationship,
 -`$condition` - method run condition.
 
->[!TIP]
->The settings are not required and must be passed if the field is running out of resource.
+> [!TIP]
+> The settings are not required and must be passed if the field is running out of resource.
 
 ```php
 use MoonShine\Fields\Checkbox;

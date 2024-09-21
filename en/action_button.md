@@ -102,8 +102,8 @@ public function components(): array
 }
 ```
 
->[!NOTE]
->For more detailed information, please refer to the section [Icons](https://moonshine-laravel.com/docs/resource/appearance/icons) .
+> [!NOTE]
+> For more detailed information, please refer to the section [Icons](https://moonshine-laravel.com/docs/resource/appearance/icons) .
 
 <a name="color"></a> 
 ### Color
@@ -270,8 +270,8 @@ public function components(): array
 }
 ```
 
->[!NOTE]
->About [Fragment](https://moonshine-laravel.com/docs/resource/components/components-decoration_fragment) can be found in the "Components" section
+> [!NOTE]
+> About [Fragment](https://moonshine-laravel.com/docs/resource/components/components-decoration_fragment) can be found in the "Components" section
 
 <a name="confirm"></a> 
 ### Confirm
@@ -290,8 +290,8 @@ ActionButton::make(
     )
 ```
 
->[!WARNING]
->`withConfirm` does not work with `async` modes. For asynchronous mode, you need to make your own implementation via [Modal](https://moonshine-laravel.com/docs/resource/components/components-decoration_modal) or [inModal()](https://moonshine-laravel.com/docs/resource/components/components-decoration_modal) .
+> [!WARNING]
+> `withConfirm` does not work with `async` modes. For asynchronous mode, you need to make your own implementation via [Modal](https://moonshine-laravel.com/docs/resource/components/components-decoration_modal) or [inModal()](https://moonshine-laravel.com/docs/resource/components/components-decoration_modal) .
 
 <a name="offcanvas"></a> 
 ### Offcanvas
@@ -370,8 +370,8 @@ public function indexButtons(): array
 }
 ```
 
->[!TIP]
->The `bulk()` method, used only inside *ModelResource*.
+> [!TIP]
+> The `bulk()` method, used only inside *ModelResource*.
 
 <a name="async"></a> 
 ### Async mode
@@ -406,7 +406,7 @@ public function components(): array
 }
 ```
 
-*** Notifications
+#### Notifications
 
 If you need to display a notification or make a redirect after a click, then it is enough to implement the json response according to the structure:
 
@@ -414,10 +414,10 @@ If you need to display a notification or make a redirect after a click, then it 
 {message: 'Toast', messageType: 'success', redirect: '/url'}
 ```
 
->[!TIP]
->The `redirect` parameter is optional.
+> [!TIP]
+> The `redirect` parameter is optional.
 
-*** HTML content
+#### HTML content
 
 If you need to replace an area with html on click, then you can return HTML content or json with the html key in the response:
 
@@ -438,7 +438,7 @@ public function components(): array
 }
 ```
 
-*** Events
+#### Events
 
 After a successful request, you can raise events:
 
@@ -454,10 +454,10 @@ public function components(): array
     ];
 }
 ```
->[!TIP]
->For the `table-updated-index-table` event to work [async mode](https://moonshine-laravel.com/docs/resource/models-resources/resources-table#async) must be enabled.
+> [!TIP]
+> For the `table-updated-index-table` event to work [async mode](https://moonshine-laravel.com/docs/resource/models-resources/resources-table#async) must be enabled.
 
-*** Callback
+#### Callback
 
 If you need to process the response in a different way, then you need to implement a handler function and specify it in the `async()` method.
 
@@ -547,13 +547,13 @@ public function updateSomething(MoonShineRequest $request)
     return MoonShineJsonResponse::make()->toast('MyMessage', ToastType::SUCCESS);
 }
 ```
->[!WARNING]
->Methods called via *ActionButton* in a resource must be public!
+> [!WARNING]
+> Methods called via *ActionButton* in a resource must be public!
 
->[!CAUTION]
->Для доступа к данным из реквеста, необходимо передать их в параметрах.
+> [!CAUTION]
+> Для доступа к данным из реквеста, необходимо передать их в параметрах.
 
-*** Передача текущего элемента
+#### Передача текущего элемента
 
 Если в запросе присутствует *resourceItem*, то в ресурсе вы можете получить доступ к текущему элементу через метод `getItem()`.
 
@@ -601,8 +601,8 @@ public function updateSomething(MoonShineRequest $request): MoonShineJsonRespons
 }
 ```
 
->[!WARNING]
->When using the `withParams()` method, requests will be sent via `POST`.
+> [!WARNING]
+> When using the `withParams()` method, requests will be sent via `POST`.
 
 ### Download
 

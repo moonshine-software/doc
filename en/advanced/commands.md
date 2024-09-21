@@ -17,8 +17,8 @@ https://moonshine-laravel.com/docs/resource/advanced/advanced-commands?change-mo
 - [User](#user)
 - [Publish](#publish)
 
->[!WARNING]
->To select the appropriate item, you must use the `space` key.
+> [!WARNING]
+> To select the appropriate item, you must use the `space` key.
 
 <a name="install"></a>
 # Install
@@ -34,8 +34,8 @@ Available options:
 - `-u`, `--without-user` - without creating a super user;
 - `-m`, `--without-migrations` - without performing migrations.
 
->[!NOTE]
->For more detailed information, please refer to the section [Installation](https://moonshine-laravel.com/docs/resource/getting-started/installation).
+> [!NOTE]
+> For more detailed information, please refer to the section [Installation](https://moonshine-laravel.com/docs/resource/getting-started/installation).
 
 <a name="apply"></a>
 # Apply
@@ -59,8 +59,8 @@ php artisan moonshine:component
 
 After executing the command, a class for the component will be created in the `app/MoonShine/Components` directory and *Blade* file in the `resources/views/admin/components` directory.
 
->[!NOTE]
->For more detailed information, please refer to the section [Components](https://moonshine-laravel.com/docs/resource/components/components-index).
+> [!NOTE]
+> For more detailed information, please refer to the section [Components](https://moonshine-laravel.com/docs/resource/components/components-index).
 
 <a name="controller"></a>
 # Controller
@@ -73,8 +73,8 @@ php artisan moonshine:controller
 
 After executing the command, a controller class will be created in the `app/MoonShine/Controllers` directory. Which can be used in admin panel routes.
 
->[!NOTE]
->For more detailed information, please refer to the section [Controllers](https://moonshine-laravel.com/docs/resource/advanced/advanced-controller).
+> [!NOTE]
+> For more detailed information, please refer to the section [Controllers](https://moonshine-laravel.com/docs/resource/advanced/advanced-controller).
 
 <a name="field"></a>
 # Field
@@ -89,8 +89,8 @@ When executing the command, you can specify whether the field will extend the ba
 
 After executing the command, a field class will be created in the `app/MoonShine/Fields` directory and *Blade* file in the directory `/resources/views/admin/fields`.
 
->[!NOTE]
->For more detailed information, please refer to the section [Field](https://moonshine-laravel.com/docs/resource/fields/fields-index).
+> [!NOTE]
+> For more detailed information, please refer to the section [Field](https://moonshine-laravel.com/docs/resource/fields/fields-index).
 
 <a name="handler"></a>
 # Handler
@@ -103,8 +103,8 @@ php artisan moonshine:handler
 
 After executing the command, the handler class will be created in the directory `app/MoonShine/Handlers`.
 
->[!NOTE]
->For more detailed information, please refer to the section [Import/Export](https://moonshine-laravel.com/docs/resource/models-resources/resources-import_export).
+> [!NOTE]
+> For more detailed information, please refer to the section [Import/Export](https://moonshine-laravel.com/docs/resource/models-resources/resources-import_export).
 
 <a name="page"></a>
 # Page
@@ -117,8 +117,8 @@ The command creates a page for the admin panel:
 
 After executing the command, a default page (or group of pages) will be created in the directory `app/MoonShine/Pages`.
 
->[!NOTE]
->For more detailed information, please refer to the section [Page](https://moonshine-laravel.com/docs/resource/page/page-class).
+> [!NOTE]
+> For more detailed information, please refer to the section [Page](https://moonshine-laravel.com/docs/resource/page/page-class).
 
 <a name="policy"></a>
 # Policy
@@ -131,8 +131,8 @@ php artisan moonshine:policy
 
 After executing the command, a class will be created in the `app/Policies` directory.
 
->[!NOTE]
->For more detailed information, please refer to the section [Authorization](https://moonshine-laravel.com/docs/resource/advanced/advanced-authorization).
+> [!NOTE]
+> For more detailed information, please refer to the section [Authorization](https://moonshine-laravel.com/docs/resource/advanced/advanced-authorization).
 
 <a name="resource"></a>
 # Resource
@@ -159,8 +159,8 @@ There are several options available when creating a *Resource*:
 After executing the command, a resource file will be created in the `app/MoonShine/Resources/` directory.
 If a model resource with pages is created, additional pages will be created in the directory `app/MoonShine/Pages`.
 
->[!NOTE]
->For more detailed information, please refer to the section [Models Resorces](https://moonshine-laravel.com/docs/resource/models-resources/resources-index).
+> [!NOTE]
+> For more detailed information, please refer to the section [Models Resorces](https://moonshine-laravel.com/docs/resource/models-resources/resources-index).
 
 <a name="type_cast"></a>
 # Type Cast
@@ -173,8 +173,8 @@ php artisan moonshine:type-cast
 
 After executing the command, a file will be created in the `app/MoonShine/TypeCasts` directory.
 
->[!NOTE]
->For more detailed information, please refer to the section [TypeCasts](https://moonshine-laravel.com/docs/resource/advanced/advanced-type_casts).
+> [!NOTE]
+> For more detailed information, please refer to the section [TypeCasts](https://moonshine-laravel.com/docs/resource/advanced/advanced-type_casts).
 
 <a name="user"></a>
 # User

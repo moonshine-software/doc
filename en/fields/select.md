@@ -177,8 +177,8 @@ public function fields(): array
 
 //...
 ```
->[!TIP]
->When using `multiple()` for the Eloquent model, a field in the database type text or json is required.
+> [!TIP]
+> When using `multiple()` for the Eloquent model, a field in the database type text or json is required.
 You also need to add *cast* - json or array or collection.
 
 ![select multiple dark.](https://moonshine-laravel.com/screenshots/select_multiple_dark.png)
@@ -267,7 +267,7 @@ updateOnPreview(?Closure $url = null, ?ResourceContract $resource = null, mixed 
 -`$resource` - model resource referenced by the relationship,
 -`$condition` - method run condition.
 
->[!TIP]
+> [!TIP]
 > The settings are not required and must be passed if the field is running out of resource.
 
 ```php
@@ -344,8 +344,9 @@ public function fields(): array
 
 //...
 ```
->[!TIP]
->For more details please contact [Choices](https://choices-js.github.io/Choices/).
+
+> [!TIP]
+> For more details please contact [Choices](https://choices-js.github.io/Choices/).
 
 <a name="native"></a>
 ### Native mode

@@ -313,8 +313,8 @@ To get the parent ID, use the `getParentId()` method.
 $this->getParentId();
 ```
 
->[!TIP]
->Recipe: [saving files](https://moonshine-laravel.com/docs/resource/recipes/recipes#hasmany-parent-id) *HasMany* connections in the directory with the parent ID.
+> [!TIP]
+> Recipe: [saving files](https://moonshine-laravel.com/docs/resource/recipes/recipes#hasmany-parent-id) *HasMany* connections in the directory with the parent ID.
 
 <a name="change-edit-button"></a> 
 ### Edit button
@@ -470,15 +470,15 @@ public function fields(): array
 
 //...
 ```
->[!NOTE]
->For more detailed information, please refer to the section [Json field](https://moonshine-laravel.com/docs/resource/fields/fields-json#relation).
+> [!NOTE]
+> For more detailed information, please refer to the section [Json field](https://moonshine-laravel.com/docs/resource/fields/fields-json#relation).
 
 #### Relationship via Template field
 
 Using the *Template field* you can construct a field for *HasMany* relationships using fluent interface during the declaration process.
 
->[!NOTE]
->For more detailed information, please refer to the section [Template field](https://moonshine-laravel.com/docs/resource/fields/fields-template).
+> [!NOTE]
+> For more detailed information, please refer to the section [Template field](https://moonshine-laravel.com/docs/resource/fields/fields-template).
 
 #### HasMany field tabs
 
@@ -515,5 +515,5 @@ class PostFormPage extends FormPage
 }
 ```
 
->[!NOTE]
->For more details you can read the article [Form page customization. Moon Shine 2.0](https://cutcode.dev/articles/kastomizaciia-stranicy-formy-moonshine-20).
+> [!NOTE]
+> For more details you can read the article [Form page customization. Moon Shine 2.0](https://cutcode.dev/articles/kastomizaciia-stranicy-formy-moonshine-20).

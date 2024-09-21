@@ -210,8 +210,8 @@ public function fields(): array
 ![expansion](https://moonshine-laravel.com/screenshots/expansion.png)
 ![expansion_dark](https://moonshine-laravel.com/screenshots/expansion_dark.png)
 
->[!NOTE]
->The `copy` method uses the `Clipboard API` which is only available for HTTPS or localhost
+> [!NOTE]
+> The `copy` method uses the `Clipboard API` which is only available for HTTPS or localhost
 
 You can use custom extensions, To do this, they must be added to the field via the `extension()` method.
 
@@ -276,8 +276,8 @@ updateOnPreview(?Closure $url = null, ?ResourceContract $resource = null, mixed 
 - `$condition` - method run condition.
 
 
->[!NOTE]
->The settings are not required and must be passed if the field is running out of resource.
+> [!NOTE]
+> The settings are not required and must be passed if the field is running out of resource.
 
 ```php
 use MoonShine\Fields\Text;
@@ -298,8 +298,8 @@ public function fields(): array
 <a name="unescape"></a>
 ## Special characters
 
->[!WARNING]
->By default, the **Text** field and its descendants convert special characters into HTML entities when outputting values.
+> [!WARNING]
+> By default, the **Text** field and its descendants convert special characters into HTML entities when outputting values.
 
 The `unescape()` method allows you to undo the conversion of special characters in the HTML entity when outputting values.
 

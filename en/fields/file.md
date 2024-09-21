@@ -407,5 +407,5 @@ The `removeExcludedFiles()` method allows you to physically remove files during 
 removeExcludedFiles()
 ```
 
->[!TIP]
->Recipe: [saving images](https://moonshine-laravel.com/docs/resource/recipes/recipes#images-in-linked-table) in the linked table.
+> [!TIP]
+> Recipe: [saving images](https://moonshine-laravel.com/docs/resource/recipes/recipes#images-in-linked-table) in the linked table.

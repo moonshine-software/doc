@@ -39,8 +39,8 @@ public function indexFields(): array
 //...
 ```
 
->[!WARNING]
->The *Td* field is not displayed in forms, it is intended only for `preview` mode!
+> [!WARNING]
+> The *Td* field is not displayed in forms, it is intended only for `preview` mode!
 
 A closure can take the current element as a parameter.
 

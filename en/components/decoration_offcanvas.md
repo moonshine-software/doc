@@ -123,8 +123,8 @@ Or use the magic `$dispatch()` method from Alpine.js:
 this.$dispatch('offcanvas-toggled-my-canvas')
 ```
 
->[!NOTE]
->More detailed information can be obtained from the official Alpine.js documentation in the sections [Events](https://alpinejs.dev/essentials/events) and [$dispatch](https://alpinejs.dev/magics/dispatch).
+> [!NOTE]
+> More detailed information can be obtained from the official Alpine.js documentation in the sections [Events](https://alpinejs.dev/essentials/events) and [$dispatch](https://alpinejs.dev/magics/dispatch).
 
 <a name="open"></a> 
 ## Default state
@@ -151,8 +151,8 @@ public function components(): array
 //...
 ```
 
->[!TIP]
->By default, the sidebar will be hidden when the page loads.
+> [!TIP]
+> By default, the sidebar will be hidden when the page loads.
 
 <a name="position"></a> 
 ##  Position

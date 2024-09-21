@@ -42,8 +42,8 @@ class PostResource extends ModelResource
 
 To add buttons to the table, use `ActionButton` and the `indexButtons` or `buttons` methods in the resource
 
->[!TIP]
->[More details ActionButton](https://moonshine-laravel.com/docs/resource/actionbutton/action_button)
+> [!TIP]
+> [More details ActionButton](https://moonshine-laravel.com/docs/resource/actionbutton/action_button)
 
 ```php
 public function indexButtons(): array
@@ -54,8 +54,8 @@ public function indexButtons(): array
 }
 ```
 
->[!TIP]
->An example of creating custom buttons for the index table in the section [Recipes](https://moonshine-laravel.com/docs/resource/recipes/recipes#custom-buttons)
+> [!TIP]
+> An example of creating custom buttons for the index table in the section [Recipes](https://moonshine-laravel.com/docs/resource/recipes/recipes#custom-buttons)
 
 For bulk actions you need to add the `bulk` method
 
@@ -266,8 +266,8 @@ AlpineJs::event(JsEvent::TABLE_ROW_UPDATED, 'main-table-{row-id}')
 
 -`{row-id}` - shortcode for the id of the current model record.
 
->[!WARNING] 
->The presence of the ID field and asynchronous mode are required.
+> [!WARNING] 
+> The presence of the ID field and asynchronous mode are required.
 
 ```php
 namespace App\MoonShine\Resources;

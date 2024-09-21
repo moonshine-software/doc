@@ -14,8 +14,8 @@ https://moonshine-laravel.com/docs/resource/fields/fields-slug?change-moonshine-
 Extends [Text](https://moonshine-laravel.com/docs/resource/fields/fields-text)
 * has the same features
 
->[!INFO]
->Field depends on Eloquent Model
+> [!INFO]
+> Field depends on Eloquent Model
 
 <a name="basics"></a>  
 ## Basics  
@@ -167,5 +167,5 @@ public function fields(): array
 //...
 ```
 
->[!NOTE]
->Lives is based on [field reactivity](https://moonshine-laravel.com/docs/resource/fields/fields-index#reactive).
+> [!NOTE]
+> Lives is based on [field reactivity](https://moonshine-laravel.com/docs/resource/fields/fields-index#reactive).

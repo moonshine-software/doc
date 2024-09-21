@@ -381,11 +381,11 @@ public function fields(): array
 }
 //...
 ```
->[!WARNING]
->For relationships, the presence of the ID field in the fields method is mandatory!
+> [!WARNING]
+> For relationships, the presence of the ID field in the fields method is mandatory!
 
->[!WARNING]
->When using *BelongsTo* it is necessary to use the method `setColumn()` set a field in a database table!
+> [!WARNING]
+> When using *BelongsTo* it is necessary to use the method `setColumn()` set a field in a database table!
 
 ![json_relation](https://moonshine-laravel.com/screenshots/json_relation.png)
 ![json_relation_dark](https://moonshine-laravel.com/screenshots/json_relation_dark.png)

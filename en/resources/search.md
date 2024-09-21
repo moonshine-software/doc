@@ -15,8 +15,8 @@ https://moonshine-laravel.com/docs/resource/models-resources/resources-search?ch
 
 To search, you must specify which model fields will participate in the search. To do this, you need to list them in the returned array in the `search()` method.
 
->[!TIP] 
->If the method returns an empty array, then the search string will not be displayed.
+> [!TIP] 
+> If the method returns an empty array, then the search string will not be displayed.
 
 ```php
 namespace App\MoonShine\Resources;
@@ -75,8 +75,8 @@ class PostResource extends ModelResource
 }
 ```
 
->[!TIP] 
->Don't forget to add fulltext index
+> [!TIP] 
+> Don't forget to add fulltext index
 
 <a name="json"></a>
 ## Search by json keys
