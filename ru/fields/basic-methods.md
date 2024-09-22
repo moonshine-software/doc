@@ -1,4 +1,4 @@
-# Базовые методы (Editing...)
+# Базовые методы
 - [Описание](#description)
 - [Создание](#create)
 - [Отображение поля](#view)
@@ -9,6 +9,7 @@
   - [Горизонтально отображение](#horizontal)
   - [Обертка](#wrapper)
   - [Сортировка](#sortable)
+  - [Режимы отображения](#view-modes)
 - [Атрибуты](#attributes)
   - [Required](#required-link)
   - [Disabled](#disabled-link)
@@ -24,6 +25,7 @@
   - [Apply](#apply)
   - [Заполнение](#fill)
   - [Методы onChange](#on-change)
+  - [Изменение render поля](#change-render)
   - [Методы для значений](#for-value)
 - [Реактивность](#reactive)
 - [Динамическое отображение](#show-when)
@@ -148,17 +150,31 @@ Text::make('Link')
 <a name="badge"></a>
 ### Badge
 
-Для отображения поля в режиме preview в виде *badge*, необходимо воспользоваться методом `badge()`.
+Для отображения поля в режиме `preview` в виде `badge`, необходимо воспользоваться методом `badge()`.
 
 ```php
-badge(string|Closure|null $color = null)
+badge(string|Color|Closure|null $color = null)
 ```
 
 Доступные цвета:
 
-[primary] [secondary] [success] [warning] [error] [info]
+<span style="background-color: #7843e9; padding: 5px; border-radius: 0.375rem">primary</span> <span style="background-color: #ec4176; padding: 5px; border-radius: 0.375rem">secondary</span> <span style="background-color: #00aa00; padding: 5px; border-radius: 0.375rem">success</span> <span style="background-color: #ffdc2a; padding: 5px; border-radius: 0.375rem; color: rgb(139 116 0 / 1);">warning</span> <span style="background-color: #e02d2d; padding: 5px; border-radius: 0.375rem">error</span> <span style="background-color: #0079ff; padding: 5px; border-radius: 0.375rem">info</span>
 
-[purple] [pink] [blue] [green] [yellow] [red] [gray]
+<span style="background-color: rgb(243 232 255 / 1); color: rgb(107 33 168 / 1); padding: 5px; border-radius: 0.375rem">purple</span>
+<span style="background-color: rgb(252 231 243 / 1); color: rgb(157 23 77 / 1); padding: 5px; border-radius: 0.375rem">pink</span>
+<span style="background-color: rgb(219 234 254 / 1); color: rgb(30 64 175 / 1); padding: 5px; border-radius: 0.375rem">blue</span>
+<span style="background-color: rgb(220 252 231 / 1); color: rgb(22 101 52 / 1); padding: 5px; border-radius: 0.375rem">green</span>
+<span style="background-color: rgb(254 249 195 / 1); color: rgb(133 77 14 / 1); padding: 5px; border-radius: 0.375rem">yellow</span>
+<span style="background-color: rgb(243 232 255 / 1); color: rgb(153 27 27 / 1); padding: 5px; border-radius: 0.375rem">red</span>
+<span style="background-color: rgb(243 244 246 / 1); color: rgb(31 41 55 / 1); padding: 5px; border-radius: 0.375rem">gray</span>
+
+
+```php
+Text::make('Title')
+    ->badge(Color::PRIMARY)
+```
+
+или
 
 ```php
 Text::make('Title')
@@ -182,7 +198,7 @@ Text::make('Title')
 <a name="wrapper"></a>
 ### Обертка
 
-Поля при отображении в формах используют специальную обертку *wrapper* для заголовков, подсказок, ссылок и тд. Иногда может возникнуть ситуация, когда требуется отобразить поле без дополнительных элементов.
+Поля при отображении в формах используют специальную обертку `wrapper` для заголовков, подсказок, ссылок и тд. Иногда может возникнуть ситуация, когда требуется отобразить поле без дополнительных элементов.
 Метод `withoutWrapper()` позволяет отключить создание *wrapper*.
 
 ```php
@@ -215,6 +231,34 @@ BelongsTo::make('Author')->sortable('author_id'),
 Text::make('Title')->sortable(function (Builder $query, string $column, string $direction) {
     $query->orderBy($column, $direction);
 })
+```
+
+<a name="view-modes"></a>
+### Режимы отображения
+
+Подробнее о режимах отображения поля можно прочитать в разделе [Основы | Смена режима отображения](https://github.com/moonshine-software/doc/blob/3.x/ru/fields/index.md#смена-режима-отображения).
+
+#### Режим "Default"
+Чтобы поле в не зависимости от контекста всегда работало в режиме "Default" (отображение "input" поля), необходимо использовать метод `defaultMode()`.
+
+```php
+Text::make('Title')->defaultMode()
+```
+
+#### Режим "Preview"
+
+Чтобы поле в не зависимости от контекста всегда работало в режиме "Preview", необходимо использовать метод `previewMode()`
+
+```php
+Text::make('Title')->previewMode()
+```
+
+#### Режим "RawMode"
+
+Чтобы поле в не зависимости от контекста всегда работало в режиме "RawMode" (отображение исходного состояния), необходимо использовать метод `rawMode()`
+
+```php
+Text::make('Title')->rawMode()
 ```
 
 <a name="attributes"></a>
@@ -257,8 +301,11 @@ Text::make('Title')->readonly()
 Чтобы указать любые другие атрибуты, используется метод `customAttributes()`.
 
 ```php
-customAttributes(array $attributes)
+customAttributes(array $attributes, bool $override = false)
 ```
+
+- `$attributes` - массив атрибутов
+- `$override` - иногда у полей есть базовые атрибуты, которые заданы для них по умолчанию. Чтобы их переопределить, необходимо использовать `$override = true`
 
 ```php
 Password::make('Title')
@@ -302,7 +349,7 @@ Password::make('Title')
 Когда необходимо изменить view с помощью fluent interface можно воспользоваться методом `customView()`.
 
 ```php
-customView(string $customView)
+customView(string $view, array $data = [])
 ```
 
 ```php
@@ -318,19 +365,6 @@ Text::make('Thumbnail')
           'value' => Storage::url($value)
       ]);
   }) 
-```
-
-Метод `requestValueResolver()` позволяет переопределить логику получения значения из Request.
-
-```php
-requestValueResolver(Closure $closure)
-```
-
-```php
-Text::make('Thumbnail')
-  ->requestValueResolver(function (string $nameDot, mixed $default, Field $field) {
-      return request($nameDot, $default);
-  })
 ```
 
 Методы `beforeRender()` и `afterRender()` позволяют вывести какую-то информацию перед и после поля соответственно.
@@ -351,19 +385,22 @@ Image::make('Thumbnail')
 ```
 
 <a name="request-value-resolver"></a>
-### Получение значения из запроса
+### Получение значения из запроса (TODO описать раздел)
 
 Метод `requestValueResolver()` позволяет переопределить логику получения значения из Request.
 
 ```php
-requestValueResolver(Closure $closure)
+/**
+* @param  Closure(string|int|null $index, mixed $default, static $ctx): mixed  $resolver
+*/
+requestValueResolver(Closure $resolver)
 ```
 
 ```php
-Text::make('Categories')
-    ->requestValueResolver(
-        fn(Article $data, Field $field) => $data->categories->implode('title', ',')
-    )
+Text::make('Thumbnail')
+  ->requestValueResolver(function (string $nameDot, mixed $default, Field $field) {
+      return request($nameDot, $default);
+  })
 ```
 
 > Поля отношений не поддерживают метод `requestValueResolver`.
@@ -391,7 +428,7 @@ Text::make('Title')
 Метод `when()` реализует *fluent interface* и выполнит callback, когда первый аргумент, переданный методу, имеет значение true.
 
 ```php
-when($value = null, callable $callback = null, callable $default = null)
+when($value = null, ?callable $callback = null, ?callable $default = null)
 ```
 
 ```php
@@ -402,15 +439,18 @@ Text::make('Slug')
 Метод `unless()` обратный методу `when()`.
 
 ```php
-unless($value = null, callable $callback = null, callable $default = null)
+unless($value = null, ?callable $callback = null, ?callable $default = null)
 ```
 
 <a name="apply"></a>
 ### Apply
 
-У каждого поля реализован метод `apply()`, который трансформирует данные с учетом *request* и *resolve* методов.
+У каждого поля реализован метод `apply()`, который трансформирует данные с учетом *request* и *resolve* методов. Чтобы переопределить стандартный `apply` у поля, можно воспользоваться методом `onApply()`. Подробнее *о цикле жизни применения поля* можно прочитать в разделе [Основы | Процесс применения полей](https://github.com/moonshine-software/doc/blob/3.x/ru/fields/index.md#процесс-применения-полей).
 
 ```php
+/**
+ * @param  Closure(mixed, mixed, FieldContract): mixed  $onApply
+ */
 onApply(Closure $onApply)
 ```
 
@@ -430,10 +470,10 @@ Text::make('Thumbnail by link', 'thumbnail')
 <a name="fill"></a>
 ### Заполнение
 
-Поля можно заполнить значениями используя метод `fill()`.
+Поля можно заполнить значениями используя метод `fill()`. Более подробно о процессе заполнения поля можно прочитать в разделе [Основы | Изменить наполнение](https://github.com/moonshine-software/doc/blob/3.x/ru/fields/index.md#изменить-наполнение).
 
 ```php
-fill(mixed $value, mixed $casted = null)
+fill(mixed $value = null, ?DataWrapperContract $casted = null, int $index = 0)
 ```
 
 ```php
@@ -453,16 +493,16 @@ C помощью методов `onChangeMethod()` и `onChangeUrl()` можно
 ```php
 onChangeUrl(
     Closure $url,
-    string $method = 'PUT',
+    HttpMethod $method = HttpMethod::GET,
     array $events = [],
     ?string $selector = null,
-    ?string $callback = null,
+    ?AsyncCallback $callback = null,
 )
 ```
 
 - `$url` - url запроса,
 - `$method` - метод асинхронного запроса,
-- `$events` - вызываемые события после успешного запроса,
+- `$events` - вызываемые [AlpineJS события](TODO ссылка на доку) после успешного запроса,
 - `$selector` - selector элемента у которого будет изменяться контент,
 - `$callback` - js callback функция после получения ответа.
 
@@ -484,25 +524,25 @@ Switcher::make('Active')
 
 ```php
 onChangeMethod(
-    string $method,
-    array|Closure $params = [],
-    ?string $message = null,
-    ?string $selector = null,
-    array $events = [],
-    ?string $callback = null,
-    ?Page $page = null,
-    ?ResourceContract $resource = null,
+  string $method,
+  array|Closure $params = [],
+  ?string $message = null,
+  ?string $selector = null,
+  array $events = [],
+  ?AsyncCallback $callback = null,
+  ?PageContract $page = null,
+  ?ResourceContract $resource = null,
 )
 ```
 
-- $method - наименование метода,
-- $params - параметры для запроса,
-- $message - сообщения,
-- $selector - selector элемента у которого будет изменяться контент,
-- $events - вызываемые события после успешного запроса,
-- $callback - js callback функция после получения ответа,
-- $page - страница содержащая метод,
-- $resource - ресурс содержащий метод.
+- `$method` - наименование метода,
+- `$params` - параметры для запроса,
+- `$message` - сообщения,
+- `$selector` - selector элемента у которого будет изменяться контент,
+- `$events` - вызываемые [AlpineJS события](TODO ссылка на доку) после успешного запроса,
+- `$callback` - js callback функция после получения ответа,
+- `$page` - страница содержащая метод,
+- `$resource` - ресурс содержащий метод.
 
 ```php
 Switcher::make('Active')
@@ -514,6 +554,26 @@ public function someMethod(MoonShineRequest $request): void
 {
     // Logic
 }
+```
+
+<a name="change-render"></a>
+### Изменение render поля
+
+Чтобы полностью изменить render поля, можно воспользоваться методом `changeRender()`
+
+```php
+changeRender(Closure $callback)
+```
+В данном поле Select трансформируется в текст:
+```php
+Select::make('Links')->options([  
+    '/images/1.png' => 'Picture 1',  
+    '/images/2.png' => 'Picture 2',  
+])  
+    ->multiple()  
+    ->changeRender(  
+        fn(?array $values, Select $ctx) => Text::make($ctx->getLabel())->fill(implode(',', $values))  
+    )
 ```
 
 <a name="for-value"></a>
@@ -542,7 +602,7 @@ Enum::make('Status')
 
 #### Получения необработанного значения
 
-Метод `modifyRawValue()` позволяет добавить замыкание для получения необработанного значения.
+Метод `modifyRawValue()` позволяет добавить замыкание для получения необработанного значения. 
 
 ```php
 /**
