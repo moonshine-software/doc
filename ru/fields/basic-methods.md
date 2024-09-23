@@ -17,6 +17,7 @@
   - [Другие атрибуты](#custom-attributes)
   - [Атрибуты для wrapper поля](#custom-wrapper-attributes)
 - [Модифицирование значения поля](#field-value)
+  - [Значение по умолчанию](#default)
   - [Nullable](#nullable)
   - [Изменение отображения](#custom-view)
   - [Получение значения из запроса](#request-value-resolver)
@@ -27,6 +28,7 @@
   - [Методы onChange](#on-change)
   - [Изменение render поля](#change-render)
   - [Методы для значений](#for-value)
+- [Ассеты](#assets)
 - [Реактивность](#reactive)
 - [Динамическое отображение](#show-when)
   - [showWhen](#show-when)
@@ -51,7 +53,7 @@ Text::make(Closure|string|null $label = null, ?string $column = null, ?Closure $
 ```
 
 - `$label` - лейбл, заголовок поля,
-- `$column` - поле в базе (например name) или отношение (например countries),
+- `$column` - связь столбца в базе и атрибута `name` у поля ввода (например: `description` > `<input name="description">`). Если это поле отношения, то используется название отношения (например: countries)
 - `$formatted` - замыкание для форматирования значения поля в режиме preview (для BelongsTo и BelongsToMany форматирует значения для выбора).
 
 > Если не указать `$column`, то поле в базе данных будет определено автоматически на основе `$label` (только для английского языка).
@@ -108,6 +110,25 @@ Text::make('Title')->translatable('ui')
 
 ```php
 Text::make(fn() => __('Title'))
+```
+
+#### insideLabel()
+
+Для оборачивания поля в тег <label> можно использовать метод `insideLabel()`
+
+```php
+Text::make('Name')
+    ->insideLabel(),
+```
+
+
+#### beforeLabel()
+
+Для отображения Label после поля ввода можно использовать метод `beforeLabel()`
+
+```php
+Text::make('Name')
+    ->beforeLabel(),
 ```
 
 <a name="hint"></a>
@@ -213,7 +234,7 @@ Text::make('Title')
 <a name="sortable"></a>
 ### Сортировка
 
-Для возможности сортировки поля на главной странице ресурса необходимо добавить метод `sortable()`.
+Для возможности сортировки поля в таблицах (на главной странице) необходимо добавить метод `sortable()`.
 
 ```php
 sortable(Closure|string|null $callback = null)
@@ -236,7 +257,7 @@ Text::make('Title')->sortable(function (Builder $query, string $column, string $
 <a name="view-modes"></a>
 ### Режимы отображения
 
-Подробнее о режимах отображения поля можно прочитать в разделе [Основы | Смена режима отображения](https://github.com/moonshine-software/doc/blob/3.x/ru/fields/index.md#смена-режима-отображения).
+Подробнее о режимах отображения поля можно прочитать в разделе [Основы > Смена режима отображения](https://github.com/moonshine-software/doc/blob/3.x/ru/fields/index.md#смена-режима-отображения).
 
 #### Режим "Default"
 Чтобы поле в не зависимости от контекста всегда работало в режиме "Default" (отображение "input" поля), необходимо использовать метод `defaultMode()`.
@@ -305,7 +326,7 @@ customAttributes(array $attributes, bool $override = false)
 ```
 
 - `$attributes` - массив атрибутов
-- `$override` - иногда у полей есть базовые атрибуты, которые заданы для них по умолчанию. Чтобы их переопределить, необходимо использовать `$override = true`
+- `$override` - для добавления атрибутов к полю, используется `merge`. Если атрибут, который вы хотите добавить к полю, уже присутствует, то он добавлен не будет. `$override = true` позволяет изменить поведение данное поведение и перезаписать уже добавленный атрибут.
 
 ```php
 Password::make('Title')
@@ -328,6 +349,27 @@ Password::make('Title')
 
 <a name="field-value"></a>
 ## Модифицирование значения поля
+
+<a name="default"></a>
+### Значение по умолчанию
+
+Для отображения значения по умолчанию, используется метод `default()`
+```php
+default(mixed $default)
+```
+
+```php
+Text::make('Name')
+    ->default('Default value')
+```
+
+или
+
+```php
+Enum::make('Status')
+    ->attach(ColorEnum::class)
+    ->default(ColorEnum::from('B')->value)
+```
 
 <a name="nullable"></a>
 ### Nullable
@@ -385,7 +427,7 @@ Image::make('Thumbnail')
 ```
 
 <a name="request-value-resolver"></a>
-### Получение значения из запроса (TODO описать раздел)
+### Получение значения из запроса
 
 Метод `requestValueResolver()` позволяет переопределить логику получения значения из Request.
 
@@ -394,13 +436,6 @@ Image::make('Thumbnail')
 * @param  Closure(string|int|null $index, mixed $default, static $ctx): mixed  $resolver
 */
 requestValueResolver(Closure $resolver)
-```
-
-```php
-Text::make('Thumbnail')
-  ->requestValueResolver(function (string $nameDot, mixed $default, Field $field) {
-      return request($nameDot, $default);
-  })
 ```
 
 > Поля отношений не поддерживают метод `requestValueResolver`.
@@ -425,6 +460,24 @@ Text::make('Title')
 <a name="conditional-methods"></a>
 ### Условные методы
 
+Отображать компонент можно по условию, воспользовавшись методом `canSee()`.
+
+```php
+Text::make('Name')
+    ->canSee(function (Text $field) {
+        return $field->toValue() !== 'hide';
+    })
+```
+или для полей отношений:
+
+```php
+BelongsTo::make('Item', 'item', resource: ItemResource::class)
+    ->canSee(function (Comment $comment, BelongsTo $field) {
+        //ваше условие
+    })
+,
+```
+
 Метод `when()` реализует *fluent interface* и выполнит callback, когда первый аргумент, переданный методу, имеет значение true.
 
 ```php
@@ -442,10 +495,11 @@ Text::make('Slug')
 unless($value = null, ?callable $callback = null, ?callable $default = null)
 ```
 
+
 <a name="apply"></a>
 ### Apply
 
-У каждого поля реализован метод `apply()`, который трансформирует данные с учетом *request* и *resolve* методов. Чтобы переопределить стандартный `apply` у поля, можно воспользоваться методом `onApply()`. Подробнее *о цикле жизни применения поля* можно прочитать в разделе [Основы | Процесс применения полей](https://github.com/moonshine-software/doc/blob/3.x/ru/fields/index.md#процесс-применения-полей).
+У каждого поля реализован метод `apply()`, который трансформирует данные с учетом *request* и *resolve* методов. Чтобы переопределить стандартный `apply` у поля, можно воспользоваться методом `onApply()`. Подробнее *о цикле жизни применения поля* можно прочитать в разделе [Основы > Процесс применения полей](https://github.com/moonshine-software/doc/blob/3.x/ru/fields/index.md#процесс-применения-полей).
 
 ```php
 /**
@@ -467,10 +521,32 @@ Text::make('Thumbnail by link', 'thumbnail')
     })
 ```
 
+Для того чтобы выполнить какие-либо действия до "apply", можно воспользоваться методом `onBeforeApply()`
+
+```php
+/**
+ * @param  Closure(mixed, mixed, FieldContract): static  $onBeforeApply
+ */
+function onBeforeApply(Closure $onBeforeApply)
+```
+
+TODO пример для onBeforeApply
+
+Для того чтобы выполнить какие-либо действия после "apply", можно воспользоваться методом `onAfterApply()`
+
+```php
+/**
+ * @param  Closure(mixed, mixed, FieldContract): static  $onBeforeApply
+ */
+function onAfterApply(Closure $onBeforeApply)
+```
+
+TODO пример для onAfterApply
+
 <a name="fill"></a>
 ### Заполнение
 
-Поля можно заполнить значениями используя метод `fill()`. Более подробно о процессе заполнения поля можно прочитать в разделе [Основы | Изменить наполнение](https://github.com/moonshine-software/doc/blob/3.x/ru/fields/index.md#изменить-наполнение).
+Поля можно заполнить значениями используя метод `fill()`. Более подробно о процессе заполнения поля можно прочитать в разделе [Основы > Изменить наполнение](https://github.com/moonshine-software/doc/blob/3.x/ru/fields/index.md#изменить-наполнение).
 
 ```php
 fill(mixed $value = null, ?DataWrapperContract $casted = null, int $index = 0)
@@ -479,6 +555,50 @@ fill(mixed $value = null, ?DataWrapperContract $casted = null, int $index = 0)
 ```php
 Text::make('Title')
     ->fill('Some title')
+```
+
+#### Изменение логики наполнения поля
+
+Для того чтобы изменить логику заполнения поля, можно использовать метод `changeFill()`
+
+```php
+Select::make('Images')->options([  
+    '/images/1.png' => 'Picture 1',  
+    '/images/2.png' => 'Picture 2',  
+])  
+    ->multiple()  
+    ->changeFill(  
+        fn(Article $data, Select $ctx) => $article->images  
+            ->map(fn($value) => "https://cutcode.dev$value")  
+            ->toArray()  
+    );
+```
+
+В данном примере к путям изображений будет добавлено `https://cutcode.dev`.
+
+#### Действия после наполнения поля
+
+Для применения логики к уже наполненному полю можно использовать метод `afterFill()`.
+
+> [!NOTE]
+> Похожий по логике метод [when](#conditional-methods) срабатывает в момент создания экземпляра поля, когда оно еще не наполнено.
+> Метод `afterFill` работает уже с наполненным полем.
+
+```php
+Select::make('Links')->options([  
+    '/images/1.png' => 'Picture 1',  
+    '/images/2.png' => 'Picture 2',  
+])  
+    ->multiple()    
+    ->afterFill(  
+        function(Select $ctx) {  
+            if(collect($ctx->toValue())->every(fn($value) => str_contains($value, 'cutcode.dev'))) {  
+                return $ctx->customWrapperAttributes(['class' => 'full-url']);  
+            }  
+  
+            return $ctx;  
+        }  
+    )
 ```
 
 <a name="on-change"></a>
@@ -619,6 +739,18 @@ use MoonShine\Fields\Enum;
 Enum::make('Status')
     ->attach(StatusEnum::class)
     ->modifyRawValue(fn(StatusEnum $raw, Enum $ctx) => $raw->value))
+```
+
+<a name="assets"></a>
+## Ассеты
+
+Для добавления ассетов к полю можно использовать метод `addAssets()`
+
+```php
+Text::make('Name')
+    ->addAssets([
+        new Css(Vite::asset('resources/css/text-field.css'))
+    ]),
 ```
 
 <a name="reactive"></a>
