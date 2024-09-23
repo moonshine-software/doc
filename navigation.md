@@ -1,7 +1,7 @@
 - ## Prologue
 - ## Getting Started
     - [Installation](/docs/{{version}}/installation)
-    - Configuration
+    - [Configuration](/docs/{{version}}/configuration)
 - ## Appearance
     - Menu
     - Template
@@ -11,7 +11,8 @@
 - ## ModelResources
 - ## Pages
 - ## Fields
-    - [Basics](/docs/{{version}}/fields/index)
+    - [Conception](/docs/{{version}}/fields/index)
+    - [Basic methods](/docs/{{version}}/fields/basic-methods)
     - [Json](/docs/{{version}}/fields/json)
 - ## Components
     - Basics
@@ -23,15 +24,15 @@
     - AlpineJs
     - Events
     - Request/Response callbacks
-    - SDUI
+    - [SDUI](/docs/{{version}}/frontend/sdui)
     - API
 - ## Security
-    - Authorization
-    - Authentication
+    - [Authorization](/docs/{{version}}/advanced/authorization)
+    - [Authentication](/docs/{{version}}/advanced/authentication)
     - Socialite
 - ## Advanced
     - Resources (CrudResource)
-    - Routes
+    - [Routes](/docs/{{version}}/advanced/routes)
     - Commands
     - Controllers
     - Handlers
