@@ -27,7 +27,7 @@
     - [SDUI](/docs/{{version}}/frontend/sdui)
     - API
 - ## Security
-    - Authorization
+    - [Authorization](/docs/{{version}}/advanced/authorization)
     - [Authentication](/docs/{{version}}/advanced/authentication)
     - Socialite
 - ## Advanced
