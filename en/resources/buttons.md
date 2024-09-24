@@ -19,7 +19,7 @@ https://moonshine-laravel.com/docs/resource/models-resources/resources-buttons?c
 - [Form page](#formButtons)
 - [Detail page](#detailButtons)
 
-<a name="basics"><a/>
+<a name="basics"></a>
 ## Basics
 
 Buttons are displayed on resource pages: index page, form pages (create/edit) and detail page.  
@@ -33,7 +33,7 @@ In the **MoonShine** admin panel there are many methods that allow you to overri
 > [!WARNING]
 > The buttons for creating, viewing, editing, deleting and mass deleting are placed in separate classes, in order to apply all the necessary methods to them and thereby eliminate duplication, since these buttons are also used in HasMany, BelongsToMany, etc.
 
-<a name="create"><a/>
+<a name="create"></a>
 ## Create button
 
 #### Modification
@@ -70,7 +70,7 @@ public function getCreateButton(?string $componentName = null, bool $isAsync = f
 }
 ```
 
-<a name="detail"><a/>
+<a name="detail"></a>
 ## Detail button
 
 #### Modification
@@ -106,7 +106,7 @@ public function getDetailButton(bool $isAsync = false): ActionButton
 }
 ```
 
-<a name="edit"><a/>
+<a name="edit"></a>
 ## Edit button
 
 #### Modification
@@ -143,7 +143,7 @@ public function getEditButton(?string $componentName = null, bool $isAsync = fal
 }
 ```
 
-<a name="delete"><a/>
+<a name="delete"></a>
 ## Delete button
 
 #### Modification
@@ -184,7 +184,7 @@ public function getDeleteButton(
 }
 ```
 
-<a name="mass-delete"><a/>
+<a name="mass-delete"></a>
 ## Bulk delete button
 
 #### Modification
@@ -224,7 +224,7 @@ public function getMassDeleteButton(
 }
 ```
 
-<a name="export"><a/>
+<a name="export"></a>
 ## Export button
 
 #### Modification
@@ -257,7 +257,7 @@ public function getExportButton(): ActionButton
 }
 ```
 
-<a name="import"><a/>
+<a name="import"></a>
 ## Import button
 
 #### Modification
@@ -290,7 +290,7 @@ public function getImportButton(): ActionButton
 }
 ```
 
-<a name="filters"><a/>
+<a name="filters"></a>
 ## Filters button
 
 #### Modification
@@ -323,7 +323,7 @@ public function getFiltersButton(): ActionButton
 }
 ```
 
-<a name="form"><a/>
+<a name="form"></a>
 ## Form buttons
 
 The `getFormBuilderButtons()` method allows you to add additional [buttons](https://moonshine-laravel.com/docs/resource/actionbutton/action_button) into the create or edit form.
@@ -351,7 +351,7 @@ class PostResource extends ModelResource
 
 ![resource_buttons_form_builder](https://moonshine-laravel.com/screenshots/resource_buttons_form_builder.png) ![resource_buttons_form_builder_dark](https://moonshine-laravel.com/screenshots/resource_buttons_form_builder_dark.png)
 
-<a name="actions"><a/>
+<a name="actions"></a>
 ## Buttons on the index page
 
 By default, the model resource index page only has a button to create.  
@@ -384,7 +384,7 @@ class PostResource extends ModelResource
 ![resource_buttons_actions](https://moonshine-laravel.com/screenshots/resource_buttons_actions.png) 
 ![resource_buttons_actions_dark](https://moonshine-laravel.com/screenshots/resource_buttons_actions_dark.png)
 
-<a name="buttons"><a/>
+<a name="buttons"></a>
 ## Element buttons
 
 The `buttons()` method allows you to specify additional buttons, which will be displayed in the index table, in the creation and editing forms, as well as on the detailed page, if they are not overridden for pages by the corresponding methods [`indexButton()`](https://moonshine-laravel.com/docs/resource/models-resources/resources-buttons#indexButton) , [`formButtons()`](https://moonshine-laravel.com/docs/resource/models-resources/resources-buttons#formButtons) and [`detailButtons()`](https://moonshine-laravel.com/docs/resource/models-resources/resources-buttons#detailButtons) .
@@ -410,7 +410,7 @@ class PostResource extends ModelResource
 }
 ```
 
-<a name="indexButton"><a/>
+<a name="indexButton"></a>
 ## Buttons in the index table
 
 To add buttons to the index table, use the `indexButtons()` method.
@@ -498,7 +498,7 @@ class PostResource extends ModelResource
 }
 ```
 
-<a name="formButtons"><a/>
+<a name="formButtons"></a>
 ## Buttons on the form page
 
 To add buttons to a page with a form, use the `formButtons()` method.
@@ -556,7 +556,7 @@ class PostResource extends ModelResource
 }
 ```
 
-<a name="detailButtons"><a/>
+<a name="detailButtons"></a>
 ## Buttons on the detail page
 
 To add buttons on a detail page, use the `detailButtons()` method.

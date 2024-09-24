@@ -41,9 +41,6 @@ To disable the ability to download files, you need the component to pass the `do
     :download="false"
 />
 ```
-    </pre>
-</div>
-
 
 /images/thumb_1.jpg
 /images/thumb_2.jpg

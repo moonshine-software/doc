@@ -13,9 +13,9 @@ You can create *Flash* using the static method `make()` class `Flash`.
 make(string $key = 'alert', string $type = 'info', bool $withToast = true, bool $removable = true)
 ```
 
-`$key` - session notification key,<br>
-`$type` - notification type,<br>
-`$withToast` - using Toast,<br>
+`$key` - session notification key,
+`$type` - notification type,
+`$withToast` - using Toast,
 `$removable` - option to hide notification.
 
 ```php

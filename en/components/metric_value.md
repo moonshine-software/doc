@@ -147,7 +147,7 @@ columnSpan(
 )
 ```
 
-- `$columnSpan` - relevant for desktop,<br>
+- `$columnSpan` - relevant for desktop
 - `$adaptiveColumnSpan` - relevant for mobile version.
 
 ```php

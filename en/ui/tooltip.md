@@ -47,9 +47,7 @@ or
     data-tippy-placement="right">
     <a class="text-purple font-semibold">Trigger 2</a>
 </span>
-```
-    </pre>
-</div>
+
 
 <div class="grid grid-cols-12 gap-6">
     <div class="col-span-12 xl:col-span-4">
@@ -68,3 +66,4 @@ or
 </div>
 </div>
 </div>
+```

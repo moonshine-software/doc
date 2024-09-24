@@ -1,14 +1,36 @@
-https://moonshine-laravel.com/docs/resource/getting-started/installation?change-moonshine-locale=en
-
-------
-
-# Installation
+---
+title: "Installation"
+icon: "rectangle-code"
+iconType: "solid"
+---
 
 - [Requirements](#requirements)
 - [Composer](#composer)
 - [Installation](#install)
 - [Creating an administrator](#admin)
 - [Service provider](#config)
+
+<CodeGroup>
+
+```javascript helloWorld.js
+console.log("Hello World");
+```
+
+```python hello_world.py
+print('Hello World!')
+```
+
+```java HelloWorld.java
+class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+```
+
+</CodeGroup>
+
+
 
 <a name="requirements"></a>
 ## Requirements

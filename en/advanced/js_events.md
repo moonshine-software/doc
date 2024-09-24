@@ -13,7 +13,7 @@ https://moonshine-laravel.com/docs/resource/advanced/advanced-js_events?change-m
 <a name="blade-directive"></a>
 ## Blade directive
 
-*Blade-директивы<* используются для быстрого объявления событий у компонентов.
+*Blade-директивы* используются для быстрого объявления событий у компонентов.
 
 ### @defineEvent
 
@@ -106,7 +106,7 @@ AlpineJs::eventBlade(string|JsEvent $event, ?string $name = null, ?string $call 
 
 - `JsEvent::FRAGMENT_UPDATED` - обновление фрагмента,
 - `JsEvent::TABLE_UPDATED` - обновление таблицы,
-- `JsEvent::TABLE_REINDEX` - обновление индексов таблицы при сортировке,<
+- `JsEvent::TABLE_REINDEX` - обновление индексов таблицы при сортировке,
 - `JsEvent::TABLE_ROW_UPDATED` - обновление строки в таблице,
 - `JsEvent::CARDS_UPDATED` - обновление списка Сards,
 - `JsEvent::FORM_RESET` - сброс формы,

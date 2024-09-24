@@ -30,7 +30,7 @@ Available types:
 
 ```blade
 <x-moonshine::toast type="success" content="Message success toast" />
-```
+
 
     <div x-data="{ show(){$dispatch('toast', {type: 'default', text: 'Message default toast'})} }">
         <button class="btn" @click="show()">Default</button>
@@ -60,7 +60,7 @@ Available types:
         <button class="btn" @click="show()">Error</button>
     </div>
 
-
+```
 <a name="without"></a>
 ### Without using a component
 
@@ -70,7 +70,6 @@ You can also create a notification using the `MoonShineUi::toast()` method.
 use MoonShine\MoonShineUI;
 
 MoonShineUI::toast('Toast content', 'error');
-
 ```
 
 <a name="js"></a>
@@ -90,5 +89,4 @@ this.$dispatch('toast', {type: 'error', text: 'Error'})
 
 // AlpineJs outside the component
 $dispatch('toast', {type: 'error', text: 'Error'})
-
 ```

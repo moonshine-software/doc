@@ -35,7 +35,7 @@ public function fields(): array
 
 Description of the value of the `types` method:
 
-The key is a reference to the model<br>
+The key is a reference to the model
 The value is a string or an array.
 
 > [!TIP]

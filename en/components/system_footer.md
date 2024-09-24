@@ -91,7 +91,6 @@ The `menu()` method allows you to design a block in a menu in the footer.
 ```php
 menu(array $data)
 ```
-</div>
 
 - `$data` - an array of elements, where the key is the url and the value is the name of the menu item.
 
