@@ -16,6 +16,7 @@
   - [Readonly](#readonly-link)
   - [Другие атрибуты](#custom-attributes)
   - [Атрибуты для wrapper поля](#custom-wrapper-attributes)
+  - [Модифицирование атрибута "name"](#name-attribute)
 - [Модифицирование значения поля](#field-value)
   - [Значение по умолчанию](#default)
   - [Nullable](#nullable)
@@ -29,6 +30,7 @@
   - [Изменение render поля](#change-render)
   - [Методы для значений](#for-value)
 - [Ассеты](#assets)
+- [Трейт Macroable](#macroable)
 - [Реактивность](#reactive)
 - [Динамическое отображение](#show-when)
   - [showWhen](#show-when)
@@ -58,7 +60,7 @@ Text::make(Closure|string|null $label = null, ?string $column = null, ?Closure $
 
 > Если не указать `$column`, то поле в базе данных будет определено автоматически на основе `$label` (только для английского языка).
 
-Пример замыкания `$formatted` для форматирования значения
+Пример замыкания `$formatted` для форматирования значения.
 ```php
 Text::make(
     'Name',
@@ -114,7 +116,7 @@ Text::make(fn() => __('Title'))
 
 #### insideLabel()
 
-Для оборачивания поля в тег <label> можно использовать метод `insideLabel()`
+Для оборачивания поля в тег <label> можно использовать метод `insideLabel()`.
 
 ```php
 Text::make('Name')
@@ -124,7 +126,7 @@ Text::make('Name')
 
 #### beforeLabel()
 
-Для отображения Label после поля ввода можно использовать метод `beforeLabel()`
+Для отображения Label после поля ввода можно использовать метод `beforeLabel()`.
 
 ```php
 Text::make('Name')
@@ -268,7 +270,7 @@ Text::make('Title')->defaultMode()
 
 #### Режим "Preview"
 
-Чтобы поле в не зависимости от контекста всегда работало в режиме "Preview", необходимо использовать метод `previewMode()`
+Чтобы поле в не зависимости от контекста всегда работало в режиме "Preview", необходимо использовать метод `previewMode()`.
 
 ```php
 Text::make('Title')->previewMode()
@@ -276,7 +278,7 @@ Text::make('Title')->previewMode()
 
 #### Режим "RawMode"
 
-Чтобы поле в не зависимости от контекста всегда работало в режиме "RawMode" (отображение исходного состояния), необходимо использовать метод `rawMode()`
+Чтобы поле в не зависимости от контекста всегда работало в режиме "RawMode" (отображение исходного состояния), необходимо использовать метод `rawMode()`.
 
 ```php
 Text::make('Title')->rawMode()
@@ -346,6 +348,36 @@ customWrapperAttributes(array $attributes)
 Password::make('Title')
     ->customWrapperAttributes(['class' => 'mt-8'])
 ```
+
+<a name="name-attribute"></a>
+### Модифицирование атрибута "name"
+
+#### wrapName
+Для того чтобы добавить wrapper для значения атрибута `name`, используется метод `wrapName`.
+
+```php
+Text::make('Name')->wrapName('options')
+```
+
+В результате атрибут name примет вид `<input name="options[name]`>. Это особенно полезно для настройки фильтров.
+
+#### virtualName
+
+Иногда необходимо хранить по одному полю ввода два значения Field. Например, по условию отображение одно из полей может становиться невидимым, но присутствовать в DOM и отправляться вместе с запросом.
+
+```php
+File::make('image') //это отображается в showWhen на одном условии
+File::make('image') //это отображается в showWhen на другом условии
+```
+
+Для того чтобы изменить атрибут name у этих полей, используется метод `virtualName`.
+
+```php
+File::make('image')->virtualColumn('image_1')
+File::make('image')->virtualColumn('image_2')
+```
+
+Далее, например в onApply методе, мы обрабатываем эти поля по своему усмотрению.
 
 <a name="field-value"></a>
 ## Модифицирование значения поля
@@ -521,7 +553,7 @@ Text::make('Thumbnail by link', 'thumbnail')
     })
 ```
 
-Для того чтобы выполнить какие-либо действия до "apply", можно воспользоваться методом `onBeforeApply()`
+Для того чтобы выполнить какие-либо действия до "apply", можно воспользоваться методом `onBeforeApply()`.
 
 ```php
 /**
@@ -530,9 +562,7 @@ Text::make('Thumbnail by link', 'thumbnail')
 function onBeforeApply(Closure $onBeforeApply)
 ```
 
-TODO пример для onBeforeApply
-
-Для того чтобы выполнить какие-либо действия после "apply", можно воспользоваться методом `onAfterApply()`
+Для того чтобы выполнить какие-либо действия после "apply", можно воспользоваться методом `onAfterApply()`.
 
 ```php
 /**
@@ -540,8 +570,6 @@ TODO пример для onBeforeApply
  */
 function onAfterApply(Closure $onBeforeApply)
 ```
-
-TODO пример для onAfterApply
 
 <a name="fill"></a>
 ### Заполнение
@@ -559,7 +587,7 @@ Text::make('Title')
 
 #### Изменение логики наполнения поля
 
-Для того чтобы изменить логику заполнения поля, можно использовать метод `changeFill()`
+Для того чтобы изменить логику заполнения поля, можно использовать метод `changeFill()`.
 
 ```php
 Select::make('Images')->options([  
@@ -679,7 +707,7 @@ public function someMethod(MoonShineRequest $request): void
 <a name="change-render"></a>
 ### Изменение render поля
 
-Чтобы полностью изменить render поля, можно воспользоваться методом `changeRender()`
+Чтобы полностью изменить render поля, можно воспользоваться методом `changeRender()`.
 
 ```php
 changeRender(Closure $callback)
@@ -744,7 +772,7 @@ Enum::make('Status')
 <a name="assets"></a>
 ## Ассеты
 
-Для добавления ассетов к полю можно использовать метод `addAssets()`
+Для добавления ассетов к полю можно использовать метод `addAssets()`.
 
 ```php
 Text::make('Name')
@@ -752,6 +780,24 @@ Text::make('Name')
         new Css(Vite::asset('resources/css/text-field.css'))
     ]),
 ```
+
+<a name="macroable"></a>
+## Трейт Macroable
+
+Всем полям доступен трейт `Illuminate\Support\Traits\Macroable` c методами `mixin` и `macro`. С помощью этого трейта вы можете расширять возможности полей, добавляя в них новый функционал без использования наследования.
+
+```php
+Field::macro('myMethod', fn() => /*реализация*/)
+
+Text::make()->myMethod()
+```
+
+или
+
+```php
+Field::mixin(new MyNewMethods())
+```
+
 
 <a name="reactive"></a>
 ## Реактивность
