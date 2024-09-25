@@ -116,7 +116,7 @@ Text::make(fn() => __('Title'))
 
 #### insideLabel()
 
-Для оборачивания поля в тег <label> можно использовать метод `insideLabel()`.
+Для оборачивания поля в тег `<label>` можно использовать метод `insideLabel()`.
 
 ```php
 Text::make('Name')
@@ -359,7 +359,7 @@ Password::make('Title')
 Text::make('Name')->wrapName('options')
 ```
 
-В результате атрибут name примет вид `<input name="options[name]`>. Это особенно полезно для настройки фильтров.
+В результате атрибут name примет вид `<input name="options[name]>`. Это особенно полезно для настройки фильтров.
 
 #### virtualName
 
@@ -385,7 +385,7 @@ File::make('image')->virtualColumn('image_2')
 <a name="default"></a>
 ### Значение по умолчанию
 
-Для отображения значения по умолчанию, используется метод `default()`
+Для указания значения по умолчанию, используется метод `default()`
 ```php
 default(mixed $default)
 ```
