@@ -1,7 +1,7 @@
 # TableBuilder (В процессе...)
 
 # TODO
-- [ ] Пагинатор с примером враппера
+- [x] Пагинатор с примером враппера
 - [ ] Кейс с использованием на не объвленной странице
 - [ ] Объясление важности полей
 - [ ] head/body/footRows
@@ -26,7 +26,6 @@
   - [Поиск](#search)
   - [Действие по клику](#click-action)
   - [Сохранение состояния в URL](#save-state-in-url)
-  - [Удаление после клонирования](#remove-after-clone)
 - [Настройка атрибутов](#attribute-configuration)
 - [Асинхронная загрузка](#async-loading)
 - [Кастомизация данных](#data-customization)
@@ -36,6 +35,10 @@
 
 `TableBuilder` - это инструмент в MoonShine для создания настраиваемых таблиц для отображения данных. Он используется на индексной и детальной CRUD страницах, а также для полей отношений таких как `HasMany`, `BelongsToMany`, `RelationRepeater` и поля `Json`.
 
+```php
+TableBuilder::make(iterable $fields = [], iterable $items = [])
+```
+
 <a name="basic-usage"></a>
 ## Основное использование
 
@@ -43,7 +46,9 @@
 
 ```php
 TableBuilder::make()
-    ->items($this->getCollection())
+    ->items([
+      ['id' => 1, 'title' => 'Hello world']
+    ])
     ->fields([
         ID::make()->sortable(),
         Text::make('Название', 'title'),
@@ -56,12 +61,21 @@ TableBuilder::make()
 <a name="fields"></a>
 ### Поля
 
-Метод `fields` определяет поля таблицы:
+Метод `fields` определяет поля таблицы, каждое поле является ячейкой таблицы (`td`):
 
 ```php
 ->fields([
     ID::make()->sortable(),
     Text::make('Название', 'title'),
+])
+```
+
+Если необходимо указать атрибуты для `td`, то необходимо воспользоваться методом `customWrapperAttributes`
+
+```php
+->fields([
+    ID::make()->sortable(),
+    Text::make('Название', 'title')->customWrapperAttributes(['class' => 'my-class']),
 ])
 ```
 
@@ -77,10 +91,18 @@ TableBuilder::make()
 <a name="paginator"></a>
 ### paginator
 
-Метод `paginator` устанавливает пагинатор для таблицы:
+Метод `paginator` устанавливает пагинатор для таблицы, необходимо передать объект реализующий интерфейс `MoonShine\Contracts\Core\Paginator\PaginatorContract`:
+
+> [!NOTE]
+> Если необходимо указать пагинатор для QueryBuilder, то можно воспользоваться встроенным `ModelCaster` как в примере ниже:
 
 ```php
-->paginator($paginatorInstance)
+->paginator(
+  (new ModelCaster(Article::class))
+    ->paginatorCast(
+        Article::query()->paginate()
+    )
+)
 ```
 
 <a name="buttons"></a>
@@ -90,7 +112,7 @@ TableBuilder::make()
 
 ```php
 ->buttons([
-    // Здесь определяются кнопки действий
+    ActionButton::make('Do something'),
 ])
 ```
 
@@ -100,7 +122,7 @@ TableBuilder::make()
 <a name="vertical-display"></a>
 ### Вертикальное отображение
 
-Метод `vertical()` отображает таблицу в вертикальном формате:
+Метод `vertical()` отображает таблицу в вертикальном формате (используется на `DetailPage`):
 
 ```php
 ->vertical()
@@ -109,7 +131,7 @@ TableBuilder::make()
 <a name="editable-table"></a>
 ### Редактируемая таблица
 
-Метод `editable()` делает таблицу редактируемой:
+Метод `editable()` делает таблицу редактируемой, все поля переводятся в режим `defaultMode` (режим формы):
 
 ```php
 ->editable()
@@ -118,7 +140,7 @@ TableBuilder::make()
 <a name="adding-new-rows"></a>
 ### Добавление новых строк
 
-Метод `creatable()` позволяет добавлять новые строки:
+Метод `creatable()` позволяет добавлять новые строки, делает таблицу динамической:
 
 ```php
 ->creatable(reindex: true, limit: 5, label: 'Добавить', icon: 'plus')
@@ -127,7 +149,9 @@ TableBuilder::make()
 <a name="reindexing"></a>
 ### Переиндексация
 
-Метод `reindex()` позволяет переиндексировать элементы таблицы:
+Метод `reindex()` позволяет переиндексировать элементы таблицы, всем `name` атрибутам элементам формы будет добавлен индекс.
+Пример - Поле `Text::make('Title', 'title')` на первой строке `tr` таблицы будет иметь вид `<input name="title[1]">`.
+В режиме `creatable` или `removable` при добавлении/удалении новой строки все атрибуты `name` будут переиндексированы с учетом порядкового номера
 
 ```php
 ->reindex()
@@ -143,9 +167,9 @@ TableBuilder::make()
 ```
 
 <a name="simple-view"></a>
-### Упрощенный вид
+### Упрощенный вид пагинатора
 
-Метод `simple()` применяет упрощенный стиль к таблице:
+Метод `simple()` применяет упрощенный стиль пагинации в таблице:
 
 ```php
 ->simple()
@@ -182,6 +206,13 @@ TableBuilder::make()
 ### Действие по клику
 
 Метод `clickAction()` задает действие при клике на строку:
+В примере ниже при клике на строку таблицы, произойдет клик на кнопку редактирования
+
+```php
+->clickAction(ClickAction::EDIT)
+```
+
+Если вы используете кастомные кнопки или переопределили кнопки по умолчанию, в таком случае также может потребоваться указать селектор кнопки
 
 ```php
 ->clickAction(ClickAction::EDIT, '.edit-button')
@@ -194,15 +225,6 @@ TableBuilder::make()
 
 ```php
 ->pushState()
-```
-
-<a name="remove-after-clone"></a>
-### Удаление после клонирования
-
-Метод `removeAfterClone()` удаляет элемент после клонирования:
-
-```php
-->removeAfterClone()
 ```
 
 <a name="attribute-configuration"></a>
@@ -224,7 +246,7 @@ TableBuilder предоставляет методы для настройки H
 Метод `async()` настраивает асинхронную загрузку таблицы:
 
 ```php
-->async('/load-data')
+->async()
 ```
 
 <a name="data-customization"></a>
