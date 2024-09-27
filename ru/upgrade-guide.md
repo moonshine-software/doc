@@ -195,6 +195,9 @@ rm app/MoonShine/Pages/Dashboard_old.php
 - Все экземпляры ресурсов нужно заменить на строковые классы, пример:
   - `MenuItem::make('Settings', new SettingResource(), 'heroicons.outline.adjustments-vertical')` → `MenuItem::make('Settings', SettingResource::class, 'adjustments-vertical')`
 - `->async(asyncUrl: ..., asyncEvents: ...)` → `->async(url: ..., events: ...)`
+  - поменялись названия событий:
+    - `table-updated-` → `table_updated:`
+    - смотрите файл `src/Support/src/Enums/JsEvent.php` со списком всех событий
 
  
 ##### Удалить
