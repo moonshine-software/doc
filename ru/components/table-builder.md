@@ -2,19 +2,22 @@
 
 - [Описание](#description)
 - [Основное использование](#basic-usage)
-- [Методы настройки](#configuration-methods)
+- [Основные настройки](#configuration-methods)
   - [Поля](#fields)
   - [Данные](#items)
   - [Пагинация](#paginator)
+  - [Упрощенный вид пагинатора](#simple-paginate)
   - [Кнопки](#buttons)
   - [Кастомизация строк](#rows)
-- [Дополнительные возможности](#additional-features)
+- [Отображение](#view-methods)
   - [Вертикальное отображение](#vertical-display)
   - [Редактируемая таблица](#editable-table)
+  - [Упрощенный режим](#preview-table)
+  - [С уведомлением "Ничего не найдено"](#not-found)
+- [Дополнительные возможности](#additional-features)
   - [Добавление новых строк](#adding-new-rows)
   - [Переиндексация](#reindexing)
   - [Сортировка перетаскиванием](#drag-and-drop-sorting)
-  - [Упрощенный вид](#simple-view)
   - [Фиксированный заголовок](#sticky-header)
   - [Выбор колонок](#column-selection)
   - [Поиск](#search)
@@ -22,7 +25,7 @@
   - [Сохранение состояния в URL](#save-state-in-url)
 - [Настройка атрибутов](#attribute-configuration)
 - [Асинхронная загрузка](#async-loading)
-- [Кастомизация данных](#data-customization)
+- [Приведение к типу](#type-cast)
 
 <a name="description"></a>
 ## Описание
@@ -36,7 +39,7 @@ TableBuilder::make(iterable $fields = [], iterable $items = [])
 <a name="basic-usage"></a>
 ## Основное использование
 
-Пример использования TableBuilder:
+Пример использования `TableBuilder`:
 
 ```php
 TableBuilder::make()
@@ -55,7 +58,7 @@ TableBuilder::make()
 <a name="fields"></a>
 ### Поля
 
-Поля для TableBuilder упрощают наполнение данными и отображение ячеек таблицы.
+Поля для `TableBuilder` упрощают наполнение данными и отображение ячеек таблицы.
 По умолчанию поля выводятся в режиме `preview`.
 Метод `fields` определяет поля таблицы, каждое поле является ячейкой таблицы (`td`):
 
@@ -101,6 +104,18 @@ TableBuilder::make()
 )
 ```
 
+> [!NOTE]
+> Пагинатор можно также указать через метод `items`
+
+<a name="simple-paginate"></a>
+### Упрощенный вид пагинатора
+
+Метод `simple()` применяет упрощенный стиль пагинации в таблице:
+
+```php
+->simple()
+```
+
 <a name="buttons"></a>
 ### Кнопки
 
@@ -108,7 +123,10 @@ TableBuilder::make()
 
 ```php
 ->buttons([
-    ActionButton::make('Do something'),
+    ActionButton::make('Delete', fn() => route('name.delete')),
+    ActionButton::make('Edit', fn() => route('name.edit'))->showInDropdown(),
+    ActionButton::make('Go to home', fn() => route('home'))->blank()->canSee(fn($data) => $data->active),
+    ActionButton::make('Mass Delete', fn() => route('name.mass_delete'))->bulk(),
 ])
 ```
 
@@ -116,14 +134,14 @@ TableBuilder::make()
 
 ```php
 ->buttons([
-    ActionButton::make('Do bulk something')->bulk(),
+    ActionButton::make('Mass Delete', fn() => route('name.mass_delete'))->bulk(),
 ])
 ```
 
 <a name="rows"></a>
 ### Кастомизация строк
 
-Поля ускоряют процесс и наполняют таблицу самостоятельно, выстраивая шапку таблицы с заголовками и полей и сортировок, тело таблицы с выводом данных через поля и футер таблицы с массовыми действиями, но иногда может возникнуть потребность указать строки самостоятельно, либо добавить дополнительные
+Поля ускоряют процесс и наполняют таблицу самостоятельно, выстраивая шапку таблицы с заголовками полей и сортировок, тело таблицы с выводом данных через поля и футер таблицы с массовыми действиями, но иногда может возникнуть потребность указать строки самостоятельно, либо добавить дополнительные
 Для этой задачи существуют методы для соответсвующих секций таблицы `headRows` (`thead`), `rows` (`tbody`), `footRows` (`tfoot`)
 
 ```php
@@ -206,8 +224,8 @@ TableCells::make()->pushFields(
 
 Также доступны условные методы `pushWhen` и `pushCellWhen`
 
-<a name="additional-features"></a>
-## Дополнительные возможности
+<a name="view-methods"></a>
+## Отображение
 
 <a name="vertical-display"></a>
 ### Вертикальное отображение
@@ -227,13 +245,77 @@ TableCells::make()->pushFields(
 ->editable()
 ```
 
+<a name="preview-table"></a>
+### Упрощенный режим
+
+Метод `preview()` отключает отображение кнопок и сортировок для таблицы
+
+```php
+->preview()
+```
+
+<a name="not-found"></a>
+### С уведомлением "Ничего не найдено"
+
+По умолчанию, если у таблицы нет данных, то она будет пустой, но можно вывести сообщение "Пока записей нет".
+Для этого воспользуйтесь методом `withNotFound`:
+
+```php
+TableBuilder::make()
+    ->withNotFound()
+```
+
+<a name="additional-features"></a>
+## Дополнительные возможности
+
 <a name="adding-new-rows"></a>
 ### Добавление новых строк
 
 Метод `creatable()` позволяет добавлять новые строки, делает таблицу динамической:
 
 ```php
-->creatable(reindex: true, limit: 5, label: 'Добавить', icon: 'plus')
+->creatable(reindex: true, limit: 5, label: 'Добавить', icon: 'plus', attributes: ['class' => 'my-class'])
+```
+
+```php
+creatable(
+    bool $reindex = true,
+    ?int $limit = null,
+    ?string $label = null,
+    ?string $icon = null,
+    array $attributes = [],
+    ?ActionButtonContract $button = null
+)
+```
+
+- `$reindex` - режим редактирования с динамическим name,
+- `$limit` - количество записей которые можно добавить,
+- `$label` - название кнопки,
+- `$icon` - иконка у кнопки,
+- `$attributes` - дополнительные атрибуты,
+- `$button` - кастомная кнопка добавления.
+
+> [!NOTE]
+> В режиме добавления необходимо, чтобы последний элемент был пустым (скелет новой записи)!
+
+Если в таблице находятся поля в режиме редактирования с динамическим name, то нужно добавить метод или параметр `reindex`:
+
+```php
+TableBuilder::make()
+    ->creatable(reindex: true)
+
+TableBuilder::make()
+    ->creatable()
+    ->reindex()
+```
+
+Пример с указанием кастомной кнопки добавления:
+
+```php
+TableBuilder::make()
+    ->creatable(
+        button: ActionButton::make('Foo', '#')
+    )
 ```
 
 <a name="reindexing"></a>
@@ -253,17 +335,12 @@ TableCells::make()->pushFields(
 Метод `reorderable()` добавляет возможность сортировки строк перетаскиванием:
 
 ```php
-->reorderable('/reorder-url', 'id', 'group-name')
+->reorderable(url: '/reorder-url', key: 'id', group: 'group-name')
 ```
 
-<a name="simple-view"></a>
-### Упрощенный вид пагинатора
-
-Метод `simple()` применяет упрощенный стиль пагинации в таблице:
-
-```php
-->simple()
-```
+- `$url` - url-обработчика,
+- `$key` - ключ элемента,
+- `$group` - группировка (если требуется).
 
 <a name="sticky-header"></a>
 ### Фиксированный заголовок
@@ -281,6 +358,18 @@ TableCells::make()->pushFields(
 
 ```php
 ->columnSelection()
+```
+
+Если необходимо у определенных полей отключить выбор отображения, то воспользуйтесь методом `columnSelection` у поля с параметром равным `false`:
+
+```php
+TableBuilder::make()
+    ->fields([
+        Text::make('Title')
+            ->columnSelection(false),
+        Text::make('Text')
+    ])
+    ->columnSelection()
 ```
 
 <a name="search"></a>
@@ -308,6 +397,12 @@ TableCells::make()->pushFields(
 ->clickAction(ClickAction::EDIT, '.edit-button')
 ```
 
+Типы ClickAction:
+
+- `ClickAction:SELECT` - выбор строки для массовых действий,
+- `ClickAction:EDIT` - переход в редактирование,
+- `ClickAction:DETAIL` - переход в детальный просмотр,
+
 <a name="save-state-in-url"></a>
 ### Сохранение состояния в URL
 
@@ -328,12 +423,16 @@ TableBuilder предоставляет методы для настройки H
 ->headAttributes(['class' => 'bg-blue-500 text-white'])
 ->bodyAttributes(['class' => 'text-sm'])
 ->footAttributes(['class' => 'bg-gray-200'])
+->customAttributes(['class' => 'custom-table']) 
 ```
 
 <a name="async-loading"></a>
 ## Асинхронная загрузка
 
 Метод `async()` настраивает асинхронную загрузку таблицы:
+
+> [!NOTE]
+> Метод `async` должен быть после метода `name`
 
 ```php
 ->async(
@@ -346,6 +445,26 @@ TableBuilder предоставляет методы для настройки H
 - `$url` - урл асинхронного запроса (в ответе необходимо вернуть TableBuilder),
 - `$events` - события которые будут вызваны после успешного ответа
 - `$callback` - js callback, который можно добавить как обертку ответа
+
+После успешного запроса, можно вызвать события, добавив параметр `asyncEvents`.
+
+```php
+use MoonShine\Support\AlpineJs;
+use MoonShine\Support\Enums\JsEvent;
+
+TableBuilder::make()
+        ->name('crud')
+        ->async(events: [
+          AlpineJs::event(JsEvent::FORM_RESET, 'main-form'),
+          AlpineJs::event(JsEvent::TOAST, params: ['text' => 'Success', 'type' => 'success']),
+        ])
+```
+
+Список событий для TableBuilder:
+
+- `JsEvent::TABLE_UPDATED` - обновление таблицы,
+- `JsEvent::TABLE_REINDEX` - реиндексация таблицы (см. `reindex()`)
+- `JsEvent::TABLE_ROW_UPDATED` - обновление строки таблицы (`AlpineJs::event(JsEvent::TABLE_ROW_UPDATED, "{component-name}-{row-id}")`)
 
 Все параметры метода `async` являются опциональными и по умолчанию TableBuilder автоматически укажет url на основе текущей страницы.
 
@@ -386,13 +505,22 @@ final class UndefinedPageController extends MoonShineController
 }
 ```
 
-<a name="data-customization"></a>
-## Кастомизация данных
+<a name="type-cast"></a>
+## Приведение к типу
 
-Метод `cast()` позволяет кастомизировать данные:
+Метод `cast` служит для приведения значений таблицы к определенному типу.
+Так как по умолчанию поля работают с примитивными типами:
 
 ```php
-->cast(new CustomDataCaster())
+use MoonShine\Laravel\TypeCasts\ModelCaster;
+
+TableBuilder::make()
+    ->cast(new ModelCaster(User::class))
 ```
+
+В этом примере мы привели данные к формату модели `User` с использованием `ModelCaster`.
+
+> [!NOTE]
+> За более подробной информацией обратитесь к разделу [TypeCasts](/docs/{{version}}/advanced/type-casts)
 
 TableBuilder в MoonShine предоставляет широкий спектр возможностей для создания гибких и функциональных таблиц в административной панели.
