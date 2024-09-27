@@ -207,9 +207,6 @@ CardsBuilder::make(
     ->thumbnail('thumbnail')
 ```
 
-![image_1](https://moonshine-laravel.com/images/image_1.jpg)
-![image_2](https://moonshine-laravel.com/images/image_2.jpg)
-
 <a name="buttons"></a>
 ## Buttons
 
@@ -244,11 +241,6 @@ CardsBuilder::make()
     ->subtitle(static fn() => 'Subtitle')
     ->overlay()
 ```
-
-
-
-![image_1](https://moonshine-laravel.com/images/image_1.jpg)
-![image_2](https://moonshine-laravel.com/images/image_2.jpg)
 
 <a name="paginator"></a>
 ## Paginator
