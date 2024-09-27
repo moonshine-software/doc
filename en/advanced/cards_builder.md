@@ -51,8 +51,8 @@ CardsBuilder::make(
 )
 ```
 
->![!NOTE]
->Elements and fields for *CardsBuilder* can be specified using the appropriate methods.
+> ![!NOTE]
+> Elements and fields for *CardsBuilder* can be specified using the appropriate methods.
 
 <a name="items-fields"></a>
 ## Items and fields
@@ -345,8 +345,8 @@ CardsBuilder::make(
     ->columnSpan(3)
 ```
 
->![NOTE]
->The **MoonShine** admin panel uses a 12-column grid.
+> ![NOTE]
+> The **MoonShine** admin panel uses a 12-column grid.
 
 <a name="custom-component"></a>
 ## Custom component
