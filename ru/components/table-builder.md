@@ -416,8 +416,6 @@ TableBuilder::make()
 
 TableBuilder предоставляет методы для настройки HTML-атрибутов:
 
-Приношу извинения за неполный ответ. Продолжу с того места, где остановился:
-
 ```php
 ->trAttributes(fn($data, $row) => ['class' => $row % 2 ? 'bg-gray-100' : ''])
 ->tdAttributes(fn($data, $row, $cell) => ['class' => $cell === 0 ? 'font-bold' : ''])
