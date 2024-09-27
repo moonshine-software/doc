@@ -194,7 +194,7 @@ rm app/MoonShine/Pages/Dashboard_old.php
 - Во всех методах нужно удалить префикс `heroicons.outline` и `heroicons.outline.solid` из всех файлов (эти иконки и outline теперь по-умолчанию).
 - Все экземпляры ресурсов нужно заменить на строковые классы, пример:
   - `MenuItem::make('Settings', new SettingResource(), 'heroicons.outline.adjustments-vertical')` → `MenuItem::make('Settings', SettingResource::class, 'adjustments-vertical')`
-- `->async(asyncEvents:)` → `->async(events:)`
+- `->async(asyncUrl: ..., asyncEvents: ...)` → `->async(url: ..., events: ...)`
 
  
 ##### Удалить
