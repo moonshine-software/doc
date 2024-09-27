@@ -2,18 +2,18 @@
 
 - [Вступление](#intro)
 - [Основное использование](#basic-usage)
-- [Основные настройки](#configuration-methods)
+- [Основные методы](#basic-methods)
   - [Поля](#fields)
   - [Данные](#items)
   - [Пагинация](#paginator)
   - [Упрощенный вид пагинатора](#simple-paginate)
   - [Кнопки](#buttons)
-  - [Кастомизация строк](#rows)
 - [Отображение](#view-methods)
   - [Вертикальное отображение](#vertical-display)
   - [Редактируемая таблица](#editable-table)
   - [Упрощенный режим](#preview-table)
   - [С уведомлением "Ничего не найдено"](#not-found)
+  - [Кастомизация строк](#rows)
 - [Дополнительные возможности](#additional-features)
   - [Добавление новых строк](#adding-new-rows)
   - [Переиндексация](#reindexing)
@@ -52,8 +52,8 @@ TableBuilder::make()
     ])
 ```
 
-<a name="configuration-methods"></a>
-## Методы настройки
+<a name="basic-methods"></a>
+## Основные методы
 
 <a name="fields"></a>
 ### Поля
@@ -136,6 +136,47 @@ TableBuilder::make()
 ->buttons([
     ActionButton::make('Mass Delete', fn() => route('name.mass_delete'))->bulk(),
 ])
+```
+
+<a name="view-methods"></a>
+## Отображение
+
+<a name="vertical-display"></a>
+### Вертикальное отображение
+
+Метод `vertical()` отображает таблицу в вертикальном формате (используется на `DetailPage`):
+
+```php
+->vertical()
+```
+
+<a name="editable-table"></a>
+### Редактируемая таблица
+
+Метод `editable()` делает таблицу редактируемой, все поля переводятся в режим `defaultMode` (режим формы):
+
+```php
+->editable()
+```
+
+<a name="preview-table"></a>
+### Упрощенный режим
+
+Метод `preview()` отключает отображение кнопок и сортировок для таблицы:
+
+```php
+->preview()
+```
+
+<a name="not-found"></a>
+### С уведомлением "Ничего не найдено"
+
+По умолчанию, если у таблицы нет данных, то она будет пустой, но можно вывести сообщение "Пока записей нет".
+Для этого воспользуйтесь методом `withNotFound`:
+
+```php
+TableBuilder::make()
+    ->withNotFound()
 ```
 
 <a name="rows"></a>
@@ -222,47 +263,6 @@ TableCells::make()->pushFields(
 - `$startIndex` - начальный индекс (так как до этого, возможно, уже были добавлены ячейки таблицы)
 
 Также доступны условные методы `pushWhen` и `pushCellWhen`.
-
-<a name="view-methods"></a>
-## Отображение
-
-<a name="vertical-display"></a>
-### Вертикальное отображение
-
-Метод `vertical()` отображает таблицу в вертикальном формате (используется на `DetailPage`):
-
-```php
-->vertical()
-```
-
-<a name="editable-table"></a>
-### Редактируемая таблица
-
-Метод `editable()` делает таблицу редактируемой, все поля переводятся в режим `defaultMode` (режим формы):
-
-```php
-->editable()
-```
-
-<a name="preview-table"></a>
-### Упрощенный режим
-
-Метод `preview()` отключает отображение кнопок и сортировок для таблицы:
-
-```php
-->preview()
-```
-
-<a name="not-found"></a>
-### С уведомлением "Ничего не найдено"
-
-По умолчанию, если у таблицы нет данных, то она будет пустой, но можно вывести сообщение "Пока записей нет".
-Для этого воспользуйтесь методом `withNotFound`:
-
-```php
-TableBuilder::make()
-    ->withNotFound()
-```
 
 <a name="additional-features"></a>
 ## Дополнительные возможности
