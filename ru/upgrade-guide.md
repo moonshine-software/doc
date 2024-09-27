@@ -172,7 +172,7 @@ rm app/MoonShine/Pages/Dashboard_old.php
         return $this->indexFields();
     }
     ```
-  - удалить `Block::` и прочие декорации из indexFields 
+  - удалить `Block::` и прочие декорации из indexFields
  - Удалить методы полей `hideOn*` и `showOn*` _(сразу настроить indexFields/detailFields/formFields, смотрите в документации метод exceptElements для Fields, он позволяет гибко исключать поля)_
   - `hideOnIndex`
   - `showOnIndex`
@@ -194,6 +194,9 @@ rm app/MoonShine/Pages/Dashboard_old.php
 - Во всех методах нужно удалить префикс `heroicons.outline` и `heroicons.outline.solid` из всех файлов (эти иконки и outline теперь по-умолчанию).
 - Все экземпляры ресурсов нужно заменить на строковые классы, пример:
   - `MenuItem::make('Settings', new SettingResource(), 'heroicons.outline.adjustments-vertical')` → `MenuItem::make('Settings', SettingResource::class, 'adjustments-vertical')`
+- `->async(asyncEvents:)` → `->async(events:)`
+
+ 
 ##### Удалить
   - `protected bool $isAsync = true;` (теперь по умолчанию)
   
