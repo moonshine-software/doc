@@ -6,24 +6,24 @@ https://moonshine-laravel.com/docs/resource/advanced/advanced-js_events?change-m
 
 - [Js events](#js-events)
   - [Blade directive](#blade-dir)
-  - [Помощник AlpineJs](#helper)
-  - [События по умолчанию](#default-events)
-  - [Вызов событий через Response](#response)
+  - [AlpineJs helper](#helper)
+  - [Default events](#default-events)
+  - [Triggering events through Response](#response)
 
 <a name="blade-directive"></a>
 ## Blade directive
 
-*Blade-директивы* используются для быстрого объявления событий у компонентов.
+*Blade directives* are used for quick declaration of events for components.
 
 ### @defineEvent
 
 ```php
 @defineEvent(string|JsEvent $event, ?string $name = null, ?string $call = null, array $params = [])
 ```
-- `$event` - событие,
-- `$name` - название компонента,
-- `$call` - callback функция,
-- `$params` - параметры события.
+- `$event` - event,
+- `$name` - component name,
+- `$call` - callback function,
+- `$params` - event parameters.
 
 ```php
 <div x-data="myComponent">
@@ -39,11 +39,11 @@ https://moonshine-laravel.com/docs/resource/advanced/advanced-js_events?change-m
 @defineEventWhen(mixed $condition, string|JsEvent $event, ?string $name = null, ?string $call = null, array $params = [])
 ```
 
-- `$condition` - условие для события,
-- `$event` - событие,
-- `$name` - название компонента,
-- `$call` - callback функция.
-- `$params` - параметры события.                
+- `$condition` - condition for the event,
+- `$event` - event,
+- `$name` - component name,
+- `$call` - callback function,
+- `$params` - event parameters.                
 
 ```php
 <div x-data="myComponent">
@@ -54,16 +54,16 @@ https://moonshine-laravel.com/docs/resource/advanced/advanced-js_events?change-m
 ```
 
 <a name="helper"></a>
-## *AlpineJs* класс-помощник, для формирования событий.
+## *AlpineJs* helper class for forming events.
 
 ### AlpineJs::event()
 
 ```php
 AlpineJs::event(string|JsEvent $event, ?string $name = null, array $params = [])
 ```
-- `$event` - событие,
-- `$name` - название компонента,
-- `$params` - параметры события
+- `$event` - event,
+- `$name` - component name,
+- `$params` - event parameters
 
 ```php
 use MoonShine\Components\FormBuilder;
@@ -81,10 +81,10 @@ use MoonShine\Components\FormBuilder;
 AlpineJs::eventBlade(string|JsEvent $event, ?string $name = null, ?string $call = null, array $params = [])
 ```
 
-- `$event` - событие,
-- `$name` - название компонента,
-- `$call` - callback функция.
-- `$params` - параметры события
+- `$event` - event,
+- `$name` - component name,
+- `$call` - callback function,
+- `$params` - event parameters
 
  ```php
  use MoonShine\Components\FormBuilder;
@@ -100,32 +100,32 @@ AlpineJs::eventBlade(string|JsEvent $event, ?string $name = null, ?string $call 
 ```
            
 <a name="#default-events"></a>
-## События по умолчанию
+## Default events
 
-В админ-панели **MoonShine** определены несколько событий по умолчанию,названия которых можно удобно получить через enum *JsEvent*.
+In the **MoonShine** admin panel, several default events are defined, whose names can be conveniently obtained through the *JsEvent* enum.
 
-- `JsEvent::FRAGMENT_UPDATED` - обновление фрагмента,
-- `JsEvent::TABLE_UPDATED` - обновление таблицы,
-- `JsEvent::TABLE_REINDEX` - обновление индексов таблицы при сортировке,
-- `JsEvent::TABLE_ROW_UPDATED` - обновление строки в таблице,
-- `JsEvent::CARDS_UPDATED` - обновление списка Сards,
-- `JsEvent::FORM_RESET` - сброс формы,
-- `JsEvent::FORM_SUBMIT` - отправка формы,
-- `JsEvent::MODAL_TOGGLED` - открытие / закрытие модального окна,
-- `JsEvent::OFF_CANVAS_TOGGLED` - открытие / закрытие Offcanvas,
-- `JsEvent::TOAST` - вызов Toast.
+- `JsEvent::FRAGMENT_UPDATED` - fragment update,
+- `JsEvent::TABLE_UPDATED` - table update,
+- `JsEvent::TABLE_REINDEX` - table index update during sorting,
+- `JsEvent::TABLE_ROW_UPDATED` - table row update,
+- `JsEvent::CARDS_UPDATED` - Cards list update,
+- `JsEvent::FORM_RESET` - form reset,
+- `JsEvent::FORM_SUBMIT` - form submission,
+- `JsEvent::MODAL_TOGGLED` - modal window opening / closing,
+- `JsEvent::OFF_CANVAS_TOGGLED` - Offcanvas opening / closing,
+- `JsEvent::TOAST` - Toast call.
 
 <a name="#response"></a>
-## Вызов событий через Response
+## Triggering events through Response
 
-В **MoonShine** можно вернуть события в *MoonShineJsonResponse*, которые потом будут вызваны.
-Для этого необходимо воспользоваться методом `events()`.
+In **MoonShine**, you can return events in *MoonShineJsonResponse*, which will then be triggered.
+To do this, you need to use the `events()` method.
            
 ```php
 events(array $events)
 ```
 
-- `$events` - массив вызываемых событий.
+- `$events` - array of events to be triggered.
 
 ```php
 use MoonShine\Enums\JsEvent;

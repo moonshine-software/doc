@@ -13,7 +13,7 @@ You can create a *Header* using the static `make()` method class `Header`.
 ```php
 make(array $components = [])
 ```
-`$components` - массив компонентов которые располагаются в шапке.
+`$components` - an array of components that are located in the header.
 
 ```php
 namespace App\MoonShine;

@@ -54,7 +54,7 @@ public function components(): array
 }
 ```
 
-Также доступен helper, который можно применить в blade:
+A helper is also available that can be used in Blade:
 
 ```php
 <div>
@@ -551,11 +551,11 @@ public function updateSomething(MoonShineRequest $request)
 > Methods called via *ActionButton* in a resource must be public!
 
 > [!CAUTION]
-> Для доступа к данным из реквеста, необходимо передать их в параметрах.
+> To access the data from the request, you must pass it in the parameters.
 
-#### Передача текущего элемента
+#### Passing the current item
 
-Если в запросе присутствует *resourceItem*, то в ресурсе вы можете получить доступ к текущему элементу через метод `getItem()`.
+If *resourceItem* is present in the request, you can access the current item in the resource through the `getItem()` method.
 
 - When there is a model in the data and the button is created in the `buttons()` method [TableBuilder](https://moonshine-laravel.com/docs/resource/advanced/advanced-table_builder#buttons), [CardsBuilder](https://moonshine-laravel.com/docs/resource/advanced/advanced-cards_builder#buttons) or [FormBuilder](https://moonshine-laravel.com/docs/resource/advanced/advanced-form_builder#buttons), then it is automatically filled with data and the parameters will contain `resourceItem`.
 - When the button is on the *ModelResource* form page, you can pass the id of the current element.
