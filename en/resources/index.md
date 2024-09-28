@@ -118,8 +118,8 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 }
 ```
 
-> ![TIP]
->You can learn about advanced settings in the section [Menu](https://moonshine-laravel.com/docs/resource/menu/menu).
+> [!TIP]
+> You can learn about advanced settings in the section [Menu](https://moonshine-laravel.com/docs/resource/menu/menu).
 
 If you only need to register the resource in the system without adding it to the navigation menu:
 
