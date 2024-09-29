@@ -174,20 +174,26 @@ rm app/MoonShine/Pages/Dashboard_old.php
     ```
   - удалить `Block::` и прочие декорации из indexFields
  - Удалить методы полей `hideOn*` и `showOn*` _(сразу настроить indexFields/detailFields/formFields, смотрите в документации метод exceptElements для Fields, он позволяет гибко исключать поля)_
-  - `hideOnIndex`
-  - `showOnIndex`
-  - `hideOnForm`
-  - `showOnForm`
-  - `hideOnCreate`
-  - `showOnCreate`
-  - `hideOnUpdate`
-  - `showOnUpdate`
-  - `hideOnDetail`
-  - `showOnDetail`
-  - `hideOnAll`
-  - `hideOnExport`
-  - `showOnExport`
- - А также `useOnImport` (использовать пакет https://github.com/moonshine-software/import-export)
+    - `hideOnIndex`
+    - `showOnIndex`
+    - `hideOnForm`
+    - `showOnForm`
+    - `hideOnCreate`
+    - `showOnCreate`
+    - `hideOnUpdate`
+    - `showOnUpdate`
+    - `hideOnDetail`
+    - `showOnDetail`
+    - `hideOnAll`
+    - `hideOnExport`
+    - `showOnExport`
+   - А также `useOnImport` (использовать пакет https://github.com/moonshine-software/import-export)
+- `trAttributes` `tdAttributes` для `TableBuilder` теперь должны возвращать значения такие же как для вызова `customAttributes` и вместо `ComponentAttributeBag $attributes` теперь `TableBuilder $table`:
+  ```
+  TableBuilder::make()
+    ->tdAttributes(fn(mixed $data, int $row, TableBuilder $table): array => ($row == 3) ? ['class' => 'bgc-yellow'] : []) 
+    ->tdAttributes(fn(mixed $data, int $row, int $cell, TableBuilder $table): array => ($cell == 3) ? ['align' => 'right'] : []) 
+  ```
 <a name="vars"></a>
 ### [Переменные](#vars)
 ##### Изменить
