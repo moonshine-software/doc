@@ -2,7 +2,7 @@ https://moonshine-laravel.com/docs/resource/packages/packages?change-moonshine-l
 
 ------
 
-## Packages
+# Packages
 
   - [Builders](#builders)
   - [GUI](#gui)
@@ -13,12 +13,12 @@ https://moonshine-laravel.com/docs/resource/packages/packages?change-moonshine-l
   - [Components](#components)
 
 <a name="builders"></a>
-### Builders
+## Builders
 
 - Builders: [Creating projects using schemas for the MoonShine](https://github.com/dev-lnk/moonshine-builder.git)
 
 <a name="gui"></a>
-### GUI
+## GUI
 
 - GUI: [Permissions](https://github.com/moonshine-software/permissions)
 - GUI: [Changelog](https://github.com/moonshine-software/changelog)
@@ -30,14 +30,14 @@ https://moonshine-laravel.com/docs/resource/packages/packages?change-moonshine-l
 - GUI: [Media manager for MoonShine](https://github.com/yurizoom/moonshine-media-manager)
 
 <a name="auth"></a>
-### Auth
+## Auth
 
 - Auth: [MoonShine two-factor authentication](https://github.com/moonshine-software/two-factor)
 - Auth: [MoonShine Roles-Permissions](https://github.com/SWEET1S/moonshine-roles-permissions)
 - Auth: [User Impersonation](https://github.com/Jampire/moonshine-impersonate)
 
 <a name="fields"></a>
-### Fields
+## Fields
 
 - Fields: [Moonshine Spatie Medialibrary](https://github.com/visual-ideas/moonshine-spatie-medialibrary)
 - Fields: [Moonshine Spatie Translatable](https://github.com/visual-ideas/moonshine-spatie-translatable)
@@ -55,13 +55,13 @@ https://moonshine-laravel.com/docs/resource/packages/packages?change-moonshine-l
 - Fields: [Input extension - display the datalist for input](https://github.com/khlystou/moonshine-input-datalist)
 
 <a name="resources"></a>
-### Resources
+## Resources
 
 - Resources: [Sortable tree resource](https://github.com/lee-to/moonshine-tree-resource)
 - Resources: [Resource blocking](https://github.com/forest-lynx/moonshine-resource-lock)
 
 <a name="localizations"></a>
-### Localizations
+## Localizations
 
 - Localizations: [MoonShine Language Slovak](https://github.com/evan70/MoonShine-Language-Slovak)
 - Localizations: [MoonShine Language Uzbek](https://github.com/akbarali1/MoonShine-Language-Uzbek)
@@ -70,7 +70,7 @@ https://moonshine-laravel.com/docs/resource/packages/packages?change-moonshine-l
 - Localizations: [Moonshine Language Spanish](https://github.com/stivenm0/MoonShine-Language-Spanish)
 
 <a name="components"></a>
-### Components
+## Components
 
 - Components: [Moonshine Slider](https://github.com/sliva-name/moonshine-carousel)
 

@@ -1,10 +1,10 @@
 https://moonshine-laravel.com/docs/resource/advanced/advanced-table_builder?change-moonshine-locale=en
 
 ------
-## TableBuilder
+# TableBuilder
 
 <a name="basics"></a>
-### Basics
+## Basics
 
 Fields and decorations in *MoonShine* are used inside tables in `preview` mode.<br/>
 *TableBuilder* is responsible for tables.<br/>
@@ -50,13 +50,13 @@ Helper `table()` is also available:
 !!}
 ```
 
-### Text
+## Text
 ###Value
 
 
 
 <a name="fields"></a>
-### Fields
+## Fields
 
 The `fields()` method allows you to specify a list of fields to build a table:
 
@@ -68,7 +68,7 @@ TableBuilder::make()
 ```
 
 <a name="items"></a>
-### Items
+## Items
 
 The `items()` method is used to fill the table with data:
 
@@ -85,7 +85,7 @@ TableBuilder::make()
 
 
 <a name="paginator"></a>
-### Paginator
+## Paginator
 
 The `paginator()` method for the table to work with pagination:
 
@@ -122,7 +122,7 @@ TableBuilder::make()
 Or you can use `cast()` method instead.
 
 <a name="cast"></a>
-### Casting
+## Casting
 
 The `cast()` method is used to cast table values to a specific type.<br/>
 Since by default fields work with primitive types:
@@ -143,7 +143,7 @@ In this example, we cast the data to the `User` model format using `ModelCast`.
 
 
 <a name="buttons"></a>
-### Buttons
+## Buttons
 
 To add new buttons based on *ActionButton*, use the `buttons()` method.<br/>
 Buttons will be added for each row, and when `bulk()` mode is enabled, they will be displayed in the footer for bulk actions:
@@ -161,7 +161,7 @@ TableBuilder::make(items: Article::paginate())
 ```
 
 <a name="async"></a>
-### Asynchronous mode
+## Asynchronous mode
 
 If you need to receive data from the table asynchronously (during pagination, sorting), then use the `async()` method:
 
@@ -199,7 +199,7 @@ TableBuilder::make()
 > The `async()` method must come after the `name()` method!
 
 <a name="attributes"></a>
-### Attributes
+## Attributes
 
 You can set any html attributes for the table using the `customAttributes()` method:
 

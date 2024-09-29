@@ -1,7 +1,7 @@
 https://moonshine-laravel.com/docs/resource/appearance/appearance-index?change-moonshine-locale=en
 
 ------
-## Basics
+# Basics
 
 - [Logo](#logo)
 - [Main theme](#theme)

@@ -1,7 +1,7 @@
 https://moonshine-laravel.com/docs/resource/appearance/appearance-layout_builder?change-moonshine-locale=en
 -----
 
-## LayoutBuilder
+# LayoutBuilder
 
 - [Publishing a template](#publish)
 - [Top Menu](#top-menu)

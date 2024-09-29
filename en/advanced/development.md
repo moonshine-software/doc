@@ -9,7 +9,7 @@ https://moonshine-laravel.com/docs/resource/advanced/advanced-development?change
 - [Custom field example](#custom-field-example)
 
 <a name="basics"></a>
-### Basics
+## Basics
 
 MoonShine is based on Laravel packages. If you're new to Laravel package development, here are some resources to help you understand the basic concepts:
 
@@ -18,7 +18,7 @@ MoonShine is based on Laravel packages. If you're new to Laravel package develop
 - [CutCode's free guide to package development](https://youtu.be/a_udqxegrRI?si=F8F_v8uGLGLkEbpQ)
 
 <a name="serviceprovider"></a>
-### ServiceProvider
+## ServiceProvider
 
 Through the ServiceProvider of your package, you can automatically add resources, pages, create menus and authorization rules, and much more.
 
@@ -98,7 +98,7 @@ Don't forget to automatically connect your `ServiceProvider` in `composer.json`
 ```
 
 <a name="custom-field-example"></a>
-### Custom field example
+## Custom field example
 
 Let's take a quick look at creating your own field! This will be a visual editor based on the Quill js plugin
 

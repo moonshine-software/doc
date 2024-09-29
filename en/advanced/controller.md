@@ -1,7 +1,7 @@
 https://moonshine-laravel.com/docs/resource/advanced/advanced-controller?change-moonshine-locale=en
 
 ------
-## Controllers  
+# Controllers  
 
   - [Generate controller](#generate-controller)  
   - [Show blade view](#show-blade-view)  

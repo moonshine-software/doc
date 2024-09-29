@@ -1,7 +1,7 @@
 https://moonshine-laravel.com/docs/resource/getting-started/troubleshooting?change-moonshine-locale=en
 
 ------
-## Troubleshooting  
+# Troubleshooting  
 
   - [Images are not displayed](#images-are-not-displayed)  
   - [Default language](#default-language)  

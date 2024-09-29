@@ -1,7 +1,7 @@
 https://moonshine-laravel.com/docs/resource/appearance/appearance-assets?change-moonshine-locale=en
 
 ------
-## AssetsManager
+# AssetsManager
 
   - [Global assets](#global-assets)
   - [Assets for a resource/page](#assets-for-a-resourcepage)
@@ -26,8 +26,8 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
         parent::boot();
 
         moonShineAssets()->add([
-            ‘/css/style.css’,
-           ‘ /js/main.js’,
+            ï¿½/css/style.cssï¿½,
+           ï¿½ /js/main.jsï¿½,
         ]);
     }
 
@@ -44,8 +44,8 @@ Assets can be added for a resource or for a separate page, To do this, you need 
 class Post extends ModelResource
 {
     protected array $assets = [
-        ‘/css/style.css’,
-      '/js/main.js’,
+        ï¿½/css/style.cssï¿½,
+      '/js/main.jsï¿½,
     ];
 
     //...
@@ -69,7 +69,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
         parent::boot();
 
         moonShineAssets()->;add([
-            Vite::asset(‘resources/js/app.js’)
+            Vite::asset(ï¿½resources/js/app.jsï¿½)
         ]);
     }
 
@@ -77,7 +77,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 }
 ```
 
-<a name="Ñonfiguration"></a>
+<a name="ï¿½onfiguration"></a>
 ## Configuration
 
 

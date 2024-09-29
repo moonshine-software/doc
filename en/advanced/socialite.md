@@ -1,7 +1,7 @@
 https://moonshine-laravel.com/docs/resource/advanced/advanced-socialite?change-moonshine-locale=en
 
 ------
-## Socialite 
+# Socialite 
 
 For convenience, you can link your account to social networks and simplify the authentication process.
 

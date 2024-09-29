@@ -2,7 +2,7 @@ https://moonshine-laravel.com/docs/resource/actionbutton/action_button?change-mo
 
 ------
 
-## ActionButton
+# ActionButton
 
 - [Basics](#basics)
 - [Blank](#blank)
@@ -13,7 +13,7 @@ https://moonshine-laravel.com/docs/resource/actionbutton/action_button?change-mo
 - [Modal](#modal)
 - [Confirm](#confirm)
 - [Offcanvas](#offcanvas)
-- [Group](n#group)
+- [Group](#group)
 - [Bulk](#bulk)
 - [Async mode](#async)
 - [Calling methods](#method)
@@ -23,7 +23,7 @@ Extends [MoonShineComponent](https://moonshine-laravel.com/docs/resource/compone
 * has the same features
 
 <a name="basics"></a> 
-### Basics
+## Basics
 
 When you need to add a button with a specific action, ActionButtons come to the rescue.  
 In MoonShine they are already used - in forms, tables, on pages.
@@ -63,7 +63,7 @@ A helper is also available that can be used in Blade:
 ```
 
 <a name="blank"></a> 
-### Blank
+## Blank
 
 The `blank()` method allows you to open a URL in a new window.
 
@@ -83,7 +83,7 @@ public function components(): array
 ```
 
 <a name="icon"></a> 
-### Icon
+## Icon
 
 The `icon()` method allows you to specify an icon for a button.
 
@@ -106,7 +106,7 @@ public function components(): array
 > For more detailed information, please refer to the section [Icons](https://moonshine-laravel.com/docs/resource/appearance/icons) .
 
 <a name="color"></a> 
-### Color
+## Color
 
 For *ActionButton* there is a set of methods that allow you to set the color of the button:  
 `primary()`, `secondary()`, `warning()`, `success()` and `error()`.
@@ -127,7 +127,7 @@ public function components(): array
 ```
 
 <a name="badge"></a> 
-### Badge
+## Badge
 
 The `badge()` method allows you to add a badge to a button.
 
@@ -146,7 +146,7 @@ ActionButton::make('Button')
 ```
 
 <a name="onclick"></a> 
-### onClick
+## onClick
 
 The `onClick` method allows you to execute js code on click:
 
@@ -166,7 +166,7 @@ public function components(): array
 ```
 
 <a name="modal"></a> 
-### Modal
+## Modal
 
 ### Basics
 
@@ -274,7 +274,7 @@ public function components(): array
 > About [Fragment](https://moonshine-laravel.com/docs/resource/components/components-decoration_fragment) can be found in the "Components" section
 
 <a name="confirm"></a> 
-### Confirm
+## Confirm
 
 The `withConfirm()` method allows you to create a button with confirmation of an action.
 
@@ -294,7 +294,7 @@ ActionButton::make(
 > `withConfirm` does not work with `async` modes. For asynchronous mode, you need to make your own implementation via [Modal](https://moonshine-laravel.com/docs/resource/components/components-decoration_modal) or [inModal()](https://moonshine-laravel.com/docs/resource/components/components-decoration_modal) .
 
 <a name="offcanvas"></a> 
-### Offcanvas
+## Offcanvas
 
 In order for offcanvas to be called when a button is clicked, use the `inOffCanvas()` method.
 
@@ -318,7 +318,7 @@ public function components(): array
 ```
 
 <a name="group"></a> 
-### Group
+## Group
 
 If you need to build logic with several `ActionButton`, however, some should be hidden or displayed in a drop-down menu, in this case, use the `ActionGroup` component.
 
@@ -337,7 +337,7 @@ public function components(): array
 }
 ```
 
-### Display
+## Display
 
 Thanks to *ActionGroup* you can also change the display of buttons, display them in a line or in a drop-down menu to save space.
 
@@ -357,7 +357,7 @@ public function components(): array
 ```
 
 <a name="bulk"></a> 
-### Bulk
+## Bulk
 
 The `bulk()` method allows you to create a bulk action button for a *ModelResource*.
 
@@ -374,7 +374,7 @@ public function indexButtons(): array
 > The `bulk()` method, used only inside *ModelResource*.
 
 <a name="async"></a> 
-### Async mode
+## Async mode
 
 The `async()` method allows you to implement asynchronous operation for the *ActionButton*.
 
@@ -406,7 +406,7 @@ public function components(): array
 }
 ```
 
-#### Notifications
+### Notifications
 
 If you need to display a notification or make a redirect after a click, then it is enough to implement the json response according to the structure:
 
@@ -417,7 +417,7 @@ If you need to display a notification or make a redirect after a click, then it 
 > [!TIP]
 > The `redirect` parameter is optional.
 
-#### HTML content
+### HTML content
 
 If you need to replace an area with html on click, then you can return HTML content or json with the html key in the response:
 
@@ -438,7 +438,7 @@ public function components(): array
 }
 ```
 
-#### Events
+### Events
 
 After a successful request, you can raise events:
 
@@ -457,7 +457,7 @@ public function components(): array
 > [!TIP]
 > For the `table-updated-index-table` event to work [async mode](https://moonshine-laravel.com/docs/resource/models-resources/resources-table#async) must be enabled.
 
-#### Callback
+### Callback
 
 If you need to process the response in a different way, then you need to implement a handler function and specify it in the `async()` method.
 
@@ -487,7 +487,7 @@ document.addEventListener("moonshine:init", () => {
 ```
 
 <a name="method"></a> 
-### Calling methods
+## Calling methods
 
 `method()` allows you to specify the name of a method in a resource and call it asynchronously when you click on it *ActionButton* without having to create additional controllers.
 
@@ -553,7 +553,7 @@ public function updateSomething(MoonShineRequest $request)
 > [!CAUTION]
 > To access the data from the request, you must pass it in the parameters.
 
-#### Passing the current item
+### Passing the current item
 
 If *resourceItem* is present in the request, you can access the current item in the resource through the `getItem()` method.
 
@@ -577,7 +577,7 @@ ActionButton::make('Click me')
         params: fn($item) => ['resourceItem' => $item->getKey()]
     )
 ```
-### Field values
+## Field values
 
 The `withParams()` method allows you to pass field values with the request using element selectors.
 
@@ -604,7 +604,7 @@ public function updateSomething(MoonShineRequest $request): MoonShineJsonRespons
 > [!WARNING]
 > When using the `withParams()` method, requests will be sent via `POST`.
 
-### Download
+## Download
 
 The called method can return `BinaryFileResponse`, which allows you to download a file.
 
@@ -622,7 +622,7 @@ public function download(): BinaryFileResponse
 ```
 
 <a name="event"></a> 
-### Dispatch events
+## Dispatch events
 
 To dispatch javascript events, you can use the `dispatchEvent()` method.
 

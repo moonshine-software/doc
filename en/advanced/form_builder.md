@@ -2,7 +2,7 @@ https://moonshine-laravel.com/docs/resource/advanced/advanced-form_builder?chang
 
 ------
 
-## FormBuilder
+# FormBuilder
 
 - [Basics](#basics)
 - [Fields](#fields)

@@ -2,7 +2,7 @@ https://moonshine-laravel.com/docs/resource/page/page-class
 
 ------
 
-## Create class
+# Create class
 
     -   [Basics](#basics)
     -   [Creating a class](#create)
