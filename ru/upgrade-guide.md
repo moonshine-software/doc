@@ -11,35 +11,35 @@
 <a name="update"></a>
 ## [Обновление пакета](#update)
 
-#### Обновить `composer.json`
+### Обновить `composer.json`
 `"moonshine/moonshine": "^2.x",` → `"moonshine/moonshine": "^3.0",`
 
-#### Отредактировать `config/app.php`
+### Отредактировать `config/app.php`
 Удалить строку `App\Providers\MoonShineServiceProvider::class,`.
 
 После запуска команды `moonshine:install` сервис-провайдер добавится снова автоматически.
 
-#### Сделать бэкапы config/moonshine.php, MoonShineServiceProvider.php и Dashboard.php
+### Сделать бэкапы config/moonshine.php, MoonShineServiceProvider.php и Dashboard.php
 Они понадобятся для переноса информации
 - `mv config/moonshine.php config/moonshine_old.php`
 - `mv app/Providers/MoonShineServiceProvider.php app/Providers/MoonShineServiceProvider_old.php`
 - `mv app/MoonShine/Pages/Dashboard.php app/MoonShine/Pages/Dashboard_old.php`
  
-#### Запустить обновление composer
+### Запустить обновление composer
 `composer update`
 
 <a name="install"></a>
 ## [Первоначальная настройка](#install)
 
-#### Запустить команду `moonshine:install`
+### Запустить команду `moonshine:install`
 Команда `moonshine:install` создает новый сервис-провайдер, конфигурацию, Layout и Dashboard.
 
 `php artisan moonshine:install`
 
-#### Обновляем конфиг из бэкапа
+### Обновляем конфиг из бэкапа
 Параметры `'logo'` и `'logo_small'` нужно удалить, так как настройка Logo переместилась в MoonShineLayout _(смотрите документацию по Layout)_
 
-#### Перенести меню в MoonShineLayout и обновить
+### Перенести меню в MoonShineLayout и обновить
 - Изменения:
     - Пространства имен меню изменены на `MoonShine\MenuManager\*`.
     - Экземпляры ресурсов заменены на строковые классы, смотрите раздел [Переменные](#vars)
@@ -49,7 +49,7 @@
   - `MenuItem::make('Settings', new SettingResource(), 'heroicons.outline.adjustments-vertical')` → `MenuItem::make('Settings', SettingResource::class, 'adjustments-vertical')`
 
 
-#### Зарегистрировать все классы в MoonShineServiceProvider.php
+### Зарегистрировать все классы в MoonShineServiceProvider.php
 Все ресурсы и страницы регистрируются в новом провайдере (экземпляры заменены на строковые классы, смотрите раздел [Переменные](#vars)):
 ```
     protected function resources(): array
@@ -68,10 +68,10 @@ find app/MoonShine/Resources -type f | sed "s/app/use App/" | sed "s|/|\\\|g" | 
 ```
 find app/MoonShine/Resources -type f -exec basename {} \; | sed "s/.php/::class,/" | sort
 ```
-#### Обновить Dashboard 
+### Обновить Dashboard 
 Перенести нужные функции в `app/MoonShine/Pages/Dashboard.php` из `app/MoonShine/Pages/Dashboard_old.php` (смотрите раздел [Список изменений](#refactor))
 
-#### Удалить файлы
+### Удалить файлы
 - старый Layout, если был:
 ```
 rm app/MoonShine/MoonShineLayout.php
@@ -88,7 +88,7 @@ rm app/MoonShine/Pages/Dashboard_old.php
 
 <a name="namespace"></a>
 ### [Namespace](#namespace)
-##### Изменить
+#### Изменить
 - `MoonShine\Resources\` → `MoonShine\Laravel\Resources\`
 - `MoonShine\Fields\Relationships\` → `MoonShine\Laravel\Fields\Relationships\`
 - `MoonShine\Fields\Slug` → `MoonShine\Laravel\Fields\Slug`
@@ -107,7 +107,7 @@ rm app/MoonShine/Pages/Dashboard_old.php
 - `MoonShine\Http\Controllers\` → `MoonShine\Laravel\Http\Controllers\`
 - `MoonShine\MoonShineAuth` → `MoonShine\Laravel\MoonShineAuth`
 
-##### Удалить
+#### Удалить
 - `MoonShine\Laravel\Handlers\ExportHandler` (меняется на пакет https://github.com/moonshine-software/import-export)
 - `MoonShine\Laravel\Handlers\ImportHandler` (меняется на пакет https://github.com/moonshine-software/import-export)
 - ```
@@ -118,7 +118,7 @@ rm app/MoonShine/Pages/Dashboard_old.php
   
 <a name="methods"></a>
 ### [Методы](#methods)
-##### Изменить
+#### Изменить
 - Если нужно создать экземпляр: `new NameResource()` → `app(NameResource::class)`
 - `public function components(): array` → `protected function components(): iterable`
 - `public function title(): string` → `public function getTitle(): string`
@@ -196,7 +196,7 @@ rm app/MoonShine/Pages/Dashboard_old.php
   ```
 <a name="vars"></a>
 ### [Переменные](#vars)
-##### Изменить
+#### Изменить
 - Во всех методах нужно удалить префикс `heroicons.outline` и `heroicons.outline.solid` из всех файлов (эти иконки и outline теперь по-умолчанию).
 - Все экземпляры ресурсов нужно заменить на строковые классы, пример:
   - `MenuItem::make('Settings', new SettingResource(), 'heroicons.outline.adjustments-vertical')` → `MenuItem::make('Settings', SettingResource::class, 'adjustments-vertical')`
@@ -206,6 +206,6 @@ rm app/MoonShine/Pages/Dashboard_old.php
     - смотрите файл `src/Support/src/Enums/JsEvent.php` со списком всех событий
 
  
-##### Удалить
+#### Удалить
   - `protected bool $isAsync = true;` (теперь по умолчанию)
   
