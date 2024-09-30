@@ -3,7 +3,7 @@
     - [Installation](/docs/{{version}}/installation)
     - [Configuration](/docs/{{version}}/configuration)
 - ## Appearance
-    - Menu
+    - [Menu](/docs/{{version}}/appearance/menu)
     - Template
     - Assets
     - Colors
@@ -16,6 +16,7 @@
     - [Json](/docs/{{version}}/fields/json)
 - ## Components
     - Basics
+    - [Attributes](/docs/{{version}}/components/attributes)
     - ActionButton
     - FormBuilder
     - TableBuilder
