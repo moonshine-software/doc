@@ -13,13 +13,16 @@
 - ## Fields
     - [Conception](/docs/{{version}}/fields/index)
     - [Basic methods](/docs/{{version}}/fields/basic-methods)
+    - [Text](/docs/{{version}}/fields/text)
+    - [Hidden](/docs/{{version}}/fields/hidden)
+    - [ID](/docs/{{version}}/fields/id)
     - [Json](/docs/{{version}}/fields/json)
 - ## Components
     - Basics
     - [Attributes](/docs/{{version}}/components/attributes)
     - ActionButton
     - FormBuilder
-    - TableBuilder
+    - [TableBuilder](/docs/{{version}}/components/table-builder)
     - CardsBuilder
 - ## Frontend
     - AlpineJs
