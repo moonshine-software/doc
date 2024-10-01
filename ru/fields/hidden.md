@@ -14,16 +14,7 @@
 ```php
 use MoonShine\UI\Fields\Hidden;
 
-//...
-
-protected function fields(): iterable
-{
-    return [
-        Hidden::make('category_id')
-    ];
-}
-
-//...
+Hidden::make('category_id')
 ```
 
 <a name="basic-methods"></a>

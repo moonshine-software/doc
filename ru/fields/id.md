@@ -10,29 +10,11 @@
 ```php
 use MoonShine\UI\Fields\ID;
 
-//...
-
-protected function fields(): iterable
-{
-    return [
-        ID::make()
-    ];
-}
+ID::make()
 ```
 
 Если `primary key` имеет наименование, отличное от `id`, то необходимо указать аргументы у метода `make()`.
 
 ```php
-use MoonShine\UI\Fields\ID;
-
-//...
-
-protected function fields(): iterable
-{
-    return [
-        ID::make('ID', 'primary_key')
-    ];
-}
-
-//...
+ID::make('ID', 'primary_key')
 ```
