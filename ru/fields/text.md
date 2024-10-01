@@ -1,66 +1,52 @@
-# Text (Editing...)
+# Text
 
 - [Введение](#introduction)
 - [Основные методы](#basic-methods)
-  - [make](#make)
-  - [placeholder](#placeholder)
-  - [mask](#mask)
-  - [tags](#tags)
-- [Модификаторы](#modifiers)
-  - [updateOnPreview](#update-on-preview)
-  - [withUpdateRow](#with-update-row)
-  - [updateInPopover](#update-in-popover)
-- [Атрибуты](#attributes)
-  - [readonly](#readonly)
-  - [disabled](#disabled)
-  - [required](#required)
-- [Валидация](#validation)
-  - [customAttributes](#custom-attributes)
-- [Расширения ввода](#input-extensions)
-  - [copy](#copy)
-  - [eye](#eye)
-  - [locked](#locked)
-  - [suffix](#suffix)
-- [Форматирование](#formatting)
-  - [unescape](#unescape)
-- [Значение по умолчанию](#default-value)
-  - [default](#default)
+  - [Подсказка](#placeholder)
+  - [Маска](#mask)
+  - [Теги](#tags)
+  - [Отключение экранирования](#unescape)
+- [Расширения](#extensions)
+  - [Копирование](#copy)
+  - [Скрытие значения](#eye)
+  - [Замок](#locked)
+  - [Суффикс](#suffix)
+- [Редактирование в режиме preview](#preview-edit)
+  
 
+<a name="introduction"></a>
 ## Введение
 Поле `Text` - это базовое текстовое поле ввода в MoonShine. Это поле эквивалент `<input type="text">`
-
-## Основные методы
-
-### make
-Метод `make()` используется для создания экземпляра поля `Text`.
-
-```php
-make(string $label, ?string $column = null)
-```
-
-Пример использования:
 
 ```php
 use MoonShine\UI\Fields\Text;
 
-Text::make('Name')
+Text::make('Title')
 ```
 
-### placeholder
+![mask](https://moonshine-laravel.com/screenshots/mask.png)
+
+![mask_dark](https://moonshine-laravel.com/screenshots/mask_dark.png)
+
+<a name="basic-methods"></a>
+## Основные методы
+
+<a name="placeholder"></a>
+### Подсказка
+
 Метод `placeholder()` позволяет задать текст-подсказку для поля.
 
 ```php
 placeholder(string $value)
 ```
 
-Пример использования:
-
 ```php
 Text::make('Имя пользователя', 'username')
     ->placeholder('Введите имя пользователя')
 ```
 
-### mask
+<a name="mask"></a>
+### Маска
 Метод `mask()` позволяет применить маску к вводимому тексту.
 
 ```php
@@ -74,7 +60,12 @@ Text::make('Телефон', 'phone')
     ->mask('+7 (999) 999-99-99')
 ```
 
-### tags
+![mask](https://moonshine-laravel.com/screenshots/mask.png)
+
+![mask_dark](https://moonshine-laravel.com/screenshots/mask_dark.png)
+
+<a name="tags"></a>
+### Теги
 
 Метод `tags()` преобразует текстовое поле в поле для ввода тегов.
 
@@ -82,189 +73,13 @@ Text::make('Телефон', 'phone')
 tags(?int $limit = null)
 ```
 
-Пример использования:
-
 ```php
 Text::make('Теги', 'tags')
     ->tags(5)
 ```
 
-## Модификаторы
-
-### updateOnPreview
-
-Метод `updateOnPreview()` позволяет обновлять значение поля в режиме предпросмотра.
-
-```php
-updateOnPreview(?Closure $url = null, ?ResourceContract $resource = null, mixed $condition = null, array $events = [])
-```
-
-Пример использования:
-
-```php
-Text::make('Название', 'title')
-    ->updateOnPreview()
-```
-
-### withUpdateRow
-
-Метод `withUpdateRow()` позволяет обновлять строку таблицы при изменении значения поля.
-
-```php
-withUpdateRow(string $component)
-```
-
-Пример использования:
-
-```php
-Text::make('Название', 'title')
-    ->withUpdateRow('items-table')
-```
-
-### updateInPopover
-
-Метод `updateInPopover()` позволяет обновлять значение поля в всплывающем окне.
-
-```php
-updateInPopover(string $component)
-```
-
-Пример использования:
-
-```php
-Text::make('Название', 'title')
-    ->updateInPopover('items-popover')
-```
-
-## Атрибуты
-
-### readonly
-
-Метод `readonly()` делает поле доступным только для чтения.
-
-```php
-readonly(Closure|bool|null $condition = null)
-```
-
-Пример использования:
-
-```php
-Text::make('Название', 'title')
-    ->readonly()
-```
-
-### disabled
-
-Метод `disabled()` отключает поле.
-
-```php
-disabled(Closure|bool|null $condition = null)
-```
-
-Пример использования:
-
-```php
-Text::make('Название', 'title')
-    ->disabled()
-```
-
-### required
-
-Метод `required()` делает поле обязательным для заполнения.
-
-```php
-required(Closure|bool|null $condition = null)
-```
-
-Пример использования:
-
-```php
-Text::make('Название', 'title')
-    ->required()
-```
-
-## Валидация
-
-### customAttributes
-
-Метод `customAttributes()` позволяет добавить пользовательские атрибуты к полю.
-
-```php
-customAttributes(array $attributes)
-```
-
-Пример использования:
-
-```php
-Text::make('Название', 'title')
-    ->customAttributes(['data-custom' => 'value'])
-```
-
-## Расширения ввода
-
-### copy
-
-Метод `copy()` добавляет кнопку для копирования значения поля.
-
-```php
-copy(string $value = '{{value}}')
-```
-
-Пример использования:
-
-```php
-Text::make('Токен', 'token')
-    ->copy()
-```
-
-### eye
-
-Метод `eye()` добавляет кнопку для показа/скрытия значения поля (например, для пароля).
-
-```php
-eye()
-```
-
-Пример использования:
-
-```php
-Text::make('Пароль', 'password')
-    ->eye()
-```
-
-### locked
-
-Метод `locked()` добавляет иконку замка к полю.
-
-```php
-locked()
-```
-
-Пример использования:
-
-```php
-Text::make('Защищенное поле', 'protected_field')
-    ->locked()
-```
-
-### suffix
-
-Метод `suffix()` добавляет суффикс к полю ввода.
-
-```php
-suffix(string $ext)
-```
-
-Пример использования:
-
-```php
-Text::make('Домен', 'domain')
-    ->suffix('.com')
-```
-
-## Форматирование
-
-### unescape
+<a name="unescape"></a>
+### Отключение экранирования
 
 Метод `unescape()` отключает экранирование HTML-тегов в значении поля.
 
@@ -279,20 +94,87 @@ Text::make('HTML-контент', 'content')
     ->unescape()
 ```
 
-## Значение по умолчанию
+<a name="extensions"></a>
+## Расширения
 
-### default
+Поля поддерживаеют различные расширения для помощи и контроля ввода
 
-Метод `default()` устанавливает значение по умолчанию для поля.
+![expansion](https://moonshine-laravel.com/screenshots/expansion.png)
+
+![expansion_dark](https://moonshine-laravel.com/screenshots/expansion_dark.png)
+
+<a name="copy"></a>
+### Копирование
+
+Метод `copy()` добавляет кнопку для копирования значения поля.
 
 ```php
-default(mixed $default)
+copy(string $value = '{{value}}')
 ```
 
 Пример использования:
 
 ```php
-Text::make('Статус', 'status')
-    ->default('Активный')
+Text::make('Токен', 'token')
+    ->copy()
+```
+
+<a name="eye"></a>
+### Скрытие значения
+
+Метод `eye()` добавляет кнопку для показа/скрытия значения поля (например, для пароля).
+
+```php
+eye()
+```
+
+Пример использования:
+
+```php
+Text::make('Пароль', 'password')
+    ->eye()
+```
+
+<a name="locked"></a>
+### Замок
+
+Метод `locked()` добавляет иконку замка к полю.
+
+```php
+locked()
+```
+
+Пример использования:
+
+```php
+Text::make('Защищенное поле', 'protected_field')
+    ->locked()
+```
+
+### Суффикс
+
+Метод `suffix()` добавляет суффикс к полю ввода.
+
+```php
+suffix(string $ext)
+```
+
+Пример использования:
+
+```php
+Text::make('Домен', 'domain')
+    ->suffix('.com')
+```
+
+<a name="update-on-preview"></a>
+### Редактирование в режиме preview
+
+Данному полю доступно [редактирование в режиме preview](TODO ссылка на раздел).
+
+> [!NOTE]
+> Если вы хотите избежать ошибок ввода, можете использовать расширение [Замок](#locked).
+
+```php
+Text::make('Name')->updateOnPreview()->locked(),
 ```
 
