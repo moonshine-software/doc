@@ -166,10 +166,10 @@ Text::make('Домен', 'domain')
     ->suffix('.com')
 ```
 
-<a name="update-on-preview"></a>
+<a name="preview-edit"></a>
 ### Редактирование в режиме preview
 
-Данному полю доступно [редактирование в режиме preview](TODO ссылка на раздел).
+Данному полю доступно [редактирование в режиме preview](https://github.com/moonshine-software/doc/blob/3.x/ru/fields/basic-methods.md#preview-edit).
 
 > [!NOTE]
 > Если вы хотите избежать ошибок ввода, можете использовать расширение [Замок](#locked).
