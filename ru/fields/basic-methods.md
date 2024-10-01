@@ -29,6 +29,7 @@
   - [Методы onChange](#on-change)
   - [Изменение render поля](#change-render)
   - [Методы для значений](#for-value)
+- [Редактирование в режиме preview](#preview-edit)
 - [Ассеты](#assets)
 - [Трейт Macroable](#macroable)
 - [Реактивность](#reactive)
@@ -767,6 +768,73 @@ use MoonShine\Fields\Enum;
 Enum::make('Status')
     ->attach(StatusEnum::class)
     ->modifyRawValue(fn(StatusEnum $raw, Enum $ctx) => $raw->value))
+```
+
+<a name="preview-edit"></a>
+## Редактирование в режиме preview
+
+Поля в режиме preview, например, если они отображаются в таблице, нельзя изменять. Но для некоторых полей можно использовать специальные методы, которые позволяют редактировать их в данном режиме.
+
+> [!NOTE]
+> Редактирование в режиме preview доступно для полей `Text`, `Number`, `Checkbox`, `Select`, `Date`
+
+### updateOnPreview
+
+Метод `updateOnPreview()` позволяет редактировать поле в режиме предварительного просмотра. После внесения изменений (условно событие onChange), значение поля будет сохранено для конкретного элемента.
+
+```php
+public function updateOnPreview(
+    ?Closure $url = null,
+    ?ResourceContract $resource = null,
+    mixed $condition = null,
+    array $events = [],
+)
+```
+
+ - `$url` - url запроса,
+ - `$resource` - ресурс содержащий updateOnPreview,
+ - `$condition` - условие установки поля в режим updateOnPreview,
+ - `$events` - вызываемые [AlpineJS события](TODO ссылка на доку) после успешного запроса.
+
+> [!NOTE]
+> Параметры не являются обязательными, но должны быть заданы, если поле находится вне ресурса
+
+```php
+Text::make('Name')->updateOnPreview()
+```
+
+### withUpdateRow
+
+`withUpdateRow()` работает по аналогии с `updateOnPreview()`, но при этом может полностью обновить строку в таблице без перезагрузки страницы.
+
+```php
+public function withUpdateRow(string $component)
+```
+
+- `$component` - имя компонента, в котором присутствует данная строка.
+
+```php
+Text::make('Name')->withUpdateRow('index-table-post-resource')
+```
+
+`withUpdateRow()` может использовать все параметры `updateOnPreview()`, например для изменения url запроса, для этого их необходимо вызвать вместе.
+
+```php
+Text::make('Name')->updateOnPreview(url: '/my/url')->withUpdateRow()
+```
+
+### updateInPopover
+
+Метод `updateInPopover()` работает аналогично методу `withUpdateRow()`, но теперь все значения для редактирования появляются в отдельном окне.
+
+```php
+public function updateInPopover(string $component)
+```
+
+- `$component` - имя компонента, в котором присутствует данная строка.
+
+```php
+Text::make('Name')->updateInPopover('index-table-post-resource')
 ```
 
 <a name="assets"></a>
