@@ -211,13 +211,15 @@ TableBuilder::make()
 // tfoot
 TableBuilder::make()
   ->footRows(
-    static fn(TableRowContract $default) => TableRows::make([$default])->pushRow(
+    static fn(?TableRowContract $default) => TableRows::make([$default])->pushRow(
         TableCells::make()->pushCell(
             'td content'
         )
     )
   )
 ```
+> [!NOTE]
+> Обратите внимание, для `footRows` передается `?TableRowContract` и в значении `$default` будет передано `null`, если кнопки массовых действий отсутствуют. Значение `null` можно указывать в списке `$items` в `TableRows::make`, оно будет проигнорировано.
 
 `TableRows` и `TableCells` - это коллекции компонентов с дополнительным функционалом для быстрого добавления строки или ячейки таблицы.
 
