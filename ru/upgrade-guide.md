@@ -197,7 +197,7 @@ rm app/MoonShine/Pages/Dashboard_old.php
     - `hideOnExport`
     - `showOnExport`
    - А также `useOnImport` (использовать пакет https://github.com/moonshine-software/import-export)
-- Хелперы `form`, `table`, `actionBtn` _(есть примеры что использовать вместо них?)_
+- Хелперы `form`, `table`, `actionBtn` (используйте классы `TableBuilder`, `FormBuilder`, `ActionButton`)
 
 <a name="vars"></a>
 ### [Переменные](#vars)
