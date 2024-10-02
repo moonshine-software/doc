@@ -194,6 +194,7 @@ rm app/MoonShine/Pages/Dashboard_old.php
     ->tdAttributes(fn(mixed $data, int $row, TableBuilder $table): array => ($row == 3) ? ['class' => 'bgc-yellow'] : []) 
     ->tdAttributes(fn(mixed $data, int $row, int $cell, TableBuilder $table): array => ($cell == 3) ? ['align' => 'right'] : []) 
   ```
+- Хелпер `to_page` → `toPage`
 <a name="vars"></a>
 ### [Переменные](#vars)
 #### Изменить
