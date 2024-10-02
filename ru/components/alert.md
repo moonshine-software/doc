@@ -36,7 +36,7 @@ primary secondary success warning error info
 ~~~tabs
 tab: Class
 ```php
-use MoonShine\UI\Components;
+use MoonShine\UI\Components\Alert;
 
 Alert::make(type: 'primary')->content('Primary'),
 Alert::make(type: 'secondary')->content('Secondary'),
