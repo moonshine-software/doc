@@ -4,11 +4,12 @@
     - [Configuration](/docs/{{version}}/configuration)
 - ## Appearance
     - [Menu](/docs/{{version}}/appearance/menu)
-    - Template
+    - Layout
     - Assets
     - Colors
     - Icons
-- ## ModelResources
+- ## ModelResource
+    - [Basics](/docs/{{version}}/model-resource/index)
 - ## Pages
 - ## Fields
     - [Conception](/docs/{{version}}/fields/index)
@@ -38,7 +39,7 @@
     - [Authentication](/docs/{{version}}/advanced/authentication)
     - Socialite
 - ## Advanced
-    - Resources (CrudResource)
+    - CrudResource
     - [Routes](/docs/{{version}}/advanced/routes)
     - Commands
     - Controllers
