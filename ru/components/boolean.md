@@ -5,7 +5,7 @@
 ~~~tabs
 tab: Class
 ```php
-use MoonShine\UI\Components;
+use MoonShine\UI\Components\Boolean;
 
 Boolean::make(true);
 Boolean::make(false);
