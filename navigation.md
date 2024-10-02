@@ -18,12 +18,12 @@
     - [ID](/docs/{{version}}/fields/id)
     - [Json](/docs/{{version}}/fields/json)
 - ## Components
-    - Alert
-    - Badge
-    - Boolean
     - Basics
     - [Attributes](/docs/{{version}}/components/attributes)
+    - [Alert](/docs/{{version}}/components/alert)
     - ActionButton
+    - [Badge](/docs/{{version}}/components/badge)
+    - [Boolean](/docs/{{version}}/components/boolean)
     - FormBuilder
     - [TableBuilder](/docs/{{version}}/components/table-builder)
     - CardsBuilder

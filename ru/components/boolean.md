@@ -2,6 +2,10 @@
 ---
 Компонент для создания индикатора TRUE | FALSE.
 
+```php
+namespace MoonShine\UI\Components;
+```
+
 ~~~tabs
 tab: Class
 ```php
