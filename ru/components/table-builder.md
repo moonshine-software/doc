@@ -25,6 +25,7 @@
   - [Сохранение состояния в URL](#save-state-in-url)
 - [Настройка атрибутов](#attribute-configuration)
 - [Асинхронная загрузка](#async-loading)
+  - [Lazy и whenAsync методы](#lazy)
 - [Приведение к типу](#type-cast)
 
 <a name="intro"></a>
@@ -506,6 +507,55 @@ final class UndefinedPageController extends MoonShineController
         return $component->render();
     }
 }
+```
+
+<a name="lazy"></a>
+### Lazy и whenAsync методы
+
+Если вам необходимо отправить запрос на обновление компонета `TableBuilder` сразу при загрузке страницы, то нужно добавить метод `lazy()`.
+Также методы `lazy()` и `whenAsync()` в сочетании могут решить задачу ленивой загрузки данных или загрузки данных из внешнего источника.
+
+```php
+TableBuilder::make()
+    ->name('dashboard-table')
+    ->fields([
+        ID::make(),
+        Slug::make('Slug'),
+        Text::make('Title'),
+        Preview::make('Image')->image()
+    ])
+    ->async()
+    ->lazy()
+    ->whenAsync(
+        fn(TableBuilder $table) => $table->items(
+            Http::get('https://jsonplaceholder.org/posts')->json()
+        )
+    ),
+```
+
+Метод `whenAsync()` проверяет, является ли текущий запрос асинхронным для получения текущего компонента `TableBuilder`.
+Пример взаимодействия с методами, где загрузка таблицы происходит по нажатию на кнопку:
+
+```php
+ActionButton::make('Reload')
+    ->async(events: [AlpineJs::event(JsEvent::TABLE_UPDATED, 'my-table')]),
+
+TableBuilder::make()
+    ->name('my-table')
+    ->fields([
+        ID::make(),
+        Slug::make('Slug'),
+        Text::make('Title'),
+        Preview::make('Image')->image()
+    ])
+    ->async()
+    ->lazy()
+    ->whenAsync(
+        fn(TableBuilder $table) => $table->items(
+            Http::get('https://jsonplaceholder.org/posts')->json()
+        )
+    ),
+    ->withNotFound()
 ```
 
 <a name="type-cast"></a>
