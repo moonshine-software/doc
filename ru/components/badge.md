@@ -2,15 +2,13 @@
 ---
 Если вам необходимо разместить значок на странице, то воспользуйтесь этим компонентом.
 
-```php
-namespace MoonShine\UI\Components;
-```
-
 Доступны следующие значки:
 
 ~~~tabs
 tab: Class
 ```php
+use MoonShine\UI\Components;
+
 Badge::make('Primary','primary');
 Badge::make('Secondary','secondary');
 Badge::make('Success','success');

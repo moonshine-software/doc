@@ -11,13 +11,11 @@
 
 Если вам необходимо уведомление на странице, можно воспользоваться компонентом `moonshine::alert` или классом `Alert`.
 
-```php
-namespace MoonShine\UI\Components;
-```
-
 ~~~tabs
 tab: Class
 ```php
+use MoonShine\UI\Components;
+
 Alert::make()->content('Text'),
 ```
 tab: Blade
@@ -38,6 +36,8 @@ primary secondary success warning error info
 ~~~tabs
 tab: Class
 ```php
+use MoonShine\UI\Components;
+
 Alert::make(type: 'primary')->content('Primary'),
 Alert::make(type: 'secondary')->content('Secondary'),
 Alert::make(type: 'success')->content('Success'),
