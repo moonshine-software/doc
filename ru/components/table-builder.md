@@ -371,6 +371,10 @@ TableBuilder::make()
     ->columnSelection()
 ```
 
+> [!WARNING]
+> При использовании `columnSelection` параметр `name` компонента `TableBuilder` должен быть уникальным для всех страниц.
+> Это связано с тем, что данные сохраняются в `localStorage` на основе значения `name` компонента.
+
 <a name="search"></a>
 ### Поиск
 
@@ -506,6 +510,29 @@ final class UndefinedPageController extends MoonShineController
 
 <a name="type-cast"></a>
 ## Приведение к типу
+
+> [!WARNING]
+> Если вы используете данные в таблице без `cast`, необходимо указать, что в ваших данных является ключом.
+> В противном случае некоторые возможности, такие как bulk-операции, работать не будут.
+
+Пример: 
+
+```php
+TableBuilder::make()
+  ->castKeyName('id')
+  ->name('my-table')
+  ->fields([
+      ID::make(),
+      Text::make('Title')
+  ])
+  ->items([
+      ['id' => 3,'title' => 'Hello world']
+  ])
+  ->buttons([
+      ActionButton::make('Mass Delete')
+          ->bulk()
+  ]),
+```
 
 Метод `cast` служит для приведения значений таблицы к определенному типу.
 Так как по умолчанию поля работают с примитивными типами:
