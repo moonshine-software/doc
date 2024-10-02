@@ -14,7 +14,7 @@
 ~~~tabs
 tab: Class
 ```php
-use MoonShine\UI\Components;
+use MoonShine\UI\Components\Alert;
 
 Alert::make()->content('Text'),
 ```
