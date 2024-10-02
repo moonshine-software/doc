@@ -7,7 +7,7 @@
 ~~~tabs
 tab: Class
 ```php
-use MoonShine\UI\Components;
+use MoonShine\UI\Components\Badge;
 
 Badge::make('Primary','primary');
 Badge::make('Secondary','secondary');
