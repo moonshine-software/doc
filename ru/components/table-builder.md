@@ -371,6 +371,10 @@ TableBuilder::make()
     ->columnSelection()
 ```
 
+> [!WARNING]
+> При использовании `columnSelection` параметр `name` компонента `TableBuilder` должен быть уникальным для всех страниц.
+> Это связано с тем, что данные сохраняются в `localStorage` на основе значения `name` компонента.
+
 <a name="search"></a>
 ### Поиск
 
