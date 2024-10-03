@@ -17,6 +17,7 @@
     - [Text](/docs/{{version}}/fields/text)
     - [Hidden](/docs/{{version}}/fields/hidden)
     - [ID](/docs/{{version}}/fields/id)
+    - [Slug](/docs/{{version}}/fields/slug)
     - [Json](/docs/{{version}}/fields/json)
 - ## Components
     - Basics
