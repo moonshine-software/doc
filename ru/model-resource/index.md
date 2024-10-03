@@ -2,6 +2,9 @@
 
 - [ ] onBoot/onLoad с кейсами
 - [ ] alias (uriKey)
+- [ ] thead,tfoot,tbody
+- [ ] cursorPaginate
+- [ ] CrudResource
 
 # Основы
 
