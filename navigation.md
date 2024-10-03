@@ -23,6 +23,8 @@
     - [Attributes](/docs/{{version}}/components/attributes)
     - [Alert](/docs/{{version}}/components/alert)
     - ActionButton
+    - [Modal](/docs/{{version}}/components/modal)
+    - [OffCanvas](/docs/{{version}}/components/off-canvas)
     - [Badge](/docs/{{version}}/components/badge)
     - [Boolean](/docs/{{version}}/components/boolean)
     - FormBuilder
