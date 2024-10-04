@@ -1,2 +1,0 @@
-- [ ] thead,tfoot,tbody
-- [ ] cursorPaginate
