@@ -88,7 +88,7 @@ public function fields(): array
                 'value 1' => 'Option Label 1',
                 'value 2' => 'Option Label 2'
             ])
-            ->default('value 2')
+            ->nullable()
     ];
 }
 
