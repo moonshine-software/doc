@@ -1,9 +1,3 @@
-# TODO (WIP)
-
-- [x] onBoot/onLoad с кейсами
-- [x] alias (uriKey)
-- [ ] CrudResource
-
 # Основы
 
 - [Основы](#basics)
