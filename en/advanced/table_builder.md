@@ -218,12 +218,7 @@ TableBuilder::make()
         return $attributes->merge(['class' => 'bgc-green']);
     })
 ```
-         
-
-
-### Text
-### Value
-        
+              
 ```php
 TableBuilder::make()
     ->tdAttributes(
@@ -238,11 +233,8 @@ TableBuilder::make()
     )
 ```
 
-### Text
-### Value 
-
 <a name="notfound"></a>
-### Missing elements
+## Missing elements
 
 By default, if the table has no data, it will be empty, but you can display the message *"No records yet"*.<br/>
 To do this, use the `withNotFound()` method:
@@ -252,10 +244,8 @@ TableBuilder::make()
     ->withNotFound()
 ```
 
-### Records not found
-
 <a name="simple"></a>
-### Simplified style
+## Simplified style
 
 By default, the table is styled as MoonShine,<br/>
 but using the `simple()` method you can display the table in a simplified style:
@@ -265,11 +255,8 @@ TableBuilder::make()
     ->simple()
 ```
 
-### Text	
-### Value
-
 <a name="sticky"></a>
-### Sticky head
+## Sticky head
 
 The `sticky()` method allows you to fix the header when scrolling a table with a large number of elements.
 
@@ -279,7 +266,7 @@ TableBuilder::make()
 ```
 
 <a name="preview"></a>
-### Preview
+## Preview
 
 The `preview()` method disables the display of buttons and sorts for the table:
 
@@ -289,7 +276,7 @@ TableBuilder::make()
 ```
 
 <a name="vertical"></a>
-### Vertical mode
+## Vertical mode
 
 Using the `vertical()` method you can display the table in vertical mode:
 
@@ -298,15 +285,8 @@ TableBuilder::make()
     ->vertical()
 ```
 
-
-### Property 1
-### Value 1
-### Property 2
-### Value 2
-
-
 <a name="creatable"></a>
-### Adding entries
+## Adding entries
 
 Using the `creatable()` method, you can create an "Add" button to generate new records in the table:
 
@@ -350,13 +330,8 @@ TableBuilder::make()
 
 ```
 
-### Title	Text	
-### Value 1	Value 2
-
 > [!NOTE]
 > In append mode, the last element must be empty (the skeleton of the new entry)!
-
-### reindex
 
 If the table contains fields in edit mode with a dynamic name,
 then you need to add a method or parameter `reindex`:
@@ -374,14 +349,14 @@ TableBuilder::make()
     ->reindex()
 ```
 
-### limit
+#### limit
 
 If you want to limit the number of records that can be added, you must specify the `limit` parameter:
 ```php
 TableBuilder::make()
     ->creatable(limit: 6)
 ```
-### Custom add button
+#### Custom add button
 ```php
 TableBuilder::make()
     ->creatable(
@@ -390,7 +365,7 @@ TableBuilder::make()
 ```
 
 <a name="editable"></a>
-### Editable
+## Editable
 
 By default, fields in the table are displayed in `preview` mode,<br/>
 but if you want to display them as editable form elements,<br/>
@@ -400,12 +375,9 @@ then you need to use the `editable()` method:
 TableBuilder::make()
     ->editable()
 ```
-### Title	Text	
-### Value 1
-### Value 2
 
 <a name="sortable"></a>
-### Sortable
+## Sortable
 
 To sort rows in a table, use the `sortable()` method:
 ```php
@@ -417,12 +389,9 @@ TableBuilder::make()
     )
 ```
 
-
-
 -`$url` - url handler
 -`$key` - element key
 -`$group` - grouping.
-
 
 ```php
 TableBuilder::make()
@@ -432,12 +401,9 @@ TableBuilder::make()
         group: 'nested'
     )
 ```
-### Title	Text	
-### Value 1	Value 2	
-### Value 3	Value 4
 
 <a name="column-display"></a>
-### Column display 
+## Column display 
 
 You can let users decide which columns to display in the table, saving the choice.<br/>
 To do this, you need to set the resource parameter `$columnSelection`.
@@ -456,9 +422,6 @@ TableBuilder::make()
     ])
     ->columnSelection('unique-id')
 ```
-### Title	Text	
-### Value 3	Value 4	
-### Value 1	Value 2
 
 If you need to exclude fields from selection, use the `columnSelection()` method.
 
@@ -476,9 +439,3 @@ TableBuilder::make()
     ->columnSelection('unique-id')
 
 ```
-
-
-### Title	Text	
-### Value 1	Value 2	
-### Value 3	Value 4	
-

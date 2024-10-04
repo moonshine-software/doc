@@ -17,7 +17,7 @@ https://moonshine-laravel.com/docs/resource/menu/menu?change-moonshine-locale=en
 - [Custom view](#custom-view)  
 
 <a name="basics"></a>  
-### Basics  
+## Basics  
 
 The navigation menu is configured in **App\Providers\MoonShineServiceProvider** via the `menu()` method, which returns an array of menu items.  
 
@@ -94,7 +94,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 > When declaring a menu using *Closure*, you need to manually register [pages](https://moonshine-laravel.com/docs/resource/page/page-instance#define) and [resources](https://moonshine-laravel.com/docs/resource/models-resources/resources-index#define) in the corresponding methods.
 
 <a name="group"></a>  
-### Groups  
+## Groups  
 
 Menu items can be combined into groups. To do this, use the **MoonShine\Menu\MenuGroup** class with the static method `make()`.  
 
@@ -169,7 +169,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 > To create a multi-level menu, groups can be nested.
 
 <a name="attributes"></a>  
-### Attributes  
+## Attributes  
 
 The `customAttributes()` method allows you to add your own attributes for groups and menu items.  
 
@@ -249,7 +249,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 ```
 
 <a name="divider"></a>  
-### Delimiter  
+## Delimiter  
 
 Menu items can be visually divided using *MoonShine\Menu\MenuDivider*.  
 
@@ -314,7 +314,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 ![menu_divider_label_dark](https://moonshine-laravel.com/screenshots/menu_divider_label_dark.png)
 
 <a name="condition"></a>  
-### Display condition  
+## Display condition  
 
 You can display menu items based on conditions using the `canSee()` method.  
 
@@ -352,7 +352,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 ```
 
 <a name="icon"></a>  
-### Icon  
+## Icon  
 
 You can set an icon for a menu item and a group. This can be accomplished in several ways.  
 
@@ -441,7 +441,7 @@ class MoonShineUserResource extends ModelResource
 > For more detailed information, please refer to the section [Icons](https://moonshine-laravel.com/docs/resource/appearance/icons).
 
 <a name="badge"></a>  
-### Label  
+## Label  
 
 It is also possible to add an icon to a menu item.  
 
@@ -502,7 +502,7 @@ class PostResource extends ModelResource
 ![menu_badge_dark](https://moonshine-laravel.com/screenshots/menu_badge_dark.png)
 
 <a name="translation"></a>  
-### Translation  
+## Translation  
 
 To translate menu items, you need to pass the translation key as the name and add method `translatable()`  
 
@@ -568,7 +568,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 ```
 
 <a name="target-blank"></a>  
-### Open in new tab  
+## Open in new tab  
 
 A menu item can have a flag indicating whether the link should be opened in a new tab or not. This can be implemented in several ways.  
 
@@ -630,7 +630,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 ```
 
 <a name="force-active"></a>  
-### Active item  
+## Active item  
 
 The menu item becomes active if it matches the url, but the `forceActive()` method allows you to force the item to be active.  
 
@@ -659,7 +659,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 ```
 
 <a name="custom-view"></a>  
-### Custom view  
+## Custom view  
 
 When you need to change the view using *fluent* interface you can use the `customView()` method.  
 

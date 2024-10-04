@@ -8,7 +8,7 @@ https://moonshine-laravel.com/docs/resource/models-resources/resources-routes?ch
   - [Current page](#current-page)
 
 <a name="basics"></a>
-### Basics
+## Basics
 
 ```php
 $resource->url(); // First page of the resource
@@ -50,7 +50,7 @@ $page->fragmentLoadUrl('table-index');
 ```
 
 <a name="helper"></a>
-### Helper
+## Helper
 You can also use the `to_page` helper:
 
 ```php
@@ -61,6 +61,7 @@ to_page(
     bool $redirect = false,
     ?string $fragment = null
 ) 
+```
 
 -`$page` - page or page alias (optional),
 -`$resource` - resource or resource alias (optional),
@@ -81,7 +82,7 @@ to_page(page: PageType::FORM, fragment: true);
 > For more information about page types, see [PageType](https://moonshine-laravel.com/docs/resource/models-resources/resources-pages#page-type).
 
 <a name="current-page"></a>
-### Current page
+## Current page
 The model resource has methods that allow you to check which page is the current one to build further logic.
 
 ```php

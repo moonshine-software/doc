@@ -3,8 +3,6 @@ https://moonshine-laravel.com/docs/resource/fields/fields-textarea?change-moonsh
 ------
 # Textarea
 
-- [Default value](#default-value)
-
 The *Textarea* field includes all the basic methods
 
 ```php   
@@ -22,8 +20,7 @@ public function fields(): array
 //...
 ```
 
-<a name="default-value"></a>
-# Default value
+## Default value
 
 You can use the `default()` method if you need to specify a default value for a field.
 

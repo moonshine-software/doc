@@ -1,7 +1,7 @@
 https://moonshine-laravel.com/docs/resource/fields/fields-select?change-moonshine-locale=en
 
 ------
-#Select
+# Select
 
   - [Make](#make)
   - [Default value](#default)
@@ -17,7 +17,7 @@ https://moonshine-laravel.com/docs/resource/fields/fields-select?change-moonshin
   - [Native mode](#native)
 
 <a name="make"></a>
-### Make
+## Make
 The _Select_ field includes all the basic methods.
 
 ```php
@@ -41,7 +41,7 @@ public function fields(): array
 ![select](https://moonshine-laravel.com/screenshots/select_dark.png)
 
 <a name="default"></a>
-#### Default value
+### Default value
 You can use the `default()` method if you need to specify a default value for a field.
 
 ```php
@@ -68,7 +68,7 @@ public function fields(): array
 //...
 ```
 <a name="nullable"></a>  
-### Nullable
+## Nullable
 
 Like all fields, if you need to store NULL, you need to add the `nullable()` method
 
@@ -97,7 +97,7 @@ public function fields(): array
 ![select nullabledark](https://moonshine-laravel.com/screenshots/select_nullable_dark.png)
 
 <a name="placeholder"></a>
-### Placeholder
+## Placeholder
 The ```placeholder()``` method allows you to set *placeholder* attribute on the field.
 
 ```php
@@ -121,7 +121,7 @@ public function fields(): array
 ```
 
 <a name="groups"></a>
-### Groups
+## Groups
 You can combine values into groups.
 
 ```php
@@ -151,7 +151,7 @@ public function fields(): array
 ![select group dark](https://moonshine-laravel.com/screenshots/select_group_dark.png)
 
 <a name="multiple"></a>
-### Selecting Multiple Values
+## Selecting Multiple Values
 To select multiple values, you need the `multiple()` method
 
 ```php
@@ -184,7 +184,7 @@ You also need to add *cast* - json or array or collection.
 ![select multiple dark.](https://moonshine-laravel.com/screenshots/select_multiple_dark.png)
 
 <a name="search"></a>
-### Search
+## Search
 If you need to add a search among values, then you need to add the `searchable()` method.
 
 ```php
@@ -213,7 +213,7 @@ public function fields(): array
 ![searchable](https://moonshine-laravel.com/screenshots/select_searchable_dark.png)
 
 <a name="async"></a>
-### Asynchronous search
+## Asynchronous search
 You can also organize an asynchronous search for the *Select* field. To do this, you need to pass *url* to the `async()` method, to which a request with a *query* search parameter will be sent.
 
 ```php
@@ -256,7 +256,7 @@ public function fields(): array
 ```
 
 <a name="update-on-preview"></a>
-### Editing in preview
+## Editing in preview
 The `updateOnPreview()` method allows you to edit the *Select* field in *preview* mode.
 
 ```php
@@ -287,7 +287,7 @@ public function fields(): array
 ```
 
 <a name="with-image"></a>
-### Values with picture
+## Values with picture
 The `optionProperties()` method allows you to add an image to a value.
 
 ```php
@@ -320,7 +320,7 @@ public function fields(): array
 ![belongs to image dark](https://moonshine-laravel.com/screenshots/belongs_to_image_dark.png)
 
 <a name="options"></a>
-### Options
+## Options
 All choices options are available to change via *data attributes*:
 
 ```php
@@ -349,7 +349,7 @@ public function fields(): array
 > For more details please contact [Choices](https://choices-js.github.io/Choices/).
 
 <a name="native"></a>
-### Native mode
+## Native mode
 
 The `native()` method disables the Choices.js library and displays select in native mode.
 

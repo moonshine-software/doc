@@ -2,7 +2,7 @@ https://moonshine-laravel.com/docs/resource/fields/fields-slug?change-moonshine-
 
 ------
 
-## Slug 
+# Slug 
 
 - [Basics](#basics)  
 - [Slug generation](#from)  

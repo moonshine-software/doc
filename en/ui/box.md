@@ -1,7 +1,7 @@
 https://moonshine-laravel.com/docs/resource/ui-components/ui-box?change-moonshine-locale=en
 
 ------
-#Box
+# Box
 
 - [Basics](#basics)
 - [Heading](#heading)

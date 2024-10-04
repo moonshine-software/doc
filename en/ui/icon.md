@@ -9,7 +9,7 @@ https://moonshine-laravel.com/docs/resource/ui-components/ui-icon?change-moonshi
 - [Customization](#customization)
 
 <a name="basics"></a>
-# Basics
+## Basics
 
  To insert icons into your custom elements, you can use the `moonshine::icon` component.
  
@@ -17,7 +17,7 @@ https://moonshine-laravel.com/docs/resource/ui-components/ui-icon?change-moonshi
 > All available [icons](https://moonshine-laravel.com/docs/resource/appearance/icons).
 
 <a name="size"></a>
-# Size
+## Size
 
 Using the `size` parameter you can set the size of the icon.
 ```php
@@ -28,7 +28,7 @@ Using the `size` parameter you can set the size of the icon.
 > The value of the `size` parameter corresponds to the dimensions in TailwindCSS.
 
 <a name="color"></a>
-# Color
+## Color
 
 ```php
 <x-moonshine::icon icon="heroicons.academic-cap" color="primary"/>
@@ -41,7 +41,7 @@ Using the `size` parameter you can set the size of the icon.
 > There are several colors available by default, but you can expand them using your own [color classes](https://moonshine-laravel.com/docs/resource/appearance/appearance-assets) TailwindCSS.
 
 <a name="customization"></a>
-# Customization
+## Customization
 
 A custom style for icons can be set using the `class` parameter.
 

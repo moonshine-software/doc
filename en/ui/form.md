@@ -23,7 +23,7 @@ https://moonshine-laravel.com/docs/resource/ui-components/ui-form?change-moonshi
 > Form components are wrappers of similar HTML elements; they can be passed all the necessary attributes.
 
 <a name="basics"></a>
-### Basics
+## Basics
 
 The *Form* component is designed to create forms.
 
@@ -95,7 +95,7 @@ The `precognitive` parameter allows you to enable the Precognition mode for the 
 ```
 
 <a name="label"></a>
-### Label
+## Label
 
 ```php
 <x-moonshine::form.label name="slug">
@@ -112,7 +112,7 @@ If a field is required, you can pass the `required` attribute to style the eleme
 ```
 
 <a name="input"></a>
-### Input
+## Input
 
 ```php
 <x-moonshine::form.input
@@ -123,7 +123,7 @@ If a field is required, you can pass the `required` attribute to style the eleme
 ```
 
 <a name="checkbox"></a>
-### Checkbox
+## Checkbox
 
 ```php
 <x-moonshine::form.label>
@@ -137,7 +137,7 @@ If a field is required, you can pass the `required` attribute to style the eleme
 ```
 
 <a name="radio"></a>
-### Radio
+## Radio
 
 ```php
 <x-moonshine::form.label>
@@ -151,7 +151,7 @@ If a field is required, you can pass the `required` attribute to style the eleme
 ```
 
 <a name="color"></a>
-### Color
+## Color
 
 ```php
 <x-moonshine::form.input
@@ -162,14 +162,14 @@ If a field is required, you can pass the `required` attribute to style the eleme
 ```
 
 <a name="button"></a>
-### Button
+## Button
 
 ```php
 <x-moonshine::form.button>Click me</x-moonshine::form.button>
 ```
 
 <a name="hint"></a>
-### Hint
+## Hint
 
 ```php
 <x-moonshine::form.hint>
@@ -178,7 +178,7 @@ If a field is required, you can pass the `required` attribute to style the eleme
 ```
 
 <a name="file"></a>
-### File
+## File
 
 ```php
 <x-moonshine::form.file name="file" />
@@ -234,7 +234,7 @@ You can pass additional parameters to the component:
 ```
 
 <a name="slide-range"></a>
-### Slide range
+## Slide range
 
 ```php
 <x-moonshine::form.slide-range
@@ -248,7 +248,7 @@ You can pass additional parameters to the component:
 ```
 
 <a name="select"></a>
-### Select
+## Select
 
 ```php
 <x-moonshine::form.select
@@ -312,7 +312,7 @@ To load values asynchronously, you need to specify the url for the `asyncRoute` 
 ```
 
 <a name="switcher"></a>
-### Switcher
+## Switcher
 
 ```php
 <x-moonshine::form.switcher
@@ -326,7 +326,7 @@ To load values asynchronously, you need to specify the url for the `asyncRoute` 
 `offValue` - inactive value
 
 <a name="textarea"></a>
-### Textarea
+## Textarea
 
 ```php
 <x-moonshine::form.textarea>

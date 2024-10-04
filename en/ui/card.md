@@ -2,7 +2,7 @@ https://moonshine-laravel.com/docs/resource/ui-components/ui-card?change-moonshi
 
 ------
 
-## Card
+# Card
 
 - [Card](#card)
 - [Basics](#basics)
@@ -10,7 +10,7 @@ https://moonshine-laravel.com/docs/resource/ui-components/ui-card?change-moonshi
 - [Image carousel](#image-carousel)
 
 <a name="basics"></a>
-### Basics
+## Basics
 
 To create cards in the admin panel, use the `moonshine::card` component.
 
@@ -37,7 +37,7 @@ To create cards in the admin panel, use the `moonshine::card` component.
 ![image_1](https://moonshine-laravel.com/images/image_1.jpg)
 
 <a name="overlay"></a>
-### Overlay mode
+## Overlay mode
 
 The `overlay` mode is available for the card.
 
@@ -65,7 +65,7 @@ The `overlay` mode is available for the card.
 ![image_1](https://moonshine-laravel.com/images/image_1.jpg)
 
 <a name="carousel"></a>
-### Image carousel
+## Image carousel
 
 To add an images carousel to a card, you can add to `thumbnail` parameter array of images.
 

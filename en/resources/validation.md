@@ -10,7 +10,7 @@ https://moonshine-laravel.com/docs/resource/models-resources/resources-validatio
    - [Preparing Input For Validation](#prepare)
 
 <a name="basics"></a>
-### Basics
+## Basics
 
 Validation is as simple as in the `FormRequests` classes provided by Laravel.
 
@@ -38,7 +38,7 @@ class PostResource extends ModelResource
 ![validation] (https://moonshine-laravel.com/screenshots/validation.png)
 
 <a name="errors"></a>
-### Displaying validation errors
+## Displaying validation errors
 
 The `$errorsAbove` resource parameter is responsible for displaying validation errors at the top of the form. The default value is `true`, which means that validation errors will be displayed.
 
@@ -62,7 +62,7 @@ class PostResource extends ModelResource
 ![errors_above_false] (https://moonshine-laravel.com/screenshots/errors_above_false.png)
 
 <a name="messages"></a>
-### Messages
+## Messages
 
 Using the `validationMessages()` method, you can create your own validation error messages.
 
@@ -87,7 +87,7 @@ class PostResource extends ModelResource
 ```
 
 <a name="prepare"></a>
-### Preparing Input For Validation
+## Preparing Input For Validation
 
 If you need to prepare or sanitize any data from the request before you apply your validation rules, you may use the `prepareForValidation()` method.
 

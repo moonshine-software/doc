@@ -43,7 +43,7 @@ To create tabs, you can use the `moonshine::tabs` component.
 ```
 
 <a name="active"></a>
-### Active tab
+## Active tab
 
 You can specify the default active tab by specifying `active`.
 

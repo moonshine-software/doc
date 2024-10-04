@@ -6,7 +6,7 @@ https://moonshine-laravel.com/docs/resource/ui-components/ui-tooltip?change-moon
   - [Without using a component](#without)
 
 <a name="basics"></a>
-### Basics
+## Basics
 
 Using the `moonshine::tooltip` component, you can create convenient tooltips.
 
@@ -34,7 +34,7 @@ Available locations:
 </div>
 
 <a name="without"></a>
-### Without using a component
+## Without using a component
 
 ```php
 <span x-data="tooltip('Tooltip content 1', {placement: 'top'})">

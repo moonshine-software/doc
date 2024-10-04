@@ -21,7 +21,7 @@ https://moonshine-laravel.com/docs/resource/advanced/advanced-commands?change-mo
 > To select the appropriate item, you must use the `space` key.
 
 <a name="install"></a>
-# Install
+## Install
 
 Command to install the **MoonShine** package in your *Laravel* project:
 
@@ -38,7 +38,7 @@ Available options:
 > For more detailed information, please refer to the section [Installation](https://moonshine-laravel.com/docs/resource/getting-started/installation).
 
 <a name="apply"></a>
-# Apply
+## Apply
 
 The command to create the apply class is:
 
@@ -49,7 +49,7 @@ php artisan moonshine:apply
 After executing the command, a file will be created in the `app/MoonShine/Applies` directory. The created class must be registered with the service provider.
 
 <a name="component"></a>
-# Component
+## Component
 
 The command creates a custom component:
 
@@ -77,7 +77,7 @@ After executing the command, a controller class will be created in the `app/Moon
 > For more detailed information, please refer to the section [Controllers](https://moonshine-laravel.com/docs/resource/advanced/advanced-controller).
 
 <a name="field"></a>
-# Field
+## Field
 
 The command allows you to create a custom field:
 
@@ -93,7 +93,7 @@ After executing the command, a field class will be created in the `app/MoonShine
 > For more detailed information, please refer to the section [Field](https://moonshine-laravel.com/docs/resource/fields/fields-index).
 
 <a name="handler"></a>
-# Handler
+## Handler
 
 The command creates a Handler class for its import and export implementations:
 
@@ -107,7 +107,7 @@ After executing the command, the handler class will be created in the directory 
 > For more detailed information, please refer to the section [Import/Export](https://moonshine-laravel.com/docs/resource/models-resources/resources-import_export).
 
 <a name="page"></a>
-# Page
+## Page
 
 The command creates a page for the admin panel:
 
@@ -121,7 +121,7 @@ After executing the command, a default page (or group of pages) will be created 
 > For more detailed information, please refer to the section [Page](https://moonshine-laravel.com/docs/resource/page/page-class).
 
 <a name="policy"></a>
-# Policy
+## Policy
 
 The command creates a *Policy* bound to the admin panel user:
 
@@ -135,7 +135,7 @@ After executing the command, a class will be created in the `app/Policies` direc
 > For more detailed information, please refer to the section [Authorization](https://moonshine-laravel.com/docs/resource/advanced/advanced-authorization).
 
 <a name="resource"></a>
-# Resource
+## Resource
 
 Command to create resources:
 
@@ -163,7 +163,7 @@ If a model resource with pages is created, additional pages will be created in t
 > For more detailed information, please refer to the section [Models Resorces](https://moonshine-laravel.com/docs/resource/models-resources/resources-index).
 
 <a name="type_cast"></a>
-# Type Cast
+## Type Cast
 
 The command creates a TypeCast class for working with data:
 
@@ -177,7 +177,7 @@ After executing the command, a file will be created in the `app/MoonShine/TypeCa
 > For more detailed information, please refer to the section [TypeCasts](https://moonshine-laravel.com/docs/resource/advanced/advanced-type_casts).
 
 <a name="user"></a>
-# User
+## User
 
 The command that allows you to create a super user:
 
@@ -192,7 +192,7 @@ Available options:
 - `--p|password=` - password.
 
 <a name="publish"></a>
-# Publish
+## Publish
 
 Command for publish:
 

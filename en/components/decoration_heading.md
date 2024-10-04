@@ -37,7 +37,7 @@ public function components(): array
 ![has_many](https://moonshine-laravel.com/screenshots/heading_dark.png)
 
 <a name="gradation"></a>
-# Gradation
+## Gradation
 
 
 ```php
@@ -75,7 +75,7 @@ public function components(): array
 ```
 
 <a name="custom-tag"></a>
-# Tag
+## Tag
 
 ```php
 tag(string $tag)

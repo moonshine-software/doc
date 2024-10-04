@@ -11,7 +11,7 @@ https://moonshine-laravel.com/docs/resource/ui-components/ui-modal?change-moonsh
 - [Asynchronous Content](#async)
 
 <a name="basics"></a>
-# Basics
+## Basics
 
 To create modal windows, the `moonshine::modal` component is used.
 

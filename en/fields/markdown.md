@@ -2,7 +2,7 @@ https://moonshine-laravel.com/docs/resource/fields/fields-markdown?change-moonsh
 
 ------
 
-## Markdown 
+# Markdown 
 
 - [Basics](#basics)  
 - [Toolbar](#toolbar)  

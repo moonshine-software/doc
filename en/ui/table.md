@@ -11,7 +11,7 @@ https://moonshine-laravel.com/docs/resource/ui-components/ui-table?change-moonsh
 - [Stylization](#styles)
 
 <a name="basics"></a>
-### Basics
+## Basics
 
 Styled tables can be created using the `moonshine::table` component.
 
@@ -29,7 +29,7 @@ Styled tables can be created using the `moonshine::table` component.
 ```
 
 <a name="simple"></a>
-### Simplified view
+## Simplified view
 
 The `simple` parameter allows you to create a simplified table view.
 
@@ -48,7 +48,7 @@ The `simple` parameter allows you to create a simplified table view.
 ```
 
 <a name="sticky"></a>
-### Sticky head
+## Sticky head
 
 If the table contains a large number of elements, then you can fix the header when scrolling the table.
 
@@ -67,7 +67,7 @@ If the table contains a large number of elements, then you can fix the header wh
 ```
 
 <a name="notfound"></a>
-### Missing elements
+## Missing elements
 
 The `notfound` parameter allows you to display a message if there are no table elements.
 
@@ -81,7 +81,7 @@ The `notfound` parameter allows you to display a message if there are no table e
 ```
 
 <a name="slots"></a>
-### Slots
+## Slots
 
 A table can be formed using slots.
 
@@ -117,7 +117,7 @@ A table can be formed using slots.
 ```
 
 <a name="styles"></a>
-### Stylization
+## Stylization
 
 To style a table, there are predefined classes that can be used for `tr` / `td`.
 

@@ -9,7 +9,7 @@ https://moonshine-laravel.com/docs/resource/ui-components/ui-toast?change-moonsh
 
 
 <a name="basics"></a>
-### Basics
+## Basics
 
 You can create notifications using the `moonshine::toast` component.
 
@@ -62,7 +62,7 @@ Available types:
 
 ```
 <a name="without"></a>
-### Without using a component
+## Without using a component
 
 You can also create a notification using the `MoonShineUi::toast()` method.
 
@@ -73,7 +73,7 @@ MoonShineUI::toast('Toast content', 'error');
 ```
 
 <a name="js"></a>
-### JS
+## JS
 
 
 ```js

@@ -2,7 +2,7 @@ https://moonshine-laravel.com/docs/resource/models-resources/resources-form?chan
 
 ------
 <a name="form"></a>
-## Form
+# Form
 
 - Form
   - [Validation](#validation)
@@ -12,7 +12,7 @@ https://moonshine-laravel.com/docs/resource/models-resources/resources-form?chan
   - [Asynchronous mode](#async)
 
 <a name="validation"></a>
-### Validation
+## Validation
 
 Validation is as easy as in the `FormRequests` classes from Laravel.
 
@@ -48,7 +48,7 @@ class PostResource extends ModelResource
 ![validation_dark](https://moonshine-laravel.com/screenshots/validation_dark.png)
 
 <a name="messages"></a>
-### Messages
+## Messages
 
 Using the `validationMessages()` method you can create your own validation error messages.
 
@@ -79,7 +79,7 @@ class PostResource extends ModelResource
 ```
 
 <a name="prepare"></a>
-### Preparing input data for verification
+## Preparing input data for verification
 
 If you need to prepare or clean up any data from the request before applying your validation rules, you can use the `prepareForValidation()` method.
 
@@ -114,7 +114,7 @@ class PostResource extends ModelResource
 ```
 
 <a name="buttons"></a>
-### Buttons
+## Buttons
 
 To add buttons, use ActionButton and the `FormButtons` or `buttons` methods in the resource.
 
@@ -142,7 +142,7 @@ public function buttons(): array
 ```
 
 <a name="async"></a>
-### Asynchronous mode
+## Asynchronous mode
 
 Switch mode without reboot to save data.
 

@@ -16,7 +16,7 @@ https://moonshine-laravel.com/docs/resource/models-resources/resources-table?cha
   - [Modify](#modify)
 
 <a name="properties"></a>
-### Properties
+## Properties
 
 ```php
 namespace App\MoonShine\Resources;
@@ -38,7 +38,7 @@ class PostResource extends ModelResource
 
 
 <a name="buttons"></a>
-### Buttons
+## Buttons
 
 To add buttons to the table, use `ActionButton` and the `indexButtons` or `buttons` methods in the resource
 
@@ -80,7 +80,7 @@ public function buttons(): array
 ```
 
 <a name="attributes"></a>
-### Attributes
+## Attributes
 
 Through model resources, it is possible to customize the data table `tr` and `td`.
 To do this, you must use the appropriate `trAttributes()` and `tdAttributes()` methods, which need to pass a closure that returns attributes for the table component.
@@ -139,11 +139,12 @@ class PostResource extends ModelResource
 
     //...
 }
+```
 
 ![img](https://moonshine-laravel.com/screenshots/table_class_dark.png)
 
 <a name="click"></a>
-### Click Actions
+## Click Actions
 
 By default, nothing will happen when clicking tr, but you can change the behavior to go to edit, select or go to detailed view
 
@@ -155,7 +156,7 @@ By default, nothing will happen when clicking tr, but you can change the behavio
 ```
 
 <a name="sticky-table"></a>
-### Sticky table header
+## Sticky table header
 
 The `stickyTable` model resource property allows you to fix the header when scrolling a table with a large number of elements.
 
@@ -177,7 +178,7 @@ class PostResource extends ModelResource
 ```
 
 <a name="simple-pagination"></a>
-### Simple pagination
+## Simple pagination
 
 If you don't plan to display the total number of pages, use `Simple Pagination`. This will avoid additional queries for the total number of records in the database.
 
@@ -202,7 +203,7 @@ class PostResource extends ModelResource
 ![img] (https://moonshine-laravel.com/screenshots/resource_simple_paginate_dark.png)
 
 <a name="disable-pagination"></a>
-### Disabling pagination
+## Disabling pagination
 
 If you don't plan to use pagination, you can turn it off.
 
@@ -225,7 +226,7 @@ class PostResource extends ModelResource
 ```
 
 <a name="async"></a>
-### Asynchronous mode
+## Asynchronous mode
 
 Switching mode without reboot for filtering, sorting, and pagination.
 
@@ -248,7 +249,7 @@ class PostResource extends ModelResource
 ```
 
 <a name="update-row"></a>
-### Updating a row
+## Updating a row
 
 You can update a row of a table asynchronously; to do this, you need to trigger the event:
 
@@ -325,7 +326,7 @@ TableBuilder::make()
 ```
 
 <a name="column-display"></a>
-### Column display
+## Column display
 
 You can let users decide which columns to display in the table, saving the choice. To do this, you need to set the resource parameter `$columnSelection`.
 
@@ -387,7 +388,7 @@ class PostResource extends ModelResource
 ```
 
 <a name="modify"></a>
-### Modify
+## Modify
 
 You can replace `thead` or `tbody` or `tfoot`, and also add elements to the table in `tbody` before and after the first row.
 

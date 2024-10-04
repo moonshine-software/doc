@@ -2,13 +2,13 @@ https://moonshine-laravel.com/docs/resource/ui-components/ui-thumbnail?change-mo
 
 ------
 
-## Thumbnail 
+# Thumbnail 
 
 -[Basics](#basics)
 -[Group of images](#multiple)
 
 <a name="basics"></a>
-# Basics
+## Basics
  
 To create thumbnails, you can use the `moonshine::thumbnails` component.
 
@@ -25,7 +25,7 @@ You can also specify the `alt` attribute.
 ```
 
 <a name="multiple"></a>
-# Group of images
+## Group of images
 
 You can pass an array of images to the component.
 

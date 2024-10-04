@@ -10,7 +10,7 @@ Extends [Text](https://moonshine-laravel.com/docs/resource/fields/fields-text)
 * has the same features
 
 <a name="basics"></a>
-### Basics
+## Basics
 
 The *Url* field is an extension of *Text*, which by default sets `type=url`.
 
@@ -30,7 +30,7 @@ public function fields(): array
 ```
 
 <a name="title"></a>
-### Title
+## Title
 
 The `title()` method allows you to set the title of the link.
 
@@ -48,7 +48,7 @@ Url::make('Link')
 ```
 
 <a name="blank"></a>
-### Blank
+## Blank
 
 The `blank()` method allows you to open a link in a new window.
 

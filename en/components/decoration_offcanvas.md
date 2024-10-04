@@ -2,7 +2,7 @@ https://moonshine-laravel.com/docs/resource/components/components-decoration_off
 
 ------
 
-## Decoration Offcanvas
+# Decoration Offcanvas
 
   - [Make](#make)
   - [Events](#events)

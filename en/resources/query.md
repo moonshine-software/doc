@@ -9,7 +9,7 @@ https://moonshine-laravel.com/docs/resource/models-resources/resources-query?cha
 - [Sorting](#sorting)
 
 <a name="request"></a>
-### Request
+## Request
 
 It is often necessary to initially change the resource's queries all to the database.
 You can easily override *query builder* in a resource.
@@ -40,7 +40,7 @@ class PostResource extends ModelResource
 ```
 
 <a name="receiving-a-record"></a>
-### Receiving a record
+## Receiving a record
 
 The `resolveItemQuery()` method is used, if you need to change the query to get a record from the database.
 
@@ -70,7 +70,7 @@ class PostResource extends ModelResource
 ```
 
 <a name="search"></a>
-### Search
+## Search
 
 The `searchQuery()` method allows you to change the query when searching for records.
 
@@ -101,7 +101,7 @@ class PostResource extends ModelResource
 ```
 
 <a name="sorting"></a>
-### Sorting
+## Sorting
 
 By overriding the `resolveOrder()` method, you can customize the records sorting.
 

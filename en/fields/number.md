@@ -1,7 +1,7 @@
 https://moonshine-laravel.com/docs/resource/fields/fields-number?change-moonshine-locale=en
 
 ------
-#Number
+# Number
 
 -[Make](#make)
 -[Default value](#default)
