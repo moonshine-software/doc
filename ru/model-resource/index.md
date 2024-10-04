@@ -1,9 +1,7 @@
 # TODO (WIP)
 
 - [x] onBoot/onLoad с кейсами
-- [ ] alias (uriKey)
-- [ ] thead,tfoot,tbody
-- [ ] cursorPaginate
+- [x] alias (uriKey)
 - [ ] CrudResource
 
 # Основы
@@ -13,6 +11,7 @@
 - [Базовые свойства](#basic-section-properties)
 - [Объявление в системе](#declaring-a-section-in-the-system)
 - [Добавление в меню](#declaring-a-section-in-the-menu)
+    - [Alias](#alias)
 - [Текущий элемент/модель](#current-element-model)
 - [Модальные окна](#modal-windows)
 - [Редиректы](#redirects)
@@ -22,6 +21,8 @@
 - [Модификаторы](#modifiers)
 - [Компоненты](#components)
 - [Жизненный цикл](#lifecycle)
+    - [Активный ресурс](#on-load)
+    - [Создание экземпляра](#on-boot)
 
 <a name="basics"></a>
 ## Основы
@@ -190,6 +191,46 @@ final class MoonShineLayout extends CompactLayout
 
 > [!TIP]
 > О расширенных настройках `MenuManager` можно узнать в разделе [Menu](/docs/3.x/appearance/menu).
+
+<a name="alias"></a>
+### Alias
+
+По умолчанию alias ресурса который используется в `url` генерируется на основе наименования класс в `kebab-case`.
+Пример:
+`MoonShineUserResource` - `moon-shine-user-resource`
+
+Для того чтобы изменить `alias` можно воспользоваться свойство ресурса `$alias` или метод `getUriKey`
+
+```php
+namespace App\MoonShine\Resources;
+
+use App\Models\Post;
+use MoonShine\Laravel\Resources\ModelResource;
+
+class PostResource extends ModelResource
+{
+    //...
+    protected ?string $alias = 'custom-alias';
+    //...
+}
+```
+
+или
+
+```php
+namespace App\MoonShine\Resources;
+
+use App\Models\Post;
+use MoonShine\Laravel\Resources\ModelResource;
+
+class PostResource extends ModelResource
+{
+    public function getUriKey(): string
+    {
+        return 'custom-alias';
+    }
+}
+```
 
 <a name="current-element-model"></a>
 ## Текущий элемент/модель
@@ -399,6 +440,7 @@ protected function pageComponents(): array
 
 `Resource` имеет несколько различных методов подключения к различным частям своего жизненного цикла. Давайте пройдемся по ним:
 
+<a name="on-load"></a>
 ### Активный ресурс
 
 Метод `onLoad` дает возможность интегривоваться в момент когда ресурс загружен и в данный момент является активным
@@ -456,9 +498,10 @@ trait WithPermissions
 }
 ```
 
+<a name="on-boot"></a>
 ### Создание экземпляра
 
-Метод `onBott` дает возможность интегривоваться в момент когда MoonShine создает экземпляр ресурса в системе
+Метод `onBoot` дает возможность интегривоваться в момент когда MoonShine создает экземпляр ресурса в системе
 
 ```php
 namespace App\MoonShine\Resources;
