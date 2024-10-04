@@ -169,7 +169,7 @@ Text::make('Домен', 'domain')
 <a name="preview-edit"></a>
 ### Редактирование в режиме preview
 
-Данному полю доступно [редактирование в режиме preview](https://github.com/moonshine-software/doc/blob/3.x/ru/fields/basic-methods.md#preview-edit).
+Данному полю доступно [редактирование в режиме preview](/docs/{{version}}/fields/basic-methods.md#preview-edit).
 
 > [!NOTE]
 > Если вы хотите избежать ошибок ввода, можете использовать расширение [Замок](#locked).
