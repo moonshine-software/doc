@@ -773,10 +773,10 @@ Enum::make('Status')
 <a name="preview-edit"></a>
 ## Редактирование в режиме preview
 
-Поля в режиме preview, например, если они отображаются в таблице (если у таблицы не включен режим editable), нельзя изменять. Но для некоторых полей можно использовать специальные методы, которые позволяют редактировать их в данном режиме.
-
 > [!NOTE]
 > Редактирование в режиме preview доступно для полей `Text`, `Number`, `Checkbox`, `Select`, `Date`
+
+Для редактирования полей в режиме preview, например в таблице или в любом другом `IterableComponent`, существуют следующие методы.
 
 ### updateOnPreview
 
@@ -836,6 +836,9 @@ public function updateInPopover(string $component)
 ```php
 Text::make('Name')->updateInPopover('index-table-post-resource')
 ```
+
+> [!NOTE]
+> Методы `updateOnPreview`, `withUpdateRow`, `updateInPopover` формируют нужные endpoints и передают методу `setUpdateOnPreviewUrl()`, который работает с [onChangeUrl()](#onchangeurl)
 
 <a name="assets"></a>
 ## Ассеты
