@@ -17,6 +17,10 @@
     - [Text](/docs/{{version}}/fields/text)
     - [Hidden](/docs/{{version}}/fields/hidden)
     - [ID](/docs/{{version}}/fields/id)
+    - [Email](/docs/{{version}}/fields/email)
+    - [Phone](/docs/{{version}}/fields/phone)
+    - [Password](/docs/{{version}}/fields/password)
+    - [Number](/docs/{{version}}/fields/number)
     - [Json](/docs/{{version}}/fields/json)
 - ## Components
     - Basics
