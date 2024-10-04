@@ -105,4 +105,4 @@ Slug::make('Slug')
 ```
 
 > [!NOTE]
-> Динамичность основано на [реактивности полей](/docs/{{version}}/fields/basic-methods.md#reactive).
+> Динамичность основана на [реактивности полей](/docs/{{version}}/fields/basic-methods.md#reactive).
