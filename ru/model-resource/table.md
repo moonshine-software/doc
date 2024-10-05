@@ -1,6 +1,3 @@
-- [ ] thead,tfoot,tbody
-- [ ] cursorPaginate
-- [ ] protected int $itemsPerPage = 25; // Number of elements per page
 # Таблицы
   - [Основы](#basics)
   - [Сортировка](#order-by)
@@ -103,84 +100,58 @@ protected function indexButtons(): ListOf
 > [!TIP]
 > Пример создания кастомных кнопок у индексной таблицы в разделе [Рецепты](/docs/{{version}}/recipes/index#custom-buttons)
 
-For bulk actions you need to add the `bulk` method
+Для массовых действий необходимо добавить метод `bulk`
 
 ```php
-public function indexButtons(): array
+protected function customIndexButtons(): ListOf
 {
-    return [
-        ActionButton::make('Link', '/endpoint')->bulk(),
-    ];
-}
-```
-
-You can also use the `buttons` method, but in this case the buttons will be on all other pages of the resource
-
-```php
-public function buttons(): array
-{
-    return [
-        ActionButton::make('Link', '/endpoint'),
-    ];
+   return parent::customIndexButtons()->add(ActionButton::make('Link', '/endpoint')->bulk());
 }
 ```
 
 <a name="attributes"></a>
-## Attributes
+## Атрибуты
 
-Through model resources, it is possible to customize the data table `tr` and `td`.
-To do this, you must use the appropriate `trAttributes()` and `tdAttributes()` methods, which need to pass a closure that returns attributes for the table component.
+Чтобы добавить атрибуты для `td` элемента таблицы, можно воспользоваться методом `customWrapperAttributes` у поля которое представляет нужную вам ячейку
+
+```php
+protected function indexFields(): iterable
+{
+  return [
+    // ..
+    Text::make('Title')->customWrapperAttributes(['width' => '20%])m
+    // ..
+  ];
+}
+```
+
+Также есть возможность возможность кастомизировать `tr` и `td` у таблицы с данными через ресурс.
+Для это необходимо использовать соответствующие методы `trAttributes()` и `tdAttributes()`, которым нужно передать замыкание, возвращающее массив атрибутов для компонента таблица.
 
 ```php
 namespace App\MoonShine\Resources;
 
 use App\Models\Post;
 use Closure;
-use Illuminate\View\ComponentAttributeBag;
-use MoonShine\Fields\Text;
-use MoonShine\Resources\ModelResource;
+use MoonShine\UI\Fields\Text;
+use MoonShine\Laravel\Resources\ModelResource;
 
 class PostResource extends ModelResource
 {
-    protected string $model = Post::class;
-
-    protected string $title = 'Posts';
-
     //...
 
-    public function trAttributes(): Closure
+    protected function tdAttributes(): Closure
     {
-        return function (
-            Model $item,
-            int $row,
-            ComponentAttributeBag $attr
-        ): ComponentAttributeBag {
-            if ($item->id === 1 | $row === 2) {
-                $attr->setAttributes([
-                    'class' => 'bgc-green'
-                ]);
-            }
-
-            return $attr;
-        };
+        return fn(Model $data, int $row, int $cell) => [
+            'width' => '20%
+        ];
     }
 
-    public function tdAttributes(): Closure
+    protected function trAttributes(): Closure
     {
-        return function (
-            Model $item,
-            int $row,
-            int $cell,
-            ComponentAttributeBag $attr = null
-        ): ComponentAttributeBag {
-            if ($cell === 6) {
-                $attr->setAttributes([
-                    'class' => 'bgc-red'
-                ]);
-            }
-
-            return $attr;
-        };
+        return fn(Model $data, int $row) => [
+            'data-tr' => $row
+        ];
     }
 
     //...
@@ -190,26 +161,25 @@ class PostResource extends ModelResource
 ![img](https://moonshine-laravel.com/screenshots/table_class_dark.png)
 
 <a name="click"></a>
-## Click Actions
+## Действия по клику
 
-By default, nothing will happen when clicking tr, but you can change the behavior to go to edit, select or go to detailed view
+По умолчанию на клик по `tr` ничего не произойдет, но можно изменить поведение на переход в редактирование, выбор или переход к детальному просмотру
 
 ```php
-// Resource property
     // ClickAction::SELECT, ClickAction::DETAIL, ClickAction::EDIT
 
     protected ?ClickAction $clickAction = ClickAction::SELECT;
 ```
 
 <a name="sticky-table"></a>
-## Sticky table header
+## Фиксированная шапка таблицы
 
-The `stickyTable` model resource property allows you to fix the header when scrolling a table with a large number of elements.
+Свойство ресурса модели `stickyTable` позволяет зафиксировать шапку при прокрутке таблицы с большим числом элементов.
 
 ```php
 namespace App\MoonShine\Resources;
 
-use MoonShine\Resources\ModelResource;
+use MoonShine\Laravle\Resources\ModelResource;
 
 class PostResource extends ModelResource
 {
@@ -223,22 +193,124 @@ class PostResource extends ModelResource
 }
 ```
 
-<a name="simple-pagination"></a>
-## Simple pagination
+<a name="column-display"></a>
+## Отображение колонок
 
-If you don't plan to display the total number of pages, use `Simple Pagination`. This will avoid additional queries for the total number of records in the database.
+Можно предоставить пользователям самостоятельно определять какие колонки отображать в таблице, с сохранением выбора. Для этого необходимо у ресурса задать параметр `$columnSelection`.
 
-```php
+```
 namespace App\MoonShine\Resources;
 
 use App\Models\Post;
-use MoonShine\Resources\ModelResource;
+use MoonShine\Laravel\Resources\ModelResource;
 
 class PostResource extends ModelResource
 {
     protected string $model = Post::class;
 
     protected string $title = 'Posts';
+
+    protected bool $columnSelection = true;
+
+    //...
+}
+```
+
+Если необходимо исключить поля из выбора, то воспользуйтесь методом `columnSelection()`.
+
+```php
+public function columnSelection(bool $active = true)
+```
+
+```php
+namespace App\MoonShine\Resources;
+
+use App\Models\Post;
+use MoonShine\UI\Fields\ID;
+use MoonShine\UI\Fields\Text;
+use MoonShine\UI\Fields\Textarea;
+use MoonShine\Laravel\Resources\ModelResource;
+
+class PostResource extends ModelResource
+{
+    protected string $model = Post::class;
+
+    protected string $title = 'Posts';
+
+    protected bool $columnSelection = true;
+
+    //...
+
+    protected function indexFields(): iterable
+    {
+        return [
+            ID::make()
+                ->columnSelection(false),
+            Text::make('Title'),
+            Textarea::make('Body'),
+        ];
+    }
+
+    //...
+}
+```
+
+<a name="pagination"></a>
+## Пагинация
+
+Для изменения количества элементов на странице воспользуйтесь свойством `$itemsPerPage`
+
+```php
+namespace App\MoonShine\Resources;
+
+use App\Models\Post;
+use MoonShine\Laravel\Resources\ModelResource;
+
+class PostResource extends ModelResource
+{
+    // ..
+
+    protected int $itemsPerPage = 25;
+
+    //...
+}
+```
+
+<a name="cursor-pagination"></a>
+### Курсорная
+
+При большом объеме данных наилучшим решение будет использовать курсорную пагинацию
+
+```php
+namespace App\MoonShine\Resources;
+
+use App\Models\Post;
+use MoonShine\Laravel\Resources\ModelResource;
+
+class PostResource extends ModelResource
+{
+    // ..
+
+    protected bool $cursorPaginate = true;
+
+    //...
+}
+```
+
+<a name="simple-pagination"></a>
+### Упрощенная
+
+Если вы не планируете отображать общее количество страниц, воспользуйтесь `Simple Pagination`. Это позволит избежать дополнительных запросов на общее количество записей в базе данных.
+
+```php
+namespace App\MoonShine\Resources;
+
+use App\Models\Post;
+use MoonShine\Laravel\Resources\ModelResource;
+
+class PostResource extends ModelResource
+{
+    // ...
 
     protected bool $simplePaginate = true;
 
@@ -249,21 +321,19 @@ class PostResource extends ModelResource
 ![img] (https://moonshine-laravel.com/screenshots/resource_simple_paginate_dark.png)
 
 <a name="disable-pagination"></a>
-## Disabling pagination
+### Отключение пагинации
 
-If you don't plan to use pagination, you can turn it off.
+Если вы не планируете использовать разбиение на страницы, то его можно отключить.
 
 ```php
 namespace App\MoonShine\Resources;
 
 use App\Models\Post;
-use MoonShine\Resources\ModelResource;
+use MoonShine\Laravel\Resources\ModelResource;
 
 class PostResource extends ModelResource
 {
-    protected string $model = Post::class;
-
-    protected string $title = 'Posts';
+    // ...
 
     protected bool $usePagination = false;
 
@@ -272,73 +342,63 @@ class PostResource extends ModelResource
 ```
 
 <a name="async"></a>
-## Asynchronous mode
+## Асинхронный режим
 
-Switching mode without reboot for filtering, sorting, and pagination.
+В ресурсе асинхронный режим используется по умолчанию. Такой режим дает возможность использовать пагинацию, фильтрацию и сортировку без перезагрузки страницы, но если вы хотите отключить асинхронный режим, то воспользуйтесь свойством `$isAsync`
 
 ```php
 namespace App\MoonShine\Resources;
 
 use App\Models\Post;
-use MoonShine\Resources\ModelResource;
+use MoonShine\Laravel\Resources\ModelResource;
 
 class PostResource extends ModelResource
 {
-    protected string $model = Post::class;
+    // ...
 
-    protected string $title = 'Posts';
-
-    protected bool $isAsync = true;
+    protected bool $isAsync = false;
 
     // ...
 }
 ```
 
 <a name="update-row"></a>
-## Updating a row
+### Updating a row
 
-You can update a row of a table asynchronously; to do this, you need to trigger the event:
+У таблицы можно асинхронно обновить ряд, для этого необходимо вызвать событие:
 
 ```php
-table-row-updated-{{componentName}}-{{row-key}}
+table-row-updated-{{componentName}}-{{row-id}}
 ```
--`{{componentName}}` - name of the component;
--`{{row-key}}` - row key.
 
-To add an event, you can use the helper class:
+- `{{componentName}}` - название компонента;
+- `{{row-id}}` - ключ элемента ряда
+
+Для добавления события можно воспользоваться классом-помощником:
 
 ```php
 AlpineJs::event(JsEvent::TABLE_ROW_UPDATED, 'main-table-{row-id}')
 ```
 
--`{row-id}` - shortcode for the id of the current model record.
-
-> [!WARNING] 
-> The presence of the ID field and asynchronous mode are required.
+- `{row-id}` - shortcode для id текущей записи модели.
 
 ```php
 namespace App\MoonShine\Resources;
 
 use App\Models\Post;
-use MoonShine\Enums\JsEvent;
-use MoonShine\Fields\ID;
-use MoonShine\Fields\Switcher;
-use MoonShine\Fields\Text;
-use MoonShine\Fields\Textarea;
-use MoonShine\Resources\ModelResource;
+use MoonShine\Support\Enums\JsEvent;
+use MoonShine\UI\Fields\ID;
+use MoonShine\UI\Fields\Switcher;
+use MoonShine\UI\Fields\Text;
+use MoonShine\UI\Fields\Textarea;
+use MoonShine\Laravel\Resources\ModelResource;
 use MoonShine\Support\AlpineJs;
 
 class PostResource extends ModelResource
 {
-    protected string $model = Post::class;
-
-    protected string $title = 'Posts';
-
-    protected bool $isAsync = true;
-
     //...
 
-    public function fields(): array
+    protected function fields(): iterable
     {
         return [
             ID::make(),
@@ -355,77 +415,30 @@ class PostResource extends ModelResource
 }
 ```
 
-The `withUpdateRow()` method is also available to help simplify event assignment:
-
-```php
-TableBuilder::make()
-    ->fields([
-        ID::make()->sortable(),
-        Text::make('Title'),
-        Textarea::make('Body'),
-        Switcher::make('Active')
-            ->withUpdateRow('main-table')
-    ])
-    ->items($this->fetch())
-    ->name('main-table')
-    ->async(),
-```
-
-<a name="column-display"></a>
-## Column display
-
-You can let users decide which columns to display in the table, saving the choice. To do this, you need to set the resource parameter `$columnSelection`.
-
-```
-namespace App\MoonShine\Resources;
-
-use App\Models\Post;
-use MoonShine\Resources\ModelResource;
-
-class PostResource extends ModelResource
-{
-    protected string $model = Post::class;
-
-    protected string $title = 'Posts';
-
-    protected bool $columnSelection = true;
-
-    //...
-}
-```
-
-If you need to exclude fields from selection, use the `columnSelection()` method.
-
-```php
-public function columnSelection(bool $active = true)
-```
+Также доступен метод `withUpdateRow()`, который помогает упростить назначение событий:
 
 ```php
 namespace App\MoonShine\Resources;
 
 use App\Models\Post;
-use MoonShine\Fields\ID;
-use MoonShine\Fields\Text;
-use MoonShine\Fields\Textarea;
-use MoonShine\Resources\ModelResource;
+use MoonShine\UI\Fields\ID;
+use MoonShine\UI\Fields\Switcher;
+use MoonShine\UI\Fields\Text;
+use MoonShine\UI\Fields\Textarea;
+use MoonShine\Laravel\Resources\ModelResource;
 
 class PostResource extends ModelResource
 {
-    protected string $model = Post::class;
-
-    protected string $title = 'Posts';
-
-    protected bool $columnSelection = true;
-
     //...
 
-    public function fields(): array
+    protected function fields(): iterable
     {
         return [
-            ID::make()
-                ->columnSelection(false),
+            ID::make(),
             Text::make('Title'),
             Textarea::make('Body'),
+            Switcher::make('Active')
+                ->withUpdateRow($this->getListComponentName())
         ];
     }
 
