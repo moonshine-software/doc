@@ -1,11 +1,3 @@
-# TODO (WIP)
-
-- [ ] onBoot/onLoad с кейсами
-- [ ] alias (uriKey)
-- [ ] thead,tfoot,tbody
-- [ ] cursorPaginate
-- [ ] CrudResource
-
 # Основы
 
 - [Основы](#basics)
@@ -13,14 +5,18 @@
 - [Базовые свойства](#basic-section-properties)
 - [Объявление в системе](#declaring-a-section-in-the-system)
 - [Добавление в меню](#declaring-a-section-in-the-menu)
-- [Current element/model](#current-elementmodel)
-- [Modal windows](#modal-windows)
-- [Redirects](#redirects)
-- [Active actions](#active-actions)
-- [Buttons](#buttons)
-- [Modification](#modification)
-- [Components](#components)
-- [Boot](#boot)
+    - [Alias](#alias)
+- [Текущий элемент/модель](#current-element-model)
+- [Модальные окна](#modal-windows)
+- [Редиректы](#redirects)
+- [Активные действия](#active-actions)
+- [Кнопки](#buttons)
+    - [Отображение](#display)
+- [Модификаторы](#modifiers)
+- [Компоненты](#components)
+- [Жизненный цикл](#lifecycle)
+    - [Активный ресурс](#on-load)
+    - [Создание экземпляра](#on-boot)
 
 <a name="basics"></a>
 ## Основы
@@ -190,31 +186,71 @@ final class MoonShineLayout extends CompactLayout
 > [!TIP]
 > О расширенных настройках `MenuManager` можно узнать в разделе [Menu](/docs/3.x/appearance/menu).
 
-<a name="current-elementmodel"></a>
-## Current element/model
+<a name="alias"></a>
+### Alias
 
-If the url of the detail page or editing page contains the `resourceItem` parameter, then in a resource you can access the current item through the `getItem()` method.
+По умолчанию alias ресурса который используется в `url` генерируется на основе наименования класс в `kebab-case`.
+Пример:
+`MoonShineUserResource` - `moon-shine-user-resource`
+
+Для того чтобы изменить `alias` можно воспользоваться свойство ресурса `$alias` или метод `getUriKey`
+
+```php
+namespace App\MoonShine\Resources;
+
+use App\Models\Post;
+use MoonShine\Laravel\Resources\ModelResource;
+
+class PostResource extends ModelResource
+{
+    //...
+    protected ?string $alias = 'custom-alias';
+    //...
+}
+```
+
+или
+
+```php
+namespace App\MoonShine\Resources;
+
+use App\Models\Post;
+use MoonShine\Laravel\Resources\ModelResource;
+
+class PostResource extends ModelResource
+{
+    public function getUriKey(): string
+    {
+        return 'custom-alias';
+    }
+}
+```
+
+<a name="current-element-model"></a>
+## Текущий элемент/модель
+
+Если в `url` детальной страницы или страницы редактирования присутствует параметр `resourceItem`, то в ресурсе вы можете получить доступ к текущему элементу через метод `getItem()`.
 
 ```php
 $this->getItem();
 ```
 
-You can access the model through the `getModel()` method.
+Через метод `getModel()` можно получить доступ к модели.
 
 ```php
 $this->getModel();
 ```
 
 <a name="modal-windows"></a>
-## Modal windows
+## Модальные окна
 
-Ability to add, edit and view entries directly on the list page in a modal window.
+Возможность добавлять, редактировать и просматривать записи прямо на странице со списком в модальном окне.
 
 ```php
 namespace App\MoonShine\Resources;
 
 use App\Models\Post;
-use MoonShine\Resources\ModelResource;
+use MoonShine\Laravel\Resources\ModelResource;
 
 class PostResource extends ModelResource
 {
@@ -233,42 +269,48 @@ class PostResource extends ModelResource
 ```
 
 <a name="redirects"></a>
-## Redirects
+## Редиректы
 
-By default, when creating and editing a record, a redirect is made to the page with the form, but this behaviour can be controlled.
+По умолчанию при создании и редактировании записи осуществляется редирект на страницу с формой, но это поведение можно контролировать.
 
 ```php
-// Via a property in a resource
+// Через свойство в ресурсе
 protected ?PageType $redirectAfterSave = PageType::FORM;
 
-// or through methods (redirect after deletion is also available)
+// или через методы (также доступен редирект после удаления)
 
-public function redirectAfterSave(): string
+public function getRedirectAfterSave(): string
 {
     return '/';
 }
 
-public function redirectAfterDelete(): string
+public function getRedirectAfterDelete(): string
 {
-    return to_page(CustomPage::class);
+    return $this->getIndexPageUrl();
 }
 ```
 
 <a name="active-actions"></a>
-## Active actions
+## Активные действия
 
-It often happens that it is necessary to create a resource in which the ability to delete will be excluded, or add or edit. In addition, here we are not talking about authorization, but about the global exclusion of these sections. This is done extremely simply using the `getActiveActions` method in the resource.
+Часто бывает, что необходимо создать ресурс, в котором будет исключена возможность удалять, или добавлять, или редактировать. И здесь речь не об авторизации, а о глобальном исключении этих разделов. Делается это крайне просто за счет метода `getActiveActions` в ресурсе
 
 ```php
-namespace MoonShine\Resources;
+namespace App\MoonShine\Resources;
+
+use MoonShine\Support\ListOf;
+use MoonShine\Laravel\Enums\Action;
 
 class PostResource extends ModelResource
 {
     //...
 
-    public function getActiveActions(): array
+    protected function activeActions(): ListOf
     {
-        return ['create', 'view', 'update', 'delete', 'massDelete'];
+        return parent::activeActions()
+            ->except(Action::VIEW, Action::MASS_DELETE)
+            // ->only(Action::VIEW)
+        ;
     }
 
     //...
@@ -276,48 +318,50 @@ class PostResource extends ModelResource
 ```
 
 <a name="buttons"></a>
-## Buttons
+## Кнопки
 
-By default, the model resource index page only has a button to create.  
-The `actions()` method allows you to add additional [buttons](https://moonshine-laravel.com/docs/resource/actionbutton/action_button).
+По умолчанию на индексной странице ресурса модели присутствует только кнопка для создания.
+Метод `actions()` позволяет добавить дополнительные [кнопки](/docs/{{version}}/action-button/index).
 
 ```php
-namespace MoonShine\Resources;
+namespace App\MoonShine\Resources;
 
 class PostResource extends ModelResource
 {
     //...
 
-    public function actions(): array
+    protected function topButtons(): ListOf
     {
-        return [
+        return parent::topButtons()->add(
             ActionButton::make('Refresh', '#')
-                ->dispatchEvent(AlpineJs::event(JsEvent::TABLE_UPDATED, 'index-table'))
-        ];
+                ->dispatchEvent(AlpineJs::event(JsEvent::TABLE_UPDATED, $this->getListComponentName()))
+        );
     }
 
     //...
 }
 ```
-#### Display
 
-You can also change the display of the buttons, display them in a line or in a drop-down menu to save space.
+<a name="display"></a>
+#### Отображение
+
+Вы также можете изменить отображение кнопок, отображать их в линию или же в выпадающем меню для экономии места.
 
 ```php
-namespace MoonShine\Resources;
+namespace App\MoonShine\Resources;
 
 class PostResource extends ModelResource
 {
     //...
 
-    public function actions(): array
+    protected function indexButtons(): ListOf
     {
-        return [
+        return parent::indexButtons()->prepend(
             ActionButton::make('Button 1', '/')
                 ->showInLine(),
             ActionButton::make('Button 2', '/')
                 ->showInDropdown()
-        ];
+        );
     }
 
     //...
@@ -325,13 +369,13 @@ class PostResource extends ModelResource
 ```
 
 
-<a name="modification"></a>
-## Modification
+<a name="modifiers"></a>
+## Модификаторы
 
-To modify the main **IndexPage**, **FormPage** or **DetailPage** component pages from a resource, you can override the corresponding `modifyListComponent()`, `modifyFormComponent()` and `modifyDetailComponent()` methods.
+Для модификации основного компонента `IndexPage`, `FormPage` или `DetailPage` страницы из ресурса можно переопределить соответствующие методы `modifyListComponent()`, `modifyFormComponent()` и `modifyDetailComponent()`.
 
 ```php
-public function modifyListComponent(MoonShineRenderable $component): MoonShineRenderable
+public function modifyListComponent(ComponentContract $component): ComponentContract
 {
     return parent::modifyListComponent($component)->customAttributes([
         'data-my-attr' => 'value'
@@ -340,7 +384,7 @@ public function modifyListComponent(MoonShineRenderable $component): MoonShineRe
 ```
 
 ```php
-public function modifyFormComponent(MoonShineRenderable $component): MoonShineRenderable
+public function modifyFormComponent(ComponentContract $component): ComponentContract
 {
     return parent::modifyFormComponent($component)->fields([
         FlexibleRender::make('Top'),
@@ -351,7 +395,7 @@ public function modifyFormComponent(MoonShineRenderable $component): MoonShineRe
 ```
 
 ```php
-public function modifyDetailComponent(MoonShineRenderable $component): MoonShineRenderable
+public function modifyDetailComponent(ComponentContract $component): ComponentContract
 {
     return parent::modifyDetailComponent($component)->customAttributes([
         'data-my-attr' => 'value'
@@ -360,13 +404,13 @@ public function modifyDetailComponent(MoonShineRenderable $component): MoonShine
 ```
 
 <a name="components"></a>
-## Components
+## Компоненты
 
-The best way to change page components is to publish the pages and interact through them, but if you want to quickly add components to pages, then you can use the methods of the `pageComponents` resource, `indexPageComponents`, `formPageComponents`, `detailPageComponents`.
+Лучший способ изменять компоненты страниц это опубликовать страницы и взаимодействовать через них, но если вы хотите быстро добавить компоненты на страницы, то можете воспользоваться методами ресурса `pageComponents`, `indexPageComponents`, `formPageComponents`, `detailPageComponents`
 
 ```php
 // or indexPageComponents/formPageComponents/detailPageComponents
-public function pageComponents(): array
+protected function pageComponents(): array
 {
     return [
         Modal::make(
@@ -383,23 +427,28 @@ public function pageComponents(): array
 ```
 
 > [!TIP]
-> The components will be added to the `bottomLayer`
+> Компоненты будут добавлены в `bottomLayer`
 
-<a name="boot"></a>
-## Boot
+<a name="lifecycle"></a>
+## Жизненный цикл
 
-If you need to add logic to a resource operation when it is active and loaded, then use the `onBoot` method.
+`Resource` имеет несколько различных методов подключения к различным частям своего жизненного цикла. Давайте пройдемся по ним:
+
+<a name="on-load"></a>
+### Активный ресурс
+
+Метод `onLoad` дает возможность интегривоваться в момент когда ресурс загружен и в данный момент является активным
 
 ```php
 namespace App\MoonShine\Resources;
 
 use App\Models\Post;
-use MoonShine\Resources\ModelResource;
+use MoonShine\Laravel\Resources\ModelResource;
 
 class PostResource extends ModelResource
 {
     // ...
-    protected function onBoot(): void
+    protected function onLoad(): void
     {
         //
     }
@@ -408,15 +457,15 @@ class PostResource extends ModelResource
 ```
 
 > [!TIP]
-> Recipe: [Changing breadcrumbs from a resource](https://moonshine-laravel.com/docs/resource/recipes/recipes#custom-breadcrumbs).
+> Рецепт: [Изменение breadcrumbs из ресурса](/docs/{{version}}/recipes/index#custom-breadcrumbs).
 
-You can also connect trait to a resource and inside trait add a method according to the naming convention - `boot{TraitName}` and through the trait will access the boot resource
+Вы также можете подключить `trait` к ресурсу и внутри `trait` добавить метод согласно конвенции наименований - `load{TraitName}` и через трейт обратится к `onLoad` ресурса
 
 ```php
 namespace App\MoonShine\Resources;
 
 use App\Models\Post;
-use MoonShine\Resources\ModelResource;
+use MoonShine\Laravel\Resources\ModelResource;
 use App\Traits\WithPermissions;
 
 class PostResource extends ModelResource
@@ -428,7 +477,7 @@ class PostResource extends ModelResource
 ```php
 trait WithPermissions
 {
-    protected function bootWithPermissions(): void
+    protected function loadWithPermissions(): void
     {
         $this->getPages()
             ->findByUri(PageType::FORM->value)
@@ -442,3 +491,27 @@ trait WithPermissions
     }
 }
 ```
+
+<a name="on-boot"></a>
+### Создание экземпляра
+
+Метод `onBoot` дает возможность интегривоваться в момент когда MoonShine создает экземпляр ресурса в системе
+
+```php
+namespace App\MoonShine\Resources;
+
+use App\Models\Post;
+use MoonShine\Laravel\Resources\ModelResource;
+
+class PostResource extends ModelResource
+{
+    // ...
+    protected function onBoot(): void
+    {
+        //
+    }
+    // ...
+}
+```
+
+Вы также можете подключить `trait` к ресурсу и внутри `trait` добавить метод согласно конвенции наименований - `boot{TraitName}` и через трейт обратится к `onBoot` ресурса
