@@ -1,6 +1,6 @@
 # Text
 
-- [Введение](#introduction)
+- [Основы](#basics)
 - [Основные методы](#basic-methods)
   - [Подсказка](#placeholder)
   - [Маска](#mask)
@@ -12,10 +12,10 @@
   - [Замок](#locked)
   - [Суффикс](#suffix)
 - [Редактирование в режиме preview](#preview-edit)
-  
+- [Реактивность](#reactive)
 
-<a name="introduction"></a>
-## Введение
+<a name="basics"></a>
+## Основы
 
 Содержит все [Базовые методы](#/docs/{{version}}/fields/basic-methods.md).
 
@@ -181,3 +181,7 @@ Text::make('Домен', 'domain')
 Text::make('Name')->updateOnPreview()->locked(),
 ```
 
+<a name="reactive"></a>
+## Реактивность
+
+Данному полю доступна [реактивность](/docs/{{version}}/fields/basic-methods.md#reactive).
