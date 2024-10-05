@@ -891,7 +891,7 @@ reactive(
 - `$debounce` - время между вызовами функций (ms.),
 - `$throttle` - интервал вызова функций (ms.).
 
-> Поля поддерживающие реактивность: Text, Number, Checkbox, Select и их наследующие.
+> Поля поддерживающие реактивность: Text, Number, Checkbox, Select, Date и их наследующие.
 
 ```php
 FormBuilder::make()

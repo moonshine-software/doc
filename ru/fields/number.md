@@ -141,7 +141,7 @@ Number::make('Rating')
 <a name="extensions"></a>
 ## Расширения
 
-Поля поддерживаеют различные расширения для помощи и контроля ввода
+Поля поддерживает различные расширения для помощи и контроля ввода
 
 ![expansion](https://moonshine-laravel.com/screenshots/expansion.png)
 
