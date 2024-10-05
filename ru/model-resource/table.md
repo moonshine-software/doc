@@ -145,7 +145,7 @@ class PostResource extends ModelResource
     protected function tdAttributes(): Closure
     {
         return fn(Model $data, int $row, int $cell) => [
-            'width' => '20%
+            'width' => '20%'
         ];
     }
 
