@@ -27,6 +27,13 @@
 - [Асинхронная загрузка](#async-loading)
   - [Lazy и whenAsync методы](#lazy)
 - [Приведение к типу](#type-cast)
+- [Использование в blade](#blade)
+  - [Основы](#blade-basics)
+  - [Упрощенный вид](#blade-simple)
+  - [Фиксированный заголовок](#blade-sticky)
+  - [С уведомлением "Ничего не найдено"](#blade-notfound)
+  - [Слоты](#blade-slots)
+  - [Стилизация](#blade-styles)
 
 <a name="intro"></a>
 ## Вступление
@@ -601,4 +608,155 @@ TableBuilder::make()
 > [!NOTE]
 > За более подробной информацией обратитесь к разделу [TypeCasts](/docs/{{version}}/advanced/type-casts)
 
-TableBuilder в MoonShine предоставляет широкий спектр возможностей для создания гибких и функциональных таблиц в административной панели.
+<a name="blade"></a>
+## Использование в blade
+
+<a name="blade-basics"></a>
+### Основы
+
+Стилизованные таблицы можно создавать с помощью компонента `moonshine::table`.
+
+```php
+<x-moonshine::table
+    :columns="[
+        '#', 'First', 'Last', 'Email'
+    ]"
+    :values="[
+        [1, fake()->firstName(), fake()->lastName(), fake()->safeEmail()],
+        [2, fake()->firstName(), fake()->lastName(), fake()->safeEmail()],
+        [3, fake()->firstName(), fake()->lastName(), fake()->safeEmail()]
+    ]"
+/>
+```
+
+<a name="blade-simple"></a>
+### Упрощенный вид
+
+Параметр `simple` позволяет создавать упрощенного вида таблицы.
+
+```php
+<x-moonshine::table
+    :simple="true"
+    :columns="[
+        '#', 'First', 'Last', 'Email'
+    ]"
+    :values="[
+        [1, fake()->firstName(), fake()->lastName(), fake()->safeEmail()],
+        [2, fake()->firstName(), fake()->lastName(), fake()->safeEmail()],
+        [3, fake()->firstName(), fake()->lastName(), fake()->safeEmail()]
+    ]"
+/>
+```
+
+<a name="blade-sticky"></a>
+### Фиксированный заголовок
+
+Если в таблице содержится большое количество элементов, то можно зафиксировать шапку при прокрутки таблицы.
+
+```php
+<x-moonshine::table
+    :sticky="true"
+    :columns="[
+        '#', 'First', 'Last', 'Email'
+    ]"
+    :values="[
+        [1, fake()->firstName(), fake()->lastName(), fake()->safeEmail()],
+        [2, fake()->firstName(), fake()->lastName(), fake()->safeEmail()],
+        [3, fake()->firstName(), fake()->lastName(), fake()->safeEmail()]
+    ]"
+/>
+```
+
+<a name="blade-notfound"></a>
+### С уведомлением "Ничего не найдено"
+
+Параметр `notfound` позволяет выводить сообщение при отсутствии элементов таблицы.
+
+```php
+<x-moonshine::table
+    :columns="[
+        '#', 'First', 'Last', 'Email'
+    ]"
+    :notfound="true"
+/>
+```
+
+<a name="blade-slots"></a>
+### Слоты
+
+Таблицу можно сформировать с использованием слотов.
+
+```php
+<x-moonshine::table>
+    <x-slot:thead class="text-center">
+        <th colspan="4">Header</th>
+    </x-slot:thead>
+    <x-slot:tbody>
+        <tr>
+            <th>1</th>
+            <th>{{ fake()->firstName() }}</th>
+            <th>{{ fake()->lastName() }}</th>
+            <th>{{ fake()->safeEmail() }}</th>
+        </tr>
+        <tr>
+            <th>2</th>
+            <th>{{ fake()->firstName() }}</th>
+            <th>{{ fake()->lastName() }}</th>
+            <th>{{ fake()->safeEmail() }}</th>
+        </tr>
+        <tr>
+            <th>3</th>
+            <th>{{ fake()->firstName() }}</th>
+            <th>{{ fake()->lastName() }}</th>
+            <th>{{ fake()->safeEmail() }}</th>
+        </tr>
+    </x-slot:tbody>
+    <x-slot:tfoot class="text-center">
+        <td colspan="4">Footer</td>
+    </x-slot:tfoot>
+</x-moonshine::table>
+```
+
+<a name="blade-styles"></a>
+### Стилизация
+
+Для стилизации таблицы есть предустановленные классы, которые можно использовать для `tr` / `td`.
+
+Доступные классы:
+
+- bgc-purple
+- bgc-pink
+- bgc-blue
+- bgc-green
+- bgc-yellow
+- bgc-red
+- bgc-gray
+- bgc-primary
+- bgc-secondary
+- bgc-success
+- bgc-warning
+- bgc-error
+- bgc-info
+
+
+```php
+<x-moonshine::table>
+    <x-slot:thead class="bgc-secondary text-center">
+        <th colspan="3">Header</th>
+    </x-slot:thead>
+    <x-slot:tbody>
+        <tr>
+            <th class="bgc-pink">{{ fake()->firstName() }}</th>
+            <th class="bgc-gray">{{ fake()->lastName() }}</th>
+            <th class="bgc-purple">{{ fake()->safeEmail() }}</th>
+        </tr>
+        <tr>
+            <th class="bgc-green">{{ fake()->firstName() }}</th>
+            <th class="bgc-red">{{ fake()->lastName() }}</th>
+            <th class="bgc-yellow">{{ fake()->safeEmail() }}</th>
+        </tr>
+    </x-slot:tbody>
+</x-moonshine::table>
+```
+
+`TableBuilder` в `MoonShine` предоставляет широкий спектр возможностей для создания гибких и функциональных таблиц в административной панели.
