@@ -193,7 +193,7 @@ final class MoonShineLayout extends CompactLayout
 Пример:
 `MoonShineUserResource` - `moon-shine-user-resource`
 
-Для того чтобы изменить `alias` можно воспользоваться свойство ресурса `$alias` или метод `getUriKey`
+Для того чтобы изменить `alias` можно воспользоваться свойство ресурса `$alias` или метод `getAlias`
 
 ```php
 namespace App\MoonShine\Resources;
@@ -219,7 +219,7 @@ use MoonShine\Laravel\Resources\ModelResource;
 
 class PostResource extends ModelResource
 {
-    public function getUriKey(): string
+    public function getAlias(): ?string
     {
         return 'custom-alias';
     }
