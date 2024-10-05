@@ -10,6 +10,8 @@
     - Icons
 - ## ModelResource
     - [Basics](/docs/{{version}}/model-resource/index)
+    - [Table](/docs/{{version}}/model-resource/table)
+    - [Authorization](/docs/{{version}}/model-resource/authorization)
 - ## Pages
 - ## Fields
     - [Conception](/docs/{{version}}/fields/index)
