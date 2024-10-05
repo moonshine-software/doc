@@ -1,10 +1,5 @@
 # ID
 
-- [Основы](#basics)
-
-<a name="basics"></a>
-## Основы
-
 Наследует [Hidden](/docs/{{version}}/fields/hidden).
 
 \* имеет те же возможности
