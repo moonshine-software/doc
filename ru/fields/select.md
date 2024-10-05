@@ -1,5 +1,4 @@
 # Select
----
   - [Make](#make)
   - [Значение по умолчанию](#default)
   - [Nullable](#nullable)
@@ -12,6 +11,7 @@
   - [Значения с изображением](#with-image)
   - [Опции](#options)
   - [Нативный режим отображения](#native)
+---
 
 <a name="make"></a>
 ## Make
