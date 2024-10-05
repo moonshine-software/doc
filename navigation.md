@@ -23,6 +23,7 @@
     - [Json](/docs/{{version}}/fields/json)
     - Textarea
       - [Textarea](/docs/{{version}}/fields/textarea)
+      - [Code](/docs/{{version}}/fields/code)
 - ## Components
     - Basics
     - [Attributes](/docs/{{version}}/components/attributes)
