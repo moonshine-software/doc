@@ -13,6 +13,8 @@
   - [Асинхронный режим](#async)
     - [Обновление ряда](#update-row)
   - [Модификаторы](#modifiers)
+    - [Компоненты](#components)
+    - [thead,tbody,tfoot](thead-tbody-tfoot) 
 
 <a name="basics"></a>
 ## Основы
@@ -447,102 +449,71 @@ class PostResource extends ModelResource
 ```
 
 <a name="modify"></a>
-## Modify
+## Модификация
 
-You can replace `thead` or `tbody` or `tfoot`, and also add elements to the table in `tbody` before and after the first row.
+<a name="components"></a>
+### Компоненты
 
-#### thead()
+Вы можете полностью заменить или модифицировать `TableBuilder` ресурса для индексной и детальной страницы. Для этого воспользуйтесь методами `modifyListComponent` или `modifyDetailComponent`
 
 ```php
-namespace App\MoonShine\Resources;
-
-use MoonShine\Fields\Fields;
-use MoonShine\Resources\ModelResource;
-
-class PostResource extends ModelResource
+public function modifyListComponent(ComponentContract $component): ComponentContract
 {
-    // ...
-
-    public function thead(): ?Closure
-    {
-        return static fn(Fields $headFields): string => '<tr><th>Title</th></tr>';
-    }
+    return parent::modifyListComponent($component)->customAttributes([
+        'data-my-attr' => 'value'
+    ]);
 }
 ```
 
-#### tbody()
-
 ```php
-namespace App\MoonShine\Resources;
-
-use Illuminate\Support\Collection;
-use MoonShine\Resources\ModelResource;
-
-class PostResource extends ModelResource
+public function modifyDetailComponent(MoonShineRenderable $component): MoonShineRenderable
 {
-    // ...
-
-    public function tbody(): ?Closure
-    {
-        return static fn(Collection $rows): string => '<tr><td>Content</td></tr>';
-    }
+    return parent::modifyDetailComponent($component)->customAttributes([
+        'data-my-attr' => 'value'
+    ]);
 }
 ```
 
-#### tfoot()
+<a name="thead-tbody-tfoot"></a>
+### thead,tbody,tfoot
+
+Если вам недостаточно просто автоматически выводить поля в `thead`, `tbody` и `tfoot`, то вы можете переопределить или дополнить эту логику на основе методов ресурса `thead()`, `tbody()`, `tfoot()`
 
 ```php
-namespace App\MoonShine\Resources;
-
-use MoonShine\ActionButtons\ActionButtons;
-use MoonShine\Resources\ModelResource;
-
-class PostResource extends ModelResource
+protected function thead(): null|TableRowsContract|Closure
 {
-    // ...
+    return static fn(TableRowContract $default) => TableRows::make([$default])->pushRow(
+        TableCells::make()->pushCell(
+            'td content'
+        )
+    );
+}
 
-    public function tfoot(): ?Closure
-    {
-        return static fn(ActionButtons $bulkButtons): string => '<tr><td>Footer</td></tr>';
-    }
+protected function tbody(): null|TableRowsContract|Closure
+{
+    return static fn(TableRowsContract $default) => $default->pushRow(
+        TableCells::make()->pushCell(
+            'td content'
+        )
+    );
+}
+
+protected function tfoot(): null|TableRowsContract|Closure
+{
+    return static fn(TableRowContract $default) => TableRows::make([$default])->pushRow(
+        TableCells::make()->pushCell(
+            'td content'
+        )
+    );
 }
 ```
 
-#### tbodyBefore()
 
-```php
-namespace App\MoonShine\Resources;
 
-use Illuminate\Support\Collection;
-use MoonShine\Resources\ModelResource;
 
-class PostResource extends ModelResource
-{
-    // ...
 
-    public function tbodyBefore(): ?Closure
-    {
-        return static fn(Collection $rows): string => '<tr><td>Before</td></tr>';
-    }
-}
-```
 
-#### tbodyAfter()
 
-```php
-namespace App\MoonShine\Resources;
 
-use Illuminate\Support\Collection;
-use MoonShine\Resources\ModelResource;
 
-class PostResource extends ModelResource
-{
-    // ...
-
-    public function tbodyAfter(): ?Closure
-    {
-        return static fn(Collection $rows): string => '<tr><td>After</td></tr>';
-    }
-}
-```
 
