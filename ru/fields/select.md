@@ -1,4 +1,5 @@
 # Select
+---
   - [Make](#make)
   - [Значение по умолчанию](#default)
   - [Nullable](#nullable)
@@ -19,20 +20,11 @@
 ```php
 use MoonShine\UI\Fields\Select;
 
-//...
-
-public function indexFields(): array
-{
-    return [
-        Select::make('Country', 'country_id')
-            ->options([
-                'value 1' => 'Option Label 1',
-                'value 2' => 'Option Label 2'
-            ])
-    ];
-}
-
-//...
+Select::make('Country', 'country_id')
+    ->options([
+        'value 1' => 'Option Label 1',
+        'value 2' => 'Option Label 2'
+    ])
 ```
 ![select](https://moonshine-laravel.com/screenshots/select_dark.png)
 
@@ -47,21 +39,13 @@ default(mixed $default)
 ```php
 use MoonShine\UI\Fields\Select;
 
-//...
 
-public function fields(): array
-{
-    return [
-        Select::make('Country', 'country_id')
-            ->options([
-                'value 1' => 'Option Label 1',
-                'value 2' => 'Option Label 2'
-            ])
-            ->default('value 2')
-    ];
-}
-
-//...
+Select::make('Country', 'country_id')
+    ->options([
+        'value 1' => 'Option Label 1',
+        'value 2' => 'Option Label 2'
+    ])
+    ->default('value 2')
 ```
 <a name="nullable"></a>  
 ## Nullable
@@ -73,21 +57,12 @@ nullable(Closure|bool|null $condition = null)
 ```php
 use MoonShine\UI\Fields\Select;
 
-//...
-
-public function fields(): array
-{
-    return [
-        Select::make('Country', 'country_id')
-            ->options([
-                'value 1' => 'Option Label 1',
-                'value 2' => 'Option Label 2'
-            ])
-            ->nullable()
-    ];
-}
-
-//...
+Select::make('Country', 'country_id')
+    ->options([
+        'value 1' => 'Option Label 1',
+        'value 2' => 'Option Label 2'
+    ])
+    ->nullable()
 ```
 ![select nullabledark](https://moonshine-laravel.com/screenshots/select_nullable_dark.png)
 
@@ -101,18 +76,9 @@ placeholder(string $value)
 ```php
 use MoonShine\UI\Fields\Select;
 
-//...
-
-public function fields(): array
-{
-    return [
-        Select::make('Country', 'country')
-            ->nullable()
-            ->placeholder('Country')
-    ];
-}
-
-//...
+Select::make('Country', 'country')
+    ->nullable()
+    ->placeholder('Country')
 ```
 
 <a name="groups"></a>
@@ -122,26 +88,17 @@ public function fields(): array
 ```php
 use MoonShine\UI\Fields\Select;
 
-//...
-
-public function fields(): array
-{
-    return [
-        Select::make('City', 'city_id')
-            ->options([
-                'Italy' => [
-                    1 => 'Rome',
-                    2 => 'Milan'
-                ],
-                'France' => [
-                    3 => 'Paris',
-                    4 => 'Marseille'
-                ]
-            ])
-    ];
-}
-
-//...
+Select::make('City', 'city_id')
+    ->options([
+        'Italy' => [
+            1 => 'Rome',
+            2 => 'Milan'
+        ],
+        'France' => [
+            3 => 'Paris',
+            4 => 'Marseille'
+        ]
+    ])
 ```
 ![select group dark](https://moonshine-laravel.com/screenshots/select_group_dark.png)
 
@@ -156,17 +113,12 @@ multiple(Closure|bool|null $condition = null)
 ```php
 use MoonShine\UI\Fields\Select;
 
-//...
-
-public function fields(): array
-{
-    return [
-        Select::make('Country', 'country_id')
-            ->options([
-                'value 1' => 'Option Label 1',
-                'value 2' => 'Option Label 2'
-            ])
-            ->multiple()
+Select::make('Country', 'country_id')
+    ->options([
+        'value 1' => 'Option Label 1',
+        'value 2' => 'Option Label 2'
+    ])
+    ->multiple()
     ];
 }
 
@@ -189,21 +141,12 @@ searchable()
 ```php
 use MoonShine\UI\Fields\Select;
 
-//...
-
-public function fields(): array
-{
-    return [
-        Select::make('Country', 'country_id')
-            ->options([
-                'value 1' => 'Option Label 1',
-                'value 2' => 'Option Label 2'
-            ])
-            ->searchable()
-    ];
-}
-
-//...
+Select::make('Country', 'country_id')
+    ->options([
+        'value 1' => 'Option Label 1',
+        'value 2' => 'Option Label 2'
+    ])
+    ->searchable()
 ```
 ![searchable](https://moonshine-laravel.com/screenshots/select_searchable_dark.png)
 
@@ -238,22 +181,13 @@ async(Closure|string|null $url = null, string|array|null $events = null, ?AsyncC
 ```php
 use MoonShine\UI\Fields\Select;
 
-//...
-
-public function fields(): array
-{
-    return [
-        Select::make('Country', 'country_id')
-            ->options([
-                'value 1' => 'Option Label 1',
-                'value 2' => 'Option Label 2'
-            ])
-            ->searchable()
-            ->async('/search')
-    ];
-}
-
-//...
+Select::make('Country', 'country_id')
+    ->options([
+        'value 1' => 'Option Label 1',
+        'value 2' => 'Option Label 2'
+    ])
+    ->searchable()
+    ->async('/search')
 ```
 
 <a name="update-on-preview"></a>
@@ -275,17 +209,8 @@ updateOnPreview(?Closure $url = null, ?ResourceContract $resource = null, mixed 
 ```php
 use MoonShine\UI\Fields\Select;
 
-//...
-
-public function fields(): array
-{
-    return [
-        Select::make(Country)
-            ->updateOnPreview()
-    ];
-}
-
-//...
+Select::make(Country)
+    ->updateOnPreview()
 ```
 
 <a name="with-image"></a>
@@ -299,25 +224,17 @@ optionProperties(Closure|array $data)
 ```php
 use MoonShine\UI\Fields\Select;
 
-//...
+Select::make('Country', 'country_id')
+    ->options([
+        1 => 'Andorra',
+        2 => 'United Arab Emirates',
+        //...
+    ])->optionProperties(fn() => [
+        1 => ['image' => 'https://moonshine-laravel.com/images/ad.png'],
+        2 => ['image' => 'https://moonshine-laravel.com/images/ae.png'],
+        //...
+    ])
 
-public function fields(): array
-{
-    return [
-        Select::make('Country', 'country_id')
-            ->options([
-                1 => 'Andorra',
-                2 => 'United Arab Emirates',
-                //...
-            ])->optionProperties(fn() => [
-                1 => ['image' => 'https://moonshine-laravel.com/images/ad.png'],
-                2 => ['image' => 'https://moonshine-laravel.com/images/ae.png'],
-                //...
-            ])
-    ];
-}
-
-//...
 ```
 ![belongs to image dark](https://moonshine-laravel.com/screenshots/belongs_to_image_dark.png)
 
@@ -328,23 +245,15 @@ public function fields(): array
 ```php
 use MoonShine\UI\Fields\Select;
 
-//...
+Select::make('Country', 'country_id')
+    ->options([
+        1 => 'Andorra',
+        2 => 'United Arab Emirates',
+        //...
+    ])->customAttributes([
+        'data-max-item-count' => 2
+    ])
 
-public function fields(): array
-{
-    return [
-        Select::make('Country', 'country_id')
-            ->options([
-                1 => 'Andorra',
-                2 => 'United Arab Emirates',
-                //...
-            ])->customAttributes([
-                'data-max-item-count' => 2
-            ])
-    ];
-}
-
-//...
 ```
 
 > [!TIP]
@@ -355,5 +264,7 @@ public function fields(): array
 Метод `native()` отключает библиотеку *Choices.js* и выводит *select* в нативном режиме.
 
 ```php
+use MoonShine\UI\Fields\Select;
+
 Select::make('Type')->native()
 ```
