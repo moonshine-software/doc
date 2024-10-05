@@ -65,6 +65,8 @@ placeholder(string $value)
 ```
 
 ```php
+use MoonShine\UI\Fields\Number;
+
 Number::make('Order')
     ->placeholder('Item order') 
 ```
@@ -103,6 +105,8 @@ step(int|float $step)
 Пробуем всё вместе:
 
 ```php
+use MoonShine\UI\Fields\Number;
+
 Number::make('Price')
     ->min(0)
     ->max(100000)
@@ -120,6 +124,8 @@ stars()
 ```
 
 ```php
+use MoonShine\UI\Fields\Number;
+
 Number::make('Rating')
     ->stars()
     ->min(1)
@@ -137,6 +143,8 @@ buttons()
 ```
 
 ```php
+use MoonShine\UI\Fields\Number;
+
 Number::make()
     ->buttons()
 ```
@@ -164,6 +172,8 @@ updateOnPreview(?Closure $url = null, ?ResourceContract $resource = null, mixed 
 ```
 
 ```php
+use MoonShine\UI\Fields\Number;
+
 Number::make()
     ->updateOnPreview() 
 ```
