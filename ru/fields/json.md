@@ -132,8 +132,8 @@ protected function formFields(): iterable
 Пример с изменением типов полей:
 
 ```php
-use MoonShine\Fields\Json; 
-use MoonShine\Fields\Select;
+use MoonShine\UI\Fields\Json; 
+use MoonShine\UI\Fields\Select;
  
 //...
  
@@ -168,7 +168,7 @@ onlyValue(
 Пример использования:
 
 ```php
-use MoonShine\Fields\Json; 
+use MoonShine\UI\Fields\Json; 
  
 //...
  
@@ -197,7 +197,7 @@ object()
 Пример использования:
 
 ```php
-use MoonShine\Fields\Json; 
+use MoonShine\UI\Fields\Json; 
  
 //...
  
@@ -227,9 +227,9 @@ default(mixed $default)
 Пример использования:
 
 ```php
-use MoonShine\Fields\Json;
-use MoonShine\Fields\Switcher;
-use MoonShine\Fields\Text;
+use MoonShine\UI\Fields\Json;
+use MoonShine\UI\Fields\Switcher;
+use MoonShine\UI\Fields\Text;
 
 //...
 
@@ -302,7 +302,7 @@ removable(
 Пример использования:
 
 ```php
-use MoonShine\Fields\Json;
+use MoonShine\UI\Fields\Json;
  
 //...
  
@@ -325,7 +325,7 @@ protected function formFields(): iterable
 ### Кастомизация кнопки добавления
 
 ```php
-use MoonShine\Fields\Json;
+use MoonShine\UI\Fields\Json;
  
 //...
  
@@ -346,7 +346,7 @@ protected function formFields(): iterable
 ### HTML атрибуты для кнопки удаления
 
 ```php
-use MoonShine\Fields\Json;
+use MoonShine\UI\Fields\Json;
  
 //...
  
@@ -378,7 +378,7 @@ vertical()
 Пример использования:
 
 ```php
-use MoonShine\Fields\Json;
+use MoonShine\UI\Fields\Json;
 
 //...
 
@@ -402,8 +402,8 @@ protected function formFields(): iterable
 Если поле используется в фильтрах, необходимо включить режим фильтрации с помощью метода `filterMode()`. Этот метод адаптирует поведение поля для фильтрации и отключает возможность добавления новых элементов.
 
 ```php
-use MoonShine\Fields\Json;
-use MoonShine\Fields\Text;
+use MoonShine\UI\Fields\Json;
+use MoonShine\UI\Fields\Text;
 
 //...
 
@@ -435,7 +435,7 @@ buttons(array $buttons)
 
 ```php
 use MoonShine\ActionButtons\ActionButton;
-use MoonShine\Fields\Json;
+use MoonShine\UI\Fields\Json;
 
 //...
 
@@ -479,7 +479,7 @@ modifyRemoveButton(Closure $callback)
 
 ```php
 use MoonShine\ActionButtons\ActionButton;
-use MoonShine\Fields\Json;
+use MoonShine\UI\Fields\Json;
 
 //...
 
@@ -513,7 +513,7 @@ modifyTable(Closure $callback)
 
 ```php
 use MoonShine\Components\TableBuilder;
-use MoonShine\Fields\Json;
+use MoonShine\UI\Fields\Json;
 
 //...
 

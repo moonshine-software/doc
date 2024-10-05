@@ -742,7 +742,7 @@ Select::make('Links')->options([
 
 ```php
 use App\Enums\StatusEnum;
-use MoonShine\Fields\Enum;
+use MoonShine\UI\Fields\Enum;
  
 Enum::make('Status')
     ->attach(StatusEnum::class)
@@ -763,7 +763,7 @@ modifyRawValue(Closure $callback)
 
 ```php
 use App\Enums\StatusEnum;
-use MoonShine\Fields\Enum;
+use MoonShine\UI\Fields\Enum;
  
 Enum::make('Status')
     ->attach(StatusEnum::class)

@@ -16,6 +16,9 @@
 
 <a name="introduction"></a>
 ## Введение
+
+Содержит все [Базовые методы](#/docs/{{version}}/fields/basic-methods.md).
+
 Поле `Text` - это базовое текстовое поле ввода в MoonShine. Это поле эквивалент `<input type="text">`
 
 ```php

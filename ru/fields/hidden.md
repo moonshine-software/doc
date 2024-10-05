@@ -1,12 +1,14 @@
 # Hidden
 
-- [Введение](#introduction)
-- [Основные методы](#basic-methods)
-    - [Отображение значения](#show-value)
+- [Основы](#basics)
+- [Отображение значения](#show-value)
 
-<a name="introduction"></a>
-## Введение
-Поле `Hidden` - это скрытое поле. Это поле эквивалент `<input type="hidden">`
+<a name="basics"></a>
+## Основы
+
+Содержит все [Базовые методы](#/docs/{{version}}/fields/basic-methods.md).
+
+Поле `Hidden` - это скрытое поле. Это поле эквивалент `<input type="hidden">`.
 
 > [!NOTE]
 > Поле будет скрыто при построении форм, но отображается в preview, так же будет скрыт и его wrapper.
@@ -17,11 +19,8 @@ use MoonShine\UI\Fields\Hidden;
 Hidden::make('category_id')
 ```
 
-<a name="basic-methods"></a>
-## Основные методы
-
 <a name="show-value"></a>
-### Отображение значения
+## Отображение значения
 
 Поле полностью скрыто в форме, но если требуется сохранить поведение поля, но при этом вывести его значение, то воспользуйтесь методом `showValue`:
 

@@ -1,6 +1,5 @@
-# Hidden
+# Slug
 
-- [Введение](#introduction)
 - [Основы](#basics)
 - [Генерация slug](#from)
 - [Разделитель](#separator)
@@ -8,23 +7,20 @@
 - [Уникальные значения](#unique)
 - [Динамический slug](#live)
 
-<a name="introduction"></a>
-## Введение
+<a name="basics"></a>
+## Основы
 
-Наследует [Text](/docs/{{version}}/fields/text)
+Наследует [Text](/docs/{{version}}/fields/text).
 
 \* имеет те же возможности
 
 > [!INFO]
 > Поле зависит от модели Eloquent
 
-<a name="basics"></a>
-## Основы
-
 С помощью данного поля вы можете генерировать slug на основе выбранного поля, а также сохранять только уникальные значения.
 
 ```php
-use MoonShine\Fields\Slug;
+use MoonShine\UI\Fields\Slug;
 
 Slug::make('Slug')
 ```
