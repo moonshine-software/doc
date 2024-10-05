@@ -15,6 +15,7 @@
   - [Суффикс](#suffix)
 - [Редактирование в режиме preview](#preview-edit)
 - [Реактивность](#reactive)
+---
 
 <a name="basics"></a>
 ## Основы

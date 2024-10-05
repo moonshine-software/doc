@@ -1,4 +1,5 @@
 # Базовые методы
+
 - [Описание](#description)
 - [Создание](#create)
 - [Отображение поля](#view)
@@ -39,6 +40,7 @@
   - [Вложенные поля](#nested-fields)
   - [Множественные условия](#multiple-conditions)
   - [Поддерживаемые операторы](#supported-operators)
+
 ---
 
 <a name="description"></a>
