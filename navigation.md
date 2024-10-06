@@ -21,6 +21,8 @@
     - [ID](/docs/{{version}}/fields/id)
     - [Url](/docs/{{version}}/fields/url)
     - [Json](/docs/{{version}}/fields/json)
+    - Textarea
+      - [Textarea](/docs/{{version}}/fields/textarea)
 - ## Components
     - Basics
     - [Attributes](/docs/{{version}}/components/attributes)
