@@ -76,7 +76,7 @@ public function components(): array
 //...
 ```
 
-### calling an event via ActionButton
+#### calling an event via ActionButton
 
 The sidebar event can be triggered using the *ActionButton* component.
 
@@ -105,7 +105,7 @@ public function components(): array
 //...
 ```
 
-### calling an event using native methods
+#### calling an event using native methods
 
 Events can be triggered using native *javascript* methods:
 
@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 ```
 
-### calling an event using the Alpine.js method
+#### calling an event using the Alpine.js method
 
 Or use the magic `$dispatch()` method from Alpine.js:
 

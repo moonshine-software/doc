@@ -7,7 +7,7 @@ https://moonshine-laravel.com/docs/resource/components/components-decoration_fra
 -[Asynchrinous event](#async)
 
 <a name="make"></a>
-### Make
+## Make
 
 Sometimes you need to return only part of a template in your HTTP response. For this, you can use [Blade Fragments](https://laravel.com/docs/blade#rendering-blade-fragments). The *Fragment* decorator allows you to create corresponding blocks.
 
@@ -40,7 +40,7 @@ public function components(): array
 
 
 <a name="async"></a>
-### Asynchronous event
+## Asynchronous event
 
 You can incorporate an area in a Fragment and set an event on this area,
 by calling which it will be possible to update the fragment

@@ -10,7 +10,7 @@ https://moonshine-laravel.com/docs/resource/components/components-metric_value?c
   - [Block width](#column-span)
 
 <a name="make"></a>
-### Make
+## Make
 The `ValueMetric` metric is designed to display a value. For example, how many records are in the table.
 
 You can create a `ValueMetric` using the static `make()` method.
@@ -45,8 +45,7 @@ public function components(): array
 ![value_metric_dark](https://moonshine-laravel.com/screenshots/value_metric_dark.png)
 
 <a name="progress"></a>
-### Progress
-
+## Progress
 
 The `progress()` method allows you to display a progress indicator for achieving a goal in a metric.
 
@@ -79,7 +78,7 @@ public function components(): array
 ![value_metric_progress_dark](https://moonshine-laravel.com/screenshots/value_metric_progress_dark.png)
 
 <a name="value-format"></a>
-### Value Format
+## Value Format
 
 The `valueFormat()` method allows you to format the metric value and add a prefix and suffix.
 
@@ -108,7 +107,7 @@ public function components(): array
 ![value_metric_format_dark](https://moonshine-laravel.com/screenshots/value_metric_format_dark.png)
 
 <a name="icon"></a>
-### Icon
+## Icon
 
 The `icon()` method allows you to add an icon to the metric.
 
@@ -136,7 +135,7 @@ public function components(): array
 ![value_metric_icon_dark](https://moonshine-laravel.com/screenshots/value_metric_icon_dark.png)
 
 <a name="column-span"></a>
-### Block width
+## Block width
 
 Method `columnSpan()` allows you to set the block width in the *Grid* grid.
 

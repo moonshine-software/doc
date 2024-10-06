@@ -66,7 +66,7 @@ public function components(): array
 ![block_without_title_dark](https://moonshine-laravel.com/screenshots/block_without_title_dark.png)
 
 <a name="icon"></a>
-### Icon
+## Icon
 
 The `icon()` method allows you to add an icon.
 

@@ -168,7 +168,7 @@ public function components(): array
 <a name="modal"></a> 
 ## Modal
 
-### Basics
+#### Basics
 
 To trigger a modal window when a button is clicked, use the `inModal()` method.
 
@@ -248,7 +248,7 @@ public function components(): array
 }
 ```
 
-### Async
+#### Async
 
 If you need to load content into the modal window asynchronously, then switch the async parameter to `true`.
 
@@ -406,7 +406,7 @@ public function components(): array
 }
 ```
 
-### Notifications
+#### Notifications
 
 If you need to display a notification or make a redirect after a click, then it is enough to implement the json response according to the structure:
 
@@ -417,7 +417,7 @@ If you need to display a notification or make a redirect after a click, then it 
 > [!TIP]
 > The `redirect` parameter is optional.
 
-### HTML content
+#### HTML content
 
 If you need to replace an area with html on click, then you can return HTML content or json with the html key in the response:
 
@@ -438,7 +438,7 @@ public function components(): array
 }
 ```
 
-### Events
+#### Events
 
 After a successful request, you can raise events:
 
@@ -457,7 +457,7 @@ public function components(): array
 > [!TIP]
 > For the `table-updated-index-table` event to work [async mode](https://moonshine-laravel.com/docs/resource/models-resources/resources-table#async) must be enabled.
 
-### Callback
+#### Callback
 
 If you need to process the response in a different way, then you need to implement a handler function and specify it in the `async()` method.
 
@@ -553,7 +553,7 @@ public function updateSomething(MoonShineRequest $request)
 > [!CAUTION]
 > To access the data from the request, you must pass it in the parameters.
 
-### Passing the current item
+#### Passing the current item
 
 If *resourceItem* is present in the request, you can access the current item in the resource through the `getItem()` method.
 

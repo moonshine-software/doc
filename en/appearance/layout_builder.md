@@ -7,7 +7,7 @@ https://moonshine-laravel.com/docs/resource/appearance/appearance-layout_builder
 - [Top Menu](#top-menu)
 
 <a name="publish"></a>
-### Publishing a template
+## Publishing a template
 
 To change the structure of the template, you must use `LayoutBuilder`.
     
@@ -74,7 +74,7 @@ final class MoonShineLayout implements MoonShineLayoutContract
 ```
 
 <a name="top-menu"></a>
-### Top Menu
+## Top Menu
 
 By default, MoonShine has a top menu component.Let's take a look at how to replace `Sidebar` with `TopBar` in `LayoutBuilder`.
 

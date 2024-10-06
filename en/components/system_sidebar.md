@@ -8,7 +8,7 @@ https://moonshine-laravel.com/docs/resource/components/components-system_sidebar
   - [Hide theme switcher](#hide-switcher)
 
 <a name="make"></a>
-### Make
+## Make
 
 The *Sidebar* system component is used to create a side menu in **MoonShine**.
 
@@ -50,7 +50,7 @@ final class MoonShineLayout implements MoonShineLayoutContract
 ![sidebar_dark](https://moonshine-laravel.com/screenshots/sidebar_dark.png)
 
 <a name="hide-logo"></a>
-### Hide logo
+## Hide logo
 
 The `hideLogo()` method allows you to hide the logo.
 
@@ -86,7 +86,7 @@ final class MoonShineLayout implements MoonShineLayoutContract
 ```
 
 <a name="hide-switcher"></a>
-### Hide theme switcher
+## Hide theme switcher
 
 The `hideSwitcher()` method allows you to hide the theme switcher.
 

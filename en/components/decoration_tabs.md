@@ -11,7 +11,7 @@ https://moonshine-laravel.com/docs/resource/components/components-decoration_tab
   - [Tab ID](#tab-id)
 
 <a name="make"></a>
-### Make
+## Make
 The *Tabs* component allows you to create tabs.
 
 ```php
@@ -44,7 +44,7 @@ public function components(): array
 ![tabs_dark](https://moonshine-laravel.com/screenshots/tabs_dark.png)
 
 <a name="vertical-tab"></a>
-### Vertical display of the tabs.
+## Vertical display of the tabs.
 
 The method `vertical()` allows you to display tabs in vertical mode.
 
@@ -89,7 +89,7 @@ Tabs::make([
 ```
 
 <a name="active-tab"></a>
-### Active tab
+## Active tab
 
 The method `active()` allows you to specify which tab should be active by default.
 
@@ -118,7 +118,7 @@ public function components(): array
 ```
 
 <a name="tab-icon"></a>
-### Icon
+## Icon
 
 ```php
 use MoonShine\Decorations\Tabs;
@@ -145,7 +145,7 @@ public function components(): array
 ```
 
 <a name="tab-id"></a>
-### Tab ID
+## Tab ID
 
 The `uniqueId()` method allows you to set the tab ID.
 This way you can implement your own logic for tabs using **Alpine.js**.

@@ -88,6 +88,7 @@ public function components(): array
 
 //...
 ```
+
 #### calling an event via ActionButton
 
 The modal window event can be triggered using the *ActionButton* component.
