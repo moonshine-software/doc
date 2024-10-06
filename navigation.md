@@ -11,6 +11,7 @@
 - ## ModelResource
     - [Basics](/docs/{{version}}/model-resource/index)
     - [Table](/docs/{{version}}/model-resource/table)
+    - [Import/Export](/docs/{{version}}/model-resource/import-export)
     - [Authorization](/docs/{{version}}/model-resource/authorization)
 - ## Pages
 - ## Fields
