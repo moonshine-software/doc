@@ -15,6 +15,7 @@ https://moonshine-laravel.com/docs/resource/getting-started/contribution?change-
   - [How do I make a pull request?](#pr)
   - [Any questions?](#any-questions)
 
+---
 
 <a name="how-can-we-help"></a>
 ## How can we help?
