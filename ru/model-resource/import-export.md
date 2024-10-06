@@ -70,6 +70,30 @@ class CategoryResource extends ModelResource implements HasImportExportContract
 > [!WARNING]
 > Обязательно добавляйте в импорт `ID`, иначе записи будут только добавляться, без обновления существующих.
 
+Если вам необходимо модифицировать значение при импорте, необходимо воспользоваться методом поля `fromRaw`
+
+```php
+/**
+ * @extends ModelResource<Category>
+ */
+class CategoryResource extends ModelResource implements HasImportExportContract
+{
+    use ImportExportConcern;
+    
+    // ...
+    
+    protected function importFields(): iterable
+    {
+        return [
+            ID::make(),
+            Enum::make('Status')
+                ->attach(StatusEnum::class)
+                ->fromRaw(static fn(string $raw, Enum $ctx) => StatusEnum::tryFrom($raw)), 
+        ];
+    }
+}
+```
+
 <a name="import-settings"></a>
 ### Настройка
 
@@ -149,6 +173,30 @@ class CategoryResource extends ModelResource implements HasImportExportContract
             ID::make(),
             Position::make(),
             Text::make('Name'),
+        ];
+    }
+}
+```
+
+Если вам необходимо модифицировать значение при экспорте, необходимо воспользоваться методом поля `modifyRawValue`
+
+```php
+/**
+ * @extends ModelResource<Category>
+ */
+class CategoryResource extends ModelResource implements HasImportExportContract
+{
+    use ImportExportConcern;
+    
+    // ...
+    
+    protected function importFields(): iterable
+    {
+        return [
+            ID::make(),
+            Enum::make('Status')
+                ->attach(StatusEnum::class)
+                ->modifyRawValue(static fn(StatusEnum $raw, Enum $ctx) => $raw->value), 
         ];
     }
 }
