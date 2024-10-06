@@ -14,6 +14,8 @@
 - [Асинхронный режим](#async)
 - [Вызов методов](#method)
 - [Отправка событий](#event)
+- [Наполнение данными](#fill)
+- [Компоненты](#components)
 
 Расширяет [MoonShineComponent](/docs/{{version}}/components/index)
 * имеет те же функции
@@ -573,4 +575,45 @@ dispatchEvent(array|string $events)
 ```php
 ActionButton::make('Обновить')
     ->dispatchEvent(AlpineJs::event(JsEvent::TABLE_UPDATED, 'index-table')),
+```
+
+<a name="fill"></a> 
+## Наполнение данными
+
+При работе с `ModelResource`, кнопки действий `ActionButton` обычно автоматически наполняются необходимыми данными. Этот процесс происходит "под капотом" с использованием метода `setData`. Давайте рассмотрим этот механизм подробнее.
+
+```php
+ActionButton::make('Button')->setData(?DataWrapperContract $data = null)
+```
+
+> [!NOTE]
+> Подробнее о DataWrapperContract читайте в разделе [TypeCasts](/docs/{{version}}/advanced/type-casts)
+
+Также доступны методы с колбеками до и после наполнения кнопки
+
+```php
+ActionButton::make('Button')->onBeforeSet(fn(?DataWrapperContract $data, ActionButton $ctx) => $data)
+```
+
+```php
+ActionButton::make('Button')->onAfterSet(function(?DataWrapperContract $data, ActionButton $ctx): void {
+    // logic
+})
+```
+
+<a name="components"></a> 
+## Компоненты
+
+При использовании `ActionButton` для вызова модальных окон и боковых панелей, важно понимать особенности работы с компонентами в их содержимом. Рассмотрим этот аспект подробнее.
+
+*Проблема с автоматическим обнаружением компонентов*
+
+Когда контент модальных окон или боковых панелей представляет собой простой HTML, `MoonShine` не может автоматически обнаружить и обработать компоненты, которые вы хотите использовать внутри этого контента. Это создает ограничения в функциональности и интерактивности.
+
+Решение: метод `setComponents`
+
+Этот метод позволяет явно указать компоненты, которые будут использоваться в содержимом модального окна или боковой панели.
+
+```php
+ActionButton::make('Button')->setComponents([BelongsTo::make('User')->asyncSearch()])
 ```
