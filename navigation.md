@@ -26,7 +26,7 @@
     - Basics
     - [Attributes](/docs/{{version}}/components/attributes)
     - [Alert](/docs/{{version}}/components/alert)
-    - ActionButton
+    - [ActionButton](/docs/{{version}}/components/action-button)
     - [Modal](/docs/{{version}}/components/modal)
     - [OffCanvas](/docs/{{version}}/components/off-canvas)
     - [Badge](/docs/{{version}}/components/badge)
