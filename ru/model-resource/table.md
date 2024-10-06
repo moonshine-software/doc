@@ -137,6 +137,7 @@ use App\Models\Post;
 use Closure;
 use MoonShine\UI\Fields\Text;
 use MoonShine\Laravel\Resources\ModelResource;
+use MoonShine\Contracts\Core\TypeCasts\DataWrapperContract;
 
 class PostResource extends ModelResource
 {
@@ -144,14 +145,14 @@ class PostResource extends ModelResource
 
     protected function tdAttributes(): Closure
     {
-        return fn(Model $data, int $row, int $cell) => [
+        return fn(?DataWrapperContract $data, int $row, int $cell) => [
             'width' => '20%'
         ];
     }
 
     protected function trAttributes(): Closure
     {
-        return fn(Model $data, int $row) => [
+        return fn(?DataWrapperContract $data, int $row) => [
             'data-tr' => $row
         ];
     }
@@ -480,6 +481,11 @@ public function modifyDetailComponent(MoonShineRenderable $component): MoonShine
 Если вам недостаточно просто автоматически выводить поля в `thead`, `tbody` и `tfoot`, то вы можете переопределить или дополнить эту логику на основе методов ресурса `thead()`, `tbody()`, `tfoot()`
 
 ```php
+use MoonShine\Contracts\UI\Collection\TableRowsContract;
+use MoonShine\Contracts\UI\TableRowContract;
+use MoonShine\UI\Collections\TableCells;
+use MoonShine\UI\Collections\TableRows;
+
 protected function thead(): null|TableRowsContract|Closure
 {
     return static fn(TableRowContract $default) => TableRows::make([$default])->pushRow(
