@@ -44,6 +44,7 @@
     - [Authorization](/docs/{{version}}/advanced/authorization)
     - [Authentication](/docs/{{version}}/advanced/authentication)
     - Socialite
+    - 2FA
 - ## Advanced
     - CrudResource
     - [Routes](/docs/{{version}}/advanced/routes)
