@@ -1,4 +1,8 @@
 - ## Prologue
+    - [Contribution Guide](/docs/{{version}}/contribution)
+    - [Upgrade guide](/docs/{{version}}/upgrade-guide)
+    - [Support Policy](/docs/{{version}}/support-policy)
+    - [Troubleshooting](/docs/{{version}}/troubleshooting)
 - ## Getting Started
     - [Installation](/docs/{{version}}/installation)
     - [Configuration](/docs/{{version}}/configuration)
@@ -10,10 +14,23 @@
     - Icons
 - ## ModelResource
     - [Basics](/docs/{{version}}/model-resource/index)
+    - [Fields](/docs/{{version}}/model-resource/fields)
+    - [With pages](/docs/{{version}}/model-resource/pages)
     - [Table](/docs/{{version}}/model-resource/table)
+    - [Form](/docs/{{version}}/model-resource/form)
+    - [Validation rules](/docs/{{version}}/model-resource/validation)
+    - [Buttons](/docs/{{version}}/model-resource/buttons)
+    - [Filters](/docs/{{version}}/model-resource/filters)
+    - [Search](/docs/{{version}}/model-resource/search)
+    - [Query](/docs/{{version}}/model-resource/query)
+    - [Tags](/docs/{{version}}/model-resource/query-tags)
+    - [Metrics](/docs/{{version}}/model-resource/metrics)
+    - [Events](/docs/{{version}}/model-resource/events)
     - [Import/Export](/docs/{{version}}/model-resource/import-export)
     - [Authorization](/docs/{{version}}/model-resource/authorization)
+
 - ## Pages
+    - [Basics](/docs/{{version}}/page/index)
 - ## Fields
     - [Conception](/docs/{{version}}/fields/index)
     - [Basic methods](/docs/{{version}}/fields/basic-methods)
@@ -22,6 +39,42 @@
     - [ID](/docs/{{version}}/fields/id)
     - [Url](/docs/{{version}}/fields/url)
     - [Json](/docs/{{version}}/fields/json)
+    - [Slug](/docs/{{version}}/fields/slug)
+    - [Color](/docs/{{version}}/fields/color)
+    - [E-mail](/docs/{{version}}/fields/email)
+    - [Phone](/docs/{{version}}/fields/phone)
+    - [Password](/docs/{{version}}/fields/password)
+    - [Number](/docs/{{version}}/fields/number)
+    - [Range](/docs/{{version}}/fields/range)
+    - [RangeSlider](/docs/{{version}}/fields/range-slider)
+    - [Date](/docs/{{version}}/fields/date)
+    - [DateRange](/docs/{{version}}/fields/date-range)
+    - [Textarea](/docs/{{version}}/fields/textarea)
+    - [Code](/docs/{{version}}/fields/code)
+    - [Markdown](/docs/{{version}}/fields/markdown)
+    - [TinyMce](/docs/{{version}}/fields/tinymce)
+    - [Select](/docs/{{version}}/fields/select)
+    - [Enum](/docs/{{version}}/fields/enum)
+    - [Checkbox](/docs/{{version}}/fields/checkbox)
+    - [Switcher](/docs/{{version}}/fields/switcher)
+    - [File](/docs/{{version}}/fields/file)
+    - [Image](/docs/{{version}}/fields/image)
+    - [BelongsTo](/docs/{{version}}/fields/belongs-to)
+    - [BelongsToMany](/docs/{{version}}/fields/belongs-to-many)
+    - [HasMany](/docs/{{version}}/fields/has-many)
+    - [HasManyThrough](/docs/{{version}}/fields/has-many-through)
+    - [HasOne](/docs/{{version}}/fields/has-one)
+    - [HasOneThrough](/docs/{{version}}/fields/has-one-through)
+    - [MorphTo](/docs/{{version}}/fields/morph-to)
+    - [MorphOne](/docs/{{version}}/fields/morph-one)
+    - [MorphMany](/docs/{{version}}/fields/morph-many)
+    - [MorphToMany](/docs/{{version}}/fields/morph-to-many)
+    - [RelationRepeater](/docs/{{version}}/fields/relation-repeater)
+    - [HiddenIds](/docs/{{version}}/fields/hidden-ids)
+    - [Preview](/docs/{{version}}/fields/preview)
+    - [Position](/docs/{{version}}/fields/position)
+    - [StackFields](/docs/{{version}}/fields/stack-fields)
+    - [Template](/docs/{{version}}/fields/template)
 - ## Components
     - Basics
     - [Attributes](/docs/{{version}}/components/attributes)
@@ -57,3 +110,4 @@
     - Testing
     - Package Development
 - ## Recipes
+    - [Recipes](/docs/{{version}}/recipes)
