@@ -2,11 +2,12 @@
 
   - [Основы](#basics)
   - [Валидация](#validation)
-  - [Сообщения](#messages)
-  - [Подготовка входных данных для проверки](#prepare)
+    - [Сообщения](#messages)
+    - [Подготовка входных данных для проверки](#prepare)
+    - [Отображение ошибок](#display-errors)
+    - [Precognition](#precognitive)
   - [Кнопки](#buttons)
   - [Асинхронный режим](#async)
-    - [Precognition](#precognitive)
   - [Модификаторы](#modifiers)
     - [Компоненты](#components)
 
@@ -77,7 +78,7 @@ class PostResource extends ModelResource
 ```
 
 <a name="prepare"></a>
-## Подготовка входных данных для проверки
+### Подготовка входных данных для проверки
 
 Если вам нужно подготовить или очистить какие-либо данные из запроса перед применением правил валидации, вы можете использовать метод `prepareForValidation()`.
 
@@ -101,6 +102,45 @@ class PostResource extends ModelResource
     }
 
     //...
+}
+```
+
+<a name="display-errors"></a>
+### Отображение ошибок
+
+По умолчанию ошибки валидации отображаются в верхней части формы.
+
+Свойство `$errorsAbove` используется для управления отображением ошибок валидации в верхней части формы.
+
+> [!NOTE]
+> Актуально только если "Асинхронный режим" выключен
+
+```php
+class PostResource extends ModelResource
+{
+  // ..
+
+  protected bool $errorsAbove = true;
+
+  // ..
+}
+```
+
+<a name="precognitive"></a>
+### Precognition
+
+Если необходимо предварительно выполнить `precognition` валидацию, необходим метод `precognitive()`.
+
+[Подробности в документации Laravel](https://laravel.com/docs/precognition)
+
+```php
+class PostResource extends ModelResource
+{
+    // ...
+
+    protected bool $isPrecognitive = true;
+
+    // ...
 }
 ```
 
@@ -130,22 +170,6 @@ class PostResource extends ModelResource
     // ...
 
     protected bool $isAsync = false;
-
-    // ...
-}
-```
-
-<a name="precognitive"></a>
-### Precognition
-
-[Подробности в документации Laravel](https://laravel.com/docs/precognition)
-
-```php
-class PostResource extends ModelResource
-{
-    // ...
-
-    protected bool $isPrecognitive = true;
 
     // ...
 }
