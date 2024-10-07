@@ -506,7 +506,7 @@ protected function tbody(): null|TableRowsContract|Closure
 
 protected function tfoot(): null|TableRowsContract|Closure
 {
-    return static fn(TableRowContract $default) => TableRows::make([$default])->pushRow(
+    return static fn(?TableRowContract $default) => TableRows::make([$default])->pushRow(
         TableCells::make()->pushCell(
             'td content'
         )
@@ -514,12 +514,19 @@ protected function tfoot(): null|TableRowsContract|Closure
 }
 ```
 
+#### Пример добавления дополнительной строки в tfoot  
+```php
+    protected function tfoot(): null|TableRowsContract|Closure
+    {
+        return static function(?TableRowContract $default, TableBuilder $table) {
+            $cells = TableCells::make();
 
+            $cells->pushCell('Баланс:');
+            $cells->pushCell('1000 р.');
 
-
-
-
-
-
+            return TableRows::make([TableRow::make($cells), $default]);
+        };
+    }
+```
 
 
