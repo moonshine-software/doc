@@ -41,6 +41,8 @@
 `TableBuilder` - инструмент в MoonShine для создания настраиваемых таблиц для отображения данных. Он используется на индексной и детальной CRUD-страницах, а также для полей отношений, таких как `HasMany`, `BelongsToMany`, `RelationRepeater` и поля `Json`.
 
 ```php
+use MoonShine\UI\Components\Table\TableBuilder;
+
 TableBuilder::make(iterable $fields = [], iterable $items = [])
 ```
 
