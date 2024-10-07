@@ -514,12 +514,53 @@ protected function tfoot(): null|TableRowsContract|Closure
 }
 ```
 
+#### Пример добавления в tfoot строки с суммой всех значений в заданных колонках 
+```php
+    protected function tfoot(): null|TableRowsContract|Closure
+    {
+        return static function(TableRowContract $default, TableBuilder $table) {
+            $totalColumns = ['column1', 'column2', 'column3'];
 
+            $totalItem = new ($table->getCast()->getClass());
 
+            $items = $table->getItems();
+            foreach ($items as $item) {
+                foreach ($totalColumns as $columnName) {
+                    $totalItem->$columnName = ($totalItem->$columnName ?? 0) + $item->$columnName ?? 0;
+                }
+            }
 
+            $casted = $table->castData($totalItem);
 
+            $cells = TableCells::make();
 
+            $hasBulk = !$table->isPreview() && $table->getBulkButtons()->isNotEmpty();
 
+            // Ячейка "Выбор строки"
+            if ($hasBulk) {
+                $cells->pushCell('');
+            }
+            
+            /**  @var $field Field */
+            foreach ($table->getPreparedFields() as $field) {
+                if (in_array($field->getColumn(), $totalColumns)) {
+                    $cells->pushFields(
+                        Fields::make([(clone $field)->fill($casted->toArray(), $casted)]),
+                    );
+                } else {
+                    $cells->pushCell('');
+                }
+            }
 
+            // Ячейка "Кнопки действий"
+            $cells->pushCell('');
+
+            $totalRow = TableRow::make($cells)
+                            ->class('bgc-yellow')
+                            ->style('font-weight: bold;');
+            return TableRows::make([$totalRow, $default]);
+        };
+    }
+```
 
 
