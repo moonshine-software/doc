@@ -176,4 +176,9 @@ return [
         'url' => 'khlystou/moonshine-input-datalist',
         'category' => 'Fields'
     ],
+    [
+        'title' => 'Theme switcher',
+        'url' => 'awe-ux/moonshine-theme-switcher',
+        'category' => 'Themes',
+    ],
 ];
