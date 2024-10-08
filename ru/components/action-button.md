@@ -15,7 +15,6 @@
 - [Вызов методов](#method)
 - [Отправка событий](#event)
 - [Наполнение данными](#fill)
-- [Компоненты](#components)
 
 Расширяет [MoonShineComponent](/docs/{{version}}/components/index)
 * имеет те же функции
@@ -599,21 +598,4 @@ ActionButton::make('Button')->onBeforeSet(fn(?DataWrapperContract $data, ActionB
 ActionButton::make('Button')->onAfterSet(function(?DataWrapperContract $data, ActionButton $ctx): void {
     // logic
 })
-```
-
-<a name="components"></a> 
-## Компоненты
-
-При использовании `ActionButton` для вызова модальных окон и боковых панелей, важно понимать особенности работы с компонентами в их содержимом. Рассмотрим этот аспект подробнее.
-
-*Проблема с автоматическим обнаружением компонентов*
-
-Когда контент модальных окон или боковых панелей представляет собой простой HTML, `MoonShine` не может автоматически обнаружить и обработать компоненты, которые вы хотите использовать внутри этого контента. Это создает ограничения в функциональности и интерактивности.
-
-Решение: метод `setComponents`
-
-Этот метод позволяет явно указать компоненты, которые будут использоваться в содержимом модального окна или боковой панели.
-
-```php
-ActionButton::make('Button')->setComponents([BelongsTo::make('User')->asyncSearch()])
 ```
