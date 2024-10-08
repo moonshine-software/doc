@@ -1,15 +1,15 @@
 https://moonshine-laravel.com/docs/resource/models-resources/resources-form?change-moonshine-locale=en
 
 ------
-<a name="form"></a>
 # Form
 
-- Form
   - [Validation](#validation)
   - [Messages](#messages)
   - [Preparing input data for verification](#prepare)
   - [Buttons](#buttons)
   - [Asynchronous mode](#async)
+
+---
 
 <a name="validation"></a>
 ## Validation

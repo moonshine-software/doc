@@ -16,17 +16,16 @@ https://moonshine-laravel.com/docs/resource/fields/fields-file?change-moonshine-
   - [Item attributes](#item-attributes)
   - [Helper methods](#helper-methods)
 
+---
+
 <a name="basics"></a>
 ### Basics
-
 
 > [!TIP]
 > Before use, you must make sure that the **storage** directory a symbolic link has been set.  
 > `php artisan storage:link`
 
-
 The _File_ field is used to upload files and includes all the basic methods.
-
 
 ```php
 use MoonShine\Fields\File;

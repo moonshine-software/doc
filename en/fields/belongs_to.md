@@ -16,6 +16,8 @@ https://moonshine-laravel.com/docs/resource/fields/fields-belongs_to?change-moon
 - [Options](#options)
 - [Native mode](#native)
 
+---
+
 <a name="basics"></a>
 ## Basics
 

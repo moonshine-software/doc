@@ -20,6 +20,8 @@ https://moonshine-laravel.com/docs/resource/fields/fields-belongs_to_many?change
   - [Values with picture](#with-image)
   - [Buttons](#buttons)
 
+---
+
 <a name="basics"></a> 
 ### Basics
 
