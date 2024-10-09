@@ -1,6 +1,6 @@
 # TableBuilder
 
-- [Вступление](#intro)
+- [Основы](#basics)
 - [Основное использование](#basic-usage)
 - [Основные методы](#basic-methods)
   - [Поля](#fields)
@@ -37,16 +37,32 @@
 
 ---
 
-<a name="intro"></a>
-## Вступление
+<a name="basics"></a>
+## Основы
 
 `TableBuilder` - инструмент в MoonShine для создания настраиваемых таблиц для отображения данных. Он используется на индексной и детальной CRUD-страницах, а также для полей отношений, таких как `HasMany`, `BelongsToMany`, `RelationRepeater` и поля `Json`.
 
+~~~tabs
+tab: Class
 ```php
 use MoonShine\UI\Components\Table\TableBuilder;
 
 TableBuilder::make(iterable $fields = [], iterable $items = [])
 ```
+tab: Blade
+```blade
+<x-moonshine::table
+    :columns="[
+        '#', 'First', 'Last', 'Email'
+    ]"
+    :values="[
+        [1, fake()->firstName(), fake()->lastName(), fake()->safeEmail()],
+        [2, fake()->firstName(), fake()->lastName(), fake()->safeEmail()],
+        [3, fake()->firstName(), fake()->lastName(), fake()->safeEmail()]
+    ]"
+/>
+```
+~~~
 
 <a name="basic-usage"></a>
 ## Основное использование
