@@ -12,6 +12,8 @@
 - [Async](#async)
 - [Outer attributes](#outer-attributes)
 
+---
+
 <a name="description"></a>
 ## Введение
 
