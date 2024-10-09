@@ -16,6 +16,8 @@
 - [Отправка событий](#event)
 - [Наполнение данными](#fill)
 
+---
+
 Расширяет [MoonShineComponent](/docs/{{version}}/components/index)
 * имеет те же функции
 
