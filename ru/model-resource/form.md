@@ -11,6 +11,8 @@
   - [Модификаторы](#modifiers)
     - [Компоненты](#components)
 
+---
+
 <a name="basics"></a>
 ## Основы
 
