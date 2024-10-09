@@ -35,6 +35,8 @@
   - [Слоты](#blade-slots)
   - [Стилизация](#blade-styles)
 
+---
+
 <a name="intro"></a>
 ## Вступление
 
