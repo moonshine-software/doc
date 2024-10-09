@@ -9,6 +9,8 @@
 - [Ограничение доступа по ролям](#role-based-access)
 - [Аутентификационные pipelines](#authentication-pipelines)
 
+---
+
 <a name="introduction"></a>
 ## Введение
 
