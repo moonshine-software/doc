@@ -14,7 +14,7 @@
     - [Обновление ряда](#update-row)
   - [Модификаторы](#modifiers)
     - [Компоненты](#components)
-    - [thead,tbody,tfoot](thead-tbody-tfoot) 
+    - [thead,tbody,tfoot](#thead-tbody-tfoot) 
 
 ---
 
