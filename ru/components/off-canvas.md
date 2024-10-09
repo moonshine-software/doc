@@ -9,6 +9,8 @@
 - [Position](#position)
 - [Toggler attributes](#toggler-attributes)
 
+---
+
 <a name="make"></a>
 ## Make
 
