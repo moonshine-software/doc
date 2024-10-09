@@ -1,15 +1,10 @@
 # Color
 
-- [Основы](#basics)
-
-<a name="basics"></a>
 ## Основы
 
-Наследует [Text](/docs/{{version}}/fields/text).
+Содержит все [Базовые методы](#/docs/{{version}}/fields/basic-methods.md).
 
-\* имеет те же возможности
-
-Поле Color является расширением Text, которое предоставляет удобный способ для ввода цвета.
+Поле Color предоставляет удобный способ для ввода цвета.
 
 ```php
 use MoonShine\UI\Fields\Color; 
