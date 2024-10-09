@@ -14,7 +14,7 @@
     - [Обновление ряда](#update-row)
   - [Модификаторы](#modifiers)
     - [Компоненты](#components)
-    - [thead,tbody,tfoot](#thead-tbody-tfoot) 
+    - [Элементы thead, tbody, tfoot](#thead-tbody-tfoot) 
 
 ---
 
@@ -478,7 +478,7 @@ public function modifyDetailComponent(MoonShineRenderable $component): MoonShine
 ```
 
 <a name="thead-tbody-tfoot"></a>
-### thead,tbody,tfoot
+### Элементы thead, tbody, tfoot
 
 Если вам недостаточно просто автоматически выводить поля в `thead`, `tbody` и `tfoot`, то вы можете переопределить или дополнить эту логику на основе методов ресурса `thead()`, `tbody()`, `tfoot()`
 
