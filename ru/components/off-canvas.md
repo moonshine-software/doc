@@ -1,7 +1,4 @@
-# TODO
-- [ ] - https://github.com/moonshine-software/moonshine/pull/1288
-
-## OffCanvas (WIP ...)
+# OffCanvas (WIP ...)
 
 - [Make](#make)
 - [Events](#events)
@@ -10,6 +7,9 @@
 - [Toggler attributes](#toggler-attributes)
 
 ---
+
+## TODO
+- [ ] - https://github.com/moonshine-software/moonshine/pull/1288
 
 <a name="make"></a>
 ## Make
