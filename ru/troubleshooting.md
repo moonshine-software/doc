@@ -4,6 +4,8 @@
   - [Проблемы с https](#problems-with-https)
   - [Ошибка "Страница не найдена"](#error-page-not-found)
 
+---
+
 <a name="images-are-not-displayed"></a>
 ## Изображения не отображаются
 - Убедитесь, что вы выполнили команду `php artisan storage:link`
