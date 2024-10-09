@@ -1,6 +1,3 @@
-# TODO
-- [ ] - https://github.com/moonshine-software/moonshine/pull/1288
-
 # Modal (WIP ...)
 
 - [Введение](#description)
@@ -13,6 +10,9 @@
 - [Outer attributes](#outer-attributes)
 
 ---
+
+## TODO
+- [ ] - https://github.com/moonshine-software/moonshine/pull/1288
 
 <a name="description"></a>
 ## Введение
