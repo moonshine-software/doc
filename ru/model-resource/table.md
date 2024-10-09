@@ -16,6 +16,8 @@
     - [Компоненты](#components)
     - [thead,tbody,tfoot](thead-tbody-tfoot) 
 
+---
+
 <a name="basics"></a>
 ## Основы
 
