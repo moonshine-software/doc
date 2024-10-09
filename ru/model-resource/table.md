@@ -451,8 +451,8 @@ class PostResource extends ModelResource
 }
 ```
 
-<a name="modify"></a>
-## Модификация
+<a name="modifiers"></a>
+## Модификаторы
 
 <a name="components"></a>
 ### Компоненты
