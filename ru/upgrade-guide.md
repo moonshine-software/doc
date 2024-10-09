@@ -107,7 +107,7 @@ rm app/MoonShine/Pages/Dashboard_old.php
 - `MoonShine\Http\Controllers\` → `MoonShine\Laravel\Http\Controllers\`
 - `MoonShine\MoonShineAuth` → `MoonShine\Laravel\MoonShineAuth`
 
-#### Удалить
+#### Поменять на дополнительные пакеты
 - `MoonShine\Laravel\Handlers\ExportHandler` (меняется на пакет https://github.com/moonshine-software/import-export)
 - `MoonShine\Laravel\Handlers\ImportHandler` (меняется на пакет https://github.com/moonshine-software/import-export)
 - ```
@@ -115,7 +115,8 @@ rm app/MoonShine/Pages/Dashboard_old.php
      * @return list<MoonShineComponent|Field>
      */
   ```
-  
+- Поле `Code` и другие _(добавить список)_
+
 <a name="methods"></a>
 ### Методы
 #### Изменить
@@ -209,7 +210,7 @@ rm app/MoonShine/Pages/Dashboard_old.php
   - поменялся формат наименования событий со строкового на генерацию хелпером:
     - `table-updated-{name}` → `AlpineJs::event(JsEvent::TABLE_UPDATED, {name})`
     - смотрите файл `src/Support/src/Enums/JsEvent.php` со списком всех событий
-
+- `protected string $sortDirection = 'ASC';` → `protected SortDirection $sortDirection = SortDirection::ASC;` (также `DESC`)  
  
 #### Удалить
   - `protected bool $isAsync = true;` (теперь по умолчанию)
