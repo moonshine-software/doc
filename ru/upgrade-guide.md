@@ -211,7 +211,7 @@ rm app/MoonShine/Pages/Dashboard_old.php
     - `table-updated-{name}` → `AlpineJs::event(JsEvent::TABLE_UPDATED, {name})`
     - смотрите файл `src/Support/src/Enums/JsEvent.php` со списком всех событий
 - `protected string $sortDirection = 'ASC';` → `protected SortDirection $sortDirection = SortDirection::ASC;` (также `DESC`)  
- 
+- `$assets` теперь вместо строк принимает `AssetElementContract`, такие как `Css`, `InlineCss`, `Js`, `InlineJs` 
 #### Удалить
   - `protected bool $isAsync = true;` (теперь по умолчанию)
   
