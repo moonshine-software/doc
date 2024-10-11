@@ -6,9 +6,9 @@
   - [Имя формы](#form-name)
   - [Поля](#fields)
   - [Заполнение полей](#fill-fields)
+  - [Приведение к типу](#type-cast)
   - [Кнопки](#buttons)
 - [Настройка атрибутов](#attributes)
-- [Приведение к типу](#type-cast)
 - [Асинхронный режим](#asynchronous-mode)
   - [Вызов методов](#calling-methods)
 - [Валидация](#validation)
@@ -88,7 +88,7 @@ FormBuilder::make()
 
 - `action` - обработчик
 - `method` - тип запроса,
-- `fields` - поля и декорации.
+- `fields` - поля и компоненты.
 - `values` - значения полей.
 
 <a name="basic-methods"></a>
@@ -97,22 +97,32 @@ FormBuilder::make()
 <a name="fields"></a>
 ### Поля
 
-Метод `fields()` для объявления полей формы и декораций:
+Метод `fields()` для объявления полей формы и компонеты:
 
 ```php
-fields(Fields|Closure|array $fields)
+fields(FieldsContract|Closure|iterable $fields)
 ```
 
 ```php
-FormBuilder::make('/crud/update', 'PUT')
+FormBuilder::make('/crud/update')
     ->fields([
         Heading::make('Title'),
         Text::make('Text'),
     ])
 ```
 
+<a name="form-name"></a>
+### Имя формы
+
+Метод `name()` позволяет установить уникальное имя для формы, через которое можно вызывать события.
+
+```php
+FormBuilder::make('/crud/update')
+    ->name('main-form')
+```
+
 <a name="fill-fields"></a>
-## Заполнение полей
+### Заполнение полей
 
 Метод `fill()` для заполнения полей значениями:
 
@@ -121,7 +131,7 @@ fill(mixed $values = [])
 ```
 
 ```php
-FormBuilder::make('/crud/update', 'PUT')
+FormBuilder::make('/crud/update')
     ->fields([
         Heading::make('Title'),
         Text::make('Text'),
@@ -130,74 +140,74 @@ FormBuilder::make('/crud/update', 'PUT')
 ```
 
 <a name="casting"></a>
-## Приведение типов
+### Приведение типов
 
 Метод `cast()` для приведения значений формы к определенному типу. Поскольку по умолчанию поля работают с примитивными типами:
 
 ```php
-cast(MoonShineDataCast $cast)
+cast(DataCasterContract $cast)
 ```
 
 ```php
-use MoonShine\TypeCasts\ModelCast;
+use MoonShine\Laravel\TypeCasts\ModelCaster;
 
-FormBuilder::make('/crud/update', 'PUT')
+FormBuilder::make('/crud/update')
     ->fields([
         Heading::make('Title'),
         Text::make('Text'),
     ])
-    ->fillCast(
+    ->values(
         ['text' => 'value'],
-        ModelCast::make(User::class)
     )
+    ->cast(new ModelCaster(User::class))
 ```
 
-В этом примере мы приводим данные к формату модели `User`, используя `ModelCast`.
+В этом примере мы приводим данные к формату модели `User`, используя `ModelCaster`.
 
 > [!NOTE]
-> Для более подробной информации обратитесь к разделу [TypeCasts](https://moonshine-laravel.com/docs/resource/advanced/advanced-type_casts)
+> Для более подробной информации обратитесь к разделу [TypeCasts](/docs/{{version}}/advanced/type-casts)
 
-<a name="fillcast"></a>
-## FillCast
+<a name="fill-cast"></a>
+#### Заполнение и приведение к типу
 
 Метод `fillCast()` позволяет привести данные к определенному типу и сразу заполнить их значениями:
 
 ```php
-fillCast(mixed $values, MoonShineDataCast $cast)
+fillCast(mixed $values, DataCasterContract $cast)
 ```
 
 ```php
-use MoonShine\TypeCasts\ModelCast;
+use MoonShine\TypeCasts\ModelCaster;
 
-FormBuilder::make('/crud/update', 'PUT')
+FormBuilder::make('/crud/update')
     ->fields([
         Heading::make('Title'),
         Text::make('Text'),
     ])
     ->fillCast(
         ['text' => 'value'],
-        ModelCast::make(User::class)
+        new ModelCaster(User::class)
     )
 ```
 
 или
 
 ```php
-use MoonShine\TypeCasts\ModelCast;
+use MoonShine\TypeCasts\ModelCaster;
 
-FormBuilder::make('/crud/update', 'PUT')
+FormBuilder::make('/crud/update')
     ->fields([
         Heading::make('Title'),
         Text::make('Text'),
     ])
     ->fillCast(
         User::query()->first(),
-        ModelCast::make(User::class)
+        new ModelCaster(User::class)
     )
 ```
 
 <a name="buttons"></a>
-## Кнопки
+##№ Кнопки
 
 Кнопки формы можно модифицировать и добавлять.
 
@@ -211,32 +221,32 @@ submit(string $label, array $attributes = [])
 - `attributes` - дополнительные атрибуты
 
 ```php
-FormBuilder::make('/crud/update', 'PUT')
+FormBuilder::make('/crud/update')
     ->submit(label: 'Нажми меня', attributes: ['class' => 'btn-primary'])
 ```
 
-Метод `hideSubmit()` позволяет скрыть кнопку **"submit"**.
+Метод `hideSubmit()` позволяет скрыть кнопку `submit`.
 
 ```php
-FormBuilder::make('/crud/update', 'PUT')
+FormBuilder::make('/crud/update')
     ->hideSubmit()
 ```
 
 Для добавления новых кнопок на основе `ActionButton` используйте метод `buttons()`
 
 ```php
-buttons(array $buttons = [])
+buttons(iterable $buttons = [])
 ```
 
 ```php
-FormBuilder::make('/crud/update', 'PUT')
+FormBuilder::make('/crud/update')
     ->buttons([
         ActionButton::make('Удалить', route('name.delete'))
     ])
 ```
 
 <a name="attributes"></a>
-## Атрибуты
+## Настройка атрибутов
 
 Вы можете установить любые html атрибуты для формы с помощью метода `customAttributes()`.
 
@@ -245,15 +255,6 @@ FormBuilder::make()
     ->customAttributes(['class' => 'custom-form'])
 ```
 
-<a name="form-name"></a>
-## Имя формы
-
-Метод `name()` позволяет установить уникальное имя для формы, через которое можно поднимать события.
-
-```php
-FormBuilder::make('/crud/update', 'PUT')
-    ->name('main-form')
-```
 
 <a name="asynchronous-mode"></a>
 ## Асинхронный режим
@@ -262,66 +263,111 @@ FormBuilder::make('/crud/update', 'PUT')
 
 ```php
 async(
-    ?string $asyncUrl = null,
-    string|array|null $asyncEvents = null,
-    ?string $asyncCallback = null
+    Closure|string|null $url = null,
+    string|array|null $events = null,
+    ?AsyncCallback $callback = null,
 )
 ```
 
-- `asyncUrl` - url запроса (по умолчанию запрос отправляется по url action),
-- `asyncEvents` - события, поднимаемые после успешного запроса,
-- `asyncCallback` - js callback функция после получения ответа.
+- `url` - url запроса (по умолчанию запрос отправляется по url action),
+- `events` - события, поднимаемые после успешного запроса,
+- `callback` - js callback функция после получения ответа.
 
 ```php
-FormBuilder::make('/crud/update', 'PUT')
+FormBuilder::make('/crud/update')
     ->async()
 ```
 
-После успешного запроса можно поднимать события, добавив параметр `asyncEvents`.
+После успешного запроса можно вызвать события, добавив параметр `events`.
 
 ```php
-FormBuilder::make('/crud/update', 'PUT')
+FormBuilder::make('/crud/update')
         ->name('main-form')
-        ->async(asyncEvents: ['table-updated-crud', 'form-reset-main-form'])
+        ->async(events: [
+          AlpineJs::event(JsEvent::TABLE_UPDATED, 'crud-table'),
+          AlpineJs::event(JsEvent::FORM_RESET, 'main-form'),
+        ])
 ```
 
-В **MoonShine** уже есть набор готовых событий:
-- `table-updated-{name}` - обновление асинхронной таблицы по ее имени,
-- `form-reset-{name}` - сброс значений формы по ее имени,
-- `fragment-updated-{name}` - обновляет blade фрагмент по его имени.
+Список событий для `FormBuilder`:
+
+- `JsEvent::FORM_SUBMIT` - submit формы,
+- `JsEvent::FORM_RESET` - сброс значений формы по ее имени,
 
 > [!NOTE]
-> Рецепт [При успешном запросе форма обновляет таблицу и сбрасывает значения](https://moonshine-laravel.com/docs/resource/recipes/recipes#form-with-events)
+> Рецепт [При успешном запросе форма обновляет таблицу и сбрасывает значения](/docs/{{version}}/recipes/index#form-with-events)
 
->[!WARNING]
->Метод `async()` должен идти после метода `name()`!
+> [!WARNING]
+> Метод `async()` должен идти после метода `name()`!
+
+<a name="calling-methods"></a>
+### Вызов методов
+
+`asyncMethod()` позволяет указать имя метода в ресурсе и вызвать его асинхронно при отправке `FormBuilder` без необходимости создания дополнительных контроллеров.
+
+```php
+FormBuilder::make()->asyncMethod('updateSomething'),
+```
+
+```php
+// С уведомлением
+public function updateSomething(MoonShineRequest $request): MoonShineJsonResponse
+{
+    // $request->getResource();
+    // $request->getResource()->getItem();
+    // $request->getPage();
+
+    return MoonShineJsonResponse::make()->toast('Мое сообщение', ToastType::SUCCESS);
+}
+
+// Редирект
+public function updateSomething(MoonShineRequest $request): MoonShineJsonResponse
+{
+    return MoonShineJsonResponse::make()->redirect('/');
+}
+
+// Редирект
+public function updateSomething(MoonShineRequest $request): RedirectResponse
+{
+    return back();
+}
+
+// Исключение
+public function updateSomething(MoonShineRequest $request): void
+{
+    throw new \Exception('Мое сообщение');
+}
+```
+
+<a name="validation"></a>
+## Валидация
 
 <a name="displaying-validation-errors"></a>
-## Отображение ошибок валидации
+### Отображение ошибок валидации
 
 По умолчанию ошибки валидации отображаются в верхней части формы.
 
 Метод `errorsAbove(bool $enable = true)` используется для управления отображением ошибок валидации в верхней части формы. Он позволяет включить или отключить эту функцию.
 
 ```php
-FormBuilder::make('/crud/update', 'PUT')
+FormBuilder::make('/crud/update')
     ->errorsAbove(false)
 ```
 
 <a name="precognitive"></a>
-## Прекогнитивная валидация
+### Прекогнитивная валидация
 
 Если необходимо сначала выполнить прекогнитивную валидацию, вам нужен метод `precognitive()`.
 
 ```php
-FormBuilder::make('/crud/update', 'PUT')
+FormBuilder::make('/crud/update')
     ->precognitive()
 ```
 
 <a name="apply"></a>
 ## Применение
 
-Метод `apply()` в *FormBuilder* итерирует все поля формы и вызывает их методы apply.
+Метод `apply()` в `FormBuilder` итерирует все поля формы и вызывает их методы apply.
 
 ```php
 apply(
@@ -381,46 +427,6 @@ $form->apply(
 );
 ```
 
-<a name="calling-methods"></a>
-## Вызов методов
-
-`asyncMethod()` позволяет указать имя метода в ресурсе и вызвать его асинхронно при отправке *FormBuilder* без необходимости создания дополнительных контроллеров.
-
-```php
-public function components(): array
-{
-    return [
-        FormBuilder::make()
-            ->asyncMethod('updateSomething'),
-    ];
-}
-```
-
-```php
-// С уведомлением
-public function updateSomething(MoonShineRequest $request)
-{
-    // $request->getResource();
-    // $request->getResource()->getItem();
-    // $request->getPage();
-
-    MoonShineUI::toast('Мое сообщение', 'success');
-
-    return back();
-}
-
-// Исключение
-public function updateSomething(MoonShineRequest $request)
-{
-    throw new \Exception('Мое сообщение');
-}
-
-// Пользовательский json ответ
-public function updateSomething(MoonShineRequest $request)
-{
-    return MoonShineJsonResponse::make()->toast('Мое сообщение', ToastType::SUCCESS);
-}
-```
 
 <a name="dispatch-events"></a>
 ## Отправка событий
@@ -437,7 +443,7 @@ FormBuilder::make()
 ```
 
 <a name="submit-event"></a>
-## Событие "Submit"
+### Событие "Submit"
 
 Для отправки формы можно вызвать событие *Submit*.
 
@@ -448,16 +454,14 @@ AlpineJs::event(JsEvent::FORM_SUBMIT, 'componentName')
 #### Пример вызова события на странице формы
 
 ```php
-public function formButtons(): array
+protected function formButtons(): ListOf
 {
-    return [
-       ActionButton::make('Сохранить')->dispatchEvent(AlpineJs::event(JsEvent::FORM_SUBMIT, $this->uriKey()))
-    ];
+    return parent::formButtons()->add(ActionButton::make('Сохранить')->dispatchEvent(AlpineJs::event(JsEvent::FORM_SUBMIT, $this->uriKey())));
 }
 ```
 
 > [!NOTE]
-> Для получения дополнительной информации о помощниках AlpineJs обратитесь к разделу [Js events](https://moonshine-laravel.com/docs/resource/advanced/advanced-js_events#helper).
+> Для получения дополнительной информации о js событиях обратитесь к разделу [Events](/docs/{{version}}/frontend/events).
 
 <a name="blade"></a>
 ## Использование в blade
@@ -468,14 +472,19 @@ public function formButtons(): array
 Формы можно создавать с помощью компонента `moonshine::form`.
 
 ```php
-<x-moonshine::table
-    :columns="[
-        '#', 'First', 'Last', 'Email'
-    ]"
-    :values="[
-        [1, fake()->firstName(), fake()->lastName(), fake()->safeEmail()],
-        [2, fake()->firstName(), fake()->lastName(), fake()->safeEmail()],
-        [3, fake()->firstName(), fake()->lastName(), fake()->safeEmail()]
-    ]"
-/>
+<x-moonshine::form
+name="crud-form"
+:errors="$errors"
+precognitive
+>
+    <x-moonshine::form.input
+        name="title"
+        placeholder="Title"
+        value=""
+    />
+    <x-slot:buttons>
+        <x-moonshine::form.button type="reset">Cancel</x-moonshine::form.button>
+        <x-moonshine::form.button class="btn-primary">Submit</x-moonshine::form.button>
+    </x-slot:buttons>
+</x-moonshine::form>
 ```
