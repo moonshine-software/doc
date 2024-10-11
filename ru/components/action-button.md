@@ -12,14 +12,16 @@
 - [Группировка](#group)
 - [Массовые действия](#bulk)
 - [Асинхронный режим](#async)
-- [Вызов методов](#method)
+    - [Вызов методов](#method)
 - [Отправка событий](#event)
 - [Наполнение данными](#fill)
 
 ---
 
-Расширяет [MoonShineComponent](/docs/{{version}}/components/index)
-* имеет те же функции
+Наследует [MoonShineComponent](/docs/{{version}}/components/index).
+
+\* имеет те же возможности.
+
 
 <a name="basics"></a> 
 ## Основы
@@ -419,7 +421,7 @@ document.addEventListener("moonshine:init", () => {
 ```
 
 <a name="method"></a> 
-## Вызов методов
+### Вызов методов
 
 `method()` позволяет указать имя метода в ресурсе и вызвать его асинхронно при нажатии на `ActionButton` без необходимости создания дополнительных контроллеров.
 
