@@ -1,4 +1,4 @@
-# FormBuilder (WIP)
+# FormBuilder
 
 - [Основы](#basics)
 - [Основное использование](#basic-usage)
