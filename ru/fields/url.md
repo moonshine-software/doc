@@ -6,7 +6,7 @@
 
 ---
 
-Наследует [Text](#/docs/{{version}}/fields/text.md).
+Наследует [Text](/docs/{{version}}/fields/text).
 
 \* имеет те же возможности.
 

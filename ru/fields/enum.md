@@ -10,7 +10,7 @@
 <a name="basics"></a>
 ## Основы
 
-Наследует [Select](#/docs/{{version}}/fields/select.md).
+Наследует [Select](/docs/{{version}}/fields/select).
 
 \* имеет те же возможности.
 

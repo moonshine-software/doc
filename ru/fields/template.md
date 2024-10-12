@@ -1,7 +1,5 @@
 # Template
 
-Содержит все [Базовые методы](#/docs/{{version}}/fields/basic-methods.md).
-
 *Template* не имеет готовой реализации и позволяет конструировать поле с помощью *fluent interface* в процессе объявления.
 
 ```php

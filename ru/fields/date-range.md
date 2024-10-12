@@ -12,7 +12,7 @@
 <a name="basics"></a>
 ## Основы
 
-Содержит все [Базовые методы](#/docs/{{version}}/fields/basic-methods.md).
+Содержит все [Базовые методы](/docs/{{version}}/fields/basic-methods).
 
 <a name="make"></a>
 ## Создание

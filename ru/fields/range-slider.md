@@ -9,7 +9,7 @@
 <a name="basics"></a>
 ## Основы
 
-Наследует [Range](#/docs/{{version}}/fields/range.md).
+Наследует [Range](/docs/{{version}}/fields/range)
 
 \* имеет те же возможности.
 

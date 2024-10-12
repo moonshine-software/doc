@@ -1,6 +1,6 @@
 # Switcher
 
-Наследует [Checkbox](#/docs/{{version}}/fields/checkbox.md).
+Наследует [Checkbox](/docs/{{version}}/fields/checkbox).
 
 * имеет те же возможности
 

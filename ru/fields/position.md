@@ -1,6 +1,6 @@
 # Position
 
-Наследует [Preview](#/docs/{{version}}/fields/preview.md).
+Наследует [Preview](/docs/{{version}}/fields/preview).
 
 \* имеет те же возможности
 
