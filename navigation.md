@@ -28,6 +28,7 @@
     - [Events](/docs/{{version}}/model-resource/events)
     - [Import/Export](/docs/{{version}}/model-resource/import-export)
     - [Authorization](/docs/{{version}}/model-resource/authorization)
+    - [Changelog](/docs/{{version}}/model-resource/changelog)
 
 - ## Pages
     - [Basics](/docs/{{version}}/page/index)
