@@ -11,7 +11,7 @@
 <a name="basics"></a>
 ## Основы
 
-Содержит все [базовые методы](/docs/{{version}}/fields/basic-methods).
+Содержит все [базовые методы](#/docs/{{version}}/fields/basic-methods.md).
 
 Поле *Checkbox* - это поле для выбора значения типа да/нет.
 
@@ -69,9 +69,9 @@ Checkbox::make('Публичный')
 <a name="preview-edit"></a>
 ## Редактирование в режиме preview
 
-Данному полю доступно [редактирование в режиме preview](/docs/{{version}}/fields/basic-methods.md#preview-edit).
+Данному полю доступно [редактирование в режиме preview](#/docs/{{version}}/fields/basic-methods.md#preview-edit).
 
 <a name="reactive"></a>
 ## Реактивность
 
-Данному полю доступна [реактивность](/docs/{{version}}/fields/basic-methods.md#reactive).
+Данному полю доступна [реактивность](#/docs/{{version}}/fields/basic-methods.md#reactive).

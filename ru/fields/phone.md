@@ -8,7 +8,7 @@
 <a name="basics"></a>
 ## Основы
 
-Наследует [Text](/docs/{{version}}/fields/text).
+Наследует [Text](#/docs/{{version}}/fields/text.md).
 
 \* имеет те же возможности.
 

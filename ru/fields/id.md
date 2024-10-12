@@ -1,6 +1,6 @@
 # ID
 
-Наследует [Hidden](/docs/{{version}}/fields/hidden).
+Наследует [Hidden](#/docs/{{version}}/fields/hidden.md).
 
 \* имеет те же возможности
 

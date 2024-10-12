@@ -16,7 +16,7 @@
 
 <a name="make"></a>
 ## Make
-Поле _Select_ включает в себя все [базовые методы создания поля](/docs/{{version}}/fields/basic-methods).
+Поле _Select_ включает в себя все [базовые методы создания поля](#/docs/{{version}}/fields/basic-methods.md).
 
 ```php
 use MoonShine\UI\Fields\Select;

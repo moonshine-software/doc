@@ -1,6 +1,6 @@
 # Image
 
-Наследует [File](/docs/{{version}}/fields/file).
+Наследует [File](#/docs/{{version}}/fields/file.md).
 
 * имеет те же возможности
 

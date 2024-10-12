@@ -174,7 +174,7 @@ Text::make('Домен', 'domain')
 <a name="preview-edit"></a>
 ### Редактирование в режиме preview
 
-Данному полю доступно [редактирование в режиме preview](/docs/{{version}}/fields/basic-methods.md#preview-edit).
+Данному полю доступно [редактирование в режиме preview](#/docs/{{version}}/fields/basic-methods.md#preview-edit).
 
 > [!NOTE]
 > Если вы хотите избежать ошибок ввода, можете использовать расширение [Замок](#locked).
@@ -186,4 +186,4 @@ Text::make('Name')->updateOnPreview()->locked(),
 <a name="reactive"></a>
 ## Реактивность
 
-Данному полю доступна [реактивность](/docs/{{version}}/fields/basic-methods.md#reactive).
+Данному полю доступна [реактивность](#/docs/{{version}}/fields/basic-methods.md#reactive).
