@@ -78,15 +78,15 @@
 - ## Components
     - Basics
     - [Attributes](/docs/{{version}}/components/attributes)
+    - [FormBuilder](/docs/{{version}}/components/form-builder)
+    - [TableBuilder](/docs/{{version}}/components/table-builder)
+    - CardsBuilder
     - [Alert](/docs/{{version}}/components/alert)
     - [ActionButton](/docs/{{version}}/components/action-button)
     - [Modal](/docs/{{version}}/components/modal)
     - [OffCanvas](/docs/{{version}}/components/off-canvas)
     - [Badge](/docs/{{version}}/components/badge)
     - [Boolean](/docs/{{version}}/components/boolean)
-    - FormBuilder
-    - [TableBuilder](/docs/{{version}}/components/table-builder)
-    - CardsBuilder
 - ## Frontend
     - AlpineJs
     - Events
