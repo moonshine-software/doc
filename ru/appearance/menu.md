@@ -16,7 +16,7 @@
 ---
 
 <a name="basics"></a>
-## [Основы](#basics)
+## Основы
 
 **Menu** является основой для навигации по админ-панели, поэтому мы постарались создать гибкую систему, которая позволит вам сделать полную кастомизацию меню для разных старниц и пользователей.
 
@@ -69,7 +69,7 @@ final class MoonShineLayout extends AppLayout
 > Если меню создается для [ModelResource]() или [Resource](), для элемента меню будет использоваться первая страница объявленная в методе <code>pages()</code>.
 
 <a name="groups"></a>
-## [Группы](#groups)
+## Группы
 
 Пункты меню можно объединять в группы. Для этого используется класс `MoonShine\MenuManager\MenuGroup`
 со статическим методом `make()`.
@@ -144,7 +144,7 @@ final class MoonShineLayout extends AppLayout
 > Для создания многоуровневого меню, группы можно делать вложенными.
 
 <a name="divider"></a>
-## [Разделитель](#divider)
+## Разделитель
 
 Пункты меню можно визуально разделить с помощью `MenuDivider`.
 
@@ -181,7 +181,7 @@ final class MoonShineLayout extends AppLayout
 ```
 
 <a name="icon"></a>
-## [Иконка](#icon)
+## Иконка
 
 У пункта меню и у группы можно задать иконку. Это можно реализовать несколькими методами.
 
@@ -271,7 +271,7 @@ class MoonShineUserResource extends ModelResource
 > За более подробной информацией обратитесь к разделу [Иконки](/docs/{{version}}/appearance/icons).
 
 <a name="badge"></a>
-[Метка](#badge)
+## Метка
 
 Также есть возможность добавить значок к пункту меню.
 
@@ -308,8 +308,8 @@ final class MoonShineLayout extends AppLayout
 }
 ```
 
-<a name="badge"></a>
-## [Перевод](#translation)
+<a name="translation"></a>
+## Перевод
 
 Для перевода пунктов меню необходимо в качестве названия передать ключ перевода и добавить метод `translatable()`.
 
@@ -375,7 +375,7 @@ final class MoonShineLayout extends AppLayout
 ```
 
 <a name="target-blank"></a>
-## [Открытие в новой вкладке](#target-blank)
+## Открытие в новой вкладке
 
 У пункта меню можно указать флаг, указывающий, открывать ссылку в новой вкладке или нет. Это можно реализовать несколькими способами.
 
@@ -437,7 +437,7 @@ final class MoonShineLayout extends AppLayout
 ```
 
 <a name="condition"></a>
-## [Условие отображения](#condition)
+## Условие отображения
 
 Отображать элементы меню можно по условию, воспользовавшись методом `canSee()`.
 
@@ -480,7 +480,7 @@ final class MoonShineLayout extends AppLayout
 ```
 
 <a name="active"></a>
-## [Активный пункт](#active)
+## Активный пункт
 
 Пункт меню становится активным если он соответствует ***url***, но метод `forceActive()` позволяет принудительно сделать пункт активным.
 
@@ -513,7 +513,7 @@ final class MoonShineLayout extends AppLayout
 ```
 
 <a name="attributes"></a>
-## [Атрибуты](#attributes)
+## Атрибуты
 
 Группам и элементам меню, как и другим компонентам, можно назначить кастомные атрибуты.
 
@@ -550,7 +550,7 @@ final class MoonShineLayout extends AppLayout
 ```
 
 <a name="change-button"></a>
-## [Изменение кнопки](#change-button)
+## Изменение кнопки
 
 Пункт меню является [ActionButton](#) и изменить его атрибуты можно воспользовавшись методом `changeButton`.
 
@@ -587,7 +587,7 @@ final class MoonShineLayout extends AppLayout
 > Некоторые параметры **ActionButton**, такие как `url`, `badge`, `icon` и другие, системно переопределяются. Для их изменения используйте соответствующие методы.
 
 <a name="custom-view"></a>
-## [Изменение шаблона](#custom-view)
+## Изменение шаблона
 
 Когда необходимо изменить **view** с помощью *fluent interface* можно воспользоваться методом `customView()`.
 
