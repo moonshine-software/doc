@@ -88,6 +88,7 @@
     - [OffCanvas](/docs/{{version}}/components/off-canvas)
     - [Badge](/docs/{{version}}/components/badge)
     - [Boolean](/docs/{{version}}/components/boolean)
+    - [Loader](/docs/{{version}}/components/loader)
 - ## Frontend
     - AlpineJs
     - Events
