@@ -22,7 +22,7 @@
 Поле `Select` включает в себя все [базовые методы создания поля](/docs/{{version}}/fields/basic-methods).
 
 ~~~tabs
-tab: Tab 1
+tab: Class
 ```php
 use MoonShine\UI\Fields\Select;
 
@@ -32,7 +32,7 @@ Select::make('Country', 'country_id')
         'value 2' => 'Option Label 2'
     ])
 ```
-tab: Tab 2
+tab: Blade
 ```blade
 <x-moonshine::form.select
     :values="[
