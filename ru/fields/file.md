@@ -24,11 +24,22 @@
 
 Поле _File_ используется для загрузки файлов и включает все базовые методы.
 
+~~~tabs
+tab: Class
 ```php
 use MoonShine\UI\Fields\File;
 
 File::make('File')
 ```
+tab: Blade
+```blade
+<x-moonshine::form.wrapper label="File">
+    <x-moonshine::form.file
+        name="file"
+    />
+</x-moonshine::form.wrapper>
+```
+~~~
 
 ![File Dark](https://moonshine-laravel.com/screenshots/file_dark.png)
 

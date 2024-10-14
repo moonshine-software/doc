@@ -23,11 +23,23 @@
 
 Поле `Text` - это базовое текстовое поле ввода в MoonShine. Это поле эквивалент `<input type="text">`
 
+~~~tabs
+tab: Class
 ```php
 use MoonShine\UI\Fields\Text;
 
 Text::make('Title')
 ```
+tab: Blade
+```blade
+<x-moonshine::field-container label="Title">
+    <x-moonshine::form.input
+        type="text"
+        name="title"
+    />
+</x-moonshine::field-container>
+```
+~~~
 
 ![mask](https://moonshine-laravel.com/screenshots/mask.png)
 

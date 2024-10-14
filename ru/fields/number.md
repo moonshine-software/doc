@@ -26,11 +26,23 @@
 
 Поле `Number` - это базовое числовое поле ввода в MoonShine. Это поле эквивалент `<input type="number">`
 
+~~~tabs
+tab: Class
 ```php
 use MoonShine\UI\Fields\Number;
 
 Number::make('Sort')
 ```
+tab: Blade
+```blade
+<x-moonshine::field-container label="Sort">
+    <x-moonshine::form.input
+        type="number"
+        name="sort"
+    />
+</x-moonshine::field-container>
+```
+~~~
 
 <a name="basic-methods"></a>
 ## Основные методы

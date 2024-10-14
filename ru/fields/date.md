@@ -21,11 +21,24 @@
 
 Поле *Date* является эквивалентом `<input type="date">`.
 
+~~~tabs
+tab: Class
 ```php
 use MoonShine\UI\Fields\Date;
 
 Date::make('Created at', 'created_at')
 ```
+tab: Blade
+```blade
+<x-moonshine::form.wrapper label="Created at">
+    <x-moonshine::form.input
+        type="date"
+        name="created_at"
+    />
+</x-moonshine::form.wrapper>
+
+```
+~~~
 
 ![Creation date](https://moonshine-laravel.com/screenshots/date_dark.png)
 

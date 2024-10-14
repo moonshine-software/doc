@@ -34,13 +34,16 @@ Select::make('Country', 'country_id')
 ```
 tab: Blade
 ```blade
-<x-moonshine::form.select
-    :values="[
-        1 => 'Option 1',
-        2 => 'Option 2'
-    ]"
-    value="2"
-/>
+<x-moonshine::form.wrapper label="Country">
+    <x-moonshine::form.select
+        :values="[
+            ['value' => 1, 'label' => 'Option 1', 'selected' => '', 'properties' => []],
+            ['value' => 2, 'label' => 'Option 2', 'selected' => '', 'properties' => []],
+        ]"
+        value="2"
+        name="country_id"
+    />
+</x-moonshine::form.wrapper>
 ```
 ~~~
 
