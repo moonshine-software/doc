@@ -38,12 +38,10 @@ BelongsTo::make(
 
 > [!WARNING]
 > Наличие ресурса модели, на которую ссылается связь, обязательно!
-> Ресурс также необходимо зарегистрировать в сервис-провайдере _MoonShineServiceProvider_ в методе `resources()`. В противном случае будет ошибка 404.
+> Ресурс также необходимо зарегистрировать в сервис-провайдере _MoonShineServiceProvider_ в методе `resources()`. В противном случае будет ошибка 500 (Resource is required for MoonShine\Laravel\Fields\Relationships\BelongsTo...).
 
 
 ```php
-use MoonShine\UI\Fields\Relationships\BelongsTo;
-
 BelongsTo::make('Country', 'country', resource: CountryResource::class)
 ```
 
@@ -55,23 +53,34 @@ BelongsTo::make('Country', 'country', resource: CountryResource::class)
 > Если не указать `$relationName`, то имя связи будет определено автоматически на основе `$label`.
 
 ```php
-use MoonShine\UI\Fields\Relationships\BelongsTo;
-
 BelongsTo::make('Country', resource: CountryResource::class)
 ```
 
-> [!NOTE]
-> Вы можете опустить `$resource`, если ресурс модели совпадает с названием связи.
+Вы можете опустить `$resource`, если ресурс модели совпадает с названием связи.
 
 ```php
-use MoonShine\UI\Fields\Relationships\BelongsTo;
-
+class CountryResource extends ModelResource
+{
+    //...
+}
+//...
 BelongsTo::make('Country', 'country')
+```
+
+Если не указать $relationName, то имя связи будет определено автоматически на основе $label (по правилам camelCase).
+
+```php
+class CountryResource extends ModelResource
+{
+    //...
+}
+//...
+BelongsTo::make('Country')
 ```
 
 > [!NOTE]
 > По умолчанию для отображения значения используется поле в связанной таблице, которое указано свойством `$column` в ресурсе модели.  
-> Аргумент `$formatted` позволяет переопределить это.
+> Аргумент `$formatted` позволяет переопределить свойство $column.
 
 ```php
 namespace App\MoonShine\Resources;
@@ -82,22 +91,23 @@ class CountryResource extends ModelResource
 {
     public string $column = 'title';
 }
+//..
+BelongsTo::make(
+    'Country',
+    'country',
+    formatted: 'name'
+)
 ```
 
 Если необходимо указать более сложное значение для отображения, то в аргумент `$formatted` можно передать функцию обратного вызова.
 
 ```php
-use MoonShine\UI\Fields\Relationships\BelongsTo;
-
 BelongsTo::make(
     'Country',
     'country',
     fn($item) => "$item->id. $item->title"
 )
 ```
-
-> [!WARNING]
-> При использовании поля _BelongsTo_ для сортировки или фильтрации позиций необходимо методом `setColumn()` задать поле в таблице базы данных или переопределить метод сортировки в ресурсе модели.
 
 Если необходимо изменить колонку при работе с моделями, используйте метод `onAfterFill`
 
@@ -137,8 +147,6 @@ nullable(Closure|bool|null $condition = null)
 ```
 
 ```php
-use MoonShine\UI\Fields\Relationships\BelongsTo;
-
 BelongsTo::make('Country', resource: CategoryResource::class)
     ->nullable()
 ```
@@ -162,8 +170,6 @@ placeholder(string $value)
 ```
 
 ```php
-use MoonShine\UI\Fields\Relationships\BelongsTo;
-
 BelongsTo::make('Country', 'country')
     ->nullable()
     ->placeholder('Country')
@@ -195,8 +201,6 @@ creatable(
 ```
 
 ```php
-use MoonShine\UI\Fields\Relationships\BelongsTo;
-
 BelongsTo::make('Author', resource: new AuthorResource())
     ->creatable()
 ```
@@ -208,8 +212,6 @@ BelongsTo::make('Author', resource: new AuthorResource())
 Вы можете настроить кнопку создания, передав параметр _button_ в метод.
 
 ```php
-use MoonShine\UI\Fields\Relationships\BelongsTo;
-
 BelongsTo::make('Author', resource: new AuthorResource())
     ->creatable(
         button: ActionButton::make('Custom button', '')
@@ -250,8 +252,6 @@ asyncSearch(
 ```
 
 ```php
-use MoonShine\UI\Fields\Relationships\BelongsTo;
-
 BelongsTo::make('Country', 'country', resource: CategoryResource::class)
     ->asyncSearch()
 ```
@@ -339,8 +339,6 @@ associatedWith(string $column, ?Closure $searchQuery = null)
 - `$searchQuery` - функция обратного вызова для фильтрации значений.
 
 ```php
-use MoonShine\UI\Fields\Relationships\BelongsTo;
-
 BelongsTo::make('City', 'city', resource: CityResource::class)
     ->associatedWith('country_id')
 ```
