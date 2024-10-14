@@ -252,8 +252,8 @@
 ```php
 <x-moonshine::form.select
     :values="[
-        1 => 'Option 1',
-        2 => 'Option 2'
+        1 => 'Вариант 1',
+        2 => 'Вариант 2'
     ]"
     value="2"
 />
@@ -264,8 +264,8 @@
 ```php
 <x-moonshine::form.select>
     <x-slot:options>
-        <option value="1">Option 1</option>
-        <option selected value="2">Option 2</option>
+        <option value="1">Вариант 1</option>
+        <option selected value="2">Вариант 2</option>
     </x-slot:options>
 </x-moonshine::form.select>
 ```
@@ -275,13 +275,13 @@
 ```php
 <x-moonshine::form.select
     :values="[
-        'Italy' => [
-            1 => 'Rome',
-            2 => 'Milan'
+        'Италия' => [
+            1 => 'Рим',
+            2 => 'Милан'
         ],
-        'France' => [
-            3 => 'Paris',
-            4 => 'Marseille'
+        'Франция' => [
+            3 => 'Париж',
+            4 => 'Марсель'
         ],
     ]"
     :searchable="true"
@@ -289,6 +289,45 @@
 ```
 
 Вы можете передать дополнительные параметры компоненту:
-
 `searchable` - поиск по значениям
-`nullable` - может иметь знач
+`nullable` - может иметь значение `NULL`
+
+```php
+<x-moonshine::form.select
+    :values="[
+        1 => 'Вариант 1',
+        2 => 'Вариант 2'
+    ]"
+    :nullable="true"
+    :searchable="true"
+/>
+```
+
+Для асинхронной загрузки значений необходимо указать url для атрибута `asyncRoute`, который вернет данные в формате json.
+```php
+
+<x-moonshine::form.select asyncRoute='url' />
+```
+
+<a name="switcher"></a>
+## Переключатель
+
+```php
+<x-moonshine::form.switcher
+    :onValue="true"
+    :offValue="false"
+    checked="checked"
+/>
+```
+
+`onValue` - активное значение
+`offValue` - неактивное значение
+
+<a name="textarea"></a>
+## Текстовая область
+
+```php
+<x-moonshine::form.textarea>
+    {{ fake()->text() }}
+</x-moonshine::form.textarea>
+```
