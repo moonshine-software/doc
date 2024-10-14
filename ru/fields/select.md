@@ -35,14 +35,12 @@ Select::make('Country', 'country_id')
 tab: Blade
 ```blade
 <x-moonshine::form.wrapper label="Country">
-    <x-moonshine::form.select
-        :values="[
-            ['value' => 1, 'label' => 'Option 1', 'selected' => '', 'properties' => []],
-            ['value' => 2, 'label' => 'Option 2', 'selected' => '', 'properties' => []],
-        ]"
-        value="2"
-        name="country_id"
-    />
+    <<x-moonshine::form.select>
+        <x-slot:options>
+            <option value="1">Option 1</option>
+            <option selected value="2">Option 2</option>
+        </x-slot:options>
+    </x-moonshine::form.select>
 </x-moonshine::form.wrapper>
 ```
 ~~~
@@ -311,18 +309,6 @@ Select::make('Type')->native()
 ### Основы
 
 ```php
-<x-moonshine::form.select
-    :values="[
-        1 => 'Option 1',
-        2 => 'Option 2'
-    ]"
-    value="2"
-/>
-```
-
-или через `slot:options`
-
-```php
 <x-moonshine::form.select>
     <x-slot:options>
         <option value="1">Option 1</option>
@@ -335,16 +321,6 @@ Select::make('Type')->native()
 
 ```php
 <x-moonshine::form.select
-    :values="[
-        'Italy' => [
-            1 => 'Rome',
-            2 => 'Milan'
-        ],
-        'France' => [
-            3 => 'Paris',
-            4 => 'Marseille'
-        ],
-    ]"
     :searchable="true"
 />
 ```
