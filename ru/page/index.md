@@ -1,5 +1,256 @@
-# Страница (WIP...)
+# Создание класса
 
+-   [Основы](#basics)
+-   [Создание страницы](#create)
+-   [Заголовок](#title)
+-   [Компоненты](#components)
+-   [Хлебные крошки](#breadcrumbs)
+-   [Шаблон](#layout)
+    - [Модификация шаблона](#modify-layout)
+-   [Псевдоним](#alias)
+-   [Рендеринг](#render)
+-   [Перед рендерингом](#before-render)
+-   [Модификатор ответа](#modify-response)
+
+<a name="basics"></a>
+## Основы
+
+*Page* является основой админ-панели `MoonShine`. Основное назначение `Page` - отображение компонентов.
+
+Страницы с одинаковой логикой могут быть объединены в `Resource`.
+
+<a name="create"></a>
+## Создание страницы
+
+Для создания класса страницы можно использовать консольную команду:
+
+```php
+php artisan moonshine:page
+```
+
+После ввода имени класса будет создан файл, который является основой для страницы в админ-панели.  
+По умолчанию он располагается в директории `app/MoonShine/Pages`.
+
+> [!NOTE]
+> Страницы при выполнении команды автоматически регистрируются в системе, но если вы создаете страницу вручную, то ее необходимо самостоятельно зарегистрировать в `MoonShineServiceProvider` в методе `pages()`
+
+Также Вы можете указать имя класса и директорию его расположения в команде.
+
+```php
+php artisan moonshine:page OrderStatistics --dir=Pages/Statistics
+```
+
+Файл `OrderStatistics` будет создан в директории `app/MoonShine/Pages/Statistics`.
+
+<a name="title"></a>
+## Заголовок
+
+Заголовок страницы можно задать через свойство `title`, а `subtitle` задает подзаголовок.
+
+```php
+use MoonShine\Laravel\Pages\Page;
+
+class CustomPage extends Page
+{
+    protected string $title = 'CustomPage';
+
+    protected string $subtitle = 'Подзаголовок';
+
+    //...
+}
+```
+
+Если для заголовка и подзаголовка требуется какая-то логика, то методы `title()` и `subtitle()` позволяют ее реализовать.
+
+```php
+class CustomPage extends Page
+{
+    // ...
+
+    public function getTitle(): string
+    {
+        return $this->title ?: 'CustomPage';
+    }
+
+    public function getSubtitle(): string
+    {
+        return $this->subtitle ?: 'Подзаголовок';
+    }
+
+    //...
+}
+```
+
+<a name="components"></a>
+## Компоненты
+
+Для регистрации компонентов страницы используется метод `components()`.
+
+```php
+class CustomPage extends Page
+{
+    // ...
+
+    protected function components(): iterable
+    {
+        return [
+            Grid::make([
+                Column::make([
+                    Box::make([
+                        TextBlock::make('Заголовок 1', 'Текст 1')
+                    ])
+                ])->columnSpan(6),
+                Column::make([
+                    Box::make([
+                        TextBlock::make('Заголовок 2', 'Текст 2')
+                    ])
+                ])->columnSpan(6),
+            ])
+        ];
+    }
+
+    //...
+}
+```
+
+> [!NOTE]
+> Для более подробной информации обратитесь к разделу [Компоненты](/docs/{{version}}/components/index).
+
+<a name="breadcrumbs"></a>
+## Хлебные крошки
+
+За генерацию хлебных крошек отвечает метод `getBreadcrumbs()`.
+
+```php
+use MoonShine\Pages\Page;
+
+class CustomPage extends Page
+{
+    // ...
+
+    public function getBreadcrumbs(): array
+    {
+        return [
+            '#' => $this->getTitle()
+        ];
+    }
+
+    //...
+}
+```
+
+<a name="layout"></a>
+## Шаблон
+
+По умолчанию страницы используют шаблон отображения `AppLayout` или `CompactLayout`.
+Подробнее про шаблоны читайте в разделе [Layout](docs/{{version}}/appearance/layout)
+
+```php
+use MoonShine\Laravel\Layouts\AppLayout;
+
+class CustomPage extends Page
+{
+    protected ?string $layout = AppLayout::class;
+
+    //...
+}
+```
+
+<a name="modify-layout"></a>
+### Модификация шаблона
+
+При разработке административной панели с использованием `MoonShine` часто возникает потребность в гибком управлении шаблонами. Вместо создания множества отдельных шаблонов для различных ситуаций, `MoonShine` предоставляет возможность динамически модифицировать существующий шаблон. Это достигается с помощью метода `modifyLayout`.
+
+Метод `modifyLayout` позволяет получить доступ к шаблону после создания его экземпляра и внести в него необходимые изменения. Это особенно полезно, когда вам нужно адаптировать шаблон под конкретные условия или добавить динамический контент.
+
+Пример использования
+Рассмотрим пример из пакета `moonshine-software/two-factor`, который демонстрирует, как можно использовать modifyLayout для настройки шаблона аутентификации:
+
+```php
+/**
+ * @param  LoginLayout  $layout
+ */
+protected function modifyLayout(LayoutContract $layout): LayoutContract
+{
+    return $layout->title(
+        __('moonshine-two-factor::ui.2fa')
+    )->description(
+        __('moonshine-two-factor::ui.confirm')
+    );
+}
+```
+
+<a name="alias"></a>
+## Псевдоним
+
+Если необходимо изменить псевдоним страницы, это можно сделать через свойство `alias`.
+
+```php
+class CustomPage extends Page
+{
+    protected ?string $alias = null;
+
+    //...
+}
+```
+
+Также можно переопределить метод `getAlias()`.
+
+```php
+use MoonShine\Pages\Page;
+
+class CustomPage extends Page
+{
+    public function getAlias(): ?string
+    {
+        return 'custom_page';
+    }
+
+    //...
+}
+```
+
+<a name="render"></a>
+## Рендеринг
+
+Вы можете отображать страницу вне `MoonShine`, просто вернув ее в Контроллере
+
+```php
+class ProfileController extends Controller
+{
+    public function __invoke(ProfilePage $page): ProfilePage
+    {
+        return $page;
+    }
+}
+```
+
+Или с Fortify
+
+```php
+Fortify::loginView(static fn() => app(ProfilePage::class));
+```
+
+<a name="before-render"></a>
+## Перед рендерингом
+
+Метод `prepareBeforeRender()` позволяет выполнить какие-либо действия перед отображением страницы.
+
+```php
+class CustomPage extends Page
+{
+    protected function prepareBeforeRender(): void
+    {
+        parent::prepareBeforeRender();
+
+        if (auth()->user()->moonshine_user_role_id !== MoonshineUserRole::DEFAULT_ROLE_ID) {
+            abort(403);
+        }
+    }
+}
+```
+
+<a name="modify-response"></a>
 ## Модификатор ответа
 
 По умолчанию страница рендерится через `PageController`, вызывая метод `render()`. Однако иногда возникает необходимость изменить стандартный ответ, например, выполнить редирект при определенных условиях. В таких случаях можно использовать метод `modifyResponse()`.
