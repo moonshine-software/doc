@@ -18,7 +18,6 @@
     - [With pages](/docs/{{version}}/model-resource/pages)
     - [Table](/docs/{{version}}/model-resource/table)
     - [Form](/docs/{{version}}/model-resource/form)
-    - [Validation rules](/docs/{{version}}/model-resource/validation)
     - [Buttons](/docs/{{version}}/model-resource/buttons)
     - [Filters](/docs/{{version}}/model-resource/filters)
     - [Search](/docs/{{version}}/model-resource/search)
