@@ -11,7 +11,7 @@
     - Layout
     - Assets
     - Colors
-    - Icons
+    - [Icons](/docs/{{version}}/appearance/icons)
 - ## ModelResource
     - [Basics](/docs/{{version}}/model-resource/index)
     - [Fields](/docs/{{version}}/model-resource/fields)
@@ -106,4 +106,4 @@
     - Testing
     - Package Development
 - ## Recipes
-    - [Recipes](/docs/{{version}}/recipes)
+    - [Recipes](/docs/{{version}}/recipes/index)
