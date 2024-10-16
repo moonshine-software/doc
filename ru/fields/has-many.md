@@ -42,7 +42,7 @@ HasMany::make(
 Ресурс также необходимо [зарегистрировать](/docs/{{version}}/resources#define) в сервис-провайдере `MoonShineServiceProvider` в методе `menu()` или `resources()`. В противном случае будет ошибка 500 (Resource is required for MoonShine\Laravel\Fields\Relationships\HasMany...).
 
 ```php
-use MoonShine\UI\Fields\Relationships\HasMany;
+use MoonShine\Laravel\Fields\Relationships\HasMany;
 
 HasMany::make('Comments', 'comments', resource: CommentResource::class)
 ```
@@ -83,8 +83,8 @@ fields(FieldsContract|Closure|iterable $fields)
 ```
 
 ```php
-use MoonShine\UI\Fields\Relationships\BelongsTo;
-use MoonShine\UI\Fields\Relationships\HasMany;
+use MoonShine\Laravel\Fields\Relationships\BelongsTo;
+use MoonShine\Laravel\Fields\Relationships\HasMany;
 use MoonShine\UI\Fields\Text;
 
 HasMany::make('Comments', resource: CommentResource::class)

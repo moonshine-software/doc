@@ -42,6 +42,8 @@ BelongsTo::make(
 
 
 ```php
+use MoonShine\Laravel\Fields\Relationships\BelongsTo;
+
 BelongsTo::make('Country', 'country', resource: CountryResource::class)
 ```
 
@@ -131,7 +133,7 @@ default(mixed $default)
 
 ```php
 use App\Models\Country;
-use MoonShine\UI\Fields\Relationships\BelongsTo;
+use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 
 BelongsTo::make('Country', resource: CategoryResource::class)
     ->default(Country::find(1))
@@ -181,7 +183,7 @@ BelongsTo::make('Country', 'country')
 Если необходимо осуществлять поиск среди значений, нужно добавить метод `searchable()`.
 
 ```php
-use MoonShine\UI\Fields\BelongsTo;
+use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 use App\MoonShine\Resources\CountryResource;
 
 BelongsTo::make('Country', 'country', resource: CountryResource::class)
@@ -229,7 +231,7 @@ valuesQuery(Closure $callback)
 
 ```php
 use Illuminate\Contracts\Database\Eloquent\Builder;
-use MoonShine\UI\Fields\Relationships\BelongsTo;
+use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 
 BelongsTo::make('Category', 'category', resource: CategoryResource::class)
     ->valuesQuery(fn(Builder $query, Field $field) => $query->where('active', true))
@@ -269,7 +271,7 @@ BelongsTo::make('Country', 'country', resource: CategoryResource::class)
 
 ```php
 use Illuminate\Contracts\Database\Eloquent\Builder;
-use MoonShine\UI\Fields\Relationships\BelongsTo;
+use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 
 BelongsTo::make('Country', 'country', resource: CategoryResource::class)
     ->asyncSearch(
@@ -291,7 +293,7 @@ BelongsTo::make('Country', 'country', resource: CategoryResource::class)
 ```php
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
-use MoonShine\UI\Fields\Relationships\BelongsTo;
+use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 use MoonShine\UI\Fields\Select;
 
 Select::make('Country', 'country_id'),
@@ -311,7 +313,7 @@ BelongsTo::make('City', 'city',  resource: CityResource::class)
 ```php
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
-use MoonShine\UI\Fields\Relationships\BelongsTo;
+use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 use MoonShine\UI\Fields\Select;
 
 Select::make('Country', 'country_id'),

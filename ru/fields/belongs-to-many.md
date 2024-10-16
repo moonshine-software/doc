@@ -44,7 +44,7 @@ BelongsToMany::make(
 > Ресурс также необходимо зарегистрировать в сервис-провайдере _MoonShineServiceProvider_ в методе `resources()`. В противном случае будет ошибка 500 (Resource is required for MoonShine\Laravel\Fields\Relationships\BelongsToMany...).
 
 ```php
-use MoonShine\UI\Fields\Relationships\BelongsToMany;
+use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 
 BelongsToMany::make('Categories', 'categories', resource: CategoryResource::class)
 ```
@@ -137,7 +137,7 @@ fields(FieldsContract|Closure|iterable $fields)
 ```
 
 ```php
-use MoonShine\UI\Fields\Relationships\BelongsToMany;
+use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 use MoonShine\UI\Fields\Text;
 
 BelongsToMany::make('Contacts', resource: ContactResource::class)
@@ -292,7 +292,7 @@ inLine(string $separator = '', Closure|bool $badge = false, ?Closure $link = nul
 
 ```php
 use MoonShine\UI\Components\Link;
-use MoonShine\UI\Fields\Relationships\BelongsToMany;
+use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 
 BelongsToMany::make('Categories', resource: CategoryResource::class)
     ->inLine(
@@ -349,7 +349,7 @@ valuesQuery(Closure $callback)
 
 ```php
 use Illuminate\Contracts\Database\Eloquent\Builder;
-use MoonShine\UI\Fields\Relationships\BelongsToMany;
+use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 
 BelongsToMany::make('Countries', 'countries', resource: ContactResource::class)
     ->valuesQuery(fn(Builder $query, Field $field) => $query->where('active', true))
@@ -389,7 +389,7 @@ BelongsToMany::make('Countries', 'countries', resource: ContactResource::class)
 
 ```php
 use Illuminate\Contracts\Database\Eloquent\Builder;
-use MoonShine\UI\Fields\Relationships\BelongsToMany;
+use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 
 BelongsToMany::make('Countries', 'countries', resource: ContactResource::class)
     ->asyncSearch(
@@ -411,7 +411,7 @@ BelongsToMany::make('Countries', 'countries', resource: ContactResource::class)
 ```php
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
-use MoonShine\UI\Fields\Relationships\BelongsToMany;
+use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 use MoonShine\UI\Fields\Select;
 
 Select::make('Country', 'country_id'),
@@ -484,7 +484,7 @@ buttons(array $buttons)
 
 ```php
 use MoonShine\ActionButtons\ActionButton;
-use MoonShine\UI\Fields\Relationships\BelongsToMany;
+use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 
 BelongsToMany::make('Categories', resource: CategoryResource::class)
     ->buttons([
