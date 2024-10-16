@@ -88,9 +88,7 @@
     - [Boolean](/docs/{{version}}/components/boolean)
     - [Loader](/docs/{{version}}/components/loader)
 - ## Frontend
-    - AlpineJs
-    - Events
-    - Request/Response callbacks
+    - [Js](/docs/{{version}}/frontend/js)
     - [SDUI](/docs/{{version}}/frontend/sdui)
     - API
 - ## Security
