@@ -297,9 +297,9 @@ use MoonShine\UI\Fields\Relationships\BelongsToMany;
 BelongsToMany::make('Categories', resource: CategoryResource::class)
     ->inLine(
         separator: ' ',
-        badge: fn($model, $value) => Badge::make($value, 'color'),
-        link: fn(Category $category, $value, $field) => Link::make(
-            (new CategoryResource())->detailPageUrl($category),
+        badge: fn($model, $value) => Badge::make((string) $value, 'primary'),
+        link: fn(Property $property, $value, $field) => (string) Link::make(
+            app(CategoryResource::class)->getDetailPageUrl($property->id),
             $value
         )
     )
