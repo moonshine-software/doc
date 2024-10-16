@@ -26,6 +26,7 @@
     - [Metrics](/docs/{{version}}/model-resource/metrics)
     - [Events](/docs/{{version}}/model-resource/events)
     - [Import/Export](/docs/{{version}}/model-resource/import-export)
+    - [Routes](/docs/{{version}}/model-resource/routes)
     - [Authorization](/docs/{{version}}/model-resource/authorization)
     - [Changelog](/docs/{{version}}/model-resource/changelog)
 
