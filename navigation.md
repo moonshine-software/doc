@@ -18,7 +18,6 @@
     - [With pages](/docs/{{version}}/model-resource/pages)
     - [Table](/docs/{{version}}/model-resource/table)
     - [Form](/docs/{{version}}/model-resource/form)
-    - [Validation rules](/docs/{{version}}/model-resource/validation)
     - [Buttons](/docs/{{version}}/model-resource/buttons)
     - [Filters](/docs/{{version}}/model-resource/filters)
     - [Search](/docs/{{version}}/model-resource/search)
@@ -27,6 +26,7 @@
     - [Metrics](/docs/{{version}}/model-resource/metrics)
     - [Events](/docs/{{version}}/model-resource/events)
     - [Import/Export](/docs/{{version}}/model-resource/import-export)
+    - [Routes](/docs/{{version}}/model-resource/routes)
     - [Authorization](/docs/{{version}}/model-resource/authorization)
     - [Changelog](/docs/{{version}}/model-resource/changelog)
 
