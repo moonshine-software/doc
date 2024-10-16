@@ -11,6 +11,9 @@
 -   [Рендеринг](#render)
 -   [Перед рендерингом](#before-render)
 -   [Модификатор ответа](#modify-response)
+- [Жизненный цикл](#lifecycle)
+    - [Активный ресурс](#on-load)
+    - [Создание экземпляра](#on-boot)
 
 <a name="basics"></a>
 ## Основы
@@ -269,3 +272,54 @@ protected function modifyResponse(): ?Response
 ```
 
 Использование `modifyResponse()` предоставляет гибкий способ управления ответом страницы, позволяя реализовать сложную логику обработки запросов и ответов в административной панели.
+
+<a name="lifecycle"></a>
+## Жизненный цикл
+
+`Page` имеет несколько различных методов подключения к различным частям своего жизненного цикла. Давайте пройдемся по ним:
+
+<a name="on-load"></a>
+### Активная страница
+
+Метод `onLoad` дает возможность интегрироваться в момент когда страница загружена и в данный момент является активной
+
+```php
+namespace App\MoonShine\Pages;
+
+use MoonShine\Laravel\Pages\Page;
+
+class PostPage extends Page
+{
+    // ...
+    protected function onLoad(): void
+    {
+        parent::onLoad();
+
+        //
+    }
+    // ...
+}
+```
+
+<a name="on-boot"></a>
+### Создание экземпляра
+
+Метод `booted` дает возможность интегрироваться в момент когда MoonShine создает экземпляр страницы в системе
+
+```php
+namespace App\MoonShine\Pages;
+
+use MoonShine\Laravel\Pages\Page;
+
+class PostPage extends Page
+{
+    // ...
+    protected function booted(): void
+    {
+        parent::booted();
+
+        //
+    }
+    // ...
+}
+```
