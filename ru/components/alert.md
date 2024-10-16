@@ -62,11 +62,11 @@ tab: Blade
 ~~~tabs
 tab: Class
 ```php
-Alert::make(icon: "heroicons.academic-cap")->content('Text'),
+Alert::make(icon: "academic-cap")->content('Text'),
 ```
 tab: Blade
 ```blade
-<x-moonshine::alert icon="heroicons.academic-cap">Alert</x-moonshine::alert>
+<x-moonshine::alert icon="academic-cap">Alert</x-moonshine::alert>
 ```
 ~~~
 
