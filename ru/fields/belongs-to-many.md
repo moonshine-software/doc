@@ -56,8 +56,6 @@ BelongsToMany::make('Categories', 'categories', resource: CategoryResource::clas
 > Если вы не указываете `$relationName`, тогда имя отношения будет определено автоматически на основе `$label`.
 
 ```php
-use MoonShine\UI\Fields\Relationships\BelongsToMany;
-
 BelongsToMany::make('Categories', resource: CategoryResource::class)
 ```
 
@@ -107,8 +105,6 @@ BelongsToMany::make(
 Если вам нужно указать более сложное значение для отображения, тогда в аргумент `$formatted` можно передать функцию обратного вызова.
 
 ```php
-use MoonShine\UI\Fields\Relationships\BelongsToMany;
-
 BelongsToMany::make(
     'Categories',
     'categories',
@@ -127,8 +123,6 @@ columnLabel(string $label)
 ```
 
 ```php
-use MoonShine\UI\Fields\Relationships\BelongsToMany;
-
 BelongsToMany::make('Categories', resource: CategoryResource::class)
     ->columnLabel('Title')
 ```
@@ -173,8 +167,6 @@ creatable(
 ```
 
 ```php
-use MoonShine\UI\Fields\Relationships\BelongsToMany;
-
 BelongsToMany::make('Categories', resource: CategoryResource::class)
     ->creatable()
 ```
@@ -186,8 +178,6 @@ BelongsToMany::make('Categories', resource: CategoryResource::class)
 Вы можете настроить кнопку создания, передав параметр *button* в метод.
 
 ```php
-use MoonShine\UI\Fields\Relationships\BelongsToMany;
-
 BelongsToMany::make('Categories', resource: CategoryResource::class)
     ->creatable(
         button: ActionButton::make('Custom button', '')
@@ -200,8 +190,6 @@ BelongsToMany::make('Categories', resource: CategoryResource::class)
 Поле *BelongsToMany* может быть отображено в виде выпадающего списка. Для этого необходимо использовать метод `selectMode()`.
 
 ```php
-use MoonShine\UI\Fields\Relationships\BelongsToMany;
-
 BelongsToMany::make('Categories', resource: CategoryResource::class)
     ->selectMode()
 ```
@@ -216,8 +204,6 @@ BelongsToMany::make('Categories', resource: CategoryResource::class)
 Все опции выбора доступны для изменения через *атрибуты data*:
 
 ```php
-use MoonShine\UI\Fields\Relationships\BelongsToMany;
-
 BelongsToMany::make('Countries', resource: ContactResource::class)
     ->selectMode()
     ->customAttributes([
@@ -238,8 +224,6 @@ placeholder(string $value)
 ```
 
 ```php
-use MoonShine\UI\Fields\Relationships\BelongsToMany;
-
 BelongsToMany::make('Countries', 'countries')
     ->nullable()
     ->placeholder('Countries')
@@ -258,8 +242,6 @@ tree(string $parentColumn)
 ```
 
 ```php
-use MoonShine\UI\Fields\Relationships\BelongsToMany;
-
 BelongsToMany::make('Categories', resource: CategoryResource::class)
     ->tree('parent_id')
 ```
@@ -284,8 +266,6 @@ BelongsToMany::make('Categories', resource: CategoryResource::class)
 Метод `onlyCount()` позволяет отображать только количество выбранных значений в *preview*.
 
 ```php
-use MoonShine\UI\Fields\Relationships\BelongsToMany;
-
 BelongsToMany::make('Categories', resource: CategoryResource::class)
     ->onlyCount()
 ```
@@ -345,8 +325,6 @@ onlyLink(?string $linkRelation = null, Closure|bool $condition = null)
 Параметр `linkRelation` позволяет создать ссылку на отношение с привязкой родительского ресурса.
 
 ```php
-use MoonShine\UI\Fields\Relationships\BelongsToMany;
-
 BelongsToMany::make('Categories', resource: CategoryResource::class)
     ->relatedLink('category')
 ```
@@ -354,8 +332,6 @@ BelongsToMany::make('Categories', resource: CategoryResource::class)
 Параметр `condition` через замыкание позволит изменить метод отображения в зависимости от условий.
 
 ```php
-use MoonShine\UI\Fields\Relationships\BelongsToMany;
-
 BelongsToMany::make('Categories', resource: CategoryResource::class)
     ->onlyLink(condition: function (int $count, Field $field): bool {
         return $count > 10;
@@ -396,8 +372,6 @@ asyncSearch(
 ```
 
 ```php
-use MoonShine\UI\Fields\Relationships\BelongsToMany;
- 
 BelongsToMany::make('Countries', 'countries', resource: ContactResource::class)
     ->asyncSearch() 
 ```
@@ -466,8 +440,6 @@ associatedWith(string $column, ?Closure $searchQuery = null)
 - `searchQuery` - функция обратного вызова для фильтрации значений.
 
 ```php
-use MoonShine\UI\Fields\Relationships\BelongsToMany;
-
 BelongsToMany::make('Cities', 'cities', resource: CityResource::class)
     ->associatedWith('country_id')
 ```
@@ -493,8 +465,6 @@ withImage(
 - `$dir` - директория относительно корня диска.
 
 ```php
-use MoonShine\UI\Fields\Relationships\BelongsToMany;
-
 BelongsToMany::make(Countries, resource: ContactResource::class)
     ->withImage('thumb', 'public', 'countries')->selectMode()
 ```
@@ -531,9 +501,6 @@ BelongsToMany::make('Categories', resource: CategoryResource::class)
 Метод `withCheckAll()` позволяет добавить кнопку checkAll к полю *BelongsToMany*, аналогично предыдущему примеру.
 
 ```php
-use MoonShine\ActionButtons\ActionButton;
-use MoonShine\UI\Fields\Relationships\BelongsToMany;
-
 BelongsToMany::make('Categories', resource: CategoryResource::class)
     ->withCheckAll()
 ```
