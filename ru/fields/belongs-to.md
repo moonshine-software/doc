@@ -12,7 +12,7 @@
 - [Значения с изображением](#with-image)
 - [Опции](#options)
 - [Нативный режим](#native)
-
+- [Реактивность](#reactive)
 ---
 
 <a name="basics"></a>
@@ -260,14 +260,13 @@ BelongsTo::make('Country', 'country', resource: CategoryResource::class)
 > Поиск будет осуществляться по полю связи ресурса `column`. По умолчанию `column=id`.
 
 Вы можете передать параметры в метод `asyncSearch()`:
-
 *   `$column` - поле, по которому осуществляется поиск,
 *   `$searchQuery` - функция обратного вызова для фильтрации значений,
 *   `$formatted` - функция обратного вызова для настройки вывода,
 *   `$associatedWith` - поле, с которым установить связь,
 *   `$limit` - количество элементов в результатах поиска,
 *   `$url` - url для обработки асинхронного запроса,
-* 
+
 ```php
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use MoonShine\UI\Fields\Relationships\BelongsTo;
@@ -397,3 +396,8 @@ BelongsTo::make('Country', resource: CountryResource::class)
 ```php
 BelongsTo::make('Type')->native()
 ```
+
+<a name="reactive"></a>
+## Реактивность
+
+Данному полю доступна [реактивность](/docs/{{version}}/fields/basic-methods.md#reactive)
