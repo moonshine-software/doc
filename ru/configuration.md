@@ -173,11 +173,16 @@ $config->authDisable();
 ```php
 // В moonshine.php
 'prefix' => 'admin',
-'page_prefix' => 'admin-page',
+'page_prefix' => 'page',
+'ressource_prefix' => 'resource',
 
 // В MoonShineServiceProvider
-$config->prefixes('admin', 'admin-page');
+$config->prefixes('admin', 'page', 'resource');
 ```
+
+> [!WARNING]
+> Вы можете оставить `ressource_prefix` пустым и `URL` ресурсов будет иметь вид `/admin/{resourceUri}/{pageUri}`,
+> но вы можете создать конфликт с роутами пакетов
 
 ### Установка домена
 
