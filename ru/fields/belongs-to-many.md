@@ -312,7 +312,7 @@ BelongsToMany::make('Categories', resource: CategoryResource::class)
 <a name="only-link"></a>
 ## Только ссылка
 
-Метод `relatedLink()` позволит отобразить отношение в виде ссылки с количеством элементов.
+Метод `relatedLink()` позволит отобразить отношение в виде ссылки с количеством элементов. Ссылка будет вести на IndexPage дочернего ресурса из отношения HasMany, в котором буду показаны только данные элементы.
 
 ```php
 relatedLink(?string $linkRelation = null, Closure|bool $condition = null)
