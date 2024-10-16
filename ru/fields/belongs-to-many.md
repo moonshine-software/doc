@@ -315,7 +315,7 @@ BelongsToMany::make('Categories', resource: CategoryResource::class)
 Метод `relatedLink()` позволит отобразить отношение в виде ссылки с количеством элементов.
 
 ```php
-onlyLink(?string $linkRelation = null, Closure|bool $condition = null)
+relatedLink(?string $linkRelation = null, Closure|bool $condition = null)
 ```
 
 Вы можете передать в метод необязательные параметры:
@@ -333,7 +333,7 @@ BelongsToMany::make('Categories', resource: CategoryResource::class)
 
 ```php
 BelongsToMany::make('Categories', resource: CategoryResource::class)
-    ->onlyLink(condition: function (int $count, Field $field): bool {
+    ->relatedLink(condition: function (int $count, Field $field): bool {
         return $count > 10;
     })
 ```
