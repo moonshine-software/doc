@@ -2,7 +2,7 @@
   - [Installation](/docs/{{version}}/installation)
   - [Configuration](/docs/{{version}}/configuration)
   - [Contribution Guide](/docs/{{version}}/contribution)
-  - [Upgrade guide](/docs/{{version}}/upgrade_guide)
+  - [Upgrade guide](/docs/{{version}}/upgrade-guide)
   - [Support Policy](/docs/{{version}}/support-policy)
   - [Troubleshooting](/docs/{{version}}/troubleshooting)
 
