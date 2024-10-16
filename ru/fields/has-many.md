@@ -51,13 +51,6 @@ HasMany::make('Comments', 'comments', resource: CommentResource::class)
 
 ![has_many_dark](https://moonshine-laravel.com/screenshots/has_many_dark.png)
 
-> [!NOTE]
-> Если вы не указываете `$relationName`, тогда имя отношения будет определено автоматически на основе `$label`.
-
-```php
-HasMany::make('Comments', resource: CommentResource::class)
-```
-
 Вы можете опустить `$resource`, если ресурс модели совпадает с названием связи.
 
 ```php
@@ -67,6 +60,17 @@ class CommentResource extends ModelResource
 }
 //...
 HasMany::make('Comments', 'comments')
+```
+
+Если вы не указываете `$relationName`, тогда имя отношения будет определено автоматически на основе `$label` (по правилам camelCase). 
+
+```php
+class CommentResource extends ModelResource
+{
+    //...
+}
+//...
+BelongsToMany::make('Comments')
 ```
 
 <a name="fields"></a>
