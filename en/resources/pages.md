@@ -1,6 +1,3 @@
-https://moonshine-laravel.com/docs/resource/models-resources/resources-pages?change-moonshine-locale=en
-
-------
 # With pages
 
 - [Basics](#basics)
@@ -8,6 +5,8 @@ https://moonshine-laravel.com/docs/resource/models-resources/resources-pages?cha
 - [Adding fields](#fields)
 - [Main components](#components)
 - [Layers on a page](#layers)
+
+---
 
 <a name="basics"></a>
 ## Basics
@@ -203,6 +202,7 @@ class ArticleDetailPage extends DetailPage
     }
 }
 ```
+
 #### FormPage
 
 The `formComponent()` method allows you to change the main component on the page with the form.

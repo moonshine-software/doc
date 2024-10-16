@@ -1,10 +1,6 @@
-https://moonshine-laravel.com/docs/resource/getting-started/upgrade_guide?change-moonshine-locale=en
-
-------
-
 # Upgrade guide
 
-![!Video upgrade guide]()
+![!Video upgrade guide](https://www.youtube.com/watch?v=y4RB25jb31c)
 
 - [1. Minimum requirements](#minimum-requirements) 
 - [2. Composer.json](#composerjson) 
@@ -18,6 +14,8 @@ https://moonshine-laravel.com/docs/resource/getting-started/upgrade_guide?change
 - [10. Updating dependencies](#updating-dependencies) 
 - [11. Config](#config) 
 - [12. Dashboard](#dashboard)
+
+---
 
 <a name="minimum-requirements"></a>
 ## 1. Minimum requirements

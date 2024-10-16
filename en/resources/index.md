@@ -251,6 +251,7 @@ class PostResource extends ModelResource
     //...
 }
 ```
+
 #### Display
 
 You can also change the display of the buttons, display them in a line or in a drop-down menu to save space.

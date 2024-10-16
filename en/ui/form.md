@@ -1,6 +1,3 @@
-https://moonshine-laravel.com/docs/resource/ui-components/ui-form?change-moonshine-locale=en
-
-------
 # Form elements
 
   - [Basics](#basics)
@@ -18,6 +15,8 @@ https://moonshine-laravel.com/docs/resource/ui-components/ui-form?change-moonshi
   - [Textarea](#textarea)
   - [Errors](#errors)
   - [Precognition](#precognition)
+
+---
 
 > [!TIP]
 > Form components are wrappers of similar HTML elements; they can be passed all the necessary attributes.

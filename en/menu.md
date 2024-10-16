@@ -1,7 +1,3 @@
-https://moonshine-laravel.com/docs/resource/menu/menu?change-moonshine-locale=en
-
-------
-
 # Menu  
 
 - [Basics](#basics)  
@@ -15,6 +11,8 @@ https://moonshine-laravel.com/docs/resource/menu/menu?change-moonshine-locale=en
 - [Open in new tab](#target-blank)  
 - [Active item](#force-active)  
 - [Custom view](#custom-view)  
+
+---
 
 <a name="basics"></a>  
 ## Basics  
@@ -356,7 +354,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 
 You can set an icon for a menu item and a group. This can be accomplished in several ways.  
 
-####  Via parameter  
+#### Via parameter  
 
 The icon can be set by passing the name as the third parameter in static method `make()`.  
  
@@ -607,6 +605,7 @@ Use method `blank()`.
 ```php
 blank(Closure|bool $blankCondition = true)  
 ```  
+
 ```php
 namespace App\Providers;
 

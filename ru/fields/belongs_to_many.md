@@ -19,7 +19,7 @@
 ---
 
 <a name="basics"></a>
-### Основы
+## Основы
 
 Поле *BelongsToMany* предназначено для работы с отношением того же имени в Laravel и включает все базовые методы.
 
@@ -135,7 +135,7 @@ public function fields(): array
 ```
 
 <a name="label-column"></a>
-### Заголовок столбца
+## Заголовок столбца
 
 По умолчанию заголовок столбца таблицы использует свойство `$title` ресурса модели отношения.
 Метод `columnLabel()` позволяет переопределить заголовок.
@@ -161,7 +161,7 @@ public function fields(): array
 ```
 
 <a name="pivot"></a>
-### Pivot
+## Pivot
 
 Метод `fields()` используется для реализации полей *pivot* в отношении BelongsToMany.
 
@@ -196,7 +196,7 @@ public function fields(): array
 > Подробнее в официальной документации [Laravel](https://laravel.com/docs/eloquent-relationships#retieving-intermediate-table-columns).
 
 <a name="creatable"></a>
-### Создание объекта отношения
+## Создание объекта отношения
 
 Метод `creatable()` позволяет создать новый объект отношения через модальное окно.
 
@@ -247,7 +247,7 @@ public function fields(): array
 ```
 
 <a name="select"></a>
-### Выбор
+## Выбор
 
 Поле *BelongsToMany* может быть отображено в виде выпадающего списка. Для этого необходимо использовать метод `selectMode()`.
 
@@ -271,7 +271,7 @@ public function fields(): array
 ![belongs_to_many_select_dark](https://moonshine-laravel.com/screenshots/belongs_to_many_select_dark.png)
 
 <a name="options"></a>
-### Опции
+## Опции
 
 Все опции выбора доступны для изменения через *атрибуты data*:
 
@@ -296,7 +296,7 @@ public function fields(): array
 > Для получения более подробной информации, пожалуйста, обратитесь к [Choices](https://choices-js.github.io/Choices/).
 
 <a name="placeholder"></a>
-### Placeholder
+## Placeholder
 
 Метод `placeholder()` позволяет установить атрибут *placeholder* на поле.
 
@@ -325,7 +325,7 @@ public function fields(): array
 > Метод `placeholder()` используется только если поле отображается в виде выпадающего списка `selectMode()`!
 
 <a name="tree"></a>
-### Дерево
+## Дерево
 
 Метод `tree()` позволяет отображать значения в виде дерева с чекбоксами, например, для категорий, которые имеют вложенность. В метод необходимо передать столбец в базе данных, по которому будет строиться дерево.
 
@@ -353,7 +353,7 @@ public function fields(): array
 ![belongs_to_many_tree_dark](https://moonshine-laravel.com/screenshots/belongs_to_many_tree_dark.png)
 
 <a name="preview"></a>
-### Предпросмотр
+## Предпросмотр
 
 По умолчанию в *preview* поле будет отображаться в виде таблицы.
 
@@ -362,7 +362,7 @@ public function fields(): array
 
 Для изменения отображения в *preview* можно использовать следующие методы.
 
-### onlyCount
+#### onlyCount
 
 Метод `onlyCount()` позволяет отображать только количество выбранных значений в *preview*.
 
@@ -385,7 +385,7 @@ public function fields(): array
 ![belongs_to_many_preview_count](https://moonshine-laravel.com/screenshots/belongs_to_many_preview_count.png)
 ![belongs_to_many_preview_count_dark](https://moonshine-laravel.com/screenshots/belongs_to_many_preview_count_dark.png)
 
-### inLine
+#### inLine
 
 Метод `inLine()` позволяет отображать значения поля в виде строки.
 
@@ -429,7 +429,7 @@ public function fields(): array
 ![belongs_to_many_preview_in_line_dark](https://moonshine-laravel.com/screenshots/belongs_to_many_preview_in_line_dark.png)
 
 <a name="only-link"></a>
-### Только ссылка
+## Только ссылка
 
 Метод `onlyLink()` позволит отобразить отношение в виде ссылки с количеством элементов.
 
@@ -455,7 +455,7 @@ public function fields(): array
 }
 ```
 
-### linkRelation
+#### linkRelation
 
 Параметр `linkRelation` позволяет создать ссылку на отношение с привязкой родительского ресурса.
 
@@ -475,7 +475,7 @@ public function fields(): array
 //...
 ```
 
-### condition
+#### condition
 
 Параметр `condition` через замыкание позволит изменить метод отображения в зависимости от условий.
 
@@ -498,7 +498,7 @@ public function fields(): array
 ```
 
 <a name="values-query"></a>
-### Запрос для значений
+## Запрос для значений
 
 Метод `valuesQuery()` позволяет изменить запрос для получения значений.
 
@@ -522,7 +522,7 @@ public function fields(): array
 ```
 
 <a name="async-search"></a>
-### Асинхронный поиск
+## Асинхронный поиск
 
 Для реализации асинхронного поиска значений используйте метод `asyncSearch()`.
 
@@ -656,7 +656,7 @@ public function fields(): array
 > Запросы должны быть настроены с использованием метода `asyncSearch()`. Не используйте `valuesQuery()`!
 
 <a name="associated"></a>
-### Связанные поля
+## Связанные поля
 
 Для установления связи значений выбора между полями можно использовать метод `associatedWith()`.
 
@@ -685,7 +685,7 @@ public function fields(): array
 > Для более сложной настройки вы можете использовать `asyncSearch()`.
 
 <a name="with-image"></a>
-### Значения с изображением
+## Значения с изображением
 
 Метод `withImage()` позволяет добавить изображение к значению.
 
@@ -721,7 +721,7 @@ public function fields(): array
 ![belongs_to_image_dark](https://moonshine-laravel.com/screenshots/belongs_to_image_dark.png)
 
 <a name="buttons"></a>
-### Кнопки
+## Кнопки
 
 Метод `buttons()` позволяет добавить дополнительные кнопки к полю *BelongsToMany*.
 
@@ -750,7 +750,7 @@ public function fields(): array
 }
 ```
 
-### withCheckAll
+#### withCheckAll
 
 Метод `withCheckAll()` позволяет добавить кнопки checkAll/uncheckAll к полю *BelongsToMany*, аналогично предыдущему примеру.
 

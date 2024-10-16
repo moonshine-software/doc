@@ -1,7 +1,3 @@
-https://moonshine-laravel.com/docs/resource/fields/fields-email?change-moonshine-locale=en
-
-
-------
 # E-mail
 
 Extends [Text](https://moonshine-laravel.com/docs/resource/fields/fields-text)  

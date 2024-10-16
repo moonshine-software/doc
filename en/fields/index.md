@@ -1,6 +1,3 @@
-https://moonshine-laravel.com/docs/resource/fields/fields-index
-
-------
 # Basics
 
 - [Make](#make)
@@ -27,6 +24,8 @@ https://moonshine-laravel.com/docs/resource/fields/fields-index
 - [onChange methods](#on-change)
 - [Methods for values](#for-value)
 - [Scheme field's work](#scheme)
+
+---
 
 Fields play a vital role in the **MoonShine** admin panel.  
 They are used in `FormBuilder` to build forms, in `TableBuilder` to create tables, as well as in forming a filter for `ModelResource`. They can be used in your custom pages and even outside the admin panel.  

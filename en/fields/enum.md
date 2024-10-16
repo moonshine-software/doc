@@ -1,8 +1,12 @@
-https://moonshine-laravel.com/docs/resource/fields/fields-enum?change-moonshine-locale=en
-
-------
 # Enum
 
+- [Make](#make)
+- [Displaying values](#displaying-values)
+- [getColor](#getcolor)
+
+---
+
+<a name="make"></a>
 ## Make
 Extends [Select](https://moonshine-laravel.com/docs/resource/fields/fields-select)  
 * has the same features  
@@ -28,6 +32,7 @@ public function fields(): array
 //...
 ```
 
+<a name="displaying-values"></a>
 ## Displaying values
 
 -toString
@@ -54,6 +59,7 @@ enum StatusEmun: string
 }
 ```
 
+<a name="getcolor"></a>
 ## getColor
 If *Enum* implements the `getColor()` method, then the *preview* field will appear as an icon of a certain color.
 

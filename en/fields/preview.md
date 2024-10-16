@@ -1,7 +1,3 @@
-https://moonshine-laravel.com/docs/resource/fields/fields-preview?change-moonshine-locale=en
-
-------
-
 # Preview
 
 - [Make](#make)
@@ -10,11 +6,13 @@ https://moonshine-laravel.com/docs/resource/fields/fields-preview?change-moonshi
 - [Link](#link)
 - [Image](#image)
 
+---
+
 > [!WARNING]
 > The field is not intended for entering/changing data!
 
 <a name="make"></a>
-### Make
+## Make
 
 Using the *Preview* field you can display text data from any field in the model, or generate text.
 
@@ -37,7 +35,7 @@ public function fields(): array
 ![preview_dark](https://moonshine-laravel.com/screenshots/preview_dark.png)
 
 <a name="badge"></a>
-### Badge
+## Badge
 
 The `badge()` method allows you to display a field as an icon, for example to display the status of an order.The method accepts a parameter in the form of a string or closure with an icon color.
 
@@ -83,7 +81,7 @@ public function fields(): array
 ```
 
 <a name="boolean"></a>
-### Boolean
+## Boolean
 
 The `boolean()` method allows you to display a field as a label (green or red) for boolean values.
 
@@ -113,7 +111,7 @@ public function fields(): array
 ```
 
 <a name="link"></a>
-### Link
+## Link
 
 The `link()` method allows you to display a field as a link.
 
@@ -158,7 +156,7 @@ public function fields(): array
 ![preview_all_dark](https://moonshine-laravel.com/screenshots/preview_all_dark.png)
 
 <a name="image"></a>
-### Image
+## Image
 
 The `image()` method allows you to transform a url into a thumbnail with an image.
 

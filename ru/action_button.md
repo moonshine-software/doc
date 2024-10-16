@@ -15,6 +15,8 @@
 - [Вызов методов](#method)
 - [Отправка событий](#event)
 
+---
+
 Расширяет [MoonShineComponent](https://moonshine-laravel.com/docs/resource/components/components-moonshine_component)
 * имеет те же функции
 

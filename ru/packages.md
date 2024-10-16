@@ -1,6 +1,6 @@
 # Пакеты
 
-  - [Построители](#builders)
+  - [Строители](#builders)
   - [GUI](#gui)
   - [Аутентификация](#auth)
   - [Поля](#fields)
@@ -8,8 +8,10 @@
   - [Локализации](#localizations)
   - [Компоненты](#components)
 
+---
+
 <a name="builders"></a>
-## Построители
+## Строители
 
 - Builders: [Создание проектов с использованием схем для MoonShine](https://github.com/dev-lnk/moonshine-builder.git)
 

@@ -1,14 +1,12 @@
-https://moonshine-laravel.com/docs/resource/getting-started/configuration?change-moonshine-locale=en
-
-------
-
 # Configuration
 
 - [Config](#config)
 - [Home page](#home-page)
 
+---
+
 <a name="config"></a>
-### Config
+## Config
 
 ```php
 use MoonShine\Exceptions\MoonShineNotFoundException;
@@ -167,7 +165,7 @@ return [
 ```
 
 <a name="home-page"></a>
-### Home page
+## Home page
 
 If you need to redefine the home page in the **MoonShine admin panel**, this can be done using the static method `home()` of the class *MoonShine* at the service provider `MoonShineServiceProvider`.
 

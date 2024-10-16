@@ -5,7 +5,9 @@
 - [Дополнительные настройки](#custom-config)  
 - [Файловый менеджер](#filemanager)  
 
-Расширяет [Textarea](https://moonshine-laravel.com/docs/resource/fields/fields-textarea)
+---
+
+Расширяет [Textarea](/docs/{{version}}/fields/textarea)
 * имеет те же функции
 
 <a name="make"></a>  
@@ -63,7 +65,7 @@ removePlugins(string|array $plugins)
 
 #### Меню
 
-``php
+```php
 menubar(string $menubar)
 ```
 

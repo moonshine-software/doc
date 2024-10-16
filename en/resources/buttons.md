@@ -1,6 +1,3 @@
-https://moonshine-laravel.com/docs/resource/models-resources/resources-buttons?change-moonshine-locale=en
-
-------
 # Buttons
 
 - [Basics](#basics)
@@ -18,6 +15,8 @@ https://moonshine-laravel.com/docs/resource/models-resources/resources-buttons?c
 - [Index table](#indexButton)
 - [Form page](#formButtons)
 - [Detail page](#detailButtons)
+
+---
 
 <a name="basics"></a>
 ## Basics

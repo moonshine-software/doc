@@ -1,14 +1,13 @@
-https://moonshine-laravel.com/docs/resource/fields/fields-has_one?change-moonshine-locale=en
-
-------
 # HasOne
 
 [Basics](#basics)
 [Fields](#fields)
 [Parent-ID](#parent-id)
 
+---
+
 <a name="basics"></a>
-### Basics
+## Basics
 
 The *HasOne* field is designed to work with the relation of the same name in Laravel and includes all the basic methods.
 
@@ -90,7 +89,7 @@ public function fields(): array
 ```
 
 <a name="fields"></a>
-### Fields
+## Fields
 
 The `fields()` method allows you to specify which fields will participate in *preview* or in building forms.
 
@@ -123,7 +122,7 @@ public function fields(): array
 ![has_one_preview_dark](https://moonshine-laravel.com/screenshots/has_one_preview_dark.png)
 
 <a name="parent-id"></a>
-### Parent ID
+## Parent ID
 
 If the relationship has a resource and you want to get the ID of the parent element, then you can use the *ResourceWithParent* trait.
 

@@ -1,6 +1,3 @@
-https://moonshine-laravel.com/docs/resource/fields/fields-select?change-moonshine-locale=en
-
-------
 # Select
 
   - [Make](#make)
@@ -16,8 +13,11 @@ https://moonshine-laravel.com/docs/resource/fields/fields-select?change-moonshin
   - [Options](#options)
   - [Native mode](#native)
 
+---
+
 <a name="make"></a>
 ## Make
+
 The _Select_ field includes all the basic methods.
 
 ```php
@@ -41,7 +41,8 @@ public function fields(): array
 ![select](https://moonshine-laravel.com/screenshots/select_dark.png)
 
 <a name="default"></a>
-### Default value
+## Default value
+
 You can use the `default()` method if you need to specify a default value for a field.
 
 ```php

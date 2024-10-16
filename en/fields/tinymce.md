@@ -46,13 +46,13 @@ public function fields(): array
 <a name="settings"></a>  
 ## Configuration  
 
-### Language  
+#### Language  
  
  ```php
  locale(string $locale)
  ```
 
-### Plugins 
+#### Plugins 
 ```php
 plugins(string|array $plugins)
 ```
@@ -64,13 +64,14 @@ addPlugins(string|array $plugins)
 ```php
 removePlugins(string|array $plugins)
 ```
-### Menubar
 
-``php
+#### Menubar
+
+```php
 menubar(string $menubar)
 ```
 
-### Toolbar
+#### Toolbar
 
 ```php
 toolbar(string $toolbar)
@@ -80,19 +81,19 @@ toolbar(string $toolbar)
 addToolbar(string $toolbar)
 ```
 
-### Options
+#### Options
 
 ```php
 addConfig(string $name, mixed $value)
 ```
 
-### Tiny Comments
+#### Tiny Comments
 
 ```php
 commentAuthor(string $commentAuthor)
 ```
 
-### Tags
+#### Tags
 ```php
 mergeTags(array $mergeTags)
 ```
@@ -132,6 +133,7 @@ public function fields(): array
 
 //...
 ```
+
 > [!TIP]
 > Translation files are located in the `public/vendor/moonshine/libs/tinymce/langs` directory.
 
@@ -159,12 +161,14 @@ public function fields(): array
 
 //...
 ```
+
 <a name="filemanager"></a>  
 ## File manager  
 
 If you want to use the file manager in *TinyMce*, then you need to install the package [Laravel FileManager](https://github.com/UniSharp/laravel-filemanager)
 
-### Installation  
+#### Installation 
+ 
 ```php
 composer require unisharp/laravel-filemanager
 
@@ -184,7 +188,8 @@ return [
     // ...
 ];
 ```
-### Routes file
+
+#### Routes file
 
 Create a routes file like `routes/moonshine.php` and register the *LaravelFilemanager* routes.
 
@@ -196,7 +201,8 @@ Route::prefix('laravel-filemanager')->group(function () {
     Lfm::routes();
 });
 ```
-### File registration
+
+#### File registration
 
 Register the generated routes file in `app/Providers/RouteServiceProvider.php`.
 
@@ -245,7 +251,8 @@ public function boot()
 // ...
 ```
 
-### Configuration
+#### Configuration
+
 You need to add a prefix in the `config/moonshine.php` configuration file.
  
  ```php

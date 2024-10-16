@@ -1,7 +1,3 @@
-https://moonshine-laravel.com/docs/resource/actionbutton/action_button?change-moonshine-locale=en
-
-------
-
 # ActionButton
 
 - [Basics](#basics)
@@ -18,6 +14,8 @@ https://moonshine-laravel.com/docs/resource/actionbutton/action_button?change-mo
 - [Async mode](#async)
 - [Calling methods](#method)
 - [Dispatch events](#event)
+
+---
 
 Extends [MoonShineComponent](https://moonshine-laravel.com/docs/resource/components/components-moonshine_component)
 * has the same features

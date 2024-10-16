@@ -1,6 +1,3 @@
-https://moonshine-laravel.com/docs/resource/models-resources/resources-table?change-moonshine-locale=en
-
-------
 # Table
 
   - [Properties](#properties)
@@ -14,6 +11,8 @@ https://moonshine-laravel.com/docs/resource/models-resources/resources-table?cha
   - [Updating a row](#update-row)
   - [Column display](#column-display)
   - [Modify](#modify)
+
+---
 
 <a name="properties"></a>
 ## Properties

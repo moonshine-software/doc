@@ -1,6 +1,10 @@
-https://moonshine-laravel.com/docs/resource/fields/fields-checkbox?change-moonshine-locale=en
-
 # Checkbox
+
+- [Make](#make)
+- [On/off values](#on-off)
+- [Editing in preview](#editing-in-preview)
+
+---
 
 <a name="make"></a>
 ## Make

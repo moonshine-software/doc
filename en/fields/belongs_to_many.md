@@ -23,7 +23,7 @@ https://moonshine-laravel.com/docs/resource/fields/fields-belongs_to_many?change
 ---
 
 <a name="basics"></a> 
-### Basics
+## Basics
 
 The *BelongsToMany* field is designed to work with the relation of the same name in Laravel and includes all the basic methods.
 
@@ -138,7 +138,7 @@ public function fields(): array
 ```
 
 <a name="label-column"></a> 
-### Column header 
+## Column header 
 
 By default, the table column header uses the property `$title` of the relationship model resource.
 The `columnLabel()` method allows you to override the title.
@@ -164,7 +164,7 @@ public function fields(): array
 ```
 
 <a name="pivot"></a> 
-### Pivot
+## Pivot
 
 The `fields()` method is used to implement *pivot* fields in the BelongsToMany relationship.
 
@@ -199,7 +199,7 @@ public function fields(): array
 More details in the official documentation [Laravel](https://laravel.com/docs/eloquent-relationships#retieving-intermediate-table-columns).
 
 <a name="creatable"></a> 
-### Creating a Relationship Object 
+## Creating a Relationship Object 
 
 The `creatable()` method allows you to create a new relation object through a modal window.
 
@@ -250,7 +250,7 @@ public function fields(): array
 ```
 
 <a name="select"></a> 
-### Select
+## Select
 
 The *BelongsToMany* field can be displayed as a drop-down list, To do this, you need to use the `selectMode()` method.
 
@@ -274,7 +274,7 @@ public function fields(): array
 ![belongs_to_many_select_dark](https://moonshine-laravel.com/screenshots/belongs_to_many_select_dark.png)
 
 <a name="options"></a> 
-### Options
+## Options
 
 All choices options are available to change via *data attributes*:
 
@@ -299,7 +299,7 @@ public function fields(): array
 > For more details please contact [Choices](https://choices-js.github.io/Choices/).
 
 <a name="placeholder"></a> 
-### Placeholder
+## Placeholder
 
 The `placeholder()` method allows you to set *placeholder* attribute on the field.
 
@@ -328,7 +328,7 @@ public function fields(): array
 > The `placeholder()` method is only used if the field is displayed as a dropdown list `selectMode()`!
 
 <a name="tree"></a> 
-### Tree
+## Tree
 
 The `tree()` method allows you to display values as a tree with checkboxes, for example, for categories that have nesting. The method must be passed a column in the database on which the tree will be built.
 
@@ -357,7 +357,7 @@ public function fields(): array
 
 
 <a name="preview"></a> 
-### Preview
+## Preview
 
 By default, *preview* will display the field as a table.
 
@@ -366,7 +366,7 @@ By default, *preview* will display the field as a table.
 
 To change the display in *preview* you can use the following methods.
 
-### onlyCount
+#### onlyCount
 
 The `onlyCount()` method allows you to display only the number of selected values in *preview*.
 
@@ -389,7 +389,7 @@ public function fields(): array
 ![belongs_to_many_preview_count](https://moonshine-laravel.com/screenshots/belongs_to_many_preview_count.png)
 ![belongs_to_many_preview_count_dark](https://moonshine-laravel.com/screenshots/belongs_to_many_preview_count_dark.png)
 
-### inLine
+#### inLine
 
 The `inLine()` method allows you to display field values as a line. 
 
@@ -432,7 +432,7 @@ public function fields(): array
 ![belongs_to_many_preview_in_line_dark](https://moonshine-laravel.com/screenshots/belongs_to_many_preview_in_line_dark.png)
 
 <a name="only-link"></a> 
-### Link only
+## Link only
 
 The `onlyLink()` method will allow you to display the relationship as a link with the number of elements.
 
@@ -458,7 +458,7 @@ public function fields(): array
 }
 ```
 
-### linkRelation
+#### linkRelation
 
 The `linkRelation` parameter allows you to create a link to a relation with a parent resource binding.
 
@@ -478,7 +478,7 @@ public function fields(): array
 //...
 ```
 
-### condition
+#### condition
 
 The `condition` parameter via a closure will allow you to change the display method depending on the conditions.
 
@@ -501,7 +501,7 @@ public function fields(): array
 ```
 
 <a name="values-query"></a> 
-### Query for values
+## Query for values
 
 The `valuesQuery()` method allows you to change the query for obtaining values.
 
@@ -525,7 +525,7 @@ public function fields(): array
 ```
 
 <a name="async-search"></a> 
-### Asynchronous search
+## Asynchronous search
 
 To implement asynchronous search for values, use the `asyncSearch()` method.
 
@@ -659,7 +659,7 @@ public function fields(): array
 > Requests must be customized using the `asyncSearch()` method. Don't use `valuesQuery()`!
 
 <a name="associated"></a> 
-### Related fields
+## Related fields
 
 To associate select values between fields, you can use the `associatedWith()` method.
 
@@ -688,7 +688,7 @@ public function fields(): array
 > For more complex setup, you can use `asyncSearch()`.
 
 <a name="with-image"></a> 
-### Values with picture
+## Values with picture
 
 The `withImage()` method allows you to add an image to a value.
 
@@ -724,7 +724,7 @@ public function fields(): array
 ![belongs_to_image_dark](https://moonshine-laravel.com/screenshots/belongs_to_image_dark.png)
 
 <a name="buttons"></a> 
-### Buttons
+## Buttons
 
 The `buttons()` method allows you to add additional buttons to the *BelongsToMany* field.
 
@@ -753,7 +753,7 @@ public function fields(): array
 }
 ```
 
-### withCheckAll
+#### withCheckAll
 
 The `withCheckAll()` method allows you to add checkAll/uncheckAll buttons to the *BelongsToMany* field similar to the previous example.
 

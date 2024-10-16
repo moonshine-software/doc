@@ -1,10 +1,9 @@
-https://moonshine-laravel.com/docs/resource/ui-components/ui-tabs?change-moonshine-locale=en
-
-------
 # Tabs
 
 -[Basics](#basics)
 -[Active tab](#active)
+
+---
 
 <a name="basics"></a>
 ## Basics 

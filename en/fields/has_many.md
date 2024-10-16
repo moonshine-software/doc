@@ -15,7 +15,7 @@ https://moonshine-laravel.com/docs/resource/fields/fields-has_many?change-moonsh
    - [Advanced](#advanced)
 
 <a name="basics"></a> 
-### Basics
+## Basics
 
 The *HasMany* field is designed to work with the relation of the same name in Laravel and includes all the basic methods.
 
@@ -95,7 +95,7 @@ public function fields(): array
 ```
 
 <a name="fields"></a> 
-### Fields
+## Fields
 
 The `fields()` method allows you to set the fields that will be displayed in the *preview*.
 
@@ -128,7 +128,7 @@ public function fields(): array
 ![has_many_fields_dark](https://moonshine-laravel.com/screenshots/has_many_fields_dark.png)
 
 <a name="creatable"></a> 
-### Creating a Relationship Object
+## Creating a Relationship Object
 
 The `creatable()` method allows you to create a new relation object through a modal window.
 
@@ -179,7 +179,7 @@ public function fields(): array
 ```
 
 <a name="limit"></a> 
-### Number of records
+## Number of records
 
 The `limit()` method allows you to limit the number of records displayed in *preview*.
 
@@ -204,7 +204,7 @@ public function fields(): array
 ```
 
 <a name="only-link"></a> 
-### Link only
+## Link only
 
 The `onlyLink()` method will allow you to display the relationship as a link with the number of elements.
 
@@ -234,7 +234,7 @@ public function fields(): array
 ![has_many_link](https://moonshine-laravel.com/screenshots/has_many_link.png)
 ![has_many_link_dark](https://moonshine-laravel.com/screenshots/has_many_link_dark.png)
 
-### linkRelation
+## linkRelation
 
 The `linkRelation` parameter allows you to create a link to a relation with a parent resource binding.
 
@@ -254,7 +254,7 @@ public function fields(): array
 //...
 ```
 
-### condition
+## condition
 
 The `condition` parameter via a closure will allow you to change the display method depending on the conditions.
 
@@ -277,7 +277,7 @@ public function fields(): array
 ```
 
 <a name="parent-id"></a> 
-### Parent ID
+## Parent ID
 
 If the relationship has a resource, and you want to get the ID of the parent element, then you can use the *ResourceWithParent* trait.
 
@@ -317,7 +317,7 @@ $this->getParentId();
 > Recipe: [saving files](https://moonshine-laravel.com/docs/resource/recipes/recipes#hasmany-parent-id) *HasMany* connections in the directory with the parent ID.
 
 <a name="change-edit-button"></a> 
-### Edit button
+## Edit button
 
 The `changeEditButton()` method allows you to completely redefine the edit button.
 
@@ -336,7 +336,7 @@ HasMany::make('Comments', 'comments', resource: new CommentResource())
 ```
 
 <a name="without-modals"></a> 
-### Modal
+## Modal
 
 By default, creating and editing a *HasMany* field entry occurs in a modal, The `withoutModals()` method allows you to disable this behavior.
 
@@ -350,11 +350,11 @@ HasMany::make('Comments', 'comments', resource: new CommentResource())
 ```
 
 <a name="modify"></a> 
-### Modify
+## Modify
 
 The *HasMany* field has methods that can be used to modify the buttons, change *TableBuilder* for preview and form, and change *onlyLink* button.
 
-### modifyItemButtons()
+#### modifyItemButtons()
 
 The `modifyItemButtons()` method allows you to change the view, edit, deletion and mass deletion.
 
@@ -381,7 +381,7 @@ public function fields(): array
 }
 ```
 
-### modifyOnlyLinkButton()
+#### modifyOnlyLinkButton()
 
 The `modifyOnlyLinkButton()` method allows you to change the *onlyLink* button.
 
@@ -404,7 +404,7 @@ public function fields(): array
 }
 ```
 
-### modifyCreateButton() / modifyEditButton()
+#### modifyCreateButton() / modifyEditButton()
 
 `modifyCreateButton()` and `modifyEditButton()` methods allow you to change the create and edit buttons.
 
@@ -428,7 +428,7 @@ public function fields(): array
 }
 ```
 
-### modifyTable()
+#### modifyTable()
 
 The `modifyTable()` method allows you to change the *TableBuilder* for the preview and form.
 
@@ -451,9 +451,9 @@ public function fields(): array
 ```
 
 <a name="advanced"></a> 
-### Advanced
+## Advanced
 
-### Relation via JSON field
+#### Relation via JSON field
 The *HasMany* field is displayed outside the main resource form by default. If you need to display relation fields inside the main form, then you can use the *JSON* field in the `asRelation()` mode. 
 
 ```php

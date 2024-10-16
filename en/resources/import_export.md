@@ -1,6 +1,3 @@
-https://moonshine-laravel.com/docs/resource/models-resources/resources-import_export?change-moonshine-locale=en
-
-------
 # Import / Export
  
 - [Basics](#basics)
@@ -8,6 +5,8 @@ https://moonshine-laravel.com/docs/resource/models-resources/resources-import_ex
 - [Export](#export)
 - [Handler methods](#methods)
 - [Custom implementation](#custom)
+
+---
 
 <a name="basics"></a>
 ## Basics

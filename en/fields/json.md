@@ -1,6 +1,3 @@
-https://moonshine-laravel.com/docs/resource/fields/fields-json?change-moonshine-locale=en
-
-------
 # Json
   - [Basics](#basics)
   - [Key/Value](#key-value)
@@ -14,8 +11,11 @@ https://moonshine-laravel.com/docs/resource/fields/fields-json?change-moonshine-
   - [Buttons](#buttons)
   - [Modify](#modify)
 
+---
+
 <a name="basics"></a>
-### Basics
+## Basics
+
 The *Json* field includes all the base methods.
 
 *Json* has several methods to set the field structure:  
@@ -25,7 +25,7 @@ The *Json* field includes all the base methods.
 > In the database, the field must be of text or json type. Also cast eloquent of an array or json or collection model.
 
 <a name="key-value"></a>
-### Key/Value
+## Key/Value
 
 The easiest way to work with a *Json* field is to use the `keyValue()` method.
 The result will be a simple json `{key: value}`.
@@ -78,7 +78,7 @@ public function fields(): array
 ```
 
 <a name="fields"></a>
-### With a set of fields
+## With a set of fields
 
 For more advanced use, use the `fields()` method and pass the required set of fields.
 As a result, the following json will be generated:  
@@ -116,7 +116,7 @@ public function fields(): array
 ![json_fields_dark](https://moonshine-laravel.com/screenshots/json_fields_dark.png)
 
 <a name="value-only"></a>
-### Meaning only
+## Meaning only
 
 Sometimes you only need to store values in the database. To do this, you can use the `onlyValue()` method. The result will be json `['value']`.
 
@@ -144,7 +144,7 @@ public function fields(): array
 ![json_only_value_dark](https://moonshine-laravel.com/screenshots/json_only_value_dark.png)
 
 <a name="default"></a>
-### Default value
+## Default value
 You can use the `default()` method if you need to specify a default value for a field.
 
 ```php
@@ -196,7 +196,7 @@ public function fields(): array
 ```
 
 <a name="creatable-removable"></a>
-### Add/Remove
+## Add/Remove
 
 By default, the *Json* field contains only one entry. The `creatable()` method allows you to add entries, and the `removable()` method allows you to remove existing ones.
 
@@ -243,7 +243,7 @@ public function fields(): array
 ![json_removable](https://moonshine-laravel.com/screenshots/json_removable.png)
 ![json_removable_dark](https://moonshine-laravel.com/screenshots/json_removable_dark.png)
 
-###Custom add button
+#### Custom add button
 
 ```php
 use MoonShine\Fields\Json;
@@ -264,7 +264,7 @@ public function fields(): array
 //...
 ```
 
-### Attributes for the delete button
+#### Attributes for the delete button
 
 ```php
 use MoonShine\Fields\Json;
@@ -288,7 +288,7 @@ public function fields(): array
 ```
 
 <a name="nesting"></a>
-### Nested values
+## Nested values
 
 You can get nested values of *JSON* fields using `.`.
 Values can be edited, but the changes will not affect other keys.
@@ -317,7 +317,7 @@ public function fields(): array
  ```
 
 <a name="vertical"></a>
-### Vertical display
+## Vertical display
 
 The `vertical()` method allows you to change the horizontal layout of the fields to vertical.
 
@@ -345,7 +345,7 @@ public function fields(): array
 ![json_vertical_dark](https://moonshine-laravel.com/screenshots/json_vertical_dark.png)
 
 <a name="relation"></a>
-### Relationships via Json
+## Relationships via Json
 
 The *Json* field can work with relationships; the `asRelation()` method is used for this, to which you need to assign *ModelResource* relationships and specify an array of editable fields.
 
@@ -391,7 +391,7 @@ public function fields(): array
 ![json_relation_dark](https://moonshine-laravel.com/screenshots/json_relation_dark.png)
 
 <a name="filter"></a>
-### Filter
+## Filter
 
 If the field is used to build a filter, then you must use the `filterMode()` method. This method adapts the behavior of the field and sets `creatable = false`.
 
@@ -417,7 +417,7 @@ public function filters(): array
 ```
 
 <a name="buttons"></a>
-### Buttons
+## Buttons
 
 The `buttons()` method allows you to add additional buttons to the *Json* field.
 
@@ -452,7 +452,7 @@ public function fields(): array
 ```
 
 <a name="#modify"></a>
-### Modify
+## Modify
 
 The *Json* field has methods with which you can modify the delete button or change *TableBuilder* for preview and form.
 
