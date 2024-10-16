@@ -133,7 +133,7 @@ BelongsToMany::make('Categories', resource: CategoryResource::class)
 Метод `fields()` используется для реализации полей *pivot* в отношении BelongsToMany.
 
 ```php
-fields(Fields|Closure|array $fields)
+fields(FieldsContract|Closure|iterable $fields)
 ```
 
 ```php

@@ -75,7 +75,7 @@ HasMany::make('Comments', 'comments')
 Метод `fields()` позволяет установить поля, которые будут отображаться в *preview*.
 
 ```php
-fields(Fields|Closure|array $fields)
+fields(FieldsContract|Closure|iterable $fields)
 ```
 
 ```php
