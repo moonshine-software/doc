@@ -3,7 +3,7 @@
 - [Основы](#basics)
 - [Заголовок](#heading)
 - [Темный стиль](#dark)
-- 
+- [Иконка](#icon)
 ---
 
 <a name="basics"></a>
@@ -81,6 +81,25 @@ Box::make(fake()->text())->dark();
 tab: Blade
 ```blade
 <x-moonshine::box :dark="true">
+    {{ fake()->text() }}
+</x-moonshine::box>
+```
+~~~
+
+<a name="icon"></a>
+## Иконка
+
+Чтобы отобразить иконку в блоке, используется параметр `icon`
+
+~~~tabs
+tab: Class
+```php
+Box::make( [fake()->text()], title:'Title box')->icon('users';
+```
+tab: Blade
+```blade
+<x-moonshine::box title="Title box">
+    <x-moonshine::icon name="users"></x-moonshine::icon>
     {{ fake()->text() }}
 </x-moonshine::box>
 ```
