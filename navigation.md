@@ -28,8 +28,6 @@
     - [Import/Export](/docs/{{version}}/model-resource/import-export)
     - [Routes](/docs/{{version}}/model-resource/routes)
     - [Authorization](/docs/{{version}}/model-resource/authorization)
-    - [Changelog](/docs/{{version}}/model-resource/changelog)
-
 - ## Pages
     - [Basics](/docs/{{version}}/page/index)
 - ## Fields
@@ -98,8 +96,6 @@
 - ## Security
     - [Authorization](/docs/{{version}}/advanced/authorization)
     - [Authentication](/docs/{{version}}/advanced/authentication)
-    - Socialite
-    - 2FA
 - ## Advanced
     - CrudResource
     - [Routes](/docs/{{version}}/advanced/routes)
