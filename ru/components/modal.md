@@ -44,7 +44,6 @@ Modal::make(
     title: 'Подтвердить',
     content: 'Содержимое'
 )
-//...
 ```
 tab: Blade
 ```blade
