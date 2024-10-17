@@ -53,7 +53,7 @@ icon(string $icon, bool $custom = false, ?string $path = null)
 ->icon('academic-cap') 
 ```
 
-<x-docs.icon-list prefix="" />
+<x-docs.icon-list prefix=""></x-docs.icon-list>
 
 <a name="solid"></a>
 ## Solid
@@ -62,7 +62,7 @@ icon(string $icon, bool $custom = false, ?string $path = null)
 ->icon('s.academic-cap') 
 ```
 
-<x-docs.icon-list prefix="s" />
+<x-docs.icon-list prefix="s"></x-docs.icon-list>
 
 <a name="mini"></a>
 ## Mini
@@ -71,13 +71,13 @@ icon(string $icon, bool $custom = false, ?string $path = null)
 ->icon('m.academic-cap') 
 ```
 
-<x-docs.icon-list prefix="m" />
+<x-docs.icon-list prefix="m"></x-docs.icon-list>
 
 <a name="compact"></a>
 ## Compact
 
-<x-docs.icon-listprefix="c" />
-
 ```php
 ->icon('c.academic-cap') 
 ```
+
+<x-docs.icon-list prefix="c"></x-docs.icon-list>
