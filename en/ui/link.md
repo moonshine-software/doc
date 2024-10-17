@@ -1,11 +1,10 @@
-https://moonshine-laravel.com/docs/resource/ui-components/ui-link?change-moonshine-locale=en
-
-------
 # Link
 
   - [Basics](#basics)
   - [Fill](#fill)
   - [Icon](#icon)
+
+---
 
 <a name="basics"></a>
 ## Basics

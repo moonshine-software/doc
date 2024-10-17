@@ -1,6 +1,3 @@
-https://moonshine-laravel.com/docs/resource/components/components-moonshine_component?change-moonshine-locale=en
-
-------
 # MoonShineComponent
 
 -[Creating a component](#create)
@@ -13,6 +10,8 @@ https://moonshine-laravel.com/docs/resource/components/components-moonshine_comp
 -[Mehtods by condition](#when-unless)
 -[Render](#render)
 -[AlpineJs](#alpinejs)
+
+---
 
 <a name="creating"></a>
 ## Creating a component

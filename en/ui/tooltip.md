@@ -1,9 +1,8 @@
-https://moonshine-laravel.com/docs/resource/ui-components/ui-tooltip?change-moonshine-locale=en
-
-------
 # Tooltip
   - [Basics](#basics)
   - [Without using a component](#without)
+
+---
 
 <a name="basics"></a>
 ## Basics

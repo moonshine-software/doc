@@ -1,6 +1,3 @@
-https://moonshine-laravel.com/docs/resource/appearance/icons?change-moonshine-locale=en
-
-------
 # Icons
 
 - [Solid](#solid)
@@ -8,6 +5,8 @@ https://moonshine-laravel.com/docs/resource/appearance/icons?change-moonshine-lo
 - [Custom icons](#custom)
 
 For all entities that have a `icon()` method, you can use one of the preset sets from the collection [Heroicons](https://heroicons.com) (default **Solid** and **Outline** set) or create your own set.
+
+---
 
 <a name="solid"></a>
 ##Solid

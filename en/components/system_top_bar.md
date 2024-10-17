@@ -1,13 +1,11 @@
-https://moonshine-laravel.com/docs/resource/components/components-system_top_bar?change-moonshine-locale=en
-
-------
-
 # System component TopBar
 
 - [Make](#make)
 - [Actions](#actions)
 - [Hide logo](#hide-logo)
 - [Hide theme switcher](#hide-theme-switcher)
+
+---
 
 ## Make
 

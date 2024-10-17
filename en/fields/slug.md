@@ -1,7 +1,3 @@
-https://moonshine-laravel.com/docs/resource/fields/fields-slug?change-moonshine-locale=en
-
-------
-
 # Slug 
 
 - [Basics](#basics)  
@@ -10,6 +6,8 @@ https://moonshine-laravel.com/docs/resource/fields/fields-slug?change-moonshine-
 - [Locale](#locale)  
 - [Unique value](#unique)  
 - [Live slug](#live)  
+
+---
 
 Extends [Text](https://moonshine-laravel.com/docs/resource/fields/fields-text)
 * has the same features

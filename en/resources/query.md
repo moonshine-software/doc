@@ -1,12 +1,11 @@
-https://moonshine-laravel.com/docs/resource/models-resources/resources-query?change-moonshine-locale=en
-
-------
 # Query
 
 - [Request](#request)
 - [Receiving a record](#receiving-a-record)
 - [Search](#search)
 - [Sorting](#sorting)
+
+---
 
 <a name="request"></a>
 ## Request

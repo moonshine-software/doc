@@ -1,7 +1,3 @@
-https://moonshine-laravel.com/docs/resource/fields/fields-belongs_to_many?change-moonshine-locale=en
-
-------
-
 # BelongsToMany
 
   - [Basics](#basics)

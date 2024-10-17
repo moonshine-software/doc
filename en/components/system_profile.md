@@ -1,11 +1,9 @@
-https://moonshine-laravel.com/docs/resource/components/components-system_profile?change-moonshine-locale=en
-
-------
 # System component Profile
 
-## Sections
 - [Make](#make)
 - [Default avatar](#default-avatar)
+
+---
 
 <a name="make"></a>
 ## Make

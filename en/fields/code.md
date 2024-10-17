@@ -1,10 +1,9 @@
-https://moonshine-laravel.com/docs/resource/fields/fields-code?change-moonshine-locale=en
-
-------
 # Code
 
 - [Language](#language)
 - [Line numbering](#line-numbers)
+
+---
 
 Extends [Textarea](https://moonshine-laravel.com/docs/resource/fields/fields-textarea)
 *has the same features

@@ -1,6 +1,3 @@
-https://moonshine-laravel.com/docs/resource/fields/fields-belongs_to?change-moonshine-locale=en
-
-------
 # BelongsTo
 
 - [Basics](#basics)

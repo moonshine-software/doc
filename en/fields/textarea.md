@@ -1,6 +1,3 @@
-https://moonshine-laravel.com/docs/resource/fields/fields-textarea?change-moonshine-locale=en
-
-------
 # Textarea
 
 The *Textarea* field includes all the basic methods

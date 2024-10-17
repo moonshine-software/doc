@@ -1,6 +1,3 @@
-https://moonshine-laravel.com/docs/resource/components/components-metric_value?change-moonshine-locale=en
-
-------
 # Metric Value
 
   - [Make](#make)
@@ -8,6 +5,8 @@ https://moonshine-laravel.com/docs/resource/components/components-metric_value?c
   - [Value Format](#value-format)
   - [Icon](#icon)
   - [Block width](#column-span)
+
+---
 
 <a name="make"></a>
 ## Make

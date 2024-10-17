@@ -1,7 +1,11 @@
-https://moonshine-laravel.com/docs/resource/ui-components/ui-spinner?change-moonshine-locale=en
-
-------
 # Spinner
+
+- [Basics](#basics)
+- [Size](#size)
+- [Color](#color)
+- [Positioning](#position)
+
+---
 
 <a name="basics"></a>
 ## Basics

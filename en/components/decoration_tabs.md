@@ -1,14 +1,12 @@
-https://moonshine-laravel.com/docs/resource/components/components-decoration_tabs?change-moonshine-locale=en
-------
-<a name="tabs"></a>
-## Tabs
+# Tabs
 
-[Sections]
   - [Make](#make)
   - [Vertical display of the tabs.](#vertical-tab)
   - [Active tab](#active-tab)
   - [Icon](#tab-icon)
   - [Tab ID](#tab-id)
+
+---
 
 <a name="make"></a>
 ## Make

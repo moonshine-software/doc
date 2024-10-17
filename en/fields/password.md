@@ -1,6 +1,3 @@
-https://moonshine-laravel.com/docs/resource/fields/fields-password?change-moonshine-locale=en
-
-------
 # Password  
  
 Extends [Text](https://moonshine-laravel.com/docs/resource/fields/fields-text)  

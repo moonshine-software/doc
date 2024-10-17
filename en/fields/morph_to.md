@@ -1,7 +1,3 @@
-https://moonshine-laravel.com/docs/resource/fields/fields-morph_to?change-moonshine-locale=en
-
-------
-
 # MorphTo
 
 Extends [BelongsTo](https://moonshine-laravel.com/docs/resource/fields/fields-belongs_to)

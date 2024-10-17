@@ -1,7 +1,3 @@
-https://moonshine-laravel.com/docs/resource/components/components-decoration_when?change-moonshine-locale=en
-
-------
-
 # Decoration When
 
 ## Make

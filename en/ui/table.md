@@ -1,6 +1,3 @@
-https://moonshine-laravel.com/docs/resource/ui-components/ui-table?change-moonshine-locale=en
-
-------
 # Table
 
 - [Basics](#basics)
@@ -9,6 +6,8 @@ https://moonshine-laravel.com/docs/resource/ui-components/ui-table?change-moonsh
 - [Missing elements](#notfound)
 - [Slots](#slots)
 - [Stylization](#styles)
+
+---
 
 <a name="basics"></a>
 ## Basics

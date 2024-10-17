@@ -1,7 +1,3 @@
-https://moonshine-laravel.com/docs/resource/models-resources/resources-events?change-moonshine-locale=en
-
-------
-
 # Events
 
 Since MoonShine operates using standard eloquent methods for adding, editing, and deleting, it is effortless to utilise standard Laravel events:[events](https://laravel.com/docs/eloquent#events)  

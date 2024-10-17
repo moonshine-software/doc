@@ -1,12 +1,10 @@
-https://moonshine-laravel.com/docs/resource/ui-components/ui-collapse?change-moonshine-locale=en
-
-------
-
 # Collapse
 
 - [Basics](#basics)
 - [Show expanded](#show)
 - [Saving state](#persist)
+
+---
 
 <a name="basics"></a>
 ## Basics

@@ -1,7 +1,3 @@
-https://moonshine-laravel.com/docs/resource/fields/fields-id?change-moonshine-locale=en
-
-------
-
 # ID
 
 Extends [Hidden](https://moonshine-laravel.com/docs/resource/fields/fields-hidden)

@@ -1,11 +1,10 @@
-https://moonshine-laravel.com/docs/resource/components/components-system_sidebar?change-moonshine-locale=en
-
-------
 # System component Sidebar
 
   - [Make](#make)
   - [Hide logo](#hide-logo)
   - [Hide theme switcher](#hide-switcher)
+
+---
 
 <a name="make"></a>
 ## Make

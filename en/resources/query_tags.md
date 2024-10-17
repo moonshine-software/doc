@@ -1,6 +1,3 @@
-https://moonshine-laravel.com/docs/resource/models-resources/resources-query_tags?change-moonshine-locale=en
-
-------
 # Quick filters (tags)
 
 - [Basics](#basics)
@@ -8,6 +5,8 @@ https://moonshine-laravel.com/docs/resource/models-resources/resources-query_tag
 - [Active item](#active-item)
 - [Display condition](#display-condition)
 - [Alias](#alias)
+
+---
 
 <a name="basics"></a>
 ## Basics

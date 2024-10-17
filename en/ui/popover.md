@@ -1,10 +1,9 @@
-https://moonshine-laravel.com/docs/resource/ui-components/ui-popover?change-moonshine-locale=en
-
-------
 # Popover
 
 - [Basics](#basics)
 - [Without using a component](#without)
+
+---
 
 <a name="basics"></a>
 ## Basics

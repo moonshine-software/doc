@@ -1,10 +1,9 @@
-https://moonshine-laravel.com/docs/resource/ui-components/ui-paginations?change-moonshine-locale=en
-
-------
 # Paginations
 
   - [Basics](#basics)
   - [Simplified pagination](#simplified-pagination)
+
+---
 
 <a name="basics"></a>
 ## Basics

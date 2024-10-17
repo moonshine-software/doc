@@ -1,6 +1,3 @@
-https://moonshine-laravel.com/docs/resource/fields/fields-has_many?change-moonshine-locale=en
-
-------
 # HasMany
 
    - [Basics](#basics)
@@ -13,6 +10,8 @@ https://moonshine-laravel.com/docs/resource/fields/fields-has_many?change-moonsh
    - [Modal](#without-modals)
    - [Modify](#modify)
    - [Advanced](#advanced)
+
+---
 
 <a name="basics"></a> 
 ## Basics

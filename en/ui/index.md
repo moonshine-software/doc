@@ -1,7 +1,3 @@
-https://moonshine-laravel.com/docs/resource/ui-components/ui-index?change-moonshine-locale=en
-
-------
-
 # Basics
 
 To create the *MoonShine* admin panel interface, many *UI components* are used.  

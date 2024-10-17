@@ -1,7 +1,3 @@
-https://moonshine-laravel.com/docs/resource/models-resources/resources-index?change-moonshine-locale=en
-
-------
-
 # Basics
 
 - [Basics](#basics)
@@ -16,6 +12,8 @@ https://moonshine-laravel.com/docs/resource/models-resources/resources-index?cha
 - [Modification](#modification)
 - [Components](#components)
 - [Boot](#boot)
+
+---
 
 <a name="basics"></a>
 ## Basics

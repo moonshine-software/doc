@@ -1,6 +1,3 @@
-https://moonshine-laravel.com/docs/resource/fields/fields-number?change-moonshine-locale=en
-
-------
 # Number
 
 -[Make](#make)
@@ -11,6 +8,8 @@ https://moonshine-laravel.com/docs/resource/fields/fields-number?change-moonshin
 -[Stars](#stars)
 -[+/-buttons](#buttons)
 -[Editing in preview](#update-on-preview)
+
+---
 
 Extends [Text](https://moonshine-laravel.com/docs/resource/fields/fields-text)
 * has the same features

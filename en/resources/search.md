@@ -1,7 +1,3 @@
-https://moonshine-laravel.com/docs/resource/models-resources/resources-search?change-moonshine-locale=en
-
-------
-
 # Search
 
   - [Basics](#basics)
@@ -9,6 +5,8 @@ https://moonshine-laravel.com/docs/resource/models-resources/resources-search?ch
   - [Search by json keys](#json)
   - [Search by relationship](#relation)
   - [Global search](#global)
+
+---
 
 <a name="basics"></a>
 ## Basics

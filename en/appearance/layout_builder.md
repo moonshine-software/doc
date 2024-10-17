@@ -1,10 +1,9 @@
-https://moonshine-laravel.com/docs/resource/appearance/appearance-layout_builder?change-moonshine-locale=en
------
-
 # LayoutBuilder
 
 - [Publishing a template](#publish)
 - [Top Menu](#top-menu)
+
+---
 
 <a name="publish"></a>
 ## Publishing a template

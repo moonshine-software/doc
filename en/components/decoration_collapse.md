@@ -1,13 +1,11 @@
-https://moonshine-laravel.com/docs/resource/components/components-decoration_collapse?change-moonshine-locale=en
-
-------
-
 # Decoration Collapse
 
   - [Make](#make)
   - [Icon](#icon)
   - [Show](#show)
   - [Persist](#persist)
+
+---
 
 <a name="make"></a> 
 ## Make

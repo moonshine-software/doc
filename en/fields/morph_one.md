@@ -1,7 +1,3 @@
-https://moonshine-laravel.com/docs/resource/fields/fields-morph_one?change-moonshine-locale=en
-
-------
-
 # MorphOne
 
 Extends [HasOne](https://moonshine-laravel.com/docs/resource/fields/fields-has_one)

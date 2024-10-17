@@ -1,7 +1,3 @@
-https://moonshine-laravel.com/docs/resource/ui-components/ui-loader?change-moonshine-locale=en
-
-------
-
 # Loader  
 
 The `moonshine::loader` component allows you to create a stylized loading indicator.

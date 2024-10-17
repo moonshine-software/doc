@@ -1,11 +1,10 @@
-https://moonshine-laravel.com/docs/resource/components/components-decoration_block?change-moonshine-locale=en
-
-------
 # Decoration Block
 
 - [Make](#make)
 - [No title](#wihtout-heading)
 - [Icon](#icon)
+
+---
 
 <a name="make"></a>
 ## Make

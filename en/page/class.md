@@ -1,7 +1,3 @@
-https://moonshine-laravel.com/docs/resource/page/page-class
-
-------
-
 # Create class
 
     -   [Basics](#basics)
@@ -13,6 +9,8 @@ https://moonshine-laravel.com/docs/resource/page/page-class
     -   [Alias](#alias)
     -   [Render](#render)
     -   [beforeRender](#before-render)
+
+---
 
 <a name="basics"></a>
 ## Basics

@@ -1,6 +1,3 @@
-https://moonshine-laravel.com/docs/resource/appearance/appearance-index?change-moonshine-locale=en
-
-------
 # Basics
 
 - [Logo](#logo)
@@ -9,6 +6,8 @@ https://moonshine-laravel.com/docs/resource/appearance/appearance-index?change-m
 - [Color manager](#color-manager)
 - [Favicons](#favicons)
 - [Minimalistic theme](#minimalistic)
+
+---
 
 <a name="logo"></a>
 ## Logo

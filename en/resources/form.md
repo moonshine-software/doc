@@ -1,6 +1,3 @@
-https://moonshine-laravel.com/docs/resource/models-resources/resources-form?change-moonshine-locale=en
-
-------
 # Form
 
   - [Validation](#validation)

@@ -1,7 +1,3 @@
-https://moonshine-laravel.com/docs/resource/models-resources/resources-filters?change-moonshine-locale=en
-
-------
-
 # Filters 
 
 To create filters, fields are also used: they are displayed only on the section main page.  

@@ -1,7 +1,3 @@
-https://moonshine-laravel.com/docs/resource/fields/fields-markdown?change-moonshine-locale=en
-
-------
-
 # Markdown 
 
 - [Basics](#basics)  

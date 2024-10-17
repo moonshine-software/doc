@@ -1,6 +1,3 @@
-https://moonshine-laravel.com/docs/resource/components/components-card?change-moonshine-locale=en
-
-------
 # Card Component
 
 - [Make](#make)
@@ -11,6 +8,8 @@ https://moonshine-laravel.com/docs/resource/components/components-card?change-mo
 - [Thumbnails](#thumbnail)
 - [List of values](#values)
 - [Overlay mode](#overlay)
+
+---
 
 <a name="make"></a>
 ## Make

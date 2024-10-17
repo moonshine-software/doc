@@ -1,10 +1,9 @@
-https://moonshine-laravel.com/docs/resource/ui-components/ui-divider?change-moonshine-locale=en
-
-------
 # Divider
 
 - [Basics](#basics)
 - [Text separator](#text)
+
+---
 
 <a name="basics"></a>
 # Basics

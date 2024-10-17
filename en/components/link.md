@@ -1,6 +1,3 @@
-https://moonshine-laravel.com/docs/resource/components/components-link?change-moonshine-locale=en
-
-------
 # Link Component
 
 - [Make](#make)
@@ -9,6 +6,8 @@ https://moonshine-laravel.com/docs/resource/components/components-link?change-mo
 - [Button](#button)
 - [Filled](#filled)
 - [Tooltip](#tooltip)
+
+---
 
 <a name="make"></a>
 ## Make

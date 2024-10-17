@@ -1,12 +1,10 @@
-https://moonshine-laravel.com/docs/resource/components/components-decoration_divider?change-moonshine-locale=en
-
-------
-
 # Decoration Divider
 
 - [Make](#make)
 - [Label](#label)
 - [Centering](#Centering)
+
+---
 
 <a name="make"></a>
 ## Make

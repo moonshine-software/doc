@@ -1,13 +1,11 @@
-https://moonshine-laravel.com/docs/resource/components/components-metric_donut_chart?change-moonshine-locale=en
-
-------
-
 # Metric Donut Chart
 
   - [Make](#make)
   - [Colors](#colors)
   - [Decimal places](#decimals)
   - [Block width](#column-span)
+
+---
 
 <a name="make"></a>
 ## Make

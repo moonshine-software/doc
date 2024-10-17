@@ -1,6 +1,3 @@
-https://moonshine-laravel.com/docs/resource/page/page-instance?change-moonshine-locale=en
-
-------
 # Make instance
 
   - [Make](#make)
@@ -11,6 +8,8 @@ https://moonshine-laravel.com/docs/resource/page/page-instance?change-moonshine-
   - [Alias](#alias)
   - [Quick page](#view-page)
   - [Render](#render)
+
+---
 
 You can create instances of pages from classes and register them in the admin panel.
 

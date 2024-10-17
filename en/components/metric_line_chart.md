@@ -1,12 +1,10 @@
-https://moonshine-laravel.com/docs/resource/components/components-metric_line_chart?change-moonshine-locale=en
-
-------
-
 # Metric Line Chart  
 
 - [Make](#make)  
 - [Sorting keys](#sorting-keys)  
 - [Block width](#column-span)  
+
+---
 
 <a name="make"></a>  
 ## Make  

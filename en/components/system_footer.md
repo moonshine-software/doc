@@ -1,12 +1,10 @@
-https://moonshine-laravel.com/docs/resource/components/components-system_footer?change-moonshine-locale=en
-
-------
-
 # System component Footer
 
 - [Make](#make)
 - [Copyright](#copyright)
 - [Menu](#menu)
+
+---
 
 <a name="make"></a>
 ## Make

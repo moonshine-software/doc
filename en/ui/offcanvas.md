@@ -1,7 +1,3 @@
-https://moonshine-laravel.com/docs/resource/ui-components/ui-offcanvas?change-moonshine-locale=en
-
-------
-
 # Offcanvas
 
 The `moonshine::offcanvas` component allows you to create sidebars.

@@ -1,7 +1,3 @@
-https://moonshine-laravel.com/docs/resource/components/components-dropdown?change-moonshine-locale=en
-
-------
-
 # Dropdown Component
 
 - [Make](#make)
@@ -10,6 +6,8 @@ https://moonshine-laravel.com/docs/resource/components/components-dropdown?chang
 - [Search item](#search-item)
 - [Content](#content)
 - [Placement](#placement)
+
+---
 
 <a name="make"></a> 
 ## Make

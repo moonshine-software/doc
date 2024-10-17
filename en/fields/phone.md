@@ -1,7 +1,3 @@
-https://moonshine-laravel.com/docs/resource/fields/fields-phone?change-moonshine-locale=en
-
-------
-
 # Phone
 
 Extends [Text](https://moonshine-laravel.com/docs/resource/fields/fields-text)

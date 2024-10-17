@@ -1,7 +1,3 @@
-https://moonshine-laravel.com/docs/resource/fields/fields-switcher?change-moonshine-locale=en
-
-------
-
 # Switcher
 
 Extends [Checkbox](https://moonshine-laravel.com/docs/resource/fields/fields-checkbox)

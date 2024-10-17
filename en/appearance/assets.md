@@ -1,6 +1,3 @@
-https://moonshine-laravel.com/docs/resource/appearance/appearance-assets?change-moonshine-locale=en
-
-------
 # AssetsManager
 
   - [Global assets](#global-assets)
@@ -8,6 +5,8 @@ https://moonshine-laravel.com/docs/resource/appearance/appearance-assets?change-
   - [Vite](#vite)
   - [Configuration](#configuration)
   - [Directive](#directive)
+
+---
 
 You can connect any of your *css* and *js* files to MoonShine.
 

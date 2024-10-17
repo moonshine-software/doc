@@ -1,12 +1,10 @@
-https://moonshine-laravel.com/docs/resource/ui-components/ui-toast?change-moonshine-locale=en
-
-------
 # Toast
 
   - [Basics](#basics)
   - [Without using a component](#without)
   - [JS](#js)
 
+---
 
 <a name="basics"></a>
 ## Basics

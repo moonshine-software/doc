@@ -1,13 +1,11 @@
-https://moonshine-laravel.com/docs/resource/models-resources/resources-validation?change-moonshine-locale=en
-
-------
-
 # Validation rules
 
    - [Basics](#basics)
    - [Displaying validation errors](#errors)
    - [Messages](#messages)
    - [Preparing Input For Validation](#prepare)
+
+---
 
 <a name="basics"></a>
 ## Basics

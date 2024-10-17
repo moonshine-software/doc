@@ -1,6 +1,3 @@
-https://moonshine-laravel.com/docs/resource/components/components-decoration_modal?change-moonshine-locale=en
-
-------
 # Decoration Modal
 
 - [Make](#make)
@@ -11,6 +8,8 @@ https://moonshine-laravel.com/docs/resource/components/components-decoration_mod
 - [Width](#width)
 - [Async](#async)
 - [Outer attributes](#outer-attributes)
+
+---
 
 <a name="make"></a>
 ## Make

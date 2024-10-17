@@ -1,7 +1,3 @@
-https://moonshine-laravel.com/docs/resource/fields/fields-position?change-moonshine-locale=en
-
-------
-
 # Position
 
 Extends [Preview](https://moonshine-laravel.com/docs/resource/fields/fields-preview)

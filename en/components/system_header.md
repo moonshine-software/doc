@@ -1,7 +1,3 @@
-https://moonshine-laravel.com/docs/resource/components/components-system_header?change-moonshine-locale=en
-
-------
-
 # System component Header
 
 ## Make

@@ -1,10 +1,9 @@
-https://moonshine-laravel.com/docs/resource/ui-components/ui-carousel?change-moonshine-locale=en
-
-------
 # Carousel
 
 - [Basics](#basics)
 - [Portrait orientation](#portrait)
+
+---
 
 <a name="basics"></a>
 ## Basics

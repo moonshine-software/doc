@@ -1,7 +1,3 @@
-https://moonshine-laravel.com/docs/resource/fields/fields-template?change-moonshine-locale=en
-
-------
-
 # Template
 
 *Template* does not have any ready-made implementation and allows you to construct a field using *fluent interface* during the declaration process.

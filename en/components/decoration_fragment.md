@@ -1,10 +1,9 @@
-https://moonshine-laravel.com/docs/resource/components/components-decoration_fragment?change-moonshine-locale=en
-
-------
 # Decoration Fragment
 
 -[Make](#make)
 -[Asynchrinous event](#async)
+
+---
 
 <a name="make"></a>
 ## Make

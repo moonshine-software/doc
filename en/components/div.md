@@ -1,11 +1,7 @@
-https://moonshine-laravel.com/docs/resource/components/components-div?change-moonshine-locale=en
-
-------
 # Div Component
 
 The *Div* component simply renders a div tag with the ability to specify nested components and add attributes.
 
-<a name="class"></a>
 ## Class
 
 ```php

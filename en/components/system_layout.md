@@ -1,11 +1,9 @@
-https://moonshine-laravel.com/docs/resource/components/components-system_layout?change-moonshine-locale=en 
-
------- 
-
 # System component Layout
 
 -  [Make](#make) 
 -  [Blade](#blade)  
+
+---
 
 <a name="make"></a>
 ## Make

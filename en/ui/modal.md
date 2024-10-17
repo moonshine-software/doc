@@ -1,7 +1,3 @@
-https://moonshine-laravel.com/docs/resource/ui-components/ui-modal?change-moonshine-locale=en
-
-------
-
 # Modal
 
 - [Basics](#basics)
@@ -9,6 +5,8 @@ https://moonshine-laravel.com/docs/resource/ui-components/ui-modal?change-moonsh
 - [Automatic widht](#auto)
 - [Closing a window](#close)
 - [Asynchronous Content](#async)
+
+---
 
 <a name="basics"></a>
 ## Basics

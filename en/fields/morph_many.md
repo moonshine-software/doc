@@ -1,7 +1,3 @@
-https://moonshine-laravel.com/docs/resource/fields/fields-morph_many?change-moonshine-locale=en
-
-------
-
 # MorphMany
 
 Extends [HasMany](https://moonshine-laravel.com/docs/resource/fields/fields-has_many)

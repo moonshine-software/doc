@@ -1,11 +1,10 @@
-https://moonshine-laravel.com/docs/resource/models-resources/resources-routes?change-moonshine-locale=en
-
-------
 # Routes
 
   - [Basics](#basics)
   - [Helper](#helper)
   - [Current page](#current-page)
+
+---
 
 <a name="basics"></a>
 ## Basics

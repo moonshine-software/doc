@@ -1,7 +1,6 @@
-https://moonshine-laravel.com/docs/resource/components/components-decoration_flexible_render?change-moonshine-locale=en
-
-------
 # Decoration FlexibleRender
+
+---
 
 ## Make
 The *FlexibleRender* decorator allows you to quickly render simple text, html or blade views.

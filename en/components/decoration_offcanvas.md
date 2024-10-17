@@ -1,7 +1,3 @@
-https://moonshine-laravel.com/docs/resource/components/components-decoration_offcanvas?change-moonshine-locale=en
-
-------
-
 # Decoration Offcanvas
 
   - [Make](#make)
@@ -9,6 +5,8 @@ https://moonshine-laravel.com/docs/resource/components/components-decoration_off
   - [Default state](#open)
   - [Position](#position)
   - [Toggler attributes](#toggler-attributes)
+
+---
 
 <a name="make"></a> 
 ## Make

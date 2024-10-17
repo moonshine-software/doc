@@ -1,6 +1,3 @@
-https://moonshine-laravel.com/docs/resource/fields/fields-text?change-moonshine-locale=en
-
-------
 # Text
 
 - [Make](#make)
@@ -12,6 +9,8 @@ https://moonshine-laravel.com/docs/resource/fields/fields-text?change-moonshine-
 - [Tags](#tags)
 - [Editing in preview](#update-on-preview)
 - [Special characters](#unescape)
+
+---
 
 <a name="make"></a>
 ## Make

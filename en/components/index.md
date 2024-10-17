@@ -1,6 +1,3 @@
-https://moonshine-laravel.com/docs/resource/components/components-index?change-moonshine-locale=en
-
-------
 # Basics
 
 Components in **MoonShine** are the basis for building an interface.  

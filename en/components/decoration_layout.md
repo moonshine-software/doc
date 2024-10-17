@@ -1,10 +1,9 @@
-https://moonshine-laravel.com/docs/resource/components/components-decoration_layout?change-moonshine-locale=en
-
-------
 # Decoration Layout
 
 - [Flex](#flex)
 - [Grid/Column](#grid-column)
+
+---
 
 Sometimes, for ease of perception, it is necessary to divide the form into several blocks. By default they are located one below the other, but with the help of `Layout` decorations you can easily change the display order.
 

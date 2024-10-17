@@ -1,10 +1,9 @@
-https://moonshine-laravel.com/docs/resource/ui-components/ui-progress_bar?change-moonshine-locale=en
-
-------
 # Progress bar
 
 - [Basics](#basics)
 - [Radial](#radial)
+
+---
 
 <a name="basics"></a>
 ## Basics

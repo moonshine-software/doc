@@ -1,6 +1,3 @@
-https://moonshine-laravel.com/docs/resource/ui-components/ui-rating?change-moonshine-locale=en
-
-------
 # Rating  
 
 The `moonshine::rating` component allows you to create stylized ratings.

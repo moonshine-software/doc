@@ -1,11 +1,10 @@
-https://moonshine-laravel.com/docs/resource/components/components-carousel?change-moonshine-locale=en
-
-------
 # Carousel Component
 
 - [Make](#make)
 - [Items](#items)
 - [Portrait orientation](#portrait-orientation)
+
+---
 
 <a name="make"></a>
 ## Make

@@ -1,13 +1,11 @@
-https://moonshine-laravel.com/docs/resource/fields/fields-td?change-moonshine-locale=en
-
-------
-
 # Td
 
 - [Make](#make)
 - [Fields](#fields)
 - [Labels](#labels)
 - [Attributes](#attributes)
+
+---
 
 <a name="make"></a>
 ## Make

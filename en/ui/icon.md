@@ -1,12 +1,11 @@
-https://moonshine-laravel.com/docs/resource/ui-components/ui-icon?change-moonshine-locale=en
-
-------
 # Icon
 
 - [Basics](#basics)
 - [Size](#size)
 - [Color](#color)
 - [Customization](#customization)
+
+---
 
 <a name="basics"></a>
 ## Basics

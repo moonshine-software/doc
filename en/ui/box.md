@@ -1,11 +1,10 @@
-https://moonshine-laravel.com/docs/resource/ui-components/ui-box?change-moonshine-locale=en
-
-------
 # Box
 
 - [Basics](#basics)
 - [Heading](#heading)
 - [Dark Style](#dark)
+
+---
 
 <a name="basics"></a>  
 ## Basics

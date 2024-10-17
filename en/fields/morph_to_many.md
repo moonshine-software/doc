@@ -1,6 +1,3 @@
-https://moonshine-laravel.com/docs/resource/fields/fields-morph_to_many?change-moonshine-locale=en
-
-------
 # MorphToMany
 
 Extends [BelongsToMany](https://moonshine-laravel.com/docs/resource/fields/fields-belongs_to_many) 

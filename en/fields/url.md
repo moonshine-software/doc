@@ -1,10 +1,10 @@
-https://moonshine-laravel.com/docs/resource/fields/fields-url?change-moonshine-locale=en
-------
 # Url
 
   - [Basics](#basics)
   - [Title](#title)
   - [Blank](#blank)
+
+---
 
 Extends [Text](https://moonshine-laravel.com/docs/resource/fields/fields-text)
 * has the same features

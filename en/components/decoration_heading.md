@@ -1,12 +1,11 @@
-https://moonshine-laravel.com/docs/resource/components/components-decoration_heading?change-moonshine-locale=en
-
-------
 
 # Decoration Heading
 
 -[Make](#make)
 -[Gradation](#gradation)
 -[Tag](##custom-tag)
+
+---
 
 <a name="make"></a>
 ## Make

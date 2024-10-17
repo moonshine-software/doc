@@ -1,11 +1,9 @@
-https://moonshine-laravel.com/docs/resource/ui-components/ui-files?change-moonshine-locale=en
-
-------
-
 # Files
 
   - [Basics](#basics)
   - [No download](#no-download)
+
+---
 
 <a name="basics"></a>
 ## Basics

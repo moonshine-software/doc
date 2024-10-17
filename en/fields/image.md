@@ -1,6 +1,3 @@
-https://moonshine-laravel.com/docs/resource/fields/fields-image?change-moonshine-locale=en
-
-------
 # Image
 
 Extends [File](https://moonshine-laravel.com/docs/resource/fields/fields-file)

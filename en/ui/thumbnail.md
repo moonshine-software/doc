@@ -1,11 +1,9 @@
-https://moonshine-laravel.com/docs/resource/ui-components/ui-thumbnail?change-moonshine-locale=en
-
-------
-
 # Thumbnail 
 
 -[Basics](#basics)
 -[Group of images](#multiple)
+
+---
 
 <a name="basics"></a>
 ## Basics

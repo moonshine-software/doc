@@ -1,13 +1,11 @@
-https://moonshine-laravel.com/docs/resource/fields/fields-tinymce?change-moonshine-locale=en
-
-------
-
 # TinyMce  
 
 - [Make](#make)  
 - [Configuration](#settings)  
 - [Additional settings](#custom-config)  
 - [File manager](#filemanager)  
+
+---
 
 Extends [Textarea](https://moonshine-laravel.com/docs/resource/fields/fields-textarea)
 * has the same features

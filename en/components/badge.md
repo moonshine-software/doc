@@ -1,10 +1,9 @@
-https://moonshine-laravel.com/docs/resource/components/components-badge?change-moonshine-locale=en
-
-------
 # Badge Component
 
 - [Make](#make)
 - [Colors](#colors)
+
+---
 
 <a name="make"></a>  
 ## Make

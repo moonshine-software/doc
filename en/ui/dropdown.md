@@ -1,12 +1,11 @@
-https://moonshine-laravel.com/docs/resource/ui-components/ui-dropdown?change-moonshine-locale=en
-
-------
 # Dropdown
 
 - [Basics](#basics)
 - [Heading](#heading)
 - [Footer](#footer)
 - [Location](#location)
+
+---
 
 <a name="basics"></a>
 ## Basics

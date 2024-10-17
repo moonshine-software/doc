@@ -1,13 +1,11 @@
-https://moonshine-laravel.com/docs/resource/ui-components/ui-card?change-moonshine-locale=en
-
-------
-
 # Card
 
 - [Card](#card)
 - [Basics](#basics)
 - [Overlay mode](#overlay-mode)
 - [Image carousel](#image-carousel)
+
+---
 
 <a name="basics"></a>
 ## Basics

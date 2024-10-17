@@ -1,7 +1,3 @@
-https://moonshine-laravel.com/docs/resource/models-resources/resources-metrics?change-moonshine-locale=en
-
-------
-
 # Metrics
 
 On the resource model index page, you can display information blocks with statistics - metrics.To do this, in the `metrics()` method, return an array from `ValueMetric`.

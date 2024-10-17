@@ -1,7 +1,3 @@
-https://moonshine-laravel.com/docs/resource/fields/fields-has_many_through?change-moonshine-locale=en
-
-------
-
 # HasManyThrough
 
 Extends [HasMany](https://moonshine-laravel.com/docs/resource/fields/fields-has_many)

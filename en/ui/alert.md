@@ -1,12 +1,11 @@
-https://moonshine-laravel.com/docs/resource/ui-components/ui-alert?change-moonshine-locale=en
-
-------
 # Alert
 
 - [Basics](#basics)
 - [Notifications type](#type)
 - [Icon](#icon) 
 - [Deleting notifications](#removable) 
+
+---
 
 <a name="basics"></a>
 ## Basics

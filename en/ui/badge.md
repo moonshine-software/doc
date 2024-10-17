@@ -1,7 +1,3 @@
-https://moonshine-laravel.com/docs/resource/ui-components/ui-badge?change-moonshine-locale=en
-
-------
-
 # Badge
 
 If you need to place an icon on the page, then use the `moonshine::badge` component.

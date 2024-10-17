@@ -1,7 +1,3 @@
-https://moonshine-laravel.com/docs/resource/fields/fields-stack_fields?change-moonshine-locale=en
-
-------
-
 # StackFields
 
 The `StackFields` field allows you to group fields when displayed in preview.
