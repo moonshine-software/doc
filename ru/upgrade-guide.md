@@ -140,27 +140,7 @@ rm app/MoonShine/Pages/Dashboard_old.php
           ];
       }
   ```
-- `getActiveActions()` теперь меняется на `activeActions()`, было
-  ```
-    public function getActiveActions(): array
-    {
-        return ['view','update'];
-    }
-  ```
-  стало так
-  ```
-    protected function activeActions(): ListOf
-    {
-        return parent::activeActions()->except(Action::DELETE, Action::MASS_DELETE);
-    }
-  ```
-  или так
-  ```
-    protected function activeActions(): ListOf
-    {
-        return new ListOf(Action::class, [Action::VIEW, Action::UPDATE]);
-    }
-  ```
+- `getActiveActions()` теперь меняется на `activeActions()`, смотрите раздел [Активные действия](#/docs/{{version}}/model-resource/index.md).
 - `detailPageUrl` → `getDetailPageUrl`,
 - `MoonShineAuth::guard()` → `MoonShineAuth::getGuard()`
 - `$field->getData()` → `$field->getData()->getOriginal()`
