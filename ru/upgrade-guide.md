@@ -107,15 +107,17 @@ rm app/MoonShine/Pages/Dashboard_old.php
 - `MoonShine\Http\Controllers\` → `MoonShine\Laravel\Http\Controllers\`
 - `MoonShine\MoonShineAuth` → `MoonShine\Laravel\MoonShineAuth`
 
-#### Поменять на дополнительные пакеты
-- `MoonShine\Laravel\Handlers\ExportHandler` (меняется на пакет https://github.com/moonshine-software/import-export)
-- `MoonShine\Laravel\Handlers\ImportHandler` (меняется на пакет https://github.com/moonshine-software/import-export)
-- ```
-    /**
-     * @return list<MoonShineComponent|Field>
-     */
-  ```
-- Поле `Code` и другие _(добавить список)_
+#### Установить дополнительные пакеты и обновить namespace для:
+- https://github.com/moonshine-software/import-export
+  - Обработчик `ExportHandler`
+  - Обработчик `ImportHandler`
+- https://github.com/moonshine-software/apexcharts
+  - Компонент `DonutChartMetric`
+  - Компонент `LineChartMetric`
+- https://github.com/moonshine-software/ace
+  - Поле `Code`
+- https://github.com/moonshine-software/easymde
+  - Поле `Markdown`
 
 <a name="methods"></a>
 ### Методы
