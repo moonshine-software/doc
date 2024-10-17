@@ -263,8 +263,47 @@ php artisan moonshine:layout
 <a name="page"></a>
 ## Изменение шаблона страницы
 
+По умолчанию страницы используют шаблон отображения `AppLayout` или `CompactLayout`. 
+Но вы можете изменить на собственный шаблон, просто заменив значение свойства `$layout`
+
+Подробнее про страницы читайте в разделе [Страница](docs/{{version}}/page/index)
+
+```php
+use App\MoonShine\Layouts\MyLayout;
+
+class CustomPage extends Page
+{
+    protected ?string $layout = MyLayout::class;
+
+    //...
+}
+```
+
 <a name="assets"></a>
 ## Assets
+
+Для каждого шаблона можно объявить свой набор стилей и скриптов через метод `assets()`
+
+```php
+final class MyLayout extends AppLayout
+{
+    // ..
+
+    protected function assets(): array
+    {
+        return [
+            ...parent::assets(),
+    
+            Css::make('/vendor/moonshine/assets/minimalistic.css')->defer(),
+        ];
+    }
+
+    // ..
+}
+```
+
+> [!NOTE]
+> За более подробной информацией обратитесь в раздел [Assets](/docs/{{version}}/appearance/assets)
 
 <a name="menu"></a>
 ## Меню
@@ -272,7 +311,7 @@ php artisan moonshine:layout
 <a name="top-menu"></a>
 ### Верхнее меню
 
-По умолчанию MoonShine имеет компонент верхнего меню. Давайте посмотрим, как заменить `Sidebar` на `TopBar` в `LayoutBuilder`.
+По умолчанию MoonShine имеет компонент верхнего меню. Давайте посмотрим, как заменить `Sidebar` на `TopBar` в `Layout`.
 
 ```php
 namespace App\MoonShine;
