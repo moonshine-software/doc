@@ -38,8 +38,8 @@ public function fields(): array
 
 //...
 ```
-![tinymce](https://moonshine-laravel.com/screenshots/tinymce.png)
-![tinymce_dark](https://moonshine-laravel.com/screenshots/tinymce_dark.png)
+![tinymce](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/tinymce.png)
+![tinymce_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/tinymce_dark.png)
 
 <a name="settings"></a>  
 ## Configuration  

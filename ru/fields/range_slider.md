@@ -29,7 +29,7 @@ public function fields(): array
 //...
 ```
 
-![](https://moonshine-laravel.com/screenshots/slide.png) ![](https://moonshine-laravel.com/screenshots/slide_dark.png)
+![](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/slide.png) ![](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/slide_dark.png)
 
 <a name="filter"></a>
 ## Фильтр

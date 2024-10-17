@@ -1,6 +1,6 @@
 # Добро пожаловать
 
-[![MoonShine](https://moonshine-laravel.com/screenshots/main.png)](https://moonshine-laravel.com/video/moon_shine_logo_2.mp4)
+[![MoonShine](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/main.png)](https://moonshine-laravel.com/video/moon_shine_logo_2.mp4)
 
 
 ## Привет, пользователь Laravel!
@@ -42,5 +42,5 @@ MoonShine готов появиться в вашем проекте. Прост
 
 Понадобилась помощь по MoonShine? Можете задать вопрос в [Telegram чате](https://t.me/moonshine_ru) или [заказать консультацию](https://forms.gle/U41uLZzXBCibmwbE7).
 
-![main](https://moonshine-laravel.com/screenshots/main.png) 
-![main_dark](https://moonshine-laravel.com/screenshots/main_dark.png)
+![main](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/main.png) 
+![main_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/main_dark.png)

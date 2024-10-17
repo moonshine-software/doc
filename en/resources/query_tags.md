@@ -44,8 +44,8 @@ class PostResource extends ModelResource
 
 ```
 
-![query_tags](https://moonshine-laravel.com/screenshots/query_tags.png)
-![query_tags_dark](https://moonshine-laravel.com/screenshots/query_tags_dark.png)
+![query_tags](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/query_tags.png)
+![query_tags_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/query_tags_dark.png)
 
 <a name="icon"></a>
 ## Icon

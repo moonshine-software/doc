@@ -129,8 +129,8 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 }
 ```
 
-![menu](https://moonshine-laravel.com/screenshots/menu.png)
-![menu_dark](https://moonshine-laravel.com/screenshots/menu_dark.png)
+![menu](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/menu.png)
+![menu_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/menu_dark.png)
 
 Вы также можете добавлять элементы в группу, используя метод `setItems()`
 
@@ -279,8 +279,8 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 }
 ```
 
-![menu_divider](https://moonshine-laravel.com/screenshots/menu_divider.png)
-![menu_divider_dark](https://moonshine-laravel.com/screenshots/menu_divider_dark.png)
+![menu_divider](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/menu_divider.png)
+![menu_divider_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/menu_divider_dark.png)
 
 Вы можете использовать текст в качестве разделителя; для этого нужно передать его в метод `make()`.
 
@@ -308,8 +308,8 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 }
 ```
 
-![menu_divider_label](https://moonshine-laravel.com/screenshots/menu_divider_label.png)
-![menu_divider_label_dark](https://moonshine-laravel.com/screenshots/menu_divider_label_dark.png)
+![menu_divider_label](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/menu_divider_label.png)
+![menu_divider_label_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/menu_divider_label_dark.png)
 
 <a name="condition"></a>
 ## Условие отображения
@@ -496,8 +496,8 @@ class PostResource extends ModelResource
 }
 ```
 
-![menu_badge](https://moonshine-laravel.com/screenshots/menu_badge.png)
-![menu_badge_dark](https://moonshine-laravel.com/screenshots/menu_badge_dark.png)
+![menu_badge](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/menu_badge.png)
+![menu_badge_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/menu_badge_dark.png)
 
 <a name="translation"></a>
 ## Перевод

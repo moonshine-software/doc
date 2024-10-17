@@ -103,7 +103,7 @@ enum StatusEmun: string
     }
 }
 ```
-![enum](https://moonshine-laravel.com/screenshots/enum.png)
-![enum_dark](https://moonshine-laravel.com/screenshots/enum_dark.png)
+![enum](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/enum.png)
+![enum_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/enum_dark.png)
 
 

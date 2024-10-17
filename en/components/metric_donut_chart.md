@@ -134,5 +134,5 @@ public function components(): array
 > [!NOTE]  
 > See the [Decoration Layout](https://moonshine-laravel.com/docs/resource/components/components-decoration_layout) section for more details.
 
-![donut_chart_metric_column_span](https://moonshine-laravel.com/screenshots/donut_chart_metric_column_span.png)
-![donut_chart_metric_column_span_dark](https://moonshine-laravel.com/screenshots/donut_chart_metric_column_span_dark.png)
+![donut_chart_metric_column_span](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/donut_chart_metric_column_span.png)
+![donut_chart_metric_column_span_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/donut_chart_metric_column_span_dark.png)

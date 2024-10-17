@@ -53,8 +53,8 @@ public function fields(): array
 //...
 ```
 
-![json_key_value](https://moonshine-laravel.com/screenshots/json_key_value.png)
-![json_key_value_dark](https://moonshine-laravel.com/screenshots/json_key_value_dark.png)
+![json_key_value](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/json_key_value.png)
+![json_key_value_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/json_key_value_dark.png)
 
 The default keys and values are the *Text* field, but you can use other fields for primitive data.
 
@@ -112,8 +112,8 @@ public function fields(): array
 //...
 ```
 
-![json_fields](https://moonshine-laravel.com/screenshots/json_fields.png)
-![json_fields_dark](https://moonshine-laravel.com/screenshots/json_fields_dark.png)
+![json_fields](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/json_fields.png)
+![json_fields_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/json_fields_dark.png)
 
 <a name="value-only"></a>
 ## Meaning only
@@ -140,8 +140,8 @@ public function fields(): array
 //...
 ```
 
-![json_only_value](https://moonshine-laravel.com/screenshots/json_only_value.png)
-![json_only_value_dark](https://moonshine-laravel.com/screenshots/json_only_value_dark.png)
+![json_only_value](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/json_only_value.png)
+![json_only_value_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/json_only_value_dark.png)
 
 <a name="default"></a>
 ## Default value
@@ -240,8 +240,8 @@ public function fields(): array
 //...
 ```
 
-![json_removable](https://moonshine-laravel.com/screenshots/json_removable.png)
-![json_removable_dark](https://moonshine-laravel.com/screenshots/json_removable_dark.png)
+![json_removable](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/json_removable.png)
+![json_removable_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/json_removable_dark.png)
 
 #### Custom add button
 
@@ -341,8 +341,8 @@ public function fields(): array
 
 //...
 ```
-![json_vertical](https://moonshine-laravel.com/screenshots/json_vertical.png)
-![json_vertical_dark](https://moonshine-laravel.com/screenshots/json_vertical_dark.png)
+![json_vertical](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/json_vertical.png)
+![json_vertical_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/json_vertical_dark.png)
 
 <a name="relation"></a>
 ## Relationships via Json
@@ -387,8 +387,8 @@ public function fields(): array
 > [!WARNING]
 > When using *BelongsTo* it is necessary to use the method `setColumn()` set a field in a database table!
 
-![json_relation](https://moonshine-laravel.com/screenshots/json_relation.png)
-![json_relation_dark](https://moonshine-laravel.com/screenshots/json_relation_dark.png)
+![json_relation](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/json_relation.png)
+![json_relation_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/json_relation_dark.png)
 
 <a name="filter"></a>
 ## Filter

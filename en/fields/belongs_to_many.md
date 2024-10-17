@@ -55,8 +55,8 @@ public function fields(): array
 }
 ```
 
-![belongs_to_many](https://moonshine-laravel.com/screenshots/belongs_to_many.png)
-![belongs_to_many_dark](https://moonshine-laravel.com/screenshots/belongs_to_many_dark.png)
+![belongs_to_many](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/belongs_to_many.png)
+![belongs_to_many_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/belongs_to_many_dark.png)
 
 > [!NOTE]
 > If you do not specify `$relationName`, then the relation name will be determined automatically based on `$label`.
@@ -187,8 +187,8 @@ public function fields(): array
 //...
 ```
 
-![belongs_to_many_pivot](https://moonshine-laravel.com/screenshots/belongs_to_many_pivot.png)
-![belongs_to_many_pivot_dark](https://moonshine-laravel.com/screenshots/belongs_to_many_pivot_dark.png)
+![belongs_to_many_pivot](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/belongs_to_many_pivot.png)
+![belongs_to_many_pivot_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/belongs_to_many_pivot_dark.png)
 
 > [!WARNING]
 > The relationship must specify which *pivot* fields are used in the staging table!
@@ -222,8 +222,8 @@ public function fields(): array
 //...
 ```
 
-![belongs_to_many_creatable](https://moonshine-laravel.com/screenshots/belongs_to_many_creatable.png)
-![belongs_to_many_creatable_dark](https://moonshine-laravel.com/screenshots/belongs_to_many_creatable_dark.png)
+![belongs_to_many_creatable](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/belongs_to_many_creatable.png)
+![belongs_to_many_creatable_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/belongs_to_many_creatable_dark.png)
 
 You can customize the create button by passing the *button* parameter to the method.
 
@@ -266,8 +266,8 @@ public function fields(): array
 //...
 ```
 
-![belongs_to_many_select](https://moonshine-laravel.com/screenshots/belongs_to_many_select.png)
-![belongs_to_many_select_dark](https://moonshine-laravel.com/screenshots/belongs_to_many_select_dark.png)
+![belongs_to_many_select](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/belongs_to_many_select.png)
+![belongs_to_many_select_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/belongs_to_many_select_dark.png)
 
 <a name="options"></a> 
 ## Options
@@ -348,8 +348,8 @@ public function fields(): array
 //...
 ```
 
-![belongs_to_many_tree](https://moonshine-laravel.com/screenshots/belongs_to_many_tree.png)
-![belongs_to_many_tree_dark](https://moonshine-laravel.com/screenshots/belongs_to_many_tree_dark.png)
+![belongs_to_many_tree](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/belongs_to_many_tree.png)
+![belongs_to_many_tree_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/belongs_to_many_tree_dark.png)
 
 
 <a name="preview"></a> 
@@ -357,8 +357,8 @@ public function fields(): array
 
 By default, *preview* will display the field as a table.
 
-![belongs_to_many_preview](https://moonshine-laravel.com/screenshots/belongs_to_many_preview.png)
-![belongs_to_many_preview_dark](https://moonshine-laravel.com/screenshots/belongs_to_many_preview_dark.png)
+![belongs_to_many_preview](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/belongs_to_many_preview.png)
+![belongs_to_many_preview_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/belongs_to_many_preview_dark.png)
 
 To change the display in *preview* you can use the following methods.
 
@@ -382,8 +382,8 @@ public function fields(): array
 //...
 ```
 
-![belongs_to_many_preview_count](https://moonshine-laravel.com/screenshots/belongs_to_many_preview_count.png)
-![belongs_to_many_preview_count_dark](https://moonshine-laravel.com/screenshots/belongs_to_many_preview_count_dark.png)
+![belongs_to_many_preview_count](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/belongs_to_many_preview_count.png)
+![belongs_to_many_preview_count_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/belongs_to_many_preview_count_dark.png)
 
 #### inLine
 
@@ -424,8 +424,8 @@ public function fields(): array
 //...
 ```
 
-![belongs_to_many_preview_in_line](https://moonshine-laravel.com/screenshots/belongs_to_many_preview_in_line.png)
-![belongs_to_many_preview_in_line_dark](https://moonshine-laravel.com/screenshots/belongs_to_many_preview_in_line_dark.png)
+![belongs_to_many_preview_in_line](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/belongs_to_many_preview_in_line.png)
+![belongs_to_many_preview_in_line_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/belongs_to_many_preview_in_line_dark.png)
 
 <a name="only-link"></a> 
 ## Link only
@@ -716,8 +716,8 @@ public function fields(): array
 //...
 ```
 
-![with_image](https://moonshine-laravel.com/screenshots/belongs_to_image.png)
-![belongs_to_image_dark](https://moonshine-laravel.com/screenshots/belongs_to_image_dark.png)
+![with_image](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/belongs_to_image.png)
+![belongs_to_image_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/belongs_to_image_dark.png)
 
 <a name="buttons"></a> 
 ## Buttons

@@ -52,8 +52,8 @@ public function fields(): array
 //...
 ```
 
-![has_many](https://moonshine-laravel.com/screenshots/has_many.png)
-![has_many_dark](https://moonshine-laravel.com/screenshots/has_many_dark.png)
+![has_many](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/has_many.png)
+![has_many_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/has_many_dark.png)
 
 > [!NOTE]
 > Если вы не указываете `$relationName`, тогда имя отношения будет определено автоматически на основе `$label`.
@@ -121,8 +121,8 @@ public function fields(): array
 //...
 ```
 
-![has_many_fields](https://moonshine-laravel.com/screenshots/has_many_fields.png)
-![has_many_fields_dark](https://moonshine-laravel.com/screenshots/has_many_fields_dark.png)
+![has_many_fields](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/has_many_fields.png)
+![has_many_fields_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/has_many_fields_dark.png)
 
 <a name="creatable"></a> 
 ## Создание объекта отношения
@@ -152,8 +152,8 @@ public function fields(): array
 //...
 ```
 
-![has_many_creatable](https://moonshine-laravel.com/screenshots/has_many_creatable.png)
-![has_many_creatable_dark](https://moonshine-laravel.com/screenshots/has_many_creatable_dark.png)
+![has_many_creatable](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/has_many_creatable.png)
+![has_many_creatable_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/has_many_creatable_dark.png)
 
 Вы можете настроить *кнопку* создания, передав параметр button в метод.
 
@@ -228,8 +228,8 @@ public function fields(): array
 
 //...
 ```
-![has_many_link](https://moonshine-laravel.com/screenshots/has_many_link.png)
-![has_many_link_dark](https://moonshine-laravel.com/screenshots/has_many_link_dark.png)
+![has_many_link](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/has_many_link.png)
+![has_many_link_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/has_many_link_dark.png)
 
 #### linkRelation
 

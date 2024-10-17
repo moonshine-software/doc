@@ -87,8 +87,8 @@ class PostResource extends ModelResource
 }
 ```
 
-![resource_paginate](https://moonshine-laravel.com/screenshots/resource_paginate.png)
-![resource_paginate_dark](https://moonshine-laravel.com/screenshots/resource_paginate_dark.png)
+![resource_paginate](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_paginate.png)
+![resource_paginate_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_paginate_dark.png)
 
 <a name="declaring-a-section-in-the-system"></a>
 ## Объявление раздела в системе

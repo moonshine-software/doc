@@ -30,8 +30,8 @@ public function components(): array
 //...
 ```
 
-![Flex](https://moonshine-laravel.com/screenshots/flex.png)
-![Flex Dark](https://moonshine-laravel.com/screenshots/flex_dark.png)
+![Flex](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/flex.png)
+![Flex Dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/flex_dark.png)
 
 #### Additional options
 
@@ -101,5 +101,5 @@ public function components(): array
 > [!NOTE]
 > The **MoonShine** admin panel uses a 12-column grid.
 
-![Grid](https://moonshine-laravel.com/screenshots/grid.png)
-![Grid Dark](https://moonshine-laravel.com/screenshots/grid_dark.png)
+![Grid](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/grid.png)
+![Grid Dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/grid_dark.png)

@@ -40,8 +40,8 @@ public function components(): array
 //...
 ```
 
-![value_metric](https://moonshine-laravel.com/screenshots/value_metric.png)
-![value_metric_dark](https://moonshine-laravel.com/screenshots/value_metric_dark.png)
+![value_metric](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/value_metric.png)
+![value_metric_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/value_metric_dark.png)
 
 <a name="progress"></a>
 ## Progress
@@ -73,8 +73,8 @@ public function components(): array
 > [!NOTE]
 > When using a progress bar, the `value()` method must be passed a numeric value or a closure that will return a number.
 
-![value_metric_progress](https://moonshine-laravel.com/screenshots/value_metric_progress.png)
-![value_metric_progress_dark](https://moonshine-laravel.com/screenshots/value_metric_progress_dark.png)
+![value_metric_progress](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/value_metric_progress.png)
+![value_metric_progress_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/value_metric_progress_dark.png)
 
 <a name="value-format"></a>
 ## Value Format
@@ -102,8 +102,8 @@ public function components(): array
 //...
 ```
 
-![value_metric_format](https://moonshine-laravel.com/screenshots/value_metric_format.png)
-![value_metric_format_dark](https://moonshine-laravel.com/screenshots/value_metric_format_dark.png)
+![value_metric_format](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/value_metric_format.png)
+![value_metric_format_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/value_metric_format_dark.png)
 
 <a name="icon"></a>
 ## Icon
@@ -130,8 +130,8 @@ public function components(): array
 > [!NOTE]
 > For more detailed information, please refer to the section [Icons](https://moonshine-laravel.com/docs/resource/appearance/icons).
 
-![value_metric_icon](https://moonshine-laravel.com/screenshots/value_metric_icon.png)
-![value_metric_icon_dark](https://moonshine-laravel.com/screenshots/value_metric_icon_dark.png)
+![value_metric_icon](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/value_metric_icon.png)
+![value_metric_icon_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/value_metric_icon_dark.png)
 
 <a name="column-span"></a>
 ## Block width
@@ -175,5 +175,5 @@ public function components(): array
 > [!NOTE]
 > See the [Decoration Layout](https://moonshine-laravel.com/docs/resource/components/components-decoration_layout) section for more details.
 
-![value_metric_column_span](https://moonshine-laravel.com/screenshots/value_metric_column_span.png)
-![value_metric_column_span_dark](https://moonshine-laravel.com/screenshots/value_metric_column_span_dark.png)
+![value_metric_column_span](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/value_metric_column_span.png)
+![value_metric_column_span_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/value_metric_column_span_dark.png)

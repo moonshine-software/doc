@@ -197,7 +197,7 @@ public function fields(): array
 
 //...
 ```
-![number_buttons](https://moonshine-laravel.com/screenshots/number_buttons.png)
+![number_buttons](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/number_buttons.png)
 
 <a name="update-on-preview"></a>
 ## Editing in preview

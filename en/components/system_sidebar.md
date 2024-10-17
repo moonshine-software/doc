@@ -45,8 +45,8 @@ final class MoonShineLayout implements MoonShineLayoutContract
 }
 ```
 
-![sidebar](https://moonshine-laravel.com/screenshots/sidebar.png)
-![sidebar_dark](https://moonshine-laravel.com/screenshots/sidebar_dark.png)
+![sidebar](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/sidebar.png)
+![sidebar_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/sidebar_dark.png)
 
 <a name="hide-logo"></a>
 ## Hide logo

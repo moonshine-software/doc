@@ -29,8 +29,8 @@ public function fields(): array
 //...
 ```
 
-![preview](https://moonshine-laravel.com/screenshots/preview.png)
-![preview_dark](https://moonshine-laravel.com/screenshots/preview_dark.png)
+![preview](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/preview.png)
+![preview_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/preview_dark.png)
 
 <a name="badge"></a>
 ## Бейдж
@@ -150,8 +150,8 @@ public function fields(): array
 //...
 ```
 
-![preview_all](https://moonshine-laravel.com/screenshots/preview_all.png)
-![preview_all_dark](https://moonshine-laravel.com/screenshots/preview_all_dark.png)
+![preview_all](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/preview_all.png)
+![preview_all_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/preview_all_dark.png)
 
 <a name="image"></a>
 ## Изображение
@@ -174,5 +174,5 @@ public function fields(): array
 //...
 ```
 
-![preview_image](https://moonshine-laravel.com/screenshots/preview_image.png)
-![preview_image_dark](https://moonshine-laravel.com/screenshots/preview_image_dark.png)
+![preview_image](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/preview_image.png)
+![preview_image_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/preview_image_dark.png)

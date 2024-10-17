@@ -44,8 +44,8 @@ final class MoonShineLayout implements MoonShineLayoutContract
 }
 ```
 
-![topbar](https://moonshine-laravel.com/screenshots/topbar.png)
-![topbar_dark](https://moonshine-laravel.com/screenshots/topbar_dark.png)
+![topbar](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/topbar.png)
+![topbar_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/topbar_dark.png)
 
 ## Actions
 
@@ -83,8 +83,8 @@ final class MoonShineLayout implements MoonShineLayoutContract
 }
 ```
 
-![topbar_actions](https://moonshine-laravel.com/screenshots/topbar_actions.png)
-![topbar_actions_dark](https://moonshine-laravel.com/screenshots/topbar_actions_dark.png)
+![topbar_actions](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/topbar_actions.png)
+![topbar_actions_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/topbar_actions_dark.png)
 
 ## Hide logo
 

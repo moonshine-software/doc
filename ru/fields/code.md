@@ -22,8 +22,8 @@ public function fields(): array
 //...
 ```
 
-![code](https://moonshine-laravel.com/screenshots/code.png)
-![code_dark](https://moonshine-laravel.com/screenshots/code_dark.png)
+![code](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/code.png)
+![code_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/code_dark.png)
 
 <a name="language"></a>
 ## Язык

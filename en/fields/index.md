@@ -356,7 +356,7 @@ public function fields(): array
 //...
 ```
 
-![hint](https://moonshine-laravel.com/screenshots/hint.png) ![hint_dark](https://moonshine-laravel.com/screenshots/hint_dark.png)
+![hint](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/hint.png) ![hint_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/hint_dark.png)
 
 <a name="link"></a>
 ## Link
@@ -387,7 +387,7 @@ public function fields(): array
 //...
 ```
 
-![link](https://moonshine-laravel.com/screenshots/link.png) ![link_dark](https://moonshine-laravel.com/screenshots/link_dark.png)
+![link](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/link.png) ![link_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/link_dark.png)
 
 <a name="nullable"></a>
 ## Nullable
@@ -517,7 +517,7 @@ public function fields(): array
 //...
 ```
 
-![horizontal](https://moonshine-laravel.com/screenshots/horizontal.png) ![horizontal_dark](https://moonshine-laravel.com/screenshots/horizontal_dark.png)
+![horizontal](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/horizontal.png) ![horizontal_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/horizontal_dark.png)
 
 <a name="hide-show"></a>
 ##  Display
@@ -1043,7 +1043,7 @@ public function fields(): array
 }
 ```
 
-![without_wrapper](https://moonshine-laravel.com/screenshots/without_wrapper.png) ![without_wrapper_dark](https://moonshine-laravel.com/screenshots/without_wrapper_dark.png)
+![without_wrapper](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/without_wrapper.png) ![without_wrapper_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/without_wrapper_dark.png)
 
 <a name="reactive"></a>
 ## Reactive
@@ -1274,4 +1274,4 @@ Enum::make('Status')
 <a name="scheme"></a>
 ## Scheme field's work
 
-![field_scheme](https://moonshine-laravel.com/screenshots/field_scheme.png)]
+![field_scheme](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/field_scheme.png)]

@@ -56,7 +56,7 @@ public function fields(): array
 //...
 ```
 
-![belongs_to](https://moonshine-laravel.com/screenshots/belongs_to.png) ![belongs_to_dark](https://moonshine-laravel.com/screenshots/belongs_to_dark.png)
+![belongs_to](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/belongs_to.png) ![belongs_to_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/belongs_to_dark.png)
 
 > [!NOTE]
 > Если вы не указываете `$relationName`, тогда имя отношения будет определено автоматически на основе `$label`.
@@ -199,7 +199,7 @@ public function fields(): array
 //...
 ```
 
-![select_nullable](https://moonshine-laravel.com/screenshots/select_nullable.png) ![select_nullable_dark](https://moonshine-laravel.com/screenshots/select_nullable_dark.png)
+![select_nullable](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/select_nullable.png) ![select_nullable_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/select_nullable_dark.png)
 
 > [!TIP]
 > MoonShine - очень удобный и функциональный инструмент. Однако, чтобы его использовать, вам нужно быть уверенным в основах Laravel.
@@ -282,7 +282,7 @@ public function fields(): array
 //...
 ```
 
-![belongs_to_creatable](https://moonshine-laravel.com/screenshots/belongs_to_creatable.png) ![belongs_to_creatable_dark](https://moonshine-laravel.com/screenshots/belongs_to_creatable_dark.png)
+![belongs_to_creatable](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/belongs_to_creatable.png) ![belongs_to_creatable_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/belongs_to_creatable_dark.png)
 
 Вы можете настроить кнопку создания, передав параметр _button_ в метод.
 
@@ -526,7 +526,7 @@ public function fields(): array
 //...
 ```
 
-![belongs_to_image](https://moonshine-laravel.com/screenshots/belongs_to_image.png) ![belongs_to_image_dark](https://moonshine-laravel.com/screenshots/belongs_to_image_dark.png)
+![belongs_to_image](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/belongs_to_image.png) ![belongs_to_image_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/belongs_to_image_dark.png)
 
 <a name="options"></a>
 ## Опции

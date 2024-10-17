@@ -34,7 +34,7 @@ public function fields(): array
 //...
 ```
 
-![](https://moonshine-laravel.com/screenshots/range.png) ![](https://moonshine-laravel.com/screenshots/range_dark.png)
+![](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/range.png) ![](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/range_dark.png)
 
 <a name="attributes"></a>
 ## Атрибуты

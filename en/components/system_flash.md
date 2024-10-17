@@ -29,5 +29,5 @@ public function components(): array
 //...
 ```
 
-![flash](https://moonshine-laravel.com/screenshots/flash.png)
-![flash_dark](https://moonshine-laravel.com/screenshots/flash_dark.png)
+![flash](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/flash.png)
+![flash_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/flash_dark.png)

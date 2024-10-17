@@ -28,8 +28,8 @@ class PostResource extends ModelResource
     //...
 }
 ```
-![metrics](https://moonshine-laravel.com/screenshots/metrics.png)
-![metrics_dark](https://moonshine-laravel.com/screenshots/metrics_dark.png)
+![metrics](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/metrics.png)
+![metrics_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/metrics_dark.png)
 
 > [!NOTE]
 > For more detailed information, please refer to the sections [Donut Chart](https://moonshine-laravel.com/docs/resource/components/components-metric_donut_chart), [Line Chart](https://moonshine-laravel.com/docs/resource/components/components-metric_line_chart) and [Value](https://moonshine-laravel.com/docs/resource/components/components-metric_value).

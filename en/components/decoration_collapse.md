@@ -35,8 +35,8 @@ public function components(): array
 //...
 ```
 
-![collapse](https://moonshine-laravel.com/screenshots/collapse.png)
-![collapse_dark](https://moonshine-laravel.com/screenshots/collapse_dark.png)
+![collapse](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/collapse.png)
+![collapse_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/collapse_dark.png)
 
 <a name="icon"></a> 
 ## Icon
@@ -62,8 +62,8 @@ public function components(): array
 > [!NOTE]
 > For more detailed information, please refer to the section [Icons](https://moonshine-laravel.com/docs/resource/appearance/icons) .
 
-![collapse_icon](https://moonshine-laravel.com/screenshots/collapse_icon.png)
-![collapse_icon_dark](https://moonshine-laravel.com/screenshots/collapse_icon_dark.png)
+![collapse_icon](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/collapse_icon.png)
+![collapse_icon_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/collapse_icon_dark.png)
 
 <a name="show"></a> 
 ## Show

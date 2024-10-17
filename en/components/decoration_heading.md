@@ -32,8 +32,8 @@ public function components(): array
 //...
 ```
 
-![has_many](https://moonshine-laravel.com/screenshots/heading.png)
-![has_many](https://moonshine-laravel.com/screenshots/heading_dark.png)
+![has_many](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/heading.png)
+![has_many](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/heading_dark.png)
 
 <a name="gradation"></a>
 ## Gradation

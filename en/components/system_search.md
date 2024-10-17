@@ -29,5 +29,5 @@ final class MoonShineLayout implements MoonShineLayoutContract
 }
 ```
 
-![search_component](https://moonshine-laravel.com/screenshots/search_component.png)
-![search_component_dark](https://moonshine-laravel.com/screenshots/search_component_dark.png)
+![search_component](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/search_component.png)
+![search_component_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/search_component_dark.png)

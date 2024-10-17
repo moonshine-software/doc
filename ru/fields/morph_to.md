@@ -23,8 +23,8 @@ public function fields(): array
 //...
 ```
 
-![morph_to](https://moonshine-laravel.com/screenshots/morph_to.png)
-![morph_to_dark](https://moonshine-laravel.com/screenshots/morph_to_dark.png)
+![morph_to](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/morph_to.png)
+![morph_to_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/morph_to_dark.png)
 
 > [!TIP]
 > Требуется метод `types`, указывающий доступные классы.
@@ -53,5 +53,5 @@ public function fields(): array
 //...
 ```
 
-![morph_to_array](https://moonshine-laravel.com/screenshots/morph_to_array.png)
-![morph_to_array_dark](https://moonshine-laravel.com/screenshots/morph_to_array_dark.png)
+![morph_to_array](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/morph_to_array.png)
+![morph_to_array_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/morph_to_array_dark.png)

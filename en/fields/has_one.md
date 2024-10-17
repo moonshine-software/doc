@@ -49,8 +49,8 @@ public function fields(): array
 
 ```
 
-![has_one](https://moonshine-laravel.com/screenshots/has_one.png)
-![has_one_dark](https://moonshine-laravel.com/screenshots/has_one_dark.png)
+![has_one](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/has_one.png)
+![has_one_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/has_one_dark.png)
 
 > [!TIP]
 > If you do not specify `$relationName`, then the relation name will be determined automatically based on `$label`.
@@ -117,9 +117,9 @@ public function fields(): array
  
 //...
 ```
-![has_one_preview](https://moonshine-laravel.com/screenshots/has_one_preview.png)
+![has_one_preview](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/has_one_preview.png)
 
-![has_one_preview_dark](https://moonshine-laravel.com/screenshots/has_one_preview_dark.png)
+![has_one_preview_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/has_one_preview_dark.png)
 
 <a name="parent-id"></a>
 ## Parent ID

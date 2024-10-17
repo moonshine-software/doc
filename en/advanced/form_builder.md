@@ -281,8 +281,8 @@ FormBuilder::make('/crud/update', 'PUT')
 
 By default, validation errors are displayed at the top of the form.
 
-![errors_above_true](https://moonshine-laravel.com/screenshots/errors_above_true.png)
-![errors_above_true_dark](https://moonshine-laravel.com/screenshots/errors_above_true_dark.png)
+![errors_above_true](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/errors_above_true.png)
+![errors_above_true_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/errors_above_true_dark.png)
 
 The `errorsAbove(bool $enable = true)` method is used to control the display of validation errors at the top of the form. It allows you to enable or disable this feature.
 
@@ -291,8 +291,8 @@ FormBuilder::make('/crud/update', 'PUT')
     ->errorsAbove(false)
 ```
 
-![errors_above_false](https://moonshine-laravel.com/screenshots/errors_above_false.png)
-![errors_above_false_dark](https://moonshine-laravel.com/screenshots/errors_above_false_dark.png)
+![errors_above_false](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/errors_above_false.png)
+![errors_above_false_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/errors_above_false_dark.png)
 
 <a name="precognitive"></a>
 ## Precognitive

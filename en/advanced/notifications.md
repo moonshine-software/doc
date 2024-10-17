@@ -18,5 +18,5 @@ MoonShineNotification::send(
     color: 'green'
 );  
 ```  
-![notifications](https://moonshine-laravel.com/screenshots/notifications.png)
-![notifications_dark](https://moonshine-laravel.com/screenshots/notifications_dark.png)
+![notifications](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/notifications.png)
+![notifications_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/notifications_dark.png)

@@ -29,5 +29,5 @@ public function fields(): array
 //...
 ```
 
-![json_fields](https://moonshine-laravel.com/screenshots/json_fields.png)  
-![json_fields_dark](https://moonshine-laravel.com/screenshots/json_fields_dark.png)
+![json_fields](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/json_fields.png)  
+![json_fields_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/json_fields_dark.png)

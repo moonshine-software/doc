@@ -28,8 +28,8 @@ class PostResource extends ModelResource
     //...
 }
 ```
-![metrics](https://moonshine-laravel.com/screenshots/metrics.png)
-![metrics_dark](https://moonshine-laravel.com/screenshots/metrics_dark.png)
+![metrics](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/metrics.png)
+![metrics_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/metrics_dark.png)
 
 > [!NOTE]
 > Для более подробной информации, пожалуйста, обратитесь к разделам [Круговая диаграмма](https://moonshine-laravel.com/docs/resource/components/components-metric_donut_chart), [Линейный график](https://moonshine-laravel.com/docs/resource/components/components-metric_line_chart) и [Значение](https://moonshine-laravel.com/docs/resource/components/components-metric_value).

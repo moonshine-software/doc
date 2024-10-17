@@ -55,8 +55,8 @@ public function fields(): array
 }
 ```
 
-![belongs_to_many](https://moonshine-laravel.com/screenshots/belongs_to_many.png)
-![belongs_to_many_dark](https://moonshine-laravel.com/screenshots/belongs_to_many_dark.png)
+![belongs_to_many](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/belongs_to_many.png)
+![belongs_to_many_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/belongs_to_many_dark.png)
 
 > [!NOTE]
 > Если вы не указываете `$relationName`, тогда имя отношения будет определено автоматически на основе `$label`.
@@ -188,8 +188,8 @@ public function fields(): array
 //...
 ```
 
-![belongs_to_many_pivot](https://moonshine-laravel.com/screenshots/belongs_to_many_pivot.png)
-![belongs_to_many_pivot_dark](https://moonshine-laravel.com/screenshots/belongs_to_many_pivot_dark.png)
+![belongs_to_many_pivot](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/belongs_to_many_pivot.png)
+![belongs_to_many_pivot_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/belongs_to_many_pivot_dark.png)
 
 > [!WARNING]
 > В отношении необходимо указать, какие поля *pivot* используются в промежуточной таблице!
@@ -223,8 +223,8 @@ public function fields(): array
 //...
 ```
 
-![belongs_to_many_creatable](https://moonshine-laravel.com/screenshots/belongs_to_many_creatable.png)
-![belongs_to_many_creatable_dark](https://moonshine-laravel.com/screenshots/belongs_to_many_creatable_dark.png)
+![belongs_to_many_creatable](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/belongs_to_many_creatable.png)
+![belongs_to_many_creatable_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/belongs_to_many_creatable_dark.png)
 
 Вы можете настроить кнопку создания, передав параметр *button* в метод.
 
@@ -267,8 +267,8 @@ public function fields(): array
 //...
 ```
 
-![belongs_to_many_select](https://moonshine-laravel.com/screenshots/belongs_to_many_select.png)
-![belongs_to_many_select_dark](https://moonshine-laravel.com/screenshots/belongs_to_many_select_dark.png)
+![belongs_to_many_select](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/belongs_to_many_select.png)
+![belongs_to_many_select_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/belongs_to_many_select_dark.png)
 
 <a name="options"></a>
 ## Опции
@@ -349,16 +349,16 @@ public function fields(): array
 //...
 ```
 
-![belongs_to_many_tree](https://moonshine-laravel.com/screenshots/belongs_to_many_tree.png)
-![belongs_to_many_tree_dark](https://moonshine-laravel.com/screenshots/belongs_to_many_tree_dark.png)
+![belongs_to_many_tree](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/belongs_to_many_tree.png)
+![belongs_to_many_tree_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/belongs_to_many_tree_dark.png)
 
 <a name="preview"></a>
 ## Предпросмотр
 
 По умолчанию в *preview* поле будет отображаться в виде таблицы.
 
-![belongs_to_many_preview](https://moonshine-laravel.com/screenshots/belongs_to_many_preview.png)
-![belongs_to_many_preview_dark](https://moonshine-laravel.com/screenshots/belongs_to_many_preview_dark.png)
+![belongs_to_many_preview](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/belongs_to_many_preview.png)
+![belongs_to_many_preview_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/belongs_to_many_preview_dark.png)
 
 Для изменения отображения в *preview* можно использовать следующие методы.
 
@@ -382,8 +382,8 @@ public function fields(): array
 //...
 ```
 
-![belongs_to_many_preview_count](https://moonshine-laravel.com/screenshots/belongs_to_many_preview_count.png)
-![belongs_to_many_preview_count_dark](https://moonshine-laravel.com/screenshots/belongs_to_many_preview_count_dark.png)
+![belongs_to_many_preview_count](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/belongs_to_many_preview_count.png)
+![belongs_to_many_preview_count_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/belongs_to_many_preview_count_dark.png)
 
 #### inLine
 
@@ -425,8 +425,8 @@ public function fields(): array
 //...
 ```
 
-![belongs_to_many_preview_in_line](https://moonshine-laravel.com/screenshots/belongs_to_many_preview_in_line.png)
-![belongs_to_many_preview_in_line_dark](https://moonshine-laravel.com/screenshots/belongs_to_many_preview_in_line_dark.png)
+![belongs_to_many_preview_in_line](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/belongs_to_many_preview_in_line.png)
+![belongs_to_many_preview_in_line_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/belongs_to_many_preview_in_line_dark.png)
 
 <a name="only-link"></a>
 ## Только ссылка
@@ -717,8 +717,8 @@ public function fields(): array
 //...
 ```
 
-![with_image](https://moonshine-laravel.com/screenshots/belongs_to_image.png)
-![belongs_to_image_dark](https://moonshine-laravel.com/screenshots/belongs_to_image_dark.png)
+![with_image](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/belongs_to_image.png)
+![belongs_to_image_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/belongs_to_image_dark.png)
 
 <a name="buttons"></a>
 ## Кнопки

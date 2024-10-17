@@ -27,11 +27,11 @@ public function fields(): array
 
 //...
 ```
-![markdown](https://moonshine-laravel.com/screenshots/markdown.png)
-![markdown_dark](https://moonshine-laravel.com/screenshots/markdown_dark.png)
+![markdown](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/markdown.png)
+![markdown_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/markdown_dark.png)
 
-![markdown](https://moonshine-laravel.com/screenshots/markdown_preview.png)
-![markdown_preview_dark](https://moonshine-laravel.com/screenshots/markdown_preview_dark.png)
+![markdown](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/markdown_preview.png)
+![markdown_preview_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/markdown_preview_dark.png)
 
 
 <a name="toolbar"></a>  

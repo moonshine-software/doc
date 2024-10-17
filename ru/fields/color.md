@@ -18,8 +18,8 @@ public function fields(): array
 
 //
 ```
-![Color](https://moonshine-laravel.com/screenshots/color.png)
+![Color](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/color.png)
 
-![Color](https://moonshine-laravel.com/screenshots/color_dark.png)
+![Color](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/color_dark.png)
 
 

@@ -33,14 +33,14 @@ class PostResource extends ModelResource
     //...
 }
 ```
-![validation](https://moonshine-laravel.com/screenshots/validation.png)
+![validation](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/validation.png)
 
 <a name="errors"></a>
 ## Отображение ошибок валидации
 
 За отображение ошибок валидации в верхней части формы отвечает параметр ресурса `$errorsAbove`. По умолчанию значение `true`, что означает, что ошибки валидации будут отображаться.
 
-![errors_above_true](https://moonshine-laravel.com/screenshots/errors_above_true.png)
+![errors_above_true](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/errors_above_true.png)
 
 Чтобы скрыть ошибки валидации в верхней части формы, установите параметр ресурса `$errorsAbove` в значение `false`.
 
@@ -57,7 +57,7 @@ class PostResource extends ModelResource
 }
 ```
 
-![errors_above_false](https://moonshine-laravel.com/screenshots/errors_above_false.png)
+![errors_above_false](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/errors_above_false.png)
 
 <a name="messages"></a>
 ## Сообщения

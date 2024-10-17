@@ -33,14 +33,14 @@ class PostResource extends ModelResource
     //...
 }
 ```
-![validation] (https://moonshine-laravel.com/screenshots/validation.png)
+![validation] (https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/validation.png)
 
 <a name="errors"></a>
 ## Displaying validation errors
 
 The `$errorsAbove` resource parameter is responsible for displaying validation errors at the top of the form. The default value is `true`, which means that validation errors will be displayed.
 
-![errors_above_true] (https://moonshine-laravel.com/screenshots/errors_above_true.png)
+![errors_above_true] (https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/errors_above_true.png)
 
 To hide validation errors at the top of the form, set the `$errorsAbove` resource parameter to `false`.
 
@@ -57,7 +57,7 @@ class PostResource extends ModelResource
 }
 ```
 
-![errors_above_false] (https://moonshine-laravel.com/screenshots/errors_above_false.png)
+![errors_above_false] (https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/errors_above_false.png)
 
 <a name="messages"></a>
 ## Messages

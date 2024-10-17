@@ -28,8 +28,8 @@ public function components(): array
 }
 ```
 
-![divider](https://moonshine-laravel.com/screenshots/divider.png)
-![divider_dark](https://moonshine-laravel.com/screenshots/divider_dark.png)
+![divider](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/divider.png)
+![divider_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/divider_dark.png)
 
 <a name="label"></a>
 ## Label
@@ -53,8 +53,8 @@ public function components(): array
 }
 ```
 
-![divider_label](https://moonshine-laravel.com/screenshots/divider_label.png)
-![divider_label_dark](https://moonshine-laravel.com/screenshots/divider_label_dark.png)
+![divider_label](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/divider_label.png)
+![divider_label_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/divider_label_dark.png)
 
 <a name="centering"></a>
 ## Centering
@@ -79,6 +79,6 @@ public function components(): array
 }
 ```
 
-![divider_label_center](https://moonshine-laravel.com/screenshots/divider_label_center.png)
-![divider_label_center_dark](https://moonshine-laravel.com/screenshots/divider_label_center_dark.png)
+![divider_label_center](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/divider_label_center.png)
+![divider_label_center_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/divider_label_center_dark.png)
 

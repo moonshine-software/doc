@@ -26,6 +26,6 @@ public function fields(): array
 //...
 ```
 
-![stack_fields](https://moonshine-laravel.com/screenshots/stack_fields.png)
-![stack_fields_dark](https://moonshine-laravel.com/screenshots/stack_fields_dark.png)
+![stack_fields](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/stack_fields.png)
+![stack_fields_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/stack_fields_dark.png)
 

@@ -38,8 +38,8 @@ public function components(): array
 //...
 ```
 
-![tabs](https://moonshine-laravel.com/screenshots/tabs.png)
-![tabs_dark](https://moonshine-laravel.com/screenshots/tabs_dark.png)
+![tabs](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/tabs.png)
+![tabs_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/tabs_dark.png)
 
 <a name="vertical-tab"></a>
 ## Vertical display of the tabs.
@@ -72,8 +72,8 @@ public function components(): array
 //...
 ```
 
-![tabs_vertical](https://moonshine-laravel.com/screenshots/tabs_vertical.png)
-![tabs_vertical_dark](https://moonshine-laravel.com/screenshots/tabs_vertical_dark.png)
+![tabs_vertical](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/tabs_vertical.png)
+![tabs_vertical_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/tabs_vertical_dark.png)
 
 By default, the minimum width of a tabbed block at which the inline display changes is `480px`. You can change the minimum width value via the method `customAttributes()`:
 

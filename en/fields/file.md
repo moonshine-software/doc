@@ -39,7 +39,7 @@ public function fields(): array
 //...
 ```
 
-![File Dark](https://moonshine-laravel.com/screenshots/file_dark.png)
+![File Dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/file_dark.png)
 
 > [!NOTE]
 > To generate the file URL correctly, you must define the `APP_URL` environment variable in this way, so that it matches your application's URL.

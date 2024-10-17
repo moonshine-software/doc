@@ -3,7 +3,7 @@ https://moonshine-laravel.com/docs?change-moonshine-locale=en
 ------
 # Welcome
 
-[![MoonShine](https://moonshine-laravel.com/screenshots/main.png)](https://moonshine-laravel.com/video/moon_shine_logo_2.mp4)
+[![MoonShine](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/main.png)](https://moonshine-laravel.com/video/moon_shine_logo_2.mp4)
 
 
 ## Hi Laravel user!
@@ -45,4 +45,4 @@ If you want to learn MoonShine quickly, I recommend checking out my [video guide
 
 Need help with MoonShine? You can ask a question at [Telegram chat](https://t.me/MoonShine_Laravel) or [Discord chat](https://discord.gg/jH6RFXGcy8) .
 
-![main](https://moonshine-laravel.com/screenshots/main.png) ![main_dark](https://moonshine-laravel.com/screenshots/main_dark.png)
+![main](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/main.png) ![main_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/main_dark.png)
