@@ -109,11 +109,11 @@ rm app/MoonShine/Pages/Dashboard_old.php
 
 #### Установить дополнительные пакеты и обновить namespace для:
 - https://github.com/moonshine-software/import-export
-  - Обработчик `ExportHandler`
-  - Обработчик `ImportHandler`
+  - Обработчик `MoonShine\Laravel\Handlers\ExportHandler`
+  - Обработчик `MoonShine\Laravel\Handlers\ImportHandler`
 - https://github.com/moonshine-software/apexcharts
-  - Компонент `DonutChartMetric`
-  - Компонент `LineChartMetric`
+  - Компонент `MoonShine\UI\Components\Metrics\Wrapped\DonutChartMetric`
+  - Компонент `MoonShine\UI\Components\Metrics\Wrapped\LineChartMetric`
 - https://github.com/moonshine-software/ace
   - Поле `Code`
 - https://github.com/moonshine-software/easymde
