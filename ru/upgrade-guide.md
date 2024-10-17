@@ -164,6 +164,7 @@ rm app/MoonShine/Pages/Dashboard_old.php
     ->tdAttributes(fn(mixed $data, int $row, int $cell, TableBuilder $table): array => ($cell == 3) ? ['align' => 'right'] : []) 
   ```
 - Хелпер `to_page` → `toPage`
+- Вместо метода `columnSpan` у компонентов использовать метод компонента `Column`: `Column::make([...])->columnSpan(..)` 
 
 #### Удалить
 - Удалить методы полей `hideOn*` и `showOn*` _(сразу настроить indexFields/detailFields/formFields, смотрите в документации метод exceptElements для Fields, он позволяет гибко исключать поля)_
