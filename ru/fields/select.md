@@ -45,7 +45,7 @@ tab: Blade
 ```
 ~~~
 
-![select](https://moonshine-laravel.com/screenshots/select_dark.png)
+![select](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/select_dark.png)
 
 <a name="default"></a>
 ### Значение по умолчанию
@@ -83,7 +83,7 @@ Select::make('Country', 'country_id')
     ])
     ->nullable()
 ```
-![select nullabledark](https://moonshine-laravel.com/screenshots/select_nullable_dark.png)
+![select nullabledark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/select_nullable_dark.png)
 
 <a name="placeholder"></a>
 ## Placeholder
@@ -119,7 +119,7 @@ Select::make('City', 'city_id')
         ]
     ])
 ```
-![select group dark](https://moonshine-laravel.com/screenshots/select_group_dark.png)
+![select group dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/select_group_dark.png)
 
 <a name="multiple"></a>
 ## Выбор нескольких значений
@@ -147,7 +147,7 @@ Select::make('Country', 'country_id')
 > При использовании `multiple()` для Eloquent модели требуется использовать в базе данных тип text или json.
 Также необходимо добавить *cast* - json, array, collection.
 
-![select multiple dark.](https://moonshine-laravel.com/screenshots/select_multiple_dark.png)
+![select multiple dark.](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/select_multiple_dark.png)
 
 <a name="search"></a>
 ## Поиск
@@ -167,7 +167,7 @@ Select::make('Country', 'country_id')
     ])
     ->searchable()
 ```
-![searchable](https://moonshine-laravel.com/screenshots/select_searchable_dark.png)
+![searchable](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/select_searchable_dark.png)
 
 <a name="async"></a>
 ## Асинхронный поиск
@@ -269,7 +269,7 @@ Select::make('Country', 'country_id')
     ])
 
 ```
-![belongs to image dark](https://moonshine-laravel.com/screenshots/belongs_to_image_dark.png)
+![belongs to image dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/belongs_to_image_dark.png)
 
 <a name="options"></a>
 ## Опции

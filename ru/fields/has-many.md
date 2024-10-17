@@ -47,9 +47,9 @@ use MoonShine\Laravel\Fields\Relationships\HasMany;
 HasMany::make('Comments', 'comments', resource: CommentResource::class)
 ```
 
-![has_many](https://moonshine-laravel.com/screenshots/has_many.png)
+![has_many](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/has_many.png)
 
-![has_many_dark](https://moonshine-laravel.com/screenshots/has_many_dark.png)
+![has_many_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/has_many_dark.png)
 
 Вы можете опустить `$resource`, если ресурс модели совпадает с названием связи.
 
@@ -94,9 +94,9 @@ HasMany::make('Comments', resource: CommentResource::class)
     ])
 ```
 
-![has_many_fields](https://moonshine-laravel.com/screenshots/has_many_fields.png)
+![has_many_fields](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/has_many_fields.png)
 
-![has_many_fields_dark](https://moonshine-laravel.com/screenshots/has_many_fields_dark.png)
+![has_many_fields_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/has_many_fields_dark.png)
 
 <a name="creatable"></a>
 ## Создание объекта отношения
@@ -115,9 +115,9 @@ HasMany::make('Comments', resource: CommentResource::class)
     ->creatable()
 ```
 
-![has_many_creatable](https://moonshine-laravel.com/screenshots/has_many_creatable.png)
+![has_many_creatable](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/has_many_creatable.png)
 
-![has_many_creatable_dark](https://moonshine-laravel.com/screenshots/has_many_creatable_dark.png)
+![has_many_creatable_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/has_many_creatable_dark.png)
 
 Вы можете настроить *кнопку* создания, передав параметр button в метод.
 
@@ -159,9 +159,9 @@ relatedLink(?string $linkRelation = null, Closure|bool $condition = null)
 HasMany::make('Comments', resource: CommentResource::class)
     ->relatedLink()
 ```
-![has_many_link](https://moonshine-laravel.com/screenshots/has_many_link.png)
+![has_many_link](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/has_many_link.png)
 
-![has_many_link_dark](https://moonshine-laravel.com/screenshots/has_many_link_dark.png)
+![has_many_link_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/has_many_link_dark.png)
 
 Параметр `linkRelation` позволяет создать ссылку на отношение с привязкой родительского ресурса.
 

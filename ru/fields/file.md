@@ -41,7 +41,7 @@ tab: Blade
 ```
 ~~~
 
-![File Dark](https://moonshine-laravel.com/screenshots/file_dark.png)
+![File Dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/file_dark.png)
 
 > [!NOTE]
 > Чтобы правильно сгенерировать URL файла, вы должны определить переменную окружения `APP_URL` таким образом, чтобы она соответствовала URL вашего приложения.

@@ -163,7 +163,7 @@ class PostResource extends ModelResource
 }
 ```
 
-![img](https://moonshine-laravel.com/screenshots/table_class_dark.png)
+![img](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/table_class_dark.png)
 
 <a name="click"></a>
 ## Действия по клику
@@ -323,7 +323,7 @@ class PostResource extends ModelResource
 }
 ```
 
-![img] (https://moonshine-laravel.com/screenshots/resource_simple_paginate_dark.png)
+![img] (https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/resource_simple_paginate_dark.png)
 
 <a name="disable-pagination"></a>
 ### Отключение пагинации

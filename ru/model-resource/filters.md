@@ -36,8 +36,8 @@ class PostResource extends ModelResource
 }
 ```
 
-![filters](https://moonshine-laravel.com/screenshots/filters.png)
-![filters_dark](https://moonshine-laravel.com/screenshots/filters_dark.png)
+![filters](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/filters.png)
+![filters_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/filters_dark.png)
 
 > [!TIP]
 > Поля являются ключевым элементом в построении форм в админ-панели `Moonshine`.

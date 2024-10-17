@@ -51,8 +51,8 @@ class PostResource extends ModelResource
 }
 ```
 
-![validation](https://moonshine-laravel.com/screenshots/validation.png)
-![validation_dark](https://moonshine-laravel.com/screenshots/validation_dark.png)
+![validation](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/validation.png)
+![validation_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/validation_dark.png)
 
 <a name="messages"></a>
 ## Сообщения
