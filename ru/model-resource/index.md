@@ -319,6 +319,14 @@ class PostResource extends ModelResource
 }
 ```
 
+Также можно просто создать новый список:
+```php
+protected function activeActions(): ListOf
+{
+    return new ListOf(Action::class, [Action::VIEW, Action::UPDATE]);
+}
+```
+
 <a name="buttons"></a>
 ## Кнопки
 
