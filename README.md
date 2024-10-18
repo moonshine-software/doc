@@ -9,6 +9,7 @@
 - [Списки](#list)
 - [Вкладки](#tabs)
 - [Уведомления](#alert)
+- [Изображения](#images)
 
 ___
 
@@ -149,3 +150,14 @@ Content tab 2
 > [!TIP]
 > Советы.
 ```
+
+<a name="images"></a>
+## Изображения
+
+Изображения добавляем в директорию /resources/screenshots
+
+Ссылку указываем - https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/filename.png
+
+Пример:
+
+![belongs_to_many](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/belongs_to_many.png)

@@ -11,14 +11,13 @@
     - Layout
     - Assets
     - Colors
-    - Icons
+    - [Icons](/docs/{{version}}/appearance/icons)
 - ## ModelResource
     - [Basics](/docs/{{version}}/model-resource/index)
     - [Fields](/docs/{{version}}/model-resource/fields)
     - [With pages](/docs/{{version}}/model-resource/pages)
     - [Table](/docs/{{version}}/model-resource/table)
     - [Form](/docs/{{version}}/model-resource/form)
-    - [Validation rules](/docs/{{version}}/model-resource/validation)
     - [Buttons](/docs/{{version}}/model-resource/buttons)
     - [Filters](/docs/{{version}}/model-resource/filters)
     - [Search](/docs/{{version}}/model-resource/search)
@@ -27,9 +26,8 @@
     - [Metrics](/docs/{{version}}/model-resource/metrics)
     - [Events](/docs/{{version}}/model-resource/events)
     - [Import/Export](/docs/{{version}}/model-resource/import-export)
+    - [Routes](/docs/{{version}}/model-resource/routes)
     - [Authorization](/docs/{{version}}/model-resource/authorization)
-    - [Changelog](/docs/{{version}}/model-resource/changelog)
-
 - ## Pages
     - [Basics](/docs/{{version}}/page/index)
 - ## Fields
@@ -90,16 +88,12 @@
     - [Boolean](/docs/{{version}}/components/boolean)
     - [Loader](/docs/{{version}}/components/loader)
 - ## Frontend
-    - AlpineJs
-    - Events
-    - Request/Response callbacks
+    - [Js](/docs/{{version}}/frontend/js)
     - [SDUI](/docs/{{version}}/frontend/sdui)
     - API
 - ## Security
     - [Authorization](/docs/{{version}}/advanced/authorization)
     - [Authentication](/docs/{{version}}/advanced/authentication)
-    - Socialite
-    - 2FA
 - ## Advanced
     - CrudResource
     - [Routes](/docs/{{version}}/advanced/routes)
@@ -112,4 +106,4 @@
     - Testing
     - Package Development
 - ## Recipes
-    - [Recipes](/docs/{{version}}/recipes)
+    - [Profile](/docs/{{version}}/recipes/profile)

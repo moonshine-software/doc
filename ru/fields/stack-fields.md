@@ -16,7 +16,3 @@ StackFields::make('Title')->fields([
     BelongsTo::make('Author', resource: 'name'),
 ])
 ```
-
-![stack_fields](https://moonshine-laravel.com/screenshots/stack_fields.png)
-
-![stack_fields_dark](https://moonshine-laravel.com/screenshots/stack_fields_dark.png)

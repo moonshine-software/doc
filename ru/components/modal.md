@@ -1,29 +1,27 @@
-# Modal (WIP ...)
+# Modal
 
-- [Введение](#description)
-- [Events](#events)
-- [Default state](#default-state)
-- [Click outside](#click-outside)
-- [Auto close](#auto-close)
-- [Width](#width)
-- [Async](#async)
-- [Outer attributes](#outer-attributes)
+- [Основы](#basics)
+- [События](#events)
+    -  [Открытие/Закрытие](#open-close)
+- [Состояние по умолчанию](#open)
+- [Клик вне окна](#click-outside)
+- [Автозакрытие](#auto-close)
+- [Ширина](#width)
+- [Асинхронность](#async)
+- [Внешние атрибуты](#outer-attributes)
+- [Blade](#blade)
 
 ---
 
-## TODO
-- [ ] - https://github.com/moonshine-software/moonshine/pull/1288
+<a name="basics"></a>
+## Основы
 
-<a name="description"></a>
-## Введение
-
-`Modal` позволяет создавать модальные окна.
-
-Создать `Modal` можно воспользовавшись статическим методом `make()`.
+Компонент `Modal` позволяет создавать модальные окна.
+Вы можете создать `Modal`, используя статический метод `make()`.
 
 ```php
 make(
-    protected Closure|string $title = '',
+    Closure|string $title = '',
     protected Closure|Renderable|string $content = '',
     protected Closure|Renderable|ActionButtonContract|string $outer = '',
     protected Closure|string|null $asyncUrl = null,
@@ -32,58 +30,54 @@ make(
 ```
 
 - `$title` - заголовок модального окна,
-- `$content` - контент модального окна,
+- `$content` - содержимое модального окна,
 - `$outer` - внешний блок с обработчиком вызова окна,
 - `$asyncUrl` - url для асинхронного контента,
-- `$components` - компоненты для модального окна (только если необходимо сделать их доступными для системы).
+- `$components` - компоненты для модального окна.
 
+~~~tabs
+tab: Class
 ```php
-use MoonShine\ActionButtons\ActionButton;
-use MoonShine\Components\FormBuilder;
-use MoonShine\Components\Modal;
-use MoonShine\Fields\Password;
-use MoonShine\Pages\PageComponents;
+use MoonShine\UI\Components\Modal;
 
-//...
-
-public function components(): array
-{
-    return [
-        Modal::make(
-            title: 'Confirm',
-            outer: ActionButton::make('Show modal', '#'),
-            components: PageComponents::make([
-                FormBuilder::make(route('password.confirm'))
-                    ->async()
-                    ->fields([
-                        Password::make('Password')->eye(),
-                    ])
-                    ->submit('Confirm'),
-            ])
-        )
-    ];
-}
-//...
+Modal::make(
+    title: 'Подтвердить',
+    content: 'Содержимое'
+)
 ```
+tab: Blade
+```blade
+<x-moonshine::modal title="Title">
+    <div>
+        Content...
+    </div>
+    <x-slot name="outerHtml">
+        <x-moonshine::link-button @click.prevent="toggleModal">
+            Open modal
+        </x-moonshine::link-button>
+    </x-slot>
+</x-moonshine::modal>
+```
+~~~
 
 <a name="events"></a>
-## Events
+## События
 
-You can open or close a modal window not using component via *javascript* events.
-To have access to events, you must set a unique name for the modal window using the `name()` method.
+Вы можете открывать или закрывать модальное окно, не используя компонент, через события `javascript`.
+Чтобы иметь доступ к событиям, вы должны установить уникальное имя для модального окна, используя метод `name()`.
 
 ```php
-use MoonShine\ActionButtons\ActionButton;
-use MoonShine\Components\Modal;
+use MoonShine\UI\Components\ActionButton;
+use MoonShine\UI\Components\Modal;
 
 //...
 
-public function components(): array
+protected function components(): iterable
 {
     return [
         Modal::make(
-            'Title',
-            'Content...',
+            'Заголовок',
+            'Содержимое',
         )
             ->name('my-modal'),
     ];
@@ -91,205 +85,160 @@ public function components(): array
 
 //...
 ```
-#### calling an event via ActionButton
 
-The modal window event can be triggered using the *ActionButton* component.
+### Вызов события через ActionButton
+
+Событие модального окна может быть вызвано с помощью компонента `ActionButton`.
 
 ```php
-use MoonShine\Components\Modal;
+Modal::make(
+    'Заголовок',
+    'Содержимое',
+)
+    ->name('my-modal'),
 
-//...
+ActionButton::make('Показать модальное окно')
+    ->toggleModal('my-modal')
 
-public function components(): array
-{
-    return [
-        Modal::make(
-            'Title',
-            'Content...',
-        )
-            ->name('my-modal'),
-
-        ActionButton::make(
-            'Show modal',
-            '#'
-        )
-            ->toggleModal('my-modal')
-
-        // or async
-        ActionButton::make(
-            'Show modal',
-            '/endpoint'
-        )
-            ->async(events: ['modal-toggled-my-modal'])
-    ];
-}
-
-//...
+// или асинхронно
+ActionButton::make(
+    'Показать модальное окно',
+    '/endpoint'
+)
+    ->async(events: [AlpineJs::event(JsEvent::MODAL_TOGGLED, 'my-modal')])
 ```
 
-#### calling an event using native methods
+### Вызов события с использованием нативных методов
 
-Events can be triggered using native *javascript* methods:
+События могут быть вызваны с использованием нативных методов *javascript*:
 
 ```js
 document.addEventListener("DOMContentLoaded", () => {
-    this.dispatchEvent(new Event("modal-toggled-my-modal"))
+    this.dispatchEvent(new Event("modal_toggled:my-modal"))
 })
 ```
 
-#### calling an event using the Alpine.js method
+### Вызов события с использованием метода Alpine.js
 
-Or using the magic `$dispatch()` method from *Alpine.js*:
+Или с использованием магического метода `$dispatch()` из *`alpine.js`:
 
 ```js
-this.$dispatch('modal-toggled-my-modal')
+this.$dispatch('modal_toggled:my-modal')
 ```
 
 > [!NOTE]
-> More detailed information can be obtained from the official Alpine.js documentation in the sections [Events](https://alpinejs.dev/essentials/events) and [$dispatch](https://alpinejs.dev/magics/dispatch).
+> Более подробную информацию можно получить из официальной документации Alpine.js в разделах [Events](https://alpinejs.dev/essentials/events) и [$dispatch](https://alpinejs.dev/magics/dispatch).
+
+
+<a name="open-close"></a>
+### Открытие/Закрытие
+
+Вы также можете добавить события при открытии/закрытии модального окна через метод `toggleEvents`
+
+```php
+toggleEvents(array $events, bool $onlyOpening = false, $onlyClosing = false)
+```
+
+```php
+ActionButton::make('Open modal')->toggleModal('my-modal'),
+
+Modal::make('My modal', asyncUrl: '/')
+    ->name('my-modal')
+    ->toggleEvents([
+        AlpineJs::event(JsEvent::TOAST, params: ['text' => 'Hello'])
+    ], onlyOpening: false, onlyClosing: true),
+```
+
+Параметрами `onlyOpening` и `onlyClosing` можно регулировать будут ли события вызываться при открытии и закрытии, по умолчанию оба параметра `TRUE`, тем самым список событий будет вызван и в момент окрытия модалки и в момент закрытия
 
 <a name="open"></a>
-## Default state
+## Состояние по умолчанию
 
-The `open()` method allows you to open a modal window when loading the page.
+Метод `open()` позволяет открыть модальное окно при загрузке страницы.
 
 ```php
 open(Closure|bool|null $condition = null)
 ```
 
 ```php
-use MoonShine\Components\Modal;
-
-//...
-
-public function components(): array
-{
-    return [
-        Modal::make('Title', 'Content...', view('path'))
-            ->open(),
-    ];
-}
-
-//...
+Modal::make('Заголовок', 'Содержимое...', view('path'))
+    ->open(),
 ```
+
 > [!TIP]
-> By default, the modal window will remain closed when the page loads..
+> По умолчанию модальное окно останется закрытым при загрузке страницы.
 
 <a name="close-outside"></a>
-## Click outside
+## Клик вне окна
 
-By default, a modal window closes when clicked outside the window area.The `closeOutside()` method allows you to override this behavior.
+По умолчанию модальное окно закрывается при клике вне области окна. Метод `closeOutside()` позволяет переопределить это поведение.
 
 ```php
-use MoonShine\Components\Modal;
-
-//...
-
-public function components(): array
-{
-    return [
-        Modal::make('Title', 'Content...', ActionButton::make('Show modal', '#'))
+Modal::make('Заголовок', 'Содержимое...', ActionButton::make('Показать модальное окно', '#'))
             ->closeOutside(false),
-    ];
-}
-
-//...
 ```
       
 <a name="autoclose"></a>
-## Auto close
+## Автозакрытие
 
-By default, modal windows close after a successful request the `autoClose()` method allows you to control this behavior.
+По умолчанию модальные окна закрываются после успешного запроса (к примеру при отправке формы). Метод `autoClose()` позволяет управлять этим поведением.
 
 ```php
 autoClose(Closure|bool|null $autoClose = null)
 ```
 
 ```php
-use MoonShine\Components\Modal;
-
-//...
-
-public function components(): array
-{
-    return [
-        Modal::make(
-            'Demo modal',
-            static fn() => FormBuilder::make(route('alert.post'))
-                ->fields([
-                    Text::make('Text'),
-                ])
-                ->submit('Send', ['class' => 'btn-primary'])
-                ->async(),
-        )
-            ->name('demo-modal')
-            ->autoClose(false),
-    ];
-}
-
-//...
+Modal::make(
+    'Демо модальное окно',
+    static fn() => FormBuilder::make(route('alert.post'))
+        ->fields([
+            Text::make('Текст'),
+        ])
+        ->submit('Отправить', ['class' => 'btn-primary'])
+        ->async(),
+    )
+    ->name('demo-modal')
+    ->autoClose(false),
 ```
 
 <a name="wide"></a>
-## Width
+## Ширина
 
 #### wide
 
-The `wide()` method of the *Modal* component sets the maximum width of the modal window.
+Метод `wide()` компонента *Modal* устанавливает максимальную ширину модального окна.
 
 ```php
 wide(Closure|bool|null $condition = null)
 ```
 
 ```php
-use MoonShine\Components\Modal;
-
-//...
-
-public function components(): array
-{
-    return [
-        Modal::make('Title', 'Content...', ActionButton::make('Show modal', '#'))
+Modal::make('Заголовок', 'Содержимое...', ActionButton::make('Показать модальное окно', '#'))
             ->wide(),
-    ];
-}
-
-//...
 ```
 
 #### auto
 
-The `auto()` method of the *Modal* component sets the width of the modal window based on the content.
+Метод `auto()` компонента *Modal* устанавливает ширину модального окна на основе содержимого.
 
 ```php
 auto(Closure|bool|null $condition = null)
 ```
 
 ```php
-use MoonShine\Components\Modal;
-
-//...
-
-public function components(): array
-{
-    return [
-        Modal::make('Title', 'Content...', ActionButton::make('Show modal', '#'))
+Modal::make('Заголовок', 'Содержимое...', ActionButton::make('Показать модальное окно', '#'))
             ->auto(),
-    ];
-}
-
-//...
 ```
 
 <a name="async"></a>
-## Async
+## Асинхронность
 
 ```php
-Modal::make('Title', '', ActionButton::make('Show modal', '#'), asyncUrl: '/endpoint'),
+Modal::make('Заголовок', '', ActionButton::make('Показать модальное окно', '#'), asyncUrl: '/endpoint'),
 ```
 
 > [!NOTE]
-> The request will be sent once, but if you need to send a request every time you open it, then use the `data-always-load` attribute
+> Запрос будет отправлен один раз, но если вам нужно отправлять запрос при каждом открытии, то используйте атрибут `data-always-load`
 
 ```php
 Modal::make(...)
@@ -297,28 +246,108 @@ Modal::make(...)
 ```
 
 <a name="outer-attributes"></a>
-## Outer attributes
+## Внешние атрибуты
 
-The `outerAttributes()` method allows you to set additional attributes for the outer `$outer` block.
+Метод `outerAttributes()` позволяет установить дополнительные атрибуты для внешнего блока `$outer`.
 
 ```php
 outerAttributes(array $attributes)
 ```
 
 ```php
-use MoonShine\Components\Modal;
+Modal::make('Заголовок', 'Содержимое...', ActionButton::make('Показать модальное окно', '#'))
+    ->outerAttributes([
+        'class' => 'mt-2'
+    ]),
+```
 
-//...
+<a name="blade"></a>
+## Blade
 
-public function components(): array
-{
-    return [
-        Modal::make('Title', 'Content...', ActionButton::make('Show modal', '#'))
-            ->outerAttributes([
-                'class' => 'mt-2'
-            ]),
-    ];
-}
+Для создания модальных окон используется компонент `moonshine::modal`.
 
-//...
+```blade
+<x-moonshine::modal title="Title">
+    <div>
+        Content...
+    </div>
+    <x-slot name="outerHtml">
+        <x-moonshine::link-button @click.prevent="toggleModal">
+            Open modal
+        </x-moonshine::link-button>
+    </x-slot>
+</x-moonshine::modal>
+```
+
+<a name="wide"></a>
+### Широкое окно
+
+Параметр `wide` позволяет модальным окнам заполнять всю ширину.
+
+```blade
+<x-moonshine::modal wide title="Title">
+    <div>
+        Content...
+    </div>
+    <x-slot name="outerHtml">
+        <x-moonshine::link-button @click.prevent="toggleModal">
+            Open wide modal
+        </x-moonshine::link-button>
+    </x-slot>
+</x-moonshine::modal>
+```
+
+<a name="auto"></a>
+### Автоматическая ширина
+
+Параметр `auto` позволяет модальным окнам занимать ширину на основе содержимого.
+
+```blade
+<x-moonshine::modal auto title="Title">
+    <div>
+        Content...
+    </div>
+    <x-slot name="outerHtml">
+        <x-moonshine::link-button @click.prevent="toggleModal">
+            Open auto modal
+        </x-moonshine::link-button>
+    </x-slot>
+</x-moonshine::modal>
+```
+
+<a name="=close"></a>
+### Закрытие окна
+
+По умолчанию модальные окна закрываются при клике вне области окна. Вы можете переопределить это поведение с помощью параметра `closeOutside`.
+
+```blade
+<x-moonshine::modal :closeOutside="false" title="Title">
+    <div>
+        Content...
+    </div>
+    <x-slot name="outerHtml">
+        <x-moonshine::link-button @click.prevent="toggleModal">
+            Open modal
+        </x-moonshine::link-button>
+    </x-slot>
+</x-moonshine::modal>
+```
+
+<a name="async"></a>
+### Асинхронный контент
+
+Компонент `moonshine::modal` позволяет загружать контент асинхронно.
+
+```blade
+<x-moonshine::modal
+    async
+    :asyncUrl="route('async')"
+    title="Title"
+>
+    <x-slot name="outerHtml">
+        <x-moonshine::link-button @click.prevent="toggleModal">
+            Open async modal
+        </x-moonshine::link-button>
+    </x-slot>
+</x-moonshine::modal>
 ```

@@ -61,8 +61,8 @@ protected function formFields(): iterable
 //...
 ```
 
-![json_fields](https://moonshine-laravel.com/screenshots/json_fields.png)
-![json_fields_dark](https://moonshine-laravel.com/screenshots/json_fields_dark.png)
+![json_fields](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/json_fields.png)
+![json_fields_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/json_fields_dark.png)
 
 Поля также можно передавать через замыкание, что позволяет получить доступ к контексту поля и его данным:
 
@@ -128,8 +128,8 @@ protected function formFields(): iterable
 //...
 ```
 
-![json_key_value](https://moonshine-laravel.com/screenshots/json_key_value.png)
-![json_key_value_dark](https://moonshine-laravel.com/screenshots/json_key_value_dark.png)
+![json_key_value](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/json_key_value.png)
+![json_key_value_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/json_key_value_dark.png)
 
 Пример с изменением типов полей:
 
@@ -184,8 +184,8 @@ protected function formFields(): iterable
 //...
 ```
 
-![json_only_value](https://moonshine-laravel.com/screenshots/json_only_value.png)
-![json_only_value_dark](https://moonshine-laravel.com/screenshots/json_only_value_dark.png)
+![json_only_value](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/json_only_value.png)
+![json_only_value_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/json_only_value_dark.png)
 
 <a name="object-mode"></a>
 ## Режим "Объект"
@@ -321,8 +321,8 @@ protected function formFields(): iterable
 //...
 ```
 
-![json_removable](https://moonshine-laravel.com/screenshots/json_removable.png)
-![json_removable_dark](https://moonshine-laravel.com/screenshots/json_removable_dark.png)
+![json_removable](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/json_removable.png)
+![json_removable_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/json_removable_dark.png)
 
 ### Кастомизация кнопки добавления
 
@@ -395,8 +395,8 @@ protected function formFields(): iterable
 
 //...
 ```
-![json_vertical](https://moonshine-laravel.com/screenshots/json_vertical.png)
-![json_vertical_dark](https://moonshine-laravel.com/screenshots/json_vertical_dark.png)
+![json_vertical](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/json_vertical.png)
+![json_vertical_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/json_vertical_dark.png)
 
 <a name="filter"></a>
 ## Применение в фильтрах

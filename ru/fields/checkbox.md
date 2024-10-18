@@ -18,11 +18,23 @@
 <a name="make"></a>
 ## Создание
 
+~~~tabs
+tab: Class
 ```php
 use MoonShine\UI\Fields\Checkbox; 
 
 Checkbox::make('Публиковать', 'is_publish') 
 ```
+tab: Blade
+```blade
+<x-moonshine::form.wrapper label="Публиковать">
+    <x-moonshine::form.input
+        type="checkbox"
+        name="is_publish"
+    />
+</x-moonshine::field-container>
+```
+~~~
 
 <a name="on-off"></a>
 ## Значения вкл/выкл

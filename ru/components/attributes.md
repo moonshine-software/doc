@@ -15,7 +15,7 @@ ___
 что позволяет более гибко настраивать их поведение и внешний вид.
 
 <a name="set-attribute"></a>
-## [Добавление](#set-attribute)
+## Добавление
 
 Метод `setAttribute()` добавляет или изменить атрибут компонента.
 
@@ -31,7 +31,7 @@ $component->setAttribute('data-id', '123');
 ```
 
 <a name="remove-attribute"></a>
-## [Удаление](#remove-attribute)
+## Удаление
 
 Метод `removeAttribute()` удаляет атрибут по его имени.
 
@@ -46,7 +46,7 @@ $component->removeAttribute('data-id');
 ```
 
 <a name="iterable-attributes"></a>
-## [Итеративные атрибуты](#iterable-attributes)
+## Итеративные атрибуты
 
 Метод `iterableAttributes` добавляет атрибуты, необходимые для работы с итеративными компонентами.
 
@@ -56,7 +56,7 @@ iterableAttributes(int $level = 0)
 - `$level` - уровень вложенности.
 
 <a name="custom-attributes"></a>
-## [Массовое изменение](#custom-attributes)
+## Массовое изменение
 
 Метод `customAttributes()` добавляет или заменяет несколько атрибутов компонента.
 
@@ -71,8 +71,8 @@ customAttributes(array $attributes, bool $override = false)
 $component->customAttributes(['data-role' => 'admin'], true);
 ```
 
-<a name="mergea-ttribute"></a>
-## [Объединение значений](#merge-attribute)
+<a name="merge-attribute"></a>
+## Объединение значений
 
 Метод `mergeAttribute()` объединяет значение атрибута с новым значением, используя указанный разделитель.
 
@@ -89,7 +89,7 @@ $component->mergeAttribute('class', 'new-class');
 ```
 
 <a name="class"></a>
-## [Добавление класса](#class)
+## Добавление класса
 
 Метод `class()` добавляет CSS-классы к атрибутам компонента.
 
@@ -103,7 +103,7 @@ $component->class(['btn', 'btn-primary']);
 ```
 
 <a name="style"></a>
-## [Добавление стиля](#style)
+## Добавление стиля
 
 Метод `style` добавляет CSS-стили к атрибутам компонента.
 
@@ -116,7 +116,7 @@ $component->style(['color' => 'red']);
 ```
 
 <a name="alpine"></a>
-## [Атрибуты для Alpine.js](#alpine)
+## Атрибуты для Alpine.js
 
 Для удобной интеграции с JavaScript-фреймворком AlpineJs используются методы установки соответствующих атрибутов.
 
