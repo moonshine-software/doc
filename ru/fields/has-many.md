@@ -218,7 +218,7 @@ $this->getParentId();
 
 > [!TIP]
 > TODO
-> Рецепт: [сохранение файлов](/docs/{{version}}/recipes#hasmany-parent-id) связей *HasMany* в директории с ID родителя.
+> Рецепт: [сохранение файлов](/docs/{{version}}/recipes/hasmany-parent-id) связей *HasMany* в директории с ID родителя.
 
 <a name="change-edit-button"></a>
 ## Кнопка редактирования
