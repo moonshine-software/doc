@@ -87,6 +87,7 @@
     - [Badge](/docs/{{version}}/components/badge)
     - [Boolean](/docs/{{version}}/components/boolean)
     - [Loader](/docs/{{version}}/components/loader)
+    - [Box](/docs/{{version}}/components/box)
 - ## Frontend
     - [Js](/docs/{{version}}/frontend/js)
     - [SDUI](/docs/{{version}}/frontend/sdui)
