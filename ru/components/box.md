@@ -10,42 +10,35 @@
 ## Основы
 
 Для выделения контента можно использовать компонент `moonshine::box`. Компонент оборачивает содержимое в div
-~~~tabs
-tab: Class
-```php
-use MoonShine\UI\Components\Layout\Box;
 
-Box::make( Closure|string|iterable $labelOrComponents = [],
+
+```php
+make( Closure|string|iterable $labelOrComponents = [],
         iterable $components = [],
         protected string $title = '',
         protected bool $dark = false);
 ```
-tab: Blade
-```blade
-<x-moonshine::layout.box :dark="boolean" :title="string">
-    {{ fake()->text() }}
-</x-moonshine::box>
-```
-~~~
 
-- `$labelOrComponents` - содержит компоненты для отображения в блоке или текст для заголовка. Если первый параметр - строка, то это - заголовок.
-- `$components` - содержит компоненты для отображения в блоке. Используется, если есть заголовок 
-- `$title` - заголовок блока.
-- `$dark` - темный стиль.
+- `$labelOrComponents` - содержит компоненты для отображения в блоке или текст для заголовка. Если первый параметр - строка, то это - заголовок,
+- `$components` - содержит компоненты для отображения в блоке. Используется, если в есть заголовок, 
+- `$title` - заголовок блока (опционально),
+- `$dark` - это форсированный темный стиль, он будет темный даже если включена светлая тема.
 
 ~~~tabs
 tab: Class
 ```php
-Box::make(fake()->text());
-# или
-Box::make('Title box', fake()->text());
-# или
-Box::make('Title box', [fake()->text(), fake()->text()]);
+use MoonShine\UI\Components\Layout\Box;
+use MoonShine\UI\Components\Alert;
+
+Box::make([
+    Alert::make()->content('Text')
+]);
+
 ```
 tab: Blade
 ```blade
 <x-moonshine::layout.box>
-    {{ fake()->text() }}
+    {{ 'Hello!' }}
 </x-moonshine::box>
 ```
 ~~~
@@ -58,12 +51,12 @@ tab: Blade
 ~~~tabs
 tab: Class
 ```php
-Box::make( [fake()->text()], title:'Title box');
+Box::make( ['Hello!'], title:'Title box');
 ```
 tab: Blade
 ```blade
 <x-moonshine::box title="Title box">
-    {{ fake()->text() }}
+    {{ 'Hello!' }}
 </x-moonshine::box>
 ```
 ~~~
@@ -76,12 +69,12 @@ tab: Blade
 ~~~tabs
 tab: Class
 ```php
-Box::make(fake()->text())->dark();
+Box::make([['Hello!'])->dark();
 ```
 tab: Blade
 ```blade
 <x-moonshine::box :dark="true">
-    {{ fake()->text() }}
+    {{ 'Hello!' }}
 </x-moonshine::box>
 ```
 ~~~
@@ -94,13 +87,13 @@ tab: Blade
 ~~~tabs
 tab: Class
 ```php
-Box::make( [fake()->text()], title:'Title box')->icon('users';
+Box::make( ['Hello!'], title:'Title box')->icon('users');
 ```
 tab: Blade
 ```blade
 <x-moonshine::box title="Title box">
     <x-moonshine::icon name="users"></x-moonshine::icon>
-    {{ fake()->text() }}
+    {{ 'Hello!' }}
 </x-moonshine::box>
 ```
 ~~~
