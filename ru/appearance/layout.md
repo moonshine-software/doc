@@ -14,9 +14,21 @@
 <a name="basics"></a>
 ## Основы
 
-`Layout` это набор компонентов из которых состоит страницы в `MoonShine`. Каждый элемент страницы, каждый `HTML` тег является компонентом `MoonShine`. Вы можете изменять набор компонентов под себя, удалять или добавлять новые! Каждая страница может иметь свой собственный `Layout`.
+`Layout` в `MoonShine` представляет собой набор компонентов, формирующих структуру страницы административной панели. Каждый элемент страницы, включая `HTML`-теги, является компонентом `MoonShine`. Это обеспечивает высокую степень гибкости и возможность кастомизации.
 
-По умолчанию в `MoonShine` есть два готовых шаблона с набором компонентов, базовый - `AppLayout` и компактный `CompactLayout`. При установке `MoonShine` у вас был выбор какой шаблон выбрать по умолчанию, после чего он был опубликован в директорию `app/MoonShine/Layouts` и объявлен в конфиге `moonshine.layout`. Вы всегда можете заменить `Layout` по умолчанию на свой или просто его модифицировать или создать еще шаблонов и применять их для различных страниц отдельно.
+`MoonShine` предлагает два готовых шаблона:
+
+- `AppLayout` - базовый шаблон
+- `CompactLayout` - компактный шаблон
+
+При установке `MoonShine` вы выбираете один из этих шаблонов по умолчанию. Выбранный шаблон публикуется в директорию `app/MoonShine/Layouts` и указывается в конфигурационном файле `moonshine.layout`.
+
+Вы можете:
+
+- Модифицировать существующий шаблон
+- Создать новый шаблон
+- Применять разные шаблоны для различных страниц
+
 
 Пример возможного шаблона вашего приложения:
 
@@ -284,7 +296,7 @@ class CustomPage extends Page
 <a name="assets"></a>
 ## Assets
 
-Для каждого шаблона можно объявить свой набор стилей и скриптов через метод `assets()`
+Каждый шаблон может иметь свой набор стилей и скриптов, определяемых через метод `assets()`:
 
 ```php
 final class MyLayout extends AppLayout
@@ -310,6 +322,8 @@ final class MyLayout extends AppLayout
 <a name="menu"></a>
 ## Меню
 
+Для каждого шаблона можно объявить список пунктов меню через метод `menu()`, которые автоматически будут переданы в компонент `Menu`
+
 ```php
 final class MyLayout extends AppLayout
 {
@@ -328,60 +342,49 @@ final class MyLayout extends AppLayout
 > [!NOTE]
 > За более подробной информацией обратитесь в раздел [Меню](/docs/{{version}}/appearance/menu)
 
+> [!TIP]
+> Вы также можете не пользоваться методом `menu`, а передать список вручную в компонент `Menu`
 
 <a name="top-menu"></a>
 ### Верхнее меню
 
-По умолчанию MoonShine имеет компонент верхнего меню. Давайте посмотрим, как заменить `Sidebar` на `TopBar` в `Layout`.
+По умолчанию `MoonShin`e имеет компонент верхнего меню, который можно использовать вместо `Sidebar` или совместно с ним. Давайте посмотрим, как заменить `Sidebar` на `TopBar` в `Layout`.
 
 ```php
-namespace App\MoonShine;
-
-use MoonShine\Components\Layout\{Content,
-    Flash,
-    Footer,
-    Header,
-    LayoutBlock,
-    LayoutBuilder,
-    Menu,
-    Profile,
-    Search,
-    TopBar};
-use MoonShine\Components\When;
-use MoonShine\Contracts\MoonShineLayoutContract;
-
-final class MoonShineLayout implements MoonShineLayoutContract
+// ..
+final class MoonShineLayout extends CompactLayout
 {
-    public static function build(): LayoutBuilder
+    // ...
+
+    public function build(): Layout
     {
-        return LayoutBuilder::make([
-            TopBar::make([
-                Menu::make()->top(),
+        return Layout::make([
+            Html::make([
+                $this->getHeadComponent(),
+                Body::make([
+                    Wrapper::make([
+                        $this->getTopBarComponent(),
+                        //$this->getSidebarComponent(),
+                        Block::make([
+                            Flash::make(),
+                            $this->getHeaderComponent(),
+
+                            Content::make([
+                                Components::make(
+                                    $this->getPage()->getComponents()
+                                ),
+                            ]),
+
+                            $this->getFooterComponent(),
+                        ])->class('layout-page'),
+                    ]),
+                ])->class('theme-minimalistic'),
             ])
-                ->actions([
-                    When::make(
-                        static fn() => config('moonshine.auth.enable', true),
-                        static fn() => [Profile::make()]
-                    )
-                ]),
-            LayoutBlock::make([
-                Flash::make(),
-                Header::make([
-                    Search::make(),
-                ]),
-                Content::make(),
-                Footer::make()->copyright(fn (): string => <<<HTML
-                        &copy; 2021-2023 Made with ?? by
-                        <a href="https://cutcode.dev"
-                            class="font-semibold text-primary hover:text-secondary"
-                            target="_blank"
-                        >
-                            CutCode
-                        </a>
-                    HTML)->menu([
-                    'https://moonshine.cutcode.dev' => 'Documentation',
-                ]),
-            ])->customAttributes(['class' => 'layout-page']),
+                ->customAttributes([
+                    'lang' => $this->getHeadLang(),
+                ])
+                ->withAlpineJs()
+                ->withThemes(),
         ]);
     }
 }
@@ -389,6 +392,8 @@ final class MoonShineLayout implements MoonShineLayoutContract
 
 <a name="colors"></a>
 ## Цвета
+
+Каждый шаблон может иметь собственную цветовую схему, определяемую в методе `colors`:
 
 ```php
 final class MyLayout extends AppLayout
@@ -455,6 +460,10 @@ final class MyLayout extends AppLayout
 
 <a name="blade"></a>
 ## Blade
+
+`MoonShine` позволяет создавать шаблоны напрямую через `Blade`. 
+
+Пример базового шаблона:
 
 ```blade
 <x-moonshine::layout>
