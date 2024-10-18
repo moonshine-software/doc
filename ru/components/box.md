@@ -69,7 +69,7 @@ tab: Blade
 ~~~tabs
 tab: Class
 ```php
-Box::make([['Hello!'])->dark();
+Box::make(['Hello!'])->dark();
 ```
 tab: Blade
 ```blade
