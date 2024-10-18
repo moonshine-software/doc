@@ -106,4 +106,4 @@
     - Testing
     - Package Development
 - ## Recipes
-    - [Recipes](/docs/{{version}}/recipes/index)
+    - [Profile](/docs/{{version}}/recipes/profile)
