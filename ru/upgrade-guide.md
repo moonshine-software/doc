@@ -108,7 +108,7 @@ rm app/MoonShine/Pages/Dashboard_old.php
 - `MoonShine\Http\Controllers\` → `MoonShine\Laravel\Http\Controllers\`
 - `MoonShine\MoonShineAuth` → `MoonShine\Laravel\MoonShineAuth`
 
-#### Установить дополнительные пакеты и обновить namespace для:
+#### По необходимости установить дополнительные пакеты и обновить namespace для:
 - https://github.com/moonshine-software/import-export
   - Обработчик `MoonShine\Laravel\Handlers\ExportHandler`
   - Обработчик `MoonShine\Laravel\Handlers\ImportHandler`
@@ -116,9 +116,9 @@ rm app/MoonShine/Pages/Dashboard_old.php
   - Компонент `MoonShine\UI\Components\Metrics\Wrapped\DonutChartMetric`
   - Компонент `MoonShine\UI\Components\Metrics\Wrapped\LineChartMetric`
 - https://github.com/moonshine-software/ace
-  - Поле `Code`
+  - Поле `MoonShine\Fields\Code`
 - https://github.com/moonshine-software/easymde
-  - Поле `Markdown`
+  - Поле `MoonShine\Fields\Markdown`
 
 <a name="methods"></a>
 ### Методы
