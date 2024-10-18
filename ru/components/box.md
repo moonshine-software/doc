@@ -9,20 +9,17 @@
 <a name="basics"></a>
 ## Основы
 
-Для выделения контента можно использовать компонент `moonshine::box`. Компонент оборачивает содержимое в div
-
+Для выделения контента можно использовать компонент `Box`. Компонент идеально подходит чтобы выделить область.
 
 ```php
-make( Closure|string|iterable $labelOrComponents = [],
-        iterable $components = [],
-        protected string $title = '',
-        protected bool $dark = false);
+make(
+Closure|string|iterable $labelOrComponents = [],
+iterable $components = [],
+)
 ```
 
 - `$labelOrComponents` - содержит компоненты для отображения в блоке или текст для заголовка. Если первый параметр - строка, то это - заголовок,
-- `$components` - содержит компоненты для отображения в блоке. Используется, если в есть заголовок, 
-- `$title` - заголовок блока (опционально),
-- `$dark` - это форсированный темный стиль, он будет темный даже если включена светлая тема.
+- `$components` - содержит компоненты для отображения в блоке. Используется, если первым параметром указан заголовок, 
 
 ~~~tabs
 tab: Class
@@ -46,12 +43,12 @@ tab: Blade
 <a name="heading"></a>
 ## Заголовок
 
-Если нужно отобразить заголовок, то для этого используется параметр `title`
+Если нужно отобразить заголовок, то просто передайте его первым параметром, а вторым список компонентов
 
 ~~~tabs
 tab: Class
 ```php
-Box::make( ['Hello!'], title:'Title box');
+Box::make('Title box', ['Hello!']);
 ```
 tab: Blade
 ```blade
@@ -64,7 +61,7 @@ tab: Blade
 <a name="dark"></a>
 ## Темный стиль
 
-Вы можете установить темный стиль для блока, указав параметр `dark` со значением `TRUE` или с помощью метода dark() в классе.
+Вы можете установить темный стиль для блока с помощью метода `dark()` в классе.
 
 ~~~tabs
 tab: Class
@@ -73,7 +70,7 @@ Box::make(['Hello!'])->dark();
 ```
 tab: Blade
 ```blade
-<x-moonshine::box :dark="true">
+<x-moonshine::box dark>
     {{ 'Hello!' }}
 </x-moonshine::box>
 ```
@@ -82,12 +79,12 @@ tab: Blade
 <a name="icon"></a>
 ## Иконка
 
-Чтобы отобразить иконку в блоке, используется параметр `icon`
+Чтобы отобразить иконку в блоке, используется метод `icon`
 
 ~~~tabs
 tab: Class
 ```php
-Box::make( ['Hello!'], title:'Title box')->icon('users');
+Box::make('Title box', ['Hello!'])->icon('users');
 ```
 tab: Blade
 ```blade
