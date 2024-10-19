@@ -93,8 +93,8 @@
     - [SDUI](/docs/{{version}}/frontend/sdui)
     - API
 - ## Security
-    - [Authorization](/docs/{{version}}/advanced/authorization)
-    - [Authentication](/docs/{{version}}/advanced/authentication)
+    - [Authorization](/docs/{{version}}/security/authorization)
+    - [Authentication](/docs/{{version}}/security/authentication)
 - ## Advanced
     - CrudResource
     - [Routes](/docs/{{version}}/advanced/routes)
