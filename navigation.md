@@ -74,8 +74,6 @@
     - [Position](/docs/{{version}}/fields/position)
     - [StackFields](/docs/{{version}}/fields/stack-fields)
     - [Template](/docs/{{version}}/fields/template)
-    - Textarea
-      - [Textarea](/docs/{{version}}/fields/textarea)
 - ## Components
     - [Basics](/docs/{{version}}/components/index)
     - [Attributes](/docs/{{version}}/components/attributes)
