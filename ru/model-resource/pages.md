@@ -160,6 +160,7 @@ class ArticleIndexPage extends IndexPage
 }
 ```
 > [!TIP]
+> TODO
 > Пример страницы индекса с компонентом `CardsBuilder` в разделе [Рецепты](/docs/{{version}}/recipes/index-page-cards)
 
 #### DetailPage

@@ -102,6 +102,7 @@ protected function indexButtons(): ListOf
 > Такой же подход используется и для таблицы на детальной страницы, только через методы `detailButtons` и `customDetailButtons`
 
 > [!TIP]
+> TODO
 > Пример создания кастомных кнопок у индексной таблицы в разделе [Рецепты](/docs/{{version}}/recipes/custom-buttons)
 
 Для массовых действий необходимо добавить метод `bulk`

@@ -328,6 +328,9 @@ Text::make('Title')->readonly()
 ### Другие атрибуты
 Чтобы указать любые другие атрибуты, используется метод `customAttributes()`.
 
+> [!NOTE]
+> Поля являются компонентами, подробнее об атрибутах читайте в разделе [Атрибуты компонентов](/docs/{{version}}/components/attributes)
+
 ```php
 customAttributes(array $attributes, bool $override = false)
 ```
@@ -655,7 +658,7 @@ onChangeUrl(
 
 - `$url` - url запроса,
 - `$method` - метод асинхронного запроса,
-- `$events` - вызываемые [AlpineJS события](TODO ссылка на доку) после успешного запроса,
+- `$events` - вызываемые [AlpineJS события](/docs/{{version}}/frontend/js#events) после успешного запроса,
 - `$selector` - selector элемента у которого будет изменяться контент,
 - `$callback` - js callback функция после получения ответа.
 
@@ -692,7 +695,7 @@ onChangeMethod(
 - `$params` - параметры для запроса,
 - `$message` - сообщения,
 - `$selector` - selector элемента у которого будет изменяться контент,
-- `$events` - вызываемые [AlpineJS события](TODO ссылка на доку) после успешного запроса,
+- `$events` - вызываемые [AlpineJS события](/docs/{{version}}/frontend/js#events) после успешного запроса,
 - `$callback` - js callback функция после получения ответа,
 - `$page` - страница содержащая метод,
 - `$resource` - ресурс содержащий метод.
@@ -798,7 +801,7 @@ public function updateOnPreview(
  - `$url` - url запроса,
  - `$resource` - ресурс содержащий updateOnPreview,
  - `$condition` - условие установки поля в режим updateOnPreview,
- - `$events` - вызываемые [AlpineJS события](TODO ссылка на доку) после успешного запроса.
+ - `$events` - вызываемые [AlpineJS события](/docs/{{version}}/frontend/js#events) после успешного запроса.
 
 > [!NOTE]
 > Параметры не являются обязательными, но должны быть заданы, если поле находится вне ресурса или же вы хотите указать полностью свой endpoint (тогда и ресурс не нужен)

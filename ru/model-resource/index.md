@@ -467,6 +467,7 @@ class PostResource extends ModelResource
 ```
 
 > [!TIP]
+> TODO
 > Рецепт: [Изменение breadcrumbs из ресурса](/docs/{{version}}/recipes/custom-breadcrumbs).
 
 Вы также можете подключить `trait` к ресурсу и внутри `trait` добавить метод согласно конвенции наименований - `load{TraitName}` и через трейт обратится к `onLoad` ресурса

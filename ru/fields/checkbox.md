@@ -76,8 +76,6 @@ Checkbox::make('Публичный')
     ->updateOnPreview()
 ```
 
-// TODO simpleMode()
-
 <a name="preview-edit"></a>
 ## Редактирование в режиме preview
 

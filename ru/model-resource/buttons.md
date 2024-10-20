@@ -182,6 +182,7 @@ class PostResource extends ModelResource
 ![resource_buttons_index_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/resource_buttons_index_dark.png)
 
 > [!TIP]
+> TODO
 > Пример создания пользовательских кнопок для таблицы индекса в разделе [Рецепты](/docs/{{version}}/recipes/custom-buttons)
 
 Для массовых действий с элементами необходимо добавить метод `bulk()`
