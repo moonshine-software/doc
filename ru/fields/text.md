@@ -23,15 +23,27 @@
 
 Поле `Text` - это базовое текстовое поле ввода в MoonShine. Это поле эквивалент `<input type="text">`
 
+~~~tabs
+tab: Class
 ```php
 use MoonShine\UI\Fields\Text;
 
 Text::make('Title')
 ```
+tab: Blade
+```blade
+<x-moonshine::field-container label="Title">
+    <x-moonshine::form.input
+        type="text"
+        name="title"
+    />
+</x-moonshine::field-container>
+```
+~~~
 
-![mask](https://moonshine-laravel.com/screenshots/mask.png)
+![mask](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/mask.png)
 
-![mask_dark](https://moonshine-laravel.com/screenshots/mask_dark.png)
+![mask_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/mask_dark.png)
 
 <a name="basic-methods"></a>
 ## Основные методы
@@ -65,9 +77,9 @@ Text::make('Телефон', 'phone')
     ->mask('+7 (999) 999-99-99')
 ```
 
-![mask](https://moonshine-laravel.com/screenshots/mask.png)
+![mask](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/mask.png)
 
-![mask_dark](https://moonshine-laravel.com/screenshots/mask_dark.png)
+![mask_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/mask_dark.png)
 
 <a name="tags"></a>
 ### Теги
@@ -104,9 +116,9 @@ Text::make('HTML-контент', 'content')
 
 Поля поддерживает различные расширения для помощи и контроля ввода
 
-![expansion](https://moonshine-laravel.com/screenshots/expansion.png)
+![expansion](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/expansion.png)
 
-![expansion_dark](https://moonshine-laravel.com/screenshots/expansion_dark.png)
+![expansion_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/expansion_dark.png)
 
 <a name="copy"></a>
 ### Копирование

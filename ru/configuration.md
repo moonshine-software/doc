@@ -112,119 +112,160 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 
 ### Установка заголовка приложения
 
+~~~tabs
+tab: config/moonshine.php
 ```php
-// В moonshine.php
 'title' => 'Мое приложение',
+```
 
-// В MoonShineServiceProvider
+tab: app/Providers/MoonShineServiceProvider.php
+```php
 $config->title('Мое приложение');
 ```
+~~~
 
 ### Настройка middleware
 
+~~~tabs
+tab: config/moonshine.php
 ```php
-// В moonshine.php
 'middleware' => [
     'web',
     'auth',
     // ...
 ],
+```
 
-// В MoonShineServiceProvider
+tab: app/Providers/MoonShineServiceProvider.php
+```php
 $config->middleware(['web', 'auth'])
        ->addMiddleware('custom-middleware')
        ->exceptMiddleware(['auth']);
 ```
+~~~
 
 <a name="authentication-settings"></a>
 ## Настройки аутентификации
 
 ### Установка guard
 
+~~~tabs
+tab: config/moonshine.php
 ```php
-// В moonshine.php
 'auth' => [
     'guard' => 'admin',
     // ...
 ],
+```
 
-// В MoonShineServiceProvider
+tab: app/Providers/MoonShineServiceProvider.php
+```php
 $config->guard('admin');
 ```
+~~~
 
 ### Отключение встроенной аутентификации
 
+~~~tabs
+tab: config/moonshine.php
 ```php
-// В moonshine.php
 'auth' => [
     'enable' => false,
     // ...
 ],
+```
 
-// В MoonShineServiceProvider
+tab: app/Providers/MoonShineServiceProvider.php
+```php
 $config->authDisable();
 ```
+~~~
 
 <a name="routing-settings"></a>
 ## Настройки маршрутизации
 
 ### Установка префиксов
 
+~~~tabs
+tab: config/moonshine.php
 ```php
-// В moonshine.php
 'prefix' => 'admin',
-'page_prefix' => 'admin-page',
-
-// В MoonShineServiceProvider
-$config->prefixes('admin', 'admin-page');
+'page_prefix' => 'page',
+'ressource_prefix' => 'resource',
 ```
+
+tab: app/Providers/MoonShineServiceProvider.php
+```php
+$config->prefixes('admin', 'page', 'resource');
+```
+~~~
+
+> [!WARNING]
+> Вы можете оставить `ressource_prefix` пустым и `URL` ресурсов будет иметь вид `/admin/{resourceUri}/{pageUri}`,
+> но вы можете создать конфликт с роутами пакетов
 
 ### Установка домена
 
+~~~tabs
+tab: config/moonshine.php
 ```php
-// В moonshine.php
 'domain' => 'admin.example.com',
+```
 
-// В MoonShineServiceProvider
+tab: app/Providers/MoonShineServiceProvider.php
+```php
 $config->domain('admin.example.com');
 ```
+~~~
 
 <a name="localization-settings"></a>
 ## Настройки локализации
 
 ### Установка доступных локалей
 
+~~~tabs
+tab: config/moonshine.php
 ```php
-// В moonshine.php
 'locales' => ['en', 'ru'],
+```
 
-// В MoonShineServiceProvider
+tab: app/Providers/MoonShineServiceProvider.php
+```php
 $config->locales(['en', 'ru']);
 ```
+~~~
 
 <a name="additional-settings"></a>
 ## Дополнительные настройки
 
 ### Настройка хранилища
 
+~~~tabs
+tab: config/moonshine.php
 ```php
-// В moonshine.php
 'disk' => 'public',
 'disk_options' => [],
+```
 
-// В MoonShineServiceProvider
+tab: app/Providers/MoonShineServiceProvider.php
+```php
 $config->disk('public', options: []);
 ```
+~~~
 
 ### Настройка макета по умолчанию
 
+~~~tabs
+tab: config/moonshine.php
 ```php
-// В moonshine.php
 'layout' => \App\MoonShine\Layouts\CustomLayout::class,
+```
 
-// В MoonShineServiceProvider
+tab: app/Providers/MoonShineServiceProvider.php
+```php
 $config->layout(\App\MoonShine\Layouts\CustomLayout::class);
 ```
+~~~
 
 <a name="configuration-options"></a>
 ## Полный список параметров конфигурации
@@ -248,8 +289,9 @@ $config->layout(\App\MoonShine\Layouts\CustomLayout::class);
 | Параметр в moonshine.php | Метод MoonShineConfigurator | Описание |
 |--------------------------|---------------------------|-----------|
 | `domain` | `domain(string $domain)` | Домен для административной панели |
-| `prefix` | `prefixes(string $route, string $page)` | Префикс маршрута |
-| `page_prefix` | `prefixes(string $route, string $page)` | Префикс страницы |
+| `prefix` | `prefixes(string $route, string $page, string $resource)` | Префикс маршрута |
+| `page_prefix` | `prefixes(string $route, string $page, string $resource)` | Префикс страницы |
+| `resource_prefix` | `prefixes(string $route, string $page, string $resource)` | Префикс ресурса |
 | `middleware` | `middleware(array $middleware)` | Middleware для административной панели |
 | - | `addMiddleware(array|string $middleware)` | Добавление middleware |
 | - | `exceptMiddleware(array|string $except)` | Исключение middleware |

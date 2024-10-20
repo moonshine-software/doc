@@ -4,6 +4,8 @@
 - [Установка через composer](#composer)
 - [Установка панели](#install)
 
+---
+
 <a name="requirements"></a>
 ## Требования
 

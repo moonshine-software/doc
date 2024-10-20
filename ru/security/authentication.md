@@ -9,6 +9,12 @@
 - [Ограничение доступа по ролям](#role-based-access)
 - [Аутентификационные pipelines](#authentication-pipelines)
 
+## TODO
+- [ ] Socialite
+- [ ] JWT смотреть в frontend/api
+- [ ] 2FA
+---
+
 <a name="introduction"></a>
 ## Введение
 
