@@ -1,10 +1,24 @@
 # Code
 
+- [Установка](#installation)
 - [Основы](#basics)
 - [Language](#language)
-- [Нумерация строк](#line-numbers)
+- [Themes](#themes)
+- [Options](#options)
 
 ---
+
+> [!NOTE]
+> Подробнее о поле можно посмотреть в [репозитории пакета](https://github.com/moonshine-software/ace)
+
+<a name="installation"></a>
+## Установка
+
+Перед использованием требуется установить пакет:
+
+```bash
+composer require moonshine/ace
+```
 
 <a name="basics"></a>
 ## Основы
@@ -16,12 +30,15 @@
 Поле Code является расширением Textarea с визуальным оформлением редактируемого кода.
 
 ```php
-use MoonShine\UI\Fields\Code;
+use MoonShine\Ace\Fields\Code;
 
 Code::make('Code')
 ```
 
 ![fields_code](https://moonshine-laravel.com/screenshots/code.png)
+
+> [!NOTE]
+> Поле работает на основе [Ace](https://ace.c9.io/) библиотеки.
 
 <a name="language"></a>
 ## Language
@@ -35,22 +52,33 @@ language(string $language)
 Поддерживаемые языки: _HTML , XML , CSS , PHP , JavaScript_ и многие другие.
 
 ```php
-use MoonShine\UI\Fields\Code;
-
 Code::make('Code')
     ->language('js') 
 ```
 
-<a name="line-numbers"></a>
-## Нумерация строк
+<a name="themes"></a>
+## Themes
+
+Чтобы изменить темы - используйте `themes()` метод.
 
 ```php
-lineNumbers()
+themes(string $light = null, string $dark = null)
 ```
 
 ```php
-use MoonShine\UI\Fields\Code;
+Code::make('Code')
+    ->themes('chrome', 'cobalt');
+```
 
- Code::make('Code')
-    ->lineNumbers()
+<a name="options"></a>
+## Options
+
+`addOption()` метод позволяет вам добавить дополнительные опции для поля.
+
+```php
+addOption(string $name, string|int|float|bool $value)
+```
+```php
+Code::make('Code')
+    ->addOption('showGutter', false)
 ```
