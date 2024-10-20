@@ -9,7 +9,8 @@
 
 Содержит все [Базовые методы](#/docs/{{version}}/fields/basic-methods.md).
 
-Поле Color предоставляет удобный способ для ввода цвета.
+Поле Color предоставляет удобный способ для ввода цвета. </br>
+Использует UI компонент [Color](#/docs/{{version}}/components/color.md)
 
 ```php
 use MoonShine\UI\Fields\Color; 
