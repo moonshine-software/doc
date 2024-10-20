@@ -22,6 +22,6 @@ tab: Blade
 ```
 ~~~
 
-![image](https://moonshine-laravel.com/screenshots/image.png)
+![image](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/image.png)
 
-![image dark](https://moonshine-laravel.com/screenshots/image_dark.png)
+![image dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/image_dark.png)

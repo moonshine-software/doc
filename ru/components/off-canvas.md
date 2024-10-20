@@ -1,74 +1,84 @@
-# OffCanvas (WIP ...)
+# OffCanvas
 
-- [Make](#make)
-- [Events](#events)
-- [Default state](#open)
-- [Position](#position)
-- [Toggler attributes](#toggler-attributes)
+  - [Основы](#basics)
+  - [События](#events)
+    -  [Открытие/Закрытие](#open-close)
+  - [Состояние по умолчанию](#open)
+  - [Позиция](#position)
+  - [Атрибуты переключателя](#toggler-attributes)
 
 ---
 
-## TODO
-- [ ] - https://github.com/moonshine-software/moonshine/pull/1288
+<a name="basics"></a> 
+## Основы
 
-<a name="make"></a>
-## Make
-
-The *Offcanvas* decorator allows you to create sidebars.
-You can create *Offcanvas* using the static `make()` method.
+Компонент `Offcanvas` позволяет создавать боковые панели.
+Вы можете создать `Offcanvas`, используя статический метод `make()`.
 
 ```php
-make(Closure|string $title, Closure|View|string $content, Closure|string $toggler = '', Closure|string|null $asyncUrl = '')
+make(
+    Closure|string $title = '',
+    Closure|Renderable|string $content = '',
+    Closure|string $toggler = '',
+    Closure|string|null $asyncUrl = null,
+    iterable $components = [],
+)
 ```
 
-- `$title` - sidebar title,
-- `$content` - sidebar content,
-- `$toggler` - title for button,
-- `$asyncUrl` - url for asynchronous content
+- `$title` - заголовок боковой панели,
+- `$content` - содержимое боковой панели,
+- `$toggler` - заголовок для кнопки,
+- `$asyncUrl` - url для асинхронного контента
+- `$components` - компоненты,
+
+~~~tabs
+tab: Class
+```php
+use MoonShine\UI\Components\OffCanvas;
+
+OffCanvas::make(
+    'Подтвердить',
+    static fn() => FormBuilder::make(route('password.confirm'))
+        ->async()
+        ->fields([
+            Password::make('Пароль')->eye(),
+        ])
+        ->submit('Подтвердить'),
+    'Показать панель'
+)
+```
+tab: Blade
+```blade
+<x-moonshine::offcanvas
+    title="Offcanvas"
+    :left="false"
+>
+    <x-slot:toggler>
+         Open
+    </x-slot:toggler>
+    {{ fake()->text() }}
+</x-moonshine::offcanvas>
+```
+~~~
+
+
+<a name="events"></a> 
+## События
+
+Вы можете показывать или скрывать боковую панель не из компонента через события *javascript*.
+Чтобы иметь доступ к событиям, вы должны установить уникальное имя для боковой панели, используя метод `name()`.
 
 ```php
-use MoonShine\Components\FormBuilder;
-use MoonShine\Components\Offcanvas;
-use MoonShine\Fields\Password;
+use MoonShine\UI\Components\OffCanvas;
 
 //...
 
-public function components(): array
+protected function components(): iterable
 {
     return [
         Offcanvas::make(
-            'Confirm',
-            static fn() => FormBuilder::make(route('password.confirm'))
-                ->async()
-                ->fields([
-                    Password::make('Password')->eye(),
-                ])
-                ->submit('Confirm'),
-            'Show canvas'
-        )
-    ];
-}
-
-//...
-```
-
-<a name="events"></a>
-## Events
-
-You can show or hide a sidebar not from a component through *javascript* events.
-To have access to events, you must set a unique name for the sidebar using the `name()` method.
-
-```php
-use MoonShine\Components\Offcanvas;
-
-//...
-
-public function components(): array
-{
-    return [
-        Offcanvas::make(
-            'Title',
-            'Content...'
+            'Заголовок',
+            'Содержимое...'
         )
             ->name('my-canvas')
     ];
@@ -77,135 +87,114 @@ public function components(): array
 //...
 ```
 
-### calling an event via ActionButton
+### Вызов события через ActionButton
 
-The sidebar event can be triggered using the *ActionButton* component.
+Событие боковой панели может быть вызвано с помощью компонента *ActionButton*.
 
 ```php
-use MoonShine\Components\Offcanvas;
+Offcanvas::make(
+    'Заголовок',
+    'Содержимое...',
+)
+    ->name('my-canvas'),
 
-//...
+ActionButton::make('Показать модальное окно')
+    ->toggleOffCanvs('my-canvas')
 
-public function components(): array
-{
-    return [
-        Offcanvas::make(
-            'Title',
-            'Content...',
-        )
-            ->name('my-canvas'),
-
-        ActionButton::make(
-            'Show canvas',
-            '/endpoint'
-        )
-            ->async(events: ['offcanvas-toggled-my-canvas'])
-    ];
-}
-
-//...
+// или асинхронно
+ActionButton::make(
+    'Показать панель',
+    '/endpoint'
+)
+    ->async(events: [AlpineJs::event(JsEvent::OFF_CANVAS_TOGGLED, 'my-canvas')])
 ```
 
-### calling an event using native methods
+### Вызов события с использованием нативных методов
 
-Events can be triggered using native *javascript* methods:
+События могут быть вызваны с использованием нативных методов *javascript*:
 
 ```php
 document.addEventListener("DOMContentLoaded", () => {
-    this.dispatchEvent(new Event("offcanvas-toggled-my-canvas"))
+    this.dispatchEvent(new Event("off_canvas_toggled:my-canvas"))
 })
 ```
 
-### calling an event using the Alpine.js method
+### Вызов события с использованием метода Alpine.js
 
-Or use the magic `$dispatch()` method from Alpine.js:
+Или используйте магический метод `$dispatch()` из Alpine.js:
 
 ```php
-this.$dispatch('offcanvas-toggled-my-canvas')
+this.$dispatch('off_canvas_toggled:my-canvas')
 ```
 
 > [!NOTE]
-> More detailed information can be obtained from the official Alpine.js documentation in the sections [Events](https://alpinejs.dev/essentials/events) and [$dispatch](https://alpinejs.dev/magics/dispatch).
+> Более подробную информацию можно получить из официальной документации Alpine.js в разделах [Events](https://alpinejs.dev/essentials/events) и [$dispatch](https://alpinejs.dev/magics/dispatch).
 
-<a name="open"></a>
-## Default state
+<a name="open-close"></a>
+### Открытие/Закрытие
 
-The `open()` method allows you to show the sidebar when the page loads.
+Вы также можете добавить события при открытии/закрытии боковой панели через метод `toggleEvents`
+
+```php
+toggleEvents(array $events, bool $onlyOpening = false, $onlyClosing = false)
+```
+
+```php
+ActionButton::make('Open off-canvas')->toggleOffCanvas('my-off-canvas'),
+
+OffCanvas::make('My OffCanvas', asyncUrl: '/')
+    ->name('my-off-canvas')
+    ->left()
+    ->toggleEvents([
+        AlpineJs::event(JsEvent::TOAST, params: ['text' => 'Hello off-canvas'])
+    ]),
+```
+
+Параметрами `onlyOpening` и `onlyClosing` можно регулировать будут ли события вызываться при открытии и закрытии, по умолчанию оба параметра `TRUE`, тем самым список событий будет вызван и в момент окрытия боковой панели и в момент закрытия
+
+<a name="open"></a> 
+## Состояние по умолчанию
+
+Метод `open()` позволяет показать боковую панель при загрузке страницы.
 
 ```php
 open(Closure|bool|null $condition = null)
 ```
 
 ```php
-use MoonShine\Components\Offcanvas;
-
-//...
-
-public function components(): array
-{
-    return [
-        Offcanvas::make('Title', 'Content...', 'Show canvas')
-            ->open()
-    ];
-}
-
-//...
+OffCanvas::make('Заголовок', 'Содержимое...', 'Показать панель')
+    ->open()
 ```
 
 > [!TIP]
-> By default, the sidebar will be hidden when the page loads.
+> По умолчанию боковая панель будет скрыта при загрузке страницы.
 
-<a name="position"></a>
-##  Position
+<a name="position"></a> 
+## Позиция
 
-By default, the sidebar is located on the right side of the screen, the `left()` method allows you to position the panel on the left side.
+По умолчанию боковая панель расположена с правой стороны экрана, метод `left()` позволяет расположить панель с левой стороны.
 
 ```php
 left(Closure|bool|null $condition = null)
 ```
 
 ```php
-use MoonShine\Components\Offcanvas;
-
-//...
-
-public function components(): array
-{
-    return [
-        Offcanvas::make('Title', 'Content...', 'Show canvas')
-            ->left()
-    ];
-}
-
-//...
+OffCanvas::make('Заголовок', 'Содержимое...', 'Показать панель')
+    ->left()
 ```
 
-<a name="toggler-attributes"></a>
-##  Toggler attributes
+<a name="toggler-attributes"></a> 
+## Атрибуты переключателя
 
-The `toggler Attributes()` method allows you to set additional attributes for the `$toggler` toggle.
+Метод `togglerAttributes()` позволяет установить дополнительные атрибуты для переключателя `$toggler`.
 
 ```php
 togglerAttributes(array $attributes)
 ```
 
 ```php
-use MoonShine\Components\Offcanvas;
-
-//...
-
-public function components(): array
-{
-    return [
-        Offcanvas::make('Title', 'Content...', 'Show canvas')
-            ->togglerAttributes([
-                'class' => 'mt-2'
-            ]),
-    ];
-}
-
-//...
+OffCanvas::make('Заголовок', 'Содержимое...', 'Показать панель')
+    ->togglerAttributes([
+        'class' => 'mt-2'
+    ]),
 ```
-
-
-

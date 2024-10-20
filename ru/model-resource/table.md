@@ -14,7 +14,7 @@
     - [Обновление ряда](#update-row)
   - [Модификаторы](#modifiers)
     - [Компоненты](#components)
-    - [thead,tbody,tfoot](thead-tbody-tfoot) 
+    - [Элементы thead, tbody, tfoot](#thead-tbody-tfoot) 
 
 ---
 
@@ -102,7 +102,8 @@ protected function indexButtons(): ListOf
 > Такой же подход используется и для таблицы на детальной страницы, только через методы `detailButtons` и `customDetailButtons`
 
 > [!TIP]
-> Пример создания кастомных кнопок у индексной таблицы в разделе [Рецепты](/docs/{{version}}/recipes/index#custom-buttons)
+> TODO
+> Пример создания кастомных кнопок у индексной таблицы в разделе [Рецепты](/docs/{{version}}/recipes/custom-buttons)
 
 Для массовых действий необходимо добавить метод `bulk`
 
@@ -163,7 +164,7 @@ class PostResource extends ModelResource
 }
 ```
 
-![img](https://moonshine-laravel.com/screenshots/table_class_dark.png)
+![img](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/table_class_dark.png)
 
 <a name="click"></a>
 ## Действия по клику
@@ -323,7 +324,7 @@ class PostResource extends ModelResource
 }
 ```
 
-![img] (https://moonshine-laravel.com/screenshots/resource_simple_paginate_dark.png)
+![img] (https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/resource_simple_paginate_dark.png)
 
 <a name="disable-pagination"></a>
 ### Отключение пагинации
@@ -451,8 +452,8 @@ class PostResource extends ModelResource
 }
 ```
 
-<a name="modify"></a>
-## Модификация
+<a name="modifiers"></a>
+## Модификаторы
 
 <a name="components"></a>
 ### Компоненты
@@ -478,7 +479,7 @@ public function modifyDetailComponent(MoonShineRenderable $component): MoonShine
 ```
 
 <a name="thead-tbody-tfoot"></a>
-### thead,tbody,tfoot
+### Элементы thead, tbody, tfoot
 
 Если вам недостаточно просто автоматически выводить поля в `thead`, `tbody` и `tfoot`, то вы можете переопределить или дополнить эту логику на основе методов ресурса `thead()`, `tbody()`, `tfoot()`
 

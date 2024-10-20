@@ -31,8 +31,8 @@ class PostResource extends ModelResource
     //...
 }
 ```
-![metrics](https://moonshine-laravel.com/screenshots/metrics.png)
-![metrics_dark](https://moonshine-laravel.com/screenshots/metrics_dark.png)
+![metrics](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/metrics.png)
+![metrics_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/metrics_dark.png)
 
 > [!NOTE]
 > Для более подробной информации, пожалуйста, обратитесь к разделам [Metrics](/docs/{{version}}/components/metrics)

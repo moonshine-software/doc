@@ -103,8 +103,8 @@ class PostResource extends ModelResource
 }
 ```
 
-![resource_paginate](https://moonshine-laravel.com/screenshots/resource_paginate.png)
-![resource_paginate_dark](https://moonshine-laravel.com/screenshots/resource_paginate_dark.png)
+![resource_paginate](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/resource_paginate.png)
+![resource_paginate_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/resource_paginate_dark.png)
 
 <a name="declaring-a-section-in-the-system"></a>
 ## Объявление в системе
@@ -295,7 +295,7 @@ public function getRedirectAfterDelete(): string
 <a name="active-actions"></a>
 ## Активные действия
 
-Часто бывает, что необходимо создать ресурс, в котором будет исключена возможность удалять, или добавлять, или редактировать. И здесь речь не об авторизации, а о глобальном исключении этих разделов. Делается это крайне просто за счет метода `getActiveActions` в ресурсе
+Часто бывает, что необходимо создать ресурс, в котором будет исключена возможность удалять, или добавлять, или редактировать. И здесь речь не об авторизации, а о глобальном исключении этих разделов. Делается это крайне просто за счет метода `activeActions` в ресурсе
 
 ```php
 namespace App\MoonShine\Resources;
@@ -316,6 +316,14 @@ class PostResource extends ModelResource
     }
 
     //...
+}
+```
+
+Также можно просто создать новый список:
+```php
+protected function activeActions(): ListOf
+{
+    return new ListOf(Action::class, [Action::VIEW, Action::UPDATE]);
 }
 ```
 
@@ -459,7 +467,8 @@ class PostResource extends ModelResource
 ```
 
 > [!TIP]
-> Рецепт: [Изменение breadcrumbs из ресурса](/docs/{{version}}/recipes/index#custom-breadcrumbs).
+> TODO
+> Рецепт: [Изменение breadcrumbs из ресурса](/docs/{{version}}/recipes/custom-breadcrumbs).
 
 Вы также можете подключить `trait` к ресурсу и внутри `trait` добавить метод согласно конвенции наименований - `load{TraitName}` и через трейт обратится к `onLoad` ресурса
 

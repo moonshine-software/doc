@@ -7,7 +7,6 @@
 ~~~tabs
 tab: Class
 ```php
-use MoonShine\UI\Components\Badge;
 use MoonShine\Support\Enums\Color;
 
 Badge::make('Primary', Color::PRIMARY);

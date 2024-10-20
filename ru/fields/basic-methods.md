@@ -57,9 +57,11 @@
 Text::make(Closure|string|null $label = null, ?string $column = null, ?Closure $formatted = null)
 ```
 
-- `$label` - лейбл, заголовок поля,
-- `$column` - связь столбца в базе и атрибута `name` у поля ввода (например: `description` > `<input name="description">`). Если это поле отношения, то используется название отношения (например: countries)
+- `$label` - лейбл, заголовок поля.
+- `$column` - связь столбца в базе и атрибута `name` у поля ввода (например: `description` > `<input name="description">`). Если это поле отношения, то используется название отношения (например: countries).
 - `$formatted` - замыкание для форматирования значения поля в режиме preview (для BelongsTo и BelongsToMany форматирует значения для выбора).
+
+> В `$label` можно добавлять html теги, они не будут экранироваться.
 
 > Если не указать `$column`, то поле в базе данных будет определено автоматически на основе `$label` (только для английского языка).
 
@@ -325,6 +327,9 @@ Text::make('Title')->readonly()
 <a name="custom-attributes"></a>
 ### Другие атрибуты
 Чтобы указать любые другие атрибуты, используется метод `customAttributes()`.
+
+> [!NOTE]
+> Поля являются компонентами, подробнее об атрибутах читайте в разделе [Атрибуты компонентов](/docs/{{version}}/components/attributes)
 
 ```php
 customAttributes(array $attributes, bool $override = false)
@@ -636,7 +641,7 @@ onChangeUrl(
 
 - `$url` - url запроса,
 - `$method` - метод асинхронного запроса,
-- `$events` - вызываемые [AlpineJS события](TODO ссылка на доку) после успешного запроса,
+- `$events` - вызываемые [AlpineJS события](/docs/{{version}}/frontend/js#events) после успешного запроса,
 - `$selector` - selector элемента у которого будет изменяться контент,
 - `$callback` - js callback функция после получения ответа.
 
@@ -673,7 +678,7 @@ onChangeMethod(
 - `$params` - параметры для запроса,
 - `$message` - сообщения,
 - `$selector` - selector элемента у которого будет изменяться контент,
-- `$events` - вызываемые [AlpineJS события](TODO ссылка на доку) после успешного запроса,
+- `$events` - вызываемые [AlpineJS события](/docs/{{version}}/frontend/js#events) после успешного запроса,
 - `$callback` - js callback функция после получения ответа,
 - `$page` - страница содержащая метод,
 - `$resource` - ресурс содержащий метод.
@@ -779,7 +784,7 @@ public function updateOnPreview(
  - `$url` - url запроса,
  - `$resource` - ресурс содержащий updateOnPreview,
  - `$condition` - условие установки поля в режим updateOnPreview,
- - `$events` - вызываемые [AlpineJS события](TODO ссылка на доку) после успешного запроса.
+ - `$events` - вызываемые [AlpineJS события](/docs/{{version}}/frontend/js#events) после успешного запроса.
 
 > [!NOTE]
 > Параметры не являются обязательными, но должны быть заданы, если поле находится вне ресурса или же вы хотите указать полностью свой endpoint (тогда и ресурс не нужен)

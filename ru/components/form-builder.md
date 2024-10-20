@@ -295,7 +295,8 @@ FormBuilder::make('/crud/update')
 - `JsEvent::FORM_RESET` - сброс значений формы по ее имени,
 
 > [!NOTE]
-> Рецепт [При успешном запросе форма обновляет таблицу и сбрасывает значения](/docs/{{version}}/recipes/index#form-with-events)
+> TODO
+> Рецепт [При успешном запросе форма обновляет таблицу и сбрасывает значения](/docs/{{version}}/recipes/form-with-events)
 
 > [!WARNING]
 > Метод `async()` должен идти после метода `name()`!
