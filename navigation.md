@@ -8,9 +8,9 @@
     - [Configuration](/docs/{{version}}/configuration)
 - ## Appearance
     - [Menu](/docs/{{version}}/appearance/menu)
-    - Layout
-    - Assets
-    - Colors
+    - [Layout](/docs/{{version}}/appearance/layout)
+    - [Assets](/docs/{{version}}/appearance/assets)
+    - [Colors](/docs/{{version}}/appearance/colors)
     - [Icons](/docs/{{version}}/appearance/icons)
 - ## ModelResource
     - [Basics](/docs/{{version}}/model-resource/index)
@@ -75,36 +75,82 @@
     - [StackFields](/docs/{{version}}/fields/stack-fields)
     - [Template](/docs/{{version}}/fields/template)
 - ## Components
-    - Basics
+    - [Basics](/docs/{{version}}/components/index)
     - [Attributes](/docs/{{version}}/components/attributes)
+    - [ActionButton](/docs/{{version}}/components/action-button)
     - [FormBuilder](/docs/{{version}}/components/form-builder)
     - [TableBuilder](/docs/{{version}}/components/table-builder)
-    - CardsBuilder
-    - [Alert](/docs/{{version}}/components/alert)
-    - [ActionButton](/docs/{{version}}/components/action-button)
+    - [CardsBuilder](/docs/{{version}}/components/cards-builder)
     - [Modal](/docs/{{version}}/components/modal)
     - [OffCanvas](/docs/{{version}}/components/off-canvas)
+    - [Box](/docs/{{version}}/components/box)
+    - [Block](/docs/{{version}}/components/block)
+    - [Loader](/docs/{{version}}/components/loader)
+    - [Assets](/docs/{{version}}/components/assets)
+    - [Body](/docs/{{version}}/components/body)
+    - [Column](/docs/{{version}}/components/column)
+    - [Content](/docs/{{version}}/components/content)
+    - [Div](/docs/{{version}}/components/div)
+    - [Divider](/docs/{{version}}/components/divider)
+    - [Favicon](/docs/{{version}}/components/favicon)
+    - [Flash](/docs/{{version}}/components/flash)
+    - [Flex](/docs/{{version}}/components/flex)
+    - [Footer](/docs/{{version}}/components/footer)
+    - [Grid](/docs/{{version}}/components/grid)
+    - [Head](/docs/{{version}}/components/head)
+    - [Header](/docs/{{version}}/components/header)
+    - [Html](/docs/{{version}}/components/html)
+    - [Layout](/docs/{{version}}/components/layout)
+    - [LineBreak](/docs/{{version}}/components/line-break)
+    - [Logo](/docs/{{version}}/components/logo)
+    - [Menu](/docs/{{version}}/components/menu)
+    - [Meta](/docs/{{version}}/components/meta)
+    - [MobileBar](/docs/{{version}}/components/mobilebar)
+    - [Sidebar](/docs/{{version}}/components/sidebar)
+    - [TopBar](/docs/{{version}}/components/topbar)
+    - [ThemeSwitcher](/docs/{{version}}/components/theme-switcher)
+    - [Wrapper](/docs/{{version}}/components/wrapper)
+    - [Metrics](/docs/{{version}}/components/metrics)
+    - [ActionGroup](/docs/{{version}}/components/action-group)
+    - [Alert](/docs/{{version}}/components/alert)
     - [Badge](/docs/{{version}}/components/badge)
     - [Boolean](/docs/{{version}}/components/boolean)
-    - [Loader](/docs/{{version}}/components/loader)
-    - [Box](/docs/{{version}}/components/box)
+    - [Card](/docs/{{version}}/components/card)
+    - [Carousel](/docs/{{version}}/components/carousel)
+    - [Color](/docs/{{version}}/components/color)
+    - [Components](/docs/{{version}}/components/components)
+    - [FieldsGroup](/docs/{{version}}/components/fields-group)
+    - [Dropdown](/docs/{{version}}/components/dropdown)
+    - [Files](/docs/{{version}}/components/files)
+    - [FlexibleRender](/docs/{{version}}/components/flexible-render)
+    - [Heading](/docs/{{version}}/components/heading)
+    - [Link](/docs/{{version}}/components/link)
+    - [Icon](/docs/{{version}}/components/icon)
+    - [Popover](/docs/{{version}}/components/popover)
+    - [Progressbar](/docs/{{version}}/components/progress-bar)
+    - [Rating](/docs/{{version}}/components/rating)
+    - [Tabs](/docs/{{version}}/components/tabs)
+    - [Thumbnails](/docs/{{version}}/components/thumbnails)
+    - [Title](/docs/{{version}}/components/title)
+    - [Url](/docs/{{version}}/components/url)
+    - [When](/docs/{{version}}/components/when)
 - ## Frontend
     - [Js](/docs/{{version}}/frontend/js)
     - [SDUI](/docs/{{version}}/frontend/sdui)
-    - API
+    - [API](/docs/{{version}}/frontend/api)
 - ## Security
     - [Authorization](/docs/{{version}}/security/authorization)
     - [Authentication](/docs/{{version}}/security/authentication)
 - ## Advanced
-    - CrudResource
+    - [CrudResource](/docs/{{version}}/advanced/crud-resource)
     - [Routes](/docs/{{version}}/advanced/routes)
-    - Commands
-    - Controllers
-    - Handlers
-    - TypeCasts
-    - Notifications
-    - Localization
-    - Testing
-    - Package Development
+    - [Commands](/docs/{{version}}/advanced/commands)
+    - [Controllers](/docs/{{version}}/advanced/controllers)
+    - [Handlers](/docs/{{version}}/advanced/handlers)
+    - [TypeCasts](/docs/{{version}}/advanced/type-casts)
+    - [Notifications](/docs/{{version}}/advanced/notifications)
+    - [Localization](/docs/{{version}}/advanced/localization)
+    - [Testing](/docs/{{version}}/advanced/testing)
+    - [Package Development](/docs/{{version}}/advanced/package-development)
 - ## Recipes
     - [Profile](/docs/{{version}}/recipes/profile)
