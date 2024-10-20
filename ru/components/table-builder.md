@@ -1,6 +1,6 @@
 # TableBuilder
 
-- [Вступление](#intro)
+- [Основы](#basics)
 - [Основное использование](#basic-usage)
 - [Основные методы](#basic-methods)
   - [Поля](#fields)
@@ -35,14 +35,34 @@
   - [Слоты](#blade-slots)
   - [Стилизация](#blade-styles)
 
-<a name="intro"></a>
-## Вступление
+---
+
+<a name="basics"></a>
+## Основы
 
 `TableBuilder` - инструмент в MoonShine для создания настраиваемых таблиц для отображения данных. Он используется на индексной и детальной CRUD-страницах, а также для полей отношений, таких как `HasMany`, `BelongsToMany`, `RelationRepeater` и поля `Json`.
 
+~~~tabs
+tab: Class
 ```php
+use MoonShine\UI\Components\Table\TableBuilder;
+
 TableBuilder::make(iterable $fields = [], iterable $items = [])
 ```
+tab: Blade
+```blade
+<x-moonshine::table
+    :columns="[
+        '#', 'First', 'Last', 'Email'
+    ]"
+    :values="[
+        [1, fake()->firstName(), fake()->lastName(), fake()->safeEmail()],
+        [2, fake()->firstName(), fake()->lastName(), fake()->safeEmail()],
+        [3, fake()->firstName(), fake()->lastName(), fake()->safeEmail()]
+    ]"
+/>
+```
+~~~
 
 <a name="basic-usage"></a>
 ## Основное использование
@@ -478,6 +498,9 @@ TableBuilder::make()
 - `JsEvent::TABLE_UPDATED` - обновление таблицы,
 - `JsEvent::TABLE_REINDEX` - реиндексация таблицы (см. `reindex()`)
 - `JsEvent::TABLE_ROW_UPDATED` - обновление строки таблицы (`AlpineJs::event(JsEvent::TABLE_ROW_UPDATED, "{component-name}-{row-id}")`)
+
+> [!NOTE]
+> Для получения дополнительной информации о js событиях обратитесь к разделу [Events](/docs/{{version}}/frontend/events).
 
 Все параметры метода `async` являются опциональными, и по умолчанию TableBuilder автоматически укажет URL на основе текущей страницы.
 
