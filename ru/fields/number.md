@@ -26,11 +26,23 @@
 
 Поле `Number` - это базовое числовое поле ввода в MoonShine. Это поле эквивалент `<input type="number">`
 
+~~~tabs
+tab: Class
 ```php
 use MoonShine\UI\Fields\Number;
 
 Number::make('Sort')
 ```
+tab: Blade
+```blade
+<x-moonshine::field-container label="Sort">
+    <x-moonshine::form.input
+        type="number"
+        name="sort"
+    />
+</x-moonshine::field-container>
+```
+~~~
 
 <a name="basic-methods"></a>
 ## Основные методы
@@ -84,7 +96,7 @@ Number::make('Rating')
     ->buttons()
 ```
 
-![number_buttons](https://moonshine-laravel.com/screenshots/number_buttons.png)
+![number_buttons](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/number_buttons.png)
 
 <a name="number-type-methods"></a>
 ## Методы для работы с числовыми значениями
@@ -143,9 +155,9 @@ Number::make('Rating')
 
 Поля поддерживает различные расширения для помощи и контроля ввода
 
-![expansion](https://moonshine-laravel.com/screenshots/expansion.png)
+![expansion](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/expansion.png)
 
-![expansion_dark](https://moonshine-laravel.com/screenshots/expansion_dark.png)
+![expansion_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/expansion_dark.png)
 
 <a name="copy"></a>
 ### Копирование

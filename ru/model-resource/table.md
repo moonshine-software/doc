@@ -14,7 +14,9 @@
     - [Обновление ряда](#update-row)
   - [Модификаторы](#modifiers)
     - [Компоненты](#components)
-    - [thead,tbody,tfoot](thead-tbody-tfoot) 
+    - [Элементы thead, tbody, tfoot](#thead-tbody-tfoot) 
+
+---
 
 <a name="basics"></a>
 ## Основы
@@ -100,7 +102,8 @@ protected function indexButtons(): ListOf
 > Такой же подход используется и для таблицы на детальной страницы, только через методы `detailButtons` и `customDetailButtons`
 
 > [!TIP]
-> Пример создания кастомных кнопок у индексной таблицы в разделе [Рецепты](/docs/{{version}}/recipes/index#custom-buttons)
+> TODO
+> Пример создания кастомных кнопок у индексной таблицы в разделе [Рецепты](/docs/{{version}}/recipes/custom-buttons)
 
 Для массовых действий необходимо добавить метод `bulk`
 
@@ -137,6 +140,7 @@ use App\Models\Post;
 use Closure;
 use MoonShine\UI\Fields\Text;
 use MoonShine\Laravel\Resources\ModelResource;
+use MoonShine\Contracts\Core\TypeCasts\DataWrapperContract;
 
 class PostResource extends ModelResource
 {
@@ -144,14 +148,14 @@ class PostResource extends ModelResource
 
     protected function tdAttributes(): Closure
     {
-        return fn(Model $data, int $row, int $cell) => [
+        return fn(?DataWrapperContract $data, int $row, int $cell) => [
             'width' => '20%'
         ];
     }
 
     protected function trAttributes(): Closure
     {
-        return fn(Model $data, int $row) => [
+        return fn(?DataWrapperContract $data, int $row) => [
             'data-tr' => $row
         ];
     }
@@ -160,7 +164,7 @@ class PostResource extends ModelResource
 }
 ```
 
-![img](https://moonshine-laravel.com/screenshots/table_class_dark.png)
+![img](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/table_class_dark.png)
 
 <a name="click"></a>
 ## Действия по клику
@@ -320,7 +324,7 @@ class PostResource extends ModelResource
 }
 ```
 
-![img] (https://moonshine-laravel.com/screenshots/resource_simple_paginate_dark.png)
+![img] (https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/resource_simple_paginate_dark.png)
 
 <a name="disable-pagination"></a>
 ### Отключение пагинации
@@ -448,8 +452,8 @@ class PostResource extends ModelResource
 }
 ```
 
-<a name="modify"></a>
-## Модификация
+<a name="modifiers"></a>
+## Модификаторы
 
 <a name="components"></a>
 ### Компоненты
@@ -475,11 +479,16 @@ public function modifyDetailComponent(MoonShineRenderable $component): MoonShine
 ```
 
 <a name="thead-tbody-tfoot"></a>
-### thead,tbody,tfoot
+### Элементы thead, tbody, tfoot
 
 Если вам недостаточно просто автоматически выводить поля в `thead`, `tbody` и `tfoot`, то вы можете переопределить или дополнить эту логику на основе методов ресурса `thead()`, `tbody()`, `tfoot()`
 
 ```php
+use MoonShine\Contracts\UI\Collection\TableRowsContract;
+use MoonShine\Contracts\UI\TableRowContract;
+use MoonShine\UI\Collections\TableCells;
+use MoonShine\UI\Collections\TableRows;
+
 protected function thead(): null|TableRowsContract|Closure
 {
     return static fn(TableRowContract $default) => TableRows::make([$default])->pushRow(
@@ -500,7 +509,7 @@ protected function tbody(): null|TableRowsContract|Closure
 
 protected function tfoot(): null|TableRowsContract|Closure
 {
-    return static fn(TableRowContract $default) => TableRows::make([$default])->pushRow(
+    return static fn(?TableRowContract $default) => TableRows::make([$default])->pushRow(
         TableCells::make()->pushCell(
             'td content'
         )
@@ -508,12 +517,19 @@ protected function tfoot(): null|TableRowsContract|Closure
 }
 ```
 
+#### Пример добавления дополнительной строки в tfoot  
+```php
+    protected function tfoot(): null|TableRowsContract|Closure
+    {
+        return static function(?TableRowContract $default, TableBuilder $table) {
+            $cells = TableCells::make();
 
+            $cells->pushCell('Баланс:');
+            $cells->pushCell('1000 р.');
 
-
-
-
-
-
+            return TableRows::make([TableRow::make($cells), $default]);
+        };
+    }
+```
 
 

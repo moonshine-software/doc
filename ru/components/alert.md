@@ -7,7 +7,7 @@
 
 ---
 <a name="basics"></a>
-## [Основы](#basics)
+## Основы
 
 Если вам необходимо уведомление на странице, можно воспользоваться компонентом `moonshine::alert` или классом `Alert`.
 
@@ -25,7 +25,8 @@ tab: Blade
 ~~~
 
 <a name="type"></a>
-## [Тип уведомления](#type)
+## Тип уведомления
+
 
 Изменить тип уведомления можно указав у компонента `type`.
 
@@ -36,8 +37,6 @@ primary secondary success warning error info
 ~~~tabs
 tab: Class
 ```php
-use MoonShine\UI\Components\Alert;
-
 Alert::make(type: 'primary')->content('Primary'),
 Alert::make(type: 'secondary')->content('Secondary'),
 Alert::make(type: 'success')->content('Success'),
@@ -57,25 +56,25 @@ tab: Blade
 ~~~
 
 <a name="icon"></a>
-## [Иконка](#icon)
+## Иконка
 
 Есть возможность у уведомления изменить иконку, для этого необходимо передать её в параметр `icon`.
 
 ~~~tabs
 tab: Class
 ```php
-Alert::make(icon: "heroicons.academic-cap)->content('Text'),
+Alert::make(icon: "academic-cap")->content('Text'),
 ```
 tab: Blade
 ```blade
-<x-moonshine::alert icon="heroicons.academic-cap>Alert</x-moonshine::alert>
+<x-moonshine::alert icon="academic-cap">Alert</x-moonshine::alert>
 ```
 ~~~
 
 За более подробной информацией обратитесь к разделу [Icons](/docs/3.x/resource/appearance/icons) .
 
 <a name="removable"></a>
-## [Удаление уведомлений](#removable)
+## Удаление уведомлений
 
 Чтобы удалять уведомления через некоторое время, необходимо передать параметр `removable` со значением `TRUE`.
 

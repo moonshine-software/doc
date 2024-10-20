@@ -7,14 +7,15 @@
 ~~~tabs
 tab: Class
 ```php
-use MoonShine\UI\Components\Badge;
+use MoonShine\Support\Enums\Color;
 
-Badge::make('Primary','primary');
-Badge::make('Secondary','secondary');
-Badge::make('Success','success');
-Badge::make('Info','info');
-Badge::make('Warning','warning');
-Badge::make('Error','error');
+Badge::make('Primary', Color::PRIMARY);
+Badge::make('Secondary', Color::SECONDARY);
+Badge::make('Success', Color::SUCCESS);
+Badge::make('Info', Color::INFO);
+Badge::make('Warning', Color::WARNING);
+Badge::make('Error', Color::ERROR);
+// or strings
 Badge::make('Purple','purple');
 Badge::make('Pink','pink');
 Badge::make('Blue','blue');

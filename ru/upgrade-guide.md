@@ -9,7 +9,7 @@
 
 ---
 <a name="update"></a>
-## [Обновление пакета](#update)
+## Обновление пакета
 
 ### Обновить `composer.json`
 `"moonshine/moonshine": "^2.x",` → `"moonshine/moonshine": "^3.0",`
@@ -29,7 +29,7 @@
 `composer update`
 
 <a name="install"></a>
-## [Первоначальная настройка](#install)
+## Первоначальная настройка
 
 ### Запустить команду `moonshine:install`
 Команда `moonshine:install` создает новый сервис-провайдер, конфигурацию, Layout и Dashboard.
@@ -84,10 +84,10 @@ rm app/MoonShine/Pages/Dashboard_old.php
 ```
 
 <a name="refactor"></a>
-## [Список изменений](#refactor)
+## Список изменений
 
 <a name="namespace"></a>
-### [Namespace](#namespace)
+### Namespace
 #### Изменить
 - `MoonShine\Resources\` → `MoonShine\Laravel\Resources\`
 - `MoonShine\Fields\Relationships\` → `MoonShine\Laravel\Fields\Relationships\`
@@ -117,7 +117,7 @@ rm app/MoonShine/Pages/Dashboard_old.php
   ```
   
 <a name="methods"></a>
-### [Методы](#methods)
+### Методы
 #### Изменить
 - Если нужно создать экземпляр: `new NameResource()` → `app(NameResource::class)`
 - `public function components(): array` → `protected function components(): iterable`
@@ -200,7 +200,7 @@ rm app/MoonShine/Pages/Dashboard_old.php
 - Хелперы `form`, `table`, `actionBtn` (используйте классы `TableBuilder`, `FormBuilder`, `ActionButton`)
 
 <a name="vars"></a>
-### [Переменные](#vars)
+### Переменные
 #### Изменить
 - Во всех методах нужно удалить префикс `heroicons.outline` и `heroicons.outline.solid` из всех файлов (эти иконки и outline теперь по-умолчанию).
 - Все экземпляры ресурсов нужно заменить на строковые классы, пример:

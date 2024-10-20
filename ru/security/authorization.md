@@ -2,6 +2,8 @@
   - [Основы](#basics)
   - [Дополнительная логика](#additional-logic)
 
+---
+
 <a name="basics"></a>
 ## Основы
 

@@ -23,10 +23,14 @@ public function __invoke(MoonShineRequest $request): PageContract
 Пример стандартного роута
 
 ```php
-Route::get('/admin/{resourceUri}/{pageUri}', CustomController::class)
+Route::get('/admin/resource/{resourceUri}/{pageUri}', CustomController::class)
 	->middleware(['moonshine', \MoonShine\Laravel\Http\Middleware\Authenticate::class])
 	->name('moonshine.name');
 ```
+
+> [!NOTE]
+> Префикс `resource` можно изменить или удалить через [настройки конфигурации](/docs/{{version}}/configuration)
+>
 
 Данный пример включает в себя роут с параметрами ресурса и страницы, а также группу middleware `moonshine` список которой распалагается в конфиге `moonshine.php` и middleware `Authenticate` для доступа к ендпоинту только для авторизованного пользователя
 
@@ -41,7 +45,7 @@ Route::moonshine(static function (Router $router) {
 }, withResource: true, withPage: true, withAuthenticate: true);
 
 // result
-// POST /admin/{resourceUri}/{pageUri}/permissions/{resourceItem}
+// POST /admin/resource/{resourceUri}/{pageUri}/permissions/{resourceItem}
 // middleware: moonshine, Authenticate::class
 ```
 
