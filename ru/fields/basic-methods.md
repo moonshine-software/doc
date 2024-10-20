@@ -444,23 +444,6 @@ Text::make('Thumbnail')
   }) 
 ```
 
-Методы `beforeRender()` и `afterRender()` позволяют вывести какую-то информацию перед и после поля соответственно.
-
-```php
-beforeRender(Closure $closure)
-```
-
-```php
-afterRender(Closure $closure)
-```
-
-```php
-Image::make('Thumbnail')
-  ->beforeRender(function (Field $field) {
-      return $field->preview();
-  }) 
-```
-
 <a name="request-value-resolver"></a>
 ### Получение значения из запроса
 
