@@ -4,10 +4,11 @@
 - [Основные методы](#basic-methods)
   - [Значение по умолчанию](#default)
   - [Подсказка](#placeholder)
+  - [Кнопки +/-](#buttons)
+- [Методы для работы с числовыми значениями](#number-type-methods)
   - [Максимальное и минимальное значение](#min-and-max)
   - [Шаг](#step)
   - [Звезды](#stars)
-  - [Кнопки +/-](#buttons)
 - [Расширения](#extensions)
   - [Копирование](#copy)
   - [Скрытие значения](#eye)
@@ -15,6 +16,8 @@
   - [Суффикс](#suffix)
 - [Редактирование в режиме preview](#preview-edit)
 - [Реактивность](#reactive)
+
+---
 
 <a name="basics"></a>
 ## Основы
@@ -65,6 +68,27 @@ Number::make('Rating', 'rating')
     ->placeholder('Рейтинг продукта')
 ```
 
+<a name="buttons"></a>
+### Кнопки +/-
+
+Метод `buttons()` позволяет добавить к полю кнопки для увеличения или уменьшения значения.
+
+```php
+buttons()
+```
+
+```php
+use MoonShine\UI\Fields\Number;
+
+Number::make('Rating')
+    ->buttons()
+```
+
+![number_buttons](https://moonshine-laravel.com/screenshots/number_buttons.png)
+
+<a name="number-type-methods"></a>
+## Методы для работы с числовыми значениями
+
 <a name="min-and-max"></a>
 ### Максимальное и минимальное значение
 
@@ -114,28 +138,10 @@ Number::make('Rating')
     ->max(10)
 ```
 
-<a name="buttons"></a>
-### Кнопки +/-
-
-Метод `buttons()` позволяет добавить к полю кнопки для увеличения или уменьшения значения.
-
-```php
-buttons()
-```
-
-```php
-use MoonShine\UI\Fields\Number;
-
-Number::make('Rating')
-    ->buttons()
-```
-
-![number_buttons](https://moonshine-laravel.com/screenshots/number_buttons.png)
-
 <a name="extensions"></a>
 ## Расширения
 
-Поля поддерживаеют различные расширения для помощи и контроля ввода
+Поля поддерживает различные расширения для помощи и контроля ввода
 
 ![expansion](https://moonshine-laravel.com/screenshots/expansion.png)
 
