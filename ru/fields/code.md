@@ -2,6 +2,7 @@
 
 - [Установка](#installation)
 - [Основы](#basics)
+- [Конфиг по умолчанию](#default-config)
 - [Language](#language)
 - [Themes](#themes)
 - [Options](#options)
@@ -39,6 +40,32 @@ Code::make('Code')
 
 > [!NOTE]
 > Поле работает на основе [Ace](https://ace.c9.io/) библиотеки.
+
+
+<a name="default-config"></a>
+## Конфиг по умолчанию
+
+Чтобы изменить настройки по умолчанию, необходимо опубликовать файл конфигурации:
+
+```bash
+php artisan vendor:publish --tag="moonshine-ace-config"
+```
+
+Вы также можете добавить дополнительные параметры в файл конфигурации, которые будут применяться ко всем `Code` полям.
+
+```php
+'options' => [
+    'language' => 'javascript',
+    'options' => [
+        'useSoftTabs' => true,
+        'navigateWithinSoftTabs' => true,
+    ],
+    'themes' => [
+        'light' => 'chrome',
+        'dark' => 'cobalt'
+    ],
+],
+```
 
 <a name="language"></a>
 ## Language
