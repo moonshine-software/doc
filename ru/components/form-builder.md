@@ -14,6 +14,7 @@
 - [Валидация](#validation)
   - [Отображение ошибок валидации](#displaying-validation-errors)
   - [Прекогнитивная валидация](#precognitive)
+  - [Несколько форм одновременно](#multiple-forms)
 - [Применение](#apply)
 - [События](#events)
 - [Использование в blade](#blade)
@@ -363,6 +364,45 @@ FormBuilder::make('/crud/update')
 ```php
 FormBuilder::make('/crud/update')
     ->precognitive()
+```
+
+<a name="multiple-forms"></a>
+### Несколько форм одновременно
+
+Если у вас есть несколько форм на одной странице и они не в режиме `async`, то Вам также необходимо указать наименование для `errorBag` в `FormRequest` или в `Controller`:
+
+[Подробнее о наименования errorBag](https://laravel.com/docs/validation#named-error-bags)
+
+```php
+FormBuilder::make(route('multiple-forms.one'))
+    ->name('formOne'),
+    
+FormBuilder::make(route('multiple-forms.two'))
+    ->name('formTwo'),
+
+FormBuilder::make(route('multiple-forms.three'))
+    ->name('formThree')
+
+class FormOneFormRequest extends FormRequest
+{
+    protected $errorBag = 'formOne';
+    
+    // ..
+}
+
+class FormTwoFormRequest extends FormRequest
+{
+    protected $errorBag = 'formTwo';
+    
+    // ..
+}
+
+class FormThreeFormRequest extends FormRequest
+{
+    protected $errorBag = 'formThree';
+    
+    // ..
+}
 ```
 
 <a name="apply"></a>
