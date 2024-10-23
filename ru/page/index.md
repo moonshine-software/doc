@@ -14,6 +14,7 @@
 - [Жизненный цикл](#lifecycle)
     - [Активный ресурс](#on-load)
     - [Создание экземпляра](#on-boot)
+- [Создание ссылки на страницу в ресурсе](#link-from-resource)
 
 <a name="basics"></a>
 ## Основы
@@ -321,5 +322,26 @@ class PostPage extends Page
         //
     }
     // ...
+}
+```
+
+<a name="link-from-resource"></a>
+## Создание ссылки на страницу в ресурсе
+
+В данном примере для создания ссылки на новую страницу будем использовать [ActionButton](/docs/{{version}}/components/action-button) и метод [getPageUrl](/docs/{{version}}/model-resource/routes)
+
+```php
+/**
+ * @throws Throwable
+ */
+public function indexButtons(): ListOf
+{
+    return parent::indexButtons()->add(
+        ActionButton::make('To custom page',
+            url: fn($model) => $this->getPageUrl(
+                PostPage::class, params: ['resourceItem' => $model->getKey()]
+            ),
+        ),
+    );
 }
 ```
