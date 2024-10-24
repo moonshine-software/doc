@@ -224,7 +224,7 @@ class ProfileController extends Controller
 {
     public function __invoke(ProfilePage $page): ProfilePage
     {
-        return $page;
+        return $page->loaded();
     }
 }
 ```
