@@ -38,7 +38,6 @@
 
 ### Обновляем конфиг из бэкапа
 - Параметры `'logo'` и `'logo_small'` нужно удалить, так как настройка Logo переместилась в MoonShineLayout _(смотрите документацию по Layout)_.
-- Удалить `'locale'`, если есть, так как заменено на `locales` (смотрите раздел [Локализация](/docs/{{version}}/configuration#localization-settings)).
 
 ### Перенести меню в MoonShineLayout и обновить
 - Изменения:
