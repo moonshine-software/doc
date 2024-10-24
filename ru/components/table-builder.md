@@ -23,6 +23,7 @@
   - [Поиск](#search)
   - [Действие по клику](#click-action)
   - [Сохранение состояния в URL](#save-state-in-url)
+  - [Модификация чекбокса массовых действий](#modify-row-checkbox)
 - [Настройка атрибутов](#attribute-configuration)
 - [Асинхронная загрузка](#async-loading)
   - [Lazy и whenAsync методы](#lazy)
@@ -443,6 +444,17 @@ TableBuilder::make()
 
 ```php
 ->pushState()
+```
+<a name="modify-row-checkbox"></a>
+### Модификация чекбокса массовых действий
+
+Метод `modifyRowCheckbox()` позволяет модифицировать чекбокс массовых действий. 
+Пример ниже демонстрирует выбор активного чекбокса по умолчанию:
+
+```php
+->modifyRowCheckbox(
+    fn(Checkbox $checkbox, DataWrapperContract $data, TableBuilder $ctx) => $data->getKey() === 2 ? $checkbox->customAttributes(['checked' => true]) : $checkbox
+)
 ```
 
 <a name="attribute-configuration"></a>

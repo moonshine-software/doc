@@ -221,6 +221,20 @@ $config->domain('admin.example.com');
 <a name="localization-settings"></a>
 ## Настройки локализации
 
+### Язык по умолчанию
+
+~~~tabs
+tab: config/moonshine.php
+```php
+'locale' => 'en',
+```
+
+tab: app/Providers/MoonShineServiceProvider.php
+```php
+$config->locale('en');
+```
+~~~
+
 ### Установка доступных локалей
 
 ~~~tabs

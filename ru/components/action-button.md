@@ -121,6 +121,15 @@ ActionButton::make(
 )->onClick(fn() => "alert('Пример')", 'prevent')
 ```
 
+Если вам необходимо получить данные в методе `onClick`, то воспользуйтесь методом `onAfterSet`:
+
+```php
+ActionButton::make('Alert')
+  ->onAfterSet(function (?DataWrapperContract $data, ActionButton $button) {
+    return $button->onClick(fn() => 'alert('.$data?->getKey().')');
+  })
+```
+
 <a name="modal"></a> 
 ## Модальное окно
 
