@@ -66,7 +66,7 @@
   - [Json](/docs/{{version}}/fields/json)
   - [BelongsTo](/docs/{{version}}/fields/belongs_to)
   - [BelongsToMany](/docs/{{version}}/fields/belongs_to_many)
-  - [HasMany](/docs/{{version}}/fields/has-many)
+  - [HasMany](/docs/{{version}}/fields/has_many)
   - [HasManyThrough](/docs/{{version}}/fields/has_many_through)
   - [HasOne](/docs/{{version}}/fields/has_one)
   - [HasOneThrough](/docs/{{version}}/fields/has_one_through)
