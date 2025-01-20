@@ -1274,4 +1274,4 @@ Enum::make('Status')
 <a name="scheme"></a>
 ## Scheme field's work
 
-![field_scheme](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/field_scheme.png)]
+![field_scheme](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/field_scheme.png)
