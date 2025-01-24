@@ -469,18 +469,25 @@ HasMany::make('Comments', 'comments', resource: CommentResource::class)
 <a name="advanced"></a>
 ## Advanced usage
 
-### Relation through JSON field
+### Relation through RelationRepeater field
 The `HasMany` field is displayed outside the main resource form by default.
-If you need to display the relation fields inside the main form, you can use the *JSON* field in `asRelation()` mode.
+If you need to display the relation fields inside the main form, you can use the *RelationRepeater* field.
+
+> [!NOTE]
+> For more detailed information, refer to the [RelationRepeater field](/docs/{{version}}/fields/relation-repeater).
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:2]
-use App\MoonShine\Resources\CommentResource;
-use MoonShine\UI\Fields\Json;
-
-Json::make('Comments', 'comments')
-    ->asRelation(CommentResource::class)
+use MoonShine\UI\Fields\Text;
+use MoonShine\Laravel\Fields\Relationships\RelationRepeater;
+ 
+RelationRepeater::make('Characteristics', 'characteristics')
+    ->fields([
+        ID::make(),
+        Text::make('Name', 'name'),
+        Text::make('Value', 'value'),
+    ])
 ```
 
 ### Relation through Template field
