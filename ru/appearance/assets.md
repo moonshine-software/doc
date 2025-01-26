@@ -141,7 +141,7 @@ $assetManager->add([
 но перед отображением страницы будет вызван `Layout`, который также в свою очередь добавит ассеты, тем самым ассеты `Layout` добавятся в конце.
 
 > [!TIP]
-> Вы также можете воспользоваться хелпером `moonshine()->getAssetManager()`
+> Вы также можете воспользоваться хелпером `moonshine()->getAssetManager()`.
 
 <a name="asset-modification"></a>
 ## Модификация ресурсов
@@ -271,7 +271,7 @@ use MoonShine\UI\Components\Layout\Box;
 
 Box::make()->addAssets([
     Js::make('/js/custom.js'),
-    Css::make('/css/styles.css')
+    Css::make('/css/styles.css'),
 ]);
 ```
 
@@ -293,7 +293,7 @@ final class MyComponent extends MoonShineComponent
     {
         return [
             Js::make('/js/custom.js'),
-            Css::make('/css/styles.css')
+            Css::make('/css/styles.css'),
         ];
     }
 }
