@@ -35,8 +35,8 @@ public function components(): array
 //...
 ```
 
-![block](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/block.png)
-![block_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/block_dark.png)
+![block](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/block.png#light)
+![block_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/block_dark.png#dark)
 
 <a name="no-title"></a>
 ## No title
@@ -61,8 +61,8 @@ public function components(): array
 //...
 ```
 
-![block_without_title](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/block_without_title.png)
-![block_without_title_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/block_without_title_dark.png)
+![block_without_title](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/block_without_title.png#light)
+![block_without_title_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/block_without_title_dark.png#dark)
 
 <a name="icon"></a>
 ## Icon
@@ -88,5 +88,5 @@ public function components(): array
 > [!NOTE]
 > For more detailed information, please refer to the section [Icons](/docs/{{version}}/appearance/icons).
 
-![block_icon](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/block_icon.png)
-![block_icon_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/block_icon_dark.png)
+![block_icon](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/block_icon.png#light)
+![block_icon_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/block_icon_dark.png#dark)

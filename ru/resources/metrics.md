@@ -28,8 +28,8 @@ class PostResource extends ModelResource
     //...
 }
 ```
-![metrics](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/metrics.png)
-![metrics_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/metrics_dark.png)
+![metrics](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/metrics.png#light)
+![metrics_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/metrics_dark.png#dark)
 
 > [!NOTE]
 > Для более подробной информации, пожалуйста, обратитесь к разделам [Круговая диаграмма](/docs/{{version}}/components/metric_donut_chart), [Линейный график](/docs/{{version}}/components/metric_line_chart) и [Значение](/docs/{{version}}/components/metric_value).

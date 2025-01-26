@@ -27,11 +27,10 @@ public function fields(): array
 
 //...
 ```
-![markdown](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/markdown.png)
-![markdown_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/markdown_dark.png)
-
-![markdown](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/markdown_preview.png)
-![markdown_preview_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/markdown_preview_dark.png)
+![markdown](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/markdown.png#light)
+![markdown_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/markdown_dark.png#dark)
+![markdown_preview](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/markdown_preview.png#light)
+![markdown_preview](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/markdown_preview_dark.png#dark)
 
 
 <a name="toolbar"></a>  

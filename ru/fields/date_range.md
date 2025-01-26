@@ -35,7 +35,8 @@ public function fields(): array
 //...
 ```
 
-![](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/date-range.png) ![](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/date-range_dark.png)
+![](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/date-range.png#light)
+![](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/date-range_dark.png#dark)
 
 <a name="with-time"></a>
 ## Дата и время

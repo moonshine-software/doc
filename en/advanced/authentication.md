@@ -22,8 +22,8 @@ return [
 ];
 ```
 
-![login](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/login.png)
-![login_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/login_dark.png)
+![login](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/login.png#light)
+![login_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/login_dark.png#dark)
 
 <a name="extending"></a>
 ## Empowerment          

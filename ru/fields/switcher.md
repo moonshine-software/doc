@@ -19,5 +19,5 @@ public function fields(): array
 
 //...
 ```
-![switcher](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/switcher.png)
-![switcher_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/switcher_dark.png)
+![switcher](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/switcher.png#light)
+![switcher_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/switcher_dark.png#dark)

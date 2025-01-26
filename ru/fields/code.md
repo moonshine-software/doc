@@ -22,8 +22,8 @@ public function fields(): array
 //...
 ```
 
-![code](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/code.png)
-![code_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/code_dark.png)
+![code](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/code.png#light)
+![code_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/code_dark.png#dark)
 
 <a name="language"></a>
 ## Язык

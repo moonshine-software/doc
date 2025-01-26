@@ -38,7 +38,8 @@ public function fields(): array
 //...
 ```
 
-![File Dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/file_dark.png)
+![File](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/file.png#light)
+![File](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/file_dark.png#dark)
 
 > [!NOTE]
 > Чтобы корректно генерировать URL файла, необходимо определить переменную окружения `APP_URL` таким образом, чтобы она соответствовала URL вашего приложения.

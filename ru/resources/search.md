@@ -40,7 +40,8 @@ class PostResource extends ModelResource
 }
 ```
 
-![MoonShine Search Dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/search_dark.png)
+![MoonShine Search](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/search.png#light)
+![MoonShine Search](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/search_dark.png#dark)
 
 <a name="fulltext"></a>
 ## Полнотекстовый поиск

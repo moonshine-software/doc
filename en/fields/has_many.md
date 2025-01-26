@@ -54,8 +54,8 @@ public function fields(): array
 //...
 ```
 
-![has_many](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/has_many.png)
-![has_many_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/has_many_dark.png)
+![has_many](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/has_many.png#light)
+![has_many_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/has_many_dark.png#dark)
 
 > [!NOTE]
 > If you do not specify `$relationName`, then the relation name will be determined automatically based on `$label`.
@@ -123,8 +123,8 @@ public function fields(): array
 //...
 ```
 
-![has_many_fields](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/has_many_fields.png)
-![has_many_fields_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/has_many_fields_dark.png)
+![has_many_fields](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/has_many_fields.png#light)
+![has_many_fields_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/has_many_fields_dark.png#dark)
 
 <a name="creatable"></a> 
 ## Creating a Relationship Object
@@ -154,8 +154,8 @@ public function fields(): array
 //...
 ```
 
-![has_many_creatable](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/has_many_creatable.png)
-![has_many_creatable_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/has_many_creatable_dark.png)
+![has_many_creatable](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/has_many_creatable.png#light)
+![has_many_creatable_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/has_many_creatable_dark.png#dark)
 
 You can customize the create *button* by passing the button parameter to the method.
 
@@ -230,8 +230,8 @@ public function fields(): array
 
 //...
 ```
-![has_many_link](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/has_many_link.png)
-![has_many_link_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/has_many_link_dark.png)
+![has_many_link](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/has_many_link.png#light)
+![has_many_link_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/has_many_link_dark.png#dark)
 
 ## linkRelation
 

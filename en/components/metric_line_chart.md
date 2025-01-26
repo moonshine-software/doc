@@ -176,5 +176,5 @@ public function components(): array
 > [!NOTE]
 > See the [Decoration Layout](/docs/{{version}}/components/decoration_layout) section for more details.
 
-![line_chart_metric_column_span](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/line_chart_metric_column_span.png)
-![line_chart_metric_column_span_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/line_chart_metric_column_span_dark.png)
+![line_chart_metric_column_span](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/line_chart_metric_column_span.png#light)
+![line_chart_metric_column_span_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/line_chart_metric_column_span_dark.png#dark)

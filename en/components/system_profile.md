@@ -58,8 +58,8 @@ final class MoonShineLayout implements MoonShineLayoutContract
 }
 ```
 
-![profile](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/profile.png)
-![profile_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/profile_dark.png)
+![profile](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/profile.png#light)
+![profile_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/profile_dark.png#dark)
 
 <a name="default-avatar"></a>
 ## Default avatar

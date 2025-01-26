@@ -48,8 +48,8 @@ protected function modifyCreateButton(ActionButton $button): ActionButton
 }
 ```
 
-![resource_button_create](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_button_create.png) 
-![resource_button_create_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_button_create_dark.png)
+![resource_button_create](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_button_create.png#light)
+![resource_button_create](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_button_create_dark.png#dark)
 
 #### Override
 
@@ -85,8 +85,8 @@ protected function modifyDetailButton(ActionButton $button): ActionButton
 }
 ```
 
-![resource_button_detail](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_button_detail.png) 
-![resource_button_detail_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_button_detail_dark.png)
+![resource_button_detail](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_button_detail.png#light) 
+![resource_button_detail](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_button_detail_dark.png#dark)
 
 #### Override
 
@@ -121,8 +121,8 @@ protected function modifyEditButton(ActionButton $button): ActionButton
 }
 ```
 
-![resource_button_edit](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_button_edit.png) 
-![resource_button_edit_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_button_edit_dark.png)
+![resource_button_edit](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_button_edit.png#light) 
+![resource_button_edit](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_button_edit_dark.png#dark)
 
 #### Override
 
@@ -158,8 +158,8 @@ protected function modifyDeleteButton(ActionButton $button): ActionButton
 }
 ```
 
-![resource_button_delete](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_button_delete.png) 
-![resource_button_delete_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_button_delete_dark.png)
+![resource_button_delete](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_button_delete.png#light) 
+![resource_button_delete](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_button_delete_dark.png#dark)
 
 #### Override
 
@@ -199,7 +199,8 @@ protected function modifyMassDeleteButton(ActionButton $button): ActionButton
 }
 ```
 
-![resource_button_mass_delete](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_button_mass_delete.png) ![resource_button_mass_delete_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_button_mass_delete_dark.png)
+![resource_button_mass_delete](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_button_mass_delete.png#light)
+![resource_button_mass_delete_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_button_mass_delete_dark.png#dark)
 
 #### Override
 
@@ -239,8 +240,8 @@ protected function modifyExportButton(ActionButton $button): ActionButton
 }
 ```
 
-![resource_button_export](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_button_export.png) 
-![resource_button_export_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_button_export_dark.png)
+![resource_button_export](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_button_export.png#light) 
+![resource_button_export](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_button_export_dark.png#dark)
 
 #### Override
 
@@ -272,8 +273,8 @@ protected function modifyImportButton(ActionButton $button): ActionButton
 }
 ```
 
-![resource_button_import](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_button_import.png) 
-![resource_button_import_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_button_import_dark.png)
+![resource_button_import](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_button_import.png#light) 
+![resource_button_import](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_button_import_dark.png#dark)
 
 #### Override
 
@@ -305,8 +306,8 @@ protected function modifyFiltersButton(ActionButton $button): ActionButton
 }
 ```
 
-![resource_button_filters](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_button_filters.png) 
-![resource_button_filters_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_button_filters_dark.png)
+![resource_button_filters](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_button_filters.png#light) 
+![resource_button_filters](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_button_filters_dark.png#dark)
 
 #### Override
 
@@ -348,7 +349,8 @@ class PostResource extends ModelResource
 }
 ```
 
-![resource_buttons_form_builder](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_buttons_form_builder.png) ![resource_buttons_form_builder_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_buttons_form_builder_dark.png)
+![resource_buttons_form_builder](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_buttons_form_builder.png#light)
+![resource_buttons_form_builder_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_buttons_form_builder_dark.png#dark)
 
 <a name="actions"></a>
 ## Buttons on the index page
@@ -380,8 +382,8 @@ class PostResource extends ModelResource
 }
 ```
 
-![resource_buttons_actions](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_buttons_actions.png) 
-![resource_buttons_actions_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_buttons_actions_dark.png)
+![resource_buttons_actions](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_buttons_actions.png#light)
+![resource_buttons_actions](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_buttons_actions_dark.png#dark)
 
 <a name="buttons"></a>
 ## Element buttons
@@ -438,8 +440,8 @@ class PostResource extends ModelResource
 }
 ```
 
-![resource_buttons_index](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_buttons_index.png) 
-![resource_buttons_index_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_buttons_index_dark.png)
+![resource_buttons_index](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_buttons_index.png#light)
+![resource_buttons_index](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_buttons_index_dark.png#dark)
 
 > [!TIP]
 > An example of creating custom buttons for the index table in the section [Recipes](/docs/{{version}}/recipes#custom-buttons)
@@ -456,8 +458,8 @@ public function indexButtons(): array
 }
 ```
 
-![resource_buttons_bulk](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_buttons_bulk.png) 
-![resource_buttons_bulk_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_buttons_bulk_dark.png)
+![resource_buttons_bulk](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_buttons_bulk.png#light) 
+![resource_buttons_bulk](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_buttons_bulk_dark.png#dark)
 
 #### Group override
 
@@ -523,8 +525,8 @@ class PostResource extends ModelResource
 }
 ```
 
-![resource_buttons_form](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_buttons_form.png) 
-![resource_buttons_form_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_buttons_form_dark.png)
+![resource_buttons_form](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_buttons_form.png#light) 
+![resource_buttons_form](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_buttons_form_dark.png#dark)
 
 #### Group override
 
@@ -581,8 +583,8 @@ class PostResource extends ModelResource
 }
 ```
 
-![resource_buttons_detail](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_buttons_detail.png) 
-![resource_buttons_detail_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_buttons_detail_dark.png)
+![resource_buttons_detail](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_buttons_detail.png#light)
+![resource_buttons_detail](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/resource_buttons_detail_dark.png#dark)
 
 #### Group override
 

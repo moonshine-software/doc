@@ -29,7 +29,8 @@ public function fields(): array
 //...
 ```
 
-![](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/slide.png) ![](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/slide_dark.png)
+![](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/slide.png#light)
+![](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/slide_dark.png#dark)
 
 <a name="filter"></a>
 ## Фильтр

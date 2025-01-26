@@ -115,5 +115,5 @@ final class MoonShineLayout implements MoonShineLayoutContract
 }
 ```
 
-![footer](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/footer.png)
-![footer_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/footer_dark.png)
+![footer](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/footer.png#light)
+![footer_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/footer_dark.png#dark)
