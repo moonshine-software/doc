@@ -31,7 +31,7 @@
 Для того чтобы добавить пункт меню, необходимо воспользоваться классом **MoonShine\Menu\MenuItem** и его статическим методом `make()`.
 
 ```php
-MenuItem::make(Closure|string $label, Closure|MenuFillerContract|string $filler, string $icon = null, Closure|bool $blank = false)
+MenuItem::make(Closure|string $label, Closure|MenuFillerContract|string $filler, string $icon = null, Closure|bool $blank = false);
 ```
 
 - `$label` - название пункта меню,
@@ -77,7 +77,7 @@ final class MoonShineLayout extends AppLayout
 Для этого используется класс `MoonShine\MenuManager\MenuGroup` со статическим методом `make()`.
 
 ```php
-MenuGroup::make(Closure|string $label, iterable $items, string|null $icon = null)
+MenuGroup::make(Closure|string $label, iterable $items, string|null $icon = null);
 ```
 
 - `$label` - название группы,
@@ -156,7 +156,7 @@ final class MoonShineLayout extends AppLayout
 /**
  * @param  (Closure(MenuElementContract $context): string)|string  $label
  */
-MenuDivider::make(Closure|string $label = '')
+MenuDivider::make(Closure|string $label = '');
 ```
 
 ```php
