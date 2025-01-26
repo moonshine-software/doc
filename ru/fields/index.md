@@ -356,7 +356,8 @@ public function fields(): array
 //...
 ```
 
-![hint](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/hint.png) ![hint_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/hint_dark.png)
+![hint](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/hint.png#light)
+![hint_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/hint_dark.png#dark)
 
 <a name="link"></a>
 ## Ссылка
@@ -387,7 +388,8 @@ public function fields(): array
 //...
 ```
 
-![link](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/link.png) ![link_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/link_dark.png)
+![link](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/link.png#light)
+![link_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/link_dark.png#dark)
 
 <a name="nullable"></a>
 ## Nullable
@@ -517,7 +519,8 @@ public function fields(): array
 //...
 ```
 
-![horizontal](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/horizontal.png) ![horizontal_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/horizontal_dark.png)
+![horizontal](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/horizontal.png#light)
+![horizontal_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/horizontal_dark.png#dark)
 
 <a name="hide-show"></a>
 ## Отображение
@@ -1045,7 +1048,8 @@ public function fields(): array
 }
 ```
 
-![without_wrapper](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/without_wrapper.png) ![without_wrapper_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/without_wrapper_dark.png)
+![without_wrapper](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/without_wrapper.png#light)
+![without_wrapper_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/without_wrapper_dark.png#dark)
 
 <a name="reactive"></a>
 ## Реактивность

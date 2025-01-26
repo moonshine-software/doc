@@ -39,7 +39,8 @@ public function fields(): array
 //...
 ```
 
-![File Dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/file_dark.png)
+![File](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/file.png#light)
+![File](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/file_dark.png#dark)
 
 > [!NOTE]
 > To generate the file URL correctly, you must define the `APP_URL` environment variable in this way, so that it matches your application's URL.

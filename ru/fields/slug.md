@@ -35,8 +35,8 @@ public function fields(): array
 //...
 ```
 
-![slug](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/slug.png)
-![slug_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/slug_dark.png)
+![slug](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/slug.png#light)
+![slug_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/slug_dark.png#dark)
 
 
 <a name="from"></a>  

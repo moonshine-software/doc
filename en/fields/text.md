@@ -32,8 +32,8 @@ public function fields(): array
 //...
 ```
 
-![input](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/input.png)
-![input_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/input_dark.png)
+![input](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/input.png#light)
+![input_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/input_dark.png#dark)
 
 <a name="default"></a>
 ## Default value
@@ -110,8 +110,8 @@ public function fields(): array
 //...
 ```
 
-![mask](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/mask.png)
-![mask_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/mask_dark.png)
+![mask](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/mask.png#light)
+![mask_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/mask_dark.png#dark)
 
 <a name="placeholder"></a>
 ## Placeholder
@@ -206,8 +206,8 @@ public function fields(): array
 //...
 ```
 
-![expansion](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/expansion.png)
-![expansion_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/expansion_dark.png)
+![expansion](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/expansion.png#light)
+![expansion_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/expansion_dark.png#dark)
 
 > [!NOTE]
 > The `copy` method uses the `Clipboard API` which is only available for HTTPS or localhost

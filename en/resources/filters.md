@@ -36,8 +36,8 @@ class PostResource extends ModelResource
 }
 ```
 
-![filters](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/filters.png)
-![filters_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/filters_dark.png)
+![filters](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/filters.png#light)
+![filters_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/filters_dark.png#dark)
 
 > [!TIP]
 > Fields are a key element in building forms in the **Moonshine** admin panel.

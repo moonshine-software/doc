@@ -38,7 +38,8 @@ public function fields(): array
 
 //...
 ```
-![select](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/select_dark.png)
+![select](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/select.png#light)
+![select](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/select_dark.png#dark)
 
 <a name="default"></a>
 ## Default value
@@ -95,7 +96,8 @@ public function fields(): array
 
 //...
 ```
-![select nullabledark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/select_nullable_dark.png)
+![select nullable](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/select_nullable.png#light)
+![select nullable](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/select_nullable_dark.png#dark)
 
 <a name="placeholder"></a>
 ## Placeholder
@@ -149,7 +151,8 @@ public function fields(): array
 
 //...
 ```
-![select group dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/select_group_dark.png)
+![select group](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/select_group.png#light)
+![select group](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/select_group_dark.png#dark)
 
 <a name="multiple"></a>
 ## Selecting Multiple Values
@@ -182,7 +185,8 @@ public function fields(): array
 > When using `multiple()` for the Eloquent model, a field in the database type text or json is required.
 You also need to add *cast* - json or array or collection.
 
-![select multiple dark.](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/select_multiple_dark.png)
+![select multiple](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/select_multiple.png#light)
+![select multiple](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/select_multiple_dark.png#dark)
 
 <a name="search"></a>
 ## Search
@@ -211,7 +215,8 @@ public function fields(): array
 
 //...
 ```
-![searchable](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/select_searchable_dark.png)
+![searchable](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/select_searchable.png#light)
+![searchable](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/select_searchable_dark.png#dark)
 
 <a name="async"></a>
 ## Asynchronous search
@@ -318,7 +323,8 @@ public function fields(): array
 
 //...
 ```
-![belongs to image dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/belongs_to_image_dark.png)
+![belongs to image](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/belongs_to_image.png#light)
+![belongs to image](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/belongs_to_image_dark.png#dark)
 
 <a name="options"></a>
 ## Options

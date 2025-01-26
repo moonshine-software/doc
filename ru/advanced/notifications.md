@@ -15,5 +15,5 @@ MoonShineNotification::send(
     color: 'green'
 );
 ```
-![notifications](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/notifications.png)
-![notifications_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/notifications_dark.png)
+![notifications](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/notifications.png#light)
+![notifications_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/notifications_dark.png#dark)

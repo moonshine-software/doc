@@ -18,8 +18,7 @@ public function fields(): array
 
 //
 ```
-![Color](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/color.png)
-
-![Color](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/color_dark.png)
+![Color](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/color.png#light)
+![Color](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/color_dark.png#dark)
 
 

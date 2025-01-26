@@ -42,5 +42,5 @@ MoonShine готов появиться в вашем проекте. Прост
 
 Понадобилась помощь по MoonShine? Можете задать вопрос в [Telegram чате](https://t.me/moonshine_ru) или [заказать консультацию](https://forms.gle/U41uLZzXBCibmwbE7).
 
-![main](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/main.png) 
-![main_dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/main_dark.png)
+![main](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/main.png#light) 
+![main](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/main_dark.png#dark)

@@ -20,5 +20,5 @@ public function fields(): array
 //...
 ```
 
-![image](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/image.png)
-![image dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/image_dark.png)
+![image](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/image.png#light)
+![image dark](https://raw.githubusercontent.com/moonshine-software/doc/2.x/resources/screenshots/image_dark.png#dark)
