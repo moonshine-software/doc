@@ -14,6 +14,7 @@
 - [Опции](#options)
 - [Нативный режим отображения](#native)
 - [Использование в blade](#blade)
+- [Реактивность](#reactive)
 
 ---
 
@@ -465,4 +466,9 @@ Select::make('Type')->native()
 ```
 
 > [!TIP]
-> Смотрите также рецепты по использованию [Select](/docs/{{version}}/recipes/select)
+> Смотрите также рецепты по использованию [Select](/docs/{{version}}/recipes/select).
+
+<a name="reactive"></a>
+## Реактивность
+
+Данному полю доступна [реактивность](/docs/{{version}}/fields/basic-methods#reactive).

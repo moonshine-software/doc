@@ -9,6 +9,7 @@
     - [Шаг](#step)
     - [Звезды](#stars)
 - [Фильтр](#filter)
+- [Реактивность](#reactive)
 
 ---
 
@@ -116,3 +117,8 @@ Range::make('Rating')
 ```php
 Range::make('Возраст', 'age')
 ```
+
+<a name="reactive"></a>
+## Реактивность
+
+Данному полю доступна [реактивность](/docs/{{version}}/fields/basic-methods#reactive).

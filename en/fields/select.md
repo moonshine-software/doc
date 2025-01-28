@@ -14,6 +14,7 @@
 - [Options](#options)
 - [Native display mode](#native)
 - [Using in blade](#blade)
+- [Reactivity](#reactive)
 
 ---
 
@@ -465,4 +466,9 @@ To asynchronously load values, you need to specify the url in the asyncRoute att
 ```
 
 > [!TIP]
-> Also see recipes for using [Select](/docs/{{version}}/recipes/select)
+> Also see recipes for using [Select](/docs/{{version}}/recipes/select).
+
+<a name="reactive"></a>
+## Reactivity
+
+This field supports [reactivity](/docs/{{version}}/fields/basic-methods#reactive).

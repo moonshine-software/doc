@@ -3,6 +3,7 @@
 - [Основы](#basics)
 - [Высота поля](#rows)
 - [Отключение экранирования](#unescape)
+- [Реактивность](#reactive)
 
 ---
 
@@ -11,7 +12,7 @@
 
 Содержит все [Базовые методы](/docs/{{version}}/fields/basic-methods).
 
-Поле `Textarea` - это многострочное текстовое поле ввода в MoonShine. Это поле эквивалент тегу `<textarea></textarea>`
+Поле `Textarea` - это многострочное текстовое поле ввода в **MoonShine**. Это поле эквивалент тегу `<textarea></textarea>`.
 
 ```php
 use MoonShine\UI\Fields\Textarea;
@@ -46,3 +47,8 @@ unescape()
 Textarea::make('HTML-контент', 'content')
     ->unescape()
 ```
+
+<a name="reactive"></a>
+## Реактивность
+
+Данному полю доступна [реактивность](/docs/{{version}}/fields/basic-methods#reactive).

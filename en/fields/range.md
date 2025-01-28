@@ -9,6 +9,7 @@
     - [Step](#step)
     - [Stars](#stars)
 - [Filter](#filter)
+- [Reactivity](#reactive)
 
 ---
 
@@ -116,3 +117,8 @@ When using the `Range` field for building a filter, the `fromTo()` method is not
 ```php
 Range::make('Age', 'age')
 ```
+
+<a name="reactive"></a>
+## Reactivity
+
+This field supports [reactivity](/docs/{{version}}/fields/basic-methods#reactive).

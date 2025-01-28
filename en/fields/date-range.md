@@ -6,6 +6,7 @@
 - [Format](#format)
 - [Attributes](#attributes)
 - [Filter](#filter)
+- [Reactivity](#reactive)
 
 ---
 
@@ -114,3 +115,8 @@ When using the `DateRange` field to build a filter, the `fromTo()` method is not
 ```php
 DateRange::make('Dates', 'dates')
 ```
+
+<a name="reactive"></a>
+## Reactivity
+
+This field supports [reactivity](/docs/{{version}}/fields/basic-methods#reactive).

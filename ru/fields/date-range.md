@@ -6,6 +6,7 @@
 - [Формат](#format)
 - [Атрибуты](#attributes)
 - [Фильтр](#filter)
+- [Реактивность](#reactive)
 
 ---
 
@@ -114,3 +115,8 @@ DateRange::make('Даты')
 ```php
 DateRange::make('Даты', 'dates')
 ```
+
+<a name="reactive"></a>
+## Реактивность
+
+Данному полю доступна [реактивность](/docs/{{version}}/fields/basic-methods#reactive).
