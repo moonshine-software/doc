@@ -57,16 +57,16 @@ composer update
 The `MoonShineServiceProvider` needs to be modified. It now inherits from MoonShineApplicationServiceProvider, and the menu declaration is moved to a separate method `menu()`.
 
 ```php
-use Illuminate\Support\ServiceProvider;
-use MoonShine\Providers\MoonShineApplicationServiceProvider;
+use Illuminate\Support\ServiceProvider; // [tl! --]
+use MoonShine\Providers\MoonShineApplicationServiceProvider; // [tl! ++]
 //...
 
-class MoonShineServiceProvider extends ServiceProvider
-class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
+class MoonShineServiceProvider extends ServiceProvider // [tl! --]
+class MoonShineServiceProvider extends MoonShineApplicationServiceProvider // [tl! ++]
 {
 
-    public function boot(): void
-    protected function menu(): array
+    public function boot(): void // [tl! --]
+    protected function menu(): array // [tl! ++]
     {
         app(MoonShine::class)->menu([
         return [
@@ -111,33 +111,33 @@ The property to go after save `routeAfterSave` in the **MoonShine 2.0** renamed 
 Also some properties have been renamed.
 
 ```php
-use MoonShine\Resources\Resource;
-use MoonShine\Resources\ModelResource;
+use MoonShine\Resources\Resource; // [tl! --]
+use MoonShine\Resources\ModelResource; // [tl! ++]
 
 //...
 
-class ArticleResource extends Resource
-class ArticleResource extends ModelResource
+class ArticleResource extends Resource // [tl! --]
+class ArticleResource extends ModelResource // [tl! ++]
 {
-    public static string $model = Article::class;
-    protected string $model = Article::class;
+    public static string $model = Article::class; // [tl! --]
+    protected string $model = Article::class; // [tl! ++]
 
-    public static string $title = 'Articles';
-    protected string $title = 'Articles';
+    public static string $title = 'Articles'; // [tl! --]
+    protected string $title = 'Articles'; // [tl! ++]
 
-    public string $titleField = 'title';
-    protected string $column = 'title';
+    public string $titleField = 'title'; // [tl! --]
+    protected string $column = 'title'; // [tl! ++]
 
-    protected string $routeAfterSave = 'index';
+    protected string $routeAfterSave = 'index'; // [tl! ++]
 
-    public static string $orderField = 'created_at';
-    protected string $sortColumn = 'created_at';
+    public static string $orderField = 'created_at'; // [tl! --]
+    protected string $sortColumn = 'created_at'; // [tl! ++]
 
-    public static string $orderType = 'DESC';
-    protected string $sortDirection = 'DESC';
+    public static string $orderType = 'DESC'; // [tl! --]
+    protected string $sortDirection = 'DESC'; // [tl! ++]
 
-    public static array $with = ['author', 'comments'];
-    protected array $with = ['author', 'comments'];
+    public static array $with = ['author', 'comments']; // [tl! --]
+    protected array $with = ['author', 'comments']; // [tl! ++]
 
     //...
 
@@ -152,32 +152,32 @@ The changes in **MoonShine 2.0** affect fields as well.
 All relationship fields have had their _namespace_ changed.
 
 ```php
-use MoonShine\Fields\BelongsTo; 
-use MoonShine\Fields\Relationships\BelongsTo; 
+use MoonShine\Fields\BelongsTo; // [tl! --]
+use MoonShine\Fields\Relationships\BelongsTo; // [tl! ++]
  
-use MoonShine\Fields\BelongsToMany; 
-use MoonShine\Fields\Relationships\BelongsToMany; 
+use MoonShine\Fields\BelongsToMany; // [tl! --]
+use MoonShine\Fields\Relationships\BelongsToMany; // [tl! ++]
  
-use MoonShine\Fields\HasMany; 
-use MoonShine\Fields\Relationships\HasMany; 
+use MoonShine\Fields\HasMany; // [tl! --]
+use MoonShine\Fields\Relationships\HasMany; // [tl! ++]
  
-use MoonShine\Fields\HasManyThrough; 
-use MoonShine\Fields\Relationships\HasManyThrough; 
+use MoonShine\Fields\HasManyThrough; // [tl! --]
+use MoonShine\Fields\Relationships\HasManyThrough; // [tl! ++]
  
-use MoonShine\Fields\HasOne; 
-use MoonShine\Fields\Relationships\HasOne; 
+use MoonShine\Fields\HasOne; // [tl! --]
+use MoonShine\Fields\Relationships\HasOne; // [tl! ++]
  
-use MoonShine\Fields\HasOneThrough; 
-use MoonShine\Fields\Relationships\HasOneThrough; 
+use MoonShine\Fields\HasOneThrough; // [tl! --]
+use MoonShine\Fields\Relationships\HasOneThrough; // [tl! ++]
  
-use MoonShine\Fields\MorphMany; 
-use MoonShine\Fields\Relationships\MorphMany; 
+use MoonShine\Fields\MorphMany; // [tl! --]
+use MoonShine\Fields\Relationships\MorphMany; // [tl! ++]
  
-use MoonShine\Fields\MorphTo; 
-use MoonShine\Fields\Relationships\MorphTo; 
+use MoonShine\Fields\MorphTo; // [tl! --]
+use MoonShine\Fields\Relationships\MorphTo; // [tl! ++]
  
-use MoonShine\Fields\MorphToMany; 
-use MoonShine\Fields\Relationships\MorphToMany; 
+use MoonShine\Fields\MorphToMany; // [tl! --]
+use MoonShine\Fields\Relationships\MorphToMany; // [tl! ++]
 ```
 
 > [!WARNING]
@@ -260,8 +260,8 @@ class ArticleResource extends ModelResource
 {
     //...
  
-   public function itemActions(): array 
-   public function indexButtons(): array 
+   public function itemActions(): array // [tl! --]
+   public function indexButtons(): array // [tl! ++]
     {
         return [
             ItemAction::make('Go to', fn (Article $item) => to_route('articles.show', $item)) 
