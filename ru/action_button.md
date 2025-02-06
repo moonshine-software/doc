@@ -54,7 +54,7 @@ public function components(): array
 
 Также доступен хелпер, который можно использовать в Blade:
 
-```bladehtml
+```blade
 <div>
     {!! actionBtn('Нажми меня', 'https://moonshine-laravel.com') !!}
 </div>

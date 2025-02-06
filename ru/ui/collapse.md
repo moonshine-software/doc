@@ -11,7 +11,7 @@
 
 Компонент `moonshine::collapse` позволяет сворачивать контент.
 
-```bladehtml
+```blade
 <x-moonshine::collapse title="Hide / Show">
     {{ fake()->text() }}
 </x-moonshine::collapse>
@@ -22,7 +22,7 @@
 
 Если параметр `show` имеет значение `TRUE`, то по умолчанию блок будет отображаться развернутым.
 
-```bladehtml
+```blade
 <x-moonshine::collapse title="Hide / Show" :open="true">
     {{ fake()->text() }}
 </x-moonshine::collapse>
@@ -33,7 +33,7 @@
 
 Если параметр `persist` установлен в значение `TRUE`, то состояние блока будет сохранено.
 
-```bladehtml
+```blade
 <x-moonshine::collapse title="Hide / Show" :persist="true">
     {{ fake()->text() }}
 </x-moonshine::collapse>

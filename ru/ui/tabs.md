@@ -10,7 +10,7 @@
 
 Для создания вкладок можно использовать компонент `moonshine::tabs`.
 
-```bladehtml
+```blade
 <x-moonshine::tabs
     :tabs="[
         'tab_1' => 'Tab 1',
@@ -25,7 +25,7 @@
 
 #### Через слоты
 
-```bladehtml
+```blade
 <x-moonshine::tabs
     :tabs="[
         'tab_1' => 'Tab 1',
@@ -46,7 +46,7 @@
 
 Вы можете указать активную вкладку по умолчанию, указав `active`.
 
-```bladehtml
+```blade
 <x-moonshine::tabs
     :tabs="[
         'tab_1' => 'Tab 1',

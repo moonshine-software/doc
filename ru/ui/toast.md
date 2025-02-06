@@ -11,7 +11,7 @@
 
 Вы можете создавать уведомления с помощью компонента `moonshine::toast`.
 
-```bladehtml
+```blade
 <x-moonshine::toast content="Message toast" />
 ```
 Доступные типы:
@@ -23,7 +23,7 @@
 - error
 - info
 
-```bladehtml
+```blade
 <x-moonshine::toast type="success" content="Message success toast" />
 
 
@@ -62,7 +62,7 @@
 
 Вы также можете создать уведомление с помощью метода `MoonShineUi::toast()`.
 
-```bladehtml
+```blade
 use MoonShine\MoonShineUI;
 
 MoonShineUI::toast('Toast content', 'error');

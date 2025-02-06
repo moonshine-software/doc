@@ -12,7 +12,7 @@
 
 Если вам нужно уведомление на странице, вы можете использовать компонент `moonshine::alert`.
 
-```bladehtml
+```blade
 <x-moonshine::alert>Alert</x-moonshine::alert>
 ```
 
@@ -33,7 +33,7 @@
 - `<span class="badge badge-error">error</span>`,
 - `<span class="badge badge-info">info</span>`.
 
-```bladehtml
+```blade
 <x-moonshine::alert type="primary">Primary</x-moonshine::alert>
 <x-moonshine::alert type="secondary">Secondary</x-moonshine::alert>
 <x-moonshine::alert type="success">Success</x-moonshine::alert>
@@ -47,7 +47,7 @@
 
 Есть возможность для уведомления изменить иконку, для этого необходимо передать ее в параметр `icon`.
 
-```bladehtml
+```blade
 <x-moonshine::alert icon="heroicons.academic-cap">Alert</x-moonshine::alert>
 ```
 
@@ -62,6 +62,6 @@
 
 Чтобы удалить уведомления через некоторое время, необходимо передать параметр `removable` со значением `TRUE`.
 
-```bladehtml
+```blade
 <x-moonshine::alert removable="true">Alert</x-moonshine::alert>
 ```

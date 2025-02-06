@@ -15,7 +15,7 @@ Available locations:
 - left
 - right
 
-```bladehtml
+```blade
 <x-moonshine::tooltip placement="bottom" content="Tooltip text">
     <button class="btn">Trigger</button>
 </x-moonshine::tooltip>
@@ -35,7 +35,7 @@ Available locations:
 <a name="without"></a>
 ## Without using a component
 
-```bladehtml
+```blade
 <span x-data="tooltip('Tooltip content 1', {placement: 'top'})">
     <a class="text-purple font-semibold">Trigger 1</a>
 </span>

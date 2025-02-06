@@ -2,7 +2,7 @@
 
 The `moonshine::breadcrumbs` component is used to create `breadcrumbs` ("breadcrumbs").
 
-```bladehtml
+```blade
 <x-moonshine::breadcrumbs
     :items="[
         '/' => 'Home',

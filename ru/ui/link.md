@@ -11,7 +11,7 @@
 
 Для создания стилизованной ссылки можно использовать компоненты `moonshine::link-button` или `moonshine::link-native`.
 
-```bladehtml
+```blade
 <x-moonshine::link-button href="#">Link</x-moonshine::link-button>
 
 <x-moonshine::link-native href="#">Link</x-moonshine::link-native>
@@ -22,7 +22,7 @@
 
 За заливку отвечает параметр `filled`.
 
-```bladehtml
+```blade
 <x-moonshine::link-button
     href="#"
     :filled="true"
@@ -43,7 +43,7 @@
 
 Вы можете передать параметр `icon`.
 
-```bladehtml
+```blade
 <x-moonshine::link-button
     href="#"
     icon="heroicons.arrow-top-right-on-square"

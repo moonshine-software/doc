@@ -12,7 +12,7 @@
 
 To create cards in the admin panel, use the `moonshine::card` component.
 
-```bladehtml
+```blade
 <x-moonshine::card
     url="#"
     thumbnail="/images/image_1.jpg"
@@ -37,7 +37,7 @@ To create cards in the admin panel, use the `moonshine::card` component.
 
 The `overlay` mode is available for the card.
 
-```bladehtml
+```blade
 <x-moonshine::card
     url="#"
     :overlay="true"
@@ -63,7 +63,7 @@ The `overlay` mode is available for the card.
 
 To add an images carousel to a card, you can add to `thumbnail` parameter array of images.
 
-```bladehtml
+```blade
 <x-moonshine::card
     url="#"
     :overlay="true"

@@ -48,14 +48,14 @@ TableBuilder::make()
 
 Давайте также рассмотрим, как добавить свои собственные события
 
-```bladehtml
+```blade
 <div x-data=""
      @my-event.window="alert()"
 >
 </div>
 ```
 
-```bladehtml
+```blade
 <div x-data="my"
      @my-event.window="asyncRequest"
 >
@@ -94,7 +94,7 @@ FormBuilder::make(route('form-table.store'))
 
 Вы можете использовать его реактивность, давайте посмотрим, как удобно создать компонент.
 
-```bladehtml
+```blade
 <div x-data="myComponent">
 </div>
 

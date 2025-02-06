@@ -19,7 +19,7 @@
 - error
 - info
 
-```bladehtml
+```blade
 <x-moonshine::progress-bar
     color="primary"
     :value="33"
@@ -40,7 +40,7 @@
 - lg
 - xl
 
-```bladehtml
+```blade
 <x-moonshine::progress-bar
     color="secondary"
     :radial="true"

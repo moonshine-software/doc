@@ -13,7 +13,7 @@
 Using the `moonshine::dropdown` component you can create drop-down blocks.
 
 
-```bladehtml
+```blade
 <x-moonshine::dropdown>
     <div class="m-4">
         {{ fake()->text() }}
@@ -25,7 +25,7 @@ Using the `moonshine::dropdown` component you can create drop-down blocks.
 <a name="heading"></a>
 ## Heading
 
-```bladehtml
+```blade
 <x-moonshine::dropdown title="Dropdown title">
     <div class="m-4">
         {{ fake()->text() }}
@@ -37,7 +37,7 @@ Using the `moonshine::dropdown` component you can create drop-down blocks.
 <a name="footer"></a>
 ## Footer
 
-```bladehtml
+```blade
 <x-moonshine::dropdown>
     <div class="m-4">
         {{ fake()->text() }}
@@ -58,7 +58,7 @@ Available locations:
 - right
 
 
-```bladehtml
+```blade
 <x-moonshine::dropdown placement="left">
     <div class="m-4">
         {{ fake()->text() }}

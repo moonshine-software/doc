@@ -19,7 +19,7 @@
 ## Размер
 
 Используя параметр `size`, вы можете установить размер иконки.
-```bladehtml
+```blade
 <x-moonshine::icon icon="heroicons.academic-cap" size="16"/>
 ```
 
@@ -29,7 +29,7 @@
 <a name="color"></a>
 ## Цвет
 
-```bladehtml
+```blade
 <x-moonshine::icon icon="heroicons.academic-cap" color="primary"/>
 <x-moonshine::icon icon="heroicons.academic-cap" color="secondary"/>
 <x-moonshine::icon icon="heroicons.academic-cap" color="dark-900"/>
@@ -44,7 +44,7 @@
 
 Пользовательский стиль для иконок можно установить с помощью параметра `class`.
 
-```bladehtml
+```blade
 <x-moonshine::icon
     size="10"
     icon="heroicons.academic-cap"

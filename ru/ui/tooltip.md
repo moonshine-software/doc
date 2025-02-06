@@ -16,7 +16,7 @@
 - left
 - right
 
-```bladehtml
+```blade
 <x-moonshine::tooltip placement="bottom" content="Tooltip text">
     <button class="btn">Trigger</button>
 </x-moonshine::tooltip>
@@ -25,7 +25,7 @@
 <a name="without"></a>
 ## Без использования компонента
 
-```bladehtml
+```blade
 <span x-data="tooltip('Tooltip content 1', {placement: 'top'})">
     <a class="text-purple font-semibold">Trigger 1</a>
 </span>
@@ -33,7 +33,7 @@
 
 или
 
-```bladehtml
+```blade
 <span
     x-data="tooltip"
     data-tippy-content="Tooltip content 2"

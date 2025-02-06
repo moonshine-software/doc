@@ -2,7 +2,7 @@
 
 Если вы хотите разместить стилизованный заголовок, то можете использовать компонент `moonshine::title`.
 
-```bladehtml
+```blade
 <x-moonshine::title>
     {{ fake()->sentence() }}
 </x-moonshine::title>

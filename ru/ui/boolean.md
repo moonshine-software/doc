@@ -2,10 +2,10 @@
 
 Простой компонент `moonshine::boolean` позволяет создать индикатор `TRUE` / `FALSE`.
 
-```bladehtml
+```blade
 <x-moonshine::boolean :value="true" />
 ```
 
-```bladehtml
+```blade
 <x-moonshine::boolean :value="false" />
 ```

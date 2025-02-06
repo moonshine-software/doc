@@ -14,7 +14,7 @@
 
 Стилизованные таблицы можно создавать с помощью компонента `moonshine::table`.
 
-```bladehtml
+```blade
 <x-moonshine::table
     :columns="[
         '#', 'First', 'Last', 'Email'
@@ -32,7 +32,7 @@
 
 Параметр `simple` позволяет создать упрощенный вид таблицы.
 
-```bladehtml
+```blade
 <x-moonshine::table
     :simple="true"
     :columns="[
@@ -51,7 +51,7 @@
 
 Если таблица содержит большое количество элементов, то можно зафиксировать шапку при прокрутке таблицы.
 
-```bladehtml
+```blade
 <x-moonshine::table
     :sticky="true"
     :columns="[
@@ -70,7 +70,7 @@
 
 Параметр `notfound` позволяет отобразить сообщение, если элементы таблицы отсутствуют.
 
-```bladehtml
+```blade
 <x-moonshine::table
     :columns="[
         '#', 'First', 'Last', 'Email'
@@ -84,7 +84,7 @@
 
 Таблицу можно формировать с помощью слотов.
 
-```bladehtml
+```blade
 <x-moonshine::table>
     <x-slot:thead class="text-center">
         <th colspan="4">Header</th>
@@ -136,7 +136,7 @@
 - bgc-error
 - bgc-info
 
-```bladehtml
+```blade
 <x-moonshine::table>
     <x-slot:thead class="bgc-secondary text-center">
         <th colspan="3">Header</th>

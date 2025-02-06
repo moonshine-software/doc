@@ -10,7 +10,7 @@
 
 The `moonshine::pagination` component allows you to create stylized pagination across pages.To do this, add a component to the blade view of the pagination.
 
-```bladehtml
+```blade
 <x-moonshine::pagination
     :paginator="$paginator"
     :elements="$elements"
@@ -22,7 +22,7 @@ The `moonshine::pagination` component allows you to create stylized pagination a
 
 The `simple` parameter with the value `TRUE` allows you to display pagination in a simplified form.
 
-```bladehtml
+```blade
 <x-moonshine::pagination
     :paginator="$paginator"
     :elements="$elements"

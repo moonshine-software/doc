@@ -10,7 +10,7 @@
 
 Для отображения списка файлов можно использовать компонент `moonshine::files`.
 
-```bladehtml
+```blade
 <x-moonshine::files :files="[
     '/images/thumb_1.jpg',
     '/images/thumb_2.jpg',
@@ -23,7 +23,7 @@
 
 Чтобы отключить возможность скачивания файлов, нужно компоненту передать параметр `download` со значением `FALSE`.
 
-```bladehtml
+```blade
 <x-moonshine::files
     :files="[
         '/images/thumb_1.jpg',

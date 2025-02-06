@@ -2,7 +2,7 @@
 
 Компонент `moonshine::offcanvas` позволяет создавать боковые панели.
 
-```bladehtml
+```blade
 <x-moonshine::offcanvas
     title="Offcanvas"
     :left="false"

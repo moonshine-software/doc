@@ -10,13 +10,13 @@
  
 To create thumbnails, you can use the `moonshine::thumbnails` component.
 
-```bladehtml
+```blade
 <x-moonshine::thumbnails value="/images/thumb_1.jpg"/>
 ```
 
 You can also specify the `alt` attribute.
 
-```bladehtml
+```blade
 <x-moonshine::thumbnails value="/images/thumb_1.jpg" alt="Description"/>
 ```
 
@@ -25,7 +25,7 @@ You can also specify the `alt` attribute.
 
 You can pass an array of images to the component.
 
-```bladehtml
+```blade
 <x-moonshine::thumbnails :values="[
     '/images/thumb_1.jpg',
     '/images/thumb_2.jpg',

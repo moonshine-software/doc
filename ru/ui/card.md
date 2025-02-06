@@ -11,7 +11,7 @@
 
 Для создания карточек в админ-панели используйте компонент `moonshine::card`.
 
-```bladehtml
+```blade
 <x-moonshine::card
     url="#"
     thumbnail="/images/image_1.jpg"
@@ -36,7 +36,7 @@
 
 Для карточки доступен режим `overlay`.
 
-```bladehtml
+```blade
 <x-moonshine::card
     url="#"
     :overlay="true"
@@ -62,7 +62,7 @@
 
 Чтобы добавить карусель изображений в карточку, вы можете добавить в параметр `thumbnail` массив изображений.
 
-```bladehtml
+```blade
 <x-moonshine::card
     url="#"
     :overlay="true"

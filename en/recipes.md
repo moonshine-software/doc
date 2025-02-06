@@ -46,14 +46,14 @@ TableBuilder::make()
 
 Let's also look at how to add your own events
 
-```bladehtml
+```blade
 <div x-data=""
      @my-event.window="alert()"
 >
 </div>
 ```
 
-```bladehtml
+```blade
 <div x-data="my"
      @my-event.window="asyncRequest"
 >
@@ -92,7 +92,7 @@ We also recommend that you familiarize yourself with AlpineJs and use the full p
 
 You can use its reactivity, let's see how to conveniently create a component.
 
-```bladehtml
+```blade
 <div x-data="myComponent">
 </div>
 

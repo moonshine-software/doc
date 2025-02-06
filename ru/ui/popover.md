@@ -17,7 +17,7 @@
 - `left`
 - `right`
 
-```bladehtml
+```blade
 <x-moonshine::popover title="Popover title" placement="right">
     <x-slot:trigger>
         <button class="btn">Popover</button>
@@ -33,7 +33,7 @@
 <a name="without"></a>
 ## Без использования компонента
 
-```bladehtml
+```blade
 <span x-data="popover" data-content="HTML HERE">
     <a class="text-purple font-semibold">Popover 1</a>
 </span>

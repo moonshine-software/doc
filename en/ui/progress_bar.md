@@ -19,7 +19,7 @@ Available colors:
 - error
 - info
 
-```bladehtml
+```blade
 <x-moonshine::progress-bar
     color="primary"
     :value="33"
@@ -40,7 +40,7 @@ Available sizes:
 - lg
 - xl
 
-```bladehtml
+```blade
 <x-moonshine::progress-bar
     color="secondary"
     :radial="true"

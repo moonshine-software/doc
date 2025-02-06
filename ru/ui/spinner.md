@@ -12,7 +12,7 @@
 
 Используя компонент `moonshine::spinner`, вы можете создавать индикаторы загрузки.
 
-```bladehtml
+```blade
 <x-moonshine::spinner />
 ```
 
@@ -26,7 +26,7 @@
 - lg
 - xl
 
-```bladehtml
+```blade
 <x-moonshine::spinner size="sm" />
 <x-moonshine::spinner size="md" />
 <x-moonshine::spinner size="lg" />
@@ -45,7 +45,7 @@
 <span class="badge badge-error">error</span>
 <span class="badge badge-info">info</span>
 
-```bladehtml
+```blade
 <x-moonshine::spinner color="primary" />
 <x-moonshine::spinner color="secondary" />
 <x-moonshine::spinner color="success" />
@@ -59,12 +59,12 @@
 
 Параметр `absolute="true"` задает абсолютное позиционирование индикатора загрузки.
 
-```bladehtml
+```blade
 <x-moonshine::spinner :absolute="true" />
 ```
 
 Параметр `fixed="true"` задает фиксированное позиционирование индикатора загрузки.
 
-```bladehtml
+```blade
 <x-moonshine::spinner :fixed="true" />
 ```

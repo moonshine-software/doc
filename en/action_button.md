@@ -54,7 +54,7 @@ public function components(): array
 
 A helper is also available that can be used in Blade:
 
-```bladehtml
+```blade
 <div>
     {!! actionBtn('Click me', 'https://moonshine-laravel.com') !!}
 </div>

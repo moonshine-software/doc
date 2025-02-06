@@ -127,7 +127,7 @@ final class Quill extends Textarea
 
 Let's also change the view fields
 
-```bladehtml
+```blade
 <div x-data="quill">
     <div class="ql-editor" :id="$id('quill')" style="height: auto;">{!! $value ?? '' !!}</div>
   

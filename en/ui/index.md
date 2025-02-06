@@ -6,7 +6,7 @@ The use of components speeds up development and allows you to maintain a unified
 
 If you plan to use components outside of the admin panel, then you need to add a directive with MoonShine assets to your template.
 
-```bladehtml
+```blade
 @moonShineAssets
 ```
 

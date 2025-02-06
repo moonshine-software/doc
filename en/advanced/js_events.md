@@ -13,7 +13,7 @@
 
 ### @defineEvent
 
-```bladehtml
+```blade
 @defineEvent(string|JsEvent $event, ?string $name = null, ?string $call = null, array $params = [])
 ```
 - `$event` - event,
@@ -21,7 +21,7 @@
 - `$call` - callback function,
 - `$params` - event parameters.
 
-```bladehtml
+```blade
 <div x-data="myComponent">
     // @table-updated-index.window="asyncRequest"
     @defineEvent('table-updated', 'index', 'asyncRequest')
@@ -31,7 +31,7 @@
 
 ### @defineEventWhen
        
-```bladehtml
+```blade
 @defineEventWhen(mixed $condition, string|JsEvent $event, ?string $name = null, ?string $call = null, array $params = [])
 ```
 
@@ -41,7 +41,7 @@
 - `$call` - callback function,
 - `$params` - event parameters.                
 
-```bladehtml
+```blade
 <div x-data="myComponent">
     // @table-updated-index.window="asyncRequest"
     @defineEventWhen(true, 'table-updated', 'index', 'asyncRequest')
