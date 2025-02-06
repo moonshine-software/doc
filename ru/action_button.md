@@ -54,7 +54,7 @@ public function components(): array
 
 Также доступен хелпер, который можно использовать в Blade:
 
-```php
+```bladehtml
 <div>
     {!! actionBtn('Нажми меня', 'https://moonshine-laravel.com') !!}
 </div>
@@ -419,8 +419,8 @@ public function components(): array
 
 Если вам нужно заменить область html по клику, то можно вернуть HTML содержимое или json с ключом html в ответе:
 
-```php
-{html: 'Html content'}
+```json
+{"html": "Html content"}
 ```
 
 ```php
@@ -548,7 +548,7 @@ public function updateSomething(MoonShineRequest $request)
 > [!WARNING]
 > Методы, вызываемые через `ActionButton` в ресурсе, должны быть публичными!
 
-> [!CAUTION]
+> [!WARNING]
 > Для доступа к данным из запроса вы должны передать их в параметрах.
 
 #### Передача текущего элемента

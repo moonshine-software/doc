@@ -1,15 +1,15 @@
 # HasMany
 
-   - [Basics](#basics)
-   - [Fields](#fields)
-   - [Creating a Relationship Object](#creatable)
-   - [Number of records](#limit)
-   - [Link only](#only-link)
-   - [Parent ID](#parent-id)
-   - [Edit button](#change-edit-button)
-   - [Modal](#without-modals)
-   - [Modify](#modify)
-   - [Advanced](#advanced)
+- [Basics](#basics)
+- [Fields](#fields)
+- [Creating a Relationship Object](#creatable)
+- [Number of records](#limit)
+- [Link only](#only-link)
+- [Parent ID](#parent-id)
+- [Edit button](#change-edit-button)
+- [Modal](#without-modals)
+- [Modify](#modify)
+- [Advanced](#advanced)
 
 ---
 
@@ -32,7 +32,7 @@ HasMany::make(
 -`$relationName` - name of the relationship,
 -`$resource` - the model resource referenced by the relation.
 
-> [!CAUTION]
+> [!WARNING]
 > The `$formatted` parameter is not used in the `HasMany` field!
 
 > [!WARNING]

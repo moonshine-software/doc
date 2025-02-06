@@ -1,7 +1,7 @@
 # Tabs
 
--[Basics](#basics)
--[Active tab](#active)
+- [Basics](#basics)
+- [Active tab](#active)
 
 ---
 
@@ -10,7 +10,7 @@
 
 To create tabs, you can use the `moonshine::tabs` component.
 
-```php
+```bladehtml
 <x-moonshine::tabs
     :tabs="[
         'tab_1' => 'Tab 1',
@@ -25,7 +25,7 @@ To create tabs, you can use the `moonshine::tabs` component.
 
 #### Via slots
 
-```php
+```bladehtml
 <x-moonshine::tabs
     :tabs="[
         'tab_1' => 'Tab 1',
@@ -46,7 +46,7 @@ To create tabs, you can use the `moonshine::tabs` component.
 
 You can specify the default active tab by specifying `active`.
 
-```php
+```bladehtml
 <x-moonshine::tabs
     :tabs="[
         'tab_1' => 'Tab 1',

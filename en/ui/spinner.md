@@ -12,7 +12,7 @@
 
 Using the `moonshine::spinner` component you can create loading indicators.
 
-```php
+```bladehtml
 <x-moonshine::spinner />
 ```
 
@@ -27,7 +27,7 @@ Available sizes:
 - xl
 
 
-```php
+```bladehtml
 <x-moonshine::spinner size="sm" />
 <x-moonshine::spinner size="md" />
 <x-moonshine::spinner size="lg" />
@@ -46,7 +46,7 @@ Available colors:
 <span class="badge badge-error">error</span>
 <span class="badge badge-info">info</span>
 
-```php
+```bladehtml
 <x-moonshine::spinner color="primary" />
 <x-moonshine::spinner color="secondary" />
 <x-moonshine::spinner color="success" />
@@ -73,12 +73,12 @@ Available colors:
 
 The `absolute="true"` parameter specifies the absolute positioning of the loading indicator.
 
-```php
+```bladehtml
 <x-moonshine::spinner :absolute="true" />
 ```
 
 The `fixed="true"` parameter specifies a fixed positioning of the loading indicator.
 
-```php
+```bladehtml
 <x-moonshine::spinner :fixed="true" />
 ```

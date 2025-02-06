@@ -12,7 +12,7 @@
 Расширяет [Text](/docs/{{version}}/fields/text)
 * имеет те же функции
 
-> [!INFO]
+> [!TIP]
 > Поле зависит от модели Eloquent
 
 <a name="basics"></a>  

@@ -12,7 +12,7 @@
 - Make sure the disk is selected by default `public`, not `local`  
 - Check that `APP_URL` in `.env` is correct  
 
-```php
+```text
 APP_URL=http://moonshine.test:8080
 ```
 

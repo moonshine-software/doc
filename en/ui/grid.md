@@ -5,7 +5,7 @@ To arrange elements on the page, you can use `moonshine::grid` and `moonshine::c
 > [!NOTE]
 > The grid consists of 12 columns.
 
-```php
+```bladehtml
 <x-moonshine::grid>
     <x-moonshine::column adaptiveColSpan="6" colSpan="6">
         {{ fake()->text() }}

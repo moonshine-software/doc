@@ -19,7 +19,7 @@ To use MoonShine, the following requirements must be met before installation:
 ## Composer
 
 ```shell
-composer require "moonshine/moonshine:^2.0"
+composer require "moonshine/moonshine:^2"
 ```
 
 <a name="install"></a>

@@ -5,6 +5,8 @@
 - [Опции](#options)  
 - [Глобальная конфигурация](#global-configuration)  
 
+---
+
 Расширяет [Textarea](/docs/{{version}}/fields/textarea)
 * имеет те же функции
 

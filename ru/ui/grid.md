@@ -5,7 +5,7 @@
 > [!NOTE]
 > Сетка состоит из 12 колонок.
 
-```php
+```bladehtml
 <x-moonshine::grid>
     <x-moonshine::column adaptiveColSpan="6" colSpan="6">
         {{ fake()->text() }}

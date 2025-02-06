@@ -2,6 +2,6 @@
 
 Компонент `moonshine::loader` позволяет создать стилизованный индикатор загрузки.
   
-```php
+```bladehtml
 <x-moonshine::loader />
 ```

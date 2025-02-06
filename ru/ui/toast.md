@@ -11,19 +11,19 @@
 
 Вы можете создавать уведомления с помощью компонента `moonshine::toast`.
 
-```blade
+```bladehtml
 <x-moonshine::toast content="Message toast" />
 ```
 Доступные типы:
 
-<span class="badge badge-primary">primary</span>
-<span class="badge badge-secondary">secondary</span>
-<span class="badge badge-success">success</span>
-<span class="badge badge-warning">warning</span>
-<span class="badge badge-error">error</span>
-<span class="badge badge-info">info</span>
+- primary
+- secondary
+- success
+- warning
+- error
+- info
 
-```blade
+```bladehtml
 <x-moonshine::toast type="success" content="Message success toast" />
 
 
@@ -62,7 +62,7 @@
 
 Вы также можете создать уведомление с помощью метода `MoonShineUi::toast()`.
 
-```php
+```bladehtml
 use MoonShine\MoonShineUI;
 
 MoonShineUI::toast('Toast content', 'error');

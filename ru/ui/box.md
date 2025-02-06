@@ -11,7 +11,7 @@
 
 Для выделения контента можно использовать компонент `moonshine::box`.
 
-```php
+```bladehtml
 <x-moonshine::box>
     {{ fake()->text() }}
 </x-moonshine::box>
@@ -22,7 +22,7 @@
 
 Параметр `title` задает заголовок блока.
 
-```php
+```bladehtml
 <x-moonshine::box title="Title box">
     {{ fake()->text() }}
 </x-moonshine::box>
@@ -33,7 +33,7 @@
 
 Вы можете установить темный стиль для блока, указав параметр `dark` со значением `TRUE`.
 
-```php
+```bladehtml
 <x-moonshine::box :dark="true">
     {{ fake()->text() }}
 </x-moonshine::box>

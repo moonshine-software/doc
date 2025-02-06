@@ -11,7 +11,7 @@
 
 To create a stylized link, you can use the `moonshine::link-button` components or ``moonshine::link-native`.
 
-```php
+```bladehtml
 <x-moonshine::link-button href="#">Link</x-moonshine::link-button>
 
 <x-moonshine::link-native href="#">Link</x-moonshine::link-native>
@@ -22,7 +22,7 @@ To create a stylized link, you can use the `moonshine::link-button` components o
 
 The `filled` parameter is responsible for filling.
 
-```php
+```bladehtml
 <x-moonshine::link-button
     href="#"
     :filled="true"
@@ -43,7 +43,7 @@ The `filled` parameter is responsible for filling.
 
 You can pass the `icon` parameter.
 
-```php
+```bladehtml
 <x-moonshine::link-button
     href="#"
     icon="heroicons.arrow-top-right-on-square"

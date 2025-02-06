@@ -2,7 +2,7 @@
 
 The `moonshine::offcanvas` component allows you to create sidebars.
 
-```php
+```bladehtml
 <x-moonshine::offcanvas
     title="Offcanvas"
     :left="false"

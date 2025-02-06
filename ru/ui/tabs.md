@@ -1,7 +1,7 @@
 # Вкладки
 
--[Основы](#basics)
--[Активная вкладка](#active)
+- [Основы](#basics)
+- [Активная вкладка](#active)
 
 ---
 
@@ -10,7 +10,7 @@
 
 Для создания вкладок можно использовать компонент `moonshine::tabs`.
 
-```php
+```bladehtml
 <x-moonshine::tabs
     :tabs="[
         'tab_1' => 'Tab 1',
@@ -25,7 +25,7 @@
 
 #### Через слоты
 
-```php
+```bladehtml
 <x-moonshine::tabs
     :tabs="[
         'tab_1' => 'Tab 1',
@@ -46,7 +46,7 @@
 
 Вы можете указать активную вкладку по умолчанию, указав `active`.
 
-```php
+```bladehtml
 <x-moonshine::tabs
     :tabs="[
         'tab_1' => 'Tab 1',

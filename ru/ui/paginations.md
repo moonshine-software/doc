@@ -10,7 +10,7 @@
 
 Компонент `moonshine::pagination` позволяет создавать стилизованную пагинацию по страницам. Для этого добавьте компонент в blade-представление пагинации.
 
-```php
+```bladehtml
 <x-moonshine::pagination
     :paginator="$paginator"
     :elements="$elements"
@@ -22,7 +22,7 @@
 
 Параметр `simple` со значением `TRUE` позволяет отображать пагинацию в упрощенном виде.
 
-```php
+```bladehtml
 <x-moonshine::pagination
     :paginator="$paginator"
     :elements="$elements"

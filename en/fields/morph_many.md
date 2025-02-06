@@ -22,7 +22,7 @@ MorphMany::make(
 - `relationName` - name of the relationship
 - `formatted` - a closure or field in a related table to display values.
 
-> [!CAUTION]
+> [!WARNING]
 > The `formatted` parameter is not used in the `MorphMany` field!
 
 ```php

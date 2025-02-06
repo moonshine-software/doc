@@ -1,8 +1,10 @@
 # HasOne
 
-   - [Основы](#basics)
-   - [Поля](#fields)
-   - [ID родителя](#parent-id)
+- [Основы](#basics)
+- [Поля](#fields)
+- [ID родителя](#parent-id)
+
+---
 
 <a name="basics"></a>
 ## Основы
@@ -24,7 +26,7 @@ HasOne::make(
 `$relationName` - имя отношения,
 `$resource` - ресурс модели, на который ссылается отношение
 
-> [!CAUTION]
+> [!WARNING]
 > Параметр `$formatted` не используется в поле HasOne!
 
 > [!WARNING]
@@ -151,7 +153,7 @@ protected function getParentRelationName(): string
 
 Для получения ID родителя используйте метод `getParentId()`.
 
-```
+```php
 $this->getParentId();
 ```
 

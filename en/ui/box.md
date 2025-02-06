@@ -11,7 +11,7 @@
 
 To highlight content, you can use the `moonshine::box` component.
 
-```php
+```bladehtml
 <x-moonshine::box>
     {{ fake()->text() }}
 </x-moonshine::box>
@@ -22,7 +22,7 @@ To highlight content, you can use the `moonshine::box` component.
 
 The `title` parameter sets the block title.
 
-```php
+```bladehtml
 <x-moonshine::box title="Title box">
     {{ fake()->text() }}
 </x-moonshine::box>

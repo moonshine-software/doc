@@ -12,7 +12,7 @@
 Extends [Text](/docs/{{version}}/fields/text)
 * has the same features
 
-> [!INFO]
+> [!TIP]
 > Field depends on Eloquent Model
 
 <a name="basics"></a>  

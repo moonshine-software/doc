@@ -12,7 +12,7 @@
 
 If you need a notification on the page, you can use the `moonshine::alert` component.
 
-```php
+```bladehtml
 <x-moonshine::alert>Alert</x-moonshine::alert>
 ```
 
@@ -33,7 +33,7 @@ Available types:
 - `<span class="badge badge-error">error</span>`
 - `<span class="badge badge-info">info</span>`
 
-```php
+```bladehtml
 <x-moonshine::alert type="primary">Primary</x-moonshine::alert>
 <x-moonshine::alert type="secondary">Secondary</x-moonshine::alert>
 <x-moonshine::alert type="success">Success</x-moonshine::alert>
@@ -47,7 +47,7 @@ Available types:
 
 It is possible for a notification to change its icon; to do this, you need to pass it to the `icon` parameter.
 
-```php
+```bladehtml
 <x-moonshine::alert icon="heroicons.academic-cap">Alert</x-moonshine::alert>
 ```
 
@@ -62,6 +62,6 @@ It is possible for a notification to change its icon; to do this, you need to pa
 
 To remove notifications after some time, you need to pass the `removable` parameter with the value `TRUE`.
 
-```php
+```bladehtml
 <x-moonshine::alert removable="true">Alert</x-moonshine::alert>
 ```

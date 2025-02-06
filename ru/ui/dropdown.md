@@ -12,7 +12,7 @@
 
 Используя компонент `moonshine::dropdown`, вы можете создавать выпадающие блоки.
 
-```php
+```bladehtml
 <x-moonshine::dropdown>
     <div class="m-4">
         {{ fake()->text() }}
@@ -24,7 +24,7 @@
 <a name="heading"></a>
 ## Заголовок
 
-```php
+```bladehtml
 <x-moonshine::dropdown title="Dropdown title">
     <div class="m-4">
         {{ fake()->text() }}
@@ -36,7 +36,7 @@
 <a name="footer"></a>
 ## Подвал
 
-```php
+```bladehtml
 <x-moonshine::dropdown>
     <div class="m-4">
         {{ fake()->text() }}
@@ -56,7 +56,7 @@
 - left,
 - right.
 
-```php
+```bladehtml
 <x-moonshine::dropdown placement="left">
     <div class="m-4">
         {{ fake()->text() }}

@@ -5,6 +5,8 @@
 - [Options](#options)  
 - [Global configuration](#global-configuration)  
 
+---
+
 Extends [Textarea](/docs/{{version}}/fields/textarea)
 * has the same features
 

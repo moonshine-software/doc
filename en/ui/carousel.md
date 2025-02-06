@@ -10,7 +10,7 @@
 
 To create image carousel, use the `moonshine::carousel` component.
 
-```php
+```bladehtml
 <x-moonshine::carousel
     :items="['/images/image_portrait_1.jpg', '/images/image_portrait_2.jpg']"
     :alt="fake()->sentence(3)"
@@ -24,7 +24,7 @@ To create image carousel, use the `moonshine::carousel` component.
 
 To use a carousel with vertical images, pass the parameter `:portrait="true"`.
 
-```php
+```bladehtml
 <x-moonshine::carousel
     :items="['/images/image_portrait_1.jpg', '/images/image_portrait_2.jpg']"
     :alt="fake()->sentence(3)"

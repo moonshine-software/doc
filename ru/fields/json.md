@@ -292,7 +292,7 @@ public function fields(): array
 Вы можете получить вложенные значения полей *JSON*, используя `.`.
 Значения можно редактировать, но изменения не затронут другие ключи.
 
- ```php
+ ```json
  {"info": [{"title": "Info title", "value": "Info value"}], "content": [{"title": "Content title", "value": "Content value"}]}
  ```
  

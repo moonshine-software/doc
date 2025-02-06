@@ -22,7 +22,7 @@ MorphMany::make(
 - `relationName` - имя отношения,
 - `formatted` - замыкание или поле в связанной таблице для отображения значений.
 
-> [!CAUTION]
+> [!WARNING]
 > Параметр `formatted` не используется в поле `MorphMany`!
 
 ```php

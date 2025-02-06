@@ -153,7 +153,7 @@ public function fields(): array
 //...
 ```
 
-> [!ERROR]
+> [!WARNING]
 > Поле в базе данных должно быть типа _text_ или _json_.
 > Также необходимо добавить приведение типа для eloquent модели - *json*, или *array*, или *collection*.
 

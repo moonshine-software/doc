@@ -10,7 +10,7 @@
 
 Компонент `moonshine::divider` позволяет создать стилизованный разделитель контента.
 
-```php
+```bladehtml
 {{ fake()->text(100) }}
 <x-moonshine::divider />
 {{ fake()->text(100) }}
@@ -21,7 +21,7 @@
 
 Вы можете использовать текст в качестве разделителя. Для этого необходимо указать текст в параметре `label`.
 
-```php
+```bladehtml
 {{ fake()->text(100) }}
 <x-moonshine::divider label="Divider" />
 {{ fake()->text(100) }}
@@ -29,7 +29,7 @@
 
 Параметр `centered` позволяет центрировать текст.
 
-```php
+```bladehtml
 {{ fake()->text(100) }}
 <x-moonshine::divider label="Divider" :centered="true" />
 {{ fake()->text(100) }}

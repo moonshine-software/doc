@@ -26,7 +26,7 @@
 
 The *Form* component is designed to create forms.
 
-```php
+```bladehtml
 <x-moonshine::form raw>
     // form elements
 </x-moonshine::form>
@@ -34,7 +34,7 @@ The *Form* component is designed to create forms.
 
 The component creates `html` markup for the future form.
 
-```php
+```bladehtml
 <form
     class="form" method="POST"
     x-id="['form']"
@@ -51,7 +51,7 @@ The component creates `html` markup for the future form.
 
 The Form component allows you to place buttons in a separate block, To do this, you need to pass them in the `buttons` slot.
 
-```php
+```bladehtml
 <x-moonshine::form>
     <x-moonshine::form.input
         name="title"
@@ -69,7 +69,7 @@ The Form component allows you to place buttons in a separate block, To do this, 
 
 The `errors` parameter allows you to display a list of errors.
 
-```php
+```bladehtml
 <x-moonshine::form raw error>
     // form elements
 </x-moonshine::form>
@@ -77,7 +77,7 @@ The `errors` parameter allows you to display a list of errors.
 
 If there are several forms on the page, it is recommended to set `name` to the form, to display errors only for a specific form.
 
-```php
+```bladehtml
 <x-moonshine::form raw error name="my-form">
     // form elements
 </x-moonshine::form>
@@ -87,7 +87,7 @@ If there are several forms on the page, it is recommended to set `name` to the f
 
 The `precognitive` parameter allows you to enable the Precognition mode for the form.
 
-```php
+```bladehtml
 <x-moonshine::form precognitive>
     // form elements
 </x-moonshine::form>
@@ -96,7 +96,7 @@ The `precognitive` parameter allows you to enable the Precognition mode for the 
 <a name="label"></a>
 ## Label
 
-```php
+```bladehtml
 <x-moonshine::form.label name="slug">
     Slug
 </x-moonshine::form.label>
@@ -104,7 +104,7 @@ The `precognitive` parameter allows you to enable the Precognition mode for the 
 
 If a field is required, you can pass the `required` attribute to style the element.
 
-```php
+```bladehtml
 <x-moonshine::form.label name="title" required>
     Title
 </x-moonshine::form.label>
@@ -113,7 +113,7 @@ If a field is required, you can pass the `required` attribute to style the eleme
 <a name="input"></a>
 ## Input
 
-```php
+```bladehtml
 <x-moonshine::form.input
     name="title"
     placeholder="Title"
@@ -124,7 +124,7 @@ If a field is required, you can pass the `required` attribute to style the eleme
 <a name="checkbox"></a>
 ## Checkbox
 
-```php
+```bladehtml
 <x-moonshine::form.label>
     <x-moonshine::form.input
         name="property[]"
@@ -138,7 +138,7 @@ If a field is required, you can pass the `required` attribute to style the eleme
 <a name="radio"></a>
 ## Radio
 
-```php
+```bladehtml
 <x-moonshine::form.label>
     <x-moonshine::form.input
         name="variant"
@@ -152,7 +152,7 @@ If a field is required, you can pass the `required` attribute to style the eleme
 <a name="color"></a>
 ## Color
 
-```php
+```bladehtml
 <x-moonshine::form.input
     name="color"
     type="color"
@@ -163,14 +163,14 @@ If a field is required, you can pass the `required` attribute to style the eleme
 <a name="button"></a>
 ## Button
 
-```php
+```bladehtml
 <x-moonshine::form.button>Click me</x-moonshine::form.button>
 ```
 
 <a name="hint"></a>
 ## Hint
 
-```php
+```bladehtml
 <x-moonshine::form.hint>
     {{ fake()->sentence() }}
 </x-moonshine::form.hint>
@@ -179,13 +179,13 @@ If a field is required, you can pass the `required` attribute to style the eleme
 <a name="file"></a>
 ## File
 
-```php
+```bladehtml
 <x-moonshine::form.file name="file" />
 ```
 
 Using the component, you can display previously downloaded files.
 
-```php
+```bladehtml
 <x-moonshine::form.file
     :files="[
         '/images/thumb_1.jpg',
@@ -212,7 +212,7 @@ You can pass additional parameters to the component:
 `removable` - removal from the list of downloaded files
 `imageable` - displaying preview image
 
-```php
+```bladehtml
 <x-moonshine::form.file
     :files="[
         '/images/thumb_1.jpg',
@@ -235,7 +235,7 @@ You can pass additional parameters to the component:
 <a name="slide-range"></a>
 ## Slide range
 
-```php
+```bladehtml
 <x-moonshine::form.slide-range
     fromName="from"
     toName="to"
@@ -249,7 +249,7 @@ You can pass additional parameters to the component:
 <a name="select"></a>
 ## Select
 
-```php
+```bladehtml
 <x-moonshine::form.select
     :values="[
         1 => 'Option 1',
@@ -261,7 +261,7 @@ You can pass additional parameters to the component:
 
 or through `slot:options`
 
-```php
+```bladehtml
 <x-moonshine::form.select>
     <x-slot:options>
         <option value="1">Option 1</option>
@@ -272,7 +272,7 @@ or through `slot:options`
 
 You can combine values into groups.
 
-```php
+```bladehtml
 <x-moonshine::form.select
     :values="[
         'Italy' => [
@@ -293,7 +293,7 @@ You can pass additional parameters to the component:
 `searchable` - search by values
 `nullable` - may matter `NULL`
 
-```php
+```bladehtml
 <x-moonshine::form.select
     :values="[
         1 => 'Option 1',
@@ -306,14 +306,14 @@ You can pass additional parameters to the component:
 
 To load values asynchronously, you need to specify the url for the `asyncRoute` attribute, which will return data in json format.
 
-```php
+```bladehtml
 <x-moonshine::form.select asyncRoute='url' />
 ```
 
 <a name="switcher"></a>
 ## Switcher
 
-```php
+```bladehtml
 <x-moonshine::form.switcher
     :onValue="true"
     :offValue="false"
@@ -327,7 +327,7 @@ To load values asynchronously, you need to specify the url for the `asyncRoute` 
 <a name="textarea"></a>
 ## Textarea
 
-```php
+```bladehtml
 <x-moonshine::form.textarea>
     {{ fake()->text() }}
 </x-moonshine::form.textarea>

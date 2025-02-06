@@ -1,7 +1,5 @@
 # Руководство по обновлению
 
-![!Видео руководство по обновлению](https://www.youtube.com/watch?v=y4RB25jb31c)
-
 - [1. Минимальные требования](#minimum-requirements)
 - [2. Composer.json](#composerjson)
 - [3. MoonShineServiceProvider](#moonshineserviceprovider)
@@ -16,6 +14,8 @@
 - [12. Панель управления](#dashboard)
 
 ---
+
+[Видео руководство по обновлению](https://www.youtube.com/watch?v=y4RB25jb31c)
 
 <a name="minimum-requirements"></a>
 ## 1. Минимальные требования

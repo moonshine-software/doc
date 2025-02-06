@@ -154,7 +154,7 @@ public function fields(): array
 //...
 ```
 
-> [!ERROR]
+> [!WARNING]
 > The field in the database must be of _text_ or _json_ type.
 > You also need to add a cast for the eloquent model - *json*, or *array*, or *collection*.
 

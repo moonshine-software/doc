@@ -1,14 +1,14 @@
 # Create class
 
-    -   [Basics](#basics)
-    -   [Creating a class](#create)
-    -   [Heading](#title)
-    -   [Components](#components)
-    -   [bread crumbs](#breadcrumbs)
-    -   [Layout](#layout)
-    -   [Alias](#alias)
-    -   [Render](#render)
-    -   [beforeRender](#before-render)
+- [Basics](#basics)
+- [Creating a class](#create)
+- [Heading](#title)
+- [Components](#components)
+- [bread crumbs](#breadcrumbs)
+- [Layout](#layout)
+- [Alias](#alias)
+- [Render](#render)
+- [beforeRender](#before-render)
 
 ---
 

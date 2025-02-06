@@ -129,7 +129,7 @@ final class Quill extends Textarea
 
 Также изменим представление поля
 
-```js
+```bladehtml
 <div x-data="quill">
     <div class="ql-editor" :id="$id('quill')" style="height: auto;">{!! $value ?? '' !!}</div>
   

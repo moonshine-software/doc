@@ -10,7 +10,7 @@
 
 To display a list of files, you can use the `moonshine::files` component.
 
-```php
+```bladehtml
 <x-moonshine::files :files="[
     '/images/thumb_1.jpg',
     '/images/thumb_2.jpg',
@@ -19,17 +19,13 @@ To display a list of files, you can use the `moonshine::files` component.
 
 ```
 
-/images/thumb_1.jpg
-/images/thumb_2.jpg
-/images/thumb_3.jpg
-
 
 <a name="no-download"></a>
 ## No download
 
 To disable the ability to download files, you need the component to pass the `download` parameter with the value `FALSE`.
 
-```php
+```bladehtml
 <x-moonshine::files
     :files="[
         '/images/thumb_1.jpg',
@@ -39,8 +35,3 @@ To disable the ability to download files, you need the component to pass the `do
     :download="false"
 />
 ```
-
-/images/thumb_1.jpg
-/images/thumb_2.jpg
-/images/thumb_3.jpg
-

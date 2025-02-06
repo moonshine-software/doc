@@ -2,7 +2,7 @@
 
 The `moonshine::loader` component allows you to create a stylized loading indicator.
   
-```php
+```bladehtml
 <x-moonshine::loader />
 ```
 

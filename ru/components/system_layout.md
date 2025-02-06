@@ -36,7 +36,7 @@ final class MoonShineLayout implements MoonShineLayoutContract
 
 Компонент можно использовать в *html* разметке:
 
-```php
+```html
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}"
       x-data

@@ -12,14 +12,14 @@ The `moonshine::progress-bar` component allows you to create a progress bar.
 
 Available colors:
 
-- ![primary](#)
-- ![secondary](#)
-- ![success](#)
-- ![warning](#)
-- ![error](#)
-- ![info](#)
+- primary
+- secondary
+- success
+- warning
+- error
+- info
 
-```php
+```bladehtml
 <x-moonshine::progress-bar
     color="primary"
     :value="33"
@@ -40,7 +40,7 @@ Available sizes:
 - lg
 - xl
 
-```php
+```bladehtml
 <x-moonshine::progress-bar
     color="secondary"
     :radial="true"

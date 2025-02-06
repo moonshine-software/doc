@@ -12,14 +12,14 @@
 
 Доступные цвета:
 
-- ![primary](#)
-- ![secondary](#)
-- ![success](#)
-- ![warning](#)
-- ![error](#)
-- ![info](#)
+- primary
+- secondary
+- success
+- warning
+- error
+- info
 
-```php
+```bladehtml
 <x-moonshine::progress-bar
     color="primary"
     :value="33"
@@ -40,7 +40,7 @@
 - lg
 - xl
 
-```php
+```bladehtml
 <x-moonshine::progress-bar
     color="secondary"
     :radial="true"

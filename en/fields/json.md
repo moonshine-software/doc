@@ -293,7 +293,7 @@ public function fields(): array
 You can get nested values of *JSON* fields using `.`.
 Values can be edited, but the changes will not affect other keys.
 
- ```php
+ ```json
  {"info": [{"title": "Info title", "value": "Info value"}], "content": [{"title": "Content title", "value": "Content value"}]}
  ```
  

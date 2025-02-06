@@ -136,7 +136,7 @@
 - [Loader](/docs/{{version}}/ui/loader)
 - [Modal](/docs/{{version}}/ui/modal)
 - [Offcanvas](/docs/{{version}}/ui/offcanvas)
-- [Paginations](/docs/{{version}}/ui/pagination)
+- [Paginations](/docs/{{version}}/ui/paginations)
 - [Popover](/docs/{{version}}/ui/popover)
 - [Progress bar](/docs/{{version}}/ui/progress_bar)
 - [Rating](/docs/{{version}}/ui/rating)
@@ -150,7 +150,7 @@
 
 - ## Advanced
   - [Commands](/docs/{{version}}/advanced/commands)
-  - [Controllers](/docs/{{version}}/advanced/controller)
+  - [Controllers](/docs/{{version}}/advanced/controllers)
   - [FormBuilder](/docs/{{version}}/advanced/form_builder)
   - [TableBuilder](/docs/{{version}}/advanced/table_builder)
   - [CardsBuilder](/docs/{{version}}/advanced/cards_builder)

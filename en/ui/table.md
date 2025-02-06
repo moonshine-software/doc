@@ -14,7 +14,7 @@
 
 Styled tables can be created using the `moonshine::table` component.
 
-```php
+```bladehtml
 <x-moonshine::table
     :columns="[
         '#', 'First', 'Last', 'Email'
@@ -32,7 +32,7 @@ Styled tables can be created using the `moonshine::table` component.
 
 The `simple` parameter allows you to create a simplified table view.
 
-```php
+```bladehtml
 <x-moonshine::table
     :simple="true"
     :columns="[
@@ -51,7 +51,7 @@ The `simple` parameter allows you to create a simplified table view.
 
 If the table contains a large number of elements, then you can fix the header when scrolling the table.
 
-```php
+```bladehtml
 <x-moonshine::table
     :sticky="true"
     :columns="[
@@ -70,7 +70,7 @@ If the table contains a large number of elements, then you can fix the header wh
 
 The `notfound` parameter allows you to display a message if there are no table elements.
 
-```php
+```bladehtml
 <x-moonshine::table
     :columns="[
         '#', 'First', 'Last', 'Email'
@@ -84,7 +84,7 @@ The `notfound` parameter allows you to display a message if there are no table e
 
 A table can be formed using slots.
 
-```php
+```bladehtml
 <x-moonshine::table>
     <x-slot:thead class="text-center">
         <th colspan="4">Header</th>
@@ -137,7 +137,7 @@ Available classes:
 - bgc-info
 
 
-```php
+```bladehtml
 <x-moonshine::table>
     <x-slot:thead class="bgc-secondary text-center">
         <th colspan="3">Header</th>

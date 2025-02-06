@@ -54,7 +54,7 @@ public function components(): array
 
 A helper is also available that can be used in Blade:
 
-```php
+```bladehtml
 <div>
     {!! actionBtn('Click me', 'https://moonshine-laravel.com') !!}
 </div>
@@ -419,8 +419,8 @@ If you need to display a notification or make a redirect after a click, then it 
 
 If you need to replace an area with html on click, then you can return HTML content or json with the html key in the response:
 
-```php
-{html: 'Html content'}
+```json
+{"html": "Html content"}
 ```
 
 ```php
@@ -548,7 +548,7 @@ public function updateSomething(MoonShineRequest $request)
 > [!WARNING]
 > Methods called via `ActionButton` in a resource must be public!
 
-> [!CAUTION]
+> [!WARNING]
 > To access the data from the request, you must pass it in the parameters.
 
 #### Passing the current item

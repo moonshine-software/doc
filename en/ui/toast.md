@@ -11,22 +11,20 @@
 
 You can create notifications using the `moonshine::toast` component.
 
-```blade
+```bladehtml
 <x-moonshine::toast content="Message toast" />
 ```
 Available types:
 
+- primary
+- secondary
+- success
+- warning
+- error
+- info
 
 
-<span class="badge badge-primary">primary</span>
-<span class="badge badge-secondary">secondary</span>
-<span class="badge badge-success">success</span>
-<span class="badge badge-warning">warning</span>
-<span class="badge badge-error">error</span>
-<span class="badge badge-info">info</span>
-
-
-```blade
+```bladehtml
 <x-moonshine::toast type="success" content="Message success toast" />
 
 
@@ -64,7 +62,7 @@ Available types:
 
 You can also create a notification using the `MoonShineUi::toast()` method.
 
-```php
+```bladehtml
 use MoonShine\MoonShineUI;
 
 MoonShineUI::toast('Toast content', 'error');

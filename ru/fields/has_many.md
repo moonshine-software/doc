@@ -1,15 +1,17 @@
 # HasMany
 
-   - [Основы](#basics)
-   - [Поля](#fields)
-   - [Создание объекта отношения](#creatable)
-   - [Количество записей](#limit)
-   - [Только ссылка](#only-link)
-   - [ID родителя](#parent-id)
-   - [Кнопка редактирования](#change-edit-button)
-   - [Модальное окно](#without-modals)
-   - [Модификация](#modify)
-   - [Продвинутое использование](#advanced)
+- [Основы](#basics)
+- [Поля](#fields)
+- [Создание объекта отношения](#creatable)
+- [Количество записей](#limit)
+- [Только ссылка](#only-link)
+- [ID родителя](#parent-id)
+- [Кнопка редактирования](#change-edit-button)
+- [Модальное окно](#without-modals)
+- [Модификация](#modify)
+- [Продвинутое использование](#advanced)
+
+---
 
 <a name="basics"></a> 
 ## Основы
@@ -30,7 +32,7 @@ HasMany::make(
 -`$relationName` - имя отношения,
 -`$resource` - ресурс модели, на который ссылается отношение.
 
-> [!CAUTION]
+> [!WARNING]
 > Параметр `$formatted` не используется в поле `HasMany`!
 
 > [!WARNING]

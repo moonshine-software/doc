@@ -10,15 +10,13 @@
  
 Для создания миниатюр можно использовать компонент `moonshine::thumbnails`.
 
-```php
+```bladehtml
 <x-moonshine::thumbnails value="/images/thumb_1.jpg"/>
 ```
 
-![thumb](/images/thumb_1.jpg)
-
 Вы также можете указать атрибут `alt`.
 
-```php
+```bladehtml
 <x-moonshine::thumbnails value="/images/thumb_1.jpg" alt="Description"/>
 ```
 
@@ -27,13 +25,10 @@
 
 Вы можете передать компоненту массив изображений.
 
-```php
+```bladehtml
 <x-moonshine::thumbnails :values="[
     '/images/thumb_1.jpg',
     '/images/thumb_2.jpg',
     '/images/thumb_3.jpg'
 ]"/>
 ```
-![thumb](/images/thumb_1.jpg)
-![thumb](/images/thumb_2.jpg)
-![thumb](/images/thumb_3.jpg)

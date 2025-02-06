@@ -1,8 +1,8 @@
 # HasOne
 
-[Basics](#basics)
-[Fields](#fields)
-[Parent-ID](#parent-id)
+- [Basics](#basics)
+- [Fields](#fields)
+- [Parent-ID](#parent-id)
 
 ---
 
@@ -26,7 +26,7 @@ HasOne::make(
 `$relationName` - name of the relationship,
 `$resource` - the model resource referenced by the relation
 
-> [!CAUTION]
+> [!WARNING]
 > The `$formatted` parameter is not used in the HasOne field!
 
 > [!WARNING]
@@ -153,7 +153,7 @@ protected function getParentRelationName(): string
 
 To get the parent ID, use the `getParentId()` method.
 
-```
+```php
 $this->getParentId();
 ```
 

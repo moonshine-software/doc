@@ -1,7 +1,5 @@
 # Upgrade guide
 
-![!Video upgrade guide](https://www.youtube.com/watch?v=y4RB25jb31c)
-
 - [1. Minimum requirements](#minimum-requirements) 
 - [2. Composer.json](#composerjson) 
 - [3. MoonShineServiceProvider](#moonshineserviceprovider) 
@@ -16,6 +14,8 @@
 - [12. Dashboard](#dashboard)
 
 ---
+
+[Video upgrade guide](https://www.youtube.com/watch?v=y4RB25jb31c)
 
 <a name="minimum-requirements"></a>
 ## 1. Minimum requirements

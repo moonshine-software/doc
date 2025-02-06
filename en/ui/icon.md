@@ -19,7 +19,7 @@
 ## Size
 
 Using the `size` parameter you can set the size of the icon.
-```php
+```bladehtml
 <x-moonshine::icon icon="heroicons.academic-cap" size="16"/>
 ```
 
@@ -29,7 +29,7 @@ Using the `size` parameter you can set the size of the icon.
 <a name="color"></a>
 ## Color
 
-```php
+```bladehtml
 <x-moonshine::icon icon="heroicons.academic-cap" color="primary"/>
 <x-moonshine::icon icon="heroicons.academic-cap" color="secondary"/>
 <x-moonshine::icon icon="heroicons.academic-cap" color="dark-900"/>
@@ -44,7 +44,7 @@ Using the `size` parameter you can set the size of the icon.
 
 A custom style for icons can be set using the `class` parameter.
 
-```php
+```bladehtml
 <x-moonshine::icon
     size="10"
     icon="heroicons.academic-cap"

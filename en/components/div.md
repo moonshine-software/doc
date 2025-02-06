@@ -25,6 +25,6 @@ public function components(): array
 
 ## Blade
 
-```blade
+```bladehtml
 <x-moonshine::layout.div></x-moonshine::layout.div>
 ```

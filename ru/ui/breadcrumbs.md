@@ -2,7 +2,7 @@
 
 Компонент `moonshine::breadcrumbs` используется для создания `breadcrumbs` ("хлебных крошек").
 
-```php
+```bladehtml
 <x-moonshine::breadcrumbs
     :items="[
         '/' => 'Home',

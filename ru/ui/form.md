@@ -26,7 +26,7 @@
 
 Компонент *Form* предназначен для создания форм.
 
-```php
+```bladehtml
 <x-moonshine::form raw>
     // элементы формы
 </x-moonshine::form>
@@ -34,7 +34,7 @@
 
 Компонент создает `html` разметку для будущей формы.
 
-```php
+```bladehtml
 <form
     class="form" method="POST"
     x-id="['form']"
@@ -51,7 +51,7 @@
 
 Компонент Form позволяет размещать кнопки в отдельном блоке. Для этого нужно передать их в слот `buttons`.
 
-```php
+```bladehtml
 <x-moonshine::form>
     <x-moonshine::form.input
         name="title"
@@ -69,7 +69,7 @@
 
 Параметр `errors` позволяет отображать список ошибок.
 
-```php
+```bladehtml
 <x-moonshine::form raw error>
     // элементы формы
 </x-moonshine::form>
@@ -77,7 +77,7 @@
 
 Если на странице несколько форм, рекомендуется задать `name` форме, чтобы отображать ошибки только для конкретной формы.
 
-```php
+```bladehtml
 <x-moonshine::form raw error name="my-form">
     // элементы формы
 </x-moonshine::form>
@@ -87,7 +87,7 @@
 
 Параметр `precognitive` позволяет включить режим Precognition для формы.
 
-```php
+```bladehtml
 <x-moonshine::form precognitive>
     // элементы формы
 </x-moonshine::form>
@@ -96,7 +96,7 @@
 <a name="label"></a>
 ## Метка
 
-```php
+```bladehtml
 <x-moonshine::form.label name="slug">
     Slug
 </x-moonshine::form.label>
@@ -104,7 +104,7 @@
 
 Если поле обязательно, можно передать атрибут `required` для стилизации элемента.
 
-```php
+```bladehtml
 <x-moonshine::form.label name="title" required>
     Title
 </x-moonshine::form.label>
@@ -113,7 +113,7 @@
 <a name="input"></a>
 ## Ввод
 
-```php
+```bladehtml
 <x-moonshine::form.input
     name="title"
     placeholder="Title"
@@ -124,7 +124,7 @@
 <a name="checkbox"></a>
 ## Флажок
 
-```php
+```bladehtml
 <x-moonshine::form.label>
     <x-moonshine::form.input
         name="property[]"
@@ -138,7 +138,7 @@
 <a name="radio"></a>
 ## Переключатель
 
-```php
+```bladehtml
 <x-moonshine::form.label>
     <x-moonshine::form.input
         name="variant"
@@ -152,7 +152,7 @@
 <a name="color"></a>
 ## Цвет
 
-```php
+```bladehtml
 <x-moonshine::form.input
     name="color"
     type="color"
@@ -163,14 +163,14 @@
 <a name="button"></a>
 ## Кнопка
 
-```php
+```bladehtml
 <x-moonshine::form.button>Click me</x-moonshine::form.button>
 ```
 
 <a name="hint"></a>
 ## Подсказка
 
-```php
+```bladehtml
 <x-moonshine::form.hint>
     {{ fake()->sentence() }}
 </x-moonshine::form.hint>
@@ -179,13 +179,13 @@
 <a name="file"></a>
 ## Файл
 
-```php
+```bladehtml
 <x-moonshine::form.file name="file" />
 ```
 
 С помощью компонента можно отобразить ранее загруженные файлы.
 
-```php
+```bladehtml
 <x-moonshine::form.file
     :files="[
         '/images/thumb_1.jpg',
@@ -212,7 +212,7 @@
 `removable` - удаление из списка загруженных файлов
 `imageable` - отображение превью изображения
 
-```php
+```bladehtml
 <x-moonshine::form.file
     :files="[
         '/images/thumb_1.jpg',
@@ -235,7 +235,7 @@
 <a name="slide-range"></a>
 ## Диапазон
 
-```php
+```bladehtml
 <x-moonshine::form.slide-range
     fromName="from"
     toName="to"
@@ -249,7 +249,7 @@
 <a name="select"></a>
 ## Выбор
 
-```php
+```bladehtml
 <x-moonshine::form.select
     :values="[
         1 => 'Вариант 1',
@@ -261,7 +261,7 @@
 
 или через `slot:options`
 
-```php
+```bladehtml
 <x-moonshine::form.select>
     <x-slot:options>
         <option value="1">Вариант 1</option>
@@ -272,7 +272,7 @@
 
 Вы можете объединять значения в группы.
 
-```php
+```bladehtml
 <x-moonshine::form.select
     :values="[
         'Италия' => [
@@ -292,7 +292,7 @@
 `searchable` - поиск по значениям
 `nullable` - может иметь значение `NULL`
 
-```php
+```bladehtml
 <x-moonshine::form.select
     :values="[
         1 => 'Вариант 1',
@@ -304,7 +304,7 @@
 ```
 
 Для асинхронной загрузки значений необходимо указать url для атрибута `asyncRoute`, который вернет данные в формате json.
-```php
+```bladehtml
 
 <x-moonshine::form.select asyncRoute='url' />
 ```
@@ -312,7 +312,7 @@
 <a name="switcher"></a>
 ## Переключатель
 
-```php
+```bladehtml
 <x-moonshine::form.switcher
     :onValue="true"
     :offValue="false"
@@ -326,7 +326,7 @@
 <a name="textarea"></a>
 ## Текстовая область
 
-```php
+```bladehtml
 <x-moonshine::form.textarea>
     {{ fake()->text() }}
 </x-moonshine::form.textarea>
