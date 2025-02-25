@@ -4,6 +4,7 @@
 - [Creating](#creating)
 - [Basic Properties](#basic-properties)
 - [Declaring in the System](#declaring-in-the-system)
+- [Autoloading](#autoloading)
 - [Adding to the Menu](#adding-to-the-menu)
     - [Alias](#alias)
 - [Current Element/Model](#current-element-model)
@@ -146,6 +147,9 @@ class MoonShineServiceProvider extends ServiceProvider
     }
 }
 ```
+
+<a name="autoloading"></a>
+## Autoloading
 
 Autoloading of pages and resources is also available in **MoonShine**.
 It is disabled by default and to activate it you need to call the `autoload()` method in `MoonShineServiceProvider` instead of specifying links to pages and resources.

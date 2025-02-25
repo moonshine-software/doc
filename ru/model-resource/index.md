@@ -4,6 +4,7 @@
 - [Создание](#creating)
 - [Базовые свойства](#basic-properties)
 - [Объявление в системе](#declaring-in-the-system)
+- [Автозагрузка](#autoloading)
 - [Добавление в меню](#adding-to-the-menu)
     - [Alias](#alias)
 - [Текущий элемент/модель](#current-element-model)
@@ -146,6 +147,9 @@ class MoonShineServiceProvider extends ServiceProvider
     }
 }
 ```
+
+<a name="autoloading"></a>
+## Автозагрузка
 
 В **MoonShine** также доступна автозагрузка страниц и ресурсов.
 Она выключена по-умолчанию и для активации нужно вызвать метод `autoload()` в `MoonShineServiceProvider` вместо указания ссылок на страницы и ресурсы.
