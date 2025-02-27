@@ -110,7 +110,7 @@ protected function indexButtons(): ListOf
 - mass-delete-button.
 
 > [!NOTE]
-> Также можно глобально отключить любые действия с ресурсом (см. [активные действия](/docs/{{version}}/model-resource/index#buttons).
+> Также можно глобально отключить любые действия с ресурсом (см. [активные действия](/docs/{{version}}/model-resource/index#active-actions).
 
 Очистить набор кнопок и добавить свою:
 
