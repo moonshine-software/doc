@@ -110,7 +110,7 @@ Standard button names for the index view rows:
 - mass-delete-button.
 
 > [!NOTE]
-> You can also globally disable any actions with the resource (see [активные действия](/docs/{{version}}/model-resource/index#buttons).
+> You can also globally disable any actions with the resource (see [active actions](/docs/{{version}}/model-resource/index#active-actions).
 
 Clear the button set and add your own:
 
