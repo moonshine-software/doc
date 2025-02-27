@@ -103,7 +103,7 @@ protected function indexButtons(): ListOf
 }
 ```
 
-Названия стандартных кнопкок для таблицы: 
+Названия стандартных кнопок для таблицы: 
 - resource-detail-button,
 - resource-edit-button,
 - resource-delete-button,
