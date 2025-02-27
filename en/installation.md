@@ -3,6 +3,7 @@
 - [Requirements](#requirements)
 - [Installation via composer](#composer)
 - [Panel installation](#install)
+- [IDE support](#ide-support)
 
 ---
 
@@ -68,3 +69,9 @@ Now everything is ready to use and create your admin panel. You can access it at
 
 We recommend following the documentation step by step to gain a deeper understanding of the concept.
 The next section is **Configuration**, where you will also find answers on how to proceed if you chose the path of custom authentication implementation and user entities.
+
+<a name="ide-support"></a>
+## IDE support
+
+If you are using **PhpStorm** IDE, we recommend that you use [MetaStorm](https://github.com/xepozz/meta-storm-idea-plugin) plugin!
+Working with **MoonShine** will become easier and more convenient :)
