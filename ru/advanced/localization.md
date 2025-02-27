@@ -18,8 +18,8 @@
 > Дополнительные языки ищите в разделе [Plugins](/plugins).
 
 > [!TIP]
-> You can also use the third-party package [laravel-lang/moonshine](https://laravel-lang.com/packages-moonshine.html).
-> It provides a large number of localizations in one package.
+> Так же вы можете воспользоваться сторонним пакетом [laravel-lang/moonshine](https://laravel-lang.com/packages-moonshine.html).
+> Он предоставляет большое количество локализаций в одном пакете.
 
 <a name="configuration"></a>
 ## Конфигурация

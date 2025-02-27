@@ -17,8 +17,8 @@ where you can add support for a new language or modify the current translations.
 > Look for additional languages in the [Plugins](/plugins) section.
 
 > [!TIP]
-> Так же вы можете воспользоваться сторонним пакетом [laravel-lang/moonshine](https://laravel-lang.com/packages-moonshine.html).
-> Он предоставляет большое количество локализаций в одном пакете.
+> You can also use the third-party package [laravel-lang/moonshine](https://laravel-lang.com/packages-moonshine.html).
+> It provides a large number of localizations in one package.
 
 <a name="configuration"></a>
 ## Configuration
