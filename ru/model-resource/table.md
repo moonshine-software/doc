@@ -103,11 +103,14 @@ protected function indexButtons(): ListOf
 }
 ```
 
-> [!NOTE]
-> Названия стандартных кнопкок для таблицы `resource-detail-button`, `resource-edit-button`, `resource-delete-button` и  `mass-delete-button`.
+Названия стандартных кнопкок для таблицы: 
+- resource-detail-button,
+- resource-edit-button,
+- resource-delete-button,
+- mass-delete-button.
 
 > [!NOTE]
-> Также можно глобально отключить любые действия с ресурсом (см. [активные действия](https://moonshine-laravel.com/ru/docs/3.x/model-resource/index#buttons).
+> Также можно глобально отключить любые действия с ресурсом (см. [активные действия](/docs/{{version}}/model-resource/index#buttons).
 
 Очистить набор кнопок и добавить свою:
 
