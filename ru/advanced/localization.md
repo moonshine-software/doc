@@ -17,6 +17,10 @@
 > По умолчанию в **MoonShine** присутствует только английский язык.
 > Дополнительные языки ищите в разделе [Plugins](/plugins).
 
+> [!TIP]
+> You can also use the third-party package [laravel-lang/moonshine](https://laravel-lang.com/packages-moonshine.html).
+> It provides a large number of localizations in one package.
+
 <a name="configuration"></a>
 ## Конфигурация
 

@@ -16,6 +16,10 @@ where you can add support for a new language or modify the current translations.
 > By default, **MoonShine** only includes the English language.
 > Look for additional languages in the [Plugins](/plugins) section.
 
+> [!TIP]
+> Так же вы можете воспользоваться сторонним пакетом [laravel-lang/moonshine](https://laravel-lang.com/packages-moonshine.html).
+> Он предоставляет большое количество локализаций в одном пакете.
+
 <a name="configuration"></a>
 ## Configuration
 
