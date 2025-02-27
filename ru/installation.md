@@ -73,5 +73,5 @@ php artisan moonshine:install
 <a name="ide-support"></a>
 ## Поддержка IDE
 
-Если вы используете IDE **PhpStorm**, то рекомендуем вам использовать плагин [MetaStorm](https://github.com/xepozz/meta-storm-idea-plugin)!
+Если вы используете IDE **PhpStorm**, то рекомендуем вам использовать плагин [MetaStorm](https://plugins.jetbrains.com/plugin/26121-metastorm/)!
 Работать с **MoonShine** станет легче и удобнее :)

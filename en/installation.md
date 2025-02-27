@@ -73,5 +73,5 @@ The next section is **Configuration**, where you will also find answers on how t
 <a name="ide-support"></a>
 ## IDE support
 
-If you are using **PhpStorm** IDE, we recommend that you use [MetaStorm](https://github.com/xepozz/meta-storm-idea-plugin) plugin!
+If you are using **PhpStorm** IDE, we recommend that you use [MetaStorm](https://plugins.jetbrains.com/plugin/26121-metastorm/) plugin!
 Working with **MoonShine** will become easier and more convenient :)
