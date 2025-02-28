@@ -687,6 +687,17 @@ onBeforeApply(Closure $onBeforeApply)
 onAfterApply(Closure $onBeforeApply)
 ```
 
+Выполнять метод `apply()` можно по условию, воспользовавшись методом `canApply()`.
+
+```php
+canApply(Closure $canApply)
+```
+
+```php
+Text::make('Title')
+    ->canApply(fn() => false)
+```
+
 #### Глобальное определение apply логики
 
 Если вы хотите глобально для определенного поля изменить логику `apply`, то вы можете создать `apply` класс и привязать его к необходимому полю.
