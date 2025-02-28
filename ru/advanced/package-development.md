@@ -23,6 +23,8 @@
 Через `ServiceProvider` вашего пакета вы можете автоматически добавлять ресурсы, страницы, создавать меню и правила авторизации, и многое другое.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:5]
 namespace Author\MoonShineMyPackage;
 
 use Illuminate\Support\ServiceProvider;
@@ -40,26 +42,30 @@ class MyPackageServiceProvider extends ServiceProvider
             ])
             ->page([
                 MyPackagePage::class
-            ])
-        ;
+            ]);
     }
 }
 ```
 
-Также вы можете взаимодействовать с `MenuManager`
+Также вы можете взаимодействовать с `MenuManager`.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:6]
 namespace Author\MoonShineMyPackage;
 
 use Illuminate\Support\ServiceProvider;
 use MoonShine\Contracts\Core\DependencyInjection\CoreContract;
-use MoonShine\Laravel\DependencyInjection\MoonShine;
 use MoonShine\Contracts\MenuManager\MenuManagerContract;
+use MoonShine\Laravel\DependencyInjection\MoonShine;
 
 class MyPackageServiceProvider extends ServiceProvider
 {
     /** @param MoonShine $core */
-    public function boot(CoreContract $core, MenuManagerContract $menu): void
+    public function boot(
+        CoreContract $core,
+        MenuManagerContract $menu
+    ): void
     {
         $menu->add([
             MenuItem::make('MyPackagePage', MyPackagePage::class)
@@ -68,14 +74,19 @@ class MyPackageServiceProvider extends ServiceProvider
 }
 ```
 
-Также вы можете взаимодействовать с `AssetManager` или `ColorManager`
+Также вы можете взаимодействовать с `AssetManager` или `ColorManager`.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Contracts\AssetManager\AssetManagerContract;
 
-// ..
+// ...
 
-public function boot(CoreContract $core, AssetManagerContract $assets): void
+public function boot(
+    CoreContract $core,
+    AssetManagerContract $assets
+): void
 {
     $assets->add([
         InlineCss::make('body {background: red;}')
@@ -84,11 +95,16 @@ public function boot(CoreContract $core, AssetManagerContract $assets): void
 ```
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Contracts\ColorManager\ColorManagerContract;
 
 // ...
 
-public function boot(CoreContract $core, ColorManagerContract $colors): void
+public function boot(
+    CoreContract $core,
+    ColorManagerContract $colors
+): void
 {
     $colors
         ->background('#A3C3D9')
@@ -102,9 +118,11 @@ public function boot(CoreContract $core, ColorManagerContract $colors): void
 }
 ```
 
-Если вам нужно добавить дополнительную логику авторизации в приложение или во внешний пакет, используйте метод `defineAuthorization`.
+Если вам нужно добавить дополнительную логику авторизации в приложение или во внешний пакет, используйте метод `authorizationRules()`.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
 use MoonShine\Contracts\Core\DependencyInjection\ConfiguratorContract;
 use MoonShine\Laravel\DependencyInjection\MoonShineConfigurator;
 
@@ -123,12 +141,14 @@ public function boot(ConfiguratorContract $configurator): void
 }
 ```
 
-Вы также можете прямо из `ServiceProvider` добавлять компоненты на страницы
+Вы также можете прямо из `ServiceProvider` добавлять компоненты на страницы.
 
 ```php
 public function boot(): void
 {
-    ProfilePage::pushComponent(fn() => MyPackageComponent::make());
+    ProfilePage::pushComponent(
+        fn() => MyPackageComponent::make()
+    );
 }
 ```
 
@@ -147,7 +167,7 @@ public function boot(): void
 <a name="traits"></a>
 ## Traits
 
-Вы также можете включать в свой пакет трейты для ресурсов или страниц и изменять логику с помощью `load{TraitName}`/`boot{TraitName}` магических методов.
+Вы также можете включать в свой пакет трейты для ресурсов или страниц и изменять логику с помощью `load{TraitName}()`/`boot{TraitName}()` магических методов.
 
 ```php
 trait HasMyPackageTrait
@@ -176,7 +196,7 @@ trait HasMyPackageTrait
 <a name="custom-field-example"></a>
 ## Пример пользовательского поля
 
-Давайте быстро рассмотрим создание собственного поля! Это будет визуальный редактор на основе плагина `Quill.js`.
+Давайте быстро рассмотрим создание собственного поля! Это будет визуальный редактор на основе плагина **Quill.js**.
 
 Создадим поле с помощью команды `moonshine:field` и выберем, что оно расширяет `Textarea`.
 
@@ -187,11 +207,13 @@ php artisan moonshine:field Quill
 Удалим ненужные методы и добавим css/js.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:5]
 namespace App\MoonShine\Fields;
 
-use MoonShine\UI\Fields\Textarea;
 use MoonShine\AssetManager\Css;
 use MoonShine\AssetManager\Js;
+use MoonShine\UI\Fields\Textarea;
 
 final class Quill extends Textarea
 {
@@ -200,9 +222,9 @@ final class Quill extends Textarea
     public function assets(): array
     {
         return [
-            Css::make('/css/moonshine/quill/quill.snow.css'), // тема
-            Js::make('/js/moonshine/quill/quill.js'), // библиотека
-            Js::make('/js/moonshine/quill/quill-init.js'), // инициализация
+            Css::make('/css/moonshine/quill/quill.snow.css'),
+            Js::make('/js/moonshine/quill/quill.js'),
+            Js::make('/js/moonshine/quill/quill-init.js'),
         ];
     }
 }
@@ -223,7 +245,7 @@ final class Quill extends Textarea
 </div>
 ```
 
-Мы взяли `quill.snow.css` и `quill.js` из библиотеки, а инициализация `js` с использованием `Alpine.js` представлена ниже.
+Мы взяли `quill.snow.css` и `quill.js` из библиотеки, а инициализация JS с использованием **Alpine.js** представлена ниже.
 
 ```js
 document.addEventListener('alpine:init', () => {
