@@ -48,6 +48,7 @@ tab: config/moonshine.php
     'en' => 'Английский',
     'ru' => 'Русский',
 ],
+```
 tab: app/Providers/MoonShineServiceProvider.php
 ```php
 $config->locales(['en', 'ru']);
@@ -58,10 +59,28 @@ $config->locales([
     'en' => 'Английский',
     'ru' => 'Русский',
 ]);
+```
 ~~~
 
 > [!WARNING]
 > Если вы изменили язык в интерфейсе панели, то выбор сохранился в сессиях и будет в приоритете над конфигурацией.
+
+<a name="localization-key"></a>
+### Параметр локализации
+
+По-умолчанию в качестве имени параметра для установки локализации используется `_lang`.
+Изменить наименование возможно как через файл конфигурации, так и через сервис-провайдер.
+
+~~~tabs
+tab: config/moonshine.php
+```php
+'locale_key' => '_lang',
+```
+tab: app/Providers/MoonShineServiceProvider.php
+```php
+$config->localeKey('_lang');
+```
+~~~
 
 <a name="middleware"></a>
 ## Смена языка
