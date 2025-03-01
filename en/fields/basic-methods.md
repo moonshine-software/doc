@@ -687,6 +687,17 @@ To perform actions after "apply", you can use the `onAfterApply()` method.
 onAfterApply(Closure $onBeforeApply)
 ```
 
+You can conditionally execute the `apply()` method using the `canApply()` method.
+
+```php
+canApply(Closure $canApply)
+```
+
+```php
+Text::make('Title')
+    ->canApply(fn() => false)
+```
+
 #### Global Definition of Apply Logic
 
 If you want to globally change the `apply` logic for a certain field, you can create an `apply` class and bind it to the necessary field.
