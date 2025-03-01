@@ -51,7 +51,7 @@ OffCanvas::make(
 ```
 tab: Blade
 ```blade
-<x-moonshine::offcanvas
+<x-moonshine::off-canvas
     title="Offcanvas"
     :left="false"
 >
@@ -59,7 +59,7 @@ tab: Blade
          Open
     </x-slot:toggler>
     {{ fake()->text() }}
-</x-moonshine::offcanvas>
+</x-moonshine::off-canvas>
 ```
 ~~~
 
