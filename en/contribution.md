@@ -19,40 +19,43 @@
 
 The community needs active users. You can help in many ways:
 
-- Contributing to the code;
-- Developing the frontend;
-- Reporting bugs;
-- Helping other users understand the details;
-- Improving the documentation;
+- Reporting bugs,
+- Contributing to the code,
+- Developing the frontend,
+- Helping other users,
+- Improving the documentation,
 - Promoting the project.
 
 <a name="lets-use"></a>
 ## What we use
 
-- Blade;
-- TailwindCSS;
+- Blade,
+- TailwindCSS,
 - AlpineJs.
 
 <a name="where-do-we-start"></a>
 ## Where do we start?
 
-There is already a functional product that is fully operational and testable. Functional does not mean perfect, so our task is to make it better.
+There is already a functional product that is fully operational and testable.
+Functional does not mean perfect, so our task is to make it better.
 
 <a name="pull-requests"></a>
 ## Pull requests
 
-You can propose new features or improvements for **MoonShine**! Bugs and issues can be fixed and submitted for review. I also welcome new specialists to contribute to the open-source project.
+You can propose new features or improvements for **MoonShine**!
+Bugs and issues can be fixed and submitted for review.
+We also welcome new specialists to contribute to the open-source project.
 
 <a name="where-to-discuss-the-development"></a>
 ## Where to discuss the development?
 
-A separate chat in Telegram has been created for active project participants. If you are ready to participate in development, join - [MoonShine](https://t.me/MoonShine_Laravel).
+A separate chat in Telegram has been created for active project participants.
+If you are ready to participate in development, join - [MoonShine](https://t.me/MoonShine_Laravel).
 
 <a name="if-you-find-a-mistake"></a>
 ## If you find a mistake
 
 1. You have enough experience to propose a solution. I would be very happy to receive your PR with a description of the issue and a proposed fix.
-
 2. If you do not know how to solve the problem - create a GitHub issue, and we will fix the problem soon.
 
 > [!WARNING]
@@ -61,7 +64,7 @@ A separate chat in Telegram has been created for active project participants. If
 <a name="main-branch"></a>
 ## Main branch
 
-Currently, the main branch is `3.x`
+Currently, the main branch is `3.x`.
 
 <a name="coding-style"></a>
 ## Coding style
@@ -73,13 +76,13 @@ Currently, the main branch is `3.x`
 
 1. Create a directory for the project and clone the demo.
 
-```
+```shell
 git clone git@github.com:moonshine-software/demo-project.git .
 ```
 
 2. Add the `packages` directory and run the command below.
 
-```
+```shell
 cd packages && git clone git@github.com:moonshine-software/moonshine.git && cd moonshine && composer install && npm install
 ```
 
@@ -116,7 +119,7 @@ php artisan moonshine:user
 php artisan serve
 ```
 
-## Create something useful!
+**Create something useful!**
 
 <a name="pr"></a>
 ## How to make a pull request?
@@ -133,4 +136,4 @@ php artisan serve
 <a name="any-questions"></a>
 ## Any questions?
 
-My name is Danil! Feel free to email me at [thecutcode@gmail.com](mailto:thecutcode@gmail.com)
+My name is Danil! Feel free to email me at [thecutcode@gmail.com](mailto:thecutcode@gmail.com).
