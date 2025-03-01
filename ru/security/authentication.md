@@ -23,7 +23,7 @@
 <a name="configuration"></a>
 ## Конфигурация
 
-Основные настройки аутентификации находятся в файле конфигурации `config/moonshine.php` в секции `auth`:
+Основные настройки аутентификации находятся в файле конфигурации `config/moonshine.php` в секции `auth`.
 
 ```php
 'auth' => [
@@ -37,16 +37,16 @@
 
 Здесь вы можете настроить:
 
-- `enabled`: включение/отключение встроенной аутентификации
-- `guard`: имя guard'а для аутентификации
-- `model`: класс модели пользователя
-- `middleware`: middleware для аутентификации
-- `pipelines`: дополнительные pipeline'ы для процесса аутентификации
+- `enabled` - включение/отключение встроенной аутентификации,
+- `guard` - имя guard'а для аутентификации,
+- `model` - класс модели пользователя,
+- `middleware` - middleware для аутентификации,
+- `pipelines` - дополнительные pipeline'ы для процесса аутентификации.
 
 <a name="customization"></a>
 ## Кастомизация
 
-Вы можете настроить аутентификацию в `MoonShineServiceProvider`:
+Вы можете настроить аутентификацию в `MoonShineServiceProvider`.
 
 ```php
 $config
@@ -61,7 +61,7 @@ $config
 <a name="disabling-authentication"></a>
 ## Отключение аутентификации
 
-Если вы хотите отключить встроенную аутентификацию **MoonShine**, вы можете сделать это в `MoonShineServiceProvider`:
+Если вы хотите отключить встроенную аутентификацию **MoonShine**, вы можете сделать это в `MoonShineServiceProvider`.
 
 ```php
 $config->authDisable();
@@ -70,7 +70,7 @@ $config->authDisable();
 <a name="custom-user-model"></a>
 ## Кастомная модель пользователя
 
-Если вы хотите использовать собственную модель пользователя вместо `MoonshineUser`, вы можете указать её в конфигурации:
+Если вы хотите использовать собственную модель пользователя вместо `MoonshineUser`, вы можете указать её в конфигурации.
 
 ```php
 'auth' => [
@@ -81,7 +81,7 @@ $config->authDisable();
 <a name="custom-user-fields"></a>
 ## Кастомные поля пользователя и профиль
 
-**MoonShine** позволяет настроить поля пользователя, используемые для аутентификации и профиля:
+**MoonShine** позволяет настроить поля пользователя, используемые для аутентификации и профиля.
 
 ```php
 $config
@@ -90,7 +90,7 @@ $config
     ->userField('name', 'full_name')
     ->userField('avatar', 'profile_image');
 ```
-При этом если вы хотите полностью заменить страницу профиля на свою, то можете это сделать через конфигурацию `moonshine.php`:
+При этом если вы хотите полностью заменить страницу профиля на свою, то можете это сделать через конфигурацию `moonshine.php`.
 
 ```php
 'pages' => [
@@ -98,10 +98,13 @@ $config
 ],
 ```
 
-Или через `MoonShineServiceProvider`:
+Или через `MoonShineServiceProvider`.
 
 ```php
-$config->changePage(\MoonShine\Laravel\Pages\ProfilePage::class, \App\MoonShine\Pages\CustomProfile::class);
+$config->changePage(
+    \MoonShine\Laravel\Pages\ProfilePage::class,
+    \App\MoonShine\Pages\CustomProfile::class
+);
 ```
 
 <a name="role-based-access"></a>
@@ -111,7 +114,7 @@ $config->changePage(\MoonShine\Laravel\Pages\ProfilePage::class, \App\MoonShine\
 
 ### Создание middleware
 
-Создайте новый `middleware`, например, `CheckAdminRole`:
+Создайте новый `middleware`, например, `CheckAdminRole`.
 
 ```php
 namespace App\Http\Middleware;
@@ -125,7 +128,7 @@ class CheckAdminRole
     public function handle(Request $request, Closure $next): Response
     {
         if ($request->user() && ! $request->user()->hasRole('admin')) {
-            abort(403, 'Доступ запрещен.');
+            abort(403, 'Access denied.');
         }
 
         return $next($request);
@@ -135,22 +138,21 @@ class CheckAdminRole
 
 ### Добавление middleware в конфигурацию
 
-Добавьте `middleware` в файл `config/moonshine.php`:
-
+~~~tabs
+tab: config/moonshine.php
 ```php
 'middleware' => [
-    // ... другие middleware
+    // ... other middleware
     \App\Http\Middleware\CheckAdminRole::class,
 ],
 ```
-
-Или в `MoonShineServiceProvider`:
-
+tab: MoonShineServiceProvider
 ```php
 $config->addMiddleware([
     \App\Http\Middleware\CheckAdminRole::class,
 ]);
 ```
+~~~
 
 <a name="authentication-pipelines"></a>
 ## Аутентификационные pipelines
@@ -159,20 +161,32 @@ $config->addMiddleware([
 
 ### Настройка pipelines
 
-Настройте `pipelines` в `MoonShineServiceProvider`:
-
+~~~tabs
+tab: config/moonshine.php
+```php
+'auth' => [
+    // ...
+    'pipelines' => [
+        // ...
+    ],
+],
+```
+tab: MoonShineServiceProvider
 ```php
 $config->authPipelines([
     \App\MoonShine\AuthPipelines\TwoFactorAuthentication::class,
     \App\MoonShine\AuthPipelines\PhoneVerification::class,
 ]);
 ```
+~~~
 
 ### Создание pipeline
 
-Пример: Подтверждение входа по номеру телефона:
+Например, подтверждение входа по номеру телефона:
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:4]
 namespace App\MoonShine\AuthPipelines;
 
 use Closure;
@@ -202,11 +216,12 @@ class PhoneVerification
 
 ### Преимущества использования pipelines
 
-- Гибкость: Легко добавлять, удалять или изменять порядок проверок.
-- Модульность: Каждый аспект расширенной аутентификации изолирован в отдельном классе.
-- Расширяемость: Простое добавление новых методов аутентификации или проверок.
+- **Гибкость**: Легко добавлять, удалять или изменять порядок проверок,
+- **Модульность**: Каждый аспект расширенной аутентификации изолирован в отдельном классе,
+- **Расширяемость**: Простое добавление новых методов аутентификации или проверок.
 
-Использование аутентификационных pipelines позволяет реализовать сложные сценарии аутентификации, сохраняя чистоту и модульность кода, и дает полный контроль над процессом входа пользователей в административную панель MoonShine.
+Использование аутентификационных pipelines позволяет реализовать сложные сценарии аутентификации, сохраняя чистоту и модульность кода,
+и дает полный контроль над процессом входа пользователей в административную панель MoonShine.
 
 <a name="socialite"></a>
 ## Socialite
@@ -235,9 +250,9 @@ php artisan migrate
 php artisan vendor:publish --provider="MoonShine\Socialite\Providers\SocialiteServiceProvider"
 ```
 
-Далее в конфиге `config/moonshine-socialite.php` установите доступные драйверы и изображение для кнопки
+Далее в конфиге `config/moonshine-socialite.php` установите доступные драйверы и изображение для кнопки.
 
-```shell
+```php
 return [
     'drivers' => [
         'github' => '/images/github.png',
@@ -247,13 +262,15 @@ return [
 ```
 
 > [!NOTE]
-> Драйверы должны быть заранее настроены в пакете `Socialite`
+> Драйверы должны быть заранее настроены в пакете `Socialite`.
 
 Добавьте трейт `MoonShine\Socialite\Traits\HasMoonShineSocialite` к модели, которая отвечает за пользователей админ. панели (по умолчанию это `MoonshineUser`).
 
 Не забудьте опубликовать модель, если используете конфигурацию по умолчанию:
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:3]
 namespace App\Models;
 
 use MoonShine\Socialite\Traits\HasMoonShineSocialite;
@@ -267,16 +284,13 @@ final class MoonshineUser extends \MoonShine\Laravel\Models\MoonshineUser
 И заменить в файле конфигурации:
 
 ```php
-// ..
 'auth' => [
     // ..
     'model' => \App\Models\MoonshineUser::class,
-    // ..
 ],
-// ..
 ```
 
-Мы автоматически добавим компонент `SocialAuth` на страницу профиля и `LoginLayout`, но если вы их переопределили и используете собственные, то добавьте компонент самостоятельно:
+Мы автоматически добавим компонент `SocialAuth` на страницу профиля и `LoginLayout`, но если вы их переопределили и используете собственные, то добавьте компонент самостоятельно.
 
 ```php
 use MoonShine\Socialite\Components\SocialAuth;
@@ -285,7 +299,6 @@ protected function components(): iterable
 {
     return [
         // ...
-
         SocialAuth::make(profileMode: true),
     ];
 }
@@ -294,7 +307,7 @@ protected function components(): iterable
 <a name="2fa"></a>
 ## Двухфакторная аутентификация
 
-Для дополнительной безопасности вы можете установить двухфакторную проверку аутентификации:
+Для дополнительной безопасности вы можете установить двухфакторную проверку аутентификации.
 
 ```shell
 composer require moonshine/two-factor
@@ -309,7 +322,7 @@ php artisan migrate
 Далее добавьте `authPipeline`:
 
 ~~~tabs
-tab: config
+tab: config/moonshine.php
 ```php
 use MoonShine\TwoFactor\TwoFactorAuthPipe;
 
@@ -320,9 +333,7 @@ return [
         'pipelines' => [
             TwoFactorAuthPipe::class
         ],
-        // ...
     ]
-    // ...
 ];
 ```
 tab: MoonShineServiceProvider
@@ -351,16 +362,13 @@ final class MoonshineUser extends \MoonShine\Laravel\Models\MoonshineUser
 И заменить в файле конфигурации:
 
 ```php
-// ..
 'auth' => [
     // ...
     'model' => \App\Models\MoonshineUser::class,
-    // ...
 ],
-// ...
 ```
 
-Мы автоматически добавим компонент `TwoFactor` на страницу профиля, но если вы её переопределили и используете собственную, то добавьте компонент самостоятельно:
+Мы автоматически добавим компонент `TwoFactor` на страницу профиля, но если вы её переопределили и используете собственную, то добавьте компонент самостоятельно.
 
 ```php
 use MoonShine\TwoFactor\ComponentSets\TwoFactor;
@@ -369,7 +377,6 @@ protected function components(): iterable
 {
     return [
         // ...
-
         TwoFactor::make(),
     ];
 }
@@ -380,4 +387,5 @@ protected function components(): iterable
 
 **MoonShine** также предоставляет простой способ переключить панель администратора в режим `API` и взаимодействовать через токены.
 
-Подробнее читайте в разделе [API](/docs/{{version}}/frontend/api).
+> [!NOTE]
+> Подробнее читайте в разделе [API](/docs/{{version}}/frontend/api).
