@@ -13,8 +13,8 @@
 - Ensure that the default disk is set to `public`, not `local`,
 - Check that `APP_URL` in the `.env` file is set correctly.
 
-```dotenv
-APP_URL=http://moonshine.test:8080
+```ini
+APP_URL=https://moonshine.test:8080
 ```
 
 <a name="problems-with-https"></a>
