@@ -35,7 +35,7 @@
 - [Assets](#assets)
 - [Macroable Trait](#macroable)
 - [Reactivity](#reactive)
-- [Dynamic Display](#show-when)
+- [Dynamic Display](#dynamic-display)
   - [showWhen](#show-when)
   - [showWhenDate](#show-when-date)
   - [Nested Fields](#nested-fields)
@@ -1217,7 +1217,7 @@ Select::make('Category', 'category_id')
     })
 ```
 
-<a name="show-when"></a>
+<a name="dynamic-display"></a>
 ## Dynamic Display
 
 Fields can be hidden or shown dynamically, depending on the values of other fields in real time without reloading the page and making requests to the server.
