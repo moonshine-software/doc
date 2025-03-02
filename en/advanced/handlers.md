@@ -16,7 +16,7 @@ The main advantages:
 - Do not require the creation of controllers,
 - Automatic error handling within **MoonShine**,
 - Many ready-made methods for interaction with the system,
-- Simple integration with `UI` through automatic button generation,
+- Simple integration with UI through automatic button generation,
 - Automatically displayed in the interface after connection.
 
 <a name="create"></a>
@@ -34,13 +34,15 @@ php artisan moonshine:handler MyCustomHandler
 After executing the command, a `Handler` class will be created in the `app\MoonShine\Handlers` directory with the following structure:
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:8]
 namespace App\MoonShine\Handlers;
 
-use MoonShine\UI\Exceptions\ActionButtonException;
-use MoonShine\Laravel\MoonShineUI;
-use MoonShine\Laravel\Handlers\Handler;
 use MoonShine\Contracts\UI\ActionButtonContract;
+use MoonShine\Laravel\Handlers\Handler;
+use MoonShine\Laravel\MoonShineUI;
 use MoonShine\UI\Components\ActionButton;
+use MoonShine\UI\Exceptions\ActionButtonException;
 use Symfony\Component\HttpFoundation\Response;
 
 class MyCustomHandler extends Handler

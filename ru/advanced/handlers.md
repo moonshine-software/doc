@@ -16,7 +16,7 @@
 - Не требуют создания контроллеров,
 - Автоматическая обработка ошибок внутри **MoonShine**,
 - Множество готовых методов для взаимодействия с системой,
-- Простая интеграция с `UI` через автоматическую генерацию кнопок,
+- Простая интеграция с UI через автоматическую генерацию кнопок,
 - После подключения автоматически отображаются в интерфейсе.
 
 <a name="create"></a>
@@ -34,13 +34,15 @@ php artisan moonshine:handler MyCustomHandler
 После выполнения команды будет создан класс `Handler` в директории `app\MoonShine\Handlers` со следующей структурой:
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:8]
 namespace App\MoonShine\Handlers;
 
-use MoonShine\UI\Exceptions\ActionButtonException;
-use MoonShine\Laravel\MoonShineUI;
-use MoonShine\Laravel\Handlers\Handler;
 use MoonShine\Contracts\UI\ActionButtonContract;
+use MoonShine\Laravel\Handlers\Handler;
+use MoonShine\Laravel\MoonShineUI;
 use MoonShine\UI\Components\ActionButton;
+use MoonShine\UI\Exceptions\ActionButtonException;
 use Symfony\Component\HttpFoundation\Response;
 
 class MyCustomHandler extends Handler
@@ -104,6 +106,6 @@ class PostResource extends ModelResource
 `Handler` тесно интегрирован с ресурсом и имеет доступ к:
 
 - Текущему ресурсу через `$this->getResource()`,
-- Возможностям запуска через очереди (`queue`),
+- Возможностям запуска через очереди,
 - Системе уведомлений и настройку пользователей, которые получат уведомления через `notifyUsers()`,
 - Модификация кнопки через `modifyButton()`.

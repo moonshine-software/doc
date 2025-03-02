@@ -90,22 +90,23 @@ $config
     ->userField('name', 'full_name')
     ->userField('avatar', 'profile_image');
 ```
-If you want to completely replace the profile page with your own, you can do this through the `moonshine.php` configuration.
+If you want to completely replace the profile page with your own, you can do this through the configuration.
 
+~~~tabs
+tab: config/moonshine.php
 ```php
 'pages' => [
     'profile' => App\MoonShine\Pages\CustomProfile::class,
 ],
 ```
-
-Or through `MoonShineServiceProvider`.
-
+tab: MoonShineServiceProvider
 ```php
 $config->changePage(
     \MoonShine\Laravel\Pages\ProfilePage::class,
     \App\MoonShine\Pages\CustomProfile::class
 );
 ```
+~~~
 
 <a name="role-based-access"></a>
 ## Role-based access
@@ -285,7 +286,7 @@ And replace in the configuration file:
 
 ```php
 'auth' => [
-    // ..
+    // ...
     'model' => \App\Models\MoonshineUser::class,
 ],
 ```
@@ -364,7 +365,7 @@ And replace in the configuration file:
 ```php
 'auth' => [
     // ...
-    'model' => \App\Models\MoonshineUser::class,
+    'model' => App\Models\MoonshineUser::class,
 ],
 ```
 
