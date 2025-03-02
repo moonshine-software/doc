@@ -14,10 +14,10 @@ In **MoonShine**, each UI component can be represented as a JSON structure that 
 This structure is formed on the server and sent to the client for rendering.
 An SDUI response in **MoonShine** typically includes the following key elements:
 
-- `type`: component type,
-- `components`: array of child components (if any),
-- `states`: state of the component,
-- `attributes`: HTML attributes of the component.
+- `type` - component type,
+- `components` - array of child components (if any),
+- `states` - state of the component,
+- `attributes` - HTML attributes of the component.
 
 ## Using SDUI
 
@@ -83,7 +83,7 @@ Example response:
 You can use additional headers to customize the response:
 
 - Retrieve structure without states:
-  ```http
+  ```
   X-MS-Structure: true
   X-MS-Without-States: true
   ```

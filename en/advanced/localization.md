@@ -32,7 +32,7 @@ tab: config/moonshine.php
 ```php
 'locale' => 'en',
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config->locale('en');
 ```
@@ -51,7 +51,7 @@ It is also possible to specify a key-value:
     'en' => 'English',
     'ru' => 'Russian',
 ],
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config->locales(['en', 'ru']);
 ```
@@ -83,7 +83,7 @@ tab: config/moonshine.php
     ChangeLocale::class,
 ],
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config
     ->exceptMiddleware(ChangeLocale::class)

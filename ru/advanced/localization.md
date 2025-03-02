@@ -33,7 +33,7 @@ tab: config/moonshine.php
 ```php
 'locale' => 'ru',
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config->locale('ru');
 ```
@@ -52,7 +52,7 @@ tab: config/moonshine.php
     'en' => 'Английский',
     'ru' => 'Русский',
 ],
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config->locales(['en', 'ru']);
 ```
@@ -83,7 +83,7 @@ tab: config/moonshine.php
     ChangeLocale::class,
 ],
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config
     ->exceptMiddleware(ChangeLocale::class)

@@ -11,7 +11,7 @@ Then you need to replace `FormPage` with `ArticleFormPage` in the resource:
 ```php
 class ArticleResource extends ModelResource
 {
-    // ..
+    // ...
     protected function pages(): array
     {
         return [

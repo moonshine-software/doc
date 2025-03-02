@@ -90,22 +90,23 @@ $config
     ->userField('name', 'full_name')
     ->userField('avatar', 'profile_image');
 ```
-При этом если вы хотите полностью заменить страницу профиля на свою, то можете это сделать через конфигурацию `moonshine.php`.
+При этом если вы хотите полностью заменить страницу профиля на свою, то можете это сделать через конфигурацию.
 
+~~~tabs
+tab: config/moonshine.php
 ```php
 'pages' => [
     'profile' => App\MoonShine\Pages\CustomProfile::class,
 ],
 ```
-
-Или через `MoonShineServiceProvider`.
-
+tab: MoonShineServiceProvider
 ```php
 $config->changePage(
     \MoonShine\Laravel\Pages\ProfilePage::class,
     \App\MoonShine\Pages\CustomProfile::class
 );
 ```
+~~~
 
 <a name="role-based-access"></a>
 ## Ограничение доступа по ролям
@@ -285,7 +286,7 @@ final class MoonshineUser extends \MoonShine\Laravel\Models\MoonshineUser
 
 ```php
 'auth' => [
-    // ..
+    // ...
     'model' => \App\Models\MoonshineUser::class,
 ],
 ```
@@ -364,7 +365,7 @@ final class MoonshineUser extends \MoonShine\Laravel\Models\MoonshineUser
 ```php
 'auth' => [
     // ...
-    'model' => \App\Models\MoonshineUser::class,
+    'model' => App\Models\MoonshineUser::class,
 ],
 ```
 

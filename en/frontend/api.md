@@ -38,15 +38,17 @@ php artisan vendor:publish --provider="MoonShine\JWT\Providers\JWTServiceProvide
 
 Then add the secret key in `base64` to `.env`:
 
-```dotenv
+```ini
 JWT_SECRET=YOUR_BASE64_SECRET_HERE
 ```
 
 Next, change the set of `middleware` in the system and add `authPipeline` and `authMiddleware`:
 
 ~~~tabs
-tab: config
+tab: config/moonshine.php
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
 use MoonShine\JWT\JWTAuthPipe;
 use MoonShine\JWT\Http\Middleware\AuthenticateApi;
 
@@ -96,12 +98,16 @@ The configuration is already set up; in special cases, you can override specific
 
 ```php
 return [
-    'title' => 'Docs', // Documentation title
+    // Documentation title
+    'title' => 'Docs',
+    // Location path for the specification
     'path' => realpath(
         resource_path('oag.yaml')
-    ), // Location path for the specification
-    'route' => 'oag.json', // Route to retrieve data for documentation
-    'view' => 'oag::docs', // View for documentation
+    ),
+    // Route to retrieve data for documentation
+    'route' => 'oag.json',
+    // View for documentation
+    'view' => 'oag::docs',
 ];
 ```
 
