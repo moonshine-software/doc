@@ -35,7 +35,7 @@
 - [Ассеты](#assets)
 - [Трейт Macroable](#macroable)
 - [Реактивность](#reactive)
-- [Динамическое отображение](#show-when)
+- [Динамическое отображение](#dynamic-display)
   - [showWhen](#show-when)
   - [showWhenDate](#show-when-date)
   - [Вложенные поля](#nested-fields)
@@ -1217,7 +1217,7 @@ Select::make('Category', 'category_id')
     })
 ```
 
-<a name="show-when"></a>
+<a name="dynamic-display"></a>
 ## Динамическое отображение
 
 Поля можно скрывать или показывать динамически, в зависимости от значений других полей в реальном времени без перезагрузки страницы и запросов к серверу.
