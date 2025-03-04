@@ -316,6 +316,16 @@ FormBuilder::make()
     ->asyncMethod('updateSomething')
 ```
 
+Если метод возвращает файл для скачивания, вам необходимо добавить метод `download()`.
+
+```php
+FormBuilder::make()
+    ->asyncMethod('zip')
+    ->download()
+```
+
+Примеры методов:
+
 ```php
 // С уведомлением
 public function updateSomething(MoonShineRequest $request): MoonShineJsonResponse
