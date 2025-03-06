@@ -36,3 +36,9 @@ For more information about each type of connection, see the relevant fields in t
 ## How to work with JSON fields in MoonShine?
 
 See [Json](/docs/{{version}}/fields/json) field section.
+
+## How do I add styles or classes to fields or components?
+
+[Adding class](/docs/{{version}}/components/attributes#class).
+
+[Adding style](/docs/{{version}}/components/attributes#style).

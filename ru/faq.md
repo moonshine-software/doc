@@ -36,3 +36,9 @@ public function formFields(): array
 ## Как работать с JSON полями в MoonShine?
 
 Смотрите раздел поля [Json](/docs/{{version}}/fields/json).
+
+##  Как добавить стили или классы к полям или компонентам?
+
+[Добавление класса](/docs/{{version}}/components/attributes#class).
+
+[Добавление стиля](/docs/{{version}}/components/attributes#style).
