@@ -32,3 +32,7 @@ public function formFields(): array
 ```
 
 Подробнее о каждом типе связи читайте в разделах соответствующих полей в документации.
+
+## Как работать с JSON полями в MoonShine?
+
+Смотрите раздел поля [Json](/docs/{{version}}/fields/json).
