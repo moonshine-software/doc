@@ -48,3 +48,10 @@ See [Json](/docs/{{version}}/fields/json) field section.
 General information about [field reactivity](/docs/{{version}}/fields/basic-methods#reactive).
 
 The option of using reactivity as an example of [Slug](/docs/{{version}}/fields/slug#live) field.
+
+## How do I set up access rights for different user roles?
+
+On the topic of authorization, read the relevant [section of documentation](/docs/{{version}}/model-resource/authorization).
+
+To integrate role-based access control in **MoonShine**,
+you can use the third-party package [moonshine-roles-permissions](https://getmoonshine.app/plugins/moonshine-roles-permissions).

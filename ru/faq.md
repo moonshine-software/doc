@@ -48,3 +48,10 @@ public function formFields(): array
 Общая информация о [реактивности полей](/docs/{{version}}/fields/basic-methods#reactive).
 
 Вариант применение реактивности на примере поля [Slug](/docs/{{version}}/fields/slug#live).
+
+## Как настроить права доступа для разных ролей пользователей?
+
+На тему авторизации читайте соответствующий [раздел документации](/docs/{{version}}/model-resource/authorization).
+
+Для интеграции управления доступом на основе ролей в **MoonShine**,
+вы можете использовать сторонний пакет [moonshine-roles-permissions](https://getmoonshine.app/plugins/moonshine-roles-permissions).
