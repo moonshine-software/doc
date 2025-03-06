@@ -1,4 +1,4 @@
-#FAQ
+# FAQ
 
 ## How to use relationships in MoonShine?
 
