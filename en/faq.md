@@ -33,7 +33,7 @@ public function formFields(): array
 
 For more information about each type of connection, see the relevant fields in the documentation.
 
-## How to work with JSON fields in MoonShine?
+## How to work with JSON fields?
 
 See [Json](/docs/{{version}}/fields/json) field section.
 
@@ -42,3 +42,9 @@ See [Json](/docs/{{version}}/fields/json) field section.
 [Adding class](/docs/{{version}}/components/attributes#class).
 
 [Adding style](/docs/{{version}}/components/attributes#style).
+
+## How to use field reactivity?
+
+General information about [field reactivity](/docs/{{version}}/fields/basic-methods#reactive).
+
+The option of using reactivity as an example of [Slug](/docs/{{version}}/fields/slug#live) field.

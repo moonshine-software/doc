@@ -33,7 +33,7 @@ public function formFields(): array
 
 Подробнее о каждом типе связи читайте в разделах соответствующих полей в документации.
 
-## Как работать с JSON полями в MoonShine?
+## Как работать с JSON полями?
 
 Смотрите раздел поля [Json](/docs/{{version}}/fields/json).
 
@@ -42,3 +42,9 @@ public function formFields(): array
 [Добавление класса](/docs/{{version}}/components/attributes#class).
 
 [Добавление стиля](/docs/{{version}}/components/attributes#style).
+
+## Как использовать реактивность полей?
+
+Общая информация о [реактивности полей](/docs/{{version}}/fields/basic-methods#reactive).
+
+Вариант применение реактивности на примере поля [Slug](/docs/{{version}}/fields/slug#live).
