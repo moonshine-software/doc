@@ -63,3 +63,8 @@ See [ModelResource > Events](/docs/{{version}}/model-resource/events).
 ## How do I set up filtering in a resource?
 
 See [ModelResource > Filters](/docs/{{version}}/model-resource/filters).
+
+## How to implement drag and drop sorting records?
+
+**TableBuilder** component has [reorderable()](/docs/{{version}}/components/table-builder#drag-and-drop-sorting) method,
+which adds the ability to sort rows by dragging.

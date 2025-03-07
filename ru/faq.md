@@ -63,3 +63,8 @@ public function formFields(): array
 ## Как настроить фильтрацию в ресурсе?
 
 Смотрите [ModelResource > Фильтры](/docs/{{version}}/model-resource/filters).
+
+## Как реализовать сортировку записей перетаскиванием?
+
+Компонент **TableBuilder** имеет метод [reorderable()](/docs/{{version}}/components/table-builder#drag-and-drop-sorting),
+который добавляет возможность сортировки строк перетаскиванием.
