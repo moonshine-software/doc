@@ -55,3 +55,7 @@ public function formFields(): array
 
 Для интеграции управления доступом на основе ролей в **MoonShine**,
 вы можете использовать сторонний пакет [moonshine-roles-permissions](https://getmoonshine.app/plugins/moonshine-roles-permissions).
+
+## Как правильно использовать события ресурса (beforeCreating, afterCreated и т.п.)?
+
+Смотрите [ModelResource > События](/docs/{{version}}/model-resource/events).

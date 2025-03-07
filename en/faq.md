@@ -55,3 +55,7 @@ On the topic of authorization, read the relevant [section of documentation](/doc
 
 To integrate role-based access control in **MoonShine**,
 you can use the third-party package [moonshine-roles-permissions](https://getmoonshine.app/plugins/moonshine-roles-permissions).
+
+## How to properly use resource events (beforeCreating, afterCreated etc.)?
+
+See [ModelResource > Events](/docs/{{version}}/model-resource/events).
