@@ -175,5 +175,6 @@
     - [Change config](/docs/{{version}}/recipes/change-config)
     - [Paginator](/docs/{{version}}/recipes/table-paginator)
     - [Soft deletes](/docs/{{version}}/recipes/soft-deletes)
+    - [Reorderable resource](/docs/{{version}}/recipes/reorderable-resource)
 - ## FAQ
     - [FAQ](/docs/{{version}}/faq)
