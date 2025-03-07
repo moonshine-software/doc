@@ -59,3 +59,7 @@ you can use the third-party package [moonshine-roles-permissions](https://getmoo
 ## How to properly use resource events (beforeCreating, afterCreated etc.)?
 
 See [ModelResource > Events](/docs/{{version}}/model-resource/events).
+
+## How do I set up filtering in a resource?
+
+See [ModelResource > Filters](/docs/{{version}}/model-resource/filters).

@@ -59,3 +59,7 @@ public function formFields(): array
 ## Как правильно использовать события ресурса (beforeCreating, afterCreated и т.п.)?
 
 Смотрите [ModelResource > События](/docs/{{version}}/model-resource/events).
+
+## Как настроить фильтрацию в ресурсе?
+
+Смотрите [ModelResource > Фильтры](/docs/{{version}}/model-resource/filters).
