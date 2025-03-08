@@ -112,3 +112,9 @@ See the [recipe](/docs/{{version}}/recipes/menu-authorization).
 ## How can I change the date format in the Date fields?
 
 See the [Date](/docs/{{version}}/fields/date#format) field section.
+
+## How do I change the logo and favicon in the admin panel?
+
+The logo can be changed in [configuration](/docs/{{version}}/configuration#logo).
+
+The favicon can be replaced in the `Layout` in the [Favicon](/docs/{{version}}/components/favicon#assets) component.

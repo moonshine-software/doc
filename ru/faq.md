@@ -112,3 +112,9 @@ Hidden::make('Author')
 ## Как изменить формат даты в полях Date?
 
 Смотрите раздел поля [Date](/docs/{{version}}/fields/date#format).
+
+## Как изменить логотип и фавикон в админ-панели?
+
+Логотип можно изменить в [конфигурации](/docs/{{version}}/configuration#logo).
+
+Фавикон можно заменить в `Layout` в компоненте [Favicon](/docs/{{version}}/components/favicon#assets).
