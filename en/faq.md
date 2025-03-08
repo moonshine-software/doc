@@ -153,3 +153,7 @@ For example, connect another **view**.
 ## How to use QueryTags in MoonShine?
 
 [model-resource/query-tags](/docs/{{version}}/model-resource/query-tags).
+
+## How do I make or replace buttons in FormBuilder?
+
+[components/form-builder#buttons](/docs/{{version}}/components/form-builder#buttons).

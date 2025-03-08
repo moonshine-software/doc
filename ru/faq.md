@@ -153,3 +153,7 @@ Hidden::make('Author')
 ## Как использовать QueryTags в MoonShine?
 
 [model-resource/query-tags](/docs/{{version}}/model-resource/query-tags).
+
+## Как добавить или изменить кнопки в FormBuilder?
+
+[components/form-builder#buttons](/docs/{{version}}/components/form-builder#buttons).
