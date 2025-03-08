@@ -6,6 +6,7 @@
 - ## Getting Started
     - [Installation](/docs/{{version}}/installation)
     - [Configuration](/docs/{{version}}/configuration)
+    - [FAQ](/docs/{{version}}/faq)
 - ## Appearance
     - [Menu](/docs/{{version}}/appearance/menu)
     - [Layout](/docs/{{version}}/appearance/layout)
