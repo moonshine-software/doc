@@ -126,3 +126,7 @@ Hidden::make('Author')
 ## Как настроить импорт/экспорт данных в CSV или Excel?
 
 Смотрите раздел [Импорт / Экспорт](/docs/{{version}}/model-resource/import-export).
+
+## Как работать с Markdown полями в MoonShine?
+
+Вы можете воспользоваться пакетом [moonshine-software/easymde](https://github.com/moonshine-software/easymde).
