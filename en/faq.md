@@ -96,3 +96,7 @@ Hidden::make('Author')
 ```
 
 Also in the [Model Resource > Events](/docs/{{version}}/model-resource/events) section shows an example of adding a field to a request via events.
+
+## What is the correct way to work with fractional numbers in the Number field?
+
+It is enough to specify the required step using the `step()` method, for example "0.01".
