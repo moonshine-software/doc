@@ -130,3 +130,9 @@ See [Import /Export](/docs/{{version}}/model-resource/import-export) section.
 ## How to work with Markdown fields in MoonShine?
 
 You can use [moonshine-software/easymde](https://github.com/moonshine-software/easymde) package.
+
+## How to customize breadcrumbs in MoonShine?
+
+Breadcrumbs can be redefined on individual [pages](/docs/{{version}}/page/index#breadcrumbs).
+
+[Recipe](/docs/{{version}}/recipes/custom-breadcrumbs), how to change breadcrumbs from a resource for individual pages.

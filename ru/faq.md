@@ -130,3 +130,9 @@ Hidden::make('Author')
 ## Как работать с Markdown полями в MoonShine?
 
 Вы можете воспользоваться пакетом [moonshine-software/easymde](https://github.com/moonshine-software/easymde).
+
+## Как кастомизировать хлебные крошки в MoonShine?
+
+Хлебные крошки можно переопределять на отдельных [страницах](/docs/{{version}}/page/index#breadcrumbs).
+
+[Рецепт](/docs/{{version}}/recipes/custom-breadcrumbs), как изменять хлебные крошки из ресурса для отдельных страниц.
