@@ -68,3 +68,7 @@ See [ModelResource > Filters](/docs/{{version}}/model-resource/filters).
 
 **TableBuilder** component has [reorderable()](/docs/{{version}}/components/table-builder#drag-and-drop-sorting) method,
 which adds the ability to sort rows by dragging.
+
+## How can I customize the appearance of the admin panel?
+
+There are many ways to change the appearance of layouts in **MoonShine**. Read the “Appearance” sections in documentation.

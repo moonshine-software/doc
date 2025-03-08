@@ -68,3 +68,7 @@ public function formFields(): array
 
 Компонент **TableBuilder** имеет метод [reorderable()](/docs/{{version}}/components/table-builder#drag-and-drop-sorting),
 который добавляет возможность сортировки строк перетаскиванием.
+
+## Как кастомизировать внешний вид админ-панели?
+
+Есть много способов изменить внешний вид шаблонов в **MoonShine**. Читайте разделы “Внешний вид” в документации.
