@@ -471,6 +471,19 @@ Select::make('Select')
 ![belongs to image](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/belongs_to_image.png#light)
 ![belongs to image](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/belongs_to_image_dark.png#dark)
 
+For more precise control over the dimensions and [how images will be displayed within their container](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit), it is possible to pass the `OptionImage` object instead of a simple string value when specifying the `OptionProperty`:
+
+```php
+new OptionProperty(
+    new OptionImage(
+        src: 'https://cutcode.dev/images/platforms/youtube.png',
+        height: 6,
+        width: 6,
+        objectFit: 'contain'
+    )
+),
+```
+
 <a name="options"></a>
 ## Options
 
