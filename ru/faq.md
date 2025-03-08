@@ -163,3 +163,7 @@ Hidden::make('Author')
 [fields/basic-methods#show-when](/docs/{{version}}/fields/basic-methods#show-when).
 
 [Рецепт с примеромами](/docs/{{version}}/recipes/select).
+
+## Как изменить или удалить стандартные кнопки действий в ресурсе?
+
+[model-resource/buttons](/docs/{{version}}/model-resource/buttons).

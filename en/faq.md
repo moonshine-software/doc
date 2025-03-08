@@ -163,3 +163,7 @@ For example, connect another **view**.
 [fields/basic-methods#show-when](/docs/{{version}}/fields/basic-methods#show-when).
 
 [Recipe with examples](/docs/{{version}}/recipes/select).
+
+## How can I change or delete the standard action buttons in a resource?
+
+[model-resource/buttons](/docs/{{version}}/model-resource/buttons).
