@@ -167,3 +167,35 @@ Hidden::make('Author')
 ## Как изменить или удалить стандартные кнопки действий в ресурсе?
 
 [model-resource/buttons](/docs/{{version}}/model-resource/buttons).
+
+## Как работать с полями Enum в MoonShine?
+
+[fields/enum](/docs/{{version}}/fields/enum).
+
+## Как добавить кастомные страницы в MoonShine?
+
+[page/index#create](/docs/{{version}}/page/index#create).
+
+## Как работать с мягким удалением (soft delete) в MoonShine?
+
+[recipes/soft-deletes](/docs/{{version}}/recipes/soft-deletes).
+
+Также есть [статья](https://cutcode.dev/articles/softdeleting-v-moonshine-v3) с более подробным описанием.
+
+## Как настроить кастомные маршруты в MoonShine?
+
+[advanced/routes](/docs/{{version}}/advanced/routes).
+
+## Как работать с полем Switcher в формах и фильтрах?
+
+`Switcher` - это тот же `Checkbox`, только в другом визуальном оформлении.
+
+## Как реализовать кастомную аутентификацию в MoonShine?
+
+[security/authentication#customization](/docs/{{version}}/security/authentication#customization).
+
+## Как настроить отображение Badge в зависимости от значения?
+
+У полей есть метод `badge()`, который может принимать замыкание, возвращающее код цвета: [fields/basic-methods#badge](/docs/{{version}}/fields/basic-methods#badge).
+
+Так же смотрите раздел поля [Enum](/docs/{{version}}/fields/enum#color).

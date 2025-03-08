@@ -167,3 +167,35 @@ For example, connect another **view**.
 ## How can I change or delete the standard action buttons in a resource?
 
 [model-resource/buttons](/docs/{{version}}/model-resource/buttons).
+
+## How to work with Enum fields in MoonShine?
+
+[fields/enum](/docs/{{version}}/fields/enum).
+
+## How do I add custom pages to MoonShine?
+
+[page/index#create](/docs/{{version}}/page/index#create).
+
+## How to work with soft delete in MoonShine?
+
+[recipes/soft-deletes](/docs/{{version}}/recipes/soft-deletes).
+
+There is also an [article](https://cutcode.dev/articles/softdeleting-v-moonshine-v3) with a more detailed description.
+
+## How do I set up custom routes in MoonShine?
+
+[advanced/routes](/docs/{{version}}/advanced/routes).
+
+## How to work with the Switcher field in forms and filters?
+
+`Switcher` is the same `Checkbox`, only in a different visual design.
+
+## How to implement custom authentication in MoonShine?
+
+[security/authentication#customization](/docs/{{version}}/security/authentication#customization).
+
+## How can I adjust the Badge display depending on the value?
+
+Fields have a `badge()` method that can accept a closure that returns a color code: [fields/basic-methods#badge](/docs/{{version}}/fields/basic-methods#badge).
+
+Also see the [Enum](/docs/{{version}}/fields/enum#color) section.
