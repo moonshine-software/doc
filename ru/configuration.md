@@ -18,7 +18,6 @@
   - [Страницы](#pages)
   - [Главная страница](#home-url)
 - [Получение страниц и форм](#pages-forms)
-- [Полный список параметров конфигурации](#configuration-options)
 - [Выбор метода конфигурации](#choosing-configuration-method)
 
 ---
@@ -48,20 +47,25 @@
 return [
     'title' => env('MOONSHINE_TITLE', 'MoonShine'),
     'logo' => '/assets/logo.png',
-    'domain' => env('MOONSHINE_DOMAIN'),
-    'prefix' => 'admin',
-    'auth' => [
-        'enabled' => true,
-        'guard' => 'moonshine',
-    ],
+    'logo_small' => '/assets/logo-small.svg',
     'use_migrations' => true,
     'use_notifications' => true,
     'use_database_notifications' => true,
     'use_profile' => true,
+    'domain' => env('MOONSHINE_DOMAIN'),
+    'prefix' => 'admin',
     'middleware' => [
         // ...
     ],
+    'auth' => [
+        'enabled' => true,
+        'guard' => 'moonshine',
+        'middleware' => Authenticate::class,
+        // ...
+    ],
     'layout' => \MoonShine\Laravel\Layouts\AppLayout::class,
+    'locale' => 'en',
+    'locales' => ['en', 'ru'],
 
     // ...
 ];
@@ -119,32 +123,45 @@ class MoonShineServiceProvider extends ServiceProvider
         $config
             ->title('My Application')
             ->logo('/assets/logo.png')
-            ->prefixes('admin', 'page', 'resource')
-            ->guard('moonshine')
-            ->authEnable()
+            ->logo('/assets/logo_small.png', true)
             ->useMigrations()
             ->useNotifications()
             ->useDatabaseNotifications()
+            ->useProfile()
+            ->dir('app/MoonShine', 'App\MoonShine')
+            ->prefixes('admin', 'page', 'resource')
+            ->homeRoute('moonshine.index')
+            ->notFoundException(MoonShineNotFoundException::class)
             ->middleware([
                 // ...
             ])
-            ->layout(\MoonShine\Laravel\Layouts\AppLayout::class);
+            ->disk('public')
+            ->cacheDriver('redis')
+            ->authEnable()
+            ->guard('moonshine')
+            ->authMiddleware(Authenticate::class)
+            ->authPipelines([])
+            ->authorizationRules(
+                function(ResourceContract $ctx, mixed $user, Ability $ability, mixed $data): bool {
+                    return true;
+                }
+            )
+            ->layout(\App\MoonShine\Layouts\CustomLayout::class)
+            ->locale('ru')
+            ->locales(['en', 'ru']);
 
-        $core
-            ->resources([
-                MoonShineUserResource::class,
-                MoonShineUserRoleResource::class,
-            ])
-            ->pages([
-                ...$config->getPages(),
-            ]);
+        // ...
     }
 }
 ```
 
-> [!NOTE]
+> [!WARNING]
 > Конфигурация через `MoonShineServiceProvider` имеет приоритет над настройками в файле `moonshine.php`.
 > При использовании этого метода вы можете полностью удалить файл moonshine.php из вашего проекта.
+
+> [!NOTE]
+> Некоторые методы `MoonShineConfigurator` не имеют прямых аналогов в файле `moonshine.php` и наоборот.
+> Это связано с различиями в подходах к конфигурации через файл и через код.
 
 <a name="basic-settings"></a>
 ## Основные настройки
@@ -635,61 +652,6 @@ return [
 ```
 
 Это позволит вам легко получать нужные страницы и формы по их именам, используя методы `getPage` и `getForm`.
-
-> [!NOTE]
-> Некоторые методы `MoonShineConfigurator` не имеют прямых аналогов в файле `moonshine.php` и наоборот.
-> Это связано с различиями в подходах к конфигурации через файл и через код.
-
-### Пример использования в MoonShineServiceProvider
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:5]
-use Illuminate\Support\ServiceProvider;
-use MoonShine\Contracts\Core\DependencyInjection\CoreContract;
-use MoonShine\Laravel\DependencyInjection\MoonShine;
-use MoonShine\Laravel\DependencyInjection\MoonShineConfigurator;
-use MoonShine\Laravel\DependencyInjection\ConfiguratorContract;
-
-class MoonShineServiceProvider extends ServiceProvider
-{
-    /**
-     * @param  MoonShine  $core
-     * @param  MoonShineConfigurator  $config
-     *
-     */
-    public function boot(
-        CoreContract $core,
-        ConfiguratorContract $config,
-    ): void
-    {
-        $config
-            ->title('My Application')
-            ->dir('app/MoonShine', 'App\MoonShine')
-            ->prefix('admin')
-            ->guard('moonshine')
-            ->middleware(['web', 'auth'])
-            ->layout(\App\MoonShine\Layouts\CustomLayout::class)
-            ->locale('ru')
-            ->locales(['en', 'ru'])
-            ->useMigrations()
-            ->useNotifications()
-            ->useDatabaseNotifications()
-            ->useProfile()
-            ->cacheDriver('redis')
-            ->authorizationRules(
-                function(ResourceContract $ctx, mixed $user, Ability $ability, mixed $data): bool {
-                    return true;
-                }
-            );
-
-        // ...
-    }
-}
-```
-
-Этот полный список параметров и методов позволяет настроить практически все аспекты работы **MoonShine**.
-Выбирайте те опции, которые наилучшим образом соответствуют требованиям вашего проекта.
 
 <a name="choosing-configuration-method"></a>
 ## Выбор метода конфигурации
