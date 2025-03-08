@@ -157,3 +157,9 @@ For example, connect another **view**.
 ## How do I make or replace buttons in FormBuilder?
 
 [components/form-builder#buttons](/docs/{{version}}/components/form-builder#buttons).
+
+## How can I adjust the display of fields depending on the value of another field?
+
+[fields/basic-methods#show-when](/docs/{{version}}/fields/basic-methods#show-when).
+
+[Recipe with examples](/docs/{{version}}/recipes/select).

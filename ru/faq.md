@@ -157,3 +157,9 @@ Hidden::make('Author')
 ## Как добавить или изменить кнопки в FormBuilder?
 
 [components/form-builder#buttons](/docs/{{version}}/components/form-builder#buttons).
+
+## Как настроить отображение полей в зависимости от значения другого поля?
+
+[fields/basic-methods#show-when](/docs/{{version}}/fields/basic-methods#show-when).
+
+[Рецепт с примеромами](/docs/{{version}}/recipes/select).
