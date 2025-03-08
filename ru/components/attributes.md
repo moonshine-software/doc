@@ -5,7 +5,7 @@
 - [Итеративные атрибуты](#iterable-attributes)
 - [Массовое изменение](#custom-attributes)
 - [Объединение значений](#merge-attribute)
-- [Добавление класса](#class)
+- [Добавление/удаление класса](#class)
 - [Добавление стиля](#style)
 - [Атрибуты для Alpine.js](#alpine)
   - [x-data](#x-data)
@@ -115,6 +115,16 @@ class(string|array $classes)
 
 ```php
 $component->class(['btn', 'btn-primary']);
+```
+
+Также вы можете удалить класс или набор классов, добавленных ранее, по заданному паттерну.
+
+```php
+$component->removeClass('btn-success');
+```
+
+```php
+$component->removeClass('btn-(success|primary)');
 ```
 
 <a name="style"></a>

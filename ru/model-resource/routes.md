@@ -77,10 +77,10 @@ toPage(
 - `$fragment` - url будет использован для Fragment загрузки (опционально).
 
 ```php
-toPage(page: IndexPage::class);
+toPage(page: CustomPage::class);
 toPage(page: IndexPage::class, resource: PostResource::class);
-toPage(page: IndexPage::class, redirect: true);
-toPage(page: IndexPage::class, fragment: true);
+toPage(page: CustomPage::class, redirect: true);
+toPage(page: CustomPage::class, fragment: true);
 ```
 
 <a name="active-page"></a>
@@ -97,6 +97,14 @@ if($resource->getActivePage() instanceof IndexPage)
 if($resource->getActivePage() instanceof FormPage)
 
 if($resource->getActivePage() instanceof DetailPage)
+```
+
+Вы также можете изменить активную страницу. Это полезно, если вы используете собственный контроллер и необходимо указать ресурсу активную страницу для текущего запроса.
+
+```php
+$resource->setActivePage(
+    $resource->getIndexPage()
+);
 ```
 
 <a name="is-page"></a>

@@ -649,6 +649,9 @@ protected function onLoad(): void
 If the resource is in `async` mode, then you can modify the answer:
 
 ```php
+use Symfony\Component\HttpFoundation\Response;
+use MoonShine\Laravel\Http\Responses\MoonShineJsonResponse;
+
 public function modifyDestroyResponse(MoonShineJsonResponse $response): MoonShineJsonResponse
 {
     return $response;
@@ -660,6 +663,11 @@ public function modifyMassDeleteResponse(MoonShineJsonResponse $response): MoonS
 }
 
 public function modifySaveResponse(MoonShineJsonResponse $response): MoonShineJsonResponse
+{
+    return $response;
+}
+
+public function modifyErrorResponse(Response $response, Throwable $exception): Response
 {
     return $response;
 }

@@ -181,6 +181,16 @@ class CustomPage extends Page
 }
 ```
 
+You can also specify a template through an attribute.
+
+```php
+use MoonShine\Core\Attributes\Layout;
+use MoonShine\Laravel\Layouts\AppLayout;
+
+#[Layout(AppLayout::class)]
+class CustomPage extends Page
+```
+
 <a name="modify-layout"></a>
 ### Modifying Layout
 

@@ -1,15 +1,15 @@
 # Profile
 
-- [Basics](#basics)
-- [Avatar placeholder](#avatar-placeholder)
-- [Menu](#menu)
+- [Основы](#basics)
+- [Аватар placeholder](#avatar-placeholder)
+- [Меню](#menu)
 
 ---
 
 <a name="basics"></a>
-## Basics
+## Основы
 
-Using the `Profile` component, you can display a user's profile card with a logout button, a link to the profile, and an additional menu.
+С помощью компонента `Profile` вы можете отобразить карточку профиля пользователя с кнопкой выхода, переходом в профиль и дополнительным меню.
 
 ```php
 make(
@@ -23,12 +23,12 @@ make(
 )
 ```
 
-- `route` - URL page with Profile,
-- `logOutRoute` - URL for Logout,
-- `avatar` - Avatar,
-- `nameOfUser` - Name,
-- `username` - Nickname,
-- `withBorder` - Divider
+- `route` - URL страницы с профилем,
+- `logOutRoute` - URL для logout,
+- `avatar` - Аватар пользователя,
+- `nameOfUser` - Имя пользователя,
+- `username` - Nickname пользователя,
+- `withBorder` - С разделителем сверху,
 - `guard` - Guard,
 
 ~~~tabs
@@ -50,14 +50,14 @@ tab: Blade
 ~~~
 
 <a name="avatar-placeholder"></a>
-## Avatar placeholder
+## Аватар placeholder
 
 ```php
 Profile::make()->avatarPlaceholder('https://robohash.org/username.png')
 ```
 
 <a name="menu"></a>
-## Menu
+## Меню
 
 ~~~tabs
 tab: Class
