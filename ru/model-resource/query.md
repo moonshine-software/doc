@@ -99,7 +99,9 @@ class PostResource extends ModelResource
 
     protected function searchQuery(string $terms): void
     {
-        return parent::searchQuery($terms)->withTrashed();
+        $this->newQuery()->where(function (Builder $builder) use ($terms): void {
+            // Your logic
+        });
     }
 }
 ```
