@@ -122,3 +122,7 @@ Hidden::make('Author')
 ## Как реализовать множественную загрузку файлов?
 
 Смотрите раздел поля [File](/docs/{{version}}/fields/file#multiple).
+
+## Как настроить импорт/экспорт данных в CSV или Excel?
+
+Смотрите раздел [Импорт / Экспорт](/docs/{{version}}/model-resource/import-export).

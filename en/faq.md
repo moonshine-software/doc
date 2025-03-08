@@ -122,3 +122,7 @@ The favicon can be replaced in the `Layout` in the [Favicon](/docs/{{version}}/c
 ## How to implement multiple file uploads?
 
 See [File](/docs/{{version}}/fields/file#multiple) field section.
+
+## How do I set up data import/export to CSV or Excel?
+
+See [Import /Export](/docs/{{version}}/model-resource/import-export) section.
