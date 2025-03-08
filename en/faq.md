@@ -72,3 +72,27 @@ which adds the ability to sort rows by dragging.
 ## How can I customize the appearance of the admin panel?
 
 There are many ways to change the appearance of layouts in **MoonShine**. Read the “Appearance” sections in documentation.
+
+## How do I save the authorized user's ID when creating an entry?
+
+In the following example, the current authenticated user is assigned as the author by default.
+
+```php
+public function formFields(): array
+{
+    return [
+        // ...
+        BelongsTo::make('Author', resource: UserResource::class)
+            ->default( request()->user() ),
+    ];
+}
+```
+
+You can also add a hidden field and fill it in with the user ID value from the request.
+
+```php
+Hidden::make('Author')
+    ->fill( auth()->id() )
+```
+
+Also in the [Model Resource > Events](/docs/{{version}}/model-resource/events) section shows an example of adding a field to a request via events.
