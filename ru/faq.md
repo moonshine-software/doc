@@ -104,3 +104,7 @@ Hidden::make('Author')
 ## Как настроить асинхронный поиск в Select полях?
 
 Смотрите раздел [Select](/docs/{{version}}/fields/select#async).
+
+## Как изменить или скрыть элементы меню в зависимости от прав пользователя?
+
+Смотрите [рецепт](/docs/{{version}}/recipes/menu-authorization).

@@ -104,3 +104,7 @@ It is enough to specify the required step using the `step()` method, for example
 ## How can I set up asynchronous search in Select fields?
 
 See the [Select](/docs/{{version}}/fields/select#async) section.
+
+## How can I change or hide the menu items depending on the user's rights?
+
+See the [recipe](/docs/{{version}}/recipes/menu-authorization).
