@@ -140,3 +140,7 @@ Breadcrumbs can be redefined on individual [pages](/docs/{{version}}/page/index#
 ## How do I remove mass actions and checkboxes from the index page?
 
 [ModelResource > Basics](/docs/{{version}}/model-resource/index#active-actions).
+
+## How do I set up a global search in MoonShine?
+
+[model-resource/search#global](/docs/{{version}}/model-resource/search#global).

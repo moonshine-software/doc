@@ -140,3 +140,7 @@ Hidden::make('Author')
 ## Как убрать массовые действия и чекбоксы с индексной страницы?
 
 [ModelResource > Основы](/docs/{{version}}/model-resource/index#active-actions).
+
+## Как настроить глобальный поиск в MoonShine?
+
+[model-resource/search#global](/docs/{{version}}/model-resource/search#global).
