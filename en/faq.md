@@ -144,3 +144,8 @@ Breadcrumbs can be redefined on individual [pages](/docs/{{version}}/page/index#
 ## How do I set up a global search in MoonShine?
 
 [model-resource/search#global](/docs/{{version}}/model-resource/search#global).
+
+## How to implement custom input fields in MoonShine?
+
+It is enough to extend the base class `Field` or the class of any of the available fields and add/redefine the functionality you need.
+For example, connect another **view**.
