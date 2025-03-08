@@ -100,3 +100,7 @@ Also in the [Model Resource > Events](/docs/{{version}}/model-resource/events) s
 ## What is the correct way to work with fractional numbers in the Number field?
 
 It is enough to specify the required step using the `step()` method, for example "0.01".
+
+## How can I set up asynchronous search in Select fields?
+
+See the [Select](/docs/{{version}}/fields/select#async) section.
