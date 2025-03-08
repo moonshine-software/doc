@@ -118,3 +118,7 @@ See the [Date](/docs/{{version}}/fields/date#format) field section.
 The logo can be changed in [configuration](/docs/{{version}}/configuration#logo).
 
 The favicon can be replaced in the `Layout` in the [Favicon](/docs/{{version}}/components/favicon#assets) component.
+
+## How to implement multiple file uploads?
+
+See [File](/docs/{{version}}/fields/file#multiple) field section.

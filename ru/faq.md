@@ -118,3 +118,7 @@ Hidden::make('Author')
 Логотип можно изменить в [конфигурации](/docs/{{version}}/configuration#logo).
 
 Фавикон можно заменить в `Layout` в компоненте [Favicon](/docs/{{version}}/components/favicon#assets).
+
+## Как реализовать множественную загрузку файлов?
+
+Смотрите раздел поля [File](/docs/{{version}}/fields/file#multiple).
