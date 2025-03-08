@@ -136,3 +136,7 @@ Hidden::make('Author')
 Хлебные крошки можно переопределять на отдельных [страницах](/docs/{{version}}/page/index#breadcrumbs).
 
 [Рецепт](/docs/{{version}}/recipes/custom-breadcrumbs), как изменять хлебные крошки из ресурса для отдельных страниц.
+
+## Как убрать массовые действия и чекбоксы с индексной страницы?
+
+[ModelResource > Основы](/docs/{{version}}/model-resource/index#active-actions).

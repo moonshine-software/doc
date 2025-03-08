@@ -136,3 +136,7 @@ You can use [moonshine-software/easymde](https://github.com/moonshine-software/e
 Breadcrumbs can be redefined on individual [pages](/docs/{{version}}/page/index#breadcrumbs).
 
 [Recipe](/docs/{{version}}/recipes/custom-breadcrumbs), how to change breadcrumbs from a resource for individual pages.
+
+## How do I remove mass actions and checkboxes from the index page?
+
+[ModelResource > Basics](/docs/{{version}}/model-resource/index#active-actions).
