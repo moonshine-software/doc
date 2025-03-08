@@ -149,3 +149,7 @@ Hidden::make('Author')
 
 Достаточно расширить базовый класс `Field` или класс любого из имеющихся полей и добавить\переопределить нужный вам функционал.
 Например, подключить другой **view**.
+
+## Как использовать QueryTags в MoonShine?
+
+[model-resource/query-tags](/docs/{{version}}/model-resource/query-tags).

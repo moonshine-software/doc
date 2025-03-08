@@ -149,3 +149,7 @@ Breadcrumbs can be redefined on individual [pages](/docs/{{version}}/page/index#
 
 It is enough to extend the base class `Field` or the class of any of the available fields and add/redefine the functionality you need.
 For example, connect another **view**.
+
+## How to use QueryTags in MoonShine?
+
+[model-resource/query-tags](/docs/{{version}}/model-resource/query-tags).
