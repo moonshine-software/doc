@@ -108,3 +108,7 @@ See the [Select](/docs/{{version}}/fields/select#async) section.
 ## How can I change or hide the menu items depending on the user's rights?
 
 See the [recipe](/docs/{{version}}/recipes/menu-authorization).
+
+## How can I change the date format in the Date fields?
+
+See the [Date](/docs/{{version}}/fields/date#format) field section.

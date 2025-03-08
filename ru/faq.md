@@ -108,3 +108,7 @@ Hidden::make('Author')
 ## Как изменить или скрыть элементы меню в зависимости от прав пользователя?
 
 Смотрите [рецепт](/docs/{{version}}/recipes/menu-authorization).
+
+## Как изменить формат даты в полях Date?
+
+Смотрите раздел поля [Date](/docs/{{version}}/fields/date#format).
