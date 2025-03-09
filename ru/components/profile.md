@@ -23,13 +23,13 @@ make(
 )
 ```
 
-- `route` - URL страницы с профилем,
-- `logOutRoute` - URL для logout,
-- `avatar` - Аватар пользователя,
-- `nameOfUser` - Имя пользователя,
-- `username` - Nickname пользователя,
-- `withBorder` - С разделителем сверху,
-- `guard` - Guard,
+- `$route` - URL страницы с профилем,
+- `$logOutRoute` - URL для logout,
+- `$avatar` - Аватар пользователя,
+- `$nameOfUser` - Имя пользователя,
+- `$username` - Nickname пользователя,
+- `$withBorder` - С разделителем сверху,
+- `$guard` - Guard.
 
 ~~~tabs
 tab: Class

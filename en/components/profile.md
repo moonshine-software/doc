@@ -23,13 +23,13 @@ make(
 )
 ```
 
-- `route` - URL page with Profile,
-- `logOutRoute` - URL for Logout,
-- `avatar` - Avatar,
-- `nameOfUser` - Name,
-- `username` - Nickname,
-- `withBorder` - Divider
-- `guard` - Guard,
+- `$route` - URL page with Profile,
+- `$logOutRoute` - URL for Logout,
+- `$avatar` - Avatar,
+- `$nameOfUser` - Name,
+- `$username` - Nickname,
+- `$withBorder` - Divider
+- `$guard` - Guard.
 
 ~~~tabs
 tab: Class
