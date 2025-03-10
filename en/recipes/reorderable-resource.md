@@ -3,7 +3,7 @@
 > [!WARNING]
 > This sorting method is only suitable if there are few records and pagination is not used!
 
-In this example, the resource table will be sorted by the `posit` field, so make sure that the model has this field.
+In this example, the resource table will be sorted by the `position` field, so make sure that the model has this field.
 
 Add the following methods to the resource:
 
@@ -12,7 +12,7 @@ use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\Laravel\MoonShineRequest;
 use MoonShine\UI\Components\Table\TableBuilder;
 
-protected string $sortColumn = 'posit';
+protected string $sortColumn = 'position';
 
 protected SortDirection $sortDirection = SortDirection::ASC;
 
@@ -33,7 +33,7 @@ public function reorder(MoonShineRequest $request): void
             fn($id, $position) => $this->getModel()
                 ->where('id', $id)
                 ->update([
-                    'posit' => $position + 1,
+                    'position' => $position + 1,
                 ]),
         );
     }
