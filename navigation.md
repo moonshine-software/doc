@@ -6,7 +6,6 @@
 - ## Getting Started
     - [Installation](/docs/{{version}}/installation)
     - [Configuration](/docs/{{version}}/configuration)
-    - [FAQ](/docs/{{version}}/faq)
 - ## Appearance
     - [Menu](/docs/{{version}}/appearance/menu)
     - [Layout](/docs/{{version}}/appearance/layout)
@@ -176,3 +175,5 @@
     - [Change config](/docs/{{version}}/recipes/change-config)
     - [Paginator](/docs/{{version}}/recipes/table-paginator)
     - [Soft deletes](/docs/{{version}}/recipes/soft-deletes)
+- ## FAQ
+    - [FAQ](/docs/{{version}}/faq)
