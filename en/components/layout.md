@@ -1,7 +1,6 @@
 # Layout
 
-> [!NOTE]
-> Used to create **MoonShine** [layouts](/docs/{{version}}/appearance/layout).
+@include('_includes/note-about-appearance-layout')
 
 The system component `Layout` is the starting point when creating layouts and is used once in the `build()` method.
 

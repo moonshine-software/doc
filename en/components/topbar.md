@@ -1,7 +1,6 @@
 # TopBar
 
-> [!NOTE]
-> Used to create **MoonShine** [layouts](/docs/{{version}}/appearance/layout).
+@include('_includes/note-about-appearance-layout')
 
 The `TopBar` component is designed to create a top navigation panel.
 

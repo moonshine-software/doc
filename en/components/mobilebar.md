@@ -1,7 +1,6 @@
 # MobileBar
 
-> [!NOTE]
-> Used to create **MoonShine** [layouts](/docs/{{version}}/appearance/layout).
+@include('_includes/note-about-appearance-layout')
 
 The `MobileBar` component is necessary if you want to customize the mobile dropdown panel according to your needs,
 as by default it duplicates the content of the `TopBar` or `Sidebar`.

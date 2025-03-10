@@ -1,7 +1,6 @@
 # ThemeSwitcher
 
-> [!NOTE]
-> Используется для создания [шаблонов](/docs/{{version}}/appearance/layout) в **MoonShine**.
+@include('_includes/note-about-appearance-layout')
 
 Компонент `ThemeSwitcher` отображает кнопку-иконку для переключения темы (светлая/темная).
 

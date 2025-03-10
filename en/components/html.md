@@ -1,7 +1,6 @@
 # Html
 
-> [!NOTE]
-> Used to create **MoonShine** [layouts](/docs/{{version}}/appearance/layout).
+@include('_includes/note-about-appearance-layout')
 
 The `Html` component serves as the foundation for building html page.
 The component is a wrapper for the `<html>` tag and already includes `<!DOCTYPE html>`.

@@ -1,7 +1,6 @@
 # Layout
 
-> [!NOTE]
-> Используется для создания [шаблонов](/docs/{{version}}/appearance/layout) в **MoonShine**.
+@include('_includes/note-about-appearance-layout')
 
 Системный компонент `Layout` является стартовой точкой при создании шаблонов и используется единожды в методе `build()`.
 

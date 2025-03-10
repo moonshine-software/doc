@@ -1,7 +1,6 @@
 # Header
 
-> [!NOTE]
-> Используется для создания [шаблонов](/docs/{{version}}/appearance/layout) в **MoonShine**.
+@include('_includes/note-about-appearance-layout')
 
 Компонент `Header` предназначен для создания блока заголовка.
 
