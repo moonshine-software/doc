@@ -175,3 +175,5 @@
     - [Change config](/docs/{{version}}/recipes/change-config)
     - [Paginator](/docs/{{version}}/recipes/table-paginator)
     - [Soft deletes](/docs/{{version}}/recipes/soft-deletes)
+- ## FAQ
+    - [FAQ](/docs/{{version}}/faq)
