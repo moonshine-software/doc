@@ -1,7 +1,6 @@
 # MobileBar
 
-> [!NOTE]
-> Используется для создания [шаблонов](/docs/{{version}}/appearance/layout) в **MoonShine**.
+@include('_includes/note-about-appearance-layout')
 
 Компонент `MobileBar` необходим если вы хотите кастомизировать мобильную выпадающую панель по своему,
 так как по умолчанию дублируется содержимое `TopBar` или `Sidebar`.

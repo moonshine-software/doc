@@ -1,7 +1,6 @@
 # ThemeSwitcher
 
-> [!NOTE]
-> Used to create **MoonShine** [layouts](/docs/{{version}}/appearance/layout).
+@include('_includes/note-about-appearance-layout')
 
 The `ThemeSwitcher` component displays a button-icon for switching themes (light/dark).
 

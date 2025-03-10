@@ -1,7 +1,6 @@
 # Assets
 
-> [!NOTE]
-> Used to create **MoonShine** [layouts](/docs/{{version}}/appearance/layout).
+@include('_includes/note-about-appearance-layout')
 
 The `Assets` component is designed to include scripts and stylesheets into the HTML page, added through [AssetManager](/docs/{{version}}/appearance/assets).
 

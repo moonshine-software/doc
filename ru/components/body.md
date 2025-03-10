@@ -1,7 +1,6 @@
 # Body
 
-> [!NOTE]
-> Используется для создания [шаблонов](/docs/{{version}}/appearance/layout) в **MoonShine**.
+@include('_includes/note-about-appearance-layout')
 
 Компонент `Body` предназначен для создания тега `<body>`.
 

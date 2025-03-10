@@ -1,7 +1,6 @@
 # Meta
 
-> [!NOTE]
-> Used to create **MoonShine** [layouts](/docs/{{version}}/appearance/layout).
+@include('_includes/note-about-appearance-layout')
 
 The **Meta** component is designed to place metadata on html page.
 

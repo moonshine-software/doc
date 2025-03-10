@@ -9,8 +9,7 @@
 <a name="basics"></a>
 ## Основы
 
-> [!NOTE]
-> Используется для создания [шаблонов](/docs/{{version}}/appearance/layout) в **MoonShine**.
+@include('_includes/note-about-appearance-layout')
 
 Компонент `Footer` предназначен для создания блока подвала.
 
