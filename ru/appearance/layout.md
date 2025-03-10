@@ -281,6 +281,16 @@ protected function getLogo(bool $small = false): string
 protected function getHomeUrl(): string
 ```
 
+#### Slots
+
+```php
+protected function sidebarSlot(): array
+
+protected function sidebarTopSlot(): array
+
+protected function topBarSlot(): array
+```
+
 > [!TIP]
 > Вы также можете создать собственный шаблон со своим набором удобных методов для дальнейшего удобного взаимодействия.
 
