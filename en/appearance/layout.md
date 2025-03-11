@@ -16,7 +16,7 @@
 ## Basics
 
 `Layout` in **MoonShine** is a set of components that form the structure of the admin panel page.
-Each element of the page, including `HTML` tags, is a **MoonShine** component.
+Each element of the page, including HTML tags, is a **MoonShine** component.
 This provides a high degree of flexibility and customization options.
 
 **MoonShine** offers two ready-made templates:
@@ -176,7 +176,7 @@ final class MoonShineLayout extends CompactLayout
 }
 ```
 
-As you can see, starting from the `HTML` tag, everything in **MoonShine** consists of components, which provides tremendous freedom to customize your admin panel.
+As you can see, everything in **MoonShine**, starting from the <html> tag, consists of components, which provides tremendous freedom to customize your admin panel.
 
 Find the complete list of components in the [Components](/docs/{{version}}/components/index) section.
 
@@ -211,56 +211,94 @@ final class MoonShineLayout extends CompactLayout
 }
 ```
 
-In the example, we have overridden the output of the footer menu and copyright using the methods `getFooterMenu` and `getFooterCopyright`.
+In the example above, we have overridden the output of the footer menu and copyright using the methods `getFooterMenu()` and `getFooterCopyright()`.
 
 Available quick methods:
 
-#### Override the Head component
+### Override the Head component
 
 ```php
 protected function getHeadComponent(): Head
+{
+    return Head::make([
+        // ...
+    ]);
+}
 ```
 
-#### Override the Logo component
+### Override the Logo component
 
 ```php
 protected function getLogoComponent(): Logo
+{
+    return Logo::make(
+        $this->getHomeUrl(),
+        $this->getLogo(),
+        $this->getLogo(small: true),
+    );
+}
 ```
 
-#### Override the Sidebar component
+### Override the Sidebar component
 
 ```php
 protected function getSidebarComponent(): Sidebar
+{
+    return Sidebar::make([
+        // ...
+    ]);
+}
 ```
 
-#### Override the Header component
+### Override the Header component
 
 ```php
 protected function getHeaderComponent(): Header
+{
+    Header::make([
+        // ...
+    ]);
+}
 ```
 
-#### Override or integrate the TopBar component
+### Override or integrate the TopBar component
 
 ```php
 protected function getTopBarComponent(): Topbar
+{
+    Topbar::make([
+        // ...
+    ]);
+}
 ```
 
-#### Override the Footer component
+### Override the Footer component
 
 ```php
 protected function getFooterComponent(): Footer
+{
+    Footer::make([
+        // ...
+    ]);
+}
 ```
 
-#### Override the Profile component
+### Override the Profile component
 
 ```php
 protected function getProfileComponent(bool $sidebar = false): Profile
+{
+    return Profile::make(withBorder: $sidebar);
+}
 ```
 
-#### Override the сontent of the Content component
+### Override the сontent of the Content component
 
 ```php
 protected function getContentComponents(): array
+{
+    // ...
+}
 ```
 
 ```php
@@ -269,26 +307,52 @@ Content::make(
 )
 ```
 
-#### Path to the logo
+### Path to the logo
 
 ```php
 protected function getLogo(bool $small = false): string
+{
+    // ...
+}
 ```
 
-#### URL of the main page
+### URL of the main page
 
 ```php
 protected function getHomeUrl(): string
+{
+    // ...
+}
 ```
 
-#### Slots
+<a name="slots"></a>
+### Slots
+
+With the help of "slots" you can quickly add components to the `Sidebar` or `Topbar`.
 
 ```php
 protected function sidebarSlot(): array
+{
+    return [
+        Search::make()->enabled();
+        // ...
+    ];
+}
 
 protected function sidebarTopSlot(): array
+{
+    return [
+        Notifications::make();
+        // ...
+    ];
+}
 
 protected function topBarSlot(): array
+{
+    return [
+        // ...
+    ];
+}
 ```
 
 > [!TIP]
@@ -299,7 +363,7 @@ protected function topBarSlot(): array
 
 To create another template, use the command:
 
-```
+```shell
 php artisan moonshine:layout
 ```
 
@@ -331,7 +395,7 @@ class CustomPage extends Page
 <a name="assets"></a>
 ## Assets
 
-Each template can have its own set of styles and scripts defined through the `assets()` method:
+Each template can have its own set of styles and scripts defined through the `assets()` method.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -386,7 +450,7 @@ protected function assets(): array
 <a name="favicons"></a>
 ## Favicons
 
-You can replace the set of favicons in a template by overriding the `getFaviconComponent()` method:
+You can replace the set of favicons in a template by overriding the `getFaviconComponent()` method.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -439,7 +503,7 @@ final class MyLayout extends AppLayout
 > For more detailed information, refer to the [Menu](/docs/{{version}}/appearance/menu) section.
 
 > [!TIP]
-> You can also choose not to use the `menu` method and pass the list manually to the `Menu` component.
+> You can also choose not to use the `menu()` method and pass the list manually to the `Menu` component.
 
 <a name="top-menu"></a>
 ### Top Menu
@@ -496,7 +560,7 @@ final class MoonShineLayout extends CompactLayout
 <a name="colors"></a>
 ## Colors
 
-Each template can have its own color scheme defined in the `colors` method.
+Each template can have its own color scheme defined in the `colors()` method.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -567,7 +631,7 @@ final class MyLayout extends AppLayout
 <a name="blade"></a>
 ## Blade
 
-**MoonShine** allows you to create templates directly using `Blade`.
+**MoonShine** allows you to create templates directly using **Blade**.
 
 An example of a basic template:
 
