@@ -1,7 +1,6 @@
 # Content
 
-> [!NOTE]
-> Used to create **MoonShine** [layouts](/docs/{{version}}/appearance/layout).
+@include('_includes/note-about-appearance-layout')
 
 The `Content` component is designed for the area that displays the content part of the page.
 

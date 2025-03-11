@@ -103,6 +103,15 @@ protected function indexButtons(): ListOf
 }
 ```
 
+Названия стандартных кнопок для таблицы: 
+- resource-detail-button,
+- resource-edit-button,
+- resource-delete-button,
+- mass-delete-button.
+
+> [!NOTE]
+> Также можно глобально отключить любые действия с ресурсом (см. [активные действия](/docs/{{version}}/model-resource/index#active-actions).
+
 Очистить набор кнопок и добавить свою:
 
 ```php

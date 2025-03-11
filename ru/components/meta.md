@@ -1,7 +1,6 @@
 # Meta
 
-> [!NOTE]
-> Используется для создания [шаблонов](/docs/{{version}}/appearance/layout) в **MoonShine**.
+@include('_includes/note-about-appearance-layout')
 
 Компонент **Meta** предназначен для размещения метаданных на html-странице.
 

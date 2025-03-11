@@ -103,6 +103,15 @@ protected function indexButtons(): ListOf
 }
 ```
 
+Standard button names for the index view rows: 
+- resource-detail-button,
+- resource-edit-button,
+- resource-delete-button,
+- mass-delete-button.
+
+> [!NOTE]
+> You can also globally disable any actions with the resource (see [active actions](/docs/{{version}}/model-resource/index#active-actions).
+
 Clear the button set and add your own:
 
 ```php

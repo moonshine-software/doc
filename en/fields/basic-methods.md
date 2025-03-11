@@ -35,7 +35,7 @@
 - [Assets](#assets)
 - [Macroable Trait](#macroable)
 - [Reactivity](#reactive)
-- [Dynamic Display](#show-when)
+- [Dynamic Display](#dynamic-display)
   - [showWhen](#show-when)
   - [showWhenDate](#show-when-date)
   - [Nested Fields](#nested-fields)
@@ -687,6 +687,17 @@ To perform actions after "apply", you can use the `onAfterApply()` method.
 onAfterApply(Closure $onBeforeApply)
 ```
 
+You can conditionally execute the `apply()` method using the `canApply()` method.
+
+```php
+canApply(Closure $canApply)
+```
+
+```php
+Text::make('Title')
+    ->canApply(fn() => false)
+```
+
 #### Global Definition of Apply Logic
 
 If you want to globally change the `apply` logic for a certain field, you can create an `apply` class and bind it to the necessary field.
@@ -1206,7 +1217,7 @@ Select::make('Category', 'category_id')
     })
 ```
 
-<a name="show-when"></a>
+<a name="dynamic-display"></a>
 ## Dynamic Display
 
 Fields can be hidden or shown dynamically, depending on the values of other fields in real time without reloading the page and making requests to the server.

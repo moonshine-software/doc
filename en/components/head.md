@@ -9,8 +9,7 @@
 <a name="basics"></a>
 ## Basics
 
-> [!NOTE]
-> Used to create **MoonShine** [layouts](/docs/{{version}}/appearance/layout).
+@include('_includes/note-about-appearance-layout')
 
 The `Head` component is designed to place document information: metadata (such as the window title or encoding), links to scripts, and stylesheets.
 

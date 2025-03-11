@@ -4,6 +4,7 @@
 - [Creating](#creating)
 - [Basic Properties](#basic-properties)
 - [Declaring in the System](#declaring-in-the-system)
+- [Autoloading](#autoloading)
 - [Adding to the Menu](#adding-to-the-menu)
     - [Alias](#alias)
 - [Current Element/Model](#current-element-model)
@@ -146,6 +147,9 @@ class MoonShineServiceProvider extends ServiceProvider
     }
 }
 ```
+
+<a name="autoloading"></a>
+## Autoloading
 
 Autoloading of pages and resources is also available in **MoonShine**.
 It is disabled by default and to activate it you need to call the `autoload()` method in `MoonShineServiceProvider` instead of specifying links to pages and resources.
@@ -645,6 +649,9 @@ protected function onLoad(): void
 If the resource is in `async` mode, then you can modify the answer:
 
 ```php
+use Symfony\Component\HttpFoundation\Response;
+use MoonShine\Laravel\Http\Responses\MoonShineJsonResponse;
+
 public function modifyDestroyResponse(MoonShineJsonResponse $response): MoonShineJsonResponse
 {
     return $response;
@@ -656,6 +663,11 @@ public function modifyMassDeleteResponse(MoonShineJsonResponse $response): MoonS
 }
 
 public function modifySaveResponse(MoonShineJsonResponse $response): MoonShineJsonResponse
+{
+    return $response;
+}
+
+public function modifyErrorResponse(Response $response, Throwable $exception): Response
 {
     return $response;
 }

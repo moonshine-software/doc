@@ -35,7 +35,7 @@
 - [Ассеты](#assets)
 - [Трейт Macroable](#macroable)
 - [Реактивность](#reactive)
-- [Динамическое отображение](#show-when)
+- [Динамическое отображение](#dynamic-display)
   - [showWhen](#show-when)
   - [showWhenDate](#show-when-date)
   - [Вложенные поля](#nested-fields)
@@ -687,6 +687,17 @@ onBeforeApply(Closure $onBeforeApply)
 onAfterApply(Closure $onBeforeApply)
 ```
 
+Выполнять метод `apply()` можно по условию, воспользовавшись методом `canApply()`.
+
+```php
+canApply(Closure $canApply)
+```
+
+```php
+Text::make('Title')
+    ->canApply(fn() => false)
+```
+
 #### Глобальное определение apply логики
 
 Если вы хотите глобально для определенного поля изменить логику `apply`, то вы можете создать `apply` класс и привязать его к необходимому полю.
@@ -1206,7 +1217,7 @@ Select::make('Category', 'category_id')
     })
 ```
 
-<a name="show-when"></a>
+<a name="dynamic-display"></a>
 ## Динамическое отображение
 
 Поля можно скрывать или показывать динамически, в зависимости от значений других полей в реальном времени без перезагрузки страницы и запросов к серверу.

@@ -1,7 +1,6 @@
 # TopBar
 
-> [!NOTE]
-> Используется для создания [шаблонов](/docs/{{version}}/appearance/layout) в **MoonShine**.
+@include('_includes/note-about-appearance-layout')
 
 Компонент `TopBar` предназначен для создания верхней панели навигации.
 

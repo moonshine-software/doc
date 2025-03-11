@@ -1,7 +1,6 @@
 # Content
 
-> [!NOTE]
-> Используется для создания [шаблонов](/docs/{{version}}/appearance/layout) в **MoonShine**.
+@include('_includes/note-about-appearance-layout')
 
 Компонент `Content` предназначен для отображения контентной части страницы.
 

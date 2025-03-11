@@ -1,7 +1,6 @@
 # Wrapper
 
-> [!NOTE]
-> Used to create **MoonShine** [layouts](/docs/{{version}}/appearance/layout).
+@include('_includes/note-about-appearance-layout')
 
 The `Wrapper` component is used as a wrapper to ensure that the sidebar and content part are displayed correctly.
 It is used immediately after the `Body`.

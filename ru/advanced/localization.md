@@ -17,6 +17,10 @@
 > По умолчанию в **MoonShine** присутствует только английский язык.
 > Дополнительные языки ищите в разделе [Plugins](/plugins).
 
+> [!TIP]
+> Так же вы можете воспользоваться сторонним пакетом [laravel-lang/moonshine](https://laravel-lang.com/packages-moonshine.html).
+> Он предоставляет большое количество локализаций в одном пакете.
+
 <a name="configuration"></a>
 ## Конфигурация
 
@@ -29,7 +33,7 @@ tab: config/moonshine.php
 ```php
 'locale' => 'ru',
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config->locale('ru');
 ```
@@ -48,8 +52,7 @@ tab: config/moonshine.php
     'en' => 'Английский',
     'ru' => 'Русский',
 ],
-```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config->locales(['en', 'ru']);
 ```
@@ -98,7 +101,7 @@ tab: config/moonshine.php
     ChangeLocale::class,
 ],
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config
     ->exceptMiddleware(ChangeLocale::class)

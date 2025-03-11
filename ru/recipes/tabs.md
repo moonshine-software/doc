@@ -11,7 +11,7 @@
 ```php
 class ArticleResource extends ModelResource
 {
-    // ..
+    // ...
     protected function pages(): array
     {
         return [

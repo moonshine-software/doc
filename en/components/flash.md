@@ -8,8 +8,7 @@
 <a name="basics"></a>
 ## Basics
 
-> [!NOTE]
-> Used to create **MoonShine** [layouts](/docs/{{version}}/appearance/layout).
+@include('_includes/note-about-appearance-layout')
 
 The `Flash` component is designed to display different types of notifications that are stored in the session.
 

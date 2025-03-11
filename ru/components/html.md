@@ -1,7 +1,6 @@
 # Html
 
-> [!NOTE]
-> Используется для создания [шаблонов](/docs/{{version}}/appearance/layout) в **MoonShine**.
+@include('_includes/note-about-appearance-layout')
 
 Компонент `Html` служит основой для построения html-страницы.
 Компонент является оберткой тега `<html>` и уже включает в себя `<!DOCTYPE html>`.

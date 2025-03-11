@@ -1,7 +1,6 @@
 # Wrapper
 
-> [!NOTE]
-> Используется для создания [шаблонов](/docs/{{version}}/appearance/layout) в **MoonShine**.
+@include('_includes/note-about-appearance-layout')
 
 Компонент `Wrapper` используется как обёртка, чтобы боковая панель и контентная часть отображались корректно.
 Используется сразу после `Body`.
