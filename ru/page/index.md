@@ -181,6 +181,16 @@ class CustomPage extends Page
 }
 ```
 
+Вы также можете указать шаблон через атрибут.
+
+```php
+use MoonShine\Core\Attributes\Layout;
+use MoonShine\Laravel\Layouts\AppLayout;
+
+#[Layout(AppLayout::class)]
+class CustomPage extends Page
+```
+
 <a name="modify-layout"></a>
 ### Модификация шаблона
 

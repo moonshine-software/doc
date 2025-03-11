@@ -2,6 +2,7 @@
 
 - [Basics](#basics)
 - [Alignment](#alignment)
+- [Wrap](#wrap)
 
 ---
 
@@ -60,4 +61,17 @@ Flex::make([
 ])
     ->justifyAlign('between')
     ->itemsAlign('start')
+```
+
+<a name="wrap"></a>
+## Wrap
+
+To transfer the elements (`flex-wrap`) you can use the `wrap()` method.
+
+```php
+Flex::make([
+    Text::make('Test'),
+    Text::make('Test 2'),
+])
+    ->wrap()
 ```
