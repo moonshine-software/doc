@@ -471,6 +471,24 @@ Select::make('Select')
 ![belongs to image](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/belongs_to_image.png#light)
 ![belongs to image](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/belongs_to_image_dark.png#dark)
 
+Для кастомизации изображений передавайте в `OptionPropery` объект `OptionImage` вместо строки:
+
+```php
+new OptionProperty(
+    new OptionImage(
+        src: 'https://cutcode.dev/images/platforms/youtube.png',
+        height: 6,
+        width: 6,
+        objectFit: ObjectFit::CONTAIN
+    )
+),
+```
+
+- `$src` - url изображения,
+- `$height` - высота изображения (используется для подстановки в класс `h-{x}`, где `x` в диапазоне от 1 до 10),
+- `$width` - ширина изображения (используется для подстановки в класс `w-{x}`, где `x` в диапазоне от 1 до 10),
+- `$objectFit` - одно из значений перечисления ObjectFit (см. [`object-fit`](https://developer.mozilla.org/ru/docs/Web/CSS/object-fit)).
+
 <a name="options"></a>
 ## Опции
 
