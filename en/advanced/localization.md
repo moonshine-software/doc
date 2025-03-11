@@ -67,6 +67,23 @@ $config->locales([
 > [!WARNING]
 > If you have changed the language in the panel interface, the selection is saved in sessions and will take precedence over the configuration.
 
+<a name="localization-key"></a>
+### Localization parameter
+
+By default, `_lang` is used as the name of the parameter to set localization.
+It is possible to change the name both through the configuration file and through the service provider.
+
+~~~tabs
+tab: config/moonshine.php
+```php
+'locale_key' => '_lang',
+```
+tab: app/Providers/MoonShineServiceProvider.php
+```php
+$config->localeKey('_lang');
+```
+~~~
+
 <a name="middleware"></a>
 ## Language Switching
 

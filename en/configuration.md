@@ -437,6 +437,19 @@ $config->locales(['en', 'ru']);
 ```
 ~~~
 
+#### Changing the parameter name
+
+~~~tabs
+tab: config/moonshine.php
+```php
+'locale_key' => '_lang',
+```
+tab: app/Providers/MoonShineServiceProvider.php
+```php
+$config->localeKey('_lang');
+```
+~~~
+
 For more information, see [localization](/docs/{{version}}/advanced/localization) section.
 
 <a name="storage"></a>
