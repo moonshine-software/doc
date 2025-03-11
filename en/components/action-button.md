@@ -473,6 +473,17 @@ method(
 ActionButton::make('Button Label')
     ->method('updateSomething')
 ```
+
+If the method returns a file for download, you need to add the `download()` method.
+
+```php
+ActionButton::make('ZIP')
+    ->method('zip')
+    ->download()
+```
+
+Examples of methods:
+
 ```php
 // With notification
 public function updateSomething(MoonShineRequest $request): MoonShineJsonResponse
