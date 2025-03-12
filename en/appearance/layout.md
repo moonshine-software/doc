@@ -334,7 +334,7 @@ With the help of "slots" you can quickly add components to the `Sidebar` or `Top
 protected function sidebarSlot(): array
 {
     return [
-        Search::make()->enabled();
+        Search::make()->enabled(),
         // ...
     ];
 }
@@ -342,7 +342,7 @@ protected function sidebarSlot(): array
 protected function sidebarTopSlot(): array
 {
     return [
-        Notifications::make();
+        Notifications::make(),
         // ...
     ];
 }
