@@ -15,4 +15,7 @@ tab: Blade
 ```
 ~~~
 
+By default, in the standard layout, the `Notifications` component is located in the `Header` component, but it also fits well into the `Sidebar`.
+To place `Notifications` in the sidebar, you can use the [sidebar Top Slot()](/docs/{{version}}/appearance/layout#slots) method.
+
 For more information about notifications, see the [Notifications](/docs/{{version}}/advanced/notifications) section.
