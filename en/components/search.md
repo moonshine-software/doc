@@ -17,4 +17,7 @@ tab: Blade
 ```
 ~~~
 
+By default, in the standard layout, the `Search` component is located in the `Header` component, but it also fits well into the `Sidebar`.
+To place the search form in the sidebar, you can use the [sidebarSlot()](/docs/{{version}}/appearance/layout#slots) method.
+
 For more information about how the search works, see [ModelResource > Search](/docs/{{version}}/model-resource/search).
