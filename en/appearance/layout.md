@@ -358,6 +358,21 @@ protected function topBarSlot(): array
 > [!TIP]
 > You can also create your custom template with your own set of convenient methods for easier interaction in the future.
 
+> [!NOTE]
+> In the standard Layout, the `Sidebar`, `Topbar`, and `Mobilebar` components are designed in the dark colors.
+> But if you add other components to them, they will change depending on the chosen theme, which will lead to incorrect display.
+> To avoid this behavior, you can force them into dark mode by adding the 'dark' class.
+
+```php
+$this->getSidebarComponent()->class('dark'),
+
+$this->getTopBarComponent()->class('dark'),
+
+MobileBar::make([
+    // ...
+])->class('dark'),
+```
+
 <a name="create"></a>
 ## Creating a Template
 
