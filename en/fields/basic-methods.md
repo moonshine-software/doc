@@ -698,6 +698,27 @@ Text::make('Title')
     ->canApply(fn() => false)
 ```
 
+You can also change/refresh the state of the field after saving the form.
+To do this, use the `refreshAfterApply()` method.
+
+```php
+Text::make('Title')
+    ->refreshAfterApply(fn(Text $ctx) => $ctx)
+```
+
+By default, this feature is enabled for the `File` fields to update the "preview".
+This behavior can be disabled or redefined according to your logic using the `disableRefreshAfterApply()` method.
+
+```php
+Image::make('Avatar')
+    ->disableRefreshAfterApply()
+```
+
+```php
+Image::make('Avatar')
+    ->refreshAfterApply(fn(Image $ctx) => $ctx)
+```
+
 #### Global Definition of Apply Logic
 
 If you want to globally change the `apply` logic for a certain field, you can create an `apply` class and bind it to the necessary field.

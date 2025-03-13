@@ -698,6 +698,27 @@ Text::make('Title')
     ->canApply(fn() => false)
 ```
 
+Так же вы можете менять/обновлять состояние поля после сохранения формы.
+Для этого воспользуйтесь методом `refreshAfterApply()`.
+
+```php
+Text::make('Title')
+    ->refreshAfterApply(fn(Text $ctx) => $ctx)
+```
+
+По умолчанию у полей `File` эта функция включена для обновления "preview".
+Это поведение можно отключить переопределить в соответствии со своей логикой с помощью метода `disableRefreshAfterApply()`.
+
+```php
+Image::make('Avatar')
+    ->disableRefreshAfterApply()
+```
+
+```php
+Image::make('Avatar')
+    ->refreshAfterApply(fn(Image $ctx) => $ctx)
+```
+
 #### Глобальное определение apply логики
 
 Если вы хотите глобально для определенного поля изменить логику `apply`, то вы можете создать `apply` класс и привязать его к необходимому полю.
