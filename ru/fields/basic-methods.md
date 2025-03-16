@@ -136,8 +136,7 @@ Text::make(fn() => __('Title'))
 Для оборачивания поля в тег `<label>` можно использовать метод `insideLabel()`.
 
 ```php
-Text::make('Name')
-    ->insideLabel()
+Text::make('Name')->insideLabel()
 ```
 
 #### beforeLabel()
@@ -145,8 +144,7 @@ Text::make('Name')
 Для отображения label после поля ввода можно использовать метод `beforeLabel()`.
 
 ```php
-Text::make('Name')
-    ->beforeLabel()
+Text::make('Name')->beforeLabel()
 ```
 
 <a name="hint"></a>
@@ -256,8 +254,7 @@ withoutWrapper(mixed $condition = null)
 ```
 
 ```php
-Text::make('Title')
-    ->withoutWrapper()
+Text::make('Title')->withoutWrapper()
 ```
 
 <a name="sortable"></a>
@@ -468,8 +465,7 @@ nullable(Closure|bool|null $condition = null)
 ```
 
 ```php
-Password::make('Title')
-    ->nullable()
+Password::make('Title')->nullable()
 ```
 
 <a name="custom-view"></a>
@@ -659,7 +655,7 @@ Text::make('Thumbnail by link', 'thumbnail')
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
+// [tl! collapse:2]
 use MoonShine\UI\Fields\Text;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 
@@ -698,16 +694,20 @@ Text::make('Title')
     ->canApply(fn() => false)
 ```
 
-Так же вы можете менять/обновлять состояние поля после сохранения формы.
-Для этого воспользуйтесь методом `refreshAfterApply()`.
+Метод `refreshAfterApply()` инициирует ререндер поля после "применения".
+Так же можно влиять на этот процесс через колбэк.
+
+```php
+refreshAfterApply(?Closure $callback = null)
+```
 
 ```php
 Text::make('Title')
     ->refreshAfterApply(fn(Text $ctx) => $ctx)
 ```
 
-По умолчанию у полей `File` эта функция включена для обновления "preview".
-Это поведение можно отключить переопределить в соответствии со своей логикой с помощью метода `disableRefreshAfterApply()`.
+У полей `File` эта функция включена по умолчанию для обновления "preview".
+Это поведение можно отключить с помощью метода `disableRefreshAfterApply()` или переопределить в соответствии со своей логикой.
 
 ```php
 Image::make('Avatar')
@@ -1043,8 +1043,7 @@ updateOnPreview(
 > Параметры не являются обязательными, но должны быть заданы, если поле находится вне ресурса или же вы хотите указать полностью свой endpoint (тогда и ресурс не нужен).
 
 ```php
-Text::make('Name')
-    ->updateOnPreview()
+Text::make('Name')->updateOnPreview()
 ```
 
 <a name="with-update-row"></a>
