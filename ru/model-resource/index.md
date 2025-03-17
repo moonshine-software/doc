@@ -34,8 +34,8 @@
 > Вы также можете ознакомиться с разделом [CrudResource](/docs/{{version}}/advanced/crud-resource).
 > `CrudResource` - это абстрактный класс предоставляющий базовый интерфейс для `CRUD` операций без привязки к хранилищу и типу данных.
 
-Под капотом, `ModelResource` расширяет `CrudResource` и сразу включает возможность работы с `Eloquent`.
-Если углубляться в детали MoonShine, то вы увидите все те же стандартные `Controller`, `Model` и `blade views`.
+Под капотом, `ModelResource` расширяет `CrudResource` и сразу включает возможность работы с Eloquent.
+Если углубляться в детали **MoonShine**, то вы увидите все те же стандартные Controller, Model и Blade views.
 
 Если бы вы разрабатывали самостоятельно, то создать ресурс контроллеры и ресурс маршруты можно следующим образом:
 
@@ -177,7 +177,7 @@ class MoonShineServiceProvider extends ServiceProvider
 }
 ```
 
-При деплое проекта на продакшен в Laravel 11 [рекомендуется](https://laravel.com/docs/11.x/packages#optimize-commands) вызывать консольную команду `php artisan optimize`.
+При деплое проекта на продакшен в Laravel 11+ [рекомендуется](https://laravel.com/docs/11.x/packages#optimize-commands) вызывать консольную команду `php artisan optimize`.
 Помимо её основных функций, она также выполнит кэширование ресурсов **MoonShine**.
 
 При использовании Laravel 10 необходимо вручную вызывать консольную команду `php artisan moonshine:optimize` для оптимизации процесса инициализации админ панели.
@@ -262,8 +262,6 @@ class PostResource extends ModelResource
 }
 ```
 
-или
-
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:3]
@@ -324,21 +322,28 @@ class PostResource extends ModelResource
 
 По умолчанию при создании и редактировании записи осуществляется редирект на страницу с формой, но это поведение можно контролировать.
 
+Через свойство в ресурсе:
+
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:1]
 use MoonShine\Support\Enums\PageType;
 
-// Через свойство в ресурсе
 protected ?PageType $redirectAfterSave = PageType::FORM;
+```
 
-// или через методы (также доступен редирект после удаления)
+Через метод:
 
+```php
 public function getRedirectAfterSave(): string
 {
     return '/';
 }
+```
 
+Также доступен редирект после удаления:
+
+```php
 public function getRedirectAfterDelete(): string
 {
     return $this->getIndexPageUrl();
@@ -604,7 +609,7 @@ trait WithPermissions
 <a name="on-boot"></a>
 ### Создание экземпляра
 
-Метод `onBoot` дает возможность интегрироваться в момент когда **MoonShine** создает экземпляр ресурса в системе.
+Метод `onBoot()` дает возможность интегрироваться в момент когда **MoonShine** создает экземпляр ресурса в системе.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -646,7 +651,7 @@ protected function onLoad(): void
 <a name="response-modifiers"></a>
 ## Response модификаторы
 
-Если ресурс в режиме `async`, то вы можете модифицировать ответ:
+Если ресурс в режиме "async", то вы можете модифицировать ответ:
 
 ```php
 use Symfony\Component\HttpFoundation\Response;
