@@ -640,7 +640,7 @@ use Illuminate\Support\Facades\Storage;
 use MoonShine\UI\Fields\Text;
 
 Text::make('Thumbnail by link', 'thumbnail')
-    ->onApply(function(Model $item, $value, Text $field) {
+    ->onApply(function(Model $item, $value, Field $field) {
         $path = 'thumbnail.jpg';
 
         if ($value) {
