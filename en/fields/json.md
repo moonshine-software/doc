@@ -6,6 +6,7 @@
 - [Only Value Mode](#only-value)
 - [Object Mode](#object-mode)
 - [Default Value](#default)
+- [Filtering Empty](#filtering-empty)
 - [Creatable/Removable](#creatable-removable)
 - [Vertical Mode](#vertical)
 - [Applying in Filters](#filter)
