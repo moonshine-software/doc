@@ -3,6 +3,8 @@
 Пагинация для *TableBuilder*
 
 ```php
+use MoonShine\Laravel\TypeCasts\PaginatorCaster;
+
 protected function components(): iterable
 {
     $posts = Post::query()->paginate();
