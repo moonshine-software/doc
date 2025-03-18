@@ -9,6 +9,7 @@
   - [Badge](#badge)
   - [Горизонтально отображение](#horizontal)
   - [Обертка](#wrapper)
+  - [Text wrap](#text-wrap)
   - [Сортировка](#sortable)
   - [Режимы отображения](#view-modes)
 - [Атрибуты](#attributes)

@@ -9,6 +9,7 @@
   - [Badge](#badge)
   - [Horizontal Display](#horizontal)
   - [Wrapper](#wrapper)
+  - [Text wrap](#text-wrap)
   - [Sorting](#sortable)
   - [View Modes](#view-modes)
 - [Attributes](#attributes)
