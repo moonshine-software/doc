@@ -5,6 +5,7 @@
 - [Режим "Ключ/Значение"](#key-value)
 - [Режим "Только значения"](#only-value)
 - [Режим "Объект"](#object-mode)
+- [Вложенные Json](#nested)
 - [Значение по умолчанию](#default)
 - [Добавление/Удаление](#creatable-removable)
 - [Вертикальный режим](#vertical)
@@ -172,6 +173,40 @@ Json::make('Product Options', 'options')
         Switcher::make('Active'),
     ])
     ->object()
+```
+
+<a name="nested"></a>
+## Вложенные Json
+
+Для создания более сложных структур может понадобиться использование вложенных полей `Json` и **MoonShine** это позволяет.
+
+Пример:
+
+```php
+Json::make('Products', 'products')
+    ->fields([
+        Text::make('Name', 'name'),
+        Json::make('Prices', 'prices')
+            ->fields([
+                Number::make('Wholesale price', 'wholesale_price'),
+                Number::make('Retail price', 'retail_price'),
+            ])
+            ->object(),
+    ])
+```
+
+Результат:
+
+```json
+[
+    {
+        "name": "product 1",
+        "prices": {
+            "wholesale_price": 1000,
+            "retail_price": 1200
+        }
+    }
+]
 ```
 
 <a name="default"></a>

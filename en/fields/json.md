@@ -5,6 +5,7 @@
 - [Key/Value Mode](#key-value)
 - [Only Value Mode](#only-value)
 - [Object Mode](#object-mode)
+- [Nested Json](#nested)
 - [Default Value](#default)
 - [Creatable/Removable](#creatable-removable)
 - [Vertical Mode](#vertical)
@@ -172,6 +173,40 @@ Json::make('Product Options', 'options')
         Switcher::make('Active'),
     ])
     ->object()
+```
+
+<a name="nested"></a>
+## Nested Json
+
+To create more complex structures, you may need to use the nested fields `Json` and **MoonShine** this allows.
+
+Example:
+
+```php
+Json::make('Products', 'products')
+    ->fields([
+        Text::make('Name', 'name'),
+        Json::make('Prices', 'prices')
+            ->fields([
+                Number::make('Wholesale price', 'wholesale_price'),
+                Number::make('Retail price', 'retail_price'),
+            ])
+            ->object(),
+    ])
+```
+
+Result:
+
+```json
+[
+    {
+        "name": "product 1",
+        "prices": {
+            "wholesale_price": 1000,
+            "retail_price": 1200
+        }
+    }
+]
 ```
 
 <a name="default"></a>
