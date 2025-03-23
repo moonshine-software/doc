@@ -196,7 +196,7 @@ final class ArticleFormPage extends FormPage
     {
         return [
             Tabs::make([
-                Tab::make('Basics', parent::mainLayer()),
+                Tab::make('Basics', ...parent::mainLayer()),
                 Tab::make('Comments', [
                     $this->getResource()->getItem() ? $this->getCommentsField() : 'To add comments, save the article',
                 ]),
@@ -260,7 +260,7 @@ final class ArticleFormPage extends FormPage
     {
         return [
             Tabs::make([
-                Tab::make('Basics', parent::mainLayer()),
+                Tab::make('Basics', ...parent::mainLayer()),
                 Tab::make('Comments', [
                     $this->getResource()->getItem() ? $this->getCommentsField() : 'To add comments, save the article',
                 ]),
