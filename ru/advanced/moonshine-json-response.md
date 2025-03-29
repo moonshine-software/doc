@@ -21,23 +21,23 @@ MoonShineJsonResponse наследует `Illuminate\Http\JsonResponse` и до�
 <a name="toast"></a>
 ### Toast
 
-Метод `toast` вызывает стандартное всплывающее уведомление админ-панели.
+Метод `toast()` вызывает стандартное [всплывающее уведомление](/docs/{{version}}/advanced/toasts) админ-панели.
 
 ```php
-public function toast(string $value, ToastType $type = ToastType::DEFAULT)
+toast(string $value, ToastType $type = ToastType::DEFAULT, null|int|false $duration = null)
 ```
 Пример:
 ```php
-MoonShineJsonResponse::make()->toast('My message', ToastType::SUCCESS);
+MoonShineJsonResponse::make()->toast('My message', ToastType::SUCCESS, duration: 3000);
 ```
 
 <a name="redirect"></a>
 ### Редирект
 
-Метод `redirect` выполнит редирект на указанный url.
+Метод `redirect()` выполнит редирект на указанный url.
 
 ```php
-public function redirect(string $value)
+redirect(string $value)
 ```
 
 Пример:
@@ -49,10 +49,10 @@ MoonShineJsonResponse::make()->redirect('/');
 <a name="events"></a>
 ### Events
 
-Метод `events` добавляет в ответ [JSEvents](/docs/{{version}}/frontend/js#events), которые будут вызваны после обработки асинхронного запроса.
+Метод `events()` добавляет в ответ [JSEvents](/docs/{{version}}/frontend/js#events), которые будут вызваны после обработки асинхронного запроса.
 
 ```php
-public function events(array $events)
+events(array $events)
 ```
 
 Пример:
@@ -64,10 +64,10 @@ MoonShineJsonResponse::make()->events([AlpineJs::event(JsEvent::TABLE_UPDATED, '
 <a name="html"></a>
 ### Html
 
-Метод `html` подставит нужный html-код в селектор, который был указан при создании компонента, инициирующего запрос.
+Метод `html()` подставит нужный HTML-код в селектор, который был указан при создании компонента, инициирующего запрос.
 
 ```php
-public function html(string|array $value, HtmlMode $mode = HtmlMode::INNER_HTML)
+html(string|array $value, HtmlMode $mode = HtmlMode::INNER_HTML)
 ```
 - `$value` - значение, которое нужно подставить в селектор,
 - `$mode` - режим замены контента в селекторе.
@@ -103,10 +103,10 @@ MoonShineJsonResponse::make()->html('Content');
 <a name="htmldata"></a>
 ### HtmlData
 
-Метод `htmlData` позволяет указать сразу несколько селекторов и html контент для подстановки в данные селекторы.
+Метод `htmlData()` позволяет указать сразу несколько селекторов и HTML контент для подстановки в данные селекторы.
 
 ```php
-public function htmlData(string|array $value, string $selector, HtmlMode $mode = HtmlMode::INNER_HTML)
+htmlData(string|array $value, string $selector, HtmlMode $mode = HtmlMode::INNER_HTML)
 ```
 
 Пример:

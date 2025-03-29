@@ -152,6 +152,7 @@
     - [Routes](/docs/{{version}}/advanced/routes)
     - [Commands](/docs/{{version}}/advanced/commands)
     - [Controllers](/docs/{{version}}/advanced/controllers)
+    - [MoonShineJsonResponse](/docs/{{version}}/advanced/moonshine-json-response)
     - [Handlers](/docs/{{version}}/advanced/handlers)
     - [TypeCasts](/docs/{{version}}/advanced/type-casts)
     - [Notifications](/docs/{{version}}/advanced/notifications)
