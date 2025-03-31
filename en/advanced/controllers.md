@@ -75,6 +75,8 @@ final class CustomViewController extends MoonShineController
 <a name="show-notification"></a>
 ## Show Notification
 
+The `toast()` method triggers a standard [toast notification](/docs/{{version}}/advanced/toasts) of the admin panel.
+
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:5]
