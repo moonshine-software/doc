@@ -157,6 +157,7 @@
     - [Handlers](/docs/{{version}}/advanced/handlers)
     - [TypeCasts](/docs/{{version}}/advanced/type-casts)
     - [Notifications](/docs/{{version}}/advanced/notifications)
+    - [Toasts](/docs/{{version}}/advanced/toasts)
     - [Localization](/docs/{{version}}/advanced/localization)
     - [Testing](/docs/{{version}}/advanced/testing)
     - [Package Development](/docs/{{version}}/advanced/package-development)
