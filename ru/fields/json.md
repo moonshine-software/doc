@@ -7,9 +7,10 @@
 - [Режим "Объект"](#object-mode)
 - [Вложенные Json](#nested)
 - [Значение по умолчанию](#default)
+- [Фильтрация "пустых" значений](#filtering-empty)
 - [Добавление/Удаление](#creatable-removable)
 - [Вертикальный режим](#vertical)
-- [Фильтр](#filter)
+- [Применение в фильтрах](#filter)
 - [Кнопки](#buttons)
 - [Модификаторы](#modify)
 
@@ -250,6 +251,15 @@ Json::make('Values')
     ->default([
         ['value' => 'Default value']
     ])
+```
+
+<a name="filtering-empty"></a>
+## Фильтрация "пустых" значений
+
+По умолчанию поле `Json` фильтрует все пустые значения, но это поведение можно отключить.
+
+```php
+Json::make('data')->stopFilteringEmpty()
 ```
 
 <a name="creatable-removable"></a>

@@ -7,9 +7,10 @@
 - [Object Mode](#object-mode)
 - [Nested Json](#nested)
 - [Default Value](#default)
+- [Filtering Empty](#filtering-empty)
 - [Creatable/Removable](#creatable-removable)
 - [Vertical Mode](#vertical)
-- [Filter](#filter)
+- [Applying in Filters](#filter)
 - [Buttons](#buttons)
 - [Modifiers](#modify)
 
@@ -250,6 +251,15 @@ Json::make('Values')
     ->default([
         ['value' => 'Default value']
     ])
+```
+
+<a name="filtering-empty"></a>
+## Filtering Empty
+
+By default, `Json` field filters all empty values, but this behavior can be disabled.
+
+```php
+Json::make('data')->stopFilteringEmpty()
 ```
 
 <a name="creatable-removable"></a>
