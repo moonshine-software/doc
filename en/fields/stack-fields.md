@@ -9,6 +9,9 @@
 <a name="basics"></a>
 ## Basics
 
+> [!WARNING]
+> From version 3.9 it is deprecated and will be deleted in version 4.0, use [Fieldset](/docs/{{version}}/fields/fieldset)
+
 Contains all [Basic Methods](/docs/{{version}}/fields/basic-methods).
 
 The `StackFields` field allows you to group fields when displaying in the preview.

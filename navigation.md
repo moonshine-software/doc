@@ -72,6 +72,7 @@
     - [HiddenIds](/docs/{{version}}/fields/hidden-ids)
     - [Preview](/docs/{{version}}/fields/preview)
     - [Position](/docs/{{version}}/fields/position)
+    - [Fieldset](/docs/{{version}}/fields/fieldset)
     - [StackFields](/docs/{{version}}/fields/stack-fields)
     - [Template](/docs/{{version}}/fields/template)
 - ## Components
