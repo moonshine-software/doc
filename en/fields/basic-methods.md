@@ -137,8 +137,7 @@ Text::make(fn() => __('Title'))
 To wrap a field in a `<label>` tag, you can use the `insideLabel()` method.
 
 ```php
-Text::make('Name')
-    ->insideLabel()
+Text::make('Name')->insideLabel()
 ```
 
 #### beforeLabel()
@@ -146,8 +145,7 @@ Text::make('Name')
 To display the label after the input field, you can use the `beforeLabel()` method.
 
 ```php
-Text::make('Name')
-    ->beforeLabel()
+Text::make('Name')->beforeLabel()
 ```
 
 <a name="hint"></a>
@@ -257,8 +255,7 @@ withoutWrapper(mixed $condition = null)
 ```
 
 ```php
-Text::make('Title')
-    ->withoutWrapper()
+Text::make('Title')->withoutWrapper()
 ```
 
 <a name="text-wrap"></a>
@@ -496,8 +493,7 @@ nullable(Closure|bool|null $condition = null)
 ```
 
 ```php
-Password::make('Title')
-    ->nullable()
+Password::make('Title')->nullable()
 ```
 
 <a name="custom-view"></a>
@@ -687,7 +683,7 @@ An example of `onApply` for filters:
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
+// [tl! collapse:2]
 use MoonShine\UI\Fields\Text;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 
@@ -724,6 +720,31 @@ canApply(Closure $canApply)
 ```php
 Text::make('Title')
     ->canApply(fn() => false)
+```
+
+The `refreshAfterApply()` method initiates the re-rendering of the field after "apply".
+You can also influence this process through a callback.
+
+```php
+refreshAfterApply(?Closure $callback = null)
+```
+
+```php
+Text::make('Title')
+    ->refreshAfterApply(fn(Text $ctx) => $ctx)
+```
+
+For the `File` fields, this feature is enabled by default for updating the "preview".
+You can disable this behavior using the `disableRefreshAfterApply()` method or redefine it according to your logic.
+
+```php
+Image::make('Avatar')
+    ->disableRefreshAfterApply()
+```
+
+```php
+Image::make('Avatar')
+    ->refreshAfterApply(fn(Image $ctx) => $ctx)
 ```
 
 #### Global Definition of Apply Logic
@@ -1050,8 +1071,7 @@ updateOnPreview(
 > Parameters are not mandatory but should be provided if the field is outside a resource or if you want to specify a completely custom endpoint (then the resource is not needed).
 
 ```php
-Text::make('Name')
-    ->updateOnPreview()
+Text::make('Name')->updateOnPreview()
 ```
 
 <a name="with-update-row"></a>

@@ -137,8 +137,7 @@ Text::make(fn() => __('Title'))
 Для оборачивания поля в тег `<label>` можно использовать метод `insideLabel()`.
 
 ```php
-Text::make('Name')
-    ->insideLabel()
+Text::make('Name')->insideLabel()
 ```
 
 #### beforeLabel()
@@ -146,8 +145,7 @@ Text::make('Name')
 Для отображения label после поля ввода можно использовать метод `beforeLabel()`.
 
 ```php
-Text::make('Name')
-    ->beforeLabel()
+Text::make('Name')->beforeLabel()
 ```
 
 <a name="hint"></a>
@@ -257,8 +255,7 @@ withoutWrapper(mixed $condition = null)
 ```
 
 ```php
-Text::make('Title')
-    ->withoutWrapper()
+Text::make('Title')->withoutWrapper()
 ```
 
 <a name="text-wrap"></a>
@@ -496,8 +493,7 @@ nullable(Closure|bool|null $condition = null)
 ```
 
 ```php
-Password::make('Title')
-    ->nullable()
+Password::make('Title')->nullable()
 ```
 
 <a name="custom-view"></a>
@@ -672,7 +668,7 @@ use Illuminate\Support\Facades\Storage;
 use MoonShine\UI\Fields\Text;
 
 Text::make('Thumbnail by link', 'thumbnail')
-    ->onApply(function(Model $item, $value, Text $field) {
+    ->onApply(function(Model $item, $value, Field $field) {
         $path = 'thumbnail.jpg';
 
         if ($value) {
@@ -687,7 +683,7 @@ Text::make('Thumbnail by link', 'thumbnail')
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
+// [tl! collapse:2]
 use MoonShine\UI\Fields\Text;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 
@@ -724,6 +720,31 @@ canApply(Closure $canApply)
 ```php
 Text::make('Title')
     ->canApply(fn() => false)
+```
+
+Метод `refreshAfterApply()` инициирует ререндер поля после "применения".
+Так же можно влиять на этот процесс через колбэк.
+
+```php
+refreshAfterApply(?Closure $callback = null)
+```
+
+```php
+Text::make('Title')
+    ->refreshAfterApply(fn(Text $ctx) => $ctx)
+```
+
+У полей `File` эта функция включена по умолчанию для обновления "preview".
+Это поведение можно отключить с помощью метода `disableRefreshAfterApply()` или переопределить в соответствии со своей логикой.
+
+```php
+Image::make('Avatar')
+    ->disableRefreshAfterApply()
+```
+
+```php
+Image::make('Avatar')
+    ->refreshAfterApply(fn(Image $ctx) => $ctx)
 ```
 
 #### Глобальное определение apply логики
@@ -1050,8 +1071,7 @@ updateOnPreview(
 > Параметры не являются обязательными, но должны быть заданы, если поле находится вне ресурса или же вы хотите указать полностью свой endpoint (тогда и ресурс не нужен).
 
 ```php
-Text::make('Name')
-    ->updateOnPreview()
+Text::make('Name')->updateOnPreview()
 ```
 
 <a name="with-update-row"></a>
