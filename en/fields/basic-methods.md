@@ -9,6 +9,7 @@
   - [Badge](#badge)
   - [Horizontal Display](#horizontal)
   - [Wrapper](#wrapper)
+  - [Text wrap](#text-wrap)
   - [Sorting](#sortable)
   - [View Modes](#view-modes)
 - [Attributes](#attributes)
@@ -259,6 +260,33 @@ withoutWrapper(mixed $condition = null)
 Text::make('Title')
     ->withoutWrapper()
 ```
+
+<a name="text-wrap"></a>
+### Text wrap
+
+If the fields in the preview mode do not fit into the area allocated to them by width, they go beyond its limits.
+But this behavior can be controlled through `textWrap()` method, specifying how exactly to crop the text.
+
+Clamp:
+
+```php
+Text::make('Field')->textWrap(TextWrap::CLAMP)
+```
+
+Ellipsis:
+
+```php
+Text::make('Field')->textWrap(TextWrap::ELLIPSIS)
+```
+
+Disable:
+
+```php
+Text::make('Field')->withoutTextWrap()
+```
+
+> [!NOTE]
+> By default the `Text` field has Elipsis and `Textarea` has Clamp.
 
 <a name="sortable"></a>
 ### Sorting

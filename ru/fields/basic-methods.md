@@ -9,6 +9,7 @@
   - [Badge](#badge)
   - [Горизонтально отображение](#horizontal)
   - [Обертка](#wrapper)
+  - [Text wrap](#text-wrap)
   - [Сортировка](#sortable)
   - [Режимы отображения](#view-modes)
 - [Атрибуты](#attributes)
@@ -259,6 +260,33 @@ withoutWrapper(mixed $condition = null)
 Text::make('Title')
     ->withoutWrapper()
 ```
+
+<a name="text-wrap"></a>
+### Text wrap
+
+Если поля в режиме предварительного просмотра не помещаются в область, выделенную им по ширине, они выходят за ее пределы.
+Но этим поведением можно управлять с помощью метода `textWrap()`, определяющего, как именно обрезать текст.
+
+Clamp:
+
+```php
+Text::make('Field')->textWrap(TextWrap::CLAMP)
+```
+
+Ellipsis:
+
+```php
+Text::make('Field')->textWrap(TextWrap::ELLIPSIS)
+```
+
+Disable:
+
+```php
+Text::make('Field')->withoutTextWrap()
+```
+
+> [!NOTE]
+> По умолчанию поле `Text` имеет Elipsis, а `Textarea` имеет Clamp.
 
 <a name="sortable"></a>
 ### Сортировка
