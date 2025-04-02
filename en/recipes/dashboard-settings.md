@@ -17,7 +17,7 @@ private function form(): FormBuilder
 {
     return FormBuilder::make()
         ->asyncMethod('store')
-        ->fillCast($this->getSetting(), ModelCast::make(Setting::class))
+        ->fillCast($this->getSetting(), new ModelCaster(Setting::class))
         ->fields([
           // Fields here
         ])

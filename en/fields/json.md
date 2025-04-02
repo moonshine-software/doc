@@ -5,10 +5,12 @@
 - [Key/Value Mode](#key-value)
 - [Only Value Mode](#only-value)
 - [Object Mode](#object-mode)
+- [Nested Json](#nested)
 - [Default Value](#default)
+- [Filtering Empty](#filtering-empty)
 - [Creatable/Removable](#creatable-removable)
 - [Vertical Mode](#vertical)
-- [Filter](#filter)
+- [Applying in Filters](#filter)
 - [Buttons](#buttons)
 - [Modifiers](#modify)
 
@@ -174,6 +176,40 @@ Json::make('Product Options', 'options')
     ->object()
 ```
 
+<a name="nested"></a>
+## Nested Json
+
+To create more complex structures, you may need to use the nested fields `Json` and **MoonShine** this allows.
+
+Example:
+
+```php
+Json::make('Products', 'products')
+    ->fields([
+        Text::make('Name', 'name'),
+        Json::make('Prices', 'prices')
+            ->fields([
+                Number::make('Wholesale price', 'wholesale_price'),
+                Number::make('Retail price', 'retail_price'),
+            ])
+            ->object(),
+    ])
+```
+
+Result:
+
+```json
+[
+    {
+        "name": "product 1",
+        "prices": {
+            "wholesale_price": 1000,
+            "retail_price": 1200
+        }
+    }
+]
+```
+
 <a name="default"></a>
 ## Default Value
 
@@ -215,6 +251,15 @@ Json::make('Values')
     ->default([
         ['value' => 'Default value']
     ])
+```
+
+<a name="filtering-empty"></a>
+## Filtering Empty
+
+By default, `Json` field filters all empty values, but this behavior can be disabled.
+
+```php
+Json::make('data')->stopFilteringEmpty()
 ```
 
 <a name="creatable-removable"></a>
