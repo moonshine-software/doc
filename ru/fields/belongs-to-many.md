@@ -338,7 +338,7 @@ inLine(string $separator = '', Closure|bool $badge = false, ?Closure $link = nul
 
 - `separator` - разделитель между элементами,
 - `badge` - замыкание или булево значение, отвечающее за отображение элементов в виде бейджа,
-- `$link` - замыкание, которое должно возвращать ссылки url или компоненты.
+- `$link` - замыкание, которое должно возвращать ссылки url или компонент Link.
 
 При передаче булевого значения true в параметр `badge` будет использоваться цвет Primary.
 Для изменения цвета отображаемого `badge` используйте замыкание и возвращайте компонент `Badge::make()`.
@@ -355,7 +355,7 @@ BelongsToMany::make('Categories', resource: CategoryResource::class)
     ->inLine(
         separator: ' ',
         badge: fn($model, $value) => Badge::make((string) $value, 'primary'),
-        link: fn(Property $property, $value, $field) => (string) Link::make(
+        link: fn(Property $property, $value, $field): string|Link => Link::make(
             app(CategoryResource::class)->getDetailPageUrl($property->id),
             $value
         )

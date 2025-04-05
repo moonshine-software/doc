@@ -338,7 +338,7 @@ You can pass optional parameters to the method:
 
 - `separator` - separator between items,
 - `badge` - closure or boolean value responsible for displaying items as badges,
-- `$link` - closure that should return url links or components.
+- `$link` - closure that should return url links or Link component.
 
 When passing a boolean value true to the `badge` parameter, the Primary color will be used.
 To change the color of the displayed `badge`, use a closure and return the `Badge::make()` component.
@@ -355,7 +355,7 @@ BelongsToMany::make('Categories', resource: CategoryResource::class)
     ->inLine(
         separator: ' ',
         badge: fn($model, $value) => Badge::make((string) $value, 'primary'),
-        link: fn(Property $property, $value, $field) => (string) Link::make(
+        link: fn(Property $property, $value, $field): string|Link => Link::make(
             app(CategoryResource::class)->getDetailPageUrl($property->id),
             $value
         )
