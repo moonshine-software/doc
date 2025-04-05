@@ -36,7 +36,7 @@ tab: Blade
 ```blade
 <x-moonshine::layout.box>
     {{ 'Hello!' }}
-</x-moonshine::box>
+</x-moonshine::layout.box>
 ```
 ~~~
 
@@ -52,9 +52,9 @@ Box::make('Title box', ['Hello!']);
 ```
 tab: Blade
 ```blade
-<x-moonshine::box title="Title box">
+<x-moonshine::layout.box title="Title box">
     {{ 'Hello!' }}
-</x-moonshine::box>
+</x-moonshine::layout.box>
 ```
 ~~~
 
@@ -70,9 +70,9 @@ Box::make(['Hello!'])->dark();
 ```
 tab: Blade
 ```blade
-<x-moonshine::box dark>
+<x-moonshine::layout.box dark>
     {{ 'Hello!' }}
-</x-moonshine::box>
+</x-moonshine::layout.box>
 ```
 ~~~
 
@@ -88,9 +88,9 @@ Box::make('Title box', ['Hello!'])->icon('users');
 ```
 tab: Blade
 ```blade
-<x-moonshine::box title="Title box">
+<x-moonshine::layout.box title="Title box">
     <x-moonshine::icon name="users"></x-moonshine::icon>
     {{ 'Hello!' }}
-</x-moonshine::box>
+</x-moonshine::layout.box>
 ```
 ~~~
