@@ -137,6 +137,7 @@ inModal(
     Closure|string|null $content = null,
     Closure|string|null $name = null,
     ?Closure $builder = null,
+    iterable $components = [],
 )
 ```
 
@@ -144,6 +145,9 @@ inModal(
 - `content` - modal window content,
 - `name` - unique modal window name for event dispatching,
 - `builder` - closure with access to the `Modal` component.
+- `components` - components.
+
+@include('_includes/modal-off-canvas-components', 'Modal', 'Modal', 'Modal', 'Modal')
 
 > [!NOTE]
 > For more detailed information on modal methods, refer to the [Modal](/docs/{{version}}/components/modal) section.
