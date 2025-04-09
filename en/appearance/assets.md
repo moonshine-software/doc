@@ -12,7 +12,7 @@
     - [Page](#page)
     - [Component](#component)
     - [Field](#field)
-
+- [Conclusion via Blade](#blade)
 ---
 
 <a name="basics"></a>
@@ -325,3 +325,29 @@ final class MyComponent extends MoonShineComponent
 ### Field
 
 The same as with `Component`, since `Field` is a component.
+
+<a name="blade"></a>
+## Conclusion via Blade
+
+### Default theme
+
+```blade
+<x-moonshine::layout.assets>
+    @vite([
+        'resources/css/main.css',
+        'resources/js/app.js',
+    ], 'vendor/moonshine')
+</x-moonshine::layout.assets>
+```
+
+### Compact theme
+
+```blade
+<x-moonshine::layout.assets>
+    @vite([
+        'resources/css/main.css',
+        'resources/css/minimalistic.css',
+        'resources/js/app.js',
+    ], 'vendor/moonshine')
+</x-moonshine::layout.assets>
+```
