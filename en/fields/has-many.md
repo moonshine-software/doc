@@ -235,7 +235,7 @@ If the relation has a resource, and you want to get the ID of the parent element
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:2]
 use MoonShine\Laravel\Resources\ModelResource;
-use MoonShine\Traits\Resource\ResourceWithParent;
+use MoonShine\Laravel\Traits\Resource\ResourceWithParent;
 
 class PostImageResource extends ModelResource
 {
