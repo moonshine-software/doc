@@ -52,6 +52,7 @@ return [
     'use_notifications' => true,
     'use_database_notifications' => true,
     'use_profile' => true,
+    'use_routes' => true,
     'domain' => env('MOONSHINE_DOMAIN'),
     'prefix' => 'admin',
     'middleware' => [

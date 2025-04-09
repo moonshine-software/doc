@@ -103,7 +103,7 @@ protected function indexButtons(): ListOf
 }
 ```
 
-Standard button names for the index view rows: 
+Standard button names for the index view rows:
 - resource-detail-button,
 - resource-edit-button,
 - resource-delete-button,
@@ -667,3 +667,7 @@ protected function tfoot(): null|TableRowsContract|Closure
     };
 }
 ```
+
+> [!TIP]
+> You can use a list component outside a resource, but you must understand what it is.
+> `app(MoonShineUserResource::class)->getIndexPage()->getListComponent(withoutFragment: false)`

@@ -103,7 +103,7 @@ protected function indexButtons(): ListOf
 }
 ```
 
-Названия стандартных кнопок для таблицы: 
+Названия стандартных кнопок для таблицы:
 - resource-detail-button,
 - resource-edit-button,
 - resource-delete-button,
@@ -667,3 +667,7 @@ protected function tfoot(): null|TableRowsContract|Closure
     };
 }
 ```
+
+> [!TIP]
+> Вы можете использовать листинг компонент вне ресурса, но вы должны иметь представление, что он из себя представляет.
+> `app(MoonShineUserResource::class)->getIndexPage()->getListComponent(withoutFragment: false)`

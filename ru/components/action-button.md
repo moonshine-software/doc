@@ -137,13 +137,17 @@ inModal(
     Closure|string|null $content = null,
     Closure|string|null $name = null,
     ?Closure $builder = null,
+    iterable $components = [],
 )
 ```
 
 - `title` - заголовок модального окна,
 - `content` - содержимое модального окна,
 - `name` - уникальное наименование модального окна для вызова событий,
-- `builder` - замыкание с доступом к компоненту `Modal`.
+- `builder` - замыкание с доступом к компоненту `Modal`,
+- `components` - компоненты.
+
+@include('_includes/modal-off-canvas-components', 'Modal', 'Modal', 'Modal', 'Modal')
 
 > [!NOTE]
 > Для получения более подробной информации по методам модальных окон, обратитесь к разделу [Modal](/docs/{{version}}/components/modal).
