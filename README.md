@@ -13,8 +13,15 @@
 - [Tabs](#tabs)
 - [Alerts](#alert)
 - [Images](#images)
+- [Shortcodes](#shortcodes)
 
 ___
+
+At MoonShine, we believe that great documentation isn’t just a nice-to-have — it’s the foundation of our product. It’s what helps beginners get started with confidence and allows experienced developers to move faster and smarter.
+
+We aim to write in clear, simple language, avoiding internal jargon and overly complex explanations. Whenever possible, we highlight each section with real-world use cases and screenshots — because theory is great, but practical examples are better.
+
+That said, great documentation is hard. It takes time, care, and ongoing effort. But we’re committed to the process. With every release, we strive to make our docs a little clearer, more helpful, and more accessible for everyone building with MoonShine.
 
 <a name="title"></a>
 ## Title
@@ -212,4 +219,48 @@ To show the image in a dark or light themes, you must add to the link hashtag `#
 ```
 ![belongs_to_many](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/belongs_to_many.png#light)
 ![belongs_to_many](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/belongs_to_many_dark.png#dark)
+```
+
+<a name="shortcodes"></a>
+## Shortcodes
+
+### Include
+
+The shortcode `include` connects markdown and renders it, and then runs the content through sprintf, so all parameters after the path to markdown will be passed in the same order.
+
+```md
+@include($path_to_md, ...$params)
+```
+
+#### Markdown partial example content
+
+`_includes/my-partial.md`
+
+```md
+## Hello world
+%s - %s
+```
+
+#### Usage example
+
+`_includes/test.md`
+
+```md
+<a name="what-is-moonshine"></a>
+## What is MoonShine
+
+@include('_includes/test', 'test', 3)
+```
+
+#### Under the hood
+
+```php
+sprintf('markdown', 'test', 3);
+```
+
+#### Result
+
+```html
+<h2>What is MoonShine</h2>
+test - 3
 ```

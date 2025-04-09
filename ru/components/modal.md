@@ -60,6 +60,8 @@ tab: Blade
 ```
 ~~~
 
+@include('_includes/modal-off-canvas-components', 'Modal', 'Modal', 'Modal', 'Modal')
+
 <a name="events"></a>
 ## События
 
