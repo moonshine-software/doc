@@ -580,7 +580,7 @@ protected function formButtons(): ListOf
 ```
 
 > [!NOTE]
-> For additional information on JS events, refer to the [Events](/docs/{{version}}/frontend/events) section.
+> For additional information on JS events, refer to the [Events](/docs/{{version}}/frontend/js#events) section.
 
 <a name="blade"></a>
 ## Using in Blade
