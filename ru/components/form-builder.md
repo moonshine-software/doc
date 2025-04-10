@@ -615,4 +615,4 @@ protected function formButtons(): ListOf
 ```
 
 > [!NOTE]
-> Для получения дополнительной информации о js событиях обратитесь к разделу [Events](/docs/{{version}}/frontend/events).
+> Для получения дополнительной информации о js событиях обратитесь к разделу [Events](/docs/{{version}}/frontend/js#events).
