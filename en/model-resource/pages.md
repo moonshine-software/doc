@@ -351,6 +351,18 @@ class PostIndexPage extends IndexPage
 }
 ```
 
+~~~tabs
+tab: IndexPage
+![index_page_layers](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/page_index_layers.png#light)
+![index_page_layers_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/page_index_layers_dark.png#dark)
+tab: FormPage
+![form_page_layers](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/page_form_layers.png#light)
+![form_page_layers_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/page_form_layers_dark.png#dark)
+tab: DetailPage
+![detail_page_layers](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/page_detail_layers.png#light)
+![detail_page_layers_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/page_detail_layers_dark.png#dark)
+~~~
+
 > [!TIP]
 > If you need to access components of a specific layer from a resource or page, use the `getLayerComponents()` method.
 
