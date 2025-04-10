@@ -14,8 +14,8 @@ To highlight content, you can use the `Box` component. The component is perfect 
 
 ```php
 make(
-Closure|string|iterable $labelOrComponents = [],
-iterable $components = [],
+    Closure|string|iterable $labelOrComponents = [],
+    iterable $components = []
 )
 ```
 
@@ -36,7 +36,7 @@ tab: Blade
 ```blade
 <x-moonshine::layout.box>
     {{ 'Hello!' }}
-</x-moonshine::box>
+</x-moonshine::layout.box>
 ```
 ~~~
 
@@ -52,9 +52,9 @@ Box::make('Title box', ['Hello!']);
 ```
 tab: Blade
 ```blade
-<x-moonshine::box title="Title box">
+<x-moonshine::layout.box title="Title box">
     {{ 'Hello!' }}
-</x-moonshine::box>
+</x-moonshine::layout.box>
 ```
 ~~~
 
@@ -70,16 +70,16 @@ Box::make(['Hello!'])->dark();
 ```
 tab: Blade
 ```blade
-<x-moonshine::box dark>
+<x-moonshine::layout.box dark>
     {{ 'Hello!' }}
-</x-moonshine::box>
+</x-moonshine::layout.box>
 ```
 ~~~
 
 <a name="icon"></a>
 ## Icon
 
-To display an icon in the box, use the `icon` method.
+To display an icon in the box, use the `icon()` method.
 
 ~~~tabs
 tab: Class
@@ -88,9 +88,9 @@ Box::make('Title box', ['Hello!'])->icon('users');
 ```
 tab: Blade
 ```blade
-<x-moonshine::box title="Title box">
+<x-moonshine::layout.box title="Title box">
     <x-moonshine::icon name="users"></x-moonshine::icon>
     {{ 'Hello!' }}
-</x-moonshine::box>
+</x-moonshine::layout.box>
 ```
 ~~~

@@ -16,7 +16,7 @@
 ## Основы
 
 `Layout` в **MoonShine** представляет собой набор компонентов, формирующих структуру страницы административной панели.
-Каждый элемент страницы, включая `HTML`-теги, является компонентом **MoonShine**.
+Каждый элемент страницы, включая HTML теги, является компонентом **MoonShine**.
 Это обеспечивает высокую степень гибкости и возможность кастомизации.
 
 **MoonShine** предлагает два готовых шаблона:
@@ -176,7 +176,7 @@ final class MoonShineLayout extends CompactLayout
 }
 ```
 
-Как видите, начиная от тега `HTML` всё в **MoonShine** является компонентами, что дает огромную свободу кастомизации вашей админ-панели.
+Как видите, всё в **MoonShine**, начиная от тега <html> является компонентами, что дает огромную свободу кастомизации вашей админ-панели.
 
 Полный список компонентов ищите в разделе [Компоненты](/docs/{{version}}/components/index).
 
@@ -211,67 +211,174 @@ final class MoonShineLayout extends CompactLayout
 }
 ```
 
-В примере, с помощью методов `getFooterMenu` и `getFooterCopyright`, мы переопределили вывод меню в футере и copyright.
+В примере выше, с помощью методов `getFooterMenu()` и `getFooterCopyright()`, мы переопределили вывод меню в футере и copyright.
 
 Доступные быстрые методы:
 
-#### Переопределить компонент Head
+### Переопределить компонент Head
 
 ```php
 protected function getHeadComponent(): Head
+{
+    return Head::make([
+        // ...
+    ]);
+}
 ```
 
-#### Переопределить компонент Logo
+### Переопределить компонент Logo
 
 ```php
 protected function getLogoComponent(): Logo
+{
+    return Logo::make(
+        $this->getHomeUrl(),
+        $this->getLogo(),
+        $this->getLogo(small: true),
+    );
+}
 ```
 
-#### Переопределить компонент Sidebar
+### Переопределить компонент Sidebar
 
 ```php
 protected function getSidebarComponent(): Sidebar
+{
+    return Sidebar::make([
+        // ...
+    ]);
+}
 ```
 
-#### Переопределить компонент Header
+### Переопределить компонент Header
 
 ```php
 protected function getHeaderComponent(): Header
+{
+    Header::make([
+        // ...
+    ]);
+}
 ```
 
-#### Переопределить или интегрировать компонент TopBar
+### Переопределить или интегрировать компонент TopBar
 
 ```php
 protected function getTopBarComponent(): Topbar
+{
+    Topbar::make([
+        // ...
+    ]);
+}
 ```
 
-#### Переопределить компонент Footer
+### Переопределить компонент Footer
 
 ```php
 protected function getFooterComponent(): Footer
+{
+    Footer::make([
+        // ...
+    ]);
+}
 ```
 
-#### Путь до логотипа
+### Переопределить компонент Profile
+
+```php
+protected function getProfileComponent(bool $sidebar = false): Profile
+{
+    return Profile::make(withBorder: $sidebar);
+}
+```
+
+### Переопределить содержимое компонента Content
+
+```php
+protected function getContentComponents(): array
+{
+    // ...
+}
+```
+
+```php
+Content::make(
+    $this->getContentComponents()
+)
+```
+
+### Путь до логотипа
 
 ```php
 protected function getLogo(bool $small = false): string
+{
+    // ...
+}
 ```
 
-#### URL главной страницы
+### URL главной страницы
 
 ```php
 protected function getHomeUrl(): string
+{
+    // ...
+}
+```
+
+<a name="slots"></a>
+### Slots
+
+С помощью "слотов" вы можете быстро добавить компоненты в `Sidebar` или `Topbar`.
+
+```php
+protected function sidebarSlot(): array
+{
+    return [
+        Search::make()->enabled(),
+        // ...
+    ];
+}
+
+protected function sidebarTopSlot(): array
+{
+    return [
+        Notifications::make(),
+        // ...
+    ];
+}
+
+protected function topBarSlot(): array
+{
+    return [
+        // ...
+    ];
+}
 ```
 
 > [!TIP]
 > Вы также можете создать собственный шаблон со своим набором удобных методов для дальнейшего удобного взаимодействия.
+
+> [!NOTE]
+> В стандартном Layout компоненты `Sidebar`, `Topbar` и `Mobilebar` оформлены в темных цветах.
+> Но если добавить в них другие компоненты, они будут меняться в зависимости от выбранной темы, что приведёт к некорректному их отображению.
+> Чтобы избежать такого поведения, можно принудительно перевести их в тёмный режим добавив класс 'dark'.
+
+```php
+$this->getSidebarComponent()->class('dark'),
+
+$this->getTopBarComponent()->class('dark'),
+
+MobileBar::make([
+    // ...
+])->class('dark'),
+```
 
 <a name="create"></a>
 ## Создание шаблона
 
 Чтобы создать еще один шаблон, воспользуйтесь командой:
 
-```
+```shell
 php artisan moonshine:layout
 ```
 
@@ -303,7 +410,7 @@ class CustomPage extends Page
 <a name="assets"></a>
 ## Assets
 
-Каждый шаблон может иметь свой набор стилей и скриптов, определяемых через метод `assets()`:
+Каждый шаблон может иметь свой набор стилей и скриптов, определяемых через метод `assets()`.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -358,7 +465,7 @@ protected function assets(): array
 <a name="favicons"></a>
 ## Favicons
 
-Вы можете заменить набор favicons в шаблоне через переопределение метода `getFaviconComponent()`:
+Вы можете заменить набор favicons в шаблоне через переопределение метода `getFaviconComponent()`.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -411,7 +518,7 @@ final class MyLayout extends AppLayout
 > За более подробной информацией обратитесь в раздел [Меню](/docs/{{version}}/appearance/menu).
 
 > [!TIP]
-> Вы также можете не пользоваться методом `menu`, а передать список вручную в компонент `Menu`.
+> Вы также можете не пользоваться методом `menu()`, а передать список вручную в компонент `Menu`.
 
 <a name="top-menu"></a>
 ### Верхнее меню
@@ -468,7 +575,7 @@ final class MoonShineLayout extends CompactLayout
 <a name="colors"></a>
 ## Цвета
 
-Каждый шаблон может иметь собственную цветовую схему, определяемую в методе `colors`.
+Каждый шаблон может иметь собственную цветовую схему, определяемую в методе `colors()`.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -539,7 +646,7 @@ final class MyLayout extends AppLayout
 <a name="blade"></a>
 ## Blade
 
-**MoonShine** позволяет создавать шаблоны напрямую через `Blade`.
+**MoonShine** позволяет создавать шаблоны напрямую через **Blade**.
 
 Пример базового шаблона:
 
@@ -590,7 +697,7 @@ final class MyLayout extends AppLayout
 
                     <x-moonshine::layout.content>
                         <article class="article">
-                            Ваш контент
+                            Your content
                         </article>
                     </x-moonshine::layout.content>
                 </x-moonshine::layout.div>

@@ -10,6 +10,7 @@
 - [Оригинальное имя файла](#filename)
 - [Пользовательское имя файла](#customname)
 - [Имена элементов](#name)
+- [Сортировка перетаскиванием](#reorderable)
 - [Атрибуты элементов](#item-attributes)
 - [Вспомогательные методы](#helper-methods)
 
@@ -21,7 +22,7 @@
 Содержит все [Базовые методы](/docs/{{version}}/fields/basic-methods).
 
 > [!TIP]
-> Перед использованием необходимо убедиться, что для директории **storage** установлена символическая ссылка.
+> Перед использованием необходимо убедиться, что для директории **storage** установлена символическая ссылка. \
 > `php artisan storage:link`
 
 Поле `File` используется для загрузки файлов.
@@ -114,9 +115,7 @@ File::make('File')
     ->multiple()
 ```
 
-> [!WARNING]
-> Поле в базе данных должно быть типа _text_ или _json_.
-> Также необходимо добавить приведение типа для Eloquent-модели - *json*, или *array*, или *collection*.
+@include('_includes/note-about-multiple-cast')
 
 <a name="removable"></a>
 ## Удаление файлов
@@ -246,6 +245,17 @@ File::make('File', 'file')
     ->names(fn(string $filename, int $index = 0) => 'File ' . $index + 1)
 ```
 
+<a name="reorderable"></a>
+## Сортировка перетаскиванием
+
+Вы можете указать *URL*, который обработает позиции и сохранит новые.
+
+```php
+File::make('Files')
+    ->reorderable(fn(File $ctx) => "/reorder/" . $ctx->getData()->getKey())
+    ->multiple(),
+```
+
 <a name="item-attributes"></a>
 ## Атрибуты элементов
 
@@ -262,6 +272,14 @@ File::make('File', 'file')
     ->itemAttributes(fn(string $filename, int $index = 0) => [
         'style' => 'width: 250px; height: 250px;'
     ])
+```
+
+### Атрибуты dropzone
+
+```php
+File::make('Files')
+    ->dropzoneAttributes(fn(File $ctx) => ['class' => 'custom-class'])
+    ->multiple(),
 ```
 
 <a name="helper-methods"></a>

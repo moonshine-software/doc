@@ -10,8 +10,6 @@
 
 Метрика `ValueMetric` предназначена для отображения значения. Например, сколько записей в таблице.
 
-Вы можете создать `ValueMetric`, используя статический метод `make()`.
-
 ```php
 make(Closure|string $label)
 ```
@@ -21,12 +19,13 @@ tab: Class
 ```php
 use MoonShine\UI\Components\Metrics\Wrapped\ValueMetric;
 
-ValueMetric::make('Выполненные заказы')->value(fn() => Order::completed()->count())
+ValueMetric::make('Completed orders')
+    ->value(fn() => Order::completed()->count())
 ```
 tab: Blade
 ```blade
 <x-moonshine::metrics.value
-    title="Выполненные заказы"
+    title="Completed orders"
     icon="shopping-bag"
     :value="$count"
     :progress="false"
@@ -48,11 +47,10 @@ use MoonShine\UI\Components\Metrics\Wrapped\ValueMetric;
 protected function components(): iterable
 {
     return [
-        ValueMetric::make('Выполненные заказы')->value(fn(): int => Order::completed()->count())
+        ValueMetric::make('Completed orders')
+            ->value(fn(): int => Order::completed()->count())
     ];
 }
-
-// ...
 ```
 
 <a name="progress"></a>
@@ -65,7 +63,7 @@ progress(int|float|Closure $target)
 ```
 
 ```php
-ValueMetric::make('Открытые задачи')
+ValueMetric::make('Open tasks')
     ->value(fn(): int => Task::opened()->count())
     ->progress(fn(): int => Task::count())
 ```
@@ -83,7 +81,7 @@ valueFormat(string|Closure $value)
 ```
 
 ```php
-ValueMetric::make('Прибыль')
+ValueMetric::make('Profit')
     ->value(fn(): int => Order::completed()->sum('price'))
     ->valueFormat(fn(int $value): string => \Illuminate\Support\Number::forHumans($value))
 ```
@@ -94,7 +92,7 @@ ValueMetric::make('Прибыль')
 Метод `icon()` позволяет добавить иконку к метрике.
 
 ```php
-ValueMetric::make('Заказы')
+ValueMetric::make('Orders')
     ->value(fn(): int => Order::count())
     ->icon('shopping-bag')
 ```
@@ -120,10 +118,10 @@ columnSpan(
 <a name="line-donut"></a>
 ## Line/Donut
 
-Пакет устанавливается отдельно, основан на библиотеке [ApexCharts library](https://apexcharts.com/)
+Пакет устанавливается отдельно, основан на библиотеке [ApexCharts library](https://apexcharts.com/).
 
 ```shell
 composer require moonshine/apexcharts
 ```
 
-Подробнее в официальном репозитории [ApexCharts](https://github.com/moonshine-software/apexcharts)
+Подробнее в официальном репозитории [ApexCharts](https://github.com/moonshine-software/apexcharts).

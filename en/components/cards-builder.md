@@ -111,10 +111,10 @@ CardsBuilder::make()
 <a name="paginator"></a>
 ### Paginator
 
-The `paginator` method sets the paginator. You need to pass an object that implements the `MoonShine\Contracts\Core\Paginator\PaginatorContract` interface:
+The `paginator` method sets the paginator. You need to pass an object that implements the `MoonShine\Contracts\Core\Paginator\PaginatorContract` interface.
 
 > [!NOTE]
-> If you need to specify a paginator for QueryBuilder, you can use the built-in `ModelCaster`, as in the example below:
+> If you need to specify a paginator for `QueryBuilder`, you can use the built-in `ModelCaster`, as in the example below.
 
 ```php
 ->paginator(
@@ -248,7 +248,7 @@ CardsBuilder::make()
 The `header()` method allows you to set a header for the cards.
 
 > [!NOTE]
-> Works only when `thumbnail` is present and in `overlay` mode
+> Works only when `thumbnail` is present and in `overlay` mode.
 
 ```php
 header(Closure|string $value)
@@ -280,7 +280,7 @@ CardsBuilder::make()
     ->buttons([
         ActionButton::make('Delete', route('name.delete')),
         ActionButton::make('Edit', route('name.edit'))->showInDropdown(),
-        ActionButton::make('Go to Home', route('home'))->blank()->canSee(fn($data) => $data->active)
+        ActionButton::make('Go to Home', route('home'))->blank()->canSee(fn($data) => $data->active),
     ])
 ```
 
@@ -373,7 +373,7 @@ CardsBuilder::make()
 <a name="type-cast"></a>
 ## Type Casting
 
-The `cast` method is used to cast values to a specific type.
+The `cast()` method is used to cast values to a specific type.
 Because by default, fields work with primitive types:
 
 ```php
@@ -394,7 +394,7 @@ In this example, we cast the data to the format of the `User` model using `Model
 <a name="blade-basics"></a>
 ### Basics
 
-```bladehtml
+```blade
 <x-moonshine::layout.grid>
     <x-moonshine::layout.column colSpan="4" adaptiveColSpan="12">
         <x-moonshine::card

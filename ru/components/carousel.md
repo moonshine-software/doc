@@ -10,13 +10,11 @@
 
 Компонент `Carousel` позволяет создавать карусель изображений.
 
-Вы можете создать Carousel, используя статический метод `make()`.
-
 ```php
 make(
    Closure|array $items = [],
    Closure|bool $portrait = false,
-   Closure|string $alt = '',
+   Closure|string $alt = ''
 )
 ```
 
@@ -58,5 +56,5 @@ items(Closure|array $value)
 Carousel::make(
     alt: fake()->sentence(3),
 )
-->items(['/images/image_2.jpg','/images/image_1.jpg'])
+    ->items(['/images/image_2.jpg','/images/image_1.jpg'])
 ````

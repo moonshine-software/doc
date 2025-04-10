@@ -26,9 +26,8 @@ tab: Blade
 <a name="change-view"></a>
 ## Смена view
 
-Если вам не нравится базовый индикатор загрузки, тогда вы можете глобально изменить его blade view через `ServiceProvider`
+Если вам не нравится базовый индикатор загрузки, тогда вы можете глобально изменить его blade view через `ServiceProvider`.
 
 ```php
 Loader::changeView('my-custom-view-path');
 ```
-

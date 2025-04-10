@@ -1,17 +1,10 @@
 # Color
 
-- [Основы](#basics)
-
----
-
-<a name="basics"></a>
-## Основы
-
 Содержит все [Базовые методы](/docs/{{version}}/fields/basic-methods).
 
 Поле `Color` предоставляет удобный способ для ввода цвета.
 
-Использует *UI* компонент [Color](/docs/{{version}}/components/color)
+Использует компонент [Color](/docs/{{version}}/components/color).
 
 ```php
 use MoonShine\UI\Fields\Color;

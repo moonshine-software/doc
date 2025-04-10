@@ -6,6 +6,7 @@
 - [Удаление уведомлений](#removable)
 
 ---
+
 <a name="basics"></a>
 ## Основы
 
@@ -27,11 +28,16 @@ tab: Blade
 <a name="type"></a>
 ## Тип уведомления
 
-Изменить тип уведомления можно указав у компонента `type`.
+Изменить тип уведомления можно указав у компонента параметр `type`.
 
 Доступные типы:
 
-primary secondary success warning error info
+- primary,
+- secondary,
+- success,
+- warning,
+- error,
+- info.
 
 ~~~tabs
 tab: Class
@@ -57,16 +63,19 @@ tab: Blade
 <a name="icon"></a>
 ## Иконка
 
-Есть возможность у уведомления изменить иконку, для этого необходимо передать её в параметр `icon`.
+Есть возможность изменить иконку уведомления, для этого необходимо передать её в параметр `icon`.
 
 ~~~tabs
 tab: Class
 ```php
-Alert::make(icon: "academic-cap")->content('Text'),
+Alert::make(icon: "academic-cap")
+    ->content('Text'),
 ```
 tab: Blade
 ```blade
-<x-moonshine::alert icon="academic-cap">Alert</x-moonshine::alert>
+<x-moonshine::alert icon="academic-cap">
+    Alert
+</x-moonshine::alert>
 ```
 ~~~
 
@@ -75,15 +84,18 @@ tab: Blade
 <a name="removable"></a>
 ## Удаление уведомлений
 
-Чтобы удалять уведомления через некоторое время, необходимо передать параметр `removable` со значением `TRUE`.
+Чтобы уведомления удалялись через некоторое время, необходимо передать параметр `removable` со значением `true`.
 
 ~~~tabs
 tab: Class
 ```php
-Alert::make(removable: true)->content('Text'),
+Alert::make(removable: true)
+    ->content('Text'),
 ```
 tab: Blade
 ```blade
-<x-moonshine::alert removable="true">Alert</x-moonshine::alert>
+<x-moonshine::alert removable="true">
+    Alert
+</x-moonshine::alert>
 ```
 ~~~

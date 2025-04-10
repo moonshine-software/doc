@@ -4,6 +4,7 @@
 - [Creating](#creating)
 - [Basic Properties](#basic-properties)
 - [Declaring in the System](#declaring-in-the-system)
+- [Autoloading](#autoloading)
 - [Adding to the Menu](#adding-to-the-menu)
     - [Alias](#alias)
 - [Current Element/Model](#current-element-model)
@@ -33,8 +34,8 @@ It serves as a foundation for creating resources associated with database models
 > You can also refer to the section on [CrudResource](/docs/{{version}}/advanced/crud-resource).
 > `CrudResource` is an abstract class providing a basic interface for `CRUD` operations without binding to a storage and data type.
 
-Under the hood, `ModelResource` extends `CrudResource` and immediately includes the capability to work with `Eloquent`.
-If you delve into the details of MoonShine, you will see all the standard `Controller`, `Model`, and `blade views`.
+Under the hood, `ModelResource` extends `CrudResource` and immediately includes the capability to work with Eloquent.
+If you delve into the details of **MoonShine**, you will see all the standard Controller, Model, and Blade views.
 
 If you were developing independently, you could create resource controllers and resource routes as follows:
 
@@ -147,6 +148,45 @@ class MoonShineServiceProvider extends ServiceProvider
 }
 ```
 
+<a name="autoloading"></a>
+## Autoloading
+
+Autoloading of pages and resources is also available in **MoonShine**.
+It is disabled by default and to activate it you need to call the `autoload()` method in `MoonShineServiceProvider` instead of specifying links to pages and resources.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
+namespace App\Providers;
+
+use App\MoonShine\Resources\ArticleResource;
+
+use Illuminate\Support\ServiceProvider;
+use MoonShine\Contracts\Core\DependencyInjection\CoreContract;
+use MoonShine\Laravel\DependencyInjection\ConfiguratorContract; // [tl! collapse:end]
+
+class MoonShineServiceProvider extends ServiceProvider
+{
+    public function boot(
+        CoreContract $core,
+        ConfiguratorContract $config,
+    ): void
+    {
+        $core->autoload();
+    }
+}
+```
+
+When deploying a project to production in Laravel 11+ [it is recommended](https://laravel.com/docs/11.x/packages#optimize-commands) to call the `php artisan optimize` console command.
+In addition to its basic functions, it will also perform **MoonShine** resource caching.
+
+When using Laravel 10, you must manually call the `php artisan moonshine:optimize` console command to optimize the admin panel initialization process.
+
+You can clear the panel cache either with the `php artisan optimize:clear` command in Laravel 11 or by directly calling the `php artisan moonshine:optimize-clear` console command.
+
+> [!WARNING]
+> If the application does not see them after creating the classes, update the composer cache with the `composer dump-autoload` command.
+
 <a name="adding-to-the-menu"></a>
 ## Adding to the Menu
 
@@ -222,8 +262,6 @@ class PostResource extends ModelResource
 }
 ```
 
-or
-
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:3]
@@ -284,21 +322,28 @@ class PostResource extends ModelResource
 
 By default, when creating and editing a record, a redirect to the form page is performed, but this behavior can be controlled.
 
+Through a property in the resource:
+
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:1]
 use MoonShine\Support\Enums\PageType;
 
-// Through a property in the resource
 protected ?PageType $redirectAfterSave = PageType::FORM;
+```
 
-// or through methods (redirect after deletion is also available)
+Through methods:
 
+```php
 public function getRedirectAfterSave(): string
 {
     return '/';
 }
+```
 
+Redirect after deletion is also available:
+
+```php
 public function getRedirectAfterDelete(): string
 {
     return $this->getIndexPageUrl();
@@ -352,7 +397,7 @@ protected function activeActions(): ListOf
 ## Buttons
 
 By default, the index page of the resource model contains only a button for creation.
-The `actions()` method allows you to add additional [buttons](/docs/{{version}}/components/action-button).
+The `topButtons()` method allows you to add additional [buttons](/docs/{{version}}/components/action-button).
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -564,7 +609,7 @@ trait WithPermissions
 <a name="on-boot"></a>
 ### Creating an Instance
 
-The `onBoot` method allows integration at the moment when **MoonShine** is creating an instance of the resource within the system.
+The `onBoot()` method allows integration at the moment when **MoonShine** is creating an instance of the resource within the system.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -606,9 +651,12 @@ protected function onLoad(): void
 <a name="response-modifiers"></a>
 ## Response modifiers
 
-If the resource is in `async` mode, then you can modify the answer:
+If the resource is in "async" mode, then you can modify the answer:
 
 ```php
+use Symfony\Component\HttpFoundation\Response;
+use MoonShine\Laravel\Http\Responses\MoonShineJsonResponse;
+
 public function modifyDestroyResponse(MoonShineJsonResponse $response): MoonShineJsonResponse
 {
     return $response;
@@ -620,6 +668,11 @@ public function modifyMassDeleteResponse(MoonShineJsonResponse $response): MoonS
 }
 
 public function modifySaveResponse(MoonShineJsonResponse $response): MoonShineJsonResponse
+{
+    return $response;
+}
+
+public function modifyErrorResponse(Response $response, Throwable $exception): Response
 {
     return $response;
 }

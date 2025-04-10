@@ -5,10 +5,12 @@
 - [Режим "Ключ/Значение"](#key-value)
 - [Режим "Только значения"](#only-value)
 - [Режим "Объект"](#object-mode)
+- [Вложенные Json](#nested)
 - [Значение по умолчанию](#default)
+- [Фильтрация "пустых" значений](#filtering-empty)
 - [Добавление/Удаление](#creatable-removable)
 - [Вертикальный режим](#vertical)
-- [Фильтр](#filter)
+- [Применение в фильтрах](#filter)
 - [Кнопки](#buttons)
 - [Модификаторы](#modify)
 
@@ -19,85 +21,76 @@
 
 Содержит все [Базовые методы](/docs/{{version}}/fields/basic-methods).
 
-Поле `Json` предназначено для удобной работы с типом данных `json`. В большинстве случаев оно используется с массивами объектов через `TableBuilder`, но также поддерживает режим работы с одним объектом.
+Поле `Json` предназначено для удобной работы с типом данных json.
+В большинстве случаев оно используется с массивами объектов через `TableBuilder`, но также поддерживает режим работы с одним объектом.
 
-> [!NOTE]
-> В базе данных поле должно быть типа `text` или `json`. Также необходимо указать Eloquent Cast — `array`, `json` или `collection`.
+@include('_includes/note-about-multiple-cast')
 
 <a name="fields"></a>
 ## Набор полей
 
 Предположим, что структура вашего json имеет следующий вид:
 
-`[{title: 'title', value: 'value', active: 'active'}]`
-
-Это набор объектов с полями `title`, `value` и `active`. Чтобы указать такой набор полей, используется метод `fields`:
-
-```php
-fields(FieldsContract|Closure|iterable $fields): static
+```json
+[{"title": "title", "value": "value", "active": true}]
 ```
 
-Пример использования:
+Это набор объектов с полями "title", "value" и "active".
+Чтобы указать такой набор полей, используется метод `fields()`.
 
 ```php
+fields(FieldsContract|Closure|iterable $fields)
+```
+
+Пример:
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:4]
 use MoonShine\UI\Fields\Json;
 use MoonShine\UI\Fields\Position;
 use MoonShine\UI\Fields\Switcher;
 use MoonShine\UI\Fields\Text;
 
-// ...
-
-protected function formFields(): iterable
-{
-    return [
-        Json::make('Product Options', 'options')
-            ->fields([
-                Position::make(),
-                Text::make('Title'),
-                Text::make('Value'),
-                Switcher::make('Active')
-            ])
-    ];
-}
-
-// ...
+Json::make('Product Options', 'options')
+    ->fields([
+        Position::make(),
+        Text::make('Title'),
+        Text::make('Value'),
+        Switcher::make('Active'),
+    ])
 ```
 
 ![json_fields](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/json_fields.png#light)
 ![json_fields_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/json_fields_dark.png#dark)
 
-Поля также можно передавать через замыкание, что позволяет получить доступ к контексту поля и его данным:
+Поля также можно передавать через замыкание, что позволяет получить доступ к контексту поля и его данным.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:4]
 use MoonShine\UI\Fields\Json;
 use MoonShine\UI\Fields\Position;
 use MoonShine\UI\Fields\Switcher;
 use MoonShine\UI\Fields\Text;
 
-// ...
-
-protected function indexFields(): iterable
-{
-    return [
-        Json::make('Product Options', 'options')
-            ->fields(static fn(Json $ctx) => $ctx->getData()->getOriginal()->is_active ? [
-                Position::make(),
-                Text::make('Title'),
-                Text::make('Value'),
-                Switcher::make('Active')
-            ] : [
+Json::make('Product Options', 'options')
+    ->fields(
+        static fn(Json $ctx) => $ctx->getData()->getOriginal()->is_active ? [
+            Position::make(),
+            Text::make('Title'),
+            Text::make('Value'),
+            Switcher::make('Active')
+        ] : [
             Text::make('Title')
-            ])
-    ];
-}
-
-// ...
+        ]
+    )
 ```
 
 <a name="key-value"></a>
 ## Режим "Ключ/Значение"
 
-Когда ваши данные имеют структуру ключ/значение, как в следующем примере `{key: value}`, используется метод `keyValue`.
+Когда ваши данные имеют структуру ключ/значение, как в следующем примере `{"key": "value"}`, используется метод `keyValue()`.
 
 ```php
 keyValue(
@@ -113,21 +106,11 @@ keyValue(
 - `$keyField` — возможность заменить поле "ключ" на своё (по умолчанию — `Text`),
 - `$valueField` — возможность заменить поле "значение" на своё (по умолчанию — `Text`).
 
-Пример использования:
+Пример:
 
 ```php
-use MoonShine\UI\Fields\Json;
-
-// ...
-
-protected function formFields(): iterable
-{
-    return [
-        Json::make('Data')->keyValue()
-    ];
-}
-
-// ...
+Json::make('Data')
+    ->keyValue()
 ```
 
 ![json_key_value](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/json_key_value.png#light)
@@ -136,28 +119,24 @@ protected function formFields(): iterable
 Пример с изменением типов полей:
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:3]
 use MoonShine\UI\Fields\Json;
 use MoonShine\UI\Fields\Select;
+use MoonShine\UI\Fields\Text;
 
-// ...
-
-protected function formFields(): iterable
-{
-    return [
-        Json::make('Label', 'data')->keyValue(
-            keyField: Select::make('Key')->options(['vk' => 'VK', 'email' => 'E-mail']),
-            valueField: Select::make('Value')->options(['1' => '1', '2' => '2']),
-        ),
-    ];
-}
-
-// ...
+Json::make('Label', 'data')
+    ->keyValue(
+        keyField: Select::make('Key')
+            ->options(['vk' => 'VK', 'email' => 'E-mail']),
+        valueField: Text::make('Value'),
+    )
 ```
 
 <a name="only-value"></a>
 ## Режим "Только значения"
 
-Если необходимо хранить только значения, как в примере `['value_1', 'value_2']`, используется метод `onlyValue()`:
+Если необходимо хранить только значения, как в примере `["value_1", "value_2"]`, используется метод `onlyValue()`.
 
 ```php
 onlyValue(
@@ -169,21 +148,11 @@ onlyValue(
 - `$value` - заголовок поля "значение",
 - `$valueField` -  возможность заменить поле "значение" на своё (по умолчанию — `Text`).
 
-Пример использования:
+Пример:
 
 ```php
-use MoonShine\UI\Fields\Json;
-
-// ...
-
-protected function formFields(): iterable
-{
-    return [
-        Json::make('Data')->onlyValue()
-    ];
-}
-
-// ...
+Json::make('Data')
+    ->onlyValue()
 ```
 
 ![json_only_value](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/json_only_value.png#light)
@@ -192,100 +161,118 @@ protected function formFields(): iterable
 <a name="object-mode"></a>
 ## Режим "Объект"
 
-В большинстве случаев поле `Json` работает с массивом объектов через `TableBuilder`. Однако возможен и режим работы с объектом, например, `{title: 'Title', active: false}`. Для этого используется метод `object()`:
+В большинстве случаев поле `Json` работает с массивом объектов через `TableBuilder`.
+Однако возможен и режим работы с объектом, например, `{"title": "Title", "active": false}`.
+Для этого используется метод `object()`.
+
+Пример:
 
 ```php
-object()
+Json::make('Product Options', 'options')
+    ->fields([
+        Text::make('Title'),
+        Switcher::make('Active'),
+    ])
+    ->object()
 ```
 
-Пример использования:
+<a name="nested"></a>
+## Вложенные Json
+
+Для создания более сложных структур может понадобиться использование вложенных полей `Json` и **MoonShine** это позволяет.
+
+Пример:
 
 ```php
-use MoonShine\UI\Fields\Json;
-
-// ...
-
-protected function formFields(): iterable
-{
-    return [
-        Json::make('Product Options', 'options')
+Json::make('Products', 'products')
+    ->fields([
+        Text::make('Name', 'name'),
+        Json::make('Prices', 'prices')
             ->fields([
-                Text::make('Title'),
-                Switcher::make('Active')
-            ])->object()
-    ];
-}
+                Number::make('Wholesale price', 'wholesale_price'),
+                Number::make('Retail price', 'retail_price'),
+            ])
+            ->object(),
+    ])
+```
 
-// ...
+Результат:
+
+```json
+[
+    {
+        "name": "product 1",
+        "prices": {
+            "wholesale_price": 1000,
+            "retail_price": 1200
+        }
+    }
+]
 ```
 
 <a name="default"></a>
 ## Значение по умолчанию
 
-Как и в других полях, здесь есть возможность указать значение по умолчанию с помощью метода `default()`. В данном случае необходимо передать массив.
+Как и в других полях, здесь есть возможность указать значение по умолчанию с помощью метода `default()`.
+В данном случае необходимо передать массив.
 
 ```php
 default(mixed $default)
 ```
 
-Пример использования:
+Пример:
 
 ```php
-use MoonShine\UI\Fields\Json;
-use MoonShine\UI\Fields\Switcher;
-use MoonShine\UI\Fields\Text;
+Json::make('Data')
+    ->keyValue('Key', 'Value')
+    ->default([
+        [
+            'key' => 'Default key',
+            'value' => 'Default value',
+        ]
+    ]),
 
-// ...
+Json::make('Product Options', 'options')
+    ->fields([
+        Text::make('Title'),
+        Text::make('Value'),
+        Switcher::make('Active'),
+    ])
+    ->default([
+        [
+            'title' => 'Default title',
+            'value' => 'Default value',
+            'active' => true,
+        ]
+    ]),
 
-protected function formFields(): iterable
-{
-    return [
-        Json::make('Data')
-            ->keyValue('Key', 'Value')
-            ->default([
-                [
-                    'key' => 'Default key',
-                    'value' => 'Default value'
-                ]
-            ]),
+Json::make('Values')
+    ->onlyValue()
+    ->default([
+        ['value' => 'Default value']
+    ])
+```
 
-        Json::make('Product Options', 'options')
-            ->fields([
-                Text::make('Title'),
-                Text::make('Value'),
-                Switcher::make('Active')
-            ])
-            ->default([
-                [
-                    'title' => 'Default title',
-                    'value' => 'Default value',
-                    'active' => true
-                ]
-            ]),
+<a name="filtering-empty"></a>
+## Фильтрация "пустых" значений
 
-        Json::make('Values')
-            ->onlyValue()
-            ->default([
-                ['value' => 'Default value']
-            ])
-    ];
-}
+По умолчанию поле `Json` фильтрует все пустые значения, но это поведение можно отключить.
 
-// ...
+```php
+Json::make('data')->stopFilteringEmpty()
 ```
 
 <a name="creatable-removable"></a>
 ## Добавление/Удаление
 
-По умолчанию поле `Json` содержит только один элемент. Метод `creatable()` позволяет добавлять новые элементы, а `removable()` — удалять их.
-
-Пример использования:
+По умолчанию поле `Json` содержит только один элемент.
+Метод `creatable()` позволяет добавлять новые элементы, а `removable()` — удалять их.
 
 ```php
 creatable(
     Closure|bool|null $condition = null,
     ?int $limit = null,
-    ?ActionButtonContract $button = null
+    ?ActionButtonContract $button = null,
 )
 ```
 
@@ -296,31 +283,20 @@ creatable(
 ```php
 removable(
     Closure|bool|null $condition = null,
-    array $attributes = []
+    array $attributes = [],
 )
 ```
 
 - `$condition` - условие, при котором метод должен быть применён,
 - `$attributes` - HTML атрибуты для кнопки удаления.
 
-Пример использования:
+Пример:
 
 ```php
-use MoonShine\UI\Fields\Json;
-
-// ...
-
-protected function formFields(): iterable
-{
-    return [
-        Json::make('Data')
-            ->keyValue()
-            ->creatable(limit: 6)
-            ->removable()
-    ];
-}
-
-// ...
+Json::make('Data')
+    ->keyValue()
+    ->creatable(limit: 6)
+    ->removable()
 ```
 
 ![json_removable](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/json_removable.png#light)
@@ -329,45 +305,29 @@ protected function formFields(): iterable
 ### Кастомизация кнопки добавления
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\UI\Components\ActionButton;
 use MoonShine\UI\Fields\Json;
 
-// ...
-
-protected function formFields(): iterable
-{
-    return [
-        Json::make('Data')
-            ->keyValue()
-            ->creatable(
-                button: ActionButton::make('New', '#')->primary()
-            )
-    ];
-}
-
-// ...
+Json::make('Data')
+    ->keyValue()
+    ->creatable(
+        button: ActionButton::make('New')->primary()
+    )
 ```
 
 ### HTML атрибуты для кнопки удаления
 
 ```php
-use MoonShine\UI\Fields\Json;
-
-// ...
-
-protected function formFields(): iterable
-{
-    return [
-        Json::make('Data', 'data.content')->fields([
-            Text::make('Title'),
-            Image::make('Image'),
-            Text::make('Value'),
-        ])
-            ->removable(attributes: ['@click.prevent' => 'customAsyncRemove'])
-            ->creatable()
-    ];
-}
-
-// ...
+Json::make('Data', 'data.content')
+    ->fields([
+        Text::make('Title'),
+        Image::make('Image'),
+        Text::make('Value'),
+    ])
+    ->removable(attributes: ['@click.prevent' => 'customAsyncRemove'])
+    ->creatable()
 ```
 
 <a name="vertical"></a>
@@ -375,61 +335,36 @@ protected function formFields(): iterable
 
 Метод `vertical()` позволяет изменить отображение таблицы из горизонтального режима на вертикальный.
 
-```php
-vertical()
-```
-
-Пример использования:
+Пример:
 
 ```php
-use MoonShine\UI\Fields\Json;
-
-// ...
-
-protected function formFields(): iterable
-{
-    return [
-        Json::make('Data')
-            ->keyValue()
-            ->vertical()
-    ];
-}
-
-// ...
+Json::make('Data')
+    ->vertical()
 ```
+
 ![json_vertical](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/json_vertical.png#light)
 ![json_vertical_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/json_vertical_dark.png#dark)
 
 <a name="filter"></a>
 ## Применение в фильтрах
 
-Если поле используется в фильтрах, необходимо включить режим фильтрации с помощью метода `filterMode()`. Этот метод адаптирует поведение поля для фильтрации и отключает возможность добавления новых элементов.
+Если поле используется в фильтрах, необходимо включить режим фильтрации с помощью метода `filterMode()`.
+Этот метод адаптирует поведение поля для фильтрации и отключает возможность добавления новых элементов.
 
 ```php
-use MoonShine\UI\Fields\Json;
-use MoonShine\UI\Fields\Text;
-
-// ...
-
-public function filters(): array
-{
-    return [
-        Json::make('Data')
-            ->fields([
-                Text::make('Title', 'title'),
-                Text::make('Value', 'value')
-            ])
-            ->filterMode()
-    ];
-}
-
-// ...
+Json::make('Data')
+    ->fields([
+        Text::make('Title', 'title'),
+        Text::make('Value', 'value')
+    ])
+    ->filterMode()
 ```
 
 <a name="buttons"></a>
 ## Кнопки
 
-Метод `buttons()` позволяет переопределить кнопки, используемые в поле. По умолчанию доступна только кнопка удаления.
+Метод `buttons()` позволяет переопределить кнопки, используемые в поле.
+По умолчанию доступна только кнопка удаления.
 
 ```php
 buttons(array $buttons)
@@ -438,35 +373,25 @@ buttons(array $buttons)
 Пример:
 
 ```php
-use MoonShine\UI\Components\ActionButton;
-use MoonShine\UI\Fields\Json;
-
-// ...
-
-protected function formFields(): iterable
-{
-    return [
-        Json::make('Data', 'data.content')->fields([
-            Text::make('Title'),
-            Image::make('Image'),
-            Text::make('Value'),
-        ])->buttons([
-            ActionButton::make('', '#')
-                ->icon('trash')
-                ->onClick(fn() => 'remove()', 'prevent')
-                ->secondary()
-                ->showInLine()
-        ])
-    ];
-}
-
-// ...
+Json::make('Data', 'data.content')
+    ->fields([
+        Text::make('Title'),
+        Image::make('Image'),
+        Text::make('Value'),
+    ])
+    ->buttons([
+        ActionButton::make('')
+            ->icon('trash')
+            ->onClick(fn() => 'remove()', 'prevent')
+            ->secondary()
+            ->showInLine()
+    ])
 ```
 
 <a name="modify"></a>
 ## Модификаторы
 
-Поле `Json` предоставляет возможность модифицировать кнопки или таблицу в режимах `preview` или `default`, вместо их полного замещения.
+Поле `Json` предоставляет возможность модифицировать кнопки или таблицу в режимах "preview" или "default", вместо их полного замещения.
 
 ### Модификатор кнопки удаления
 
@@ -482,24 +407,17 @@ modifyRemoveButton(Closure $callback)
 Пример:
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
 use MoonShine\UI\Components\ActionButton;
 use MoonShine\UI\Fields\Json;
 
-// ...
-
-protected function formFields(): iterable
-{
-    return [
-        Json::make('Data')
-            ->modifyRemoveButton(
-                fn(ActionButton $button) => $button->customAttributes([
-                    'class' => 'btn-secondary'
-                ])
-            )
-    ];
-}
-
-// ...
+Json::make('Data')
+    ->modifyRemoveButton(
+        fn(ActionButton $button) => $button->customAttributes([
+            'class' => 'btn-secondary'
+        ])
+    )
 ```
 
 ### Модификатор таблицы
@@ -516,22 +434,15 @@ modifyTable(Closure $callback)
 Пример:
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
 use MoonShine\UI\Components\Table\TableBuilder;
 use MoonShine\UI\Fields\Json;
 
-// ...
-
-protected function formFields(): iterable
-{
-    return [
-        Json::make('Data')
-            ->modifyTable(
-                fn(TableBuilder $table, bool $preview) => $table->customAttributes([
-                    'style' => 'width: 50%;'
-                ])
-            )
-    ];
-}
-
-// ...
+Json::make('Data')
+    ->modifyTable(
+        fn(TableBuilder $table, bool $preview) => $table->customAttributes([
+            'style' => 'width: 50%;'
+        ])
+    )
 ```

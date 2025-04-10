@@ -8,44 +8,35 @@
 <a name="basics"></a>
 ## Основы
 
-Компонент `Sidebar` используется для создания бокового меню в **MoonShine**.
+@include('_includes/note-about-appearance-layout')
 
-Вы можете создать `Sidebar`, используя статический метод `make()` класса `Sidebar`.
+Компонент `Sidebar` предназначен для создания бокового меню.
 
 ```php
 make(iterable $components = [])
 ```
 
-Метод `make()` принимает в качестве параметра массив компонентов.
+- `$components` - массив компонентов.
 
 ~~~tabs
 tab: Class
 ```php
-namespace App\MoonShine\Layouts;
-
 use MoonShine\UI\Components\Layout\Menu;
 use MoonShine\UI\Components\Layout\Sidebar;
 
-final class MoonShineLayout extends AppLayout
-{
-    public function build(): Layout
-    {
-        return Layout::make([
-            // ..
-
-            Sidebar::make([
-                Menu::make(),
-            ])->collapsed(),
-
-            // ...
-        ]);
-    }
-}
+Sidebar::make([
+    Menu::make(),
+])
 ```
 tab: Blade
 ```blade
 <x-moonshine::layout.sidebar :collapsed="true">
-<x-moonshine::layout.menu :elements="[['label' => 'Dashboard', 'url' => '/'], ['label' => 'Section', 'url' => '/section']]"/>
+    <x-moonshine::layout.menu
+        :elements="[
+            ['label' => 'Dashboard', 'url' => '/'],
+            ['label' => 'Section', 'url' => '/section'],
+        ]"
+    />
 </x-moonshine::layput.sidebar>
 ```
 ~~~
@@ -53,10 +44,10 @@ tab: Blade
 <a name="collapsed"></a>
 ## Возможность скрыть
 
-По умолчанию `Sidebar` всегда открыт, но с помощью метода `collapsed()`, вы можете добавить возможность скрыть `Sidebar`:
+По умолчанию `Sidebar` всегда открыт, но с помощью метода `collapsed()`, вы можете добавить возможность скрыть `Sidebar`.
 
 ```php
 Sidebar::make([
     Menu::make(),
-])->collapsed(),
+])->collapsed()
 ```

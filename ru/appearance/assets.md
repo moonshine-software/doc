@@ -12,6 +12,7 @@
     - [Page](#page)
     - [Component](#component)
     - [Field](#field)
+- [Вывод через Blade](#blade)
 
 ---
 
@@ -325,3 +326,29 @@ final class MyComponent extends MoonShineComponent
 ### Field
 
 То же самое как и у `Component`, так как `Field` является компонентом.
+
+<a name="blade"></a>
+## Вывод через Blade
+
+### Основная тема
+
+```blade
+<x-moonshine::layout.assets>
+    @vite([
+        'resources/css/main.css',
+        'resources/js/app.js',
+    ], 'vendor/moonshine')
+</x-moonshine::layout.assets>
+```
+
+### Компактная тема
+
+```blade
+<x-moonshine::layout.assets>
+    @vite([
+        'resources/css/main.css',
+        'resources/css/minimalistic.css',
+        'resources/js/app.js',
+    ], 'vendor/moonshine')
+</x-moonshine::layout.assets>
+```

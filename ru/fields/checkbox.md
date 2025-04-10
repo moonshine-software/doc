@@ -4,7 +4,6 @@
 - [Создание](#make)
 - [Значения вкл/выкл](#on-off)
 - [Редактирование в режиме preview](#preview-edit)
-- [Реактивность](#reactive)
 
 ---
 
@@ -23,11 +22,11 @@ tab: Class
 ```php
 use MoonShine\UI\Fields\Checkbox;
 
-Checkbox::make('Публиковать', 'is_publish')
+Checkbox::make('Publish', 'is_publish')
 ```
 tab: Blade
 ```blade
-<x-moonshine::form.wrapper label="Публиковать">
+<x-moonshine::form.wrapper label="Publish">
     <x-moonshine::form.input
         type="checkbox"
         name="is_publish"
@@ -39,18 +38,19 @@ tab: Blade
 <a name="on-off"></a>
 ## Значения вкл/выкл
 
-По умолчанию поле имеет значения `1` и `0` для выбранного и невыбранного состояний соответственно. Методы `onValue()` и `offValue()` позволяют переопределить эти значения.
+По умолчанию поле имеет значения `1` и `0` для выбранного и невыбранного состояний соответственно.
+Методы `onValue()` и `offValue()` позволяют переопределить эти значения.
 
 ```php
 onValue(int|string $onValue)
 ```
 
 ```php
-offValue(int|string $onValue)
+offValue(int|string $offValue)
 ```
 
 ```php
-Checkbox::make('Публиковать', 'is_publish')
+Checkbox::make('Publish', 'is_publish')
     ->onValue('yes')
     ->offValue('no')
 ```
@@ -59,8 +59,3 @@ Checkbox::make('Публиковать', 'is_publish')
 ## Редактирование в режиме preview
 
 Данному полю доступно [редактирование в режиме preview](/docs/{{version}}/fields/basic-methods#preview-edit).
-
-<a name="reactive"></a>
-## Реактивность
-
-Данному полю доступна [реактивность](/docs/{{version}}/fields/basic-methods#reactive).

@@ -2,14 +2,16 @@
 
 The `When` component allows displaying other components based on a condition.
 
-You can create a `When` using the static method `make()` from the `When` class.
-
 ```php
-make(Closure $condition, Closure $components, ?Closure $default = null)
+make(
+    Closure $condition,
+    Closure $components,
+    ?Closure $default = null
+)
 ```
 
-- `$condition` - the condition for executing the method;
-- `$components` - a closure that returns an array of elements when the condition is met;
+- `$condition` - the condition for executing the method,
+- `$components` - a closure that returns an array of elements when the condition is met,
 - `$default` - a closure that returns an array of default elements.
 
 ```php
@@ -27,7 +29,7 @@ final class MoonShineLayout extends AppLayout
                 Menu::make()->customAttributes(['class' => 'mt-2']),
                 When::make(
                     static fn() => config('moonshine.auth.enabled', true),
-                    static fn() => [Profile::make(withBorder: true)]
+                    static fn() => [Profile::make(withBorder: true)],
                 )
             ]),
         ]);

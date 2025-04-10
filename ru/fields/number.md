@@ -15,7 +15,6 @@
   - [Замок](#locked)
   - [Суффикс](#suffix)
 - [Редактирование в режиме preview](#preview-edit)
-- [Реактивность](#reactive)
 
 ---
 
@@ -218,8 +217,3 @@ suffix(string $ext)
 ## Редактирование в режиме preview
 
 Данному полю доступно [редактирование в режиме preview](/docs/{{version}}/fields/basic-methods#preview-edit).
-
-<a name="reactive"></a>
-## Реактивность
-
-Данному полю доступна [реактивность](/docs/{{version}}/fields/basic-methods#reactive).

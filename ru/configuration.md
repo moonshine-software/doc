@@ -18,7 +18,6 @@
   - [Страницы](#pages)
   - [Главная страница](#home-url)
 - [Получение страниц и форм](#pages-forms)
-- [Полный список параметров конфигурации](#configuration-options)
 - [Выбор метода конфигурации](#choosing-configuration-method)
 
 ---
@@ -48,19 +47,26 @@
 return [
     'title' => env('MOONSHINE_TITLE', 'MoonShine'),
     'logo' => '/assets/logo.png',
-    'domain' => env('MOONSHINE_DOMAIN'),
-    'prefix' => 'admin',
-    'auth' => [
-        'enabled' => true,
-        'guard' => 'moonshine',
-    ],
+    'logo_small' => '/assets/logo-small.svg',
     'use_migrations' => true,
     'use_notifications' => true,
     'use_database_notifications' => true,
+    'use_profile' => true,
+    'use_routes' => true,
+    'domain' => env('MOONSHINE_DOMAIN'),
+    'prefix' => 'admin',
     'middleware' => [
         // ...
     ],
+    'auth' => [
+        'enabled' => true,
+        'guard' => 'moonshine',
+        'middleware' => Authenticate::class,
+        // ...
+    ],
     'layout' => \MoonShine\Laravel\Layouts\AppLayout::class,
+    'locale' => 'en',
+    'locales' => ['en', 'ru'],
 
     // ...
 ];
@@ -70,11 +76,12 @@ return [
 
 Альтернативно, вы можете оставить в файле `moonshine.php` только те параметры, которые отличаются от значений по умолчанию.
 Это делает конфигурацию более чистой и легкой для понимания.
+
 Пример оптимизированного содержимого файла `moonshine.php`:
 
 ```php
 return [
-    'title' => 'Мое приложение MoonShine',
+    'title' => 'My MoonShine Application',
     'use_migrations' => true,
     'use_notifications' => true,
     'use_database_notifications' => true,
@@ -83,18 +90,19 @@ return [
 
 > [!NOTE]
 > `use_migrations`, `use_notifications`, `use_database_notifications` должны присутствовать всегда либо в `moonshine.php`, либо в `MoonShineServiceProvider`.
-
-> [!NOTE]
 > Все остальные параметры, не указанные в файле, будут использовать значения по умолчанию.
 
 <a name="service-provider"></a>
 ### Конфигурация через MoonShineServiceProvider
 
-Альтернативный способ настройки - `MoonShineServiceProvider`. Этот метод предоставляет более программный подход к конфигурации.
+Альтернативный способ настройки - `MoonShineServiceProvider`.
+Этот метод предоставляет более программный подход к конфигурации.
 
 Пример конфигурации в `MoonShineServiceProvider`:
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:5]
 use Illuminate\Support\ServiceProvider;
 use MoonShine\Contracts\Core\DependencyInjection\CoreContract;
 use MoonShine\Laravel\DependencyInjection\MoonShine;
@@ -114,37 +122,47 @@ class MoonShineServiceProvider extends ServiceProvider
     ): void
     {
         $config
-            ->title('Мое приложение')
+            ->title('My Application')
             ->logo('/assets/logo.png')
-            ->prefixes('admin', 'page', 'resource')
-            ->guard('moonshine')
-            ->authEnable()
+            ->logo('/assets/logo_small.png', true)
             ->useMigrations()
             ->useNotifications()
             ->useDatabaseNotifications()
+            ->useProfile()
+            ->dir('app/MoonShine', 'App\MoonShine')
+            ->prefixes('admin', 'page', 'resource')
+            ->homeRoute('moonshine.index')
+            ->notFoundException(MoonShineNotFoundException::class)
             ->middleware([
                 // ...
             ])
-            ->layout(\MoonShine\Laravel\Layouts\AppLayout::class)
-            // ...
-        ;
+            ->disk('public')
+            ->cacheDriver('redis')
+            ->authEnable()
+            ->guard('moonshine')
+            ->authMiddleware(Authenticate::class)
+            ->authPipelines([])
+            ->authorizationRules(
+                function(ResourceContract $ctx, mixed $user, Ability $ability, mixed $data): bool {
+                    return true;
+                }
+            )
+            ->layout(\App\MoonShine\Layouts\CustomLayout::class)
+            ->locale('ru')
+            ->locales(['en', 'ru']);
 
-        $core
-            ->resources([
-                MoonShineUserResource::class,
-                MoonShineUserRoleResource::class,
-            ])
-            ->pages([
-                ...$config->getPages(),
-            ])
-        ;
+        // ...
     }
 }
 ```
 
-> [!NOTE]
+> [!WARNING]
 > Конфигурация через `MoonShineServiceProvider` имеет приоритет над настройками в файле `moonshine.php`.
 > При использовании этого метода вы можете полностью удалить файл moonshine.php из вашего проекта.
+
+> [!NOTE]
+> Некоторые методы `MoonShineConfigurator` не имеют прямых аналогов в файле `moonshine.php` и наоборот.
+> Это связано с различиями в подходах к конфигурации через файл и через код.
 
 <a name="basic-settings"></a>
 ## Основные настройки
@@ -154,11 +172,11 @@ class MoonShineServiceProvider extends ServiceProvider
 <a name="options"></a>
 ### Опции
 
-- `use_migrations` - Использовать публикацию миграций системы по умолчанию (`moonshine_users`, `moonshine_user_roles`),
-- `use_notifications` - Использовать систему уведомлений,
-- `use_database_notifications` - Использовать систему уведомлений Laravel на основе драйвера базы данных,
-- `dir` - Директория для **MoonShine** (по умолчанию `app/MoonShine`). Директория используется для генерации файлов через `artisan` команды, в целом **MoonShine** не привязан к структуре,
-- `namespace` - Namespace для классов созданных через `artisan` команды (по умолчанию `App\MoonShine`).
+- `use_migrations` - использовать публикацию миграций системы по умолчанию (`moonshine_users`, `moonshine_user_roles`),
+- `use_notifications` - использовать систему уведомлений,
+- `use_database_notifications` - использовать систему уведомлений Laravel на основе драйвера базы данных,
+- `dir` - директория для **MoonShine** (по умолчанию `app/MoonShine`). Директория используется для генерации файлов через `artisan` команды, в целом **MoonShine** не привязан к структуре,
+- `namespace` - namespace для классов созданных через `artisan` команды (по умолчанию `App\MoonShine`).
 
 ~~~tabs
 tab: config/moonshine.php
@@ -170,7 +188,7 @@ tab: config/moonshine.php
 'use_notifications' => true,
 'use_database_notifications' => true,
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config
     ->dir(dir: 'app/MoonShine', namespace: 'App\MoonShine')
@@ -183,16 +201,16 @@ $config
 <a name="title"></a>
 ### Заголовок
 
-Мета заголовок на страницах (`<title>Мое приложение</title>`).
+Мета заголовок на страницах (`<title>My Application</title>`).
 
 ~~~tabs
 tab: config/moonshine.php
 ```php
-'title' => 'Мое приложение',
+'title' => 'My Application',
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
-$config->title('Мое приложение');
+$config->title('My Application');
 ```
 ~~~
 
@@ -205,7 +223,7 @@ tab: config/moonshine.php
 'logo' => '/assets/logo.png',
 'logo_small' => '/assets/logo-small.png',
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config
     ->logo('/assets/logo.png')
@@ -227,7 +245,7 @@ tab: config/moonshine.php
     // ...
 ],
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config
     ->middleware(['web', 'auth'])
@@ -248,7 +266,7 @@ tab: config/moonshine.php
 'page_prefix' => 'page',
 'resource_prefix' => 'resource',
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config->prefixes('admin', 'page', 'resource');
 ```
@@ -256,7 +274,7 @@ $config->prefixes('admin', 'page', 'resource');
 
 > [!WARNING]
 > Вы можете оставить `resource_prefix` пустым и `URL` ресурсов будет иметь вид `/admin/{resourceUri}/{pageUri}`,
-> но вы можете создать конфликт с роутами пакетов
+> но вы можете создать конфликт с роутами пакетов.
 
 #### Установка домена
 
@@ -265,7 +283,7 @@ tab: config/moonshine.php
 ```php
 'domain' => 'admin.example.com',
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config->domain('admin.example.com');
 ```
@@ -280,7 +298,7 @@ tab: config/moonshine.php
 ```php
 'not_found_exception' => MoonShineNotFoundException::class,
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config->notFoundException(MoonShineNotFoundException::class);
 ```
@@ -299,7 +317,7 @@ tab: config/moonshine.php
     // ...
 ],
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config->guard('admin');
 ```
@@ -315,7 +333,7 @@ tab: config/moonshine.php
     // ...
 ],
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config->authDisable();
 ```
@@ -345,7 +363,7 @@ tab: config/moonshine.php
     // ...
 ],
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config->authMiddleware(Authenticate::class);
 ```
@@ -364,7 +382,7 @@ tab: config/moonshine.php
     // ...
 ],
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config->authPipelines([TwoFactor::class]);
 ```
@@ -373,7 +391,7 @@ $config->authPipelines([TwoFactor::class]);
 #### Поля пользователя
 
 Если вы просто заменили модель на свою `auth.model`, то скорее всего вы столкнетесь с проблемой несоответствия наименования полей.
-Чтобы настроить соответствие, воспользуйтесь настройкой `userField`:
+Чтобы настроить соответствие, воспользуйтесь настройкой `userField()`.
 
 ~~~tabs
 tab: config/moonshine.php
@@ -385,7 +403,7 @@ tab: config/moonshine.php
     'avatar' => 'avatar',
 ],
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config->userField('username', 'username');
 ```
@@ -401,24 +419,39 @@ tab: config/moonshine.php
 ```php
 'locale' => 'en',
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config->locale('en');
 ```
 ~~~
 
-### Установка доступных языков
+#### Установка доступных языков
 
 ~~~tabs
 tab: config/moonshine.php
 ```php
 'locales' => ['en', 'ru'],
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config->locales(['en', 'ru']);
 ```
 ~~~
+
+#### Изменение имени параметра
+
+~~~tabs
+tab: config/moonshine.php
+```php
+'locale_key' => '_lang',
+```
+tab: app/Providers/MoonShineServiceProvider.php
+```php
+$config->localeKey('_lang');
+```
+~~~
+
+Подробнее смотрите в разделе [локализация](/docs/{{version}}/advanced/localization).
 
 <a name="storage"></a>
 ### Хранилище
@@ -431,7 +464,7 @@ tab: config/moonshine.php
 'disk' => 'public',
 'disk_options' => [],
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config->disk('public', options: []);
 ```
@@ -444,7 +477,7 @@ tab: config/moonshine.php
 ```php
 'cache' => 'file',
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config->cacheDriver('redis');
 ```
@@ -460,7 +493,7 @@ tab: config/moonshine.php
 ```php
 'layout' => \App\MoonShine\Layouts\CustomLayout::class,
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config->layout(\App\MoonShine\Layouts\CustomLayout::class);
 ```
@@ -479,7 +512,7 @@ tab: config/moonshine.php
     'filters' => FiltersForm::class,
 ],
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config->set('forms.login', MyLoginForm::class);
 ```
@@ -500,7 +533,7 @@ tab: config/moonshine.php
     'error' => ErrorPage::class,
 ],
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config->changePage(LoginPage::class, MyLoginPage::class);
 ```
@@ -519,7 +552,7 @@ tab: config/moonshine.php
 // or url string
 'home_url' => '/admin/page/some-page',
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config->homeRoute('moonshine.index');
 // or url string
@@ -537,13 +570,17 @@ $config->homeUrl('/admin/page/some-page');
 Метод `getPage` позволяет получить экземпляр страницы по её имени или использовать страницу по умолчанию.
 
 ```php
-public function getPage(string $name, string $default, mixed ...$parameters): PageContract
+getPage(
+    string $name,
+    string $default,
+    mixed ...$parameters,
+)
 ```
 
 Параметры:
-- `$name`: Имя страницы в конфиге
-- `$default`: Класс страницы по умолчанию, если не найдена в конфиге
-- `$parameters`: Дополнительные параметры для конструктора страницы
+- `$name` - имя страницы в конфиге,
+- `$default` - класс страницы по умолчанию, если не найдена в конфиге,
+- `$parameters` - дополнительные параметры для конструктора страницы.
 
 Пример использования:
 
@@ -573,13 +610,17 @@ public function index(ConfiguratorContract $config)
 Метод `getForm` позволяет получить экземпляр формы по её имени или использовать форму по умолчанию.
 
 ```php
-public function getForm(string $name, string $default, mixed ...$parameters): FormBuilderContract
+getForm(
+    string $name,
+    string $default,
+    mixed ...$parameters,
+)
 ```
 
 Параметры:
-- `$name`: Имя формы в конфиге
-- `$default`: Класс формы по умолчанию
-- `$parameters`: Дополнительные параметры для конструктора формы
+- `$name` - имя формы в конфиге,
+- `$default` - класс формы по умолчанию,
+- `$parameters` - дополнительные параметры для конструктора формы.
 
 Пример использования:
 
@@ -606,7 +647,7 @@ public function index(ConfiguratorContract $config)
 
 ### Объявление страниц и форм в конфигурации
 
-Вы можете настроить соответствие между именами и классами страниц и форм в файле `moonshine.php`:
+Вы можете настроить соответствие между именами и классами страниц и форм в файле `moonshine.php`.
 
 ```php
 return [
@@ -625,55 +666,6 @@ return [
 ```
 
 Это позволит вам легко получать нужные страницы и формы по их именам, используя методы `getPage` и `getForm`.
-
-> [!NOTE]
-> Некоторые методы `MoonShineConfigurator` не имеют прямых аналогов в файле `moonshine.php` и наоборот. Это связано с различиями в подходах к конфигурации через файл и через код.
-
-### Пример использования в MoonShineServiceProvider
-
-```php
-use Illuminate\Support\ServiceProvider;
-use MoonShine\Contracts\Core\DependencyInjection\CoreContract;
-use MoonShine\Laravel\DependencyInjection\MoonShine;
-use MoonShine\Laravel\DependencyInjection\MoonShineConfigurator;
-use MoonShine\Laravel\DependencyInjection\ConfiguratorContract;
-
-class MoonShineServiceProvider extends ServiceProvider
-{
-    /**
-     * @param  MoonShine  $core
-     * @param  MoonShineConfigurator  $config
-     *
-     */
-    public function boot(
-        CoreContract $core,
-        ConfiguratorContract $config,
-    ): void
-    {
-        $config
-            ->title('Мое приложение')
-            ->dir('app/MoonShine', 'App\MoonShine')
-            ->prefix('admin')
-            ->guard('moonshine')
-            ->middleware(['web', 'auth'])
-            ->layout(\App\MoonShine\Layouts\CustomLayout::class)
-            ->locale('ru')
-            ->locales(['en', 'ru'])
-            ->useMigrations()
-            ->useNotifications()
-            ->useDatabaseNotifications()
-            ->cacheDriver('redis')
-            ->authorizationRules(function(ResourceContract $ctx, mixed $user, Ability $ability, mixed $data): bool {
-                 return true;
-            });
-
-        // ...
-    }
-}
-```
-
-Этот полный список параметров и методов позволяет настроить практически все аспекты работы **MoonShine**.
-Выбирайте те опции, которые наилучшим образом соответствуют требованиям вашего проекта.
 
 <a name="choosing-configuration-method"></a>
 ## Выбор метода конфигурации

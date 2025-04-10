@@ -744,6 +744,18 @@ The `notfound` parameter allows displaying a message when there are no items in 
 />
 ```
 
+To translate or change the text of a notification, you must set the `translates` parameter.
+
+```blade
+<x-moonshine::table
+    :columns="[
+        '#', 'First', 'Last', 'Email'
+    ]"
+    :notfound="true"
+    :translates="['notfound' => __('moonshine.ui.notfound')]"
+/>
+```
+
 <a name="blade-slots"></a>
 ### Slots
 

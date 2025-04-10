@@ -1,43 +1,33 @@
 # Wrapper
 
-Компонент `Wrapper` используется как обвертка, чтобы боковая панель и контентная часть отображались корректно.
-Используется сразу после `Body`.
+@include('_includes/note-about-appearance-layout')
 
-Вы можете создать `Wrapper`, используя статический метод `make()` класса `Wrapper`.
+Компонент `Wrapper` используется как обёртка, чтобы боковая панель и контентная часть отображались корректно.
+Используется сразу после `Body`.
 
 ```php
 make(iterable $components = [])
 ```
 
-`$components` - массив компонентов, которые располагаются в заголовке.
+- `$components` - массив компонентов.
 
 ~~~tabs
 tab: Class
 ```php
-namespace App\MoonShine\Layouts;
-
+use MoonShine\UI\Components\Layout\Body;
 use MoonShine\UI\Components\Layout\Wrapper;
 
-final class MoonShineLayout extends AppLayout
-{
-    public function build(): Layout
-    {
-        return Layout::make([
-            // ...
-            Body::make([
-                Wrapper::make([
-                    // ...
-                ])
-            ]),
-            // ...
-        ]);
-    }
-}
+Body::make([
+    Wrapper::make([
+        // ...
+    ])
+])
 ```
 tab: Blade
 ```blade
 <x-moonshine::layout.body>
     <x-moonshine::layout.wrapper>
+        Content
     </x-moonshine::layout.wrapper>
 </x-moonshine::layout.body>
 ```

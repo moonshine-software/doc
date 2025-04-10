@@ -19,21 +19,25 @@ make(
 )
 ```
 
-- $href - link to the resource,
-- $value - name of the link.
+- `$href` - link to the resource,
+- `$value` - name of the link.
 
 ~~~tabs
 tab: Class
 ```php
-use MoonShine\UI\Components\Layout\Link;
+use MoonShine\UI\Components\Link;
 
 Link::make('https://moonshine-laravel.com', 'Moonshine')
 ```
 tab: Blade
 ```blade
-<x-moonshine::link-button href="#">Link</x-moonshine::link-button>
+<x-moonshine::link-button href="#">
+    Link
+</x-moonshine::link-button>
 
-<x-moonshine::link-native href="#">Link</x-moonshine::link-native>
+<x-moonshine::link-native href="#">
+    Link
+</x-moonshine::link-native>
 ```
 ~~~
 
@@ -50,13 +54,15 @@ Link::make('https://moonshine-laravel.com', 'Moonshine')
 <a name="fill"></a>
 ## Fill
 
-The `filled` parameter is responsible for the fill.
+The `filled()` method is responsible for the fill.
 
+~~~tabs
+tab: Class
 ```php
 Link::make('https://moonshine-laravel.com', 'Moonshine')
     ->filled()
 ```
-
+tab: Blade
 ```blade
 <x-moonshine::link-button
     href="#"
@@ -72,11 +78,12 @@ Link::make('https://moonshine-laravel.com', 'Moonshine')
     Link
 </x-moonshine::link-native>
 ```
+~~~
 
 <a name="icon"></a>
 ## Icon
 
-You can pass the `icon` parameter.
+To add an icon, use the `icon()` method.
 
 ```php
 Link::make('https://moonshine-laravel.com', 'Moonshine')

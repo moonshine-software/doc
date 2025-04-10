@@ -26,7 +26,7 @@ tab: Blade
 <a name="change-view"></a>
 ## Change view
 
-If you do not like the basic loading indicator, then you can globally change its blade view through the `ServiceProvider`
+If you do not like the basic loading indicator, then you can globally change its blade view through the `ServiceProvider`.
 
 ```php
 Loader::changeView('my-custom-view-path');

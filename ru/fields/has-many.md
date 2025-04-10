@@ -9,7 +9,9 @@
 - [Кнопка редактирования](#change-edit-button)
 - [Модальное окно](#without-modals)
 - [Модификация](#modify)
+- [Активные действия](#active-actions)
 - [Добавление ActionButtons](#add-action-buttons)
+- [Отображение](#view)
 - [Продвинутое использование](#advanced)
 
 ---
@@ -70,6 +72,15 @@ HasMany::make('Comments', 'comments')
 use MoonShine\Laravel\Fields\Relationships\HasMany;
 
 HasMany::make('Comments')
+```
+
+По умолчанию поле отображается вне основной формы.
+Если вы хотите изменить это поведение и отобразить его внутри основной формы, воспользуйтесь методом `disableOutside()`.
+
+```php
+use MoonShine\Laravel\Fields\Relationships\HasMany;
+
+HasMany::make('Comments')->disableOutside()
 ```
 
 <a name="fields"></a>
@@ -224,7 +235,7 @@ HasMany::make('Comments', resource: CommentResource::class)
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:2]
 use MoonShine\Laravel\Resources\ModelResource;
-use MoonShine\Traits\Resource\ResourceWithParent;
+use MoonShine\Laravel\Traits\Resource\ResourceWithParent;
 
 class PostImageResource extends ModelResource
 {
@@ -430,6 +441,30 @@ HasMany::make('Comments', resource: CommentResource::class)
     ->modifyBuilder(fn(Relation $query, HasMany $ctx) => $query)
 ```
 
+<a name="active-actions"></a>
+## Активные действия
+
+Есть возможность быстро включать/выключать определенные действия в рамках `HasMany`.
+
+Метод `activeActions()` явно задаёт список доступных действий.
+
+```php
+HasMany::make('Comments')
+    ->activeActions(
+        Action::VIEW,
+        Action::UPDATE,
+    )
+```
+
+Метод `withoutActions()` позволяет исключить отдельные действия.
+
+```php
+HasMany::make('Comments')
+    ->withoutActions(
+        Action::VIEW
+    )
+```
+
 <a name="add-action-buttons"></a>
 ## Добавление ActionButtons
 
@@ -466,8 +501,84 @@ HasMany::make('Comments', 'comments', resource: CommentResource::class)
     ])
 ```
 
+<a name="view"></a>
+## Отображение
+
+### Отображение внутри Tabs
+
+Поля отношений в **MoonShine** по умолчанию отображаются внизу, отдельно от формы, и следуют друг за другом. Чтобы изменить отображение поля и добавить его в `Tabs`, можно использовать метод `tabMode()`.
+
+```php
+tabMode(Closure|bool|null $condition = null)
+```
+
+В следующем примере будет создан компонент [Tabs](/docs/{{version}}/components/tabs) с двумя вкладками Comments и Covers.
+
+```php
+use MoonShine\Laravel\Fields\Relationships\HasMany;
+
+HasMany::make('Comments', 'comments', resource: CommentResource::class)
+    ->tabMode(),
+HasMany::make('Covers', 'covers', resource: CoverResource::class)
+    ->tabMode()
+```
+
+> [!NOTE]
+> tabMode не будет работать при использовании метода `disableOutside()`
+
+### Отображение внутри модального окна
+
+Для того чтобы HasMany поле было отображено в модальном окне, которое вызывается по кнопке, можно использовать режим `modalMode()`.
+
+```php
+public function modalMode(
+    Closure|bool|null $condition = null,
+    ?Closure $modifyButton = null,
+    ?Closure $modifyModal = null
+)
+```
+
+В данном примере вместо таблицы теперь будет [ActionButton](/docs/{{version}}/components/action-button), который вызывает [Modal](/docs/{{version}}/components/modal).
+
+```php
+use MoonShine\Laravel\Fields\Relationships\HasMany;
+
+HasMany::make('Comments', 'comments', resource: CommentResource::class)
+    ->modalMode(),
+```
+
+Чтобы модифицировать `ActionButton` и `Modal`, можно воспользоваться параметрами метода `$modifyButton` и `$modifyModal`, в которые можно передать замыкание.
+
+```php
+use MoonShine\Laravel\Fields\Relationships\HasMany;
+
+HasMany::make('Comments', 'comments', resource: CommentResource::class)
+    ->modalMode(
+        modifyButton: function (ActionButtonContract $button, HasMany $ctx) {
+            $button->warning();
+            return $button;
+        },
+        modifyModal: function (Modal $modal, ActionButtonContract $ctx) {
+            $modal->autoClose(false);
+            return $modal;
+        }
+    )
+```
+
 <a name="advanced"></a>
 ## Продвинутое использование
+
+### Местоположение поля
+
+Поле используется только внутри *CRUD*-страниц, так как получает ресурс и страницу из *URL*.
+Однако вы можете использовать его и на других страницах, указав местоположение через метод `nowOn()`.
+
+```php
+HasMany::make('Comments', resource: CommentResource::class)
+    ->creatable()
+    ->nowOn(page: $resource->getFormPage(), resource: $resource, params: ['resourceItem' => $item->getKey()])
+    ->fillCast($item, new ModelCaster(Article::class)),
+```
 
 ### Отношение через RelationRepeater поле
 Поле `HasMany` по умолчанию отображается вне основной формы ресурса.
@@ -481,7 +592,7 @@ HasMany::make('Comments', 'comments', resource: CommentResource::class)
 // [tl! collapse:2]
 use MoonShine\UI\Fields\Text;
 use MoonShine\Laravel\Fields\Relationships\RelationRepeater;
- 
+
 RelationRepeater::make('Characteristics', 'characteristics')
     ->fields([
         ID::make(),

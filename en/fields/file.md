@@ -10,6 +10,7 @@
 - [Original File Name](#filename)
 - [Custom File Name](#customname)
 - [Element Names](#name)
+- [Sorting with dragging](#reorderable)
 - [Element Attributes](#item-attributes)
 - [Helper Methods](#helper-methods)
 
@@ -21,7 +22,7 @@
 Contains all [Basic methods](/docs/{{version}}/fields/basic-methods).
 
 > [!TIP]
-> Before using, ensure that a symbolic link is set up for the **storage** directory.
+> Before using, ensure that a symbolic link is set up for the **storage** directory. \
 > `php artisan storage:link`
 
 The `File` field is used for file uploads and includes all basic methods.
@@ -114,9 +115,7 @@ File::make('File')
     ->multiple()
 ```
 
-> [!WARNING]
-> The field in the database must be of type _text_ or _json_.
-> You also need to add type casting for the Eloquent model - *json*, or *array*, or *collection*.
+@include('_includes/note-about-multiple-cast')
 
 <a name="removable"></a>
 ## File Removal
@@ -246,6 +245,17 @@ File::make('File', 'file')
     ->names(fn(string $filename, int $index = 0) => 'File ' . $index + 1)
 ```
 
+<a name="reorderable"></a>
+## Sorting with dragging
+
+You can specify a *URL* that will process the positions and save the new ones.
+
+```php
+File::make('Files')
+    ->reorderable(fn(File $ctx) => "/reorder/" . $ctx->getData()->getKey())
+    ->multiple(),
+```
+
 <a name="item-attributes"></a>
 ## Element Attributes
 
@@ -262,6 +272,14 @@ File::make('File', 'file')
     ->itemAttributes(fn(string $filename, int $index = 0) => [
         'style' => 'width: 250px; height: 250px;'
     ])
+```
+
+### Dropzone attributes
+
+```php
+File::make('Files')
+    ->dropzoneAttributes(fn(File $ctx) => ['class' => 'custom-class'])
+    ->multiple(),
 ```
 
 <a name="helper-methods"></a>

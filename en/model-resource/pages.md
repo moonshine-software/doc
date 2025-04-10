@@ -5,6 +5,7 @@
 - [Adding Fields](#fields)
 - [Main Components](#components)
 - [Layers on the Page](#layers)
+- [Simulate Route](#simulate)
 
 ---
 
@@ -93,12 +94,12 @@ class PostIndexPage extends IndexPage
 
 In **MoonShine**, you can quickly change the main component on the page.
 
-#### IndexPage
+### IndexPage
 
 The `getItemsComponent()` method allows you to change the main component of the index page.
 
 ```php
-getItemsComponent(iterable $items, Fields $fields): ComponentContract
+getItemsComponent(iterable $items, Fields $fields)
 ```
 
 - `$items` - field values,
@@ -165,12 +166,12 @@ class ArticleIndexPage extends IndexPage
 > [!NOTE]
 > Example of an index page with the `CardsBuilder` component in the [Recipes](/docs/{{version}}/recipes/index-page-cards) section.
 
-#### DetailPage
+### DetailPage
 
 The `getDetailComponent()` method allows you to change the main component of the detail page.
 
 ```php
-getDetailComponent(?DataWrapperContract $item, Fields $fields): ComponentContract
+getDetailComponent(?DataWrapperContract $item, Fields $fields)
 ```
 
 - `$item` - data,
@@ -199,7 +200,7 @@ class ArticleDetailPage extends DetailPage
     }
 }
 ```
-#### FormPage
+### FormPage
 
 The `getFormComponent()` method allows you to change the main component on the form page.
 
@@ -215,7 +216,7 @@ getFormComponent(
   ?DataWrapperContract $item,
   Fields $fields,
   bool $isAsync = true,
-): ComponentContract
+)
 ```
 
 - `$action` - endpoint,
@@ -351,7 +352,7 @@ class PostIndexPage extends IndexPage
 ```
 
 > [!TIP]
-> If you need to access components of a specific layer from a resource or page, use the `getLayerComponents` method.
+> If you need to access components of a specific layer from a resource or page, use the `getLayerComponents()` method.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -378,12 +379,29 @@ use MoonShine\Support\Enums\Layer;
 
 protected function onLoad(): void
 {
-    $this->getFormPage()->pushToLayer(
+    $this->getFormPage()
+        ->pushToLayer(
             layer: Layer::BOTTOM,
             component: Permissions::make(
                 'Permissions',
                 $this,
             )
         );
+}
+```
+
+<a name="simulate"></a>
+## Simulate Route
+
+We do not recommend using *CRUD* pages to arbitrary *URL*.
+However, if you understand their logic well, you can use *CRUD* pages on non-standard routes, emulating the necessary *URL*.
+
+```php
+class HomeController extends Controller
+{
+    public function __invoke(FormArticlePage $page, ArticleResource $resource)
+    {
+        return $page->simulateRoute($page, $resource)->loaded();
+    }
 }
 ```

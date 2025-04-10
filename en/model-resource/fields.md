@@ -1,19 +1,13 @@
 # Fields
 
-- [Basics](#basics)
-
----
-
-<a name="basics"></a>
-## Basics
-
 Fields usually refer to database table fields.
 Within the `CRUD`, they will be displayed on the main page of the section (resource) with the list and on the page for creating and editing records.
+
 In **MoonShine**, there are many types of fields that cover all possible requirements!
-They also encompass all possible relationships in **Laravel** and are conveniently named after the relationship methods `BelongsTo`, `BelongsToMany`, `HasOne`, `HasMany`, `HasOneThrough`, `HasManyThrough`, `MorphOne`, `MorphMany`.
+They also encompass all possible relationships in **Laravel** and are conveniently named after the relationship methods
+`BelongsTo`, `BelongsToMany`, `HasOne`, `HasMany`, `HasOneThrough`, `HasManyThrough`, `MorphOne`, `MorphMany`.
 
 Adding fields to `ModelResource` is very simple!
-
 You can use methods that allow you to declare fields for the corresponding pages: `indexFields()`, `formFields()`, or `detailFields()`.
 
 ```php

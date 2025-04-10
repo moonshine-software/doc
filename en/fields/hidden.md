@@ -10,7 +10,7 @@
 
 Contains all [Basic methods](/docs/{{version}}/fields/basic-methods).
 
-The `Hidden` field is a hidden field. This field is equivalent to `type=hidden`.
+The `Hidden` field is a hidden field that by default sets `type=hidden`.
 
 > [!NOTE]
 > The field will be hidden during form building, but will be displayed in the preview, as will its wrapper.
@@ -34,7 +34,7 @@ tab: Blade
 <a name="show-value"></a>
 ## Show Value
 
-The field is completely hidden in the form, but if you need to maintain the field's behavior while displaying its value, you can use the `showValue` method:
+The field is completely hidden in the form, but if you need to maintain the field's behavior while displaying its value, you can use the `showValue()` method.
 
 ```php
 Hidden::make('category_id')->showValue()

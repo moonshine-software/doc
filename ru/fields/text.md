@@ -12,7 +12,6 @@
   - [Замок](#locked)
   - [Суффикс](#suffix)
 - [Редактирование в режиме preview](#preview-edit)
-- [Реактивность](#reactive)
 
 ---
 
@@ -21,7 +20,7 @@
 
 Содержит все [Базовые методы](/docs/{{version}}/fields/basic-methods).
 
-Поле `Text` - это базовое текстовое поле ввода в **MoonShine**. Это поле эквивалент `<input type="text">`
+Поле `Text` - это базовое текстовое поле ввода в **MoonShine**. Это поле эквивалент `<input type="text">`.
 
 ~~~tabs
 tab: Class
@@ -57,8 +56,8 @@ placeholder(string $value)
 ```
 
 ```php
-Text::make('Имя пользователя', 'username')
-    ->placeholder('Введите имя пользователя')
+Text::make('Username', 'username')
+    ->placeholder('Enter username')
 ```
 
 <a name="mask"></a>
@@ -72,7 +71,7 @@ mask(string $mask)
 Пример использования:
 
 ```php
-Text::make('Телефон', 'phone')
+Text::make('Phone', 'phone')
     ->mask('+7 (999) 999-99-99')
 ```
 
@@ -89,7 +88,7 @@ tags(?int $limit = null)
 ```
 
 ```php
-Text::make('Теги', 'tags')
+Text::make('Tags', 'tags')
     ->tags(5)
 ```
 
@@ -99,13 +98,7 @@ Text::make('Теги', 'tags')
 Метод `unescape()` отключает экранирование HTML-тегов в значении поля.
 
 ```php
-unescape()
-```
-
-Пример использования:
-
-```php
-Text::make('HTML-контент', 'content')
+Text::make('HTML Content', 'content')
     ->unescape()
 ```
 
@@ -126,8 +119,6 @@ Text::make('HTML-контент', 'content')
 copy(string $value = '{{value}}')
 ```
 
-Пример использования:
-
 ```php
 Text::make('Токен', 'token')
     ->copy()
@@ -139,13 +130,7 @@ Text::make('Токен', 'token')
 Метод `eye()` добавляет кнопку для показа/скрытия значения поля (например, для пароля).
 
 ```php
-eye()
-```
-
-Пример использования:
-
-```php
-Text::make('Пароль', 'password')
+Text::make('Password', 'password')
     ->eye()
 ```
 
@@ -155,13 +140,7 @@ Text::make('Пароль', 'password')
 Метод `locked()` добавляет иконку замка к полю.
 
 ```php
-locked()
-```
-
-Пример использования:
-
-```php
-Text::make('Защищенное поле', 'protected_field')
+Text::make('Protected field', 'protected_field')
     ->locked()
 ```
 
@@ -174,10 +153,8 @@ Text::make('Защищенное поле', 'protected_field')
 suffix(string $ext)
 ```
 
-Пример использования:
-
 ```php
-Text::make('Домен', 'domain')
+Text::make('Domain', 'domain')
     ->suffix('.com')
 ```
 
@@ -190,10 +167,7 @@ Text::make('Домен', 'domain')
 > Если вы хотите избежать ошибок ввода, можете использовать расширение [Замок](#locked).
 
 ```php
-Text::make('Name')->updateOnPreview()->locked(),
+Text::make('Name')
+    ->updateOnPreview()
+    ->locked()
 ```
-
-<a name="reactive"></a>
-## Реактивность
-
-Данному полю доступна [реактивность](/docs/{{version}}/fields/basic-methods#reactive).

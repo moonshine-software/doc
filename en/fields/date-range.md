@@ -112,5 +112,5 @@ DateRange::make('Dates')
 When using the `DateRange` field to build a filter, the `fromTo()` method is not used, as filtering occurs by one field in the database table.
 
 ```php
-DateRange::make('Dates', 'dates')
+DateRange::make('Creation date', 'created_at')
 ```

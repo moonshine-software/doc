@@ -1,50 +1,34 @@
 # TopBar
 
-- [Basics](#basics)
+@include('_includes/note-about-appearance-layout')
 
----
-
-<a name="basics"></a>
-## Basics
-
-The `TopBar` component is used to create a top navigation panel in **MoonShine**.
-
-You can create a `TopBar` using the static method `make()` of the `TopBar` class.
+The `TopBar` component is designed to create a top navigation panel.
 
 ```php
 make(iterable $components = [])
 ```
 
-The `make()` method takes an array of components as a parameter.
+- `$components` - array of components.
 
 ~~~tabs
 tab: Class
 ```php
-namespace App\MoonShine\Layouts;
-
 use MoonShine\UI\Components\Layout\Menu;
 use MoonShine\UI\Components\Layout\TopBar;
 
-final class MoonShineLayout extends AppLayout
-{
-    public function build(): Layout
-    {
-        return Layout::make([
-            // ..
-
-            TopBar::make([
-                Menu::make()->top()
-            ]),
-
-            // ...
-        ]);
-    }
-}
+TopBar::make([
+    Menu::make()->top()
+])
 ```
 tab: Blade
 ```blade
 <x-moonshine::layout.top-bar>
-<x-moonshine::layout.menu :elements="[['label' => 'Dashboard', 'url' => '/'], ['label' => 'Section', 'url' => '/section']]"/>
+    <x-moonshine::layout.menu
+        :elements="[
+            ['label' => 'Dashboard', 'url' => '/'],
+            ['label' => 'Section', 'url' => '/section'],
+        ]
+    "/>
 </x-moonshine::layout.top-bar>
 ```
 ~~~

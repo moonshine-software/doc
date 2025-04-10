@@ -14,7 +14,8 @@
 <a name="basics"></a>
 ## Основы
 
-Иногда возникает необходимость создать фильтры (выборку результатов) и отобразить их на листинге. Для таких ситуаций были созданы теги.
+Иногда возникает необходимость создать фильтры (выборку результатов) и отобразить их на листинге.
+Для таких ситуаций были созданы теги.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -160,5 +161,6 @@ QueryTag::make('QueryTag', fn($q) => $q)->events([
 ## Модификатор кнопки
 
 ```php
-QueryTag::make('Test', fn($q) => $q)->modifyButton(fn(ActionButton $btn) => $btn),
+QueryTag::make('QueryTag', fn($q) => $q)
+    ->modifyButton(fn(ActionButton $btn) => $btn)
 ```

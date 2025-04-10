@@ -8,16 +8,30 @@
 <a name="basics"></a>
 ## Basics
 
-Using the component `moonshine::popover`, you can create a popover.
-
-Available positions:
-
-- `bottom`
-- `top`
-- `left`
-- `right`
+Using the component `Popover`, you can create a popover.
 
 ```php
+make(
+    string $title,
+    string $trigger,
+    string $placement = 'right',
+)
+```
+
+- `title` - title in the popover,
+- `trigger` - text or html that pops up when you hover over it,
+- `placement` - location of the popover is relative to the `trigger`.
+
+For an up-to-date list of available locations, see [tippy.js](https://atomiks.github.io/tippyjs/v6/all-props/#placement) documentation.
+
+~~~tabs
+tab: Class
+```php
+Popover::make('Title', 'Trigger')
+    ->content('HTML content')
+```
+tab: Blade
+```blade
 <x-moonshine::popover title="Popover title" placement="right">
     <x-slot:trigger>
         <button class="btn">Popover</button>
@@ -29,6 +43,7 @@ Available positions:
     </div>
 </x-moonshine::popover>
 ```
+~~~
 
 <a name="without"></a>
 ## Without using the component

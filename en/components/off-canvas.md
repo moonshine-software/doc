@@ -5,6 +5,7 @@
   -  [Open/Close](#open-close)
 - [Default State](#open)
 - [Position](#position)
+- [Width](#width)
 - [Asynchronous](#async)
 - [Toggler Attributes](#toggler-attributes)
 
@@ -13,7 +14,8 @@
 <a name="basics"></a>
 ## Basics
 
-The `Offcanvas` component allows you to create side panels. You can create an `Offcanvas` using the static method `make()`.
+The `Offcanvas` component allows you to create side panels.
+You can create an `Offcanvas` using the static method `make()`.
 
 ```php
 make(
@@ -49,7 +51,7 @@ OffCanvas::make(
 ```
 tab: Blade
 ```blade
-<x-moonshine::offcanvas
+<x-moonshine::off-canvas
     title="Offcanvas"
     :left="false"
 >
@@ -57,14 +59,17 @@ tab: Blade
          Open
     </x-slot:toggler>
     {{ fake()->text() }}
-</x-moonshine::offcanvas>
+</x-moonshine::off-canvas>
 ```
 ~~~
+
+@include('_includes/modal-off-canvas-components', 'OffCanvas', 'OffCanvas', 'OffCanvas', 'OffCanvas')
 
 <a name="events"></a>
 ## Events
 
-You can show or hide the side panel outside of the component using *JavaScript* events. To access the events, you need to set a unique name for the side panel using the `name()` method.
+You can show or hide the side panel outside of the component using *JavaScript* events.
+To access the events, you need to set a unique name for the side panel using the `name()` method.
 
 ```php
 use MoonShine\UI\Components\OffCanvas;
@@ -185,6 +190,35 @@ left(Closure|bool|null $condition = null)
 ```php
 OffCanvas::make('Title', 'Content...', 'Show Panel')
     ->left()
+```
+
+<a name="width"></a>
+## Width
+
+The `wide()` method of the `OffCanvas` component allows you to make the panel wider.
+
+```php
+wide(Closure|bool|null $condition = null)
+```
+
+- `$condition` - method execution condition.
+
+```php
+OffCanvas::make('Title', 'Content...', 'Show Panel')
+    ->wide()
+```
+
+The `full()` method sets the maximum width for the panel.
+
+```php
+full(Closure|bool|null $condition = null)
+```
+
+- `$condition` - method execution condition.
+
+```php
+OffCanvas::make('Title', 'Content...', 'Show Panel')
+    ->full()
 ```
 
 <a name="async"></a>

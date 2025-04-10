@@ -4,6 +4,7 @@
 - [Fields](#fields)
 - [Parent ID](#parent-id)
 - [Modification](#modify)
+- [Display](#view)
 
 ---
 
@@ -101,7 +102,7 @@ If the relationship has a resource, and you want to get the parent item's ID, yo
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:2]
 use MoonShine\Laravel\Resources\ModelResource;
-use MoonShine\Traits\Resource\ResourceWithParent;
+use MoonShine\Laravel\Traits\Resource\ResourceWithParent;
 
 class PostImageResource extends ModelResource
 {
@@ -180,4 +181,79 @@ use MoonShine\Laravel\Fields\Relationships\HasOne;
 
 HasOne::make('Comment', resource: CommentResource::class)
     ->redirectAfter(fn(int $parentId) => route('home'))
+```
+
+<a name="view"></a>
+## Display
+
+### Display within Tabs
+
+By default, relationship fields in **MoonShine** are displayed at the bottom, separately from the form, and follow one after another. To change the display of the field and add it to `Tabs`, you can use the `tabMode()` method.
+
+```php
+tabMode(Closure|bool|null $condition = null)
+```
+
+In the following example, a [Tabs](/docs/{{version}}/components/tabs) component with two tabs, Comment and Cover, will be created.
+
+```php
+use MoonShine\Laravel\Fields\Relationships\HasOne;
+
+HasOne::make('Comment', 'comment', resource: CommentResource::class)
+    ->tabMode(),
+HasOne::make('Cover', 'cover', resource: CoverResource::class)
+    ->tabMode()
+```
+
+> [!NOTE]
+> tabMode will not work when using the `disableOutside()` method
+
+### Display within a Modal Window
+
+To display a HasOne field in a modal window that is called by a button, you can use the `modalMode()` method.
+
+```php
+public function modalMode(
+    Closure|bool|null $condition = null,
+    ?Closure $modifyButton = null,
+    ?Closure $modifyModal = null
+)
+```
+
+In this example, instead of a form, there will now be an [ActionButton](/docs/{{version}}/components/action-button) that calls a [Modal](/docs/{{version}}/components/modal).
+
+```php
+use MoonShine\Laravel\Fields\Relationships\HasOne;
+
+HasOne::make('Comment', 'comment', resource: CommentResource::class)
+    ->modalMode(),
+```
+
+To modify the `ActionButton` and `Modal`, you can use the method parameters `$modifyButton` and `$modifyModal`, into which you can pass a closure.
+
+```php
+use MoonShine\Laravel\Fields\Relationships\HasOne;
+
+HasOne::make('Comment', 'comment', resource: CommentResource::class)
+    ->modalMode(
+        modifyButton: function (ActionButtonContract $button, HasOne $ctx) {
+            $button->warning();
+            return $button;
+        },
+        modifyModal: function (Modal $modal, ActionButtonContract $ctx) {
+            $modal->autoClose(false);
+            return $modal;
+        }
+    )
+```
+
+### Display within the Main Resource Form
+
+For HasOne, the `disableOutside()` method is available, which allows it to be displayed inside the form at the designated field location. `disableOutside` for HasOne only works in `modalMode`.
+
+```php
+use MoonShine\Laravel\Fields\Relationships\HasOne;
+
+HasOne::make('Comment', 'comment', resource: CommentResource::class)
+    ->disableOutside(),
 ```

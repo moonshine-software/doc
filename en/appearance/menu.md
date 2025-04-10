@@ -1,6 +1,7 @@
 # Menu
 
 - [Basics](#basics)
+- [Items](#items)
 - [Groups](#groups)
 - [Divider](#divider)
 - [Icon](#icon)
@@ -12,6 +13,7 @@
 - [Attributes](#attributes)
 - [Change button](#change-button)
 - [Custom view](#custom-view)
+- [Menu autoload](#menu-autoload)
 
 ---
 
@@ -23,15 +25,26 @@ that allows you to fully customize the menu for different pages and users.
 
 The navigation menu is configured in a class that extends `MoonShine\Laravel\Layouts\AppLayout` through the `menu()` method.
 
-During the installation of the admin panel, depending on the configurations you choose, a class **App\MoonShine\Layouts\MoonShineLayout** will be created,
+During the installation of the admin panel, depending on the configurations you choose, a class `App\MoonShine\Layouts\MoonShineLayout` will be created,
 which already contains the `menu()` method.
 
 In the future, if necessary, you can create other *Layouts* for specific pages.
 
-To add a menu item, you need to use the class **MoonShine\Menu\MenuItem** and its static method `make()`.
+> [!NOTE]
+> Also try an [alternative way](#menu-autoload) to generate the menu using **autoupload**.
+
+<a name="items"></a>
+## Items
+
+To add a menu item, you need to use the class `MenuItem`.
 
 ```php
-MenuItem::make(Closure|string $label, Closure|MenuFillerContract|string $filler, string $icon = null, Closure|bool $blank = false)
+make(
+    Closure|string $label,
+    Closure|MenuFillerContract|string $filler,
+    string $icon = null,
+    Closure|bool $blank = false,
+)
 ```
 
 - `$label` - the name of the menu item,
@@ -61,23 +74,27 @@ final class MoonShineLayout extends AppLayout
             MenuItem::make('Admins', MoonShineUserResource::class),
             MenuItem::make('Home', fn() => route('home')),
             MenuItem::make('Docs', 'https://moonshine-laravel.com/docs'),
-            MenuItem::make('Laravel Docs', 'https://laravel.com/docs', blank: true)
+            MenuItem::make('Laravel Docs', 'https://laravel.com/docs', blank: true),
         ];
     }
 }
 ```
 
-> [!TIP]
-> If the menu is created for [ModelResource](/docs/{{version}}/model-resource/index) or [CrudResource](/docs/{{version}}/advanced/crud-resource), the first page declared in the `pages()` method will be used for the menu item.
+> [!NOTE]
+> If the menu is created for [ModelResource](/docs/{{version}}/model-resource/index) or [CrudResource](/docs/{{version}}/advanced/crud-resource),
+> the first page declared in the `pages()` method will be used for the menu item.
 
 <a name="groups"></a>
 ## Groups
 
-Menu items can be grouped together.
-For this, the class `MoonShine\MenuManager\MenuGroup` is used with the static method `make()`.
+Menu items can be grouped together. To do this, use the `MenuGroup` class.
 
 ```php
-MenuGroup::make(Closure|string $label, iterable $items, string|null $icon = null)
+make(
+    Closure|string $label,
+    iterable $items,
+    string|null $icon = null,
+)
 ```
 
 - `$label` - the name of the group,
@@ -156,7 +173,7 @@ Menu items can be visually separated using `MenuDivider`.
 /**
  * @param  (Closure(MenuElementContract $context): string)|string  $label
  */
-MenuDivider::make(Closure|string $label = '')
+make(Closure|string $label = '')
 ```
 
 ```php
@@ -179,7 +196,7 @@ final class MoonShineLayout extends AppLayout
         return [
             MenuItem::make('Admins', MoonShineUserResource::class),
             MenuDivider::make(),
-            MenuItem::make('Roles', MoonShineUserRoleResource::class)
+            MenuItem::make('Roles', MoonShineUserRoleResource::class),
         ];
     }
 }
@@ -222,12 +239,16 @@ final class MoonShineLayout extends AppLayout
 You can use the `icon()` method.
 
 ```php
-icon(string $icon, bool $custom = false, ?string $path = null)
+icon(
+    string $icon,
+    bool $custom = false,
+    ?string $path = null,
+)
 ```
 
 - `$icon` - the name of the icon or HTML (if custom mode is used),
 - `$custom` - custom mode,
-- `$path` - the path to the directory where the **blade** templates of icons are stored.
+- `$path` - the path to the directory where the **Blade** templates of icons are stored.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -493,7 +514,7 @@ final class MoonShineLayout extends AppLayout
 <a name="active"></a>
 ## Active item
 
-A menu item becomes active if it matches the ***url***, but the `forceActive()` method allows you to forcibly make an item active.
+A menu item becomes active if it matches the ***url***, but the `whenActive()` method allows you to forcibly make an item active.
 
 ```php
 /**
@@ -610,7 +631,7 @@ If you need to change the **view** using a *fluent interface*, you can use the `
 customView(string $path)
 ```
 
-- `$path` - the path to the **blade** template.
+- `$path` - the path to the **Blade** template.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -636,4 +657,80 @@ final class MoonShineLayout extends AppLayout
         ];
     }
 }
+```
+
+<a name="menu-autoload"></a>
+## Menu autoload
+
+To activate an alternative menu creation option, replace the array in the `menu()` method by calling `autoloadMenu()` method.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:3]
+namespace App\MoonShine\Layouts;
+
+use MoonShine\Laravel\Layouts\AppLayout;
+
+final class MoonShineLayout extends AppLayout
+{
+    // ...
+
+    protected function menu(): array
+    {
+        return $this->autoloadMenu();
+    }
+}
+```
+
+If you need to skip a page or resource in the menu, use `SkipMenu` attribute.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\MenuManager\Attributes\SkipMenu;
+
+#[SkipMenu]
+class ProfilePage extends Page {}
+```
+
+If you need to wrap pages or resources into groups, use the `Group` attribute.
+The items will be grouped by name.
+You can also specify the icon and the `translatable` flag in the attribute.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\MenuManager\Attributes\Group;
+
+#[Group('moonshine::ui.profile', 'users', translatable: true)]
+class ProfilePage extends Page {}
+```
+
+If you need to display a menu item by condition, use `CanSee` attribute.
+Add a method in the resource or page that will be responsible for the display condition.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\MenuManager\Attributes\CanSee;
+
+#[CanSee(method: 'someMethod')]
+class ArticleResource extends ModelResource
+{
+    public function someMethod(): bool
+    {
+        return false;
+    }
+}
+```
+
+If you need to set the order of the menu items, use `Order` attribute.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\MenuManager\Attributes\Order;
+
+#[Order(1)]
+class ArticleResource extends ModelResource {}
 ```

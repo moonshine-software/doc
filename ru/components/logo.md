@@ -2,6 +2,7 @@
 
 - [Основы](#basics)
 - [Атрибуты](#attributes)
+- [Тёмная тема](#darkmode)
 
 ---
 
@@ -9,8 +10,6 @@
 ## Основы
 
 Компонент `Logo` отображает логотип вашей админ-панели.
-
-Вы можете создать `Logo`, используя статический метод `make()`.
 
 ```php
 make(
@@ -22,11 +21,11 @@ make(
 )
 ```
 
- - $href - адрес ссылки для перехода по клику на логотип,
- - $logo - ссылка на изображения логотипа,
- - $logoSmall - ссылка на уменьшенную версию логотипа,
- - $title - подсказа при наведении,
- - $minimized - взаимодействует с [Sidebar](/docs/{{version}}/components/sidebar). Если установлено true, то автоматически будет выбрано small logo.
+ - `$href` - адрес ссылки для перехода по клику на логотип,
+ - `$logo` - ссылка на изображения логотипа,
+ - `$logoSmall` - ссылка на уменьшенную версию логотипа,
+ - `$title` - подсказа при наведении,
+ - `$minimized` - взаимодействует с [Sidebar](/docs/{{version}}/components/sidebar). Если установлено true, то автоматически будет выбрано small logo.
 
 ~~~tabs
 tab: Class
@@ -52,10 +51,31 @@ tab: Blade
 <a name="attributes"></a>
 ## Атрибуты
 
-Для добавления атрибутов к тегу `img` у лого существуют два метода для двух режимов отображения - `logoAttributes()` и `logoSmallAttributes()`
+Для добавления атрибутов к тегу `img` у лого существуют два метода для двух режимов отображения - `logoAttributes()` и `logoSmallAttributes()`.
 
 ```php
-logoAttributes(array $attributes): self
+logoAttributes(array $attributes)
 
-logoSmallAttributes(array $attributes): self
+logoSmallAttributes(array $attributes)
+```
+
+<a name="darkmode"></a>
+## Тёмная тема
+
+Вы можете отдельно указать логотипы для тёмной темы.
+Для этого воспользуйтесь методом `darkMode()`.
+
+```php
+darkMode(string $logo, ?string $small = null)
+```
+
+```php
+protected function getLogoComponent(): Logo
+{
+    return parent::getLogoComponent()
+        ->darkMode(
+            asset('logo-dark.svg'),
+            asset('logo-dark-small.svg'),
+        );
+}
 ```

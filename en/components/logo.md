@@ -2,6 +2,7 @@
 
 - [Basics](#basics)
 - [Attributes](#attributes)
+- [DarkMode](#darkmode)
 
 ---
 
@@ -9,8 +10,6 @@
 ## Basics
 
 The `Logo` component displays the logo of your admin panel.
-
-You can create a `Logo` using the static method `make()`.
 
 ```php
 make(
@@ -22,11 +21,11 @@ make(
 )
 ```
 
- - \$href - the URL for the link when clicking on the logo,
- - \$logo - the URL to the logo image,
- - \$logoSmall - the URL to the small version of the logo,
- - \$title - tooltip on hover,
- - \$minimized - interacts with [Sidebar](/docs/{{version}}/components/sidebar). If set to true, the small logo will automatically be selected.
+ - `$href` - the URL for the link when clicking on the logo,
+ - `$logo` - the URL to the logo image,
+ - `$logoSmall` - the URL to the small version of the logo,
+ - `$title` - tooltip on hover,
+ - `$minimized` - interacts with [Sidebar](/docs/{{version}}/components/sidebar). If set to true, the small logo will automatically be selected.
 
 ~~~tabs
 tab: Class
@@ -52,10 +51,31 @@ tab: Blade
 <a name="attributes"></a>
 ## Attributes
 
-To add attributes to the `img` tag of the logo, there are two methods for the two display modes - `logoAttributes()` and `logoSmallAttributes()`
+To add attributes to the `img` tag of the logo, there are two methods for the two display modes - `logoAttributes()` and `logoSmallAttributes()`.
 
 ```php
-logoAttributes(array $attributes): self
+logoAttributes(array $attributes)
 
-logoSmallAttributes(array $attributes): self
+logoSmallAttributes(array $attributes)
+```
+
+<a name="darkmode"></a>
+## DarkMode
+
+You can specify logos for the dark theme separately.
+To do this, use the `darkMode()` method.
+
+```php
+darkMode(string $logo, ?string $small = null)
+```
+
+```php
+protected function getLogoComponent(): Logo
+{
+    return parent::getLogoComponent()
+        ->darkMode(
+            asset('logo-dark.svg'),
+            asset('logo-dark-small.svg'),
+        );
+}
 ```

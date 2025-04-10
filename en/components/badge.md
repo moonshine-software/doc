@@ -1,13 +1,26 @@
 # Badge
 
-If you need to place a badge on the page, use this component.
+If you need to place a badge on the page, use `Badge` component.
+
+```php
+make(
+    string $value = '',
+    string|Color $color = Color::PURPLE
+)
+```
+
+- `$value` - text displayed in the badge,
+- `$color` - color code (string or Enum).
 
 The following badges are available:
 
 ~~~tabs
 tab: Class
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
 use MoonShine\Support\Enums\Color;
+use MoonShine\UI\Components\Badge;
 
 Badge::make('Primary', Color::PRIMARY);
 Badge::make('Secondary', Color::SECONDARY);

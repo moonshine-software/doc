@@ -15,12 +15,16 @@
 или создать свой собственный набор.
 
 ```php
-icon(string $icon, bool $custom = false, ?string $path = null)
+icon(
+    string $icon,
+    bool $custom = false,
+    ?string $path = null,
+)
 ```
 
-`$icon` - название иконки или html (если используется кастомный режим),
-`$custom` - кастомный режим,
-`$path` - путь до директории где лежат blade шаблоны иконок.
+- `$icon` - название иконки или html (если используется кастомный режим),
+- `$custom` - кастомный режим,
+- `$path` - путь до директории где лежат Blade шаблоны иконок.
 
 Простой пример:
 
@@ -31,11 +35,14 @@ icon(string $icon, bool $custom = false, ?string $path = null)
 Пример с передачей HTML иконки:
 
 ```php
-->icon(svg('path-to-icon-pack')->toHtml(), custom: true),
+->icon(
+    svg('path-to-icon-pack')->toHtml(),
+    custom: true
+)
 ```
 
 > [!NOTE]
-> Функция `svg` в примере из пакета `Blade Icons`
+> Функция `svg()` в примере из пакета `Blade Icons`.
 
 Пример с указанием директории где располагаются ваши иконки:
 
@@ -44,7 +51,7 @@ icon(string $icon, bool $custom = false, ?string $path = null)
 ```
 
 > [!NOTE]
-> В примере иконки должны располагаться в директории `resources/views/icons`, наименование иконки эквивалентно `blade` файлу, в котором располагается `svg`.
+> В примере иконки должны располагаться в директории `resources/views/icons`, наименование иконки эквивалентно Blade файлу, в котором располагается SVG.
 
 <a name="outline"></a>
 ## Outline

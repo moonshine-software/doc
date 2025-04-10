@@ -11,7 +11,7 @@
 To create tabs, you can use the `Tabs` component.
 
 ```php
-make(iterable $components = [], public array $items = [])
+make(iterable $components = [])
 ```
 
 To add tabs, the `Tab` component is used.
@@ -26,6 +26,8 @@ make(
 ~~~tabs
 tab: Class
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:3]
 use MoonShine\UI\Components\Tabs;
 use MoonShine\UI\Components\Tabs\Tab;
 use MoonShine\UI\Fields\Text;
@@ -41,11 +43,13 @@ Tabs::make([
 ```
 tab: Blade
 ```blade
-<x-moonshine::tabs :items="[
-    'tab_1' => 'Tab 1',
-    'tab_2' => 'Tab 2',
-    'tab_3' => 'Tab 3',
-]">
+<x-moonshine::tabs
+    :items="[
+        'tab_1' => 'Tab 1',
+        'tab_2' => 'Tab 2',
+        'tab_3' => 'Tab 3',
+    ]"
+>
     <x-slot:tab_1>
         Tab 1 content
     </x-slot>
@@ -70,7 +74,8 @@ tab: Blade
 You can specify the default active tab by setting `active`.
 
 ```blade
-<x-moonshine::tabs :items="[
+<x-moonshine::tabs
+    :items="[
         'tab_1' => 'Tab 1',
         'tab_2' => 'Tab 2',
         'tab_3' => 'Tab 3',

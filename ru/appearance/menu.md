@@ -1,6 +1,7 @@
 # Меню
 
 - [Основы](#basics)
+- [Элементы](#items)
 - [Группы](#groups)
 - [Разделитель](#divider)
 - [Иконка](#icon)
@@ -12,6 +13,7 @@
 - [Атрибуты](#attributes)
 - [Изменение кнопки](#change-button)
 - [Изменение шаблона](#custom-view)
+- [Автозагрузка меню](#menu-autoload)
 
 ---
 
@@ -23,15 +25,26 @@
 
 Настройка навигационного меню осуществляется в классе, который расширяет `MoonShine\Laravel\Layouts\AppLayout` через метод `menu()`.
 
-В процессе установки админ-панели, в зависимости от выбранных вами конфигураций, будет создан класс **App\MoonShine\Layouts\MoonShineLayout**,
+В процессе установки админ-панели, в зависимости от выбранных вами конфигураций, будет создан класс `App\MoonShine\Layouts\MoonShineLayout`,
 который уже содержит метод `menu()`.
 
 В дальнейшем, если вам потребуется, вы сможете создавать другие *Layout* для определенных страниц.
 
-Для того чтобы добавить пункт меню, необходимо воспользоваться классом **MoonShine\Menu\MenuItem** и его статическим методом `make()`.
+> [!NOTE]
+> Попробуйте так же [альтернативный способ](#menu-autoload) генерации меню с помощью **автозагрузки**.
+
+<a name="items"></a>
+## Элементы
+
+Для того чтобы добавить пункт меню, необходимо воспользоваться классом `MenuItem`.
 
 ```php
-MenuItem::make(Closure|string $label, Closure|MenuFillerContract|string $filler, string $icon = null, Closure|bool $blank = false)
+make(
+    Closure|string $label,
+    Closure|MenuFillerContract|string $filler,
+    string $icon = null,
+    Closure|bool $blank = false,
+)
 ```
 
 - `$label` - название пункта меню,
@@ -61,23 +74,27 @@ final class MoonShineLayout extends AppLayout
             MenuItem::make('Admins', MoonShineUserResource::class),
             MenuItem::make('Home', fn() => route('home')),
             MenuItem::make('Docs', 'https://moonshine-laravel.com/docs'),
-            MenuItem::make('Laravel Docs', 'https://laravel.com/docs', blank: true)
+            MenuItem::make('Laravel Docs', 'https://laravel.com/docs', blank: true),
         ];
     }
 }
 ```
 
-> [!TIP]
-> Если меню создается для [ModelResource](/docs/{{version}}/model-resource/index) или [CrudResource](/docs/{{version}}/advanced/crud-resource), для элемента меню будет использоваться первая страница, объявленная в методе `pages()`.
+> [!NOTE]
+> Если меню создается для [ModelResource](/docs/{{version}}/model-resource/index) или [CrudResource](/docs/{{version}}/advanced/crud-resource),
+> для элемента меню будет использоваться первая страница, объявленная в методе `pages()`.
 
 <a name="groups"></a>
 ## Группы
 
-Пункты меню можно объединять в группы.
-Для этого используется класс `MoonShine\MenuManager\MenuGroup` со статическим методом `make()`.
+Пункты меню можно объединять в группы. Для этого воспользуетесь классом `MenuGroup`.
 
 ```php
-MenuGroup::make(Closure|string $label, iterable $items, string|null $icon = null)
+make(
+    Closure|string $label,
+    iterable $items,
+    string|null $icon = null,
+)
 ```
 
 - `$label` - название группы,
@@ -156,7 +173,7 @@ final class MoonShineLayout extends AppLayout
 /**
  * @param  (Closure(MenuElementContract $context): string)|string  $label
  */
-MenuDivider::make(Closure|string $label = '')
+make(Closure|string $label = '')
 ```
 
 ```php
@@ -179,7 +196,7 @@ final class MoonShineLayout extends AppLayout
         return [
             MenuItem::make('Admins', MoonShineUserResource::class),
             MenuDivider::make(),
-            MenuItem::make('Roles', MoonShineUserRoleResource::class)
+            MenuItem::make('Roles', MoonShineUserRoleResource::class),
         ];
     }
 }
@@ -222,12 +239,16 @@ final class MoonShineLayout extends AppLayout
 Воспользоваться методом `icon()`.
 
 ```php
-icon(string $icon, bool $custom = false, ?string $path = null)
+icon(
+    string $icon,
+    bool $custom = false,
+    ?string $path = null,
+)
 ```
 
 - `$icon` - название иконки или html (если используется кастомный режим),
 - `$custom` - кастомный режим,
-- `$path` - путь до директории где лежат **blade** шаблоны иконок.
+- `$path` - путь до директории где лежат **Blade** шаблоны иконок.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -493,7 +514,7 @@ final class MoonShineLayout extends AppLayout
 <a name="active"></a>
 ## Активный пункт
 
-Пункт меню становится активным если он соответствует ***url***, но метод `forceActive()` позволяет принудительно сделать пункт активным.
+Пункт меню становится активным если он соответствует ***url***, но метод `whenActive()` позволяет принудительно сделать пункт активным.
 
 ```php
 /**
@@ -610,7 +631,7 @@ final class MoonShineLayout extends AppLayout
 customView(string $path)
 ```
 
-- `$path` - путь до **blade** шаблона.
+- `$path` - путь до **Blade** шаблона.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -636,4 +657,80 @@ final class MoonShineLayout extends AppLayout
         ];
     }
 }
+```
+
+<a name="menu-autoload"></a>
+## Автозагрузка меню
+
+Чтобы активировать альтернативный вариант создания меню, замените массив в методе `menu()` на вызов метода `autoloadMenu()`.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:3]
+namespace App\MoonShine\Layouts;
+
+use MoonShine\Laravel\Layouts\AppLayout;
+
+final class MoonShineLayout extends AppLayout
+{
+    // ...
+
+    protected function menu(): array
+    {
+        return $this->autoloadMenu();
+    }
+}
+```
+
+Если вам нужно пропустить страницу или ресурс в меню, используйте атрибут `SkipMenu`.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\MenuManager\Attributes\SkipMenu;
+
+#[SkipMenu]
+class ProfilePage extends Page {}
+```
+
+Если вам нужно объединить страницы или ресурсы в группы, используйте атрибут `Group`.
+Элементы будут сгруппированы по названию.
+В атрибуте так же можно указать иконку и флаг `translatable`.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\MenuManager\Attributes\Group;
+
+#[Group('moonshine::ui.profile', 'users', translatable: true)]
+class ProfilePage extends Page {}
+```
+
+Если вам нужно отобразить элемент меню по условию, используйте атрибут `CanSee`.
+Добавьте метод в ресурсе или странице, который будет отвечать за условие отображения.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\MenuManager\Attributes\CanSee;
+
+#[CanSee(method: 'someMethod')]
+class ArticleResource extends ModelResource
+{
+    public function someMethod(): bool
+    {
+        return false;
+    }
+}
+```
+
+Если вам нужно задать порядок элементов меню, используйте атрибут `Order`.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\MenuManager\Attributes\Order;
+
+#[Order(1)]
+class ArticleResource extends ModelResource {}
 ```

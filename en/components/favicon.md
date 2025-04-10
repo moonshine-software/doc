@@ -9,7 +9,9 @@
 <a name="basics"></a>
 ## Basics
 
-The `Favicon` component is used to add a favicon to an HTML page.
+@include('_includes/note-about-appearance-layout')
+
+The `Favicon` designed is used to add a favicon to an HTML page.
 
 ~~~tabs
 tab: Class
@@ -24,13 +26,13 @@ tab: Blade
 ```
 ~~~
 
-> [!TIP]
-> Parent component: [head](/docs/{{version}}/components/head)
+> [!NOTE]
+> Parent component: [head](/docs/{{version}}/components/head).
 
 <a name="assets"></a>
 ## Custom favicons
 
-To change favicons, you need to use the `customAssets()` method or specify the corresponding parameter in the Blade component.
+To change favicons, you need to use the `customAssets()` method or specify the corresponding parameter in the **Blade** component.
 
 ~~~tabs
 tab: Class

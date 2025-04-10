@@ -67,7 +67,7 @@ toPage(
     array $params = [],
     bool $redirect = false,
     ?string $fragment = null
-): RedirectResponse|string
+)
 ```
 
 - `$page` - page or class-string of the page (optional),
@@ -77,10 +77,10 @@ toPage(
 - `$fragment` - URL will be used for Fragment loading (optional).
 
 ```php
-toPage(page: IndexPage::class);
+toPage(page: CustomPage::class);
 toPage(page: IndexPage::class, resource: PostResource::class);
-toPage(page: IndexPage::class, redirect: true);
-toPage(page: IndexPage::class, fragment: true);
+toPage(page: CustomPage::class, redirect: true);
+toPage(page: CustomPage::class, fragment: true);
 ```
 
 <a name="active-page"></a>
@@ -97,6 +97,14 @@ if($resource->getActivePage() instanceof IndexPage)
 if($resource->getActivePage() instanceof FormPage)
 
 if($resource->getActivePage() instanceof DetailPage)
+```
+
+You can also change the active page. This is useful if you are using a custom controller and need to set the active page for the current request to the resource.
+
+```php
+$resource->setActivePage(
+    $resource->getIndexPage()
+);
 ```
 
 <a name="is-page"></a>

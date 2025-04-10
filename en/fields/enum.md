@@ -1,7 +1,6 @@
 # Enum
 
 - [Basics](#basics)
-- [Creation](#make)
 - [Displaying Values](#displaying-values)
 - [Color](#color)
 
@@ -16,18 +15,15 @@ Inherits from [Select](/docs/{{version}}/fields/select).
 
 Operates the same as the `Select` field but accepts *Enum* as options.
 
-> [!NOTE]
-> The model attributes require Enum Cast.
-
-<a name="make"></a>
-## Creation
-
 ```php
 use MoonShine\UI\Fields\Enum;
 
 Enum::make('Status')
     ->attach(StatusEnum::class)
 ```
+
+> [!NOTE]
+> The model attributes require Enum Cast.
 
 <a name="displaying-values"></a>
 ## Displaying Values
@@ -59,9 +55,10 @@ enum StatusEnum: string
 <a name="color"></a>
 ## Color
 
-If the *Enum* implements the `getColor()` method, the *preview* field will be displayed as an icon of a specific color.
+If *Enum* implements the `getColor()` method, the field in "preview" mode will be displayed as an icon of a specific color.
 
 Available colors:
+
 <p class="my-4 flex flex-wrap gap-1">
     <span class="badge badge-primary">primary</span>
     <span class="badge badge-secondary">secondary</span>

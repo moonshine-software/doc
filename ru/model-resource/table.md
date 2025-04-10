@@ -103,6 +103,15 @@ protected function indexButtons(): ListOf
 }
 ```
 
+Названия стандартных кнопок для таблицы:
+- resource-detail-button,
+- resource-edit-button,
+- resource-delete-button,
+- mass-delete-button.
+
+> [!NOTE]
+> Также можно глобально отключить любые действия с ресурсом (см. [активные действия](/docs/{{version}}/model-resource/index#active-actions).
+
 Очистить набор кнопок и добавить свою:
 
 ```php
@@ -265,7 +274,10 @@ class PostResource extends ModelResource
 Если необходимо исключить поля из выбора, то воспользуйтесь методом `columnSelection()`.
 
 ```php
-public function columnSelection(bool $active = true, bool $hideOnInit = false)
+columnSelection(
+    bool $active = true,
+    bool $hideOnInit = false
+)
 ```
 
 ```php
@@ -486,10 +498,26 @@ class PostResource extends ModelResource
             Text::make('Title'),
             Switcher::make('Active')
                 ->updateOnPreview(
-                    events: [AlpineJs::event(JsEvent::TABLE_ROW_UPDATED, 'index-table-{row-id}')]
+                    events: [AlpineJs::event(JsEvent::TABLE_ROW_UPDATED, $this->getListComponentNameWithRow())]
                 )
         ];
     }
+}
+```
+
+Также пример ответа с событием.
+
+```php
+public function softDelete(MoonShineRequest $request): MoonShineJsonResponse
+{
+    $item = $request->getResource()->getItem();
+    $item->delete();
+
+    return MoonShineJsonResponse::make()
+        ->events([
+            AlpineJs::event(JsEvent::TABLE_ROW_UPDATED, $this->getListComponentNameWithRow($item->getKey()))
+        ])
+        ->toast('Success');
 }
 ```
 
@@ -639,3 +667,7 @@ protected function tfoot(): null|TableRowsContract|Closure
     };
 }
 ```
+
+> [!TIP]
+> Вы можете использовать листинг компонент вне ресурса, но вы должны иметь представление, что он из себя представляет.
+> `app(MoonShineUserResource::class)->getIndexPage()->getListComponent(withoutFragment: false)`

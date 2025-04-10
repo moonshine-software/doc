@@ -30,7 +30,7 @@ tab: Blade
 Вы можете использовать текст в качестве разделителя, для этого нужно передать его в метод `make()`.
 
 ```php
-Divider::make('Разделитель')
+Divider::make('Separator')
 ```
 
 <a name="centering"></a>
@@ -39,5 +39,6 @@ Divider::make('Разделитель')
 Метод `centered()` позволяет центрировать текст.
 
 ```php
-Divider::make('Разделитель')->centered()
+Divider::make('Separator')
+    ->centered()
 ```

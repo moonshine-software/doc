@@ -10,8 +10,6 @@
 
 The `ValueMetric` is designed to display a value. For example, how many records are in a table.
 
-You can create a `ValueMetric` using the static method `make()`.
-
 ```php
 make(Closure|string $label)
 ```
@@ -21,7 +19,8 @@ tab: Class
 ```php
 use MoonShine\UI\Components\Metrics\Wrapped\ValueMetric;
 
-ValueMetric::make('Completed orders')->value(fn() => Order::completed()->count())
+ValueMetric::make('Completed orders')
+    ->value(fn() => Order::completed()->count())
 ```
 tab: Blade
 ```blade
@@ -48,11 +47,10 @@ use MoonShine\UI\Components\Metrics\Wrapped\ValueMetric;
 protected function components(): iterable
 {
     return [
-        ValueMetric::make('Completed orders')->value(fn(): int => Order::completed()->count())
+        ValueMetric::make('Completed orders')
+            ->value(fn(): int => Order::completed()->count())
     ];
 }
-
-// ...
 ```
 
 <a name="progress"></a>
@@ -120,7 +118,7 @@ columnSpan(
 <a name="line-donut"></a>
 ## Line/Donut
 
-The package is installed separately and is based on the [ApexCharts library](https://apexcharts.com/)
+The package is installed separately and is based on the [ApexCharts library](https://apexcharts.com/).
 
 ```shell
 composer require moonshine/apexcharts

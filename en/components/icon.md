@@ -10,23 +10,28 @@
 
 The `Icon` component is used for rendering icons.
 
-You can create an `Icon` using the static method `make()` of the `Icon` class.
-
 ```php
-make(string $icon, int $size = 5, string|Color $color = '', ?string $path = null)
+use MoonShine\Support\Enums\Color;
+
+make(
+    string $icon,
+    int $size = 5,
+    Color|string $color = '',
+    ?string $path = null,
+)
 ```
 
-`$icon` - the name of the icon or HTML (if custom mode is used),
-`$size` - size,
-`$color` - color,
-`$path` - the path to the directory where the Blade templates for icons are located.
+- `$icon` - name of the icon or HTML (if custom mode is used),
+- `$size` - size,
+- `$color` - color,
+- `$path` - path to the directory where the Blade templates for icons are located.
 
 ~~~tabs
 tab: Class
 ```php
 use MoonShine\UI\Components\Icon;
 
-Icon::make('users');
+Icon::make('users')
 ```
 tab: Blade
 ```blade
@@ -40,5 +45,7 @@ tab: Blade
 Example with passing an HTML icon:
 
 ```php
-Icon::make(svg('path-to-icon-pack')->toHtml())->custom(),
+Icon::make(
+    svg('path-to-icon-pack')->toHtml()
+)->custom()
 ```

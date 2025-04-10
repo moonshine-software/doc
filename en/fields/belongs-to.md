@@ -12,7 +12,6 @@
 - [Values with Image](#with-image)
 - [Options](#options)
 - [Native Mode](#native)
-- [Reactivity](#reactive)
 - [Link](#link)
 
 ---
@@ -448,11 +447,6 @@ use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 
 BelongsTo::make('Type')->native()
 ```
-
-<a name="reactive"></a>
-## Reactivity
-
-This field supports [reactivity](/docs/{{version}}/fields/basic-methods#reactive).
 
 <a name="link"></a>
 ## Link

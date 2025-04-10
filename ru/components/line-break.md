@@ -2,8 +2,6 @@
 
 Компонент `LineBreak` добавляет вертикальный отступ между элементами.
 
-Вы можете создать `LineBreak`, используя статический метод `make()`.
-
 ```php
 make(string $name = 'default')
 ```
@@ -13,7 +11,7 @@ tab: Class
 ```php
 use MoonShine\UI\Components\Layout\LineBreak;
 
-LineBreak::make(),
+LineBreak::make()
 ```
 tab: Blade
 ```blade

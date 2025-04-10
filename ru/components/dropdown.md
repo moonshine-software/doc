@@ -25,14 +25,14 @@ make(
 )
 ```
 
-- $title - заголовок для списка внутри Dropdown
-- $toggler - внешний вид кнопки для отображения
-- $content - контент Dropdown
-- $items - элементы, для формирования списка вида ul li
-- $searchable - поиск по контенту
-- $searchPlaceholder - placeholder для поиска
-- $placement - расположение
-- $footer - footer для списка внутри Dropdown
+- `$title` - заголовок для списка внутри `Dropdown`,
+- `$toggler` - внешний вид кнопки для отображения,
+- `$content` - контент Dropdown,
+- `$items` - элементы, для формирования списка вида ul li,
+- `$searchable` - поиск по контенту,
+- `$searchPlaceholder` - placeholder для поиска,
+- `$placement` - расположение,
+- `$footer` - footer для списка внутри `Dropdown`.
 
 ~~~tabs
 tab: Class
@@ -50,7 +50,7 @@ tab: Blade
 ```blade
 <x-moonshine::dropdown>
     <div class="m-4">
-        {{ fake()->text() }}
+        Content
     </div>
     <x-slot:toggler>Click me</x-slot:toggler>
 </x-moonshine::dropdown>
@@ -60,10 +60,10 @@ tab: Blade
 <a name="heading"></a>
 ## Заголовок
 
-```php
+```blade
 <x-moonshine::dropdown title="Dropdown title">
     <div class="m-4">
-        {{ fake()->text() }}
+        Content
     </div>
     <x-slot:toggler>Click me</x-slot:toggler>
 </x-moonshine::dropdown>
@@ -72,10 +72,10 @@ tab: Blade
 <a name="footer"></a>
 ## Подвал
 
-```php
+```blade
 <x-moonshine::dropdown>
     <div class="m-4">
-        {{ fake()->text() }}
+        Content
     </div>
     <x-slot:toggler>Click me</x-slot:toggler>
     <x-slot:footer>Dropdown footer</x-slot:footer>
@@ -85,21 +85,13 @@ tab: Blade
 <a name="location"></a>
 ## Расположение
 
-Доступные расположения:
-
-- bottom,
-- top,
-- left,
-- right.
-
-```php
+```blade
 <x-moonshine::dropdown placement="left">
     <div class="m-4">
-        {{ fake()->text() }}
+        Content
     </div>
     <x-slot:toggler>Click me</x-slot:toggler>
 </x-moonshine::dropdown>
 ```
 
-> [!NOTE]
-> Дополнительные варианты расположения можно найти в официальной документации [tippy.js](https://atomiks.github.io/tippyjs/v6/all-props/#placement).
+Актуальный список доступных расположений смотрите в документации [popper.js](https://popper.js.org/docs/v2/constructors/#options).

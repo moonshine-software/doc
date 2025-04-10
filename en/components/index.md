@@ -14,7 +14,7 @@
 ## Description
 
 Almost everything in **MoonShine** consists of components.
-The *MoonShineComponent* itself is a *blade* component and contains additional convenient methods for interaction in the admin panel.
+The `MoonShineComponent` itself is a **Blade** component and contains additional convenient methods for interaction in the admin panel.
 
 <a name="conditional-methods"></a>
 ## Conditional Methods
@@ -31,7 +31,11 @@ Box::make()
 The `when()` method implements a *fluent interface* and will execute the callback when the first argument passed to the method is true.
 
 ```php
-when($value = null, ?callable $callback = null, ?callable $default = null)
+when(
+    $value = null,
+    ?callable $callback = null,
+    ?callable $default = null,
+)
 ```
 
 ```php
@@ -42,7 +46,11 @@ Box::make()
 The `unless()` method is the opposite of the `when()` method.
 
 ```php
-unless($value = null, ?callable $callback = null, ?callable $default = null)
+unless(
+    $value = null,
+    ?callable $callback = null,
+    ?callable $default = null,
+)
 ```
 
 <a name="custom-view"></a>
@@ -51,11 +59,15 @@ unless($value = null, ?callable $callback = null, ?callable $default = null)
 When it's necessary to change the view using a fluent interface, you can use the `customView()` method.
 
 ```php
-customView(string $view, array $data = [])
+customView(
+    string $view,
+    array $data = []
+)
 ```
 
 ```php
-Box::make('Title', [])->customView('component.my-custom-block')
+Box::make('Title', [])
+    ->customView('component.my-custom-block')
 ```
 
 <a name="on-before-render"></a>
@@ -67,13 +79,14 @@ If you need to access a component immediately before rendering, you can use the 
 /**
  * @param  Closure(static $ctx): void  $onBeforeRender
  */
-public function onBeforeRender(Closure $onBeforeRender): static
+onBeforeRender(Closure $onBeforeRender)
 ```
 
 ```php
-Box::make('Title', [])->onBeforeRender(function(Box $ctx) {
-    // ...
-})
+Box::make('Title', [])
+    ->onBeforeRender(function(Box $ctx) {
+        // ...
+    })
 ```
 
 <a name="assets"></a>
@@ -85,7 +98,7 @@ To add assets on the fly, you can use the `addAssets()` method.
 Box::make()
     ->addAssets([
         new Css(Vite::asset('resources/css/block.css'))
-    ]),
+    ])
 ```
 
 If you are implementing your own component, you can declare a set of assets in two ways.
@@ -100,7 +113,7 @@ protected function assets(): array
 {
     return [
         Js::make('/js/custom.js'),
-        Css::make('/css/styles.css')
+        Css::make('/css/styles.css'),
     ];
 }
 ```

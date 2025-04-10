@@ -310,48 +310,61 @@ class CategoryResource extends ModelResource implements HasImportExportContract
 
 `ImportHandler` и `ExportHandler` расширяют базовый класс `Handler` который реализует дополнительные методы.
 
-#### icon
+### icon
+
+Иконка для кнопки:
 
 ```php
-// иконка для кнопки
 icon(string $icon)
 ```
 
-#### queue
+### queue
+
+Запускать процессы в фоне:
 
 ```php
-// запускать процессы в фоне
 queue()
 ```
 
-#### modifyButton
+### modifyButton
+
+Модификация кнопки:
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:1]
 use MoonShine\UI\Components\ActionButton;
 
-// модификация кнопки
-modifyButton(fn(ActionButton $btn) => $btn->class('my-class'))
+modifyButton(
+    fn(ActionButton $btn) => $btn->class('my-class')
+)
 ```
 
-#### notifyUsers
+### notifyUsers
+
+Выбор пользователей для уведомления:
 
 ```php
-// выбор пользователей для уведомления
-notifyUsers(fn() => [auth()->id()])
+notifyUsers(
+    fn() => [auth()->id()]
+)
 ```
 
-#### when
+### when
+
+Методы по условию:
 
 ```php
-// методы по условию
-when($value = null, callable $callback = null, callable $default = null)
+when(
+    $value = null,
+    callable $callback = null,
+    callable $default = null,
+)
 ```
 
-`$value` - условие,
-`$callback` - `callback` функция, которая будет выполнена, если условие имеет значение `TRUE`,
-`$default` - `callback` функция, которая будет выполнена, если условие имеет значение `FALSE`.
+- `$value` - условие,
+- `$callback` - `callback` функция, которая будет выполнена, если условие имеет значение `TRUE`,
+- `$default` - `callback` функция, которая будет выполнена, если условие имеет значение `FALSE`.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -382,16 +395,21 @@ class CategoryResource extends ModelResource implements HasImportExportContract
 }
 ```
 
-#### unless
+### unless
+
+Методы по условию:
 
 ```php
-// методы по условию
-unless($value = null, callable $callback = null, callable $default = null)
+unless(
+    $value = null,
+    callable $callback = null,
+    callable $default = null,
+)
 ```
 
-`$value` - условие,
-`$callback` - `callback` функция, которая будет выполнена, если условие имеет значение `FALSE`,
-`$default` - `callback` функция, которая будет выполнена, если условие имеет значение `TRUE`.
+- `$value` - условие,
+- `$callback` - `callback` функция, которая будет выполнена, если условие имеет значение `FALSE`,
+- `$default` - `callback` функция, которая будет выполнена, если условие имеет значение `TRUE`.
 
 > [!NOTE]
 > Метод `unless()` является обратным методу `when()`.

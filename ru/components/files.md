@@ -2,8 +2,6 @@
 
 Для отображения списка файлов можно использовать компонент `Files`.
 
-Вы можете создать `Files`, используя статический метод `make()`.
-
 ```php
 make(
     array $files = [],
@@ -11,8 +9,8 @@ make(
 )
 ```
 
- - $files - массив файлов,
- - $download - включение возможности скачивать файлы.
+ - `$files` - массив файлов,
+ - `$download` - включение возможности скачивать файлы.
 
 ~~~tabs
 tab: Class
@@ -22,7 +20,7 @@ use MoonShine\UI\Components\Files;
 Files::make([
     '/images/thumb_1.jpg',
     '/images/thumb_2.jpg',
-    '/images/thumb_3.jpg'
+    '/images/thumb_3.jpg',
 ]),
 ```
 tab: Blade
@@ -31,7 +29,7 @@ tab: Blade
     :files="[
         '/images/thumb_1.jpg',
         '/images/thumb_2.jpg',
-        '/images/thumb_3.jpg'
+        '/images/thumb_3.jpg',
     ]"
     :download="false"
 />

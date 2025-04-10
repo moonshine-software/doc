@@ -15,7 +15,6 @@
   - [Lock](#locked)
   - [Suffix](#suffix)
 - [Preview Edit](#preview-edit)
-- [Reactivity](#reactive)
 
 ---
 
@@ -218,8 +217,3 @@ suffix(string $ext)
 ## Preview Edit
 
 This field supports [preview editing](/docs/{{version}}/fields/basic-methods#preview-edit).
-
-<a name="reactive"></a>
-## Reactivity
-
-This field supports [reactivity](/docs/{{version}}/fields/basic-methods#reactive).

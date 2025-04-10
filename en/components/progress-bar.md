@@ -11,21 +11,24 @@
 
 The `ProgressBar` component allows you to create a progress indicator.
 
-You can create a `ProgressBar` using the static method `make()`.
-
 ```php
-make(float|int $value, string $size = 'sm', string|Color $color = '', bool $radial = false,)
+make(
+    float|int $value,
+    string $size = 'sm',
+    string|Color $color = '',
+    bool $radial = false,
+)
 ```
 
- - $value - the value of the indicator,
- - $size - the size,
- - $color - the color,
- - $radial - radial progress indicator
+ - `$value` - value of the indicator,
+ - `$size` - size,
+ - `$color` - color,
+ - `$radial` - radial progress indicator.
 
 ~~~tabs
 tab: Class
 ```php
-use MoonShine\UI\Components\Layout\Divider;
+use MoonShine\UI\Components\ProgressBar;
 
 ProgressBar::make(10)
 ```

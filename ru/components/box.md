@@ -14,13 +14,13 @@
 
 ```php
 make(
-Closure|string|iterable $labelOrComponents = [],
-iterable $components = [],
+    Closure|string|iterable $labelOrComponents = [],
+    iterable $components = []
 )
 ```
 
 - `$labelOrComponents` - содержит компоненты для отображения в блоке или текст для заголовка. Если первый параметр - строка, то это - заголовок,
-- `$components` - содержит компоненты для отображения в блоке. Используется, если первым параметром указан заголовок
+- `$components` - содержит компоненты для отображения в блоке. Используется, если первым параметром указан заголовок.
 
 ~~~tabs
 tab: Class
@@ -31,20 +31,19 @@ use MoonShine\UI\Components\Alert;
 Box::make([
     Alert::make()->content('Text')
 ]);
-
 ```
 tab: Blade
 ```blade
 <x-moonshine::layout.box>
     {{ 'Hello!' }}
-</x-moonshine::box>
+</x-moonshine::layout.box>
 ```
 ~~~
 
 <a name="heading"></a>
 ## Заголовок
 
-Если нужно отобразить заголовок, то просто передайте его первым параметром, а вторым список компонентов
+Если нужно отобразить заголовок, то просто передайте его первым параметром, а вторым список компонентов.
 
 ~~~tabs
 tab: Class
@@ -53,9 +52,9 @@ Box::make('Title box', ['Hello!']);
 ```
 tab: Blade
 ```blade
-<x-moonshine::box title="Title box">
+<x-moonshine::layout.box title="Title box">
     {{ 'Hello!' }}
-</x-moonshine::box>
+</x-moonshine::layout.box>
 ```
 ~~~
 
@@ -71,16 +70,16 @@ Box::make(['Hello!'])->dark();
 ```
 tab: Blade
 ```blade
-<x-moonshine::box dark>
+<x-moonshine::layout.box dark>
     {{ 'Hello!' }}
-</x-moonshine::box>
+</x-moonshine::layout.box>
 ```
 ~~~
 
 <a name="icon"></a>
 ## Иконка
 
-Чтобы отобразить иконку в блоке, используется метод `icon`
+Чтобы отобразить иконку в блоке, используется метод `icon()`.
 
 ~~~tabs
 tab: Class
@@ -89,9 +88,9 @@ Box::make('Title box', ['Hello!'])->icon('users');
 ```
 tab: Blade
 ```blade
-<x-moonshine::box title="Title box">
+<x-moonshine::layout.box title="Title box">
     <x-moonshine::icon name="users"></x-moonshine::icon>
     {{ 'Hello!' }}
-</x-moonshine::box>
+</x-moonshine::layout.box>
 ```
 ~~~

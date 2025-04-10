@@ -13,8 +13,15 @@
 - [Вкладки](#tabs)
 - [Уведомления](#alert)
 - [Изображения](#images)
+- [Shortcodes](#shortcodes)
 
 ___
+
+В MoonShine мы считаем, что хорошая документация — это не просто дополнение к продукту, а его фундамент. Именно она помогает новичкам не бояться старта, а опытным разработчикам — работать быстро и эффективно.
+
+Мы стремимся писать понятным, живым языком, избегая внутреннего жаргона и сложных формулировок. Каждый раздел мы стараемся подкреплять реальными кейсами и иллюстрациями — чтобы всё работало не только в теории, но и в жизни.
+
+Да, это непросто. Хорошая документация требует времени, внимания к деталям и постоянной доработки. Но мы не ищем лёгких путей — мы работаем над тем, чтобы каждый следующий релиз становился чуть понятнее, доступнее и полезнее для всех, кто работает с MoonShine.
 
 <a name="title"></a>
 ## Заголовок
@@ -130,6 +137,27 @@ use MoonShine\UI\Fields\Text; // [tl! collapse:end]
 Text::make('Title')
 ```
 
+Если необходимо указать какие изменения в коде, то можно воспользоваться специальной конструкцией.
+
+```php
+MenuItem::make('Settings', new SettingResource(), 'heroicons.outline.adjustments-vertical') // [tl! remove]
+MenuItem::make('Settings', SettingResource::class, 'adjustments-vertical') // [tl! add]
+```
+или
+```php
+MenuItem::make('Settings', new SettingResource(), 'heroicons.outline.adjustments-vertical') // [tl! --]
+MenuItem::make('Settings', SettingResource::class, 'adjustments-vertical') // [tl! ++]
+```
+
+Указать название файла или класса, к которому относится код, можно через параметр `filename`.
+
+```
+```php filename:config/moonshine.php
+```
+
+> [!WARNING]
+> Использование пробелов в названиях недопустимо.
+
 <a name="list"></a>
 ## Списки
 
@@ -182,4 +210,58 @@ Content tab 2
 
 Пример:
 
+```
 ![belongs_to_many](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/belongs_to_many.png)
+```
+
+Для показа изображения в темной или светлой теме, необходимо к ссылке добавить hash тег `#light` или `#dark`.
+
+```
+![belongs_to_many](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/belongs_to_many.png#light)
+![belongs_to_many](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/belongs_to_many_dark.png#dark)
+```
+
+<a name="shortcodes"></a>
+## Shortcodes
+
+### Include
+
+Шорт-код `include` подключает markdown и отображает его, а затем пропускает содержимое через sprintf, поэтому все параметры после пути к markdown будут переданы в том же порядке.
+
+```md
+@include($path_to_md, ...$params)
+```
+
+#### Пример файла
+
+`_includes/my-partial.md`
+
+```md
+## Hello world
+%s - %s
+```
+
+#### Пример использования
+
+`_includes/test.md`
+
+```md
+<a name="what-is-moonshine"></a>
+## What is MoonShine
+
+@include('_includes/test', 'test', 3)
+```
+
+#### Под капотом
+
+```php
+sprintf('markdown', 'test', 3);
+```
+
+#### Результат
+
+```html
+<h2>What is MoonShine</h2>
+test - 3
+```
+

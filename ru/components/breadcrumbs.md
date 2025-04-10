@@ -1,14 +1,12 @@
 # Breadcrumbs
 
-Для создания "хлебных крошек" используется компонент `Breadcrumbs`
-
-Вы можете создать `Breadcrumbs`, используя статический метод `make()`.
+Для создания "хлебных крошек" используется компонент `Breadcrumbs`.
 
 ```php
 make(array $items = [])
 ```
 
- - $items - список "хлебных крошек", где ключ это ссылка на ресурс, а значение это название элемента.
+ - `$items` - список "хлебных крошек", где ключ это ссылка на ресурс, а значение это название элемента.
 
 ~~~tabs
 tab: Class
@@ -17,7 +15,7 @@ use MoonShine\UI\Components\Breadcrumbs;
 
 Breadcrumbs::make([
     '/' => 'Home',
-    '/articles' => 'Articles'
+    '/articles' => 'Articles',
 ]),
 ```
 tab: Blade
@@ -25,7 +23,7 @@ tab: Blade
 <x-moonshine::breadcrumbs
     :items="[
         '/' => 'Home',
-        '/articles' => 'Articles'
+        '/articles' => 'Articles',
     ]"
 />
 ```

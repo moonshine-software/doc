@@ -10,7 +10,7 @@
 <a name="basics"></a>
 ## Основы
 
-Используя компонент `Spinner`, вы можете создавать индикаторы загрузки.
+Компонент `Spinner` позволяет создать индикатор загрузки.
 
 ```php
 make(
@@ -21,10 +21,10 @@ make(
 )
 ```
 
-- $size - размер,
-- $color - цвет,
-- $fixed - позиция fixed,
-- $absolute - позиция absolute.
+- `$size` - размер,
+- `$color` - цвет,
+- `$fixed` - позиция fixed,
+- `$absolute` - позиция absolute.
 
 ~~~tabs
 tab: Class
@@ -61,12 +61,12 @@ tab: Blade
 
 Доступные цвета:
 
-<span class="badge badge-primary">primary</span>
-<span class="badge badge-secondary">secondary</span>
-<span class="badge badge-success">success</span>
-<span class="badge badge-warning">warning</span>
-<span class="badge badge-error">error</span>
-<span class="badge badge-info">info</span>
+- primary
+- secondary
+- success
+- warning
+- error
+- info
 
 ```php
 <x-moonshine::spinner color="primary" />

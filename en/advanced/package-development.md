@@ -23,6 +23,8 @@ If you are new to **Laravel** package development, here are some resources to he
 Through your package's `ServiceProvider`, you can automatically add resources, pages, create menus, and authorization rules, among other things.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:5]
 namespace Author\MoonShineMyPackage;
 
 use Illuminate\Support\ServiceProvider;
@@ -40,8 +42,7 @@ class MyPackageServiceProvider extends ServiceProvider
             ])
             ->page([
                 MyPackagePage::class
-            ])
-        ;
+            ]);
     }
 }
 ```
@@ -49,17 +50,22 @@ class MyPackageServiceProvider extends ServiceProvider
 You can also interact with the `MenuManager`.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:6]
 namespace Author\MoonShineMyPackage;
 
 use Illuminate\Support\ServiceProvider;
 use MoonShine\Contracts\Core\DependencyInjection\CoreContract;
-use MoonShine\Laravel\DependencyInjection\MoonShine;
 use MoonShine\Contracts\MenuManager\MenuManagerContract;
+use MoonShine\Laravel\DependencyInjection\MoonShine;
 
 class MyPackageServiceProvider extends ServiceProvider
 {
     /** @param MoonShine $core */
-    public function boot(CoreContract $core, MenuManagerContract $menu): void
+    public function boot(
+        CoreContract $core,
+        MenuManagerContract $menu
+    ): void
     {
         $menu->add([
             MenuItem::make('MyPackagePage', MyPackagePage::class)
@@ -71,11 +77,16 @@ class MyPackageServiceProvider extends ServiceProvider
 You can also interact with the `AssetManager` or `ColorManager`.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Contracts\AssetManager\AssetManagerContract;
 
-// ..
+// ...
 
-public function boot(CoreContract $core, AssetManagerContract $assets): void
+public function boot(
+    CoreContract $core,
+    AssetManagerContract $assets
+): void
 {
     $assets->add([
         InlineCss::make('body {background: red;}')
@@ -84,11 +95,16 @@ public function boot(CoreContract $core, AssetManagerContract $assets): void
 ```
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Contracts\ColorManager\ColorManagerContract;
 
 // ...
 
-public function boot(CoreContract $core, ColorManagerContract $colors): void
+public function boot(
+    CoreContract $core,
+    ColorManagerContract $colors
+): void
 {
     $colors
         ->background('#A3C3D9')
@@ -102,9 +118,11 @@ public function boot(CoreContract $core, ColorManagerContract $colors): void
 }
 ```
 
-If you need to add additional authorization logic to the application or an external package, use the `defineAuthorization` method.
+If you need to add additional authorization logic to the application or an external package, use the `authorizationRules()` method.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
 use MoonShine\Contracts\Core\DependencyInjection\ConfiguratorContract;
 use MoonShine\Laravel\DependencyInjection\MoonShineConfigurator;
 
@@ -128,7 +146,9 @@ You can also directly add components to the pages from the `ServiceProvider`.
 ```php
 public function boot(): void
 {
-    ProfilePage::pushComponent(fn() => MyPackageComponent::make());
+    ProfilePage::pushComponent(
+        fn() => MyPackageComponent::make()
+    );
 }
 ```
 
@@ -147,7 +167,7 @@ Don’t forget to automatically include your `ServiceProvider` in `composer.json
 <a name="traits"></a>
 ## Traits
 
-You can also include traits for resources or pages in your package and change the logic using the `load{TraitName}`/`boot{TraitName}` magic methods.
+You can also include traits for resources or pages in your package and change the logic using the `load{TraitName}()`/`boot{TraitName}()` magic methods.
 
 ```php
 trait HasMyPackageTrait
@@ -176,7 +196,7 @@ trait HasMyPackageTrait
 <a name="custom-field-example"></a>
 ## Custom Field Example
 
-Let's quickly look at creating a custom field! This will be a visual editor based on the `Quill.js` plugin.
+Let's quickly look at creating a custom field! This will be a visual editor based on the **Quill.js** plugin.
 
 We will create a field using the `moonshine:field` command and choose to extend `Textarea`.
 
@@ -187,11 +207,13 @@ php artisan moonshine:field Quill
 Remove the unnecessary methods and add css/js.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:5]
 namespace App\MoonShine\Fields;
 
-use MoonShine\UI\Fields\Textarea;
 use MoonShine\AssetManager\Css;
 use MoonShine\AssetManager\Js;
+use MoonShine\UI\Fields\Textarea;
 
 final class Quill extends Textarea
 {
@@ -200,9 +222,9 @@ final class Quill extends Textarea
     public function assets(): array
     {
         return [
-            Css::make('/css/moonshine/quill/quill.snow.css'), // theme
-            Js::make('/js/moonshine/quill/quill.js'), // library
-            Js::make('/js/moonshine/quill/quill-init.js'), // initialization
+            Css::make('/css/moonshine/quill/quill.snow.css'),
+            Js::make('/js/moonshine/quill/quill.js'),
+            Js::make('/js/moonshine/quill/quill-init.js'),
         ];
     }
 }
@@ -223,7 +245,7 @@ We will also change the field view:
 </div>
 ```
 
-We took `quill.snow.css` and `quill.js` from the library, and the js initialization using `Alpine.js` is provided below.
+We took `quill.snow.css` and `quill.js` from the library, and the JS initialization using **Alpine.js** is provided below.
 
 ```js
 document.addEventListener('alpine:init', () => {

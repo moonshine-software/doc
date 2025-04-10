@@ -11,7 +11,7 @@
 
 Contains all [Basic Methods](/docs/{{version}}/fields/basic-methods).
 
-The `Textarea` field is a multi-line text input field in MoonShine. This field is equivalent to the `<textarea></textarea>` tag.
+The `Textarea` field is a multi-line text input field in **MoonShine**. This field is equivalent to the `<textarea></textarea>` tag.
 
 ```php
 use MoonShine\UI\Fields\Textarea;
@@ -35,12 +35,6 @@ Textarea::make('Text')
 ## Disabling Escaping
 
 The `unescape()` method disables the escaping of HTML tags in the field value.
-
-```php
-unescape()
-```
-
-Example usage:
 
 ```php
 Textarea::make('HTML Content', 'content')

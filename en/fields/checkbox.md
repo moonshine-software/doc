@@ -4,7 +4,6 @@
 - [Creation](#make)
 - [On/Off Values](#on-off)
 - [Preview Editing](#preview-edit)
-- [Reactivity](#reactive)
 
 ---
 
@@ -39,7 +38,8 @@ tab: Blade
 <a name="on-off"></a>
 ## On/Off Values
 
-By default, the field has values `1` and `0` for selected and unselected states respectively. The `onValue()` and `offValue()` methods allow you to override these values.
+By default, the field has values `1` and `0` for selected and unselected states respectively.
+The `onValue()` and `offValue()` methods allow you to override these values.
 
 ```php
 onValue(int|string $onValue)
@@ -59,8 +59,3 @@ Checkbox::make('Publish', 'is_publish')
 ## Preview Editing
 
 This field supports [preview editing](/docs/{{version}}/fields/basic-methods#preview-edit).
-
-<a name="reactive"></a>
-## Reactivity
-
-This field supports [reactivity](/docs/{{version}}/fields/basic-methods#reactive).

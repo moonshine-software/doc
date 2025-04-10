@@ -12,7 +12,6 @@
   - [Lock](#locked)
   - [Suffix](#suffix)
 - [Editing in preview mode](#preview-edit)
-- [Reactivity](#reactive)
 
 ---
 
@@ -21,7 +20,7 @@
 
 Contains all [Basic methods](/docs/{{version}}/fields/basic-methods).
 
-The `Text` field is a basic text input field in **MoonShine**. This field is equivalent to `<input type="text">`
+The `Text` field is a basic text input field in **MoonShine**. This field is equivalent to `<input type="text">`.
 
 ~~~tabs
 tab: Class
@@ -99,12 +98,6 @@ Text::make('Tags', 'tags')
 The `unescape()` method disables HTML tag escaping in the field value.
 
 ```php
-unescape()
-```
-
-Example usage:
-
-```php
 Text::make('HTML Content', 'content')
     ->unescape()
 ```
@@ -126,8 +119,6 @@ The `copy()` method adds a button to copy the field value.
 copy(string $value = '{{value}}')
 ```
 
-Example usage:
-
 ```php
 Text::make('Token', 'token')
     ->copy()
@@ -139,12 +130,6 @@ Text::make('Token', 'token')
 The `eye()` method adds a button to show/hide the field value (e.g., for passwords).
 
 ```php
-eye()
-```
-
-Example usage:
-
-```php
 Text::make('Password', 'password')
     ->eye()
 ```
@@ -153,12 +138,6 @@ Text::make('Password', 'password')
 ### Lock
 
 The `locked()` method adds a lock icon to the field.
-
-```php
-locked()
-```
-
-Example usage:
 
 ```php
 Text::make('Protected field', 'protected_field')
@@ -174,8 +153,6 @@ The `suffix()` method adds a suffix to the input field.
 suffix(string $ext)
 ```
 
-Example usage:
-
 ```php
 Text::make('Domain', 'domain')
     ->suffix('.com')
@@ -190,10 +167,7 @@ This field supports [editing in preview mode](/docs/{{version}}/fields/basic-met
 > If you want to avoid input errors, you can use the [Lock](#locked) extension.
 
 ```php
-Text::make('Name')->updateOnPreview()->locked(),
+Text::make('Name')
+    ->updateOnPreview()
+    ->locked()
 ```
-
-<a name="reactive"></a>
-## Reactivity
-
-This field supports [reactivity](/docs/{{version}}/fields/basic-methods#reactive).

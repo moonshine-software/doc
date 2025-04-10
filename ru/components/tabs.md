@@ -11,10 +11,10 @@
 Для создания вкладок можно использовать компонент `Tabs`.
 
 ```php
-make(iterable $components = [], public array $items = [])
+make(iterable $components = [])
 ```
 
-Для добавления вкладок используется компонент `Tab`
+Для добавления вкладок используется компонент `Tab`.
 
 ```php
 make(
@@ -26,6 +26,8 @@ make(
 ~~~tabs
 tab: Class
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:3]
 use MoonShine\UI\Components\Tabs;
 use MoonShine\UI\Components\Tabs\Tab;
 use MoonShine\UI\Fields\Text;
@@ -41,21 +43,23 @@ Tabs::make([
 ```
 tab: Blade
 ```blade
-<x-moonshine::tabs :items="[
-    'tab_1' => 'Таб 1',
-    'tab_2' => 'Таб 2',
-    'tab_3' => 'Таб 3',
-]">
+<x-moonshine::tabs
+    :items="[
+        'tab_1' => 'Tab 1',
+        'tab_2' => 'Tab 2',
+        'tab_3' => 'Tab 3',
+    ]"
+>
     <x-slot:tab_1>
-        Таб 1 content
+        Tab 1 content
     </x-slot>
 
     <x-slot name="tab_2">
-        Таб 2 content
+        Tab 2 content
     </x-slot>
 
     <x-slot:tab_3>
-        Таб 3 content
+        Tab 3 content
     </x-slot>
 </x-moonshine::tabs>
 ```
@@ -70,23 +74,24 @@ tab: Blade
 Вы можете указать активную вкладку по умолчанию, указав `active`.
 
 ```blade
-<x-moonshine::tabs :items="[
-        'tab_1' => 'Таб 1',
-        'tab_2' => 'Таб 2',
-        'tab_3' => 'Таб 3',
+<x-moonshine::tabs
+    :items="[
+        'tab_1' => 'Tab 1',
+        'tab_2' => 'Tab 2',
+        'tab_3' => 'Tab 3',
     ]"
     active="tab_2"
 >
     <x-slot:tab_1>
-        Таб 1 content
+        Tab 1 content
     </x-slot>
 
     <x-slot name="tab_2">
-        Таб 2 content
+        Tab 2 content
     </x-slot>
 
     <x-slot:tab_3>
-        Таб 3 content
+        Tab 3 content
     </x-slot>
 </x-moonshine::tabs>
 ```

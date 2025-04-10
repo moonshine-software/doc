@@ -6,11 +6,11 @@
 - [Кнопка редактирования](#edit)
 - [Кнопка удаления](#delete)
 - [Кнопка массовое удаление](#mass-delete)
-- [Фильтр](#filters)
+- [Кнопка фильтров](#filters)
 - [Кнопки индексной страницы](#top-buttons)
-- [Индексная таблица](#index-buttons)
-- [Форма](#form-buttons)
-- [Детальная страница](#detail-buttons)
+- [Кнопки индексной таблицы](#index-buttons)
+- [Кнопки страницы формы](#form-buttons)
+- [Кнопки страницы детального просмотра](#detail-buttons)
 
 ---
 
@@ -141,8 +141,6 @@ protected function modifyMassDeleteButton(ActionButtonContract $button): ActionB
 <a name="filters"></a>
 ## Кнопка фильтров
 
-#### Модификация
-
 Метод `modifyFiltersButton()` позволяет модифицировать или переопределить кнопку фильтров.
 
 ```php
@@ -160,7 +158,7 @@ protected function modifyFiltersButton(ActionButtonContract $button): ActionButt
 ![resource_button_filters_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/resource_button_filters_dark.png#dark)
 
 <a name="top-buttons"></a>
-## Кнопки на странице индекса
+## Кнопки индексной страницы
 
 По умолчанию на странице индекса ресурса модели есть только кнопка создания.
 Метод `topButtons()` позволяет добавить дополнительные [кнопки](/docs/{{version}}/components/action-button).
@@ -168,17 +166,20 @@ protected function modifyFiltersButton(ActionButtonContract $button): ActionButt
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:4]
-use MoonShine\UI\Components\ActionButton;
 use MoonShine\Support\AlpineJs;
 use MoonShine\Support\Enums\JsEvent;
 use MoonShine\Support\ListOf;
+use MoonShine\UI\Components\ActionButton;
 
 protected function topButtons(): ListOf
 {
-    return parent::topButtons()->add(
-      ActionButton::make('Refresh', '#')
-            ->dispatchEvent(AlpineJs::event(JsEvent::TABLE_UPDATED, $this->getListComponentName()))
-  );
+    return parent::topButtons()
+        ->add(
+            ActionButton::make('Refresh', '#')
+                ->dispatchEvent(
+                    AlpineJs::event(JsEvent::TABLE_UPDATED, $this->getListComponentName())
+                )
+        );
 }
 ```
 
@@ -186,7 +187,7 @@ protected function topButtons(): ListOf
 ![resource_buttons_actions_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/resource_buttons_actions_dark.png#dark)
 
 <a name="index-buttons"></a>
-## Кнопки в таблице индекса
+## Кнопки индексной таблицы
 
 Для добавления кнопок в таблицу индекса используйте метод `indexButtons()`.
 
@@ -199,12 +200,13 @@ use MoonShine\Support\ListOf;
 
 protected function indexButtons(): ListOf
 {
-    return parent::indexButtons()->prepend(
-        ActionButton::make(
-            'Link',
-            fn(Model $item) => '/endpoint?id=' . $item->getKey()
-        )
-    );
+    return parent::indexButtons()
+        ->prepend(
+            ActionButton::make(
+                'Link',
+                fn(Model $item) => '/endpoint?id=' . $item->getKey()
+            )
+        );
 }
 ```
 
@@ -221,10 +223,11 @@ use MoonShine\Support\ListOf;
 
 protected function indexButtons(): ListOf
 {
-    return parent::indexButtons()->prepend(
-        ActionButton::make('Link', '/endpoint')
-            ->bulk()
-    );
+    return parent::indexButtons()
+        ->prepend(
+            ActionButton::make('Link', '/endpoint')
+                ->bulk()
+        );
 }
 ```
 
@@ -232,7 +235,7 @@ protected function indexButtons(): ListOf
 ![resource_buttons_bulk_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/resource_buttons_bulk_dark.png#dark)
 
 <a name="form-buttons"></a>
-## Кнопки на странице формы
+## Кнопки страницы формы
 
 Чтобы добавить кнопки на страницу с формой, используйте метод `formButtons()`.
 
@@ -244,14 +247,17 @@ use MoonShine\Support\ListOf;
 
 protected function formButtons(): ListOf
 {
-    return parent::formButtons()->add(ActionButton::make('Link')->method('updateSomething'));
+    return parent::formButtons()
+        ->add(
+            ActionButton::make('Link')->method('updateSomething')
+        );
 }
 ```
 
 ![resource_buttons_form](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/resource_buttons_form.png#light)
 ![resource_buttons_form_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/resource_buttons_form_dark.png#dark)
 
-Метод `formBuilderButtons()` позволяет добавить дополнительные [кнопки](/docs/{{version}}/components/action-button) в форму создания или редактирования.
+Метод `formBuilderButtons()` позволяет добавить дополнительные [кнопки](/docs/{{version}}/components/action-button) непосредственно в форму создания или редактирования.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -261,9 +267,10 @@ use MoonShine\Support\ListOf;
 
 protected function formBuilderButtons(): ListOf
 {
-    return parent::formBuilderButtons()->add(
-      ActionButton::make('Back', fn() => $this->getIndexPageUrl())->class('btn-lg')
-    );
+    return parent::formBuilderButtons()
+        ->add(
+            ActionButton::make('Back', fn() => $this->getIndexPageUrl())->class('btn-lg')
+        );
 }
 ```
 
@@ -271,7 +278,7 @@ protected function formBuilderButtons(): ListOf
 ![resource_buttons_form_builder](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/resource_buttons_form_builder_dark.png#dark)
 
 <a name="detail-buttons"></a>
-## Кнопки на странице детального просмотра
+## Кнопки страницы детального просмотра
 
 Чтобы добавить кнопки на страницу детального просмотра, используйте метод `detailButtons()`.
 
@@ -283,7 +290,8 @@ use MoonShine\Support\ListOf;
 
 protected function detailButtons(): ListOf
 {
-    return parent::detailButtons()->add(ActionButton::make('Link', '/endpoint'));
+    return parent::detailButtons()
+        ->add(ActionButton::make('Link', '/endpoint'));
 }
 ```
 

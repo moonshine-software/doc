@@ -1,7 +1,8 @@
 # Assets
 
-Компонент `Assets` используется для подключения к html-странице скриптов и таблиц стилей,
-добавленных через [AssetManager](/docs/{{version}}/appearance/assets).
+@include('_includes/note-about-appearance-layout')
+
+Компонент `Assets` предназначен для подключения к html-странице скриптов и таблиц стилей, добавленных через [AssetManager](/docs/{{version}}/appearance/assets).
 
 > [!NOTE]
 > Компонент `Assets` также подключает системные стили и скрипты.
@@ -19,5 +20,5 @@ tab: Blade
 ```
 ~~~
 
-> [!TIP]
-> Родительский компонент: [head](/docs/{{version}}/components/head)
+> [!NOTE]
+> Родительский компонент: [Head](/docs/{{version}}/components/head).

@@ -41,15 +41,15 @@ class PostResource extends ModelResource
 <a name="fulltext"></a>
 ## Full-Text Search
 
-If full-text search is required, you need to use the attribute `MoonShine\Support\Attributes\SearchUsingFullText`.
+If full-text search is required, you need to use the attribute `SearchUsingFullText`.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:4]
 namespace App\MoonShine\Resources;
 
-use MoonShine\Support\Attributes\SearchUsingFullText;
 use MoonShine\Laravel\Resources\ModelResource;
+use MoonShine\Support\Attributes\SearchUsingFullText;
 
 class PostResource extends ModelResource
 {
@@ -112,7 +112,7 @@ class PostResource extends ModelResource
 <a name="relation"></a>
 ## Relation Search
 
-You can perform a search on relations; for this, you need to specify which relation field to search by.
+You can perform a search on relations. For this, you need to specify which relation field to search by.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -139,7 +139,7 @@ In **MoonShine**, you can implement global search based on integration with [Lar
 
 To implement global search, you need to:
 
-1. Install the `moonshine/scout` package:
+1. Install the `moonshine/scout` package.
 
 ```shell
 composer require moonshine/scout
@@ -154,7 +154,7 @@ php artisan vendor:publish --provider="MoonShine\Scout\Providers\ScoutServicePro
 ```php
 'models' => [
     Article::class,
-    User::class
+    User::class,
 ],
 ```
 
@@ -165,10 +165,10 @@ php artisan vendor:publish --provider="MoonShine\Scout\Providers\ScoutServicePro
 // [tl! collapse:6]
 namespace App\Models;
 
+use Laravel\Scout\Builder;
+use Laravel\Scout\Searchable;
 use MoonShine\Scout\HasGlobalSearch;
 use MoonShine\Scout\SearchableResponse;
-use Laravel\Scout\Searchable;
-use Laravel\Scout\Builder;
 
 class Article extends Model implements HasGlobalSearch
 {
@@ -186,32 +186,17 @@ class Article extends Model implements HasGlobalSearch
             title: $this->title,
             url: '/',
             preview: $this->text,
-            image: $this->thumbnail
+            image: $this->thumbnail,
         );
     }
 }
 ```
 
-4. Replace the component in `Layout`.
+4. Replace the `Search` component in `Layout`.
 
 ```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:4]
-use MoonShine\Laravel\Components\Layout\Locales;
-use MoonShine\Laravel\Components\Layout\Notifications;
-use MoonShine\UI\Components\Layout\Header;
-use MoonShine\UI\Components\Breadcrumbs;
-
-protected function getHeaderComponent(): Header
+protected function getSearchComponent(): ComponentContract
 {
-    return Header::make([
-        Breadcrumbs::make($this->getPage()->getBreadcrumbs())->prepend($this->getHomeUrl(), icon: 'home'),
-        \MoonShine\Scout\Components\Search::make(),
-        When::make(
-            fn (): bool => $this->isUseNotifications(),
-            static fn (): array => [Notifications::make()]
-        ),
-        Locales::make(),
-    ]);
+    return MoonShine\Scout\Components\Search::make();
 }
 ```

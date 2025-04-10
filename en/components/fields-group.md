@@ -13,8 +13,6 @@
 
 The `FieldsGroup` component is designed for the quick grouping of a set of fields, filling them with data, and changing their states.
 
-You can create a `FieldsGroup` by using the static method `make()` of the `FieldsGroup` class.
-
 ```php
 make(iterable $components = [])
 ```
@@ -33,29 +31,35 @@ FieldsGroup::make([
 <a name="fill"></a>
 ## Filling with data
 
-To fill all fields with data, use the `fill()` method:
+To fill all fields with data, use the `fill()` method.
 
 ```php
-fill(array $raw = [], ?DataWrapperContract $casted = null, int $index = 0)
+fill(
+    array $raw = [],
+    ?DataWrapperContract $casted = null,
+    int $index = 0,
+)
 ```
 
 ```php
-FieldsGroup::make($fields)->fill($data);
+FieldsGroup::make($fields)
+    ->fill($data)
 ```
 
 <a name="preview"></a>
 ## Preview mode
 
-You can switch all fields in the set to *preview* mode using the `previewMode()` method:
+You can switch all fields in the set to "preview" mode using the `previewMode()` method.
 
 ```php
-FieldsGroup::make($fields)->previewMode();
+FieldsGroup::make($fields)
+    ->previewMode()
 ```
 
 <a name="without-wrappers"></a>
 ## Without wrappers mode
 
-You can switch all fields in the set to without wrappers mode using the `withoutWrappers()` method:
+You can switch all fields in the set to without wrappers mode using the `withoutWrappers()` method.
 
 > [!NOTE]
 > Wrappers - fields that implement the `FieldsWrapperContract` interface, for example, `StackFields`.
@@ -63,14 +67,18 @@ You can switch all fields in the set to without wrappers mode using the `without
 > and the wrapper field itself will not be included in the final set.
 
 ```php
-FieldsGroup::make($fields)->withoutWrappers();
+FieldsGroup::make($fields)
+    ->withoutWrappers()
 ```
 
 <a name="map"></a>
 ## Mass field modification
 
-All the methods described above use the `mapFields()` method under the hood, which allows you to iterate through all elements in the set and change their state:
+All the methods described above use the `mapFields()` method under the hood, which allows you to iterate through all elements in the set and change their state.
 
 ```php
-FieldsGroup::make($fields)->mapFields(fn(FieldContract $field, int $index): FieldContract => $field);
+FieldsGroup::make($fields)
+    ->mapFields(
+        fn(FieldContract $field, int $index): FieldContract => $field
+    )
 ```

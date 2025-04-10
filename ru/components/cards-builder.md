@@ -105,16 +105,16 @@ fields(FieldsContract|Closure|iterable $fields)
 ```php
 CardsBuilder::make()
     ->fields([Text::make('Text')])
-    ->items([['text' => 'Значение']])
+    ->items([['text' => 'Value']])
 ```
 
 <a name="paginator"></a>
 ### Пагинация
 
-Метод `paginator` устанавливает пагинатор. Необходимо передать объект, реализующий интерфейс `MoonShine\Contracts\Core\Paginator\PaginatorContract`:
+Метод `paginator` устанавливает пагинатор. Необходимо передать объект, реализующий интерфейс `MoonShine\Contracts\Core\Paginator\PaginatorContract`.
 
 > [!NOTE]
-> Если необходимо указать пагинатор для QueryBuilder, можно воспользоваться встроенным `ModelCaster`, как в примере ниже:
+> Если необходимо указать пагинатор для `QueryBuilder`, можно воспользоваться встроенным `ModelCaster`, как в примере ниже.
 
 ```php
 ->paginator(
@@ -145,7 +145,7 @@ CardsBuilder::make(
     fields: [Text::make('Text')],
     items: Article::paginate()
 )
-    ->content('Пользовательское содержимое')
+    ->content('Custom content')
 ```
 
 <a name="title"></a>
@@ -201,7 +201,7 @@ CardsBuilder::make(
 )
     ->fields([Text::make('Text')])
     ->title('title')
-    ->subtitle(static fn() => 'Подзаголовок')
+    ->subtitle(static fn() => 'Subtitle')
 ```
 
 <a name="thumbnail"></a>
@@ -238,7 +238,7 @@ CardsBuilder::make()
     ->thumbnail('thumbnail')
     ->header(static fn() => Badge::make('new', 'success'))
     ->title('title')
-    ->subtitle(static fn() => 'Подзаголовок')
+    ->subtitle(static fn() => 'Subtitle')
     ->overlay()
 ```
 
@@ -248,7 +248,7 @@ CardsBuilder::make()
 Метод `header()` позволяет установить заголовок для карточек.
 
 > [!NOTE]
-> Работает только при наличии `thumbnail` и в режиме `overlay`
+> Работает только при наличии `thumbnail` и в режиме `overlay`.
 
 ```php
 header(Closure|string $value)
@@ -278,9 +278,9 @@ CardsBuilder::make()
     ->fields([ID::make(), Switcher::make('Active')])
     ->cast(new ModelCaster(Article::class))
     ->buttons([
-        ActionButton::make('Удалить', route('name.delete')),
-        ActionButton::make('Редактировать', route('name.edit'))->showInDropdown(),
-        ActionButton::make('Перейти на главную', route('home'))->blank()->canSee(fn($data) => $data->active)
+        ActionButton::make('Delete', route('name.delete')),
+        ActionButton::make('Edit', route('name.edit'))->showInDropdown(),
+        ActionButton::make('Go to Home', route('home'))->blank()->canSee(fn($data) => $data->active),
     ])
 ```
 
@@ -373,7 +373,7 @@ CardsBuilder::make()
 <a name="type-cast"></a>
 ## Приведение к типу
 
-Метод `cast` служит для приведения значений к определенному типу.
+Метод `cast()` служит для приведения значений к определенному типу.
 Так как по умолчанию поля работают с примитивными типами:
 
 ```php
@@ -386,7 +386,7 @@ CardsBuilder::make()
 В этом примере мы привели данные к формату модели `User` с использованием `ModelCaster`.
 
 > [!NOTE]
-> За более подробной информацией обратитесь к разделу [TypeCasts](/docs/{{version}}/advanced/type-casts)
+> За более подробной информацией обратитесь к разделу [TypeCasts](/docs/{{version}}/advanced/type-casts).
 
 <a name="blade"></a>
 ## Использование в blade
@@ -394,7 +394,7 @@ CardsBuilder::make()
 <a name="blade-basics"></a>
 ### Основы
 
-```bladehtml
+```blade
 <x-moonshine::layout.grid>
     <x-moonshine::layout.column colSpan="4" adaptiveColSpan="12">
         <x-moonshine::card

@@ -2,18 +2,16 @@
 
 The `Rating` component allows you to create styled ratings.
 
-You can create a `Rating` using the static method `make()`.
-
 ```php
 make(
     int $value,
     int $min = 1,
-    int $max = 5
+    int $max = 5,
 )
 ```
-- $value - rating value,
-- $min - minimum value,
-- $max - maximum value.
+- `$value` - rating value,
+- `$min` - minimum value,
+- `$max` - maximum value.
 
 ~~~tabs
 tab: Class

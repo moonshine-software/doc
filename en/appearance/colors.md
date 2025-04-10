@@ -16,9 +16,10 @@
 <a name="basics"></a>
 ## Basics
 
-`ColorManager` is a **MoonShine** component for managing the color scheme of the admin panel.
+`ColorManager` is used to control the color scheme of the admin panel.
 It allows you to configure the colors of various interface elements for both light and dark themes.
-Can be used in `Layout` or globally in `ServiceProvider`.
+
+`ColorManager` сan be used in `Layout` or globally in `ServiceProvider`.
 
 <a name="default-colors"></a>
 ## Default Colors
@@ -114,7 +115,7 @@ $colorManager->dividers('74, 90, 121'); // Dividers
 <a name="special"></a>
 ### Special Methods
 
-`ColorManager` supports dynamic methods for all primary colors:
+`ColorManager` supports dynamic methods for all primary colors.
 
 ```php
 $colorManager->primary('120, 67, 233');
@@ -132,7 +133,7 @@ $colorManager->infoText('255, 255, 255');
 <a name="html"></a>
 ## HTML Output
 
-If you need to output color variables in `HTML`, use the `toHtml()` method:
+If you need to output color variables in `HTML`, use the `toHtml()` method.
 
 ```php
 $colorManager->toHtml()
@@ -204,4 +205,4 @@ class MoonShineServiceProvider extends ServiceProvider
 ```
 
 > [!WARNING]
-> `Layout` loads after `ServiceProvider` and will take precedence, so when using color specifications through `ServiceProvider`, ensure they are not overridden in `Layout`.
+> `Layout` loads after `ServiceProvider` and will take precedence, so when setting colors through `ServiceProvider`, ensure they are not overridden in `Layout`.

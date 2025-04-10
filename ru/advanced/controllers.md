@@ -12,7 +12,7 @@
 
 **MoonShine** позволяет работать привычным образом, используя контроллеры.
 
-Мы предоставляем вам наш базовый контроллер, который помогает удобно работать с `UI` и отображать ваши представления с макетом **MoonShine**.
+Мы предоставляем вам наш базовый контроллер, который помогает удобно работать с UI и отображать ваши представления с макетом **MoonShine**.
 
 Это полезно для отображения ваших сложных решений или написания дополнительных обработчиков.
 
@@ -33,6 +33,8 @@ php artisan moonshine:controller
 ## Отображение blade-представления
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:4]
 namespace App\MoonShine\Controllers;
 
 use MoonShine\Contracts\Core\PageContract;
@@ -54,6 +56,8 @@ final class CustomViewController extends MoonShineController
 ## Отображение страницы
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:4]
 namespace App\MoonShine\Controllers;
 
 use App\MoonShine\Pages\MyPage;
@@ -71,7 +75,11 @@ final class CustomViewController extends MoonShineController
 <a name="show-notification"></a>
 ## Показать уведомление
 
+Метод `toast()` вызывает стандартное [всплывающее уведомление](/docs/{{version}}/advanced/toasts) админ-панели.
+
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:5]
 namespace App\MoonShine\Controllers;
 
 use MoonShine\Laravel\Http\Controllers\MoonShineController;
@@ -93,6 +101,8 @@ final class CustomViewController extends MoonShineController
 ## Отправить уведомление
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:4]
 namespace App\MoonShine\Controllers;
 
 use MoonShine\Laravel\Http\Controllers\MoonShineController;
@@ -113,10 +123,12 @@ final class CustomViewController extends MoonShineController
 ## Доступ к странице или ресурсу
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:5]
 namespace App\MoonShine\Controllers;
 
-use MoonShine\Laravel\MoonShineRequest;
 use MoonShine\Laravel\Http\Controllers\MoonShineController;
+use MoonShine\Laravel\MoonShineRequest;
 use Symfony\Component\HttpFoundation\Response;
 
 final class CustomViewController extends MoonShineController
@@ -133,6 +145,8 @@ final class CustomViewController extends MoonShineController
 ## JSON-ответ
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:4]
 namespace App\MoonShine\Controllers;
 
 use MoonShine\Laravel\Http\Controllers\MoonShineController;

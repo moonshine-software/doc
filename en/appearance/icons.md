@@ -15,12 +15,16 @@ For all entities that have the method `icon()`, you can use one of the preset se
 or create your own set.
 
 ```php
-icon(string $icon, bool $custom = false, ?string $path = null)
+icon(
+    string $icon,
+    bool $custom = false,
+    ?string $path = null,
+)
 ```
 
-`$icon` - the name of the icon or HTML (if using custom mode),
-`$custom` - custom mode,
-`$path` - the path to the directory where the blade templates for icons are located.
+- `$icon` - name of the icon or HTML (if using custom mode),
+- `$custom` - custom mode,
+- `$path` - path to the directory where the Blade templates for icons are located.
 
 Simple example:
 
@@ -31,11 +35,14 @@ Simple example:
 Example with passing an HTML icon:
 
 ```php
-->icon(svg('path-to-icon-pack')->toHtml(), custom: true),
+->icon(
+    svg('path-to-icon-pack')->toHtml(),
+    custom: true
+)
 ```
 
 > [!NOTE]
-> The `svg` function in the example is from the `Blade Icons` package.
+> The `svg()` function in the example is from the `Blade Icons` package.
 
 Example specifying the directory where your icons are located:
 
@@ -44,7 +51,7 @@ Example specifying the directory where your icons are located:
 ```
 
 > [!NOTE]
-> In this example, the icons should be located in the `resources/views/icons` directory, and the icon name is equivalent to the `blade` file in which the `svg` is located.
+> In this example, the icons should be located in the `resources/views/icons` directory, and the icon name is equivalent to the Blade file in which the SVG is located.
 
 <a name="outline"></a>
 ## Outline

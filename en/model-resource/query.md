@@ -60,8 +60,11 @@ class PostResource extends ModelResource
 }
 ```
 
+> [!NOTE]
+> If you need to completely override the `Builder` for retrieving a record, you can override the resource method `findItem()`.
+
 <a name="eager-load"></a>
-## Eager load
+## Eager Load
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -78,13 +81,10 @@ class PostResource extends ModelResource
 }
 ```
 
-> [!NOTE]
-> If you need to completely override the `Builder`, you can override the resource method `findItem()`.
-
 <a name="search"></a>
 ## Search
 
-The `searchQuery()` method allows you to modify the query when searching for records.
+The `searchQuery()` method allows you to override the query when searching for records.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -99,12 +99,37 @@ class PostResource extends ModelResource
 
     protected function searchQuery(string $terms): void
     {
-        return parent::searchQuery($terms)->withTrashed();
+        $this->newQuery()->where(function (Builder $builder) use ($terms): void {
+            // Your logic
+        });
     }
 }
 ```
 
-You can also completely override the search logic.
+If you only want to expand the query, you need to call the parent method.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:3]
+namespace App\MoonShine\Resources;
+
+use MoonShine\Laravel\Resources\ModelResource;
+
+class PostResource extends ModelResource
+{
+    // ...
+
+    protected function searchQuery(string $terms): void
+    {
+        parent::searchQuery($terms);
+
+        $this->newQuery()->where(function (Builder $builder) use ($terms): void {
+            // Your logic
+        });
+    }
+}
+
+You can also completely override the logic, including full-text search.
 
 ```php
 protected function resolveSearch(string $terms, ?iterable $fullTextColumns = null): static

@@ -4,6 +4,7 @@
 - [Создание](#creating)
 - [Базовые свойства](#basic-properties)
 - [Объявление в системе](#declaring-in-the-system)
+- [Автозагрузка](#autoloading)
 - [Добавление в меню](#adding-to-the-menu)
     - [Alias](#alias)
 - [Текущий элемент/модель](#current-element-model)
@@ -33,8 +34,8 @@
 > Вы также можете ознакомиться с разделом [CrudResource](/docs/{{version}}/advanced/crud-resource).
 > `CrudResource` - это абстрактный класс предоставляющий базовый интерфейс для `CRUD` операций без привязки к хранилищу и типу данных.
 
-Под капотом, `ModelResource` расширяет `CrudResource` и сразу включает возможность работы с `Eloquent`.
-Если углубляться в детали MoonShine, то вы увидите все те же стандартные `Controller`, `Model` и `blade views`.
+Под капотом, `ModelResource` расширяет `CrudResource` и сразу включает возможность работы с Eloquent.
+Если углубляться в детали **MoonShine**, то вы увидите все те же стандартные Controller, Model и Blade views.
 
 Если бы вы разрабатывали самостоятельно, то создать ресурс контроллеры и ресурс маршруты можно следующим образом:
 
@@ -147,6 +148,45 @@ class MoonShineServiceProvider extends ServiceProvider
 }
 ```
 
+<a name="autoloading"></a>
+## Автозагрузка
+
+В **MoonShine** также доступна автозагрузка страниц и ресурсов.
+Она выключена по-умолчанию и для активации нужно вызвать метод `autoload()` в `MoonShineServiceProvider` вместо указания ссылок на страницы и ресурсы.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
+namespace App\Providers;
+
+use App\MoonShine\Resources\ArticleResource;
+
+use Illuminate\Support\ServiceProvider;
+use MoonShine\Contracts\Core\DependencyInjection\CoreContract;
+use MoonShine\Laravel\DependencyInjection\ConfiguratorContract; // [tl! collapse:end]
+
+class MoonShineServiceProvider extends ServiceProvider
+{
+    public function boot(
+        CoreContract $core,
+        ConfiguratorContract $config,
+    ): void
+    {
+        $core->autoload();
+    }
+}
+```
+
+При деплое проекта на продакшен в Laravel 11+ [рекомендуется](https://laravel.com/docs/11.x/packages#optimize-commands) вызывать консольную команду `php artisan optimize`.
+Помимо её основных функций, она также выполнит кэширование ресурсов **MoonShine**.
+
+При использовании Laravel 10 необходимо вручную вызывать консольную команду `php artisan moonshine:optimize` для оптимизации процесса инициализации админ панели.
+
+Очистить кэш панели можно как командой `php artisan optimize:clear` в Laravel 11, так и прямым вызовом консольной команды `php artisan moonshine:optimize-clear`.
+
+> [!WARNING]
+> Если после создания классов приложение их не видит - обновите кэш композера командой `composer dump-autoload`.
+
 <a name="adding-to-the-menu"></a>
 ## Добавление в меню
 
@@ -222,8 +262,6 @@ class PostResource extends ModelResource
 }
 ```
 
-или
-
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:3]
@@ -284,21 +322,28 @@ class PostResource extends ModelResource
 
 По умолчанию при создании и редактировании записи осуществляется редирект на страницу с формой, но это поведение можно контролировать.
 
+Через свойство в ресурсе:
+
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:1]
 use MoonShine\Support\Enums\PageType;
 
-// Через свойство в ресурсе
 protected ?PageType $redirectAfterSave = PageType::FORM;
+```
 
-// или через методы (также доступен редирект после удаления)
+Через метод:
 
+```php
 public function getRedirectAfterSave(): string
 {
     return '/';
 }
+```
 
+Также доступен редирект после удаления:
+
+```php
 public function getRedirectAfterDelete(): string
 {
     return $this->getIndexPageUrl();
@@ -352,7 +397,7 @@ protected function activeActions(): ListOf
 ## Кнопки
 
 По умолчанию на индексной странице ресурса модели присутствует только кнопка для создания.
-Метод `actions()` позволяет добавить дополнительные [кнопки](/docs/{{version}}/components/action-button).
+Метод `topButtons()` позволяет добавить дополнительные [кнопки](/docs/{{version}}/components/action-button).
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -564,7 +609,7 @@ trait WithPermissions
 <a name="on-boot"></a>
 ### Создание экземпляра
 
-Метод `onBoot` дает возможность интегрироваться в момент когда **MoonShine** создает экземпляр ресурса в системе.
+Метод `onBoot()` дает возможность интегрироваться в момент когда **MoonShine** создает экземпляр ресурса в системе.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -606,9 +651,12 @@ protected function onLoad(): void
 <a name="response-modifiers"></a>
 ## Response модификаторы
 
-Если ресурс в режиме `async`, то вы можете модифицировать ответ:
+Если ресурс в режиме "async", то вы можете модифицировать ответ:
 
 ```php
+use Symfony\Component\HttpFoundation\Response;
+use MoonShine\Laravel\Http\Responses\MoonShineJsonResponse;
+
 public function modifyDestroyResponse(MoonShineJsonResponse $response): MoonShineJsonResponse
 {
     return $response;
@@ -620,6 +668,11 @@ public function modifyMassDeleteResponse(MoonShineJsonResponse $response): MoonS
 }
 
 public function modifySaveResponse(MoonShineJsonResponse $response): MoonShineJsonResponse
+{
+    return $response;
+}
+
+public function modifyErrorResponse(Response $response, Throwable $exception): Response
 {
     return $response;
 }

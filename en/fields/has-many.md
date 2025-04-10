@@ -9,6 +9,8 @@
 - [Edit button](#change-edit-button)
 - [Modal window](#without-modals)
 - [Modification](#modify)
+- [Display](#view)
+- [Active Actions](#active-actions)
 - [Adding ActionButtons](#add-action-buttons)
 - [Advanced usage](#advanced)
 
@@ -70,6 +72,15 @@ If you do not specify `$relationName`, then the name of the relation will be det
 use MoonShine\Laravel\Fields\Relationships\HasMany;
 
 HasMany::make('Comments')
+```
+
+By default, the field is displayed outside the main form.
+If you want to change this behavior and display it inside the main form, use the `disableOutside()` method.
+
+```php
+use MoonShine\Laravel\Fields\Relationships\HasMany;
+
+HasMany::make('Comments')->disableOutside()
 ```
 
 <a name="fields"></a>
@@ -224,7 +235,7 @@ If the relation has a resource, and you want to get the ID of the parent element
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:2]
 use MoonShine\Laravel\Resources\ModelResource;
-use MoonShine\Traits\Resource\ResourceWithParent;
+use MoonShine\Laravel\Traits\Resource\ResourceWithParent;
 
 class PostImageResource extends ModelResource
 {
@@ -430,6 +441,94 @@ HasMany::make('Comments', resource: CommentResource::class)
     ->modifyBuilder(fn(Relation $query, HasMany $ctx) => $query)
 ```
 
+<a name="view"></a>
+## Display
+
+### Display inside Tabs
+
+By default, relationship fields in **MoonShine** are displayed at the bottom, separately from the form, and follow one after another. To change the display of the field and add it to `Tabs`, you can use the `tabMode()` method.
+
+```php
+tabMode(Closure|bool|null $condition = null)
+```
+
+In the following example, a [Tabs](/docs/{{version}}/components/tabs) component with two tabs, Comments and Covers, will be created.
+
+```php
+use MoonShine\Laravel\Fields\Relationships\HasMany;
+
+HasMany::make('Comments', 'comments', resource: CommentResource::class)
+    ->tabMode(),
+HasMany::make('Covers', 'covers', resource: CoverResource::class)
+    ->tabMode()
+```
+
+> [!NOTE]
+> tabMode will not work when using the `disableOutside()` method
+
+### Display inside a modal window
+
+To display a HasMany field in a modal window that is triggered by a button, you can use the `modalMode()` method.
+
+```php
+public function modalMode(
+    Closure|bool|null $condition = null,
+    ?Closure $modifyButton = null,
+    ?Closure $modifyModal = null
+)
+```
+
+In this example, instead of a table, there will now be an [ActionButton](/docs/{{version}}/components/action-button) that triggers a [Modal](/docs/{{version}}/components/modal).
+
+```php
+use MoonShine\Laravel\Fields\Relationships\HasMany;
+
+HasMany::make('Comments', 'comments', resource: CommentResource::class)
+    ->modalMode(),
+```
+
+To modify the `ActionButton` and `Modal`, you can use the method parameters `$modifyButton` and `$modifyModal`, into which you can pass a closure.
+
+```php
+use MoonShine\Laravel\Fields\Relationships\HasMany;
+
+HasMany::make('Comments', 'comments', resource: CommentResource::class)
+    ->modalMode(
+        modifyButton: function (ActionButtonContract $button, HasMany $ctx) {
+            $button->warning();
+            return $button;
+        },
+        modifyModal: function (Modal $modal, ActionButtonContract $ctx) {
+            $modal->autoClose(false);
+            return $modal;
+        }
+    )
+```
+
+<a name="active-actions"></a>
+## Active Actions
+
+It is possible to quickly turn enable/disable certain actions within the scope of `HasMany`.
+
+The `activeActions()` method explicitly sets the list of available actions.
+
+```php
+HasMany::make('Comments')
+    ->activeActions(
+        Action::VIEW,
+        Action::UPDATE,
+    )
+```
+
+The `withoutActions()` method allows you to exclude individual actions.
+
+```php
+HasMany::make('Comments')
+    ->withoutActions(
+        Action::VIEW
+    )
+```
+
 <a name="add-action-buttons"></a>
 ## Adding ActionButtons
 
@@ -469,6 +568,18 @@ HasMany::make('Comments', 'comments', resource: CommentResource::class)
 <a name="advanced"></a>
 ## Advanced usage
 
+### Location of the field
+
+The field is used only within *CRUD* pages, as it retrieves the resource and page from the *URL*.
+However, you can also use it on other pages by specifying its location with the `nowOn()` method.
+
+```php
+HasMany::make('Comments', resource: CommentResource::class)
+    ->creatable()
+    ->nowOn(page: $resource->getFormPage(), resource: $resource, params: ['resourceItem' => $item->getKey()])
+    ->fillCast($item, new ModelCaster(Article::class)),
+```
+
 ### Relation through RelationRepeater field
 The `HasMany` field is displayed outside the main resource form by default.
 If you need to display the relation fields inside the main form, you can use the `RelationRepeater` field.
@@ -481,7 +592,7 @@ If you need to display the relation fields inside the main form, you can use the
 // [tl! collapse:2]
 use MoonShine\UI\Fields\Text;
 use MoonShine\Laravel\Fields\Relationships\RelationRepeater;
- 
+
 RelationRepeater::make('Characteristics', 'characteristics')
     ->fields([
         ID::make(),

@@ -9,6 +9,9 @@
 <a name="basics"></a>
 ## Basics
 
+> [!WARNING]
+> From version 3.9 it is deprecated and will be deleted in version 4.0, use [Fieldset](/docs/{{version}}/fields/fieldset)
+
 Contains all [Basic Methods](/docs/{{version}}/fields/basic-methods).
 
 The `StackFields` field allows you to group fields when displaying in the preview.
@@ -16,6 +19,8 @@ The `StackFields` field allows you to group fields when displaying in the previe
 The `fields()` method should accept an array of fields to group.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:3]
 use MoonShine\Laravel\Fields\BelongsTo;
 use MoonShine\UI\Fields\StackFields;
 use MoonShine\UI\Fields\Text;
@@ -29,7 +34,7 @@ StackFields::make('Title')->fields([
 <a name="edit-view"></a>
 ## Edit View
 
-You can customize the display for `StackFields` using components:
+You can customize the display for `StackFields` using components.
 
 ```php
 StackFields::make('Title')->fields([
@@ -45,16 +50,14 @@ StackFields::make('Title')->fields([
 To change the set of components in `StackFields` under certain conditions, you need to pass a condition and sets of components using a callback function.
 
 ```php
-StackFields::make('Stack')->fields(fn(StackFields $ctx) => $ctx->getData()?->getOriginal()->id === 3 ? [
-    Date::make(__('moonshine::ui.resource.created_at'), 'created_at')
-        ->format("d.m.Y")
-        ->sortable(),
-] : [
-    Date::make(__('moonshine::ui.resource.created_at'), 'created_at')
-        ->format("d.m.Y")
-        ->sortable(),
-    LineBreak::make(),
-    Email::make(__('moonshine::ui.resource.email'), 'email')
-        ->sortable(),
-])
+StackFields::make('Stack')
+    ->fields(
+        fn(StackFields $ctx) => $ctx->getData()?->getOriginal()->id === 3 ? [
+            Date::make('Creation date', 'created_at'),
+        ] : [
+            Date::make('Creation date', 'created_at'),
+            LineBreak::make(),
+            Email::make('Email', 'email'),
+        ]
+    )
 ```

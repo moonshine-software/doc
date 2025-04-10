@@ -26,11 +26,11 @@ make(
 )
 ```
 
-- `$title` - the title of the card,
+- `$title` - title,
 - `$thumbnail` - images,
 - `$url` - link,
 - `$values` - list of values,
-- `$subtitle` - subtitle.
+- `$subtitle` - subtitle,
 - `$overlay` - the overlay mode allows placing the header and titles over the card image.
 
 ~~~tabs
@@ -74,7 +74,6 @@ header(Closure|string $value)
 ```php
 Card::make(
     title: fake()->sentence(3),
-    thumbnail: '/images/image_2.jpg',
 )
     ->header(static fn() => Badge::make('new', 'success'))
 ```
@@ -91,7 +90,6 @@ actions(Closure|string $value)
 ```php
 Card::make(
     title: fake()->sentence(3),
-    thumbnail: '/images/image_1.jpg',
 )
     ->actions(
         static fn() => ActionButton::make('Edit', route('name.edit'))
@@ -110,7 +108,6 @@ subtitle(Closure|string $value)
 ```php
 Card::make(
     title: fake()->sentence(3),
-    thumbnail: '/images/image_2.jpg',
 )
     ->subtitle(static fn() => 'Subtitle')
 ```
@@ -137,17 +134,20 @@ Card::make(
 <a name="thumbnail"></a>
 ## Thumbnails
 
-To add a carousel of images to the card, you can use the `thumbnails()` method.
+To add a carousel of images to the card, you can use the `thumbnail()` method.
 
 ```php
-thumbnails(Closure|string|array $value)
+thumbnail(Closure|string|array $value)
 ```
 
 ```php
 Card::make(
     title: fake()->sentence(3),
 )
-    ->thumbnail(['/images/image_2.jpg','/images/image_1.jpg'])
+    ->thumbnail([
+        '/images/image_2.jpg',
+        '/images/image_1.jpg',
+    ])
 ```
 
 <a name="values"></a>
@@ -164,10 +164,9 @@ values(Closure|array $value)
 ```php
 Card::make(
     title: fake()->sentence(3),
-    thumbnail: '/images/image_1.jpg',
 )
     ->values([
         'ID' => 1,
-        'Author' => fake()->name()
+        'Author' => fake()->name(),
     ])
 ```

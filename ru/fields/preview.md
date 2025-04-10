@@ -14,15 +14,19 @@
 
 Содержит все [Базовые методы](/docs/{{version}}/fields/basic-methods).
 
-С помощью поля *Preview* вы можете отображать текстовые данные из любого поля в модели или генерировать любой контент.
+С помощью поля `Preview` вы можете отображать текстовые данные из любого поля в модели или генерировать любой контент.
 
 > [!WARNING]
-> Поле не предназначено для ввода/изменения данных!
+> Поле НЕ предназначено для ввода/изменения данных!
 
 ```php
 use MoonShine\UI\Fields\Preview;
 
-Preview::make('Preview', 'preview', static fn() => fake()->realText())
+Preview::make(
+    'Preview',
+    'preview',
+    static fn() => fake()->realText()
+)
 ```
 
 ![preview](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/preview.png#light)
@@ -34,7 +38,8 @@ Preview::make('Preview', 'preview', static fn() => fake()->realText())
 <a name="badge"></a>
 ### Бейдж
 
-Метод `badge()` позволяет отображать поле в виде значка, например, для отображения статуса заказа. Метод принимает параметр в виде строки или замыкания с цветом значка.
+Метод `badge()` позволяет отображать поле в виде значка, например, для отображения статуса заказа.
+Метод принимает параметр в виде строки или замыкания с цветом значка.
 
 ```php
 badge(string|Closure|null $color = null)
@@ -42,7 +47,12 @@ badge(string|Closure|null $color = null)
 
 Доступные цвета:
 
-<span style="background-color: #7843e9; padding: 5px; border-radius: 0.375rem">primary</span> <span style="background-color: #ec4176; padding: 5px; border-radius: 0.375rem">secondary</span> <span style="background-color: #00aa00; padding: 5px; border-radius: 0.375rem">success</span> <span style="background-color: #ffdc2a; padding: 5px; border-radius: 0.375rem; color: rgb(139 116 0 / 1);">warning</span> <span style="background-color: #e02d2d; padding: 5px; border-radius: 0.375rem">error</span> <span style="background-color: #0079ff; padding: 5px; border-radius: 0.375rem">info</span>
+<span style="background-color: #7843e9; padding: 5px; border-radius: 0.375rem">primary</span>
+<span style="background-color: #ec4176; padding: 5px; border-radius: 0.375rem">secondary</span>
+<span style="background-color: #00aa00; padding: 5px; border-radius: 0.375rem">success</span>
+<span style="background-color: #ffdc2a; padding: 5px; border-radius: 0.375rem; color: rgb(139 116 0 / 1);">warning</span>
+<span style="background-color: #e02d2d; padding: 5px; border-radius: 0.375rem">error</span>
+<span style="background-color: #0079ff; padding: 5px; border-radius: 0.375rem">info</span>
 
 <span style="background-color: rgb(243 232 255 / 1); color: rgb(107 33 168 / 1); padding: 5px; border-radius: 0.375rem">purple</span>
 <span style="background-color: rgb(252 231 243 / 1); color: rgb(157 23 77 / 1); padding: 5px; border-radius: 0.375rem">pink</span>
@@ -109,6 +119,7 @@ use MoonShine\UI\Fields\Preview;
 
 Preview::make('Link')
     ->link('https://moonshine-laravel.com', blank: false),
+
 Preview::make('Link')
     ->link(fn($link, Field $field) => $link, fn($name, Field $field) => 'Go')
 ```

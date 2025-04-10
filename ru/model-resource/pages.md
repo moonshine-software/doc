@@ -5,6 +5,7 @@
 - [Добавление полей](#fields)
 - [Основные компоненты](#components)
 - [Слои на странице](#layers)
+- [Симуляция Route](#simulate)
 
 ---
 
@@ -93,12 +94,12 @@ class PostIndexPage extends IndexPage
 
 В **MoonShine** можно быстро изменить основной компонент на странице.
 
-#### IndexPage
+### IndexPage
 
 Метод `getItemsComponent()` позволяет изменить основной компонент страницы индекса.
 
 ```php
-getItemsComponent(iterable $items, Fields $fields): ComponentContract
+getItemsComponent(iterable $items, Fields $fields)
 ```
 
 - `$items` - значения полей,
@@ -165,12 +166,12 @@ class ArticleIndexPage extends IndexPage
 > [!NOTE]
 > Пример страницы индекса с компонентом `CardsBuilder` в разделе [Рецепты](/docs/{{version}}/recipes/index-page-cards).
 
-#### DetailPage
+### DetailPage
 
 Метод `getDetailComponent()` позволяет изменить основной компонент страницы детального просмотра.
 
 ```php
-getDetailComponent(?DataWrapperContract $item, Fields $fields): ComponentContract
+getDetailComponent(?DataWrapperContract $item, Fields $fields)
 ```
 
 - `$item` - данные,
@@ -199,7 +200,7 @@ class ArticleDetailPage extends DetailPage
     }
 }
 ```
-#### FormPage
+### FormPage
 
 Метод `getFormComponent()` позволяет изменить основной компонент на странице с формой.
 
@@ -215,7 +216,7 @@ getFormComponent(
   ?DataWrapperContract $item,
   Fields $fields,
   bool $isAsync = true,
-): ComponentContract
+)
 ```
 
 - `$action` - endpoint,
@@ -351,7 +352,7 @@ class PostIndexPage extends IndexPage
 ```
 
 > [!TIP]
-> Если вам нужно получить доступ к компонентам определенного слоя через ресурс или страницу, то используйте метод `getLayerComponents`.
+> Если вам нужно получить доступ к компонентам определенного слоя через ресурс или страницу, то используйте метод `getLayerComponents()`.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -378,12 +379,29 @@ use MoonShine\Support\Enums\Layer;
 
 protected function onLoad(): void
 {
-    $this->getFormPage()->pushToLayer(
+    $this->getFormPage()
+        ->pushToLayer(
             layer: Layer::BOTTOM,
             component: Permissions::make(
                 'Permissions',
                 $this,
             )
         );
+}
+```
+
+<a name="simulate"></a>
+## Симуляция Route
+
+Мы не рекомендуем использовать *CRUD*-страницы на произвольных *URL*.
+Однако, если вы хорошо понимаете их логику, можете применять *CRUD*-страницы на нестандартных маршрутах, эмулируя нужные *URL*.
+
+```php
+class HomeController extends Controller
+{
+    public function __invoke(FormArticlePage $page, ArticleResource $resource)
+    {
+        return $page->simulateRoute($page, $resource)->loaded();
+    }
 }
 ```

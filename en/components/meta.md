@@ -1,6 +1,8 @@
 # Meta
 
-The **Meta** component is used to place metadata on an html page.
+@include('_includes/note-about-appearance-layout')
+
+The **Meta** component is designed to place metadata on html page.
 
 ```php
 use MoonShine\UI\Components\Layout\Meta;
@@ -16,5 +18,5 @@ Meta::make()
     ]),
 ```
 
-> [!TIP]
-> Parent component: [Html](/docs/{{version}}/components/html)
+> [!NOTE]
+> Parent component: [Html](/docs/{{version}}/components/html).

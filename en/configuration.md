@@ -18,7 +18,6 @@
   - [Pages](#pages)
   - [Home page](#home-url)
 - [Getting Pages and Forms](#pages-forms)
-- [Full List of Configuration Parameters](#configuration-options)
 - [Choosing Configuration Method](#choosing-configuration-method)
 
 ---
@@ -48,19 +47,26 @@ Example content of the `moonshine.php` file:
 return [
     'title' => env('MOONSHINE_TITLE', 'MoonShine'),
     'logo' => '/assets/logo.png',
-    'domain' => env('MOONSHINE_DOMAIN'),
-    'prefix' => 'admin',
-    'auth' => [
-        'enabled' => true,
-        'guard' => 'moonshine',
-    ],
+    'logo_small' => '/assets/logo-small.svg',
     'use_migrations' => true,
     'use_notifications' => true,
     'use_database_notifications' => true,
+    'use_profile' => true,
+    'use_routes' => true,
+    'domain' => env('MOONSHINE_DOMAIN'),
+    'prefix' => 'admin',
     'middleware' => [
         // ...
     ],
+    'auth' => [
+        'enabled' => true,
+        'guard' => 'moonshine',
+        'middleware' => Authenticate::class,
+        // ...
+    ],
     'layout' => \MoonShine\Laravel\Layouts\AppLayout::class,
+    'locale' => 'en',
+    'locales' => ['en', 'ru'],
 
     // ...
 ];
@@ -70,6 +76,7 @@ return [
 
 Alternatively, you can leave only those parameters in the `moonshine.php` file that differ from the default values.
 This makes the configuration cleaner and easier to understand.
+
 Example of optimized content for the `moonshine.php` file:
 
 ```php
@@ -83,18 +90,19 @@ return [
 
 > [!NOTE]
 > `use_migrations`, `use_notifications`, `use_database_notifications` must always be present either in `moonshine.php` or in `MoonShineServiceProvider`.
-
-> [!NOTE]
 > All other parameters not specified in the file will use the default values.
 
 <a name="service-provider"></a>
 ### Configuration via MoonShineServiceProvider
 
-An alternative way to configure is via `MoonShineServiceProvider`. This method provides a more programmatic approach to configuration.
+An alternative way to configure is via `MoonShineServiceProvider`.
+This method provides a more programmatic approach to configuration.
 
 Example configuration in `MoonShineServiceProvider`:
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:5]
 use Illuminate\Support\ServiceProvider;
 use MoonShine\Contracts\Core\DependencyInjection\CoreContract;
 use MoonShine\Laravel\DependencyInjection\MoonShine;
@@ -116,32 +124,45 @@ class MoonShineServiceProvider extends ServiceProvider
         $config
             ->title('My Application')
             ->logo('/assets/logo.png')
-            ->prefixes('admin', 'page', 'resource')
-            ->guard('moonshine')
-            ->authEnable()
+            ->logo('/assets/logo_small.png', true)
             ->useMigrations()
             ->useNotifications()
             ->useDatabaseNotifications()
+            ->useProfile()
+            ->dir('app/MoonShine', 'App\MoonShine')
+            ->prefixes('admin', 'page', 'resource')
+            ->homeRoute('moonshine.index')
+            ->notFoundException(MoonShineNotFoundException::class)
             ->middleware([
                 // ...
             ])
-            ->layout(\MoonShine\Laravel\Layouts\AppLayout::class);
+            ->disk('public')
+            ->cacheDriver('redis')
+            ->authEnable()
+            ->guard('moonshine')
+            ->authMiddleware(Authenticate::class)
+            ->authPipelines([])
+            ->authorizationRules(
+                function(ResourceContract $ctx, mixed $user, Ability $ability, mixed $data): bool {
+                    return true;
+                }
+            )
+            ->layout(\App\MoonShine\Layouts\CustomLayout::class)
+            ->locale('ru')
+            ->locales(['en', 'ru']);
 
-        $core
-            ->resources([
-                MoonShineUserResource::class,
-                MoonShineUserRoleResource::class,
-            ])
-            ->pages([
-                ...$config->getPages(),
-            ]);
+        // ...
     }
 }
 ```
 
-> [!NOTE]
+> [!WARNING]
 > Configuration via `MoonShineServiceProvider` takes precedence over settings in the `moonshine.php` file.
 > When using this method, you can completely remove the `moonshine.php` file from your project.
+
+> [!NOTE]
+> Some methods of `MoonShineConfigurator` do not have direct analogs in the `moonshine.php` file and vice versa.
+> This is due to differences in approaches to configuration through the file and through code.
 
 <a name="basic-settings"></a>
 ## Basic Settings
@@ -151,11 +172,11 @@ Regardless of the chosen configuration method, you can set up the following basi
 <a name="options"></a>
 ### Options
 
-- `use_migrations` - Use default system migrations (`moonshine_users`, `moonshine_user_roles`),
-- `use_notifications` - Use notification system,
-- `use_database_notifications` - Use Laravel notification system based on database driver,
-- `dir` - Directory for **MoonShine** (by default `app/MoonShine`). The directory is used for generating files via `artisan` commands, in general **MoonShine** is not tied to structure,
-- `namespace` - Namespace for classes created via `artisan` commands (by default `App\MoonShine`).
+- `use_migrations` - use default system migrations (`moonshine_users`, `moonshine_user_roles`),
+- `use_notifications` - use notification system,
+- `use_database_notifications` - use Laravel notification system based on database driver,
+- `dir` - directory for **MoonShine** (by default `app/MoonShine`). The directory is used for generating files via `artisan` commands, in general **MoonShine** is not tied to structure,
+- `namespace` - namespace for classes created via `artisan` commands (by default `App\MoonShine`).
 
 ~~~tabs
 tab: config/moonshine.php
@@ -167,7 +188,7 @@ tab: config/moonshine.php
 'use_notifications' => true,
 'use_database_notifications' => true,
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config
     ->dir(dir: 'app/MoonShine', namespace: 'App\MoonShine')
@@ -180,14 +201,14 @@ $config
 <a name="title"></a>
 ### Title
 
-Meta title on pages (`<title>My Application</title>`)
+Meta title on pages (`<title>My Application</title>`).
 
 ~~~tabs
 tab: config/moonshine.php
 ```php
 'title' => 'My Application',
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config->title('My Application');
 ```
@@ -202,7 +223,7 @@ tab: config/moonshine.php
 'logo' => '/assets/logo.png',
 'logo_small' => '/assets/logo-small.png',
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config
     ->logo('/assets/logo.png')
@@ -224,7 +245,7 @@ tab: config/moonshine.php
     // ...
 ],
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config
     ->middleware(['web', 'auth'])
@@ -245,7 +266,7 @@ tab: config/moonshine.php
 'page_prefix' => 'page',
 'resource_prefix' => 'resource',
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config->prefixes('admin', 'page', 'resource');
 ```
@@ -262,7 +283,7 @@ tab: config/moonshine.php
 ```php
 'domain' => 'admin.example.com',
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config->domain('admin.example.com');
 ```
@@ -270,14 +291,14 @@ $config->domain('admin.example.com');
 
 #### 404
 
-You can replace the `Exception` with your own
+You can replace the `Exception` with your own.
 
 ~~~tabs
 tab: config/moonshine.php
 ```php
 'not_found_exception' => MoonShineNotFoundException::class,
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config->notFoundException(MoonShineNotFoundException::class);
 ```
@@ -296,7 +317,7 @@ tab: config/moonshine.php
     // ...
 ],
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config->guard('admin');
 ```
@@ -312,7 +333,7 @@ tab: config/moonshine.php
     // ...
 ],
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config->authDisable();
 ```
@@ -342,7 +363,7 @@ tab: config/moonshine.php
     // ...
 ],
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config->authMiddleware(Authenticate::class);
 ```
@@ -361,7 +382,7 @@ tab: config/moonshine.php
     // ...
 ],
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config->authPipelines([TwoFactor::class]);
 ```
@@ -370,7 +391,7 @@ $config->authPipelines([TwoFactor::class]);
 #### User Fields
 
 If you have simply replaced the model with your own `auth.model`, you will likely encounter a naming mismatch of fields.
-To configure the correspondence, use the `userField` setting:
+To configure the correspondence, use the `userField()` setting.
 
 ~~~tabs
 tab: config/moonshine.php
@@ -382,7 +403,7 @@ tab: config/moonshine.php
     'avatar' => 'avatar',
 ],
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config->userField('username', 'username');
 ```
@@ -398,24 +419,39 @@ tab: config/moonshine.php
 ```php
 'locale' => 'en',
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config->locale('en');
 ```
 ~~~
 
-### Setting Available Languages
+#### Setting Available Languages
 
 ~~~tabs
 tab: config/moonshine.php
 ```php
 'locales' => ['en', 'ru'],
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config->locales(['en', 'ru']);
 ```
 ~~~
+
+#### Changing the parameter name
+
+~~~tabs
+tab: config/moonshine.php
+```php
+'locale_key' => '_lang',
+```
+tab: app/Providers/MoonShineServiceProvider.php
+```php
+$config->localeKey('_lang');
+```
+~~~
+
+For more information, see [localization](/docs/{{version}}/advanced/localization) section.
 
 <a name="storage"></a>
 ### Storage
@@ -428,7 +464,7 @@ tab: config/moonshine.php
 'disk' => 'public',
 'disk_options' => [],
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config->disk('public', options: []);
 ```
@@ -441,7 +477,7 @@ tab: config/moonshine.php
 ```php
 'cache' => 'file',
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config->cacheDriver('redis');
 ```
@@ -450,14 +486,14 @@ $config->cacheDriver('redis');
 <a name="layout"></a>
 ### Layout
 
-The default template used
+The default template used.
 
 ~~~tabs
 tab: config/moonshine.php
 ```php
 'layout' => \App\MoonShine\Layouts\CustomLayout::class,
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config->layout(\App\MoonShine\Layouts\CustomLayout::class);
 ```
@@ -476,7 +512,7 @@ tab: config/moonshine.php
     'filters' => FiltersForm::class,
 ],
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config->set('forms.login', MyLoginForm::class);
 ```
@@ -497,7 +533,7 @@ tab: config/moonshine.php
     'error' => ErrorPage::class,
 ],
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config->changePage(LoginPage::class, MyLoginPage::class);
 ```
@@ -516,7 +552,7 @@ tab: config/moonshine.php
 // or url string
 'home_url' => '/admin/page/some-page',
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config->homeRoute('moonshine.index');
 // or url string
@@ -534,13 +570,17 @@ $config->homeUrl('/admin/page/some-page');
 The `getPage` method allows you to retrieve an instance of a page by its name or use the default page.
 
 ```php
-public function getPage(string $name, string $default, mixed ...$parameters): PageContract
+getPage(
+    string $name,
+    string $default,
+    mixed ...$parameters,
+)
 ```
 
 Parameters:
-- `$name`: Page name in the config
-- `$default`: Default page class if not found in the config
-- `$parameters`: Additional parameters for the page constructor
+- `$name` - page name in the config,
+- `$default` - default page class if not found in the config,
+- `$parameters` - additional parameters for the page constructor.
 
 Example usage:
 
@@ -570,13 +610,17 @@ public function index(ConfiguratorContract $config)
 The `getForm` method allows you to retrieve an instance of a form by its name or use the default form.
 
 ```php
-public function getForm(string $name, string $default, mixed ...$parameters): FormBuilderContract
+getForm(
+    string $name,
+    string $default,
+    mixed ...$parameters,
+)
 ```
 
 Parameters:
-- `$name`: Form name in the config
-- `$default`: Default form class
-- `$parameters`: Additional parameters for the form constructor
+- `$name` - form name in the config,
+- `$default` - default form class,
+- `$parameters` - additional parameters for the form constructor.
 
 Example usage:
 
@@ -603,7 +647,7 @@ public function index(ConfiguratorContract $config)
 
 ### Declaring Pages and Forms in Configuration
 
-You can set up the correspondence between the names and classes of pages and forms in the `moonshine.php` file:
+You can set up the correspondence between the names and classes of pages and forms in the `moonshine.php` file.
 
 ```php
 return [
@@ -622,55 +666,6 @@ return [
 ```
 
 This will allow you to easily retrieve the desired pages and forms by their names using the `getPage` and `getForm` methods.
-
-> [!NOTE]
-> Some methods of `MoonShineConfigurator` do not have direct analogs in the `moonshine.php` file and vice versa. This is due to differences in approaches to configuration through the file and through code.
-
-### Example Usage in MoonShineServiceProvider
-
-```php
-use Illuminate\Support\ServiceProvider;
-use MoonShine\Contracts\Core\DependencyInjection\CoreContract;
-use MoonShine\Laravel\DependencyInjection\MoonShine;
-use MoonShine\Laravel\DependencyInjection\MoonShineConfigurator;
-use MoonShine\Laravel\DependencyInjection\ConfiguratorContract;
-
-class MoonShineServiceProvider extends ServiceProvider
-{
-    /**
-     * @param  MoonShine  $core
-     * @param  MoonShineConfigurator  $config
-     *
-     */
-    public function boot(
-        CoreContract $core,
-        ConfiguratorContract $config,
-    ): void
-    {
-        $config
-            ->title('My Application')
-            ->dir('app/MoonShine', 'App\MoonShine')
-            ->prefix('admin')
-            ->guard('moonshine')
-            ->middleware(['web', 'auth'])
-            ->layout(\App\MoonShine\Layouts\CustomLayout::class)
-            ->locale('ru')
-            ->locales(['en', 'ru'])
-            ->useMigrations()
-            ->useNotifications()
-            ->useDatabaseNotifications()
-            ->cacheDriver('redis')
-            ->authorizationRules(function(ResourceContract $ctx, mixed $user, Ability $ability, mixed $data): bool {
-                 return true;
-            });
-
-        // ...
-    }
-}
-```
-
-This complete list of parameters and methods allows you to configure almost every aspect of **MoonShine** operations.
-Choose the options that best meet your project requirements.
 
 <a name="choosing-configuration-method"></a>
 ## Choosing Configuration Method

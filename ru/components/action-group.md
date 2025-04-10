@@ -11,13 +11,11 @@
 
 Компонент `ActionGroup` создан для быстрой группировки набора `ActionButton`, а также наполнения кнопок данными.
 
-Вы можете создать `ActionGroup`, используя статический метод `make()` класса `ActionGroup`.
-
 ```php
-make(iterable $actions = [])
+ActionGroup::make(iterable $actions = [])
 ```
 
-`$actions` - набор `ActionButton`.
+- `$actions` - набор `ActionButton`.
 
 ```php
 use MoonShine\UI\Components\ActionGroup;
@@ -25,7 +23,7 @@ use MoonShine\UI\Components\ActionGroup;
 ActionGroup::make([
     ActionButton::make('Button 1'),
     ActionButton::make('Button 2'),
-]);
+])
 ```
 
 <a name="fill"></a>
@@ -34,25 +32,29 @@ ActionGroup::make([
 Чтобы наполнить все кнопки данными, воспользуйтесь методом `fill()` и передайте `DataWrapperContract`.
 
 ```php
-ActionGroup::make($buttons)->fill($data);
+ActionGroup::make($buttons)
+    ->fill($data)
 ```
 
 <a name="add"></a>
 ## Добавление элементов
 
-Вы можете удобно манипулировать набором `ActionButton` с помощью методов `add()`, `prepend()`, `addMany()`.
+Вы можете удобно манипулировать набором `ActionButton` с помощью методов `add()`, `prepend()` и `addMany()`.
 
 ```php
-ActionGroup::make($buttons)->add(ActionButton::make('Button 3'));
+ActionGroup::make($buttons)
+    ->add(ActionButton::make('Button 3'))
 ```
 
 ```php
-ActionGroup::make($buttons)->prepend(ActionButton::make('Button 4'));
+ActionGroup::make($buttons)
+    ->prepend(ActionButton::make('Button 4'))
 ```
 
 ```php
-ActionGroup::make($buttons)->addMany([
-    ActionButton::make('Button 5'),
-    ActionButton::make('Button 6'),
-]);
+ActionGroup::make($buttons)
+    ->addMany([
+        ActionButton::make('Button 5'),
+        ActionButton::make('Button 6'),
+    ])
 ```

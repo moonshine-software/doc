@@ -12,13 +12,16 @@
 ## Basics
 
 > [!NOTE]
-> By default, **MoonShine** uses [Laravel Database Notification](https://laravel.com/docs/notifications#database-notifications), but we use abstractions that can be easily replaced.
+> By default, **MoonShine** uses [Laravel Database Notification](https://laravel.com/docs/notifications#database-notifications),
+> but we use abstractions that can be easily replaced.
 
-If you need to add notifications to the **MoonShine** notification center, use the `MoonShine\Laravel\Notifications\MoonShineNotification` class.
+If you need to add notifications to the **MoonShine** notification center, use the `MoonShineNotification` class.
 
 Directly via the static method `send()`:
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:3]
 use MoonShine\Laravel\Notifications\MoonShineNotification;
 use MoonShine\Laravel\Notifications\NotificationButton;
 use MoonShine\Support\Enums\Color;
@@ -26,17 +29,21 @@ use MoonShine\Support\Enums\Color;
 MoonShineNotification::send(
     message: 'Notification text',
     // Optional button
-    button: new NotificationButton('Click me', 'https://moonshine.cutcode.dev'),
+    button: new NotificationButton('Click me', 'https://moonshine.cutcode.dev', attributes: ['target' => '_blank']),
     // Optional administrator IDs (default for all)
     ids: [1,2,3],
     // Optional icon color
-    color: Color::green
+    color: Color::GREEN,
+    // Optional icon
+    icon: 'information-circle'
 );
 ```
 
 Or via `DI`:
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Laravel\Contracts\Notifications\MoonShineNotificationContract;
 
 public function di(MoonShineNotificationContract $notification)
@@ -62,30 +69,30 @@ tab: config/moonshine.php
 'use_notifications' => true,
 'use_database_notifications' => true,
 ```
-tab: app/Providers/MoonShineServiceProvider.php
+tab: MoonShineServiceProvider
 ```php
 $config
     ->useNotifications()
-    ->useDatabaseNotifications()
-;
+    ->useDatabaseNotifications();
 ```
 ~~~
 
 <a name="component"></a>
 ## Component
 
-The component `MoonShine\Laravel\Components\Layout\Notifications` is used to display notifications, which you can replace with your own through [Layout](/docs/{{version}}/appearance/layout).
+The component [Notifications](/docs/{{version}}/components/notifications) is used to display notifications, which you can replace with your own through [Layout](/docs/{{version}}/appearance/layout).
 
 <a name="custom"></a>
 ## Custom Notifications
 
-**MoonShine** is flexible and everything can be replaced with your own implementations; for notifications, you need to implement the interfaces:
+**MoonShine** is flexible and everything can be replaced with your own implementations.
+For notifications, you need to implement the interfaces:
 
-- `MoonShine\Laravel\Contracts\Notifications\MoonShineNotificationContract`
-- `MoonShine\Laravel\Contracts\Notifications\NotificationItemContract`
-- `MoonShine\Laravel\Contracts\Notifications\NotificationButtonContract` (optional)
+- `MoonShineNotificationContract`
+- `NotificationItemContract`
+- `NotificationButtonContract` (optional)
 
-Then, in the ServiceProvider, replace the implementation with your own:
+Then, in the `ServiceProvider`, replace the implementation with your own:
 
 ```php
 public function boot(): void
@@ -100,5 +107,4 @@ public function boot(): void
 <a name="web-socket"></a>
 ## WebSocket
 
-> [!TIP]
-> A ready-made implementation of notifications via WebSocket is available in the [Rush](/plugins/rush) package.
+A ready-made implementation of notifications via WebSocket is available in the [Rush](/plugins/rush) package.

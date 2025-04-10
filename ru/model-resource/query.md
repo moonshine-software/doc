@@ -60,6 +60,9 @@ class PostResource extends ModelResource
 }
 ```
 
+> [!NOTE]
+> Если вам необходимо полностью переопределить `Builder` для получения записи, то вы можете переопределить метод ресурса `findItem()`.
+
 <a name="eager-load"></a>
 ## Eager load
 
@@ -78,13 +81,10 @@ class PostResource extends ModelResource
 }
 ```
 
-> [!NOTE]
-> Если вам необходимо полностью переопределить `Builder`, то вы можете переопределить метод ресурса `findItem()`.
-
 <a name="search"></a>
 ## Поиск
 
-Метод `searchQuery()` позволяет изменить запрос при поиске записей.
+Метод `searchQuery()` позволяет переопределить запрос при поиске записей.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -99,12 +99,37 @@ class PostResource extends ModelResource
 
     protected function searchQuery(string $terms): void
     {
-        return parent::searchQuery($terms)->withTrashed();
+        $this->newQuery()->where(function (Builder $builder) use ($terms): void {
+            // Your logic
+        });
     }
 }
 ```
 
-Также вы можете полностью переопределить логику поиска.
+Если вы хотите только расширить запрос, то необходимо вызвать родительский метод.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:3]
+namespace App\MoonShine\Resources;
+
+use MoonShine\Laravel\Resources\ModelResource;
+
+class PostResource extends ModelResource
+{
+    // ...
+
+    protected function searchQuery(string $terms): void
+    {
+        parent::searchQuery($terms);
+
+        $this->newQuery()->where(function (Builder $builder) use ($terms): void {
+            // Your logic
+        });
+    }
+}
+
+Также вы можете полностью переопределить логику, включая и полнотекстовый поиск.
 
 ```php
 protected function resolveSearch(string $terms, ?iterable $fullTextColumns = null): static

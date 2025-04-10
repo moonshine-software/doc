@@ -1,13 +1,26 @@
 # Badge
 
-Если вам необходимо разместить значок на странице, то воспользуйтесь этим компонентом.
+Если вам необходимо разместить значок на странице, то воспользуйтесь компонентом `Badge`.
+
+```php
+make(
+    string $value = '',
+    string|Color $color = Color::PURPLE
+)
+```
+
+- `$value` - текст, отображаемый в значке,
+- `$color` - код цвета (строка или Enum).
 
 Доступны следующие значки:
 
 ~~~tabs
 tab: Class
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
 use MoonShine\Support\Enums\Color;
+use MoonShine\UI\Components\Badge;
 
 Badge::make('Primary', Color::PRIMARY);
 Badge::make('Secondary', Color::SECONDARY);

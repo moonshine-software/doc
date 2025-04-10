@@ -14,7 +14,7 @@
 ## Описание
 
 Практически всё в **MoonShine** это компоненты.
-Сами *MoonShineComponent* являются *blade* компонентами и содержат дополнительные удобные методы для взаимодействия в административной панели.
+Сами `MoonShineComponent` являются **Blade** компонентами и содержат дополнительные удобные методы для взаимодействия в административной панели.
 
 <a name="conditional-methods"></a>
 ## Условные методы
@@ -31,7 +31,11 @@ Box::make()
 Метод `when()` реализует *fluent interface* и выполнит callback, когда первый аргумент, переданный методу, имеет значение true.
 
 ```php
-when($value = null, ?callable $callback = null, ?callable $default = null)
+when(
+    $value = null,
+    ?callable $callback = null,
+    ?callable $default = null,
+)
 ```
 
 ```php
@@ -42,7 +46,11 @@ Box::make()
 Метод `unless()` обратный методу `when()`.
 
 ```php
-unless($value = null, ?callable $callback = null, ?callable $default = null)
+unless(
+    $value = null,
+    ?callable $callback = null,
+    ?callable $default = null,
+)
 ```
 
 <a name="custom-view"></a>
@@ -51,11 +59,15 @@ unless($value = null, ?callable $callback = null, ?callable $default = null)
 Когда необходимо изменить view с помощью fluent interface можно воспользоваться методом `customView()`.
 
 ```php
-customView(string $view, array $data = [])
+customView(
+    string $view,
+    array $data = []
+)
 ```
 
 ```php
-Box::make('Title', [])->customView('component.my-custom-block')
+Box::make('Title', [])
+    ->customView('component.my-custom-block')
 ```
 
 <a name="on-before-render"></a>
@@ -67,13 +79,14 @@ Box::make('Title', [])->customView('component.my-custom-block')
 /**
  * @param  Closure(static $ctx): void  $onBeforeRender
  */
-public function onBeforeRender(Closure $onBeforeRender): static
+onBeforeRender(Closure $onBeforeRender)
 ```
 
 ```php
-Box::make('Title', [])->onBeforeRender(function(Box $ctx) {
-    // ...
-})
+Box::make('Title', [])
+    ->onBeforeRender(function(Box $ctx) {
+        // ...
+    })
 ```
 
 <a name="assets"></a>
@@ -85,7 +98,7 @@ Box::make('Title', [])->onBeforeRender(function(Box $ctx) {
 Box::make()
     ->addAssets([
         new Css(Vite::asset('resources/css/block.css'))
-    ]),
+    ])
 ```
 
 Если вы реализуете собственный компонент, то объявить набор ассетов в нем можно двумя способами.
@@ -100,7 +113,7 @@ protected function assets(): array
 {
     return [
         Js::make('/js/custom.js'),
-        Css::make('/css/styles.css')
+        Css::make('/css/styles.css'),
     ];
 }
 ```
@@ -143,7 +156,7 @@ Box::mixin(new MyNewMethods())
 <a name="custom"></a>
 ## Кастомный компонент
 
-Вы можете создать собственный компонент, со своим view и логикой и использовать его в административной панели MoonShine.
+Вы можете создать собственный компонент, со своим view и логикой и использовать его в административной панели **MoonShine**.
 Для этого воспользуйтесь командой:
 
 ```shell

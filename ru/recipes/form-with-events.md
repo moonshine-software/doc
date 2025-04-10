@@ -25,7 +25,7 @@ TableBuilder::make()
 
 Давайте также рассмотрим, как добавить свои собственные события:
 
-```bladehtml
+```blade
 <div x-data=""
      @form_updated:my-event.window="alert()"
 >
@@ -34,7 +34,7 @@ TableBuilder::make()
 
 Вы также можете воспользоваться удобной директивой `defineEvent`, которая сделает то же самое что и пример выше:
 
-```bladehtml
+```blade
 <div
   x-data=""
   @defineEvent('form_updated', 'my-event', 'alert()')
@@ -44,7 +44,7 @@ TableBuilder::make()
 
 Итоговый пример:
 
-```bladehtml
+```blade
 <div x-data="my"
      @defineEvent('form_updated', 'my-event', 'asyncRequest')
 >

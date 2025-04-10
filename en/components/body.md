@@ -1,39 +1,28 @@
 # Body
 
-The `Body` component is used to create a `body` block in **MoonShine**.
+@include('_includes/note-about-appearance-layout')
 
-You can create a `Body` using the static method `make()` of the `Body` class.
+The `Body` component is designed to create a `<body>` tag.
 
 ```php
 make(iterable $components = [])
 ```
-`$components` - an array of components that are placed in the header.
+
+- `$components` - array of components.
 
 ~~~tabs
 tab: Class
 ```php
-namespace App\MoonShine\Layouts;
-
 use MoonShine\UI\Components\Layout\Body;
 
-final class MoonShineLayout extends AppLayout
-{
-    public function build(): Layout
-    {
-        return Layout::make([
-            // ...
-
-            Body::make([])
-
-            // ...
-        ]);
-    }
-}
+Body::make([
+    // ...
+])
 ```
 tab: Blade
 ```blade
 <x-moonshine::layout.body>
-Any content
+    Any content
 </x-moonshine::layout.body>
 ```
 ~~~

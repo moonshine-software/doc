@@ -6,10 +6,10 @@
 - [Edit button](#edit)
 - [Delete button](#delete)
 - [Mass delete button](#mass-delete)
-- [Filters](#filters)
-- [Top buttons on index page](#top-buttons)
+- [Filters button](#filters)
+- [Index page buttons](#top-buttons)
 - [Index table buttons](#index-buttons)
-- [Form buttons](#form-buttons)
+- [Form page buttons](#form-buttons)
 - [Detail page buttons](#detail-buttons)
 
 ---
@@ -141,8 +141,6 @@ protected function modifyMassDeleteButton(ActionButtonContract $button): ActionB
 <a name="filters"></a>
 ## Filters button
 
-#### Modification
-
 The `modifyFiltersButton()` method allows you to modify or overwrite the filters button.
 
 ```php
@@ -160,7 +158,7 @@ protected function modifyFiltersButton(ActionButtonContract $button): ActionButt
 ![resource_button_filters_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/resource_button_filters_dark.png#dark)
 
 <a name="top-buttons"></a>
-## Top buttons on index page
+## Index page buttons
 
 By default, the model resource index page has only a create button.
 The `topButtons()` method allows you to add additional [buttons](/docs/{{version}}/components/action-button).
@@ -168,17 +166,20 @@ The `topButtons()` method allows you to add additional [buttons](/docs/{{version
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:4]
-use MoonShine\UI\Components\ActionButton;
 use MoonShine\Support\AlpineJs;
 use MoonShine\Support\Enums\JsEvent;
 use MoonShine\Support\ListOf;
+use MoonShine\UI\Components\ActionButton;
 
 protected function topButtons(): ListOf
 {
-    return parent::topButtons()->add(
-      ActionButton::make('Refresh', '#')
-            ->dispatchEvent(AlpineJs::event(JsEvent::TABLE_UPDATED, $this->getListComponentName()))
-  );
+    return parent::topButtons()
+        ->add(
+            ActionButton::make('Refresh', '#')
+                ->dispatchEvent(
+                    AlpineJs::event(JsEvent::TABLE_UPDATED, $this->getListComponentName())
+                )
+        );
 }
 ```
 
@@ -199,12 +200,13 @@ use MoonShine\Support\ListOf;
 
 protected function indexButtons(): ListOf
 {
-    return parent::indexButtons()->prepend(
-        ActionButton::make(
-            'Link',
-            fn(Model $item) => '/endpoint?id=' . $item->getKey()
-        )
-    );
+    return parent::indexButtons()
+        ->prepend(
+            ActionButton::make(
+                'Link',
+                fn(Model $item) => '/endpoint?id=' . $item->getKey()
+            )
+        );
 }
 ```
 
@@ -221,10 +223,11 @@ use MoonShine\Support\ListOf;
 
 protected function indexButtons(): ListOf
 {
-    return parent::indexButtons()->prepend(
-        ActionButton::make('Link', '/endpoint')
-            ->bulk()
-    );
+    return parent::indexButtons()
+        ->prepend(
+            ActionButton::make('Link', '/endpoint')
+                ->bulk()
+        );
 }
 ```
 
@@ -232,7 +235,7 @@ protected function indexButtons(): ListOf
 ![resource_buttons_bulk_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/resource_buttons_bulk_dark.png#dark)
 
 <a name="form-buttons"></a>
-## Form buttons
+## Form page buttons
 
 To add buttons to the form page, use the `formButtons()` method.
 
@@ -244,14 +247,17 @@ use MoonShine\Support\ListOf;
 
 protected function formButtons(): ListOf
 {
-    return parent::formButtons()->add(ActionButton::make('Link')->method('updateSomething'));
+    return parent::formButtons()
+        ->add(
+            ActionButton::make('Link')->method('updateSomething')
+        );
 }
 ```
 
 ![resource_buttons_form](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/resource_buttons_form.png#light)
 ![resource_buttons_form_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/resource_buttons_form_dark.png#dark)
 
-The `formBuilderButtons()` method allows you to add additional [buttons](/docs/{{version}}/components/action-button) in the create or edit form.
+The `formBuilderButtons()` method allows you to add additional [buttons](/docs/{{version}}/components/action-button) directly in the create or edit form.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -261,9 +267,10 @@ use MoonShine\Support\ListOf;
 
 protected function formBuilderButtons(): ListOf
 {
-    return parent::formBuilderButtons()->add(
-      ActionButton::make('Back', fn() => $this->getIndexPageUrl())->class('btn-lg')
-    );
+    return parent::formBuilderButtons()
+        ->add(
+            ActionButton::make('Back', fn() => $this->getIndexPageUrl())->class('btn-lg')
+        );
 }
 ```
 
@@ -283,7 +290,8 @@ use MoonShine\Support\ListOf;
 
 protected function detailButtons(): ListOf
 {
-    return parent::detailButtons()->add(ActionButton::make('Link', '/endpoint'));
+    return parent::detailButtons()
+        ->add(ActionButton::make('Link', '/endpoint'));
 }
 ```
 

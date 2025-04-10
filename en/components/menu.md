@@ -11,18 +11,19 @@
 
 The `Menu` component creates a menu based on `MenuManager` or the provided menu items.
 
-You can create a menu using the static method `make()` of the `Menu` class.
-
 ```php
 make(?iterable $elements = [])
 ```
 
-`$elements` is a set of menu items; if it is empty, it will take `MenuManager` as the basis.
+- `$elements` - set of menu items; if it is empty, it will take `MenuManager` as the basis.
 
 ~~~tabs
 tab: Class
 ```php
-use MoonShine\UI\Components\Layout\Body;
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\MenuManager\MenuItem;
+use MoonShine\UI\Components\Layout\Menu;
 
 Menu::make([
     MenuItem::make('Item', '/')
@@ -30,20 +31,26 @@ Menu::make([
 ```
 tab: Blade
 ```blade
-<x-moonshine::layout.menu :elements="[['label' => 'Dashboard', 'url' => '/'], ['label' => 'Section', 'url' => '/section']]" :top="false" :scroll-to="false" />
+<x-moonshine::layout.menu
+    :elements="[['label' => 'Dashboard', 'url' => '/'], ['label' => 'Section', 'url' => '/section']]"
+    :top="false"
+    :scroll-to="false" />
 ```
 ~~~
 
-You can also initialize the menu through a primitive array:
+You can also initialize the menu through a primitive array.
 
 ```php
-Menu::make([['label' => 'Dashboard', 'url' => '/'], ['label' => 'Section', 'url' => '/section']])
+Menu::make([
+    ['label' => 'Dashboard', 'url' => '/'],
+    ['label' => 'Section', 'url' => '/section'],
+])
 ```
 
 <a name="top"></a>
 ## Horizontal Menu Mode
 
-If you decide to place the menu in a horizontal mode in the `TopBar`, use the `top()` method:
+If you decide to place the menu in a horizontal mode in the `TopBar`, use the `top()` method.
 
 ```php
 Menu::make()->top()
@@ -52,7 +59,8 @@ Menu::make()->top()
 <a name="scroll-to"></a>
 ## Scroll to Active Item
 
-By default, if the menu is not in *top* mode, it scrolls to the active menu item, but this behavior can be disabled using the `withoutScrollTo()` method:
+By default, if the menu is not in *top* mode, it scrolls to the active menu item.
+This behavior can be disabled using the `withoutScrollTo()` method.
 
 ```php
 Menu::make()->withoutScrollTo()

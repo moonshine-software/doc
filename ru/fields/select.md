@@ -1,9 +1,10 @@
 # Select
 
 - [Основы](#basics)
-- [Значение по умолчанию](#default)
-- [Nullable](#nullable)
-- [Placeholder](#placeholder)
+- [Основные методы](#basic-methods)
+  - [Значение по умолчанию](#default)
+  - [Nullable](#nullable)
+  - [Placeholder](#placeholder)
 - [Группы](#groups)
 - [Выбор нескольких значений](#multiple)
 - [Поиск](#search)
@@ -13,7 +14,6 @@
 - [Значения с изображением](#with-image)
 - [Опции](#options)
 - [Нативный режим отображения](#native)
-- [Использование в blade](#blade)
 
 ---
 
@@ -30,13 +30,13 @@ use MoonShine\UI\Fields\Select;
 Select::make('Country', 'country_id')
     ->options([
         'value 1' => 'Option Label 1',
-        'value 2' => 'Option Label 2'
+        'value 2' => 'Option Label 2',
     ])
 ```
 tab: Blade
 ```blade
 <x-moonshine::form.wrapper label="Country">
-    <<x-moonshine::form.select>
+    <x-moonshine::form.select>
         <x-slot:options>
             <option value="1">Option 1</option>
             <option selected value="2">Option 2</option>
@@ -49,9 +49,13 @@ tab: Blade
 ![select](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/select.png#light)
 ![select](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/select_dark.png#dark)
 
+<a name="basic-methods"></a>
+## Основные методы
+
 <a name="default"></a>
 ### Значение по умолчанию
-Можно воспользоваться методом `default()`, если необходимо указать для поля значение по умолчанию.
+
+Если необходимо указать значение по умолчанию, вы можете воспользоваться методом `default()`.
 
 ```php
 default(mixed $default)
@@ -63,51 +67,73 @@ use MoonShine\UI\Fields\Select;
 Select::make('Country', 'country_id')
     ->options([
         'value 1' => 'Option Label 1',
-        'value 2' => 'Option Label 2'
+        'value 2' => 'Option Label 2',
     ])
     ->default('value 2')
 ```
 
-Также вы можете указывать опции через объект `Options`:
+Также вы можете указывать опции через объект `Options`.
 
 ```php
-Select::make('Select')->options(
-    new Options([
-        new Option(label: 'Option 1', value: '1', selected: true, properties: new OptionProperty(image: 'https://cutcode.dev/images/platforms/youtube.png')),
-        new Option(label: 'Option 2', value: '2', properties: new OptionProperty(image: 'https://cutcode.dev/images/platforms/youtube.png')),
-    ]
-)
-)
+Select::make('Select')
+    ->options(
+        new Options([
+            new Option(
+                label: 'Option 1',
+                value: '1',
+                selected: true,
+                properties: new OptionProperty(image: 'https://cutcode.dev/images/platforms/youtube.png'),
+            ),
+            new Option(
+                label: 'Option 2',
+                value: '2',
+                properties: new OptionProperty(image: 'https://cutcode.dev/images/platforms/youtube.png'),
+            ),
+        ])
+    )
 ```
 
 <a name="nullable"></a>
-## Nullable
+### Nullable
+
 Как и у всех полей, если необходимо сохранять NULL, то нужно добавить метод `nullable()`.
 
 ```php
 nullable(Closure|bool|null $condition = null)
 ```
+
+~~~tabs
+tab: Class
 ```php
 use MoonShine\UI\Fields\Select;
 
 Select::make('Country', 'country_id')
     ->options([
         'value 1' => 'Option Label 1',
-        'value 2' => 'Option Label 2'
+        'value 2' => 'Option Label 2',
     ])
     ->nullable()
 ```
+tab: Blade
+```blade
+<x-moonshine::form.select
+    :nullable="true"
+/>
+```
+~~~
 
 ![select nullable](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/select_nullable.png#light)
 ![select nullable](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/select_nullable_dark.png#dark)
 
 <a name="placeholder"></a>
-## Placeholder
+### Placeholder
+
 Метод `placeholder()` позволяет задать у поля атрибут *placeholder*.
 
 ```php
 placeholder(string $value)
 ```
+
 ```php
 use MoonShine\UI\Fields\Select;
 
@@ -118,8 +144,11 @@ Select::make('Country', 'country')
 
 <a name="groups"></a>
 ## Группы
+
 Можно объединять значения в группы.
 
+~~~tabs
+tab: array
 ```php
 use MoonShine\UI\Fields\Select;
 
@@ -127,36 +156,40 @@ Select::make('City', 'city_id')
     ->options([
         'Italy' => [
             1 => 'Rome',
-            2 => 'Milan'
+            2 => 'Milan',
         ],
         'France' => [
             3 => 'Paris',
-            4 => 'Marseille'
+            4 => 'Marseille',
         ]
     ])
 ```
-
+tab: OptionGroup
 ```php
-Select::make('City')->options(
-    new Options([
-        new OptionGroup('Italy', new Options([
-            new Option('Rome', '1'),
-            new Option('Milan', '2'))
-        ])),
+use MoonShine\UI\Fields\Select;
 
-        new OptionGroup('France', new Options([
-            new Option('Paris', '3'),
-            new Option('Marseille', '4')
-        ]))
-    ])
-),
+Select::make('City')
+    ->options(
+        new Options([
+            new OptionGroup('Italy', new Options([
+                new Option('Rome', '1'),
+                new Option('Milan', '2'),
+            ])),
+            new OptionGroup('France', new Options([
+                new Option('Paris', '3'),
+                new Option('Marseille', '4'),
+            ])),
+        ])
+    )
 ```
+~~~
 
 ![select group](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/select_group.png#light)
 ![select group](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/select_group_dark.png#dark)
 
 <a name="multiple"></a>
 ## Выбор нескольких значений
+
 Для выбора нескольких значений используйте метод `multiple()`.
 
 ```php
@@ -169,38 +202,41 @@ use MoonShine\UI\Fields\Select;
 Select::make('Country', 'country_id')
     ->options([
         'value 1' => 'Option Label 1',
-        'value 2' => 'Option Label 2'
+        'value 2' => 'Option Label 2',
     ])
     ->multiple()
 }
-
-// ...
 ```
-> [!TIP]
-> При использовании `multiple()` для Eloquent модели требуется использовать в базе данных тип text или json.
-Также необходимо добавить *cast* - json, array, collection.
+
+@include('_includes/note-about-multiple-cast')
 
 ![select multiple](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/select_multiple.png#light)
 ![select multiple](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/select_multiple_dark.png#dark)
 
 <a name="search"></a>
 ## Поиск
+
 Если необходимо добавить поиск среди значений, то нужно добавить метод `searchable()`.
 
-```php
-searchable()
-```
-
+~~~tabs
+tab: Class
 ```php
 use MoonShine\UI\Fields\Select;
 
 Select::make('Country', 'country_id')
     ->options([
         'value 1' => 'Option Label 1',
-        'value 2' => 'Option Label 2'
+        'value 2' => 'Option Label 2',
     ])
     ->searchable()
 ```
+tab: Blade
+```blade
+<x-moonshine::form.select
+    :searchable="true"
+/>
+```
+~~~
 
 ![searchable](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/select_searchable.png#light)
 ![searchable](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/select_searchable_dark.png#dark)
@@ -212,18 +248,23 @@ Select::make('Country', 'country_id')
 Для это необходимо методу `async()` передать *url*, на который будет отправляться запрос с *query* параметром для поиска.
 
 ```php
-async(Closure|string|null $url = null, string|array|null $events = null, ?AsyncCallback $callback = null)
+async(
+    Closure|string|null $url = null,
+    string|array|null $events = null,
+    ?AsyncCallback $callback = null,
+)
 ```
-- `$url` - url или функция для обработки асинхронного запроса.
-- `$events` - список событий после выполнения запроса _(нужна ссылка на раздел с событиями)_.
+
+- `$url` - url или функция для обработки асинхронного запроса,
+- `$events` - список событий после выполнения запроса (нужна ссылка на раздел с событиями),
 - `$callback` - Callback после выполнения запроса.
 
-> [!TIP]
+> [!NOTE]
 > Параметры `$events` и `$callback` не являются обязательными.
 
 Возвращаемый ответ с результатами поиска должен быть в формате *json*.
 
-```php
+```json
 [
     {
         "value": 1,
@@ -236,14 +277,23 @@ async(Closure|string|null $url = null, string|array|null $events = null, ?AsyncC
 ]
 ```
 
-Также можно воспользоваться объектом `Options`:
+Также можно воспользоваться объектом `Options`.
 
 ```php
 public function selectOptions(): MoonShineJsonResponse
 {
     $options = new Options([
-        new Option(label: 'Option 1', value: '1', selected: true, properties: new OptionProperty('https://cutcode.dev/images/platforms/youtube.png')),
-        new Option(label: 'Option 2', value: '2', properties: new OptionProperty('https://cutcode.dev/images/platforms/youtube.png')),
+        new Option(
+            label: 'Option 1',
+            value: '1',
+            selected: true,
+            properties: new OptionProperty('https://cutcode.dev/images/platforms/youtube.png'),
+        ),
+        new Option(
+            label: 'Option 2',
+            value: '2',
+            properties: new OptionProperty('https://cutcode.dev/images/platforms/youtube.png'),
+        ),
     ]);
 
     return MoonShineJsonResponse::make(data: $options->toArray());
@@ -252,7 +302,7 @@ public function selectOptions(): MoonShineJsonResponse
 
 Ответ будет:
 
-```php
+```json
 [{
     "value": "1",
     "label": "Option 1",
@@ -270,18 +320,25 @@ public function selectOptions(): MoonShineJsonResponse
 }]
 ```
 
+~~~tabs
+tab: Class
 ```php
 use MoonShine\UI\Fields\Select;
 
 Select::make('Country', 'country_id')
     ->options([
         'value 1' => 'Option Label 1',
-        'value 2' => 'Option Label 2'
+        'value 2' => 'Option Label 2',
     ])
     ->async('/search')
 ```
+tab: Blade
+```blade
+<x-moonshine::form.select asyncRoute='/search' />
+```
+~~~
 
-Если необходимо сразу же после отображения страницы отправить запрос на значения, тогда необходимо добавить метод `asyncOnInit(whenOpen: false)`
+Если необходимо сразу же после отображения страницы отправить запрос на значения, тогда необходимо добавить метод `asyncOnInit(whenOpen: false)`.
 
 ```php
 use MoonShine\UI\Fields\Select;
@@ -289,7 +346,7 @@ use MoonShine\UI\Fields\Select;
 Select::make('Country', 'country_id')
     ->options([
         'value 1' => 'Option Label 1',
-        'value 2' => 'Option Label 2'
+        'value 2' => 'Option Label 2',
     ])
     ->async('/search')
     ->asyncOnInit(whenOpen: false)
@@ -298,12 +355,12 @@ Select::make('Country', 'country_id')
 При пустом `asyncOnInit()` или `asyncOnInit(whenOpen: true)` запрос будет отправляться после клика на `Select`.
 
 > [!NOTE]
-> Не забудьте обработать `query` при использовании `async`, иначе поиск всегда будет выдавать одинаковые значения
+> Не забудьте обработать `query` при использовании `async`, иначе поиск всегда будет выдавать одинаковые значения.
 
 <a name="n-change-event"></a>
 ## События при изменении
 
-При изменении значения `Select`, через метод `onChangeEvent`, вы можете вызвать события:
+При изменении значения `Select`, вы можете вызвать события через метод `onChangeEvent()`.
 
 ```php
 use MoonShine\UI\Fields\Select;
@@ -311,7 +368,7 @@ use MoonShine\UI\Fields\Select;
 Select::make('Country', 'country_id')
     ->options([
         'value 1' => 'Option Label 1',
-        'value 2' => 'Option Label 2'
+        'value 2' => 'Option Label 2',
     ])
     ->onChangeEvent(
         AlpineJs::event(JsEvent::FRAGMENT_UPDATED, 'selects')
@@ -320,7 +377,7 @@ Select::make('Country', 'country_id')
 
 Если `Select` находится в форме, то по умолчанию при вызове события с запросом будут отправлены все данные формы.
 Если форма большая, то может потребоваться исключить набор полей.
-Исключить можно через параметр `exclude`:
+Исключить можно через параметр `exclude`.
 
 ```php
 ->onChangeEvent(
@@ -329,7 +386,7 @@ Select::make('Country', 'country_id')
 )
 ```
 
-Также можно полностью исключить отправку данных через параметр `withoutPayload`:
+Также можно полностью исключить отправку данных через параметр `withoutPayload`.
 
 ```php
 ->onChangeEvent(
@@ -340,29 +397,36 @@ Select::make('Country', 'country_id')
 
 <a name="update-on-preview"></a>
 ## Редактирование в режиме preview
-Метод `updateOnPreview()` позволяет редактировать поле `Select` в режиме *preview*.
+
+Метод `updateOnPreview()` позволяет редактировать поле `Select` в режиме "preview".
 
 ```php
-updateOnPreview(?Closure $url = null, ?ResourceContract $resource = null, mixed $condition = null, array $events = [])
+updateOnPreview(
+    ?Closure $url = null,
+    ?ResourceContract $resource = null,
+    mixed $condition = null,
+    array $events = [],
+)
 ```
 
-- `$url` - url для обработки асинхронного запроса.
-- `$resource` - `ModelResource`, на которую ссылается отношение.
-- `$condition` - условие выполнения метода.
-- `$events` - список событий _когда выполняются?_ _(нужна ссылка на раздел с событиями)_.
+- `$url` - url для обработки асинхронного запроса,
+- `$resource` - `ModelResource`, на который ссылается отношение,
+- `$condition` - условие выполнения метода,
+- `$events` - список событий _когда выполняются?_ (нужна ссылка на раздел с событиями).
 
-> [!TIP]
+> [!NOTE]
 > Параметры не являются обязательными и их необходимо передавать, если поле работает вне ресурса.
 
 ```php
 use MoonShine\UI\Fields\Select;
 
-Select::make(Country)
+Select::make('Country')
     ->updateOnPreview()
 ```
 
 <a name="with-image"></a>
 ## Значения с изображением
+
 Метод `optionProperties()` позволяет добавить изображение к значению.
 
 ```php
@@ -376,32 +440,59 @@ Select::make('Country', 'country_id')
     ->options([
         1 => 'Andorra',
         2 => 'United Arab Emirates',
-        // ...
-    ])->optionProperties(fn() => [
+    ])
+    ->optionProperties(fn() => [
         1 => ['image' => 'https://moonshine-laravel.com/images/ad.png'],
         2 => ['image' => 'https://moonshine-laravel.com/images/ae.png'],
-        // ...
     ])
 ```
 
 Или через объект `Options`:
 
 ```php
-Select::make('Select')->options(
-    new Options([
-        new Option(label: 'Option 1', value: '1', selected: true, properties: new OptionProperty(image: 'https://cutcode.dev/images/platforms/youtube.png')),
-        new Option(label: 'Option 2', value: '2', properties: new OptionProperty(image: 'https://cutcode.dev/images/platforms/youtube.png')),
-    ]
-)
-)
+Select::make('Select')
+    ->options(
+        new Options([
+            new Option(
+                label: 'Option 1',
+                value: '1',
+                selected: true,
+                properties: new OptionProperty(image: 'https://cutcode.dev/images/platforms/youtube.png'),
+            ),
+            new Option(
+                label: 'Option 2',
+                value: '2',
+                properties: new OptionProperty(image: 'https://cutcode.dev/images/platforms/youtube.png'),
+            ),
+        ])
+    )
 ```
 
 ![belongs to image](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/belongs_to_image.png#light)
 ![belongs to image](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/belongs_to_image_dark.png#dark)
 
+Для кастомизации изображений передавайте в `OptionPropery` объект `OptionImage` вместо строки:
+
+```php
+new OptionProperty(
+    new OptionImage(
+        src: 'https://cutcode.dev/images/platforms/youtube.png',
+        height: 6,
+        width: 6,
+        objectFit: ObjectFit::CONTAIN
+    )
+),
+```
+
+- `$src` - url изображения,
+- `$height` - высота изображения (используется для подстановки в класс `h-{x}`, где `x` в диапазоне от 1 до 10),
+- `$width` - ширина изображения (используется для подстановки в класс `w-{x}`, где `x` в диапазоне от 1 до 10),
+- `$objectFit` - одно из значений перечисления ObjectFit (см. [`object-fit`](https://developer.mozilla.org/ru/docs/Web/CSS/object-fit)).
+
 <a name="options"></a>
 ## Опции
-Все опции *Сhoices.js* доступны для изменения через *data attributes*:
+
+Все опции *Сhoices.js* доступны для изменения через *data attributes*.
 
 ```php
 use MoonShine\UI\Fields\Select;
@@ -410,8 +501,8 @@ Select::make('Country', 'country_id')
     ->options([
         1 => 'Andorra',
         2 => 'United Arab Emirates',
-        // ...
-    ])->customAttributes([
+    ])
+    ->customAttributes([
         'data-max-item-count' => 2
     ])
 
@@ -422,47 +513,15 @@ Select::make('Country', 'country_id')
 
 <a name="native"></a>
 ## Нативный режим отображения
+
 Метод `native()` отключает библиотеку *Choices.js* и выводит `Select` в нативном режиме.
 
 ```php
 use MoonShine\UI\Fields\Select;
 
-Select::make('Type')->native()
-```
-
-<a name="blade"></a>
-## Использование в blade
-
-<a name="blade-basics"></a>
-### Основы
-
-```php
-<x-moonshine::form.select>
-    <x-slot:options>
-        <option value="1">Option 1</option>
-        <option selected value="2">Option 2</option>
-    </x-slot:options>
-</x-moonshine::form.select>
-```
-
-Вы можете объединять значения в группы.
-
-```php
-<x-moonshine::form.select
-    :searchable="true"
-/>
-```
-
-Вы можете передать дополнительные параметры компоненту:
-
-- `searchable` - поиск по значениям
-- `nullable` - может иметь значение `NULL`
-
-Для асинхронной загрузки значений необходимо атрибуту asyncRoute указать url, который вернет данные в формате json.
-
-```blade
-<x-moonshine::form.select asyncRoute='url' />
+Select::make('Type')
+    ->native()
 ```
 
 > [!TIP]
-> Смотрите также рецепты по использованию [Select](/docs/{{version}}/recipes/select)
+> Смотрите также рецепты по использованию [Select](/docs/{{version}}/recipes/select).

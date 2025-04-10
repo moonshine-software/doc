@@ -18,6 +18,7 @@ tab: Blade
 <x-moonshine::form.wrapper label="Publish">
     <x-moonshine::form.switcher
         name="is_publish"
+        value="1"
         :onValue="1"
         :offValue="0"
     />

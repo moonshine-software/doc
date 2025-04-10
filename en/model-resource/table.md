@@ -103,6 +103,15 @@ protected function indexButtons(): ListOf
 }
 ```
 
+Standard button names for the index view rows:
+- resource-detail-button,
+- resource-edit-button,
+- resource-delete-button,
+- mass-delete-button.
+
+> [!NOTE]
+> You can also globally disable any actions with the resource (see [active actions](/docs/{{version}}/model-resource/index#active-actions).
+
 Clear the button set and add your own:
 
 ```php
@@ -265,7 +274,10 @@ class PostResource extends ModelResource
 If you need to exclude fields from the selection, use the `columnSelection()` method.
 
 ```php
-public function columnSelection(bool $active = true, bool $hideOnInit = false)
+columnSelection(
+    bool $active = true,
+    bool $hideOnInit = false
+)
 ```
 
 ```php
@@ -486,10 +498,26 @@ class PostResource extends ModelResource
             Text::make('Title'),
             Switcher::make('Active')
                 ->updateOnPreview(
-                    events: [AlpineJs::event(JsEvent::TABLE_ROW_UPDATED, 'index-table-{row-id}')]
+                    events: [AlpineJs::event(JsEvent::TABLE_ROW_UPDATED, $this->getListComponentNameWithRow())]
                 )
         ];
     }
+}
+```
+
+Also, an example of a response with an event.
+
+```php
+public function softDelete(MoonShineRequest $request): MoonShineJsonResponse
+{
+    $item = $request->getResource()->getItem();
+    $item->delete();
+
+    return MoonShineJsonResponse::make()
+        ->events([
+            AlpineJs::event(JsEvent::TABLE_ROW_UPDATED, $this->getListComponentNameWithRow($item->getKey()))
+        ])
+        ->toast('Success');
 }
 ```
 
@@ -639,3 +667,7 @@ protected function tfoot(): null|TableRowsContract|Closure
     };
 }
 ```
+
+> [!TIP]
+> You can use a list component outside a resource, but you must understand what it is.
+> `app(MoonShineUserResource::class)->getIndexPage()->getListComponent(withoutFragment: false)`

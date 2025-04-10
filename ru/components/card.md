@@ -26,11 +26,11 @@ make(
 )
 ```
 
-- `$title` - заголовок карточки,
+- `$title` - заголовок,
 - `$thumbnail` - изображения,
 - `$url` - ссылка,
 - `$values` - список значений,
-- `$subtitle` - подзаголовок.
+- `$subtitle` - подзаголовок,
 - `$overlay` - режим overlay позволяет разместить шапку и заголовки поверх изображения карточки.
 
 ~~~tabs
@@ -74,7 +74,6 @@ header(Closure|string $value)
 ```php
 Card::make(
     title: fake()->sentence(3),
-    thumbnail: '/images/image_2.jpg',
 )
     ->header(static fn() => Badge::make('new', 'success'))
 ```
@@ -91,7 +90,6 @@ actions(Closure|string $value)
 ```php
 Card::make(
     title: fake()->sentence(3),
-    thumbnail: '/images/image_1.jpg',
 )
     ->actions(
         static fn() => ActionButton::make('Edit', route('name.edit'))
@@ -110,7 +108,6 @@ subtitle(Closure|string $value)
 ```php
 Card::make(
     title: fake()->sentence(3),
-    thumbnail: '/images/image_2.jpg',
 )
     ->subtitle(static fn() => 'Subtitle')
 ```
@@ -137,17 +134,20 @@ Card::make(
 <a name="thumbnail"></a>
 ## Миниатюры
 
-Чтобы добавить карусель изображений на карточку, вы можете использовать метод `thumbnails()`.
+Чтобы добавить карусель изображений на карточку, вы можете использовать метод `thumbnail()`.
 
 ```php
-thumbnails(Closure|string|array $value)
+thumbnail(Closure|string|array $value)
 ```
 
 ```php
 Card::make(
     title: fake()->sentence(3),
 )
-    ->thumbnail(['/images/image_2.jpg','/images/image_1.jpg'])
+    ->thumbnail([
+        '/images/image_2.jpg',
+        '/images/image_1.jpg',
+    ])
 ```
 
 <a name="values"></a>
@@ -164,10 +164,9 @@ values(Closure|array $value)
 ```php
 Card::make(
     title: fake()->sentence(3),
-    thumbnail: '/images/image_1.jpg',
 )
     ->values([
         'ID' => 1,
-        'Author' => fake()->name()
+        'Author' => fake()->name(),
     ])
 ```

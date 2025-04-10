@@ -61,7 +61,8 @@ Slug::make('Slug')
 <a name="locale"></a>
 ## Locale
 
-By default, slug generation takes into account the application's set locale, and the `locale()` method allows you to change this behavior for the field.
+By default, slug generation takes into account the application's set locale.
+The `locale()` method allows you to change this behavior for the field.
 
 ```php
 locale(string $local)

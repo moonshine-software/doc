@@ -14,7 +14,8 @@
 <a name="basics"></a>
 ## Basics
 
-Sometimes there is a need to create filters (result selection) and display them in the listing. Tags were created for such situations.
+Sometimes there is a need to create filters (result selection) and display them in the listing.
+Tags were created for such situations.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -160,5 +161,6 @@ QueryTag::make('QueryTag', fn($q) => $q)->events([
 ## Button modifier
 
 ```php
-QueryTag::make('QueryTag', fn($q) => $q)->modifyButton(fn(ActionButton $btn) => $btn),
+QueryTag::make('QueryTag', fn($q) => $q)
+    ->modifyButton(fn(ActionButton $btn) => $btn)
 ```

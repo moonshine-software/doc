@@ -8,9 +8,9 @@
 <a name="basics"></a>
 ## Basics
 
-The `Flash` component is designed to display different types of notifications that are stored in the session.
+@include('_includes/note-about-appearance-layout')
 
-You can create a `Flash` using the static method `make()`.
+The `Flash` component is designed to display different types of notifications that are stored in the session.
 
 ```php
 make(
@@ -21,13 +21,13 @@ make(
 )
 ```
 
- - $key - the key of the value from the session
- - $type - the type of notification
- - $withToast - adds toast notifications that can be displayed by adding the value `toast` to the session
- - $removable - the notification can be closed
+ - `$key` - the key of the value from the session,
+ - `$type` - the type of notification,
+ - `$withToast` - adds toast notifications that can be displayed by adding the value `toast` to the session,
+ - `$removable` - the notification can be closed.
 
 ```php
-use MoonShine\UI\Components\Layout\Flash
+use MoonShine\UI\Components\Layout\Flash;
 
 Flash::make()
 ```
@@ -35,17 +35,28 @@ Flash::make()
 <a name="toast"></a>
 ## Toast
 
-To display toast notifications, it is necessary for the `$withToast` flag in the `Flash` component to be set to `true`. Add the `toast` array to the session with the following values:
+To display toast notifications, it is necessary for the `$withToast` flag in the `Flash` component to be set to `true`.
+Add the "toast" array to the session with the following values:
 
 ```php
 session()->flash('toast', [
-    'type' => FlashType::INFO,
+    'type' => FlashType::INFO->value,
     'message' => 'Info',
 ]);
 ```
 
-When working asynchronously, you can trigger the notification using [JsEvents](/docs/{{version}}/frontend/js#default-events):
+When working asynchronously, you can trigger the notification using [JsEvents](/docs/{{version}}/frontend/js#default-events).
 
 ```php
-AlpineJs::event(JsEvent::TOAST, params: ['type' => 'success', 'text' => 'Success'])
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:4]
+use MoonShine\Support\AlpineJs;
+use MoonShine\Support\Enums\JsEvent;
+use MoonShine\Support\Enums\ToastType;
+use MoonShine\Support\ToastEventParams;
+
+AlpineJs::event(
+    JsEvent::TOAST,
+    params: ToastEventParams::make(ToastType::SUCCESS, 'Success')
+)
 ```

@@ -25,11 +25,13 @@ tab: Blade
 ![image](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/image.png#light)
 ![image dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/image_dark.png#dark)
 
-If you need to customize a modal window with an image in preview mode, then you can use the `extraAttributes()` method:
+If you need to customize a modal window with an image in "preview" mode, then you can use the `extraAttributes()` method.
 
 ```php
 Image::make('avatar')
-    ->extraAttributes(fn(string $filename, int $index): ?FileItemExtra => new FileItemExtra(wide: false, auto: true, styles: 'width: 250px;')),
+    ->extraAttributes(
+        fn(string $filename, int $index): ?FileItemExtra => new FileItemExtra(wide: false, auto: true, styles: 'width: 250px;')
+    )
 ```
 
 - `wide` - XL size of the modal window,

@@ -206,8 +206,9 @@ public function modifyFormComponent(
     ComponentContract $component
 ): ComponentContract
 {
-    return parent::modifyFormComponent($component)->customAttributes([
-        'data-my-attr' => 'value'
-    ]);
+    return parent::modifyFormComponent($component)
+        ->customAttributes([
+            'data-my-attr' => 'value'
+        ]);
 }
 ```

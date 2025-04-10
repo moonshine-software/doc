@@ -10,7 +10,6 @@
     - [Замок](#locked)
     - [Суффикс](#suffix)
 - [Редактирование в режиме preview](#preview-edit)
-- [Реактивность](#reactive)
 
 ---
 
@@ -52,10 +51,6 @@ tab: Blade
 Использование метода `withTime()` позволяет вводить в поле дату и время.
 
 ```php
-withTime()
-```
-
-```php
 Date::make('Created at', 'created_at')
     ->withTime()
 ```
@@ -80,7 +75,7 @@ Date::make('Created at', 'created_at')
 <a name="extensions"></a>
 ## Расширения
 
-Поля поддерживает различные расширения для помощи и контроля ввода
+Поля поддерживает различные расширения для помощи и контроля ввода.
 
 ![expansion](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/expansion.png#light)
 ![expansion_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/expansion_dark.png#dark)
@@ -94,8 +89,6 @@ Date::make('Created at', 'created_at')
 copy(string $value = '{{value}}')
 ```
 
-Пример использования:
-
 ```php
 Date::make('Created at', 'created_at')
     ->copy()
@@ -107,12 +100,6 @@ Date::make('Created at', 'created_at')
 Метод `eye()` добавляет кнопку для показа/скрытия значения поля (например, для пароля).
 
 ```php
-eye()
-```
-
-Пример использования:
-
-```php
 Date::make('Created at', 'created_at')
     ->eye()
 ```
@@ -121,12 +108,6 @@ Date::make('Created at', 'created_at')
 ### Замок
 
 Метод `locked()` добавляет иконку замка к полю.
-
-```php
-locked()
-```
-
-Пример использования:
 
 ```php
 Date::make('Created at', 'created_at')
@@ -145,8 +126,3 @@ suffix(string $ext)
 ### Редактирование в режиме preview
 
 Данному полю доступно [редактирование в режиме preview](/docs/{{version}}/fields/basic-methods#preview-edit).
-
-<a name="reactive"></a>
-## Реактивность
-
-Данному полю доступна [реактивность](/docs/{{version}}/fields/basic-methods#reactive).

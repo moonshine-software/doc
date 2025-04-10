@@ -12,14 +12,17 @@
 
 \* имеет те же возможности.
 
-Поля *Password* и *PasswordRepeat* предназначены для работы с паролями, у них по умолчанию установлен `type=password`.
+Поля `Password` и `PasswordRepeat` предназначены для работы с паролями, у них по умолчанию установлен `type=password`.
 
-Поле *Password* в режиме предпросмотра отображается как `***`, а при выполнении метода `apply()` значение поля кодируется, с помощью метода `make`, класса забиндженного на интерфейс `Illuminate\Contracts\Hashing\Hasher`.
+Поле `Password` в режиме "preview" отображается как "***".
+При выполнении метода `apply()` значение поля кодируется с помощью метода `make()` класса, привязанного к интерфейсу `Illuminate\Contracts\Hashing\Hasher`.
 
 > [!NOTE]
-> В **Laravel** по умолчанию Hasher класс - фасад `Illuminate\Support\Facades\Hash`.
+> В **Laravel** по умолчанию `Hasher` класс - фасад `Illuminate\Support\Facades\Hash`.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Password;
 
 Password::make('Password')
@@ -28,13 +31,14 @@ Password::make('Password')
 <a name="password-repeat"></a>
 ## PasswordRepeat
 
-*PasswordRepeat* наследует *Password* и используется как вспомогательное поле для подтверждения пароля, и не изменяет данные при выполнении метода `apply()`.
+`PasswordRepeat` наследует `Password` и используется как вспомогательное поле для подтверждения пароля и не изменяет данные при выполнении метода `apply()`.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
 use MoonShine\UI\Fields\Password;
 use MoonShine\UI\Fields\PasswordRepeat;
 
-Password::make('Password'),
+Password::make('Password', 'password'),
 PasswordRepeat::make('Password repeat', 'password_repeat')
 ```
-

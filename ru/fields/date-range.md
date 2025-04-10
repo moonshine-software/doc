@@ -27,7 +27,7 @@ fromTo(string $fromField, string $toField)
 ```php
 use MoonShine\UI\Fields\DateRange;
 
-DateRange::make('Даты')
+DateRange::make('Dates')
     ->fromTo('date_from', 'date_to')
 ```
 
@@ -41,7 +41,7 @@ withTime()
 ```
 
 ```php
-DateRange::make('Даты')
+DateRange::make('Dates')
     ->fromTo('date_from', 'date_to')
     ->withTime()
 ```
@@ -56,7 +56,7 @@ format(string $format)
 ```
 
 ```php
-DateRange::make('Даты')
+DateRange::make('Dates')
     ->fromTo('date_from', 'date_to')
     ->format('d.m.Y')
 ```
@@ -82,7 +82,7 @@ step(int|float|string $step)
 ```
 
 ```php
-DateRange::make('Даты')
+DateRange::make('Dates')
     ->fromTo('date_from', 'date_to')
     ->min('2024-01-01')
     ->max('2024-12-31')
@@ -100,7 +100,7 @@ toAttributes(array $attributes)
 ```
 
 ```php
-DateRange::make('Даты')
+DateRange::make('Dates')
     ->fromTo('date_from', 'date_to')
     ->fromAttributes(['class'=> 'bg-black'])
     ->toAttributes(['class'=> 'bg-white'])
@@ -112,5 +112,5 @@ DateRange::make('Даты')
 При использовании поля `DateRange` для построения фильтра метод `fromTo()` не используется, так как фильтрация происходит по одному полю в таблице базы данных.
 
 ```php
-DateRange::make('Даты', 'dates')
+DateRange::make('Creation date', 'created_at')
 ```

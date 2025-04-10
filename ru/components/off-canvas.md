@@ -5,6 +5,7 @@
   -  [Открытие/Закрытие](#open-close)
 - [Состояние по умолчанию](#open)
 - [Позиция](#position)
+- [Ширина](#width)
 - [Асинхронность](#async)
 - [Атрибуты переключателя](#toggler-attributes)
 
@@ -50,7 +51,7 @@ OffCanvas::make(
 ```
 tab: Blade
 ```blade
-<x-moonshine::offcanvas
+<x-moonshine::off-canvas
     title="Offcanvas"
     :left="false"
 >
@@ -58,9 +59,11 @@ tab: Blade
          Open
     </x-slot:toggler>
     {{ fake()->text() }}
-</x-moonshine::offcanvas>
+</x-moonshine::off-canvas>
 ```
 ~~~
+
+@include('_includes/modal-off-canvas-components', 'OffCanvas', 'OffCanvas', 'OffCanvas', 'OffCanvas')
 
 <a name="events"></a>
 ## События
@@ -168,7 +171,7 @@ open(Closure|bool|null $condition = null)
 ```
 
 ```php
-OffCanvas::make('Заголовок', 'Содержимое...', 'Показать панель')
+OffCanvas::make('Title', 'Content...', 'Show Panel')
     ->open()
 ```
 
@@ -185,8 +188,37 @@ left(Closure|bool|null $condition = null)
 ```
 
 ```php
-OffCanvas::make('Заголовок', 'Содержимое...', 'Показать панель')
+OffCanvas::make('Title', 'Content...', 'Show Panel')
     ->left()
+```
+
+<a name="width"></a>
+## Ширина
+
+Метод `wide()` компонента `OffCanvas` позволяет сделать боковую панель более широкой.
+
+```php
+wide(Closure|bool|null $condition = null)
+```
+
+- `$condition` - условие выполнения метода.
+
+```php
+OffCanvas::make('Title', 'Content...', 'Show Panel')
+    ->wide()
+```
+
+Метод `full()` устанавливает максимальную ширину для боковой панели.
+
+```php
+full(Closure|bool|null $condition = null)
+```
+
+- `$condition` - условие выполнения метода.
+
+```php
+OffCanvas::make('Title', 'Content...', 'Show Panel')
+    ->full()
 ```
 
 <a name="async"></a>

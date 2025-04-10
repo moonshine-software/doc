@@ -6,6 +6,7 @@
 - [Removing notifications](#removable)
 
 ---
+
 <a name="basics"></a>
 ## Basics
 
@@ -27,11 +28,16 @@ tab: Blade
 <a name="type"></a>
 ## Notification type
 
-You can change the type of the notification by specifying the `type` for the component.
+You can change the type of the notification by specifying the `type` parameter for the component.
 
 Available types:
 
-primary secondary success warning error info
+- primary,
+- secondary,
+- success,
+- warning,
+- error,
+- info.
 
 ~~~tabs
 tab: Class
@@ -62,11 +68,14 @@ There is an option to change the icon of the notification; for this, you need to
 ~~~tabs
 tab: Class
 ```php
-Alert::make(icon: "academic-cap")->content('Text'),
+Alert::make(icon: "academic-cap")
+    ->content('Text'),
 ```
 tab: Blade
 ```blade
-<x-moonshine::alert icon="academic-cap">Alert</x-moonshine::alert>
+<x-moonshine::alert icon="academic-cap">
+    Alert
+</x-moonshine::alert>
 ```
 ~~~
 
@@ -75,15 +84,18 @@ For more detailed information, refer to the [Icons](/docs/{{version}}/appearance
 <a name="removable"></a>
 ## Removing notifications
 
-To remove notifications after some time, you need to pass the `removable` parameter with the value `TRUE`.
+So that notifications are deleted after some time, you need to pass the `removable` parameter with the value `true`.
 
 ~~~tabs
 tab: Class
 ```php
-Alert::make(removable: true)->content('Text'),
+Alert::make(removable: true)
+    ->content('Text'),
 ```
 tab: Blade
 ```blade
-<x-moonshine::alert removable="true">Alert</x-moonshine::alert>
+<x-moonshine::alert removable="true">
+    Alert
+</x-moonshine::alert>
 ```
 ~~~

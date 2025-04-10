@@ -1,7 +1,6 @@
 # Enum
 
 - [Основы](#basics)
-- [Создание](#make)
 - [Отображение значений](#displaying-values)
 - [Цвет](#color)
 
@@ -16,18 +15,15 @@
 
 Работает так же, как поле `Select`, но принимает *Enum* в качестве опций.
 
-> [!NOTE]
-> Атрибуты модели требуют Enum Cast.
-
-<a name="make"></a>
-## Создание
-
 ```php
 use MoonShine\UI\Fields\Enum;
 
 Enum::make('Status')
     ->attach(StatusEnum::class)
 ```
+
+> [!NOTE]
+> Атрибуты модели требуют Enum Cast.
 
 <a name="displaying-values"></a>
 ## Отображение значений
@@ -59,9 +55,10 @@ enum StatusEnum: string
 <a name="color"></a>
 ## Цвет
 
-Если *Enum* реализует метод `getColor()`, то поле *preview* будет отображаться как иконка определенного цвета.
+Если *Enum* реализует метод `getColor()`, то поле в режиме "preview" будет отображаться как иконка определенного цвета.
 
 Доступные цвета:
+
 <p class="my-4 flex flex-wrap gap-1">
     <span class="badge badge-primary">primary</span>
     <span class="badge badge-secondary">secondary</span>

@@ -12,7 +12,6 @@
 - [Значения с изображением](#with-image)
 - [Опции](#options)
 - [Нативный режим](#native)
-- [Реактивность](#reactive)
 - [Ссылка](#link)
 
 ---
@@ -448,11 +447,6 @@ use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 
 BelongsTo::make('Type')->native()
 ```
-
-<a name="reactive"></a>
-## Реактивность
-
-Данному полю доступна [реактивность](/docs/{{version}}/fields/basic-methods#reactive).
 
 <a name="link"></a>
 ## Ссылка

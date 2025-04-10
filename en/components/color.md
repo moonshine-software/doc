@@ -3,16 +3,22 @@
 To display an HTML block `<div>` filled with a specific color, you can use the `Color` component.
 
 ```php
-make(public string|ColorEnum $color)
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\Support\Enums\Color as ColorEnum;
+
+make(string|ColorEnum $color)
 ```
 
 ~~~tabs
 tab: Class
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
 use MoonShine\Support\Enums\Color as ColorEnum;
 use MoonShine\UI\Components\Color;
 
-Color::make(color: ColorEnum::PURPLE)
+Color::make(ColorEnum::PURPLE)
 ```
 tab: Blade
 ```blade
@@ -20,7 +26,7 @@ tab: Blade
 ```
 ~~~
 
-Available values in the enum MoonShine\Support\Enums\Color:
+Available values in the enum `MoonShine\Support\Enums\Color`:
 
 ```php
 enum Color: string

@@ -27,8 +27,6 @@
 Объявим маршруты в `routes/web.php`:
 
 ```php
-<?php
-
 use App\Http\Controllers\AuthenticateController;
 use App\Http\Controllers\ForgotController;
 use App\Http\Controllers\ProfileController;
@@ -652,8 +650,6 @@ public function form(LoginPage $page): LoginPage
 Также буду выкладывать и `FormRequest` классы, чтобы рецепт был максимально готовым
 
 ```php
-<?php
-
 namespace App\Http\Requests;
 
 use Illuminate\Contracts\Validation\ValidationRule;
@@ -685,8 +681,6 @@ class AuthenticateFormRequest extends FormRequest
 ### ForgotController
 
 ```php
-<?php
-
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ForgotPasswordFormRequest;
@@ -745,8 +739,6 @@ class ForgotController extends Controller
 ```
 
 ```php
-<?php
-
 namespace App\Http\Requests;
 
 use Illuminate\Contracts\Validation\ValidationRule;
@@ -774,8 +766,6 @@ class ForgotPasswordFormRequest extends FormRequest
 ```
 
 ```php
-<?php
-
 namespace App\Http\Requests;
 
 use Illuminate\Contracts\Validation\ValidationRule;
@@ -845,8 +835,6 @@ final class ProfileController extends Controller
 ```
 
 ```php
-<?php
-
 namespace App\Http\Requests;
 
 use Illuminate\Contracts\Validation\ValidationRule;
@@ -909,8 +897,6 @@ final class RegisterController extends Controller
 ```
 
 ```php
-<?php
-
 namespace App\Http\Requests;
 
 use Illuminate\Contracts\Validation\ValidationRule;

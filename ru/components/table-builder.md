@@ -744,6 +744,18 @@ TableBuilder::make()
 />
 ```
 
+Для перевода или изменения текста уведомления необходимо задать параметр `translates`.
+
+```blade
+<x-moonshine::table
+    :columns="[
+        '#', 'First', 'Last', 'Email'
+    ]"
+    :notfound="true"
+    :translates="['notfound' => __('moonshine.ui.notfound')]"
+/>
+```
+
 <a name="blade-slots"></a>
 ### Слоты
 

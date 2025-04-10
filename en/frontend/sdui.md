@@ -5,24 +5,27 @@
 
 ## Introduction
 
-Server-Driven UI (SDUI) is a powerful approach to user interface development where the structure and content of the UI are defined by the server. **MoonShine** provides built-in support for SDUI, allowing for the creation of dynamic and flexible interfaces without the need to update the client application.
+Server-Driven UI (SDUI) is a powerful approach to user interface development where the structure and content of the UI are defined by the server.
+**MoonShine** provides built-in support for SDUI, allowing for the creation of dynamic and flexible interfaces without the need to update the client application.
 
 ## Structure of SDUI Response
 
-In MoonShine, each UI component can be represented as a JSON structure that describes its type, states, and child components. This structure is formed on the server and sent to the client for rendering. An SDUI response in **MoonShine** typically includes the following key elements:
+In **MoonShine**, each UI component can be represented as a JSON structure that describes its type, states, and child components.
+This structure is formed on the server and sent to the client for rendering.
+An SDUI response in **MoonShine** typically includes the following key elements:
 
-- `type`: The component type
-- `components`: An array of child components (if any)
-- `states`: The state of the component
-- `attributes`: HTML attributes of the component
+- `type` - component type,
+- `components` - array of child components (if any),
+- `states` - state of the component,
+- `attributes` - HTML attributes of the component.
 
 ## Using SDUI
 
-To use SDUI in MoonShine, send a GET request to the desired page with special headers.
+To use SDUI in **MoonShine**, send a GET request to the desired page with special headers.
 
 ### Basic structure request
 
-```http
+```
 GET /admin/dashboard HTTP/1.1
 X-MS-Structure: true
 ```
@@ -80,7 +83,7 @@ Example response:
 You can use additional headers to customize the response:
 
 - Retrieve structure without states:
-  ```http
+  ```
   X-MS-Structure: true
   X-MS-Without-States: true
   ```
@@ -121,17 +124,19 @@ You can use additional headers to customize the response:
   ```
 
 - Retrieve only layout structure:
-  ```http
+  ```
   X-MS-Structure: true
   X-MS-Only-Layout: true
   ```
 
 - Retrieve page structure without layout:
-  ```http
+  ```
   X-MS-Structure: true
   X-MS-Without-Layout: true
   ```
 
 ## Conclusion
 
-SDUI in **MoonShine** provides a powerful and flexible way to create dynamic user interfaces. It allows not only to define the structure and content of the UI on the server but also to precisely control the styles and attributes of each component, ensuring a high degree of customization and adaptability of the interface.
+SDUI in **MoonShine** provides a powerful and flexible way to create dynamic user interfaces.
+It allows not only to define the structure and content of the UI on the server but also to precisely control the styles and attributes of each component,
+ensuring a high degree of customization and adaptability of the interface.

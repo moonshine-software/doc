@@ -96,7 +96,7 @@ class PostPolicy
 }
 ```
 
-Создать **Policy** с готовым набором методов под **MoonShine** можно с помощью команды `moonshine:policy`:
+Создать **Policy** с готовым набором методов под **MoonShine** можно с помощью команды `moonshine:policy`.
 
 ```shell
 php artisan moonshine:policy PostPolicy

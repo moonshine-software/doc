@@ -8,6 +8,7 @@
 - [Options](#options)
 - [Placeholder](#placeholder)
 - [Tree](#tree)
+- [Horizontal mode](#horizontal)
 - [Preview](#preview)
 - [Only Link](#only-link)
 - [Values Query](#values-query)
@@ -273,6 +274,36 @@ BelongsToMany::make('Categories', resource: CategoryResource::class)
 ![belongs_to_many_tree](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/belongs_to_many_tree.png#light)
 ![belongs_to_many_tree_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/belongs_to_many_tree_dark.png#dark)
 
+<a name="horizontal"></a>
+## Horizontal mode
+
+The `horizontalMode()` method allows you to display values as a horizontal list.
+
+```php
+horizontalMode(
+    Closure|bool|null $condition = null,
+    string $minColWidth = '200px',
+    string $maxColWidth = '1fr'
+)
+```
+
+- `$condition` - (optional) condition for setting the field to horizontal mode,
+- `$minColWidth` - (optional) min column width,
+- `$maxColWidth` - (optional) max column width.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use App\MoonShine\Resources\CategoryResource;
+use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
+
+BelongsToMany::make('Categories', resource: CategoryResource::class)
+    ->horizontalMode(true, minColWidth: '100px', maxColWidth: '33%')
+```
+
+![belongs_to_many_horizontal](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/belongs_to_many_horizontal.png#light)
+![belongs_to_many_horizontal_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/belongs_to_many_horizontal_dark.png#dark)
+
 <a name="preview"></a>
 ## Preview
 
@@ -307,7 +338,7 @@ You can pass optional parameters to the method:
 
 - `separator` - separator between items,
 - `badge` - closure or boolean value responsible for displaying items as badges,
-- `$link` - closure that should return url links or components.
+- `$link` - closure that should return url links or Link component.
 
 When passing a boolean value true to the `badge` parameter, the Primary color will be used.
 To change the color of the displayed `badge`, use a closure and return the `Badge::make()` component.
@@ -324,7 +355,7 @@ BelongsToMany::make('Categories', resource: CategoryResource::class)
     ->inLine(
         separator: ' ',
         badge: fn($model, $value) => Badge::make((string) $value, 'primary'),
-        link: fn(Property $property, $value, $field) => (string) Link::make(
+        link: fn(Property $property, $value, $field): string|Link => Link::make(
             app(CategoryResource::class)->getDetailPageUrl($property->id),
             $value
         )

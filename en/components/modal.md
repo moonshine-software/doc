@@ -60,6 +60,8 @@ tab: Blade
 ```
 ~~~
 
+@include('_includes/modal-off-canvas-components', 'Modal', 'Modal', 'Modal', 'Modal')
+
 <a name="events"></a>
 ## Events
 
@@ -205,7 +207,7 @@ Modal::make(
     ->autoClose(false),
 ```
 
-<a name="wide"></a>
+<a name="width"></a>
 ## Width
 
 #### wide

@@ -10,7 +10,7 @@
 <a name="basics"></a>
 ## Basics
 
-Using the `Spinner` component, you can create loading indicators.
+The `Spinner` component allows you to create a loading indicator.
 
 ```php
 make(
@@ -21,10 +21,10 @@ make(
 )
 ```
 
-- $size - size,
-- $color - color,
-- $fixed - fixed position,
-- $absolute - absolute position.
+- `$size` - size,
+- `$color` - color,
+- `$fixed` - fixed position,
+- `$absolute` - absolute position.
 
 ~~~tabs
 tab: Class
@@ -61,12 +61,12 @@ Available sizes:
 
 Available colors:
 
-<span class="badge badge-primary">primary</span>
-<span class="badge badge-secondary">secondary</span>
-<span class="badge badge-success">success</span>
-<span class="badge badge-warning">warning</span>
-<span class="badge badge-error">error</span>
-<span class="badge badge-info">info</span>
+- primary
+- secondary
+- success
+- warning
+- error
+- info
 
 ```php
 <x-moonshine::spinner color="primary" />

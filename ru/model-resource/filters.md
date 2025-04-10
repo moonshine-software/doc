@@ -1,8 +1,18 @@
 # Фильтры
 
-Для создания фильтров также используются [поля](/docs/{{version}}/fields/index): они отображаются только на главной странице раздела.
+- [Основы](#basics)
+- [Apply](#apply)
+- [Кеширование состояния](#cache-state)
 
-Чтобы указать, по каким полям фильтровать данные, достаточно в вашем ресурсе модели в методе `filters()` вернуть массив с необходимыми полями.
+---
+
+<a name="basics"></a>
+## Основы
+
+Для создания фильтров также используются [поля](/docs/{{version}}/fields/index).
+Фильтры отображаются только на главной странице раздела.
+
+Чтобы указать, по каким полям фильтровать данные, достаточно в вашем `ModelResource` в методе `filters()` вернуть массив с необходимыми полями.
 
 > [!NOTE]
 > Если метод отсутствует или возвращает пустой массив, то фильтры не будут отображаться.
@@ -34,9 +44,18 @@ class PostResource extends ModelResource
 ![filters](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/filters.png#light)
 ![filters_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/filters_dark.png#dark)
 
-> [!TIP]
+> [!NOTE]
 > Поля являются ключевым элементом в построении форм **Moonshine**.
 [Подробнее о полях](/docs/{{version}}/fields/index).
+
+<a name="apply"></a>
+## Apply
+
+Для переопределения логики фильтрации вы можете применять метод полей [onApply()](/docs/{{version}}/fields/basic-methods#apply).
+Так же предлагаем рассмотреть [процесс применения полей](/docs/{{version}}/fields/index#apply) на примере фильтрации.
+
+<a name="cache-state"></a>
+## Кеширование состояния
 
 Если вам нужно кэшировать состояние фильтров, используйте свойство `$saveQueryState` в ресурсе.
 

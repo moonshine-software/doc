@@ -164,7 +164,7 @@ use MoonShine\UI\Components\ActionButton;
 
 protected function formButtons(): ListOf
 {
-    return parent::formButtons()->add(ActionButton::make('Ссылка', '/endpoint'));
+    return parent::formButtons()->add(ActionButton::make('Link', '/endpoint'));
 }
 ```
 
@@ -206,8 +206,9 @@ public function modifyFormComponent(
     ComponentContract $component
 ): ComponentContract
 {
-    return parent::modifyFormComponent($component)->customAttributes([
-        'data-my-attr' => 'value'
-    ]);
+    return parent::modifyFormComponent($component)
+        ->customAttributes([
+            'data-my-attr' => 'value'
+        ]);
 }
 ```

@@ -11,67 +11,76 @@
 
 Компонент `Heading` позволяет добавлять заголовки к контенту.
 
-Вы можете создать `Heading`, используя статический метод `make()` класса `Heading`.
-
 ```php
-make(Closure|string $label = '', ?int $h = null, bool $asClass = true)
+make(
+    Closure|string $label = '',
+    ?int $h = null,
+    bool $asClass = true,
+)
 ```
 
-`$label` - Значение,
-`$h` - Градация,
-`$asClass` - Использовать как div с классом градации или тег `h`,
+- `$label` - значение,
+- `$h` - градация (1-6),
+- `$asClass` - использовать `<div>` с классом градации или тег `h`.
 
 ~~~tabs
 tab: Class
 ```php
 use MoonShine\UI\Components\Heading;
 
-Heading::make('Title')->h(2);
+Heading::make('Title', 2)
 ```
 tab: Blade
 ```blade
-<x-moonshine::heading h="2">Hello world</x-moonshine::heading>
+<x-moonshine::heading h="2">
+    Hello world
+</x-moonshine::heading>
 ```
 ~~~
 
 <a name="gradation"></a>
 ## Градация
 
+Параметры заголовка так же можно задать с помощью метода `h()`.
+
 ```php
 h(int $gradation = 3, $asClass = true)
 ```
 
-Метод позволяет обернуть содержимое в тег *h1 - h6* или в *div* с классом градации.
-Первый параметр определяет градацию тега, второй определяет, использовать ли тег или класс для *div*.
+- `$gradation` - градация (1-6),
+- `$asClass` - использовать класс градации или тег `h`.
 
 ```php
 use MoonShine\UI\Components\Heading;
 
-// Будут теги h1 - h4
-Heading::make('Панель управления')->h(1, false),
-Heading::make('MoonShine')->h(2, false),
-Heading::make('Демо версия')->h(asClass: false),
-Heading::make('Заголовок')->h(4, false),
-
-// Будут div.h1 - div.h4
-Heading::make('Панель управления')->h(1),
-Heading::make('MoonShine')->h(2),
-Heading::make('Демо версия')->h(), // h3
-Heading::make('Заголовок')->h(4),
+// <div class="h1">
+Heading::make('Title')->h(1),
+// <h1>
+Heading::make('Title')->h(1, false),
+// <div class="h3">
+Heading::make('Title')->h(),
+// <h3>
+Heading::make('Title')->h(asClass: false),
+// <h4 class="h5">
+Heading::make('Title', 4, false)->h(5)
 ```
 
 <a name="custom-tag"></a>
 ## Тег
 
+Чтобы изменить тег заголовка, воспользуйтесь методом `tag()`.
+
 ```php
 tag(string $tag)
 ```
 
-Метод позволяет обернуть содержимое в указанный тег.
-
 ```php
-Heading::make('Панель управления')->tag('p')->h(1),
-Heading::make('MoonShine')->tag('p')->h(2),
-Heading::make('Демо версия')->tag('p')->h(),
-Heading::make('Заголовок')->tag('p')->h(4),
+// <p class="h1">
+Heading::make('Title', 1)
+    ->tag('p'),
+
+// <p class="h2">
+Heading::make('Title')
+    ->tag('p')
+    ->h(2),
 ```

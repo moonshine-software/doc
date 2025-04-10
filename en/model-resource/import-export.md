@@ -310,48 +310,61 @@ class CategoryResource extends ModelResource implements HasImportExportContract
 
 `ImportHandler` and `ExportHandler` extend the base class `Handler`, which implements additional methods.
 
-#### icon
+### icon
+
+Icon for the button:
 
 ```php
-// icon for the button
 icon(string $icon)
 ```
 
-#### queue
+### queue
+
+Run processes in the background:
 
 ```php
-// run processes in the background
 queue()
 ```
 
-#### modifyButton
+### modifyButton
+
+Modify button:
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:1]
 use MoonShine\UI\Components\ActionButton;
 
-// modify button
-modifyButton(fn(ActionButton $btn) => $btn->class('my-class'))
+modifyButton(
+    fn(ActionButton $btn) => $btn->class('my-class')
+)
 ```
 
-#### notifyUsers
+### notifyUsers
+
+Select users for notification:
 
 ```php
-// select users for notification
-notifyUsers(fn() => [auth()->id()])
+notifyUsers(
+    fn() => [auth()->id()]
+)
 ```
 
-#### when
+### when
+
+Methods by condition:
 
 ```php
-// methods by condition
-when($value = null, callable $callback = null, callable $default = null)
+when(
+    $value = null,
+    callable $callback = null,
+    callable $default = null,
+)
 ```
 
-`$value` - condition,
-`$callback` - `callback` function that will be executed if the condition is `TRUE`,
-`$default` - `callback` function that will be executed if the condition is `FALSE`.
+- `$value` - condition,
+- `$callback` - `callback` function that will be executed if the condition is `TRUE`,
+- `$default` - `callback` function that will be executed if the condition is `FALSE`.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -382,16 +395,21 @@ class CategoryResource extends ModelResource implements HasImportExportContract
 }
 ```
 
-#### unless
+### unless
+
+Methods by condition:
 
 ```php
-// methods by condition
-unless($value = null, callable $callback = null, callable $default = null)
+unless(
+    $value = null,
+    callable $callback = null,
+    callable $default = null,
+)
 ```
 
-`$value` - condition,
-`$callback` - `callback` function that will be executed if the condition is `FALSE`,
-`$default` - `callback` function that will be executed if the condition is `TRUE`.
+- `$value` - condition,
+- `$callback` - `callback` function that will be executed if the condition is `FALSE`,
+- `$default` - `callback` function that will be executed if the condition is `TRUE`.
 
 > [!NOTE]
 > The `unless()` method is the reverse of the `when()` method.

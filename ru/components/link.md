@@ -19,21 +19,25 @@ make(
 )
 ```
 
-- $href - ссылка на ресурс,
-- $value - название ссылки.
+- `$href` - ссылка на ресурс,
+- `$value` - название ссылки.
 
 ~~~tabs
 tab: Class
 ```php
-use MoonShine\UI\Components\Layout\Link;
+use MoonShine\UI\Components\Link;
 
 Link::make('https://moonshine-laravel.com', 'Moonshine')
 ```
 tab: Blade
 ```blade
-<x-moonshine::link-button href="#">Link</x-moonshine::link-button>
+<x-moonshine::link-button href="#">
+    Link
+</x-moonshine::link-button>
 
-<x-moonshine::link-native href="#">Link</x-moonshine::link-native>
+<x-moonshine::link-native href="#">
+    Link
+</x-moonshine::link-native>
 ```
 ~~~
 
@@ -44,19 +48,21 @@ tab: Blade
 
 ```php
 Link::make('https://moonshine-laravel.com', 'Moonshine')
-    ->tooltip('Подсказка')
+    ->tooltip('Tooltip')
 ```
 
 <a name="fill"></a>
 ## Заливка
 
-За заливку отвечает параметр `filled`.
+За заливку отвечает метод `filled()`.
 
+~~~tabs
+tab: Class
 ```php
 Link::make('https://moonshine-laravel.com', 'Moonshine')
     ->filled()
 ```
-
+tab: Blade
 ```blade
 <x-moonshine::link-button
     href="#"
@@ -72,11 +78,12 @@ Link::make('https://moonshine-laravel.com', 'Moonshine')
     Link
 </x-moonshine::link-native>
 ```
+~~~
 
 <a name="icon"></a>
 ## Иконка
 
-Вы можете передать параметр `icon`.
+Для добавления иконки используйте метод `icon()`.
 
 ```php
 Link::make('https://moonshine-laravel.com', 'Moonshine')

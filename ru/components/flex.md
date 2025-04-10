@@ -2,13 +2,15 @@
 
 - [Основы](#basics)
 - [Выравнивание](#alignment)
+- [Перенос](#wrap)
 
 ---
 
 <a name="basics"></a>
 ## Основы
 
-Для расположения элементов на странице можно использовать компонент `Flex`. Компоненты внутри `Flex` будут отображаться в режиме `display: flex`.
+Для расположения элементов на странице можно использовать компонент `Flex`.
+Компоненты внутри `Flex` будут отображаться в режиме `display: flex`.
 
 ```php
 make(
@@ -21,12 +23,12 @@ make(
 )
 ```
 
-- $components - список компонентов,
-- $colSpan - количество колонок, которые занимает блок для размеров экрана 1280px и более,
-- $adaptiveColSpan - количество колонок, которые занимает блок для размеров экрана до 1280px,
-- $itemsAlign - аналог css класса `items-$itemsAlign` в tailwind,
-- $justifyAlign - аналог css класса `justify-$justifyAlign` в tailwind,
-- $withoutSpace - флаг для отступов.
+- `$components` - список компонентов,
+- `$colSpan` - количество колонок, которые занимает блок для размеров экрана 1280px и более,
+- `$adaptiveColSpan` - количество колонок, которые занимает блок для размеров экрана до 1280px,
+- `$itemsAlign` - аналог css класса `items-$itemsAlign` в **Tailwind**,
+- `$justifyAlign` - аналог css класса `justify-$justifyAlign` в **Tailwind**,
+- `$withoutSpace` - флаг для отступов.
 
 ~~~tabs
 tab: Class
@@ -50,7 +52,7 @@ tab: Blade
 <a name="alignment"></a>
 ## Выравнивание
 
-Для выравнивания элементов вы можете использовать методы `itemsAlign()` и `justifyAlign()`
+Для выравнивания элементов вы можете использовать методы `itemsAlign()` и `justifyAlign()`.
 
 ```php
 Flex::make([
@@ -59,4 +61,17 @@ Flex::make([
 ])
     ->justifyAlign('between')
     ->itemsAlign('start')
+```
+
+<a name="wrap"></a>
+## Перенос
+
+Для переноса элементов (`flex-wrap`) вы можете использовать метод `wrap()`.
+
+```php
+Flex::make([
+    Text::make('Test'),
+    Text::make('Test 2'),
+])
+    ->wrap()
 ```

@@ -1,17 +1,10 @@
 # Color
 
-- [Basics](#basics)
-
----
-
-<a name="basics"></a>
-## Basics
-
 Contains all [Basic methods](/docs/{{version}}/fields/basic-methods).
 
 The `Color` field provides a convenient way to input a color.
 
-Uses the *UI* component [Color](/docs/{{version}}/components/color)
+Uses the [Color](/docs/{{version}}/components/color) component.
 
 ```php
 use MoonShine\UI\Fields\Color;

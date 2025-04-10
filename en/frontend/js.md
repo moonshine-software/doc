@@ -16,22 +16,22 @@
 <a name="basics"></a>
 ## Basics
 
-`Alpine.js` is integrated into **MoonShine** "out of the box" and provides a declarative approach to creating dynamic behavior right in the HTML markup.
+**Alpine.js** is integrated into **MoonShine** "out of the box" and provides a declarative approach to creating dynamic behavior right in the HTML markup.
 This allows you to easily add such features as:
 
-- Dynamic hiding/showing of elements
-- Event handling
-- Reactivity
-- Asynchronous requests
-- Animations and transitions
+- Dynamic hiding/showing of elements,
+- Event handling,
+- Reactivity,
+- Asynchronous requests,
+- Animations and transitions.
 
-Thanks to its lightweight nature and simple syntax, `Alpine.js` is well-suited for admin panel tasks without weighing down your application.
+Thanks to its lightweight nature and simple syntax, **Alpine.js** is well-suited for admin panel tasks without weighing down your application.
 
 > [!NOTE]
-> Although `Alpine.js` is the recommended solution for MoonShine, you are not limited in your choice of JavaScript tools or using vanilla js.
+> Although **Alpine.js** is the recommended solution for **MoonShine**, you are not limited in your choice of JavaScript tools or using vanilla JS.
 
 > [!TIP]
-> We recommend familiarizing yourself with [Alpine.js](https://alpinejs.dev)
+> We recommend familiarizing yourself with [Alpine.js](https://alpinejs.dev).
 
 <a name="components"></a>
 ## Creating a component
@@ -43,43 +43,40 @@ php artisan moonshine:component MyComponent
 ```
 
 We'll leave the path as suggested by **MoonShine** - `/resources/views/admin/components/my-component.blade.php`.
-Inside, we'll add `x-data` with the name of our component, thereby indicating that the area inside is an `Alpine.js` component.
+Inside, we'll add `x-data` with the name of our component, thereby indicating that the area inside is an **Alpine.js** component.
 
 ```html
-<div x-data="myComponent">
-</div>
+<div x-data="myComponent"></div>
 ```
 
-Next, we'll create a script where we will later implement the logic of the `Alpine.js` component.
+Next, we'll create a script where we will later implement the logic of the **Alpine.js** component.
 
-```html
-<script>
+```js
 document.addEventListener("alpine:init", () => {
-  Alpine.data("myComponent", () => ({
-      init() {
-
-      },
-  }))
+    Alpine.data("myComponent", () => ({
+        init() {
+            // ...
+        },
+    }))
 })
-</script>
 ```
 
-For clarity, we have shown you the script right in `blade`,
-but we recommend placing components in separate `js` files and including them via [AssetManager](/docs/{{version}}/appearance/assets).
+For clarity, we have shown you the script right in **Blade**,
+but we recommend placing components in separate JS files and including them via [AssetManager](/docs/{{version}}/appearance/assets).
 
 > [!WARNING]
-> Alpine.js is already installed and running (window.Alpine); reinitializing will cause an error.
+> **Alpine.js** is already installed and running (window.Alpine); reinitializing will cause an error.
 
 <a name="events"></a>
 ## Events
 
-With `js` events, you can easily interact with **MoonShine**! Update forms, tables, areas, trigger modal windows, reset forms, and much more.
-You can also create your own events in `js`.
+With JS events, you can easily interact with **MoonShine**! Update forms, tables, areas, trigger modal windows, reset forms, and much more.
+You can also create your own events in JS.
 
 <a name="#default-events"></a>
 ### Default events
 
-In the **MoonShine** admin panel, several standard events are defined, the names of which can be conveniently obtained through the `enum` `JsEvent`, but you can also call them from `js`.
+In the **MoonShine** admin panel, several standard events are defined, the names of which can be conveniently obtained through the `enum` `JsEvent`, but you can also call them from JS.
 
 - `fragment_updated:{componentName}`(`JsEvent::FRAGMENT_UPDATED`) - fragment update,
 - `table_updated:{componentName}`(`JsEvent::TABLE_UPDATED`) - table update,
@@ -100,20 +97,16 @@ In the **MoonShine** admin panel, several standard events are defined, the names
 Let's recall how this is done on the `backend` side:
 
 ```php
-Modal::make(
-  'Title',
-  'Content',
-)
-->name('my-modal'),
+Modal::make('Title', 'Content')
+    ->name('my-modal'),
 
-ActionButton::make(
-    'Show modal window',
-    '/endpoint'
-)
-    ->async(events: [AlpineJs::event(JsEvent::MODAL_TOGGLED, 'my-modal')])
+ActionButton::make('Show modal window', '/endpoint')
+    ->async(
+        events: [AlpineJs::event(JsEvent::MODAL_TOGGLED, 'my-modal')]
+    )
 ```
 
-But this section is dedicated to `frontend` and events can be called using native *javascript* methods:
+But this section is dedicated to `frontend` and events can be called using native JS methods:
 
 ```js
 document.addEventListener("DOMContentLoaded", () => {
@@ -121,14 +114,15 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 ```
 
-Or using the magic method `$dispatch()` from `Alpine.js`:
+Or using the magic method `$dispatch()` from **Alpine.js**:
 
 ```js
 this.$dispatch('modal_toggled:my-modal')
 ```
 
 > [!NOTE]
-> More detailed information can be found in the official Alpine.js documentation in the sections [Events](https://alpinejs.dev/essentials/events) and [$dispatch](https://alpinejs.dev/magics/dispatch).
+> More detailed information can be found in the official **Alpine.js** documentation
+> in the sections [Events](https://alpinejs.dev/essentials/events) and [$dispatch](https://alpinejs.dev/magics/dispatch).
 
 <a name="#response-events"></a>
 ### Calling events through Response
@@ -143,40 +137,48 @@ events(array $events)
 - `$events` - an array of events to be triggered.
 
 ```php
-use MoonShine\Support\Enums\JsEvent;
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:3]
 use MoonShine\Laravel\Http\Responses\MoonShineJsonResponse;
 use MoonShine\Support\AlpineJs;
+use MoonShine\Support\Enums\JsEvent;
 
 // ...
 
 return MoonShineJsonResponse::make()
-  ->events([
-    AlpineJs::event(JsEvent::TABLE_UPDATED, 'index'),
-  ]);
+    ->events([
+        AlpineJs::event(JsEvent::TABLE_UPDATED, 'index'),
+    ]);
 ```
 
 <a name="blade-dir"></a>
 ### Blade directive
 
-*Blade directives* are used for quickly declaring events for components.
+Blade directives are used for quickly declaring events for components.
 
 #### @defineEvent
 
-A directive for conveniently declaring an event in `html`.
+A directive for conveniently declaring an event in HTML.
 
 ```php
-@defineEvent(string|JsEvent $event, ?string $name = null, ?string $call = null, array $params = [])
+@defineEvent(
+    string|JsEvent $event,
+    ?string $name = null,
+    ?string $call = null,
+    array $params = [],
+)
 ```
+
 - `$event` - the event,
 - `$name` - the component name,
 - `$call` - the callback function,
 - `$params` - event parameters.
 
-```html
-<div x-data="myComponent">
-    // @table-updated-index.window="asyncRequest"
+```blade
+<div x-data="myComponent"
+    {{-- @table-updated-index.window="asyncRequest" --}}
     @defineEvent('table-updated', 'index', 'asyncRequest')
-    >
+>
 </div>
 ```
 
@@ -185,7 +187,13 @@ A directive for conveniently declaring an event in `html`.
 With a condition of whether it will be added or not.
 
 ```php
-@defineEventWhen(mixed $condition, string|JsEvent $event, ?string $name = null, ?string $call = null, array $params = [])
+@defineEventWhen(
+    mixed $condition,
+    string|JsEvent $event,
+    ?string $name = null,
+    ?string $call = null,
+    array $params = [],
+)
 ```
 
 - `$condition` - condition,
@@ -194,21 +202,25 @@ With a condition of whether it will be added or not.
 - `$call` - the callback function,
 - `$params` - event parameters.
 
-```html
-<div x-data="myComponent">
-    // @table-updated-index.window="asyncRequest"
+```blade
+<div x-data="myComponent"
+    {{-- @table-updated-index.window="asyncRequest" --}}
     @defineEventWhen(true, 'table-updated', 'index', 'asyncRequest')
-    >
+>
 </div>
 ```
 
 <a name="helper"></a>
-### Helper class *AlpineJs* for event formation.
+### Helper class AlpineJs for event formation.
 
 #### AlpineJs::event()
 
 ```php
-AlpineJs::event(string|JsEvent $event, ?string $name = null, array $params = [])
+AlpineJs::event(
+    string|JsEvent $event,
+    ?string $name = null,
+    array $params = [],
+)
 ```
 
 - `$event` - the event,
@@ -221,14 +233,21 @@ use MoonShine\Support\Enums\JsEvent;
 use MoonShine\Support\AlpineJs;
 
 FormBuilder::make('/crud/update')
-  ->name('main-form')
-  ->async(events: [AlpineJs::event(JsEvent::TABLE_UPDATED, 'index', ['var' => 'foo'])])
+    ->name('main-form')
+    ->async(
+        events: [AlpineJs::event(JsEvent::TABLE_UPDATED, 'index', ['var' => 'foo'])]
+    )
 ```
 
 #### AlpineJs::eventBlade()
 
 ```php
-AlpineJs::eventBlade(string|JsEvent $event, ?string $name = null, ?string $call = null, array $params = [])
+AlpineJs::eventBlade(
+    string|JsEvent $event,
+    ?string $name = null,
+    ?string $call = null,
+    array $params = []
+)
 ```
 
 - `$event` - the event,
@@ -238,11 +257,11 @@ AlpineJs::eventBlade(string|JsEvent $event, ?string $name = null, ?string $call 
 
  ```php
 FormBuilder::make('/crud/update')
-  ->name('main-form')
-  ->customAttributes([
-    // @form-reset-main-form.window="formReset"
-    AlpineJs::eventBlade(JsEvent::FORM_RESET, 'main-form') => 'formReset',
-  ]);
+    ->name('main-form')
+    ->customAttributes([
+        // @form-reset-main-form.window="formReset"
+        AlpineJs::eventBlade(JsEvent::FORM_RESET, 'main-form') => 'formReset',
+    ])
 ```
 
 <a name="js-core"></a>
@@ -279,6 +298,7 @@ MoonShine.ui.toggleOffCanvas('canvas-name')
 ```
 
 ## Iterable
+
 ### Reorder
 
 ```js
@@ -308,7 +328,7 @@ MoonShine.iterable.reindex(
 <a name="response-calback"></a>
 ## Response handling
 
-**MoonShine** allows integration into the process of executing asynchronous requests in `js`, specifying which function will run before the request and after receiving the response.
+**MoonShine** allows integration into the process of executing asynchronous requests in JS, specifying which function will run before the request and after receiving the response.
 
 `ActionButton`, `FormBuilder`, `TableBuilder`, `Field`, and other components implementing the `HasAsyncContract` interface in `async` methods also contain the `callback` parameter.
 
@@ -316,10 +336,15 @@ The class `AsyncCallback` is responsible for passing the `callback` parameter. L
 
 ### Overriding response handling
 
-With the `responseHandler` parameter, you can completely redefine the behavior of response handling. In the case of overriding, you take care of event calls, error handling, notifications, and more.
+With the `responseHandler` parameter, you can completely redefine the behavior of response handling.
+In the case of overriding, you take care of event calls, error handling, notifications, and more.
 
 ```php
-ActionButton::make()->method('myMethod', callback: AsyncCallback::with(responseHandler: 'myResponseHandler'));
+ActionButton::make()
+    ->method(
+        'myMethod',
+        callback: AsyncCallback::with(responseHandler: 'myResponseHandler')
+    )
 ```
 
 > [!NOTE]
@@ -327,50 +352,58 @@ ActionButton::make()->method('myMethod', callback: AsyncCallback::with(responseH
 
 When clicking the button, a request will be sent to the method `myMethod`, and upon response, the function `myResponseHandler` will be called.
 
-The next step is to declare this function in `js` through the global class **MoonShine**:
+The next step is to declare this function in JS through the global class **MoonShine**:
 
 ```js
 document.addEventListener("moonshine:init", () => {
-  MoonShine.onCallback('myResponseHandler', function(response, element, events, component) {
-    console.log('myResponseHandler', response, element, events, component)
-  })
+    MoonShine.onCallback('myResponseHandler', function(response, element, events, component) {
+        console.log('myResponseHandler', response, element, events, component)
+    })
 })
 ```
 
-- `response` - the response object,
-- `element` - the `html` element, in this case, the `ActionButton`,
-- `events` - the events that will be triggered,
-- `component` - the `Alpine.js` component.
+- `response` - response object,
+- `element` - HTML element, in this case, the `ActionButton`,
+- `events` - events that will be triggered,
+- `component` - **Alpine.js** component.
 
 ### Call before request
 
 Next, let's look at an example with the function before the request call through the `beforeRequest` parameter:
 
 ```php
-ActionButton::make()->method('myMethod', callback: AsyncCallback::with(beforeRequest: 'myBeforeRequest'));
+ActionButton::make()
+    ->method(
+        'myMethod',
+        callback: AsyncCallback::with(beforeRequest: 'myBeforeRequest')
+    )
 ```
 
 When the button is pressed, the function `myBeforeRequest` will be executed before sending the request to the method `myMethod`.
 
-The next step is to declare this function in `js` through the global class **MoonShine**:
+The next step is to declare this function in JS through the global class **MoonShine**:
 
 ```js
 document.addEventListener("moonshine:init", () => {
-  MoonShine.onCallback('myBeforeRequest', function(element, component) {
-    console.log('myBeforeRequest', element, component)
-  })
+    MoonShine.onCallback('myBeforeRequest', function(element, component) {
+        console.log('myBeforeRequest', element, component)
+    })
 })
 ```
 
-- `element` - the `html` element, in this case, the `ActionButton`,
-- `component` - the `Alpine.js` component.
+- `element` - HTML element, in this case, the `ActionButton`,
+- `component` - **Alpine.js** component.
 
 ### Call after successful response
 
 Next, let's look at an example with the `afterResponse` parameter, which takes the name of the function to be called after a successful response:
 
 ```php
-ActionButton::make()->method('myMethod', callback: AsyncCallback::with(afterResponse: 'myAfterResponse'));
+ActionButton::make()
+    ->method(
+        'myMethod',
+        callback: AsyncCallback::with(afterResponse: 'myAfterResponse')
+    )
 ```
 
 > [!NOTE]
@@ -378,16 +411,16 @@ ActionButton::make()->method('myMethod', callback: AsyncCallback::with(afterResp
 
 When clicking the button, a request will be sent to the method `myMethod`, and in case of success, the function `myAfterResponse` will be called.
 
-The next step is to declare this function in `js` through the global class **MoonShine**:
+The next step is to declare this function in JS through the global class **MoonShine**:
 
 ```js
 document.addEventListener("moonshine:init", () => {
-  MoonShine.onCallback('myAfterResponse', function(data, messageType, component) {
-    console.log('myAfterResponse', data, messageType, component)
-  })
+    MoonShine.onCallback('myAfterResponse', function(data, messageType, component) {
+        console.log('myAfterResponse', data, messageType, component)
+    })
 })
 ```
 
-- `data` - the `json` response,
+- `data` - JSON response,
 - `messageType` - `ToastType`,
-- `component` - the `Alpine.js` component.
+- `component` - **Alpine.js** component.

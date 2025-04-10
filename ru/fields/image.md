@@ -25,11 +25,13 @@ tab: Blade
 ![image](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/image.png#light)
 ![image dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/image_dark.png#dark)
 
-Если вам необходимо кастомизировать модальное окно с изображением в режиме preview, то вы можете воспользоваться методом `extraAttributes()`:
+Если вам необходимо кастомизировать модальное окно с изображением в режиме "preview", то вы можете воспользоваться методом `extraAttributes()`.
 
 ```php
 Image::make('avatar')
-    ->extraAttributes(fn(string $filename, int $index): ?FileItemExtra => new FileItemExtra(wide: false, auto: true, styles: 'width: 250px;')),
+    ->extraAttributes(
+        fn(string $filename, int $index): ?FileItemExtra => new FileItemExtra(wide: false, auto: true, styles: 'width: 250px;')
+    )
 ```
 
 - `wide` - XL размер модального окна,

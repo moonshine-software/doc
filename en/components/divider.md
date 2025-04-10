@@ -39,5 +39,6 @@ Divider::make('Separator')
 The `centered()` method allows you to center the text.
 
 ```php
-Divider::make('Separator')->centered()
+Divider::make('Separator')
+    ->centered()
 ```
