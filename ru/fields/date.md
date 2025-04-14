@@ -3,6 +3,7 @@
 - [Основы](#basics)
 - [Основные методы](#basic-methods)
   - [Дата и время](#date-and-time)
+  - [Время](#time)
   - [Формат](#format)
 - [Расширения](#extensions)
     - [Копирование](#copy)
@@ -57,6 +58,13 @@ Date::make('Created at', 'created_at')
 
 ![date_time](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/date_time.png#light)
 ![date_time_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/date_time_dark.png#dark)
+
+<a name="time"></a>
+### Время
+
+```php
+Text::make('Time')->setAttribute('type', 'time')
+```
 
 <a name="format"></a>
 ### Формат
