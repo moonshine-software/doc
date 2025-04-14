@@ -54,10 +54,11 @@ use MoonShine\JWT\Http\Middleware\AuthenticateApi;
 
 return [
     'middleware' => [
-        AuthenticateApi::class
+        // empty
     ],
     'auth' => [
         // ...
+        'middleware' => AuthenticateApi::class,
         'pipelines' => [
             JWTAuthPipe::class
         ],
