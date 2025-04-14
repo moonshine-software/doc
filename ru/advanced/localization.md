@@ -63,6 +63,15 @@ $config->locales([
     'ru' => 'Русский',
 ]);
 ```
+Пример с переводом:
+```php
+$config->locales(
+    fn() => [
+        'ru' => __('lang.russian'),
+        'en' => __('lang.english'),
+    ]
+);
+```
 ~~~
 
 > [!WARNING]
