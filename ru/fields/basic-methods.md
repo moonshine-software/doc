@@ -689,7 +689,7 @@ use Illuminate\Contracts\Database\Eloquent\Builder;
 
 Text::make('Title')
     ->onApply(function (Builder $query, mixed $value, Text $field) {
-        $q->where('title', $value);
+        $query->where('title', $value);
     })
 ```
 
