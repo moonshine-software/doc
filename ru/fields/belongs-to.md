@@ -298,7 +298,7 @@ use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 BelongsTo::make('Category', 'category', resource: CategoryResource::class)
     ->asyncSearch(
         'title',
-        searchQuery: function (Builder $query, Request $request, Field $field) {
+        searchQuery: function (Builder $query, Request $request, string $term, Field $field) {
             return $query->where('id', '!=', 2);
         },
         formatted: function ($country, Field $field) {
@@ -328,7 +328,7 @@ Select::make('Country', 'country_id'),
 BelongsTo::make('City', 'city',  resource: CityResource::class)
     ->asyncSearch(
         'title',
-        searchQuery: function (Builder $query, Request $request, Field $field): Builder {
+        searchQuery: function (Builder $query, Request $request, string $term, Field $field): Builder {
             return $query->where('country_id', $request->get('country_id'));
         }
     )
@@ -353,7 +353,7 @@ Select::make('Country', 'country_id'),
 BelongsTo::make('City', 'city',  resource: CityResource::class)
     ->asyncSearch(
         'title',
-        searchQuery: function (Builder $query, Request $request, Field $field): Builder {
+        searchQuery: function (Builder $query, Request $request, string $term, Field $field): Builder {
             return $query->where('country_id', $request->get('country_id'));
         },
         replaceQuery: true
