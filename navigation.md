@@ -4,6 +4,7 @@
     - [Support Policy](/docs/{{version}}/support-policy)
     - [Troubleshooting](/docs/{{version}}/troubleshooting)
 - ## Getting Started
+    - [Quick Start](/docs/{{version}}/quick-start)
     - [Installation](/docs/{{version}}/installation)
     - [Configuration](/docs/{{version}}/configuration)
 - ## Appearance
