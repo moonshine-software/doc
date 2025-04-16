@@ -228,5 +228,13 @@ $colors
 
 Рекомендуем изучить [документацию](https://moonshine-laravel.com/docs), рецепты и видео-гайды, чтобы использовать все возможности платформы.
 
+Важные разделы:
+- [Конфигурация](/docs/{{version}}/configuration)
+- [Меню](/docs/{{version}}/appearance/menu)
+- [Ресурсы](/docs/{{version}}/model-resource/index)
+- [Страницы](/docs/{{version}}/page/index)
+- [Поля](/docs/{{version}}/fields/index)
+- [Компоненты](/docs/{{version}}/components/index)
+
 Спасибо, что выбрали MoonShine!
 
