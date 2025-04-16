@@ -334,32 +334,6 @@ BelongsTo::make('City', 'city',  resource: CityResource::class)
     )
 ```
 
-> [!NOTE]
-> При построении запроса в `searchQuery` сохраняется исходное состояние построителя.
-> Если вам нужно заменить его своим построителем, то используйте флаг `replaceQuery`.
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:6]
-use App\MoonShine\Resources\CityResource;
-use Illuminate\Contracts\Database\Eloquent\Builder;
-use Illuminate\Http\Request;
-use MoonShine\Laravel\Fields\Relationships\BelongsTo;
-use MoonShine\UI\Fields\Field;
-use MoonShine\UI\Fields\Select;
-
-Select::make('Country', 'country_id'),
-
-BelongsTo::make('City', 'city',  resource: CityResource::class)
-    ->asyncSearch(
-        'title',
-        searchQuery: function (Builder $query, Request $request, string $term, Field $field): Builder {
-            return $query->where('country_id', $request->get('country_id'));
-        },
-        replaceQuery: true
-    )
-```
-
 <a name="associated"></a>
 ## Связанные поля
 

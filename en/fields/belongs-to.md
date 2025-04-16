@@ -334,32 +334,6 @@ BelongsTo::make('City', 'city',  resource: CityResource::class)
     )
 ```
 
-> [!NOTE]
-> When building the query in `searchQuery`, the initial state of the builder is preserved.
-> If you need to replace it with your builder, use the `replaceQuery` flag.
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:6]
-use App\MoonShine\Resources\CityResource;
-use Illuminate\Contracts\Database\Eloquent\Builder;
-use Illuminate\Http\Request;
-use MoonShine\Laravel\Fields\Relationships\BelongsTo;
-use MoonShine\UI\Fields\Field;
-use MoonShine\UI\Fields\Select;
-
-Select::make('Country', 'country_id'),
-
-BelongsTo::make('City', 'city',  resource: CityResource::class)
-    ->asyncSearch(
-        'title',
-        searchQuery: function (Builder $query, Request $request, string $term, Field $field): Builder {
-            return $query->where('country_id', $request->get('country_id'));
-        },
-        replaceQuery: true
-    )
-```
-
 <a name="associated"></a>
 ## Associated Fields
 
