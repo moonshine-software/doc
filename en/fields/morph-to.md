@@ -39,3 +39,14 @@ MorphTo::make('Imageable')->types([
 
 ![morph_to_array](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/morph_to_array.png#light)
 ![morph_to_array_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/morph_to_array_dark.png#dark)
+
+> [!WARNING]
+> When using a field in third-party resources, be sure to specify the resource,
+> Otherwise, a resource from the request will be used, which can lead to errors.
+
+```php
+MorphTo::make('Commentable', resource: PolyCommentResource::class)->types([
+    Post::class => 'name',
+    Project::class => 'name',
+])
+```
