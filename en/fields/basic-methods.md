@@ -423,6 +423,13 @@ Password::make('Title')
 <a name="name-attribute"></a>
 ### Modifying the "name" Attribute
 
+Since the attribute of `name` is generated on the basis of investment and has a complex logic of formation, it needs to be used to change the `setNameAttribute()` method.
+
+```php
+Text::make('Name')
+    ->setNameAttribute('custom_name')
+```
+
 #### wrapName
 To add a wrapper for the value of the `name` attribute, the `wrapName()` method is used.
 

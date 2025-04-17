@@ -423,6 +423,13 @@ Password::make('Title')
 <a name="name-attribute"></a>
 ### Модифицирование атрибута "name"
 
+Так как атрибут `name` генерируется на основе вложенности и имеет сложную логику формирования, то для его изменения требуется воспользоваться методом `setNameAttribute()`.
+
+```php
+Text::make('Name')
+    ->setNameAttribute('custom_name')
+```
+
 #### wrapName
 Для того чтобы добавить wrapper для значения атрибута `name`, используется метод `wrapName()`.
 
