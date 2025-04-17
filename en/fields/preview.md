@@ -47,20 +47,21 @@ badge(string|Closure|null $color = null)
 
 Available colors:
 
-<span style="background-color: #7843e9; padding: 5px; border-radius: 0.375rem">primary</span>
-<span style="background-color: #ec4176; padding: 5px; border-radius: 0.375rem">secondary</span>
-<span style="background-color: #00aa00; padding: 5px; border-radius: 0.375rem">success</span>
-<span style="background-color: #ffdc2a; padding: 5px; border-radius: 0.375rem; color: rgb(139 116 0 / 1);">warning</span>
-<span style="background-color: #e02d2d; padding: 5px; border-radius: 0.375rem">error</span>
-<span style="background-color: #0079ff; padding: 5px; border-radius: 0.375rem">info</span>
-
-<span style="background-color: rgb(243 232 255 / 1); color: rgb(107 33 168 / 1); padding: 5px; border-radius: 0.375rem">purple</span>
-<span style="background-color: rgb(252 231 243 / 1); color: rgb(157 23 77 / 1); padding: 5px; border-radius: 0.375rem">pink</span>
-<span style="background-color: rgb(219 234 254 / 1); color: rgb(30 64 175 / 1); padding: 5px; border-radius: 0.375rem">blue</span>
-<span style="background-color: rgb(220 252 231 / 1); color: rgb(22 101 52 / 1); padding: 5px; border-radius: 0.375rem">green</span>
-<span style="background-color: rgb(254 249 195 / 1); color: rgb(133 77 14 / 1); padding: 5px; border-radius: 0.375rem">yellow</span>
-<span style="background-color: rgb(243 232 255 / 1); color: rgb(153 27 27 / 1); padding: 5px; border-radius: 0.375rem">red</span>
-<span style="background-color: rgb(243 244 246 / 1); color: rgb(31 41 55 / 1); padding: 5px; border-radius: 0.375rem">gray</span>
+<p class="colors">
+<span class="color color-primary">primary</span>
+<span class="color color-secondary">secondary</span>
+<span class="color color-success">success</span>
+<span class="color color-warning">warning</span>
+<span class="color color-error">error</span>
+<span class="color color-info">info</span>
+<span class="color color-purple">purple</span>
+<span class="color color-pink">pink</span>
+<span class="color color-blue">blue</span>
+<span class="color color-green">green</span>
+<span class="color color-yellow">yellow</span>
+<span class="color color-red">red</span>
+<span class="color color-gray">gray</span>
+</p>
 
 ```php
 use MoonShine\UI\Fields\Preview;

@@ -54,3 +54,19 @@ tab: Blade
 <x-moonshine::badge color="gray">Gray</x-moonshine::badge>
 ```
 ~~~
+
+<p class="colors">
+<span class="color color-primary">primary</span>
+<span class="color color-secondary">secondary</span>
+<span class="color color-success">success</span>
+<span class="color color-warning">warning</span>
+<span class="color color-error">error</span>
+<span class="color color-info">info</span>
+<span class="color color-purple">purple</span>
+<span class="color color-pink">pink</span>
+<span class="color color-blue">blue</span>
+<span class="color color-green">green</span>
+<span class="color color-yellow">yellow</span>
+<span class="color color-red">red</span>
+<span class="color color-gray">gray</span>
+</p>

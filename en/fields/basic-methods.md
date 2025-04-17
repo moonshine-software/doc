@@ -196,24 +196,21 @@ badge(string|Color|Closure|null $color = null)
 
 Available colors:
 
-<div style="display: flex; flex-wrap: wrap; gap: .25rem">
-    <span style="padding: .125rem .625rem; border-radius: .375rem; background-color: #7843e9">primary</span>
-    <span style="padding: .125rem .625rem; border-radius: .375rem; background-color: #ec4176">secondary</span>
-    <span style="padding: .125rem .625rem; border-radius: .375rem; background-color: #00aa00">success</span>
-    <span style="padding: .125rem .625rem; border-radius: .375rem; background-color: #ffdc2a; color: rgb(139 116 0 / 1)">warning</span>
-    <span style="padding: .125rem .625rem; border-radius: .375rem; background-color: #e02d2d">error</span>
-    <span style="padding: .125rem .625rem; border-radius: .375rem; background-color: #0079ff">info</span>
-</div>
-
-<div style="display: flex; flex-wrap: wrap; gap: .25rem">
-    <span style="padding: .125rem .625rem; border-radius: .375rem; background-color: rgb(243 232 255 / 1); color: rgb(107 33 168 / 1)">purple</span>
-    <span style="padding: .125rem .625rem; border-radius: .375rem; background-color: rgb(252 231 243 / 1); color: rgb(157 23 77 / 1)">pink</span>
-    <span style="padding: .125rem .625rem; border-radius: .375rem; background-color: rgb(219 234 254 / 1); color: rgb(30 64 175 / 1)">blue</span>
-    <span style="padding: .125rem .625rem; border-radius: .375rem; background-color: rgb(220 252 231 / 1); color: rgb(22 101 52 / 1)">green</span>
-    <span style="padding: .125rem .625rem; border-radius: .375rem; background-color: rgb(254 249 195 / 1); color: rgb(133 77 14 / 1)">yellow</span>
-    <span style="padding: .125rem .625rem; border-radius: .375rem; background-color: rgb(243 232 255 / 1); color: rgb(153 27 27 / 1)">red</span>
-    <span style="padding: .125rem .625rem; border-radius: .375rem; background-color: rgb(243 244 246 / 1); color: rgb(31 41 55 / 1)">gray</span>
-</div>
+<p class="colors">
+<span class="color color-primary">primary</span>
+<span class="color color-secondary">secondary</span>
+<span class="color color-success">success</span>
+<span class="color color-warning">warning</span>
+<span class="color color-error">error</span>
+<span class="color color-info">info</span>
+<span class="color color-purple">purple</span>
+<span class="color color-pink">pink</span>
+<span class="color color-blue">blue</span>
+<span class="color color-green">green</span>
+<span class="color color-yellow">yellow</span>
+<span class="color color-red">red</span>
+<span class="color color-gray">gray</span>
+</p>
 
 ```php
 use MoonShine\Support\Enums\Color;

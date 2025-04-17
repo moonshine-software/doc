@@ -799,19 +799,21 @@ TableBuilder::make()
 
 Доступные классы:
 
-- bgc-purple
-- bgc-pink
-- bgc-blue
-- bgc-green
-- bgc-yellow
-- bgc-red
-- bgc-gray
-- bgc-primary
-- bgc-secondary
-- bgc-success
-- bgc-warning
-- bgc-error
-- bgc-info
+<p class="colors">
+<span class="color color-primary">bgc-primary</span>
+<span class="color color-secondary">bgc-secondary</span>
+<span class="color color-success">bgc-success</span>
+<span class="color color-warning">bgc-warning</span>
+<span class="color color-error">bgc-error</span>
+<span class="color color-info">bgc-info</span>
+<span class="color color-purple">bgc-purple</span>
+<span class="color color-pink">bgc-pink</span>
+<span class="color color-blue">bgc-blue</span>
+<span class="color color-green">bgc-green</span>
+<span class="color color-yellow">bgc-yellow</span>
+<span class="color color-red">bgc-red</span>
+<span class="color color-gray">bgc-gray</span>
+</p>
 
 ```php
 <x-moonshine::table>
