@@ -1,3 +1,7 @@
+---
+video: https://youtu.be/95qxienFmtI?si=89rh5M5inDBim5ZP&t=1144
+---
+
 # Color Manager
 
 - [Основы](#basics)

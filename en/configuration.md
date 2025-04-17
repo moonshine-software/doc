@@ -1,3 +1,7 @@
+---
+video: https://youtu.be/kazEtUFIZKM?si=vDvqZHmD3KPVFOha&t=525
+---
+
 # Configuration
 
 - [Introduction](#introduction)

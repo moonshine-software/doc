@@ -1,3 +1,7 @@
+---
+video: https://youtu.be/95qxienFmtI?si=RJv_hiMrUhtWzh-0&t=1417
+---
+
 # Иконки
 
 - [Основы](#basics)

@@ -67,7 +67,7 @@ final class CustomViewController extends MoonShineController
 {
     public function __invoke(MyPage $page): MyPage
     {
-        return $page->loaded();
+        return $page;
     }
 }
 ```

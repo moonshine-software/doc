@@ -1,3 +1,7 @@
+---
+video: https://youtu.be/bcFOkXuPSRk?si=wB5vPbEn8EUN8jJx&t=391
+---
+
 # Форма
 
 - [Основы](#basics)

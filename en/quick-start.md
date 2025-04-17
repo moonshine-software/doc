@@ -1,3 +1,7 @@
+---
+video: https://youtu.be/kazEtUFIZKM?si=2S8IjZNlMGybxLu4&t=118
+---
+
 # Quick Start
 
 **MoonShine** - this is an admin panel for **Laravel**, which helps to quickly run **MVP**, **Dashboard**, **CRM** and **CMS**.

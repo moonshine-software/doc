@@ -1,3 +1,7 @@
+---
+video: https://youtu.be/6eUtdbCLVZQ?si=_a4jgY3tnjA7jlqt&t=749
+---
+
 # Assets
 
 - [Basics](#basics)

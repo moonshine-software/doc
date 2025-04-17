@@ -1,3 +1,7 @@
+---
+video: https://youtu.be/CQQLa-q2hwU?si=5vysCaXsqSOdXNMz
+---
+
 # Pages
 
 - [Basics](#basics)
@@ -275,7 +279,7 @@ class ProfileController extends Controller
 
     public function __invoke(ProfilePage $page): ProfilePage
     {
-        return $page->loaded();
+        return $page;
     }
 }
 ```

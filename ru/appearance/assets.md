@@ -1,3 +1,7 @@
+---
+video: [Основы](https://youtu.be/95qxienFmtI?si=umF9mxBMftHenk5B&t=512),[Собственная сборка](https://youtu.be/Egoi6wA3ZVE?si=Er3hme2MOHWF8uSd)
+---
+
 # Assets
 
 - [Основы](#basics)

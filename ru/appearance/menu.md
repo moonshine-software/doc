@@ -1,3 +1,7 @@
+---
+video: https://www.youtube.com/watch?v=zN3fi4g-2tQ
+---
+
 # Меню
 
 - [Основы](#basics)

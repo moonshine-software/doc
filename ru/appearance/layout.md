@@ -1,3 +1,7 @@
+---
+video: https://www.youtube.com/watch?v=95qxienFmtI
+---
+
 # Layout
 
 - [Основы](#basics)

@@ -1,3 +1,7 @@
+---
+video: https://youtu.be/bcFOkXuPSRk?si=YksYKURpk1koywfT&t=1113
+---
+
 # Запросы
 
 - [Запросы](#query)

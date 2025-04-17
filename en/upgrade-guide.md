@@ -1,5 +1,6 @@
 ---
 title: Upgrade guide
+video: https://www.youtube.com/watch?v=j5Ec3M8TDe0
 ---
 
 # MoonShine Update Guide 2.x → 3.0

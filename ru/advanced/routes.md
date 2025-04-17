@@ -6,12 +6,11 @@
 ```php
 public function __invoke(MoonShineRequest $request): PageContract
 {
-    $request->getResource()?->loaded();
+    $request->getResource();
 
     $page = $request
         ->getPage()
-        ->checkUrl()
-        ->loaded();
+        ->checkUrl();
 
     return $page;
 }

@@ -1,3 +1,7 @@
+---
+video: https://youtu.be/pC-wVnpypVI?si=WzjxgLYc7T0hyo7U&t=1644
+---
+
 # Авторизация
 
 - [Policy](#policy)

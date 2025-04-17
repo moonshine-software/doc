@@ -1,3 +1,7 @@
+---
+video: https://youtu.be/bcFOkXuPSRk?si=QcBaoPHzMemK0Pt7&t=1955
+---
+
 # Кнопки
 
 - [Основы](#basics)

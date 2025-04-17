@@ -1,3 +1,7 @@
+---
+video: https://youtu.be/bcFOkXuPSRk?si=RmlstXkRnan5r1K8&t=246
+---
+
 # Страницы
 
 - [Основы](#basics)
@@ -351,18 +355,6 @@ class PostIndexPage extends IndexPage
 }
 ```
 
-~~~tabs
-tab: IndexPage
-![index_page_layers](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/page_index_layers.png#light)
-![index_page_layers_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/page_index_layers_dark.png#dark)
-tab: FormPage
-![form_page_layers](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/page_form_layers.png#light)
-![form_page_layers_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/page_form_layers_dark.png#dark)
-tab: DetailPage
-![detail_page_layers](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/page_detail_layers.png#light)
-![detail_page_layers_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/page_detail_layers_dark.png#dark)
-~~~
-
 > [!TIP]
 > Если вам нужно получить доступ к компонентам определенного слоя через ресурс или страницу, то используйте метод `getLayerComponents()`.
 
@@ -413,7 +405,7 @@ class HomeController extends Controller
 {
     public function __invoke(FormArticlePage $page, ArticleResource $resource)
     {
-        return $page->simulateRoute($page, $resource)->loaded();
+        return $page->simulateRoute($page, $resource);
     }
 }
 ```

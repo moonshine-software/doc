@@ -1,3 +1,7 @@
+---
+video: https://youtu.be/bcFOkXuPSRk?si=LIXgfO1LpjfqwWyR
+---
+
 # Основы
 
 - [Основы](#basics)

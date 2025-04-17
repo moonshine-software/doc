@@ -1,3 +1,7 @@
+---
+video: https://youtu.be/pC-wVnpypVI?si=aYU6r6Iww7B73OZH&t=1409
+---
+
 # Фильтры
 
 - [Основы](#basics)

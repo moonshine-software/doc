@@ -1,3 +1,7 @@
+---
+video: https://youtu.be/kC1KIdO_MZ4?si=sPPVUjeEzjUI6krA&t=126
+---
+
 # Быстрый старт
 
 **MoonShine** — это админ-панель для **Laravel**, которая помогает быстро запускать **MVP**, внутренние кабинеты, **CRM** и **CMS**.

@@ -1,3 +1,7 @@
+---
+video: [Основы](https://youtu.be/bcFOkXuPSRk?si=qYRIXosjXUbp7ucg&t=1183),[Lazy режим](https://youtu.be/nAZPD-iw3jo?si=051RlKwqA1UhOl9c)
+---
+
 # Таблицы
 
 - [Основы](#basics)

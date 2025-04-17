@@ -1,3 +1,7 @@
+---
+video: https://youtu.be/kC1KIdO_MZ4?si=H2JRdmEzn4F5XOM2
+---
+
 # Установка
 
 - [Требования](#requirements)

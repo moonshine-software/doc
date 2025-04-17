@@ -1,3 +1,7 @@
+---
+video: https://youtu.be/bcFOkXuPSRk?si=wB5vPbEn8EUN8jJx&t=391
+---
+
 # Поля
 
 Поля в **MoonShine**, в большинстве случаев, относятся к полям таблицы из базы данных.
