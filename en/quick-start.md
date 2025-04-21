@@ -214,7 +214,7 @@ $colors
 
 ### 8. Localization
 
-Configuration локализации в `config/moonshine.php`:
+Localization Configuration in `config/moonshine.php`:
 
 ```php
 'locale' => 'ru',
