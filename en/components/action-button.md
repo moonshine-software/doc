@@ -367,13 +367,23 @@ async(
 
 > [!NOTE]
 > You can learn more about [Events](/docs/{{version}}/frontend/js#events) in the "Frontend" section.
->
+
 > [!NOTE]
 > You can learn more about [Callback](/docs/{{version}}/frontend/js#response-calback) in the "Frontend" section.
 
 ```php
 ActionButton::make('Button Label', '/endpoint')
     ->async()
+```
+
+### Loading indicator
+
+If you don't want to see the loading indicator when doing asynchronous functionality, you can disable it using the `withoutLoading()` method.
+
+```php
+ActionButton::make('Button Label', '/endpoint')
+    ->async()
+    ->withoutLoading()
 ```
 
 ### Notifications
