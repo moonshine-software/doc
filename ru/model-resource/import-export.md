@@ -248,7 +248,7 @@ class CategoryResource extends ModelResource implements HasImportExportContract
             ID::make(),
             Enum::make('Status')
                 ->attach(StatusEnum::class)
-                ->modifyRawValue(static fn(StatusEnum $raw, Enum $ctx) => $raw->value),
+                ->modifyRawValue(static fn(StatusEnum $raw, Order $data, Enum $ctx) => $raw->value),
         ];
     }
 }

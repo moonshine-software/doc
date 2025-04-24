@@ -1026,7 +1026,7 @@ Enum::make('Status')
 
 ```php
 /**
- * @param  Closure(mixed $raw, static): mixed  $callback
+ * @param  Closure(mixed $raw, mixed $data, static): mixed  $callback
  * @return $this
  */
 modifyRawValue(Closure $callback)
@@ -1040,7 +1040,7 @@ use MoonShine\UI\Fields\Enum;
 
 Enum::make('Status')
     ->attach(StatusEnum::class)
-    ->modifyRawValue(fn(StatusEnum $raw, Enum $ctx) => $raw->value))
+    ->modifyRawValue(fn(StatusEnum $raw, Order $data, Enum $ctx) => $raw->value))
 ```
 
 <a name="preview-edit"></a>
