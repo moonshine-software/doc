@@ -15,6 +15,7 @@
     - [Method calls](#method)
 - [Event dispatching](#event)
 - [Data filling](#fill)
+- [Hotkeys](#hotkeys)
 
 ---
 
@@ -689,3 +690,25 @@ ActionButton::make('Button Label')
         // logic
     })
 ```
+
+<a name="hotkeys"></a>
+## Hotkeys
+
+The `hotKeys()` method allows you to assign hotkeys that will dispatch a click event on the corresponding button.
+
+```php
+/**
+ * @param non-empty-array<string> $keys
+ */
+hotKeys(array $keys, bool $withBadge = false)
+```
+
+```php
+ActionButton::make('Button Label')
+    ->method('updateSomething')
+    ->withConfirm()
+    ->hotKeys(['shift', '2', 'meta'], true)
+```
+
+> [!WARNING]
+> If you add hotkeys to a button in the iterated table, the event will trigger on all buttons at once!
