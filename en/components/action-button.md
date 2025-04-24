@@ -697,17 +697,25 @@ ActionButton::make('Button Label')
 The `hotKeys()` method allows you to assign hotkeys that will dispatch a click event on the corresponding button.
 
 ```php
-/**
- * @param non-empty-array<string> $keys
- */
 hotKeys(array $keys, bool $withBadge = false)
+```
+
+- `keys` - hotkeys,
+- `withBadge` - draw a hint with this combination on the button.
+
+```php
+ActionButton::make('Button Label')->hotKeys(['shift', '2'], false)
 ```
 
 ```php
 ActionButton::make('Button Label')
     ->method('updateSomething')
-    ->withConfirm()
-    ->hotKeys(['shift', '2', 'meta'], true)
+    ->withConfirm(
+        formBuilder: fn(FormBuilder $form): FormBuilder => $form
+            ->submit(
+                button: ActionButton::make('Confirm')->error()->hotKeys(['shift', 'd', 'meta'], true)
+            )
+    )
 ```
 
 > [!WARNING]

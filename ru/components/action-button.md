@@ -697,17 +697,25 @@ ActionButton::make('Button Label')
 Метод `hotKeys()` позволяет назначить горячие клавиши, по нажатию на которые будет вызываться событие клика на соответствующую кнопку.
 
 ```php
-/**
- * @param non-empty-array<string> $keys
- */
 hotKeys(array $keys, bool $withBadge = false)
+```
+
+- `keys` - набор сочетаний клавиш,
+- `withBadge` - отображать на кнопке подсказку с этим сочетанием.
+
+```php
+ActionButton::make('Button Label')->hotKeys(['shift', '2'], false)
 ```
 
 ```php
 ActionButton::make('Button Label')
     ->method('updateSomething')
-    ->withConfirm()
-    ->hotKeys(['shift', '2', 'meta'], true)
+    ->withConfirm(
+        formBuilder: fn(FormBuilder $form): FormBuilder => $form
+            ->submit(
+                button: ActionButton::make('Confirm')->error()->hotKeys(['shift', 'd', 'meta'], true)
+            )
+    )
 ```
 
 > [!WARNING]
