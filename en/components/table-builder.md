@@ -24,6 +24,7 @@
   - [Click Action](#click-action)
   - [Save State in URL](#save-state-in-url)
   - [Modify Row Checkbox](#modify-row-checkbox)
+  - [Slots](#slots)
 - [Attribute Configuration](#attribute-configuration)
 - [Async Loading](#async-loading)
   - [Lazy and whenAsync Methods](#lazy)
@@ -486,6 +487,26 @@ The example below demonstrates selecting the active checkbox by default:
 ->modifyRowCheckbox(
     fn(Checkbox $checkbox, DataWrapperContract $data, TableBuilder $ctx) => $data->getKey() === 2 ? $checkbox->customAttributes(['checked' => true]) : $checkbox
 )
+```
+
+<a name="slots"></a>
+### Slots
+
+You can add content above the table on the left or right using the `topLeft()` and `topRight()` methods.
+
+```php
+TableBuilder::make()
+    // ..
+    ->topLeft(function (): array {
+        return [];
+    })
+    ->topRight(function (): array {
+        return [
+            Div::make([
+                // ..
+            ])
+        ];
+    })
 ```
 
 <a name="attribute-configuration"></a>

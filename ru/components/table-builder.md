@@ -24,6 +24,7 @@
   - [Действие по клику](#click-action)
   - [Сохранение состояния в URL](#save-state-in-url)
   - [Модификация чекбокса массовых действий](#modify-row-checkbox)
+  - [Слоты](#slots)
 - [Настройка атрибутов](#attribute-configuration)
 - [Асинхронная загрузка](#async-loading)
   - [Lazy и whenAsync методы](#lazy)
@@ -486,6 +487,26 @@ TableBuilder::make()
 ->modifyRowCheckbox(
     fn(Checkbox $checkbox, DataWrapperContract $data, TableBuilder $ctx) => $data->getKey() === 2 ? $checkbox->customAttributes(['checked' => true]) : $checkbox
 )
+```
+
+<a name="slots"></a>
+### Слоты
+
+Вы можете добавить контент над таблицей слева или справа с помощью методов `topLeft()` и `topRight()`.
+
+```php
+TableBuilder::make()
+    // ..
+    ->topLeft(function (): array {
+        return [];
+    })
+    ->topRight(function (): array {
+        return [
+            Div::make([
+                // ..
+            ])
+        ];
+    })
 ```
 
 <a name="attribute-configuration"></a>
