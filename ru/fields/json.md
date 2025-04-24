@@ -420,6 +420,32 @@ Json::make('Data')
     )
 ```
 
+### Модификатор кнопки добавления
+
+Метод `modifyCreateButton()` позволяет изменить кнопку добавления.
+
+```php
+/**
+ * @param  Closure(ActionButton $button, self $field): ActionButton  $callback
+ */
+modifyCreateButton(Closure $callback)
+```
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\UI\Components\ActionButton;
+use MoonShine\UI\Fields\Json;
+
+Json::make('Data')
+    ->creatable()
+    ->modifyCreateButton(
+        fn(ActionButton $button) => $button->customAttributes([
+            'class' => 'btn-primary'
+        ])
+    )
+```
+
 ### Модификатор таблицы
 
 Метод `modifyTable()` позволяет модифицировать таблицу (`TableBuilder`) для всех визуальных режимов поля.

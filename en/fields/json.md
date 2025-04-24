@@ -420,6 +420,32 @@ Json::make('Data')
     )
 ```
 
+### Create Button Modifier
+
+The `modifyCreateButton()` method allows changing the create button.
+
+```php
+/**
+ * @param  Closure(ActionButton $button, self $field): ActionButton  $callback
+ */
+modifyCreateButton(Closure $callback)
+```
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\UI\Components\ActionButton;
+use MoonShine\UI\Fields\Json;
+
+Json::make('Data')
+    ->creatable()
+    ->modifyCreateButton(
+        fn(ActionButton $button) => $button->customAttributes([
+            'class' => 'btn-primary'
+        ])
+    )
+```
+
 ### Table Modifier
 
 The `modifyTable()` method allows modifying the table (`TableBuilder`) for all visual modes of the field.
