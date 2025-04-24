@@ -3,6 +3,7 @@
 - [Основы](#basics)
 - [Набор полей](#fields)
 - [Вертикальный режим](#vertical)
+- [Сортировка перетаскиванием](#reorderable)
 - [Добавление/Удаление](#creatable-removable)
 - [Кнопки](#buttons)
 - [Модификаторы](#modify)
@@ -84,6 +85,15 @@ RelationRepeater::make('Comments', 'comments')
     ->vertical()
 ```
 
+<a name="reorderable"></a>
+## Сортировка перетаскиванием
+
+Даёт возможность перетаскивать строки, тем самым изменяя сортировку.
+
+```php
+->reorderable(url: '/endpoint')
+```
+
 <a name="creatable-removable"></a>
 ## Добавление/Удаление
 
@@ -157,6 +167,31 @@ RelationRepeater::make('Comments', 'comments')
             ->customAttributes([
                 'class' => 'custom-table'
             ])
+    )
+```
+
+### Модификатор кнопки добавления
+
+Метод `modifyCreateButton()` позволяет изменить кнопку добавления.
+
+```php
+/**
+ * @param  Closure(ActionButton $button, self $field): ActionButton  $callback
+ */
+modifyCreateButton(Closure $callback)
+```
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\UI\Components\ActionButton;
+use MoonShine\Laravel\Fields\Relationships\RelationRepeater;
+
+RelationRepeater::make('Comments', 'comments')
+    ->modifyCreateButton(
+        fn(ActionButton $button) => $button->customAttributes([
+            'class' => 'btn-primary'
+        ])
     )
 ```
 

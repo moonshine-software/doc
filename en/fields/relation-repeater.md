@@ -3,6 +3,7 @@
 - [Basics](#basics)
 - [Field Set](#fields)
 - [Vertical Mode](#vertical)
+- [Sorting with dragging](#reorderable)
 - [Add/Delete](#creatable-removable)
 - [Buttons](#buttons)
 - [Modifiers](#modify)
@@ -84,6 +85,15 @@ RelationRepeater::make('Comments', 'comments')
     ->vertical()
 ```
 
+<a name="reorderable"></a>
+## Drag-and-Drop Sorting
+
+It makes it possible to drag the lines, thereby changing the sorting.
+
+```php
+->reorderable(url: '/endpoint')
+```
+
 <a name="creatable-removable"></a>
 ## Add/Delete
 
@@ -157,6 +167,31 @@ RelationRepeater::make('Comments', 'comments')
             ->customAttributes([
                 'class' => 'custom-table'
             ])
+    )
+```
+
+### Create Button Modifier
+
+The `modifyCreateButton()` method allows changing the create button.
+
+```php
+/**
+ * @param  Closure(ActionButton $button, self $field): ActionButton  $callback
+ */
+modifyCreateButton(Closure $callback)
+```
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\UI\Components\ActionButton;
+use MoonShine\Laravel\Fields\Relationships\RelationRepeater;
+
+RelationRepeater::make('Comments', 'comments')
+    ->modifyCreateButton(
+        fn(ActionButton $button) => $button->customAttributes([
+            'class' => 'btn-primary'
+        ])
     )
 ```
 

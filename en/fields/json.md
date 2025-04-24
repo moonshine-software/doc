@@ -10,6 +10,7 @@
 - [Filtering Empty](#filtering-empty)
 - [Creatable/Removable](#creatable-removable)
 - [Vertical Mode](#vertical)
+- [Sorting with dragging](#reorderable)
 - [Applying in Filters](#filter)
 - [Buttons](#buttons)
 - [Modifiers](#modify)
@@ -344,6 +345,23 @@ Json::make('Data')
 
 ![json_vertical](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/json_vertical.png#light)
 ![json_vertical_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/json_vertical_dark.png#dark)
+
+Вот перевод секции **«Сортировка перетаскиванием»** на английский:
+
+---
+
+<a name="reorderable"></a>
+## Drag-and-Drop Sorting
+
+Allows you to drag and drop rows to change their sorting order.
+This mode is enabled by default. To disable it, call the `reorderable(false)` method:
+
+```php
+->reorderable(false)
+```
+
+> [!NOTE]
+> If you need to specify a custom handler (endpoint), use the `modifyTable` method and set `reorderable($url)` via the `TableBuilder`.
 
 <a name="filter"></a>
 ## Application in Filters

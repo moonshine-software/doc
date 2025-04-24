@@ -10,6 +10,7 @@
 - [Фильтрация "пустых" значений](#filtering-empty)
 - [Добавление/Удаление](#creatable-removable)
 - [Вертикальный режим](#vertical)
+- [Сортировка перетаскиванием](#reorderable)
 - [Применение в фильтрах](#filter)
 - [Кнопки](#buttons)
 - [Модификаторы](#modify)
@@ -344,6 +345,19 @@ Json::make('Data')
 
 ![json_vertical](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/json_vertical.png#light)
 ![json_vertical_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/json_vertical_dark.png#dark)
+
+<a name="reorderable"></a>
+## Сортировка перетаскиванием
+
+Даёт возможность перетаскивать строки, тем самым изменяя сортировку.
+По умолчанию режим включён. Если требуется его отключить, вызовите метод `reorderable(false)`.
+
+```php
+->reorderable(false)
+```
+
+> [!NOTE]
+> Если необходимо указать обработчик (endpoint), воспользуйтесь методом `modifyTable` и задайте `reorderable($url)` через `TableBuilder`.
 
 <a name="filter"></a>
 ## Применение в фильтрах
