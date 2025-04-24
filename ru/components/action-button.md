@@ -367,13 +367,23 @@ async(
 
 > [!NOTE]
 > О [Events](/docs/{{version}}/frontend/js#events) можно узнать в разделе "Frontend".
->
+
 > [!NOTE]
 > О [Callback](/docs/{{version}}/frontend/js#response-calback) можно узнать в разделе "Frontend".
 
 ```php
 ActionButton::make('Button Label', '/endpoint')
     ->async()
+```
+
+### Индикатор загрузки
+
+Если вы не хотите видеть индикатор загрузки при выполнении асинхронной работы, вы можете отключить его с помощью метода `withoutLoading()`.
+
+```php
+ActionButton::make('Button Label', '/endpoint')
+    ->async()
+    ->withoutLoading()
 ```
 
 ### Уведомления
