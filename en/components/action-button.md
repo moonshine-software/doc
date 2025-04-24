@@ -687,6 +687,13 @@ ActionButton::make('Button Label')
 The `hotKeys()` method allows you to assign hotkeys that will dispatch a click event on the corresponding button.
 
 ```php
+/**
+ * @param non-empty-array<string> $keys
+ */
+hotKeys(array $keys, bool $withBadge = false)
+```
+
+```php
 ActionButton::make('Button Label')
     ->method('updateSomething')
     ->withConfirm()
