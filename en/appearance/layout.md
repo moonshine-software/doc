@@ -11,6 +11,7 @@ video: https://www.youtube.com/watch?v=6eUtdbCLVZQ
 - [Favicons](#favicons)
 - [Menu](#menu)
     - [Top Menu](#top-menu)
+- [Dark mode](#dark-mode)
 - [Colors](#colors)
 - [Blade](#blade)
 
@@ -575,6 +576,22 @@ final class MoonShineLayout extends CompactLayout
 
 > [!WARNING]
 > If you want to keep both Sidebar and TopBar at the same time, be sure to maintain the order; TopBar must be first.
+
+<a name="dark-mode"></a>
+## Dark mode
+
+If you want the dark theme to always be enabled, override the `isAlwaysDark()` method and return `true`.
+
+```php
+final class MoonShineLayout extends AppLayout
+{
+    // ..
+    protected function isAlwaysDark(): bool
+    {
+        return true;
+    }
+    // ..
+}
 
 <a name="colors"></a>
 ## Colors

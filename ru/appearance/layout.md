@@ -12,6 +12,7 @@ video: https://www.youtube.com/watch?v=95qxienFmtI
 - [Меню](#menu)
     - [Верхнее меню](#top-menu)
 - [Цвета](#colors)
+- [Dark mode](#dark-mode)
 - [Blade](#blade)
 
 ---
@@ -575,6 +576,23 @@ final class MoonShineLayout extends CompactLayout
 
 > [!WARNING]
 > Если вы хотите оставить и Sidebar и TopBar одновременно, то обязательно соблюдайте очередность, первым должен идти TopBar.
+
+<a name="dark-mode"></a>
+## Dark mode
+
+Если вы хотите, чтобы тёмная тема всегда была включена, переопределите метод `isAlwaysDark()` и верните `true`.
+
+```php
+final class MoonShineLayout extends AppLayout
+{
+    // ..
+    protected function isAlwaysDark(): bool
+    {
+        return true;
+    }
+    // ..
+}
+```
 
 <a name="colors"></a>
 ## Цвета
