@@ -263,6 +263,41 @@ ActionButton::make('Button Label')
     )
 ```
 
+### Событие с параметрами
+
+С помощью объекта `EventParams` вы также можете передавать вместе с событием правила (`selectors` и `fieldsValues`),
+которые позволяют передать параметры в контент модального окна.
+
+```php
+Modal::make('Modal', fn() => FormBuilder::make()->fields([
+    Text::make('Title')->class('title'),
+    Div::make()->class('div-content'),
+])),
+
+ActionButton::make('Open')
+    ->dispatchEvent(
+        AlpineJs::event(
+            JsEvent::MODAL_TOGGLED, 'default', EventParams::make()
+                ->selectors(['.div-content' => 'test'])
+                ->fieldsValues(['.title' => 'test-1'])
+        )
+    )
+```
+
+Если вы используете `ActionButton` через `TableBuilder`, и данные загружаются динамически,
+вы можете вызвать метод `dispatchEvent()` после загрузки и передать необходимые данные вместе с событием.
+
+```php
+ActionButton::make('Open')
+    ->onAfterSet(fn(DataWrapperContract $data, ActionButton $ctx) => $ctx->dispatchEvent(
+        AlpineJs::event(
+            JsEvent::MODAL_TOGGLED, 'default', EventParams::make()
+                ->selectors(['.div-content' => $data->getOriginal()->getKey()])
+                ->fieldsValues(['.title' => $data->getOriginal()->title])
+        )
+    ))
+```
+
 <a name="offcanvas"></a>
 ## Offcanvas
 
