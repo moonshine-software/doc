@@ -592,6 +592,7 @@ final class MoonShineLayout extends AppLayout
     }
     // ..
 }
+```
 
 <a name="colors"></a>
 ## Colors
