@@ -7,13 +7,14 @@
     - [Events](#events)
     - [Html](#html)
     - [HtmlData](#htmldata)
+    - [Значения полей](#fields-values)
 
 ---
 
 <a name="basics"></a>
 ## Основы
 
-MoonShineJsonResponse наследует `Illuminate\Http\JsonResponse` и дополнен вспомогательными методами для взаимодействия с frontend частью интерфейса админ-панели после обработки запроса. 
+MoonShineJsonResponse наследует `Illuminate\Http\JsonResponse` и дополнен вспомогательными методами для взаимодействия с frontend частью интерфейса админ-панели после обработки запроса.
 
 <a name="methods"></a>
 ## Методы
@@ -116,3 +117,25 @@ MoonShineJsonResponse::make()
       ->htmlData((string) Text::make('One'), '#selector1')
       ->htmlData((string) Text::make('Two'), '#selector2', HtmlMode::BEFORE_END)
 ```
+
+<a name="fields-values"></a>
+### Значения полей
+
+Метод `fieldsValues()` позволяет задать значения полей формы через селекторы.
+
+```php
+fieldsValues(array $values)
+```
+
+Пример:
+
+```php
+MoonShineJsonResponse::make()
+      ->fieldsValues([
+        '.field-title-1' => 'some value 1',
+        '.field-title-2' => 'some value 2',
+    ])
+```
+
+> [NOTE]
+> Также при наполнении поля будет вызвано событие `change`

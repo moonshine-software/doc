@@ -7,6 +7,7 @@
     - [Events](#events)
     - [Html](#html)
     - [HtmlData](#htmldata)
+    - [Fields values](#fields-values)
 
 ---
 
@@ -116,3 +117,25 @@ MoonShineJsonResponse::make()
       ->htmlData((string) Text::make('One'), '#selector1')
       ->htmlData((string) Text::make('Two'), '#selector2', HtmlMode::BEFORE_END)
 ```
+
+<a name="fields-values"></a>
+### Fields values
+
+The `fieldsValues()` method allows you to set the values of the field fields through selectors.
+
+```php
+fieldsValues(array $values)
+```
+
+Example:
+
+```php
+MoonShineJsonResponse::make()
+      ->fieldsValues([
+        '.field-title-1' => 'some value 1',
+        '.field-title-2' => 'some value 2',
+    ])
+```
+
+> [NOTE]
+> Also, when filling the field, the event `change` will be caused
