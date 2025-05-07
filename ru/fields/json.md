@@ -65,29 +65,6 @@ Json::make('Product Options', 'options')
 ![json_fields](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/json_fields.png#light)
 ![json_fields_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/json_fields_dark.png#dark)
 
-Поля также можно передавать через замыкание, что позволяет получить доступ к контексту поля и его данным.
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:4]
-use MoonShine\UI\Fields\Json;
-use MoonShine\UI\Fields\Position;
-use MoonShine\UI\Fields\Switcher;
-use MoonShine\UI\Fields\Text;
-
-Json::make('Product Options', 'options')
-    ->fields(
-        static fn(Json $ctx) => $ctx->getData()->getOriginal()->is_active ? [
-            Position::make(),
-            Text::make('Title'),
-            Text::make('Value'),
-            Switcher::make('Active')
-        ] : [
-            Text::make('Title')
-        ]
-    )
-```
-
 <a name="key-value"></a>
 ## Режим "Ключ/Значение"
 
