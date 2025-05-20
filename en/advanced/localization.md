@@ -101,18 +101,9 @@ The logic for switching languages in the panel interface is handled by the middl
 
 If you want to change the language switching logic to your own, simply replace the `middleware` with your own.
 
-~~~tabs
-tab: config/moonshine.php
 ```php
 'middleware' => [
     // ...
     ChangeLocale::class,
 ],
 ```
-tab: MoonShineServiceProvider
-```php
-$config
-    ->exceptMiddleware(ChangeLocale::class)
-    ->addMiddleware(MyChangeLocale::class);
-```
-~~~

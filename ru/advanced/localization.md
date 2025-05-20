@@ -102,21 +102,12 @@ $config->localeKey('_lang');
 
 Если вы хотите изменить логику смены языка на собственную, просто замените `middleware` на свой.
 
-~~~tabs
-tab: config/moonshine.php
 ```php
 'middleware' => [
     // ...
     ChangeLocale::class,
 ],
 ```
-tab: MoonShineServiceProvider
-```php
-$config
-    ->exceptMiddleware(ChangeLocale::class)
-    ->addMiddleware(MyChangeLocale::class);
-```
-~~~
 
 <a name="ru"></a>
 ## Русский язык

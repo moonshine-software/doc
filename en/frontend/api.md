@@ -44,8 +44,6 @@ JWT_SECRET=YOUR_BASE64_SECRET_HERE
 
 Next, change the set of `middleware` in the system and add `authPipeline` and `authMiddleware`:
 
-~~~tabs
-tab: config/moonshine.php
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:2]
@@ -66,17 +64,6 @@ return [
     // ...
 ];
 ```
-tab: MoonShineServiceProvider
-```php
-use MoonShine\JWT\JWTAuthPipe;
-use MoonShine\JWT\Http\Middleware\AuthenticateApi;
-
-$config
-    ->authPipelines([JWTAuthPipe::class])
-    ->middlewares([])
-    ->authMiddleware(AuthenticateApi::class);
-```
-~~~
 
 All set! Upon successful authentication, you will receive a token, which can subsequently be used in the header `Authorization: Bearer <token>`.
 

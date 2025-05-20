@@ -46,25 +46,31 @@
 <a name="customization"></a>
 ## Кастомизация
 
-Вы можете настроить аутентификацию в `MoonShineServiceProvider`.
+Вы можете настроить аутентификацию в `moonshine.php`.
 
 ```php
-$config
-    ->guard('admin')
-    ->authMiddleware(CustomAuthMiddleware::class)
-    ->authPipelines([
+'auth' => [
+    'enabled' => true,
+    'guard' => 'moonshine',
+    'model' => CustomUser::class,
+    'middleware' => CustomAuthMiddleware::class,
+    'pipelines' => [
         TwoFactorAuthentication::class,
         PhoneVerification::class,
-    ]);
+    ],
+],
 ```
 
 <a name="disabling-authentication"></a>
 ## Отключение аутентификации
 
-Если вы хотите отключить встроенную аутентификацию **MoonShine**, вы можете сделать это в `MoonShineServiceProvider`.
+Если вы хотите отключить встроенную аутентификацию **MoonShine**.
 
 ```php
-$config->authDisable();
+'auth' => [
+    'enabled' => false,
+    // ..
+],
 ```
 
 <a name="custom-user-model"></a>
@@ -83,6 +89,17 @@ $config->authDisable();
 
 **MoonShine** позволяет настроить поля пользователя, используемые для аутентификации и профиля.
 
+~~~tabs
+tab: config/moonshine.php
+```php
+'user_fields' => [
+    'username' => 'email',
+    'password' => 'password',
+    'name' => 'name',
+    'avatar' => 'avatar',
+],
+```
+tab: MoonShineServiceProvider
 ```php
 $config
     ->userField('username', 'login')
@@ -90,6 +107,8 @@ $config
     ->userField('name', 'full_name')
     ->userField('avatar', 'profile_image');
 ```
+~~~
+
 При этом если вы хотите полностью заменить страницу профиля на свою, то можете это сделать через конфигурацию.
 
 ~~~tabs
@@ -139,21 +158,12 @@ class CheckAdminRole
 
 ### Добавление middleware в конфигурацию
 
-~~~tabs
-tab: config/moonshine.php
 ```php
 'middleware' => [
     // ... other middleware
     \App\Http\Middleware\CheckAdminRole::class,
 ],
 ```
-tab: MoonShineServiceProvider
-```php
-$config->addMiddleware([
-    \App\Http\Middleware\CheckAdminRole::class,
-]);
-```
-~~~
 
 <a name="authentication-pipelines"></a>
 ## Аутентификационные pipelines

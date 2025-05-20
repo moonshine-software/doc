@@ -92,6 +92,10 @@ return [
 ];
 ```
 
+> ![WARNING]
+> Поскольку маршруты загружаются до вызова метода `boot` в `ServiceProvider`, любые настройки,
+> связанные с роутингом, нужно указывать в конфигурационном файле `moonshine.php`
+
 > [!NOTE]
 > `use_migrations`, `use_notifications`, `use_database_notifications` должны присутствовать всегда либо в `moonshine.php`, либо в `MoonShineServiceProvider`.
 > Все остальные параметры, не указанные в файле, будут использовать значения по умолчанию.
@@ -132,19 +136,12 @@ class MoonShineServiceProvider extends ServiceProvider
             ->useMigrations()
             ->useNotifications()
             ->useDatabaseNotifications()
-            ->useProfile()
             ->dir('app/MoonShine', 'App\MoonShine')
-            ->prefixes('admin', 'page', 'resource')
             ->homeRoute('moonshine.index')
             ->notFoundException(MoonShineNotFoundException::class)
-            ->middleware([
-                // ...
-            ])
             ->disk('public')
             ->cacheDriver('redis')
-            ->authEnable()
             ->guard('moonshine')
-            ->authMiddleware(Authenticate::class)
             ->authPipelines([])
             ->authorizationRules(
                 function(ResourceContract $ctx, mixed $user, Ability $ability, mixed $data): bool {
@@ -162,7 +159,6 @@ class MoonShineServiceProvider extends ServiceProvider
 
 > [!WARNING]
 > Конфигурация через `MoonShineServiceProvider` имеет приоритет над настройками в файле `moonshine.php`.
-> При использовании этого метода вы можете полностью удалить файл moonshine.php из вашего проекта.
 
 > [!NOTE]
 > Некоторые методы `MoonShineConfigurator` не имеют прямых аналогов в файле `moonshine.php` и наоборот.
@@ -240,8 +236,6 @@ $config
 
 Вы можете переопределить или дополнить список `middleware` в системе.
 
-~~~tabs
-tab: config/moonshine.php
 ```php
 'middleware' => [
     'web',
@@ -249,32 +243,17 @@ tab: config/moonshine.php
     // ...
 ],
 ```
-tab: MoonShineServiceProvider
-```php
-$config
-    ->middleware(['web', 'auth'])
-    ->addMiddleware('custom-middleware')
-    ->exceptMiddleware(['auth']);
-```
-~~~
 
 <a name="routing"></a>
 ### Маршрутизация
 
 #### Установка префиксов
 
-~~~tabs
-tab: config/moonshine.php
 ```php
 'prefix' => 'admin',
 'page_prefix' => 'page',
 'resource_prefix' => 'resource',
 ```
-tab: MoonShineServiceProvider
-```php
-$config->prefixes('admin', 'page', 'resource');
-```
-~~~
 
 > [!WARNING]
 > Вы можете оставить `resource_prefix` пустым и `URL` ресурсов будет иметь вид `/admin/{resourceUri}/{pageUri}`,
@@ -282,16 +261,9 @@ $config->prefixes('admin', 'page', 'resource');
 
 #### Установка домена
 
-~~~tabs
-tab: config/moonshine.php
 ```php
 'domain' => 'admin.example.com',
 ```
-tab: MoonShineServiceProvider
-```php
-$config->domain('admin.example.com');
-```
-~~~
 
 #### 404
 
@@ -329,19 +301,12 @@ $config->guard('admin');
 
 #### Отключение встроенной аутентификации
 
-~~~tabs
-tab: config/moonshine.php
 ```php
 'auth' => [
     'enabled' => false,
     // ...
 ],
 ```
-tab: MoonShineServiceProvider
-```php
-$config->authDisable();
-```
-~~~
 
 #### Изменение модели
 
@@ -358,8 +323,6 @@ $config->authDisable();
 
 #### Middleware для проверки наличия сессии
 
-~~~tabs
-tab: config/moonshine.php
 ```php
 'auth' => [
     // ...
@@ -367,11 +330,6 @@ tab: config/moonshine.php
     // ...
 ],
 ```
-tab: MoonShineServiceProvider
-```php
-$config->authMiddleware(Authenticate::class);
-```
-~~~
 
 #### Pipelines
 

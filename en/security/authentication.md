@@ -46,25 +46,31 @@ Here you can configure:
 <a name="customization"></a>
 ## Customization
 
-You can customize authentication in `MoonShineServiceProvider`.
+You can customize authentication in `moonshine.php`.
 
 ```php
-$config
-    ->guard('admin')
-    ->authMiddleware(CustomAuthMiddleware::class)
-    ->authPipelines([
+'auth' => [
+    'enabled' => true,
+    'guard' => 'moonshine',
+    'model' => CustomUser::class,
+    'middleware' => CustomAuthMiddleware::class,
+    'pipelines' => [
         TwoFactorAuthentication::class,
         PhoneVerification::class,
-    ]);
+    ],
+],
 ```
 
 <a name="disabling-authentication"></a>
 ## Disabling authentication
 
-If you want to disable the built-in authentication of **MoonShine**, you can do this in `MoonShineServiceProvider`.
+If you want to disable the built-in authentication of **MoonShine**.
 
 ```php
-$config->authDisable();
+'auth' => [
+    'enabled' => false,
+    // ..
+],
 ```
 
 <a name="custom-user-model"></a>
@@ -83,6 +89,17 @@ If you want to use your own user model instead of `MoonshineUser`, you can speci
 
 MoonShine allows you to customize the user fields used for authentication and profile.
 
+~~~tabs
+tab: config/moonshine.php
+```php
+'user_fields' => [
+    'username' => 'email',
+    'password' => 'password',
+    'name' => 'name',
+    'avatar' => 'avatar',
+],
+```
+tab: MoonShineServiceProvider
 ```php
 $config
     ->userField('username', 'login')
@@ -90,6 +107,8 @@ $config
     ->userField('name', 'full_name')
     ->userField('avatar', 'profile_image');
 ```
+~~~
+
 If you want to completely replace the profile page with your own, you can do this through the configuration.
 
 ~~~tabs
@@ -139,21 +158,12 @@ class CheckAdminRole
 
 ### Adding middleware to configuration
 
-~~~tabs
-tab: config/moonshine.php
 ```php
 'middleware' => [
     // ... other middleware
     \App\Http\Middleware\CheckAdminRole::class,
 ],
 ```
-tab: MoonShineServiceProvider
-```php
-$config->addMiddleware([
-    \App\Http\Middleware\CheckAdminRole::class,
-]);
-```
-~~~
 
 <a name="authentication-pipelines"></a>
 ## Authentication pipelines
