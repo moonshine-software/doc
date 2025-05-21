@@ -80,6 +80,14 @@ Date::make('Created at', 'created_at')
     ->format('d.m.Y')
 ```
 
+The `inputFormat()` method allows you to change the format of the field values in editing mode.
+
+```php
+Date::make('Created at', 'created_at')
+    ->setAttribute('type', 'time')
+    ->inputFormat('H:i')
+```
+
 <a name="extensions"></a>
 ## Extensions
 
