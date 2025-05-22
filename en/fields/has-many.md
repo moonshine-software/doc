@@ -435,10 +435,9 @@ The `modifyBuilder()` method allows you to modify the query through *QueryBuilde
 // [tl! collapse:3]
 use App\MoonShine\Resources\CommentResource;
 use Illuminate\Database\Eloquent\Relations\Relation;
-use MoonShine\Laravel\Fields\Relationships\HasMany;
 
 HasMany::make('Comments', resource: CommentResource::class)
-    ->modifyBuilder(fn(Relation $query, HasMany $ctx) => $query)
+    ->modifyBuilder(fn(Relation $query) => $query)
 ```
 
 <a name="view"></a>
