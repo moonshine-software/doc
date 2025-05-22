@@ -435,10 +435,9 @@ HasMany::make('Comments', resource: CommentResource::class)
 // [tl! collapse:3]
 use App\MoonShine\Resources\CommentResource;
 use Illuminate\Database\Eloquent\Relations\Relation;
-use MoonShine\Laravel\Fields\Relationships\HasMany;
 
 HasMany::make('Comments', resource: CommentResource::class)
-    ->modifyBuilder(fn(Relation $query, HasMany $ctx) => $query)
+    ->modifyBuilder(fn(Relation $query) => $query)
 ```
 
 <a name="active-actions"></a>
