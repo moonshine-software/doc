@@ -11,9 +11,7 @@ Search::make()
 ```
 tab: Blade
 ```blade
-<x-moonshine::layout.search
-    placeholder="Search..."
-/>
+<x-moonshine-laravel::layout.search :action="'/'" :enabled="true" placeholder="Search..." />
 ```
 ~~~
 
