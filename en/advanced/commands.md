@@ -183,7 +183,7 @@ After executing the command, a class for the component will be created in the `a
 and a `Blade` file will be created in the `resources/views/admin/components` directory.
 
 > [!NOTE]
-> For more details, refer to the [Layout](/docs/{{version}}/appearance/layout) section.
+> For more details, refer to the [Components](/docs/{{version}}/components/index) section.
 
 <a name="field"></a>
 ## Field
