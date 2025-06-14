@@ -183,7 +183,7 @@ moonshine:component {className?} {--base-dir=} {--base-namespace=}
 а в директории `resources/views/admin/components` - файл `Blade`.
 
 > [!NOTE]
-> Для более подробной информации обратитесь к разделу [Layout](/docs/{{version}}/appearance/layout).
+> Для более подробной информации обратитесь к разделу [Components](/docs/{{version}}/components/index).
 
 <a name="field"></a>
 ## Поле
