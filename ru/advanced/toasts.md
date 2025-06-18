@@ -44,7 +44,7 @@ MoonShineUI::toast(message: 'Success', duration: false);
 MoonShineJsonResponse::make()->toast('Test', type: ToastType::SUCCESS, duration: 1000)
 ```
 
-Смотрите раздел [Response модификаторы](/docs/{{version}}/model-resource/index#response-modifiers)
+Смотрите раздел [ModelResource > Response модификаторы](/docs/{{version}}/model-resource/index#response-modifiers)
 
 > [!NOTE]
 > Используются такие же параметры
