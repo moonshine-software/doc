@@ -44,8 +44,8 @@ MoonShineUI::toast(message: 'Success', duration: false);
 MoonShineJsonResponse::make()->toast('Test', type: ToastType::SUCCESS, duration: 1000);
 ```
 
-See [ModelResource > Response modifiers](/docs/{{version}}/model-resource/index#response-modifiers) section
-
+> [!TIP]
+> If you need to change toast notifications in ModelResource, see [ModelResource > Response modifiers](/docs/{{version}}/model-resource/index#response-modifiers) section
 
 > [!NOTE]
 > The parameters used are the same as described above.
