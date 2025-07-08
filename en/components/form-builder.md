@@ -51,7 +51,7 @@ FormBuilder::make(
     action:'/crud/update',
     method: FormMethod::POST,
     fields: [
-        Hidden::make('_method')->setValue('put')
+        Hidden::make('_method')->setValue('put'),
         Text::make('Text')
     ],
     values: ['text' => 'Value']
@@ -63,7 +63,7 @@ FormBuilder::make()
     ->action('/crud/update')
     ->method(FormMethod::POST)
     ->fields([
-        Hidden::make('_method')->setValue('put')
+        Hidden::make('_method')->setValue('put'),
         Text::make('Text')
     ])
     ->fill(['text' => 'Value'])

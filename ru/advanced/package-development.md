@@ -40,7 +40,7 @@ class MyPackageServiceProvider extends ServiceProvider
             ->resources([
                 MyPackageResource::class
             ])
-            ->page([
+            ->pages([
                 MyPackagePage::class
             ]);
     }
