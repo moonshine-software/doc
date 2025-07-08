@@ -564,7 +564,7 @@ Event list for `TableBuilder`:
 - `JsEvent::TABLE_ROW_UPDATED` - table row update (`AlpineJs::event(JsEvent::TABLE_ROW_UPDATED, "{component-name}-{row-id}")`)
 
 > [!NOTE]
-> For more information on js events, refer to the [Events](/docs/{{version}}/frontend/events) section.
+> For more information on js events, refer to the [Events](/docs/{{version}}/frontend/js#events) section.
 
 All parameters of the `async` method are optional, and by default, `TableBuilder` will automatically set URL based on the current page.
 

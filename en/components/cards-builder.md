@@ -365,7 +365,7 @@ CardsBuilder::make()
 ```
 
 > [!NOTE]
-> For more information about JS events, refer to the [Events](/docs/{{version}}/frontend/events) section.
+> For more information about JS events, refer to the [Events](/docs/{{version}}/frontend/js#events) section.
 
 > [!NOTE]
 > To trigger the event, you must specify a unique component name!
