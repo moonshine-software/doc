@@ -13,6 +13,13 @@
 Для этого достаточно в заголовок запроса добавить `Accept: application/json`, после чего `CRUD` операции будут возвращать `json` ответы.
 Также мы поставляем инструменты, дающие возможность переключения аутентификации на `JWT` токены, а также генерацию `OpenApi` спецификации и документацию на основе ресурсов.
 
+Доступные роуты:
+- DELETE /admin/resource/{resourceUri}/crud - Массовое удаление (ids[])
+- GET /admin/resource/{resourceUri}/crud - Список записей
+- POST /admin/resource/{resourceUri}/crud - Добавление
+- PUT /admin/resource/{resourceUri}/crud/{resourceItem} - Редактирование
+- DELETE /admin/resource/{resourceUri}/crud/{resourceItem} - Удаление
+
 > [!NOTE]
 > При полноценном использовании **MoonShine** в режиме API не забудьте отключить сессионные middleware в конфигурации **MoonShine**.
 
