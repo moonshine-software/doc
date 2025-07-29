@@ -356,6 +356,16 @@ BelongsTo::make('City', 'city', resource: CityResource::class)
     ->associatedWith('country_id')
 ```
 
+Если необходимо сразу же после отображения страницы отправить запрос на значения, тогда необходимо добавить метод `asyncOnInit(whenOpen: false)`.
+
+```php
+BelongsTo::make('City', 'city', resource: CityResource::class)
+    ->associatedWith('country_id')
+    ->asyncOnInit(whenOpen: false)
+```
+
+При пустом `asyncOnInit()` или `asyncOnInit(whenOpen: true)` запрос будет отправляться после клика на `BelongsTo`.
+
 > [!NOTE]
 > Для более сложной настройки вы можете использовать `asyncSearch()`.
 

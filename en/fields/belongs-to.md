@@ -356,6 +356,17 @@ BelongsTo::make('City', 'city', resource: CityResource::class)
     ->associatedWith('country_id')
 ```
 
+If you need to send the request for values immediately after the page is displayed, then you need to add the `asyncOnInit(whenOpen: false)` method.
+
+```php
+BelongsTo::make('City', 'city', resource: CityResource::class)
+    ->associatedWith('country_id')
+    ->asyncOnInit(whenOpen: false)
+```
+
+If `asyncOnInit()` or `asyncOnInit(whenOpen: true)` is empty, the request will be sent after clicking on `BelongsTo`.
+
+
 > [!NOTE]
 > For more complex configurations, you can use `asyncSearch()`.
 
