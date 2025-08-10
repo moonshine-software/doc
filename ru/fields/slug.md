@@ -100,5 +100,15 @@ Slug::make('Slug')
     ->live()
 ```
 
+Также поддерживается lazy режим.
+
+```php
+Text::make('Title')
+    ->reactive(lazy: true),
+Slug::make('Slug')
+    ->from('title')
+    ->live(lazy: true)
+```
+
 > [!NOTE]
 > Динамичность основана на [реактивности полей](/docs/{{version}}/fields/basic-methods#reactive).
