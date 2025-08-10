@@ -55,6 +55,9 @@ HasMany::make(
 )
 ```
 
+> [!WARNING]
+> The BelongsTo field, referring to the parent record, is required.
+
 ![has_many](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/has_many.png#light)
 ![has_many_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/has_many_dark.png#dark)
 
@@ -131,6 +134,9 @@ use MoonShine\Laravel\Fields\Relationships\HasMany;
 HasMany::make('Comments', resource: CommentResource::class)
     ->creatable()
 ```
+
+> [!WARNING]
+> The BelongsTo field, referring to the parent record, is required.
 
 ![has_many_creatable](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/has_many_creatable.png#light)
 ![has_many_creatable_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/has_many_creatable_dark.png#dark)
@@ -528,6 +534,9 @@ HasMany::make('Comments')
         Action::VIEW
     )
 ```
+
+> [!WARNING]
+> The resource's Policies and `activeActions` take precedence. If the resource denies access, the `activeActions` field will not grant access.
 
 <a name="add-action-buttons"></a>
 ## Adding ActionButtons

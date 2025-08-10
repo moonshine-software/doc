@@ -55,6 +55,9 @@ HasMany::make(
 )
 ```
 
+> [!WARNING]
+> Поле BelongsTo, указывающее на родительскую запись, является обязательным.
+
 ![has_many](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/has_many.png#light)
 ![has_many_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/has_many_dark.png#dark)
 
@@ -132,6 +135,9 @@ HasMany::make('Comments', resource: CommentResource::class)
     ->creatable()
 ```
 
+> [!WARNING]
+> Поле BelongsTo, указывающее на родительскую запись, является обязательным.
+>
 ![has_many_creatable](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/has_many_creatable.png#light)
 ![has_many_creatable_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/has_many_creatable_dark.png#dark)
 
@@ -464,6 +470,9 @@ HasMany::make('Comments')
         Action::VIEW
     )
 ```
+
+> [!WARNING]
+> Политики и `activeActions` ресурса имеют приоритет. Если ресурс закрывает доступ, то `activeActions` поля доступ не предоставит.
 
 <a name="add-action-buttons"></a>
 ## Добавление ActionButtons
