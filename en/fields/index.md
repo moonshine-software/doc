@@ -10,6 +10,7 @@
 - [Change Fill](#change-fill)
 - [Change Display Mode](#change-mode)
 - [Field Application Process](#apply)
+- [Creating a Custom Field](#custom)
 
 ---
 
@@ -311,3 +312,17 @@ Thus, we simply added a link to the text field, but did not save it as is; rathe
 We also have the methods `onBeforeApply()` and `onAfterApply()`.
 
 Next, let's take a closer look at the field interface as well as each field separately.
+
+<a name="custom"></a>
+## Creating a Custom Field
+
+You can create your custom field with its own view and logic and use it in the **MoonShine** admin panel.
+To do this, use the command:
+
+```shell
+php artisan moonshine:field
+```
+
+> [!NOTE]
+> You can learn about all supported options in the section [Commands](/docs/{{version}}/advanced/commands#field).
+
