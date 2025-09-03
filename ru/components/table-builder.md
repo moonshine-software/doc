@@ -647,8 +647,8 @@ TableBuilder::make()
         fn(TableBuilder $table) => $table->items(
             Http::get('https://jsonplaceholder.org/posts')->json()
         )
-    ),
-    ->withNotFound()
+    )
+    ->withNotFound(),
 ```
 
 <a name="type-cast"></a>
