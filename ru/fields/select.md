@@ -14,12 +14,12 @@
 - [Значения с изображением](#with-image)
 - [Опции](#options)
 - [Нативный режим отображения](#native)
-- [Плагины](#plagins)
+- [Плагины](#plugins)
 - [Пользовательские настройки](#settings)
-  - [Именные настройки](#fieldsNames)
-  - [Доп. настройки асинхронности](#asyncSettings)
-  - [Создания новых опции](#selectCreatable)
-  - [Макс. выбор опции](#selectMaxItems)
+  - [Именные настройки](#fields-names)
+  - [Доп. настройки асинхронности](#async-settings)
+  - [Создания новых опции](#select-creatable)
+  - [Макс. выбор опции](#select-max-items)
 
 ---
 
@@ -533,7 +533,7 @@ Select::make('Type')
 > [!TIP]
 > Смотрите также рецепты по использованию [Select](/docs/{{version}}/recipes/select).
 
-<a name="plagins"></a>
+<a name="plugins"></a>
 ## Плагины
 
 Метод `addPlugin(array|string $plugin, array $pluginOptions = [])` добавляет плагин в `Select`.
@@ -602,7 +602,7 @@ Select::make('Type')
 > [!TIP]
 > Все доступные [настройки](https://tom-select.js.org/docs/#general-configuration).
 
-<a name="fieldsNames"></a>
+<a name="fields-names"></a>
 ### Для всех именных настроек, есть очень удобный метод `fieldsNames()`
 
 ```php
@@ -622,7 +622,7 @@ Select::make('Type')
     );
 ```
 
-<a name="asyncSettings"></a>
+<a name="async-settings"></a>
 ### Для дополнительной настройки асинхронности, можно воспользоваться методом `asyncSettings()`
 
 ```php
@@ -650,7 +650,7 @@ Select::make('Type')
     );
 ```
 
-<a name="selectCreatable"></a>
+<a name="select-creatable"></a>
 ### Для переключения в режим "создания новых опции", можно воспользоваться методом `selectCreatable()`
 
 ```php
@@ -674,7 +674,7 @@ Select::make('Type')
 > Более подробно описано [здесь](https://tom-select.js.org/examples/create-filter/).
 
 
-<a name="selectMaxItems"></a>
+<a name="select-max-items"></a>
 ### Если нужно ограничить максимальный выбор опции, можно воспользоваться методом `selectMaxItems()`
 
 ```php
