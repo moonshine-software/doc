@@ -47,7 +47,7 @@ Fieldset::make('Title', [
 To change the set of components in `Fieldset` under certain conditions, you need to pass a condition and sets of components using a callback function.
 
 ```php
-Fieldset::make('Stack', fn(StackFields $ctx) => $ctx->getData()?->getOriginal()->id === 3 ? [
+Fieldset::make('Stack', fn(Fieldset $ctx) => $ctx->getData()?->getOriginal()->id === 3 ? [
         Date::make('Creation date', 'created_at'),
     ] : [
         Date::make('Creation date', 'created_at'),
