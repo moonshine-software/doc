@@ -47,7 +47,7 @@ Fieldset::make('Title', [
 Чтобы при определенных условия изменялся набор компонентов у `Fieldset`, необходимо передать условие и наборы компонентов с помощью callback функции.
 
 ```php
-Fieldset::make('Stack', fn(StackFields $ctx) => $ctx->getData()?->getOriginal()->id === 3 ? [
+Fieldset::make('Stack', fn(Fieldset $ctx) => $ctx->getData()?->getOriginal()->id === 3 ? [
         Date::make('Creation date', 'created_at'),
     ] : [
         Date::make('Creation date', 'created_at'),
