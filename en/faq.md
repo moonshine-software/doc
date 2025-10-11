@@ -6,7 +6,8 @@
 
 **MoonShine** supports all possible relationships: `BelongsTo`, `BelongsToMany`, `HasOne`, `HasMany` and others.
 
-Consider using relationship fields using the example of `BelongsTo`. For example, you have the `Post` and `Author` models, where each post belongs to one author.
+Consider using relationship fields using the example of `BelongsTo`. For example, you have the `Post` and `Author` models,
+where each post belongs to one author.
 
 ```php
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -149,7 +150,8 @@ Breadcrumbs can be redefined on individual [pages](/docs/{{version}}/page/index#
 
 ## How to implement custom input fields in MoonShine?
 
-It is enough to extend the base class `Field` or the class of any of the available fields and add/redefine the functionality you need.
+It is enough to extend the base class `Field` or the class of any of the available fields and add/redefine the
+functionality you need.
 For example, connect another **view**.
 
 ## How to use QueryTags in MoonShine?

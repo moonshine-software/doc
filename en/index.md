@@ -11,14 +11,16 @@
 <a name="what-is-moonshine"></a>
 ## What is MoonShine
 
-**MoonShine** is an open-source package for projects on **Laravel** (license **MIT**), designed for accelerated development of web projects. It is perfect for creating:
+**MoonShine** is an open-source package for projects on **Laravel** (license **MIT**), designed for accelerated development of web projects.
+It is perfect for creating:
 
 - Admin panels,
 - `MVP` (minimum viable products),
 - Backoffice applications,
 - Content management systems (`CMS`).
 
-**MoonShine** provides developers with tools for quickly creating functional and user-friendly administrative interfaces, working as a "framework on framework" and extending the capabilities of **Laravel**.
+**MoonShine** provides developers with tools for quickly creating functional and user-friendly administrative interfaces,
+working as a "framework on framework" and extending the capabilities of **Laravel**.
 
 <a name="features"></a>
 ## Features
@@ -40,19 +42,24 @@
 - **Beginners**: A low entry threshold allows for easy implementation of basic tasks such as authentication and `CRUD` operations.
 
 > [!NOTE]
-> To effectively use **MoonShine**, a basic understanding of **Laravel** is necessary. If you are a beginner, it is recommended to master the fundamentals of **Laravel** first.
+> To effectively use **MoonShine**, a basic understanding of **Laravel** is necessary.
+> If you are a beginner, it is recommended to master the fundamentals of **Laravel** first.
 
 - **Professionals**: The ability to use all the features of **Laravel** without restrictions while gaining tools for speeding up development.
 
 <a name="name-history"></a>
 ## Name history
 
-The name "**MoonShine**" has an interesting origin. It refers not so much to "moonlight" as to the process of making drinks independently in illegal conditions under the cover of night. It is a metaphor for the process of developing an admin panel: creating a quality product "with soul" in one's free time, mainly at night, initially for personal use and for friends.
+The name "**MoonShine**" has an interesting origin.
+It refers not so much to "moonlight" as to the process of making drinks independently in illegal conditions under the cover of night.
+It is a metaphor for the process of developing an admin panel: creating a quality product "with soul" in one's free time,
+mainly at night, initially for personal use and for friends.
 
 <a name="contributing"></a>
 ## Contributing
 
-**MoonShine** is an open-source project, and we welcome community contributions to its development. If you have ideas for improving **MoonShine** or its documentation:
+**MoonShine** is an open-source project, and we welcome community contributions to its development.
+If you have ideas for improving **MoonShine** or its documentation:
 
 1. Create an `Issue` on `GitHub` with a detailed description of your idea.
 2. Ensure that your proposal contains enough details for understanding and implementation.

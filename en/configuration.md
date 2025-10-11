@@ -97,7 +97,8 @@ return [
 > any route-related configuration should be defined in the `moonshine.php` config file.
 
 > [!NOTE]
-> `use_migrations`, `use_notifications`, `use_database_notifications` must always be present either in `moonshine.php` or in `MoonShineServiceProvider`.
+> `use_migrations`, `use_notifications`, `use_database_notifications` must always be present either in `moonshine.php`
+> or in `MoonShineServiceProvider`.
 > All other parameters not specified in the file will use the default values.
 
 <a name="service-provider"></a>
@@ -175,7 +176,8 @@ Regardless of the chosen configuration method, you can set up the following basi
 - `use_migrations` - use default system migrations (`moonshine_users`, `moonshine_user_roles`),
 - `use_notifications` - use notification system,
 - `use_database_notifications` - use Laravel notification system based on database driver,
-- `dir` - directory for **MoonShine** (by default `app/MoonShine`). The directory is used for generating files via `artisan` commands, in general **MoonShine** is not tied to structure,
+- `dir` - directory for **MoonShine** (by default `app/MoonShine`).
+The directory is used for generating files via `artisan` commands, in general **MoonShine** is not tied to structure,
 - `namespace` - namespace for classes created via `artisan` commands (by default `App\MoonShine`).
 
 ~~~tabs
@@ -646,7 +648,9 @@ When choosing a configuration method, it's important to consider the following:
    - `MoonShineServiceProvider` allows centralized management of settings in one place in the code.
 
 4. **Integration with Code**:
-   - Configuration via `MoonShineServiceProvider` integrates better with the rest of the application code and allows the use of Laravel dependencies and services.
+   - Configuration via `MoonShineServiceProvider` integrates better with the rest of the application code
+   and allows the use of Laravel dependencies and services.
 
 Choose the method that best fits your development style and project requirements.
-You can also combine these approaches, for example, using the `moonshine.php` file for basic settings and the `MoonShineServiceProvider` for more complex configurations.
+You can also combine these approaches, for example, using the `moonshine.php` file for basic settings
+and the `MoonShineServiceProvider` for more complex configurations.

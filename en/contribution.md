@@ -59,7 +59,8 @@ If you are ready to participate in development, join - [MoonShine](https://t.me/
 2. If you do not know how to solve the problem - create a GitHub issue, and we will fix the problem soon.
 
 > [!WARNING]
-> It is important that your PR passes all platform tests and includes a detailed description so that all development participants understand what exactly happened.
+> It is important that your PR passes all platform tests and includes a detailed description
+> so that all development participants understand what exactly happened.
 
 <a name="main-branch"></a>
 ## Main branch

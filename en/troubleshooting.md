@@ -29,6 +29,7 @@ If you have forms that use URLs with http but expect https:
 ## Error "Page not found"
 
 - Check for the presence of `MoonShineServiceProvider` in `bootstrap/providers.php` or in `config/app.php`.
-For example, the **Apiato** package changes its structure, and **MoonShine** cannot be added as a provider automatically. Add it manually,
+For example, the **Apiato** package changes its structure, and **MoonShine** cannot be added as a provider automatically.
+Add it manually,
 - Ensure that the resource or page is declared in `MoonShineServiceProvider`,
 - Clear the cache.
