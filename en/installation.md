@@ -16,8 +16,8 @@ video: https://youtu.be/kazEtUFIZKM?si=30KYlPjK1pMKdewq
 
 To work with **MoonShine**, the following requirements must be met before installation:
 
-- PHP 8.2+
-- Laravel 10.48+
+- PHP 8.3+
+- Laravel 11+
 - Composer 2+
 
 <a name="composer"></a>
@@ -38,7 +38,8 @@ php artisan moonshine:install
 > You can learn about all supported options in the section [Commands](/docs/{{version}}/advanced/commands#install).
 
 > [!TIP]
-> Perform the installation only once at the start. After installation, everything can be configured through [configuration](/docs/{{version}}/configuration).
+> Perform the installation only once at the start.
+> After installation, everything can be configured through [configuration](/docs/{{version}}/configuration).
 
 During the installation process, you will be asked to perform:
 
