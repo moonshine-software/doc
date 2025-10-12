@@ -15,6 +15,7 @@
   - [Селекторы](#selectors)
 - [Валидация](#validation)
   - [Отображение ошибок валидации](#displaying-validation-errors)
+  - [Отключение Toast с ошибками](#disabling-toasts)
   - [Прекогнитивная валидация](#precognitive)
   - [Несколько форм одновременно](#multiple-forms)
 - [Применение](#apply)
@@ -449,6 +450,16 @@ protected function components(): iterable
 ```php
 FormBuilder::make('/crud/update')
     ->errorsAbove(false)
+```
+
+<a name="disabling-toasts"></a>
+### Отключение Toast с ошибками
+
+Вы можете отключить уведомление (Toast) с ошибками валидации с помощью метода `withoutErrorToast()`.
+
+```php
+FormBuilder::make('/crud/update')
+    ->withoutErrorToast()
 ```
 
 <a name="precognitive"></a>

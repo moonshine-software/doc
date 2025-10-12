@@ -15,6 +15,7 @@
   - [Selectors](#selectors)
 - [Validation](#validation)
   - [Displaying Validation Errors](#displaying-validation-errors)
+  - [Disabling Toast with errors](#disabling-toasts)
   - [Pre-Cognitive Validation](#precognitive)
   - [Multiple Forms Simultaneously](#multiple-forms)
 - [Apply](#apply)
@@ -449,6 +450,16 @@ It allows you to enable or disable this feature.
 ```php
 FormBuilder::make('/crud/update')
     ->errorsAbove(false)
+```
+
+<a name="disabling-toasts"></a>
+### Disabling Toast with errors
+
+You can disable notification (Toast) with validation errors using the `withoutErrorToast()` method.
+
+```php
+FormBuilder::make('/crud/update')
+    ->withoutErrorToast()
 ```
 
 <a name="precognitive"></a>
