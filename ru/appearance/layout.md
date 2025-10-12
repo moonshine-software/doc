@@ -12,7 +12,9 @@ video: https://www.youtube.com/watch?v=95qxienFmtI
 - [Меню](#menu)
     - [Верхнее меню](#top-menu)
 - [Цвета](#colors)
-- [Dark mode](#dark-mode)
+- [Темы оформления](#themes)
+    - [Тёмная тема](#dark-mode)
+    - [Вкл/выкл тем оформления](#toggle-on-off-themes)
 - [Blade](#blade)
 
 ---
@@ -577,10 +579,15 @@ final class MoonShineLayout extends CompactLayout
 > [!WARNING]
 > Если вы хотите оставить и Sidebar и TopBar одновременно, то обязательно соблюдайте очередность, первым должен идти TopBar.
 
-<a name="dark-mode"></a>
-## Dark mode
+<a name="themes"></a>
+## Темы оформления
 
-Если вы хотите, чтобы тёмная тема всегда была включена, переопределите метод `isAlwaysDark()` и верните `true`.
+В **Moonshine** "из коробки" доступна поддержка двух тем оформления — светлой и тёмной. По умолчанию используется тема, заданная в системе, либо светлая, если определить не удалось.
+
+<a name="dark-mode"></a>
+### Тёмная тема
+
+Если вы хотите, чтобы тёмная тема всегда была включена, переопределите метод `isAlwaysDark()` и верните `true`. Переключатель тем при этом отображаться не будет.
 
 ```php
 final class MoonShineLayout extends AppLayout
@@ -589,6 +596,23 @@ final class MoonShineLayout extends AppLayout
     protected function isAlwaysDark(): bool
     {
         return true;
+    }
+    // ..
+}
+```
+
+<a name="toggle-on-off-themes"></a>
+### Вкл/выкл тем оформления
+
+Чтобы убрать переключатель тем и оставить только светлую тему, переопределите метод `hasThemes()` и верните `false`.
+
+```php
+final class MoonShineLayout extends AppLayout
+{
+    // ..
+    protected function hasThemes(): bool
+    {
+        return false;
     }
     // ..
 }
