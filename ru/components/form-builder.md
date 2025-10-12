@@ -309,7 +309,8 @@ FormBuilder::make('/crud/update')
 <a name="calling-methods"></a>
 ### Вызов методов
 
-`asyncMethod()` позволяет указать имя метода в ресурсе и вызвать его асинхронно при отправке `FormBuilder` без необходимости создания дополнительных контроллеров.
+Метод `asyncMethod()` позволяет указать имя метода в классе страницы или ресурса и вызвать его асинхронно
+при отправке `FormBuilder` без необходимости создания дополнительных контроллеров.
 
 ```php
 FormBuilder::make()
@@ -324,32 +325,42 @@ FormBuilder::make()
     ->download()
 ```
 
+Внутри метода доступен **DI**.
+
+В целях безопасности будут доступны только методы, помеченные атрибутом `AsyncMethod`.
+
 Примеры методов:
 
 ```php
+use MoonShine\Support\Attributes\AsyncMethod;
+
 // С уведомлением
-public function updateSomething(MoonShineRequest $request): MoonShineJsonResponse
+#[AsyncMethod]
+public function updateSomething(MoonShineRequest $request, MoonShineJsonResponse $response): MoonShineJsonResponse
 {
     // $request->getResource();
     // $request->getResource()->getItem();
     // $request->getPage();
 
-    return MoonShineJsonResponse::make()->toast('My message', ToastType::SUCCESS);
+    return $response->toast('My message', ToastType::SUCCESS);
 }
 
 // Редирект
-public function updateSomething(MoonShineRequest $request): MoonShineJsonResponse
+#[AsyncMethod]
+public function updateSomething(MoonShineRequest $request, MoonShineJsonResponse $response): MoonShineJsonResponse
 {
-    return MoonShineJsonResponse::make()->redirect('/');
+    return $response->redirect('/');
 }
 
 // Редирект
+#[AsyncMethod]
 public function updateSomething(MoonShineRequest $request): RedirectResponse
 {
     return back();
 }
 
 // Исключение
+#[AsyncMethod]
 public function updateSomething(MoonShineRequest $request): void
 {
     throw new \Exception('My message');

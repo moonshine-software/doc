@@ -309,7 +309,8 @@ Event list for `FormBuilder`:
 <a name="calling-methods"></a>
 ### Calling Methods
 
-`asyncMethod()` allows you to specify the method name in the resource and call it asynchronously when submitting the `FormBuilder` without the need to create additional controllers.
+The `asyncMethod()` method allows you to specify the name of a method in a page or resource class and call it asynchronously
+when submitting `FormBuilder` without having to create additional controllers.
 
 ```php
 FormBuilder::make()
@@ -324,32 +325,42 @@ FormBuilder::make()
     ->download()
 ```
 
+**DI** is available inside the method.
+
+For security reasons, only methods marked with the `AsyncMethod` attribute will be available.
+
 Examples of methods:
 
 ```php
+use MoonShine\Support\Attributes\AsyncMethod;
+
 // With notification
-public function updateSomething(MoonShineRequest $request): MoonShineJsonResponse
+#[AsyncMethod]
+public function updateSomething(MoonShineRequest $request, MoonShineJsonResponse $response): MoonShineJsonResponse
 {
     // $request->getResource();
     // $request->getResource()->getItem();
     // $request->getPage();
 
-    return MoonShineJsonResponse::make()->toast('My message', ToastType::SUCCESS);
+    return $response->toast('My message', ToastType::SUCCESS);
 }
 
 // Redirect
-public function updateSomething(MoonShineRequest $request): MoonShineJsonResponse
+#[AsyncMethod]
+public function updateSomething(MoonShineRequest $request, MoonShineJsonResponse $response): MoonShineJsonResponse
 {
-    return MoonShineJsonResponse::make()->redirect('/');
+    return $response->redirect('/');
 }
 
 // Redirect
+#[AsyncMethod]
 public function updateSomething(MoonShineRequest $request): RedirectResponse
 {
     return back();
 }
 
 // Exception
+#[AsyncMethod]
 public function updateSomething(MoonShineRequest $request): void
 {
     throw new \Exception('My message');

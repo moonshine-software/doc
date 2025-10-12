@@ -495,7 +495,8 @@ document.addEventListener("moonshine:init", () => {
 <a name="method"></a>
 ### Вызов методов
 
-`method()` позволяет указать имя метода в ресурсе и вызвать его асинхронно при нажатии на `ActionButton` без необходимости создания дополнительных контроллеров.
+Метод `method()` позволяет указать имя метода в классе страницы или ресурса и вызвать этот метод асинхронно
+при нажатии на `ActionButton` без необходимости создания дополнительных контроллеров.
 
 ```php
 method(
@@ -532,38 +533,49 @@ ActionButton::make('ZIP')
     ->download()
 ```
 
+Внутри метода доступен **DI**.
+
+В целях безопасности будут доступны только методы, помеченные атрибутом `AsyncMethod`.
+
 Примеры методов:
 
 ```php
+use MoonShine\Support\Attributes\AsyncMethod;
+
 // С уведомлением
-public function updateSomething(MoonShineRequest $request): MoonShineJsonResponse
+#[AsyncMethod]
+public function updateSomething(MoonShineRequest $request, MoonShineJsonResponse $response): MoonShineJsonResponse
 {
     // $request->getResource();
     // $request->getResource()->getItem();
     // $request->getPage();
 
-    return MoonShineJsonResponse::make()->toast('My message', ToastType::SUCCESS);
+    return $response->toast('My message', ToastType::SUCCESS);
 }
 
 // Редирект
-public function updateSomething(MoonShineRequest $request): MoonShineJsonResponse
+#[AsyncMethod]
+public function updateSomething(MoonShineRequest $request, MoonShineJsonResponse $response): MoonShineJsonResponse
 {
-    return MoonShineJsonResponse::make()->redirect('/');
+    return $response->redirect('/');
 }
 
 // Редирект
+#[AsyncMethod]
 public function updateSomething(MoonShineRequest $request): RedirectResponse
 {
     return back();
 }
 
 // Исключение
+#[AsyncMethod]
 public function updateSomething(MoonShineRequest $request): void
 {
     throw new \Exception('My message');
 }
 
 // Пользовательский JSON-ответ
+#[AsyncMethod]
 public function updateSomething(MoonShineRequest $request)
 {
     return MoonShineJsonResponse::make()->html('Content');
