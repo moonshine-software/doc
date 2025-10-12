@@ -14,6 +14,12 @@
 - [Значения с изображением](#with-image)
 - [Опции](#options)
 - [Нативный режим отображения](#native)
+- [Плагины](#plugins)
+- [Пользовательские настройки](#settings)
+  - [Именные настройки](#fields-names)
+  - [Доп. настройки асинхронности](#async-settings)
+  - [Создания новых опции](#select-creatable)
+  - [Макс. выбор опции](#select-max-items)
 
 ---
 
@@ -353,6 +359,7 @@ Select::make('Country', 'country_id')
 ```
 
 При пустом `asyncOnInit()` или `asyncOnInit(whenOpen: true)` запрос будет отправляться после клика на `Select`.
+И если необходимо, чтобы показывался "Загрузчик", перед открытием `Select`, то можно добавить `asyncOnInit(withLoading: true)`.
 
 > [!NOTE]
 > Не забудьте обработать `query` при использовании `async`, иначе поиск всегда будет выдавать одинаковые значения.
@@ -525,3 +532,160 @@ Select::make('Type')
 
 > [!TIP]
 > Смотрите также рецепты по использованию [Select](/docs/{{version}}/recipes/select).
+
+<a name="plugins"></a>
+## Плагины
+
+Метод `addPlugin(array|string $plugin, array $pluginOptions = [])` добавляет плагин в `Select`.
+
+```php
+use MoonShine\UI\Fields\Select;
+
+Select::make('Type')
+    ->addPlugin(['plugin_1', 'plugin_2'])
+    
+Select::make('Type')
+    ->addPlugin('plugin_1', [
+        'foo' => 'bar',
+        ...
+    ])
+    ->addPlugin('plugin_2', [
+        'foo' => 'bar',
+        ...
+    ])
+```
+
+> [!TIP]
+> Все официальные [плагины](https://tom-select.js.org/plugins/).
+
+Вы также можете очень легко создавать свои собственные плагины.
+
+```html
+<script>
+    document.addEventListener('moonshine:select_init', function({ detail: { createPlugin } }) {
+        createPlugin('myPlugin', function(pluginOptions) {
+            console.log(pluginOptions, this.getValue())
+
+            this.on('change', value => {
+                //
+            })
+        })
+    })
+</script>
+```
+Далее, подключаем плагин, как показано выше.
+
+> [!TIP]
+> Полная документация по [созданию плагинов](https://tom-select.js.org/docs/plugins/).
+
+<a name="settings"></a>
+## Пользовательские настройки
+
+Метод `settings()` разрешает использовать все пользовательские настройки `Tom select`.
+
+```php
+use MoonShine\Support\DTOs\Select\Settings;
+settings(array|Settings $settings)
+```
+```php
+use MoonShine\UI\Fields\Select;
+use MoonShine\Support\DTOs\Select\Settings;
+
+Select::make('Type')
+    ->settings(
+        Settings::make()
+            ->maxOptions(10)
+            ->highlight(false)
+    );
+```
+
+> [!TIP]
+> Все доступные [настройки](https://tom-select.js.org/docs/#general-configuration).
+
+<a name="fields-names"></a>
+### Для всех именных настроек, есть очень удобный метод `fieldsNames()`
+
+```php
+use MoonShine\Support\DTOs\Select\FieldsNames;
+fieldsNames(FieldsNames $names)
+```
+```php
+use MoonShine\UI\Fields\Select;
+use MoonShine\Support\DTOs\Select\FieldsNames;
+
+Select::make('Type')
+    ->fieldsNames(
+        FieldsNames::make()
+            ->value('id')
+            ->label('name')
+            ->children('children')
+    );
+```
+
+<a name="async-settings"></a>
+### Для дополнительной настройки асинхронности, можно воспользоваться методом `asyncSettings()`
+
+```php
+use MoonShine\Support\DTOs\Select\AsyncSettings;
+asyncSettings(array|AsyncSettings $settings)
+```
+```php
+use MoonShine\UI\Fields\Select;
+use MoonShine\Support\DTOs\Select\AsyncSettings;
+
+Select::make('Type')
+    ->asyncSettings(
+        AsyncSettings::make()
+            // Можно менять название поля поиска
+            ->queryKey('q')
+           
+            // Можно отправить текущие активные значения, просто указываем название 
+            ->selectedValuesKey('name')
+            
+            // Если результат обвернуть например в data, то указываем этот ключ
+            ->resultKey('data')
+            
+            // Если хотите, чтобы вместе с запросом, шли все поля текущей формы
+            ->withAllFields()
+    );
+```
+
+<a name="select-creatable"></a>
+### Для переключения в режим "создания новых опции", можно воспользоваться методом `selectCreatable()`
+
+```php
+selectCreatable(
+    ?string $filterRegex = null,
+    bool $persist = true,
+    bool $createOnBlur = false,
+    bool $duplicates = false,
+    bool $addPrecedence = false,
+)
+```
+```php
+use MoonShine\UI\Fields\Select;
+
+Select::make('Type')
+    ->selectCreatable(
+        /^\d+$/
+    );
+```
+> [!TIP]
+> Более подробно описано [здесь](https://tom-select.js.org/examples/create-filter/).
+
+
+<a name="select-max-items"></a>
+### Если нужно ограничить максимальный выбор опции, можно воспользоваться методом `selectMaxItems()`
+
+```php
+selectMaxItems(
+    ?int $limit = null,
+    ?string $text = null // По умолчанию "Максимальное количество элементов: :count"
+)
+```
+```php
+use MoonShine\UI\Fields\Select;
+
+Select::make('Type')
+    ->selectMaxItems(5);
+```
