@@ -16,8 +16,8 @@ video: https://youtu.be/kazEtUFIZKM?si=30KYlPjK1pMKdewq
 
 To work with **MoonShine**, the following requirements must be met before installation:
 
-- PHP 8.3+
-- Laravel 11+
+- PHP 8.2+
+- Laravel 10.48+
 - Composer 2+
 
 <a name="composer"></a>
