@@ -263,9 +263,10 @@ ActionButton::make('Button Label')
     )
 ```
 
-### Событие с параметрами
+### Event with parameters
 
-Using the `EventParams` object, you can also pass rules (`selectors` and `fieldsValues`) along with the event to provide parameters for the modal window content.
+Using the `EventParams` object, you can also pass rules (`selectors` and `fieldsValues`) along with the event,
+which allow you to pass parameters to the content of the modal window.
 
 ```php
 Modal::make('Modal', fn() => FormBuilder::make()->fields([
@@ -494,7 +495,8 @@ document.addEventListener("moonshine:init", () => {
 <a name="method"></a>
 ### Method calls
 
-`method()` allows specifying a method name in the resource and call it asynchronously when the `ActionButton` is clicked, without the need to create additional controllers.
+The `method()` method allows you to specify the name of a method in a page or resource class and call that method asynchronously
+when the `ActionButton` is clicked without the need to create additional controllers.
 
 ```php
 method(
@@ -531,38 +533,49 @@ ActionButton::make('ZIP')
     ->download()
 ```
 
+**DI** is available inside the method.
+
+For security reasons, only methods marked with the `AsyncMethod` attribute will be available.
+
 Examples of methods:
 
 ```php
+use MoonShine\Support\Attributes\AsyncMethod;
+
 // With notification
-public function updateSomething(MoonShineRequest $request): MoonShineJsonResponse
+#[AsyncMethod]
+public function updateSomething(MoonShineRequest $request, MoonShineJsonResponse $response): MoonShineJsonResponse
 {
     // $request->getResource();
     // $request->getResource()->getItem();
     // $request->getPage();
 
-    return MoonShineJsonResponse::make()->toast('My message', ToastType::SUCCESS);
+    return $response->toast('My message', ToastType::SUCCESS);
 }
 
 // Redirect
-public function updateSomething(MoonShineRequest $request): MoonShineJsonResponse
+#[AsyncMethod]
+public function updateSomething(MoonShineRequest $request, MoonShineJsonResponse $response): MoonShineJsonResponse
 {
-    return MoonShineJsonResponse::make()->redirect('/');
+    return $response->redirect('/');
 }
 
 // Redirect
+#[AsyncMethod]
 public function updateSomething(MoonShineRequest $request): RedirectResponse
 {
     return back();
 }
 
 // Exception
+#[AsyncMethod]
 public function updateSomething(MoonShineRequest $request): void
 {
     throw new \Exception('My message');
 }
 
 // Custom JSON response
+#[AsyncMethod]
 public function updateSomething(MoonShineRequest $request)
 {
     return MoonShineJsonResponse::make()->html('Content');
