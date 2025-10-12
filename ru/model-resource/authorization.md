@@ -141,7 +141,7 @@ class AuthServiceProvider extends ServiceProvider
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:1]
-use MoonShine\Laravel\Enums\Ability;
+use MoonShine\Support\Enums\Ability;
 
 protected function isCan(Ability $ability): bool
 {

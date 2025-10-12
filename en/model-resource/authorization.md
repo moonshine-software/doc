@@ -141,7 +141,7 @@ You can also override the `isCan()` method in the resource and implement your ow
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:1]
-use MoonShine\Laravel\Enums\Ability;
+use MoonShine\Support\Enums\Ability;
 
 protected function isCan(Ability $ability): bool
 {

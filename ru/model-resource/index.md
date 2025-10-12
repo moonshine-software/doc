@@ -367,7 +367,7 @@ public function getRedirectAfterDelete(): string
 namespace App\MoonShine\Resources;
 
 use MoonShine\Support\ListOf;
-use MoonShine\Laravel\Enums\Action;
+use MoonShine\Support\Enums\Action;
 use MoonShine\Laravel\Resources\ModelResource;
 
 class PostResource extends ModelResource
@@ -388,7 +388,7 @@ class PostResource extends ModelResource
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:2]
-use MoonShine\Laravel\Enums\Action;
+use MoonShine\Support\Enums\Action;
 use MoonShine\Support\ListOf;
 
 protected function activeActions(): ListOf
