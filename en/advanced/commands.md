@@ -119,17 +119,19 @@ php artisan moonshine:page
 
 Signature:
 ```
-moonshine:page {className?} {--force} {--without-register} {--crud} {--dir=} {--extends=} {--base-dir=} {--base-namespace=}
+moonshine:page {className?} {--force} {--without-register} {--skip-menu} {--crud} {--dir=} {--extends=} {--base-dir=} {--base-namespace=} {--resource=}
 ```
 
 Available options:
 
 - `--force` - don't ask for the page type,
 - `--without-register` - without automatic registration in the provider,
+- `--skip-menu` - do not add this page to the menu when using autoload menu,
 - `--crud` - creates a group of pages: index, detail, and form,
 - `--dir=` - directory where the files will be located relative to `app/MoonShine`, defaults to Page,
-- `--extends=` - class that the page will extend, e.g., IndexPage, FormPage, or DetailPage,
-- `--base-dir=, --base-namespace=` - change the base directory and namespace of the class.
+- `--extends=` - class that the page will extend, e.g., `IndexPage`, `FormPage`, or `DetailPage`,
+- `--base-dir=, --base-namespace=` - change the base directory and namespace of the class,
+- `--resource=` - resource, for which pages are created, on the default `ModelResource`.
 
 After executing the command, a default page (or group of pages) will be created in the `app/MoonShine/Pages` directory.
 
@@ -205,7 +207,8 @@ Available options:
 
 When executing the command, you can specify whether the field will extend the base class or another field.
 
-After executing the command, a field class will be created in the `app/MoonShine/Fields` directory, and a `Blade` file will be created in the `/resources/views/admin/fields` directory.
+After executing the command, a field class will be created in the `app/MoonShine/Fields` directory,
+and a `Blade` file will be created in the `/resources/views/admin/fields` directory.
 
 > [!NOTE]
 > For more details, refer to the [Field](/docs/{{version}}/fields/index) section.

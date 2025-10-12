@@ -119,17 +119,19 @@ php artisan moonshine:page
 
 Сигнатура:
 ```
-moonshine:page {className?} {--force} {--without-register} {--crud} {--dir=} {--extends=} {--base-dir=} {--base-namespace=}
+moonshine:page {className?} {--force} {--without-register} {--skip-menu} {--crud} {--dir=} {--extends=} {--base-dir=} {--base-namespace=} {--resource=}
 ```
 
 Доступные опции:
 
 - `--force` - не спрашивать тип страницы,
 - `--without-register` - без автоматической регистрации в провайдере,
+- `--skip-menu` - не добавлять эту страницу в меню при использовании автозагрузки меню,
 - `--crud` - создает группу страниц: индексную, детальную и форму,
 - `--dir=` - директория, в которой будут располагаться файлы относительно `app/MoonShine`, по умолчанию Page,
-- `--extends=` - класс, который будет расширять страница, например IndexPage, FormPage или DetailPage,
-- `--base-dir=, --base-namespace=` - изменить базовую директорию и неймспейс класса.
+- `--extends=` - класс, который будет расширять страница, например `IndexPage`, `FormPage` или `DetailPage`,
+- `--base-dir=, --base-namespace=` - изменить базовую директорию и неймспейс класса,
+- `--resource=` - ресурс, для которого создаётся страница, по умолчанию это `ModelResource`.
 
 После выполнения команды в директории `app/MoonShine/Pages` будет создана страница по умолчанию (или группа страниц).
 
@@ -205,7 +207,8 @@ moonshine:field {className?} {--base-dir=} {--base-namespace=}
 
 При выполнении команды можно указать, будет ли поле расширять базовый класс или другое поле.
 
-После выполнения команды в директории `app/MoonShine/Fields` будет создан класс поля, а в директории `/resources/views/admin/fields` - файл `Blade`.
+После выполнения команды в директории `app/MoonShine/Fields` будет создан класс поля,
+а в директории `/resources/views/admin/fields` - файл `Blade`.
 
 > [!NOTE]
 > Для более подробной информации обратитесь к разделу [Поле](/docs/{{version}}/fields/index).
