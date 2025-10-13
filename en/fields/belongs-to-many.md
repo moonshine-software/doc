@@ -480,7 +480,7 @@ BelongsToMany::make('Countries', 'countries', resource: CountryResource::class)
     ->asyncSearch(
         'title',
         10,
-        searchQuery: function (Builder $query, Request $request, Field $field) {
+        searchQuery: function (Builder $query, string $term, Request $request, Field $field) {
             return $query->where('id', '!=', 2);
         },
         formatted: function ($country, Field $field) {
@@ -509,7 +509,7 @@ Select::make('Country', 'country_id'),
 BelongsToMany::make('Cities', 'cities', resource: CityResource::class)
     ->asyncSearch(
         'title',
-        searchQuery: function (Builder $query, Request $request, Field $field): Builder {
+        searchQuery: function (Builder $query, string $term, Request $request, Field $field): Builder {
             return $query->where('country_id', $request->get('country_id'));
         }
     )
