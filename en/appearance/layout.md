@@ -590,14 +590,9 @@ final class MoonShineLayout extends CompactLayout
 If you want the dark theme to always be enabled, override the `isAlwaysDark()` method and return `true`. The theme switcher will not be displayed.
 
 ```php
-final class MoonShineLayout extends AppLayout
+protected function isAlwaysDark(): bool
 {
-    // ..
-    protected function isAlwaysDark(): bool
-    {
-        return true;
-    }
-    // ..
+    return true;
 }
 ```
 
@@ -607,14 +602,9 @@ final class MoonShineLayout extends AppLayout
 To remove the theme switcher and leave only the light theme, override the `hasThemes()` method and return `false`.
 
 ```php
-final class MoonShineLayout extends AppLayout
+protected function hasThemes(): bool
 {
-    // ..
-    protected function hasThemes(): bool
-    {
-        return false;
-    }
-    // ..
+    return false;
 }
 ```
 

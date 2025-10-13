@@ -590,14 +590,9 @@ final class MoonShineLayout extends CompactLayout
 Если вы хотите, чтобы тёмная тема всегда была включена, переопределите метод `isAlwaysDark()` и верните `true`. Переключатель тем при этом отображаться не будет.
 
 ```php
-final class MoonShineLayout extends AppLayout
+protected function isAlwaysDark(): bool
 {
-    // ..
-    protected function isAlwaysDark(): bool
-    {
-        return true;
-    }
-    // ..
+    return true;
 }
 ```
 
@@ -607,14 +602,9 @@ final class MoonShineLayout extends AppLayout
 Чтобы убрать переключатель тем и оставить только светлую тему, переопределите метод `hasThemes()` и верните `false`.
 
 ```php
-final class MoonShineLayout extends AppLayout
+protected function hasThemes(): bool
 {
-    // ..
-    protected function hasThemes(): bool
-    {
-        return false;
-    }
-    // ..
+    return false;
 }
 ```
 
