@@ -32,17 +32,22 @@
 // [tl! collapse:4]
 namespace App\MoonShine\Resources;
 
+use Illuminate\Contracts\Pagination\CursorPaginator;
+use Illuminate\Contracts\Pagination\Paginator;
+use Illuminate\Support\Collection;
+use Illuminate\Support\LazyCollection;
 use MoonShine\Contracts\Core\DependencyInjection\FieldsContract;
-use MoonShine\Laravel\Resources\CrudResource;
+use MoonShine\Crud\Resources\CrudResource;
+use MoonShine\Contracts\Core\TypeCasts\DataWrapperContract;
 
 final class RestCrudResource extends CrudResource
 {
-    public function findItem(bool $orFail = false): mixed
+    public function findItem(bool $orFail = false): ?DataWrapperContract
     {
         // ...
     }
 
-    public function getItems(): mixed
+    public function getItems(): iterable|Collection|LazyCollection|CursorPaginator|Paginator;
     {
         // ...
     }
@@ -52,12 +57,12 @@ final class RestCrudResource extends CrudResource
         // ...
     }
 
-    public function delete(mixed $item, ?FieldsContract $fields = null): bool
+    public function delete(DataWrapperContract $item, ?FieldsContract $fields = null): bool
     {
         // ...
     }
 
-    public function save(mixed $item, ?FieldsContract $fields = null): mixed
+    public function save(DataWrapperContract $item, ?FieldsContract $fields = null): DataWrapperContract
     {
         // ...
     }
@@ -74,50 +79,46 @@ final class RestCrudResource extends CrudResource
 // [tl! collapse:6]
 namespace App\MoonShine\Resources;
 
-use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
 use MoonShine\Contracts\Core\DependencyInjection\FieldsContract;
-use MoonShine\Laravel\Resources\CrudResource;
+use MoonShine\Contracts\Core\TypeCasts\DataWrapperContract;
+use MoonShine\Crud\Resources\CrudResource;
 
 final class RestCrudResource extends CrudResource
 {
     public function getItems(): iterable
     {
-        yield from Http::get('https://jsonplaceholder.typicode.com/todos')->json();
+        yield from collect(Http::get('https://jsonplaceholder.typicode.com/todos')->json())
+            ->map(fn ($item): DataWrapperContract => $this->getCaster()->cast($item))
+            ->toArray();
     }
-
-    public function findItem(bool $orFail = false): array
+    public function findItem(bool $orFail = false): ?DataWrapperContract
     {
-        yield from Http::get('https://jsonplaceholder.typicode.com/todos/' . $this->getItemID())->json();
+        return $this->getCaster()->cast(
+            Http::get('https://jsonplaceholder.typicode.com/todos/' . $this->getItemID())->json()
+        );
     }
-
     public function massDelete(array $ids): void
     {
         $this->beforeMassDeleting($ids);
-
         foreach ($ids as $id) {
-            $this->delete(['id' => $id]);
+            $this->delete($this->getCaster()->cast(['id' => $id]));
         }
-
         $this->afterMassDeleted($ids);
     }
-
-    public function delete(mixed $item, ?FieldsContract $fields = null): bool
+    public function delete(DataWrapperContract $item, ?FieldsContract $fields = null): bool
     {
-        return Http::delete('https://jsonplaceholder.typicode.com/todos/' . $item['id'])->successful();
+        return Http::delete('https://jsonplaceholder.typicode.com/todos/' . $item->getOriginal()['id'])->successful();
     }
-
-    public function save(mixed $item, ?FieldsContract $fields = null): mixed
+    public function save(DataWrapperContract $item, ?FieldsContract $fields = null): DataWrapperContract
     {
+        $originalItem = $item->getOriginal();
         $data = request()->all();
-
-        if ($item['id'] ?? false) {
-            return Http::put('https://jsonplaceholder.typicode.com/todos/' . $item['id'], $data)->json();
+        if ($originalItem['id'] ?? false) {
+            return Http::put('https://jsonplaceholder.typicode.com/todos/' . $originalItem['id'], $data)->json();
         }
-
         $this->isRecentlyCreated = true;
-
-        return Http::post('https://jsonplaceholder.typicode.com/todos', $data)->json();
+        return $this->getCaster()->cast(Http::post('https://jsonplaceholder.typicode.com/todos', $originalItem)->json());
     }
 }
 ```
