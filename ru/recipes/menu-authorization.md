@@ -6,7 +6,7 @@
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:start]
 use Illuminate\Support\Facades\Gate;
-use MoonShine\Laravel\Enums\Ability;
+use MoonShine\Support\Enums\Ability;
 use MoonShine\MenuManager\MenuItem; // [tl! collapse:end]
 
 protected function menu(): array
@@ -21,7 +21,7 @@ protected function menu(): array
 2. Через ресурс:
 
 ```php
-use MoonShine\Laravel\Enums\Ability;
+use MoonShine\Support\Enums\Ability;
 
 protected function menu(): array
 {

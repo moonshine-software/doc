@@ -121,7 +121,7 @@ use MoonShine\Contracts\Core\ResourceContract;
 use MoonShine\Laravel\DependencyInjection\ConfiguratorContract;
 use MoonShine\Laravel\DependencyInjection\MoonShine;
 use MoonShine\Laravel\DependencyInjection\MoonShineConfigurator;
-use MoonShine\Laravel\Enums\Ability; // [tl! collapse:end]
+use MoonShine\Support\Enums\Ability; // [tl! collapse:end]
 
 class MoonShineServiceProvider extends ServiceProvider
 {
