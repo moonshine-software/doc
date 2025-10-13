@@ -6,7 +6,9 @@ However, there is also a need to specifically bind to events within the **MoonSh
 To do this, you need to implement the required events in your resource.
 
 ```php
-protected function beforeCreating(mixed $item): mixed
+use MoonShine\Contracts\Core\TypeCasts\DataWrapperContract;
+
+protected function beforeCreating(DataWrapperContract $item): DataWrapperContract
 {
     if (auth()->user()->moonshine_user_role_id !== 1) {
         request()->merge([
@@ -17,12 +19,12 @@ protected function beforeCreating(mixed $item): mixed
     return $item;
 }
 
-protected function afterCreated(mixed $item): mixed
+protected function afterCreated(DataWrapperContract $item): DataWrapperContract
 {
     return $item;
 }
 
-protected function beforeUpdating(mixed $item): mixed
+protected function beforeUpdating(DataWrapperContract $item): DataWrapperContract
 {
     if (auth()->user()->moonshine_user_role_id !== 1) {
         request()->merge([
@@ -33,17 +35,17 @@ protected function beforeUpdating(mixed $item): mixed
     return $item;
 }
 
-protected function afterUpdated(mixed $item): mixed
+protected function afterUpdated(DataWrapperContract $item): DataWrapperContract
 {
     return $item;
 }
 
-protected function beforeDeleting(mixed $item): mixed
+protected function beforeDeleting(DataWrapperContract $item): DataWrapperContract
 {
     return $item;
 }
 
-protected function afterDeleted(mixed $item): mixed
+protected function afterDeleted(DataWrapperContract $item): DataWrapperContract
 {
     return $item;
 }
