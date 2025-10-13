@@ -30,7 +30,9 @@ The main authentication settings are located in the configuration file `config/m
     'enabled' => true,
     'guard' => 'moonshine',
     'model' => MoonshineUser::class,
-    'middleware' => Authenticate::class,
+    'middleware' => [
+        Authenticate::class,
+    ],
     'pipelines' => [],
 ],
 ```
@@ -40,7 +42,7 @@ Here you can configure:
 - `enabled` - enable/disable built-in authentication,
 - `guard` - name of the guard for authentication,
 - `model` - user model class,
-- `middleware` - middleware for authentication,
+- `middleware` - middleware stack for authentication routes,
 - `pipelines` - additional pipelines for the authentication process.
 
 <a name="customization"></a>
@@ -53,7 +55,9 @@ You can customize authentication in `moonshine.php`.
     'enabled' => true,
     'guard' => 'moonshine',
     'model' => CustomUser::class,
-    'middleware' => CustomAuthMiddleware::class,
+    'middleware' => [
+        CustomAuthMiddleware::class,
+    ],
     'pipelines' => [
         TwoFactorAuthentication::class,
         PhoneVerification::class,

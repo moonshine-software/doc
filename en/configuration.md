@@ -65,7 +65,9 @@ return [
     'auth' => [
         'enabled' => true,
         'guard' => 'moonshine',
-        'middleware' => Authenticate::class,
+        'middleware' => [
+            Authenticate::class,
+        ],
         // ...
     ],
     'layout' => \MoonShine\Laravel\Layouts\AppLayout::class,
@@ -326,7 +328,9 @@ $config->guard('admin');
 ```php
 'auth' => [
     // ...
-    'middleware' => Authenticate::class,
+    'middleware' => [
+        Authenticate::class,
+    ],
     // ...
 ],
 ```
