@@ -24,6 +24,7 @@ video: https://youtu.be/5o8qSf94Bf0?si=9dLj_SiXA1-w6hFo
     - [Creating an Instance](#on-boot)
 - [Assets](#assets)
 - [Response modifiers](#response-modifiers)
+- [CRUD operation handlers](#crud-operations-handlers)
 
 ---
 
@@ -679,5 +680,73 @@ public function modifySaveResponse(MoonShineJsonResponse $response): MoonShineJs
 public function modifyErrorResponse(Response $response, Throwable $exception): Response
 {
     return $response;
+}
+```
+
+<a name="crud-operations-handlers"></a>
+## CRUD operation handlers
+
+You can change the logic of save, delete, and mass delete operations in `ModelResource` using `SaveHandler`, `DestroyHandler` and `MassDestroyHandler` attributes and your custom handlers.
+
+In the `save()` method you receive the `$data` array, which has already been passed through the `apply()` method of the form fields.
+
+Usage example:
+
+```php
+use MoonShine\Laravel\Resources\ModelResource;
+use MoonShine\Crud\Attributes\DestroyHandler;
+use MoonShine\Crud\Attributes\MassDestroyHandler;
+use MoonShine\Crud\Attributes\SaveHandler;
+
+#[DestroyHandler(MoonShineUserRoleHandlers::class, 'destroy')]
+#[MassDestroyHandler(MoonShineUserRoleHandlers::class, 'massDestroy')]
+#[SaveHandler(MoonShineUserRoleHandlers::class, 'save')]
+class MoonShineUserRoleResource extends ModelResource
+{
+//...
+}
+```
+
+A class with methods for processing operations might look like this:
+
+```php
+final readonly class MoonShineUserRoleHandlers
+{
+    public function save(MoonshineUserRole $model, array $data): MoonshineUserRole
+    {
+        $model->fill($data);
+        $model->save();
+
+        return $model;
+    }
+
+    public function destroy(MoonshineUserRole $model): bool
+    {
+        return $model->delete();
+    }
+
+    public function massDestroy(array $ids): void
+    {
+        foreach ($ids as $id) {
+            MoonshineUserRole::query()->whereKey($id)->delete();
+        }
+    }
+}
+```
+
+You can also use handler classes instead of methods:
+
+```php
+use MoonShine\Laravel\Resources\ModelResource;
+use MoonShine\Crud\Attributes\DestroyHandler;
+use MoonShine\Crud\Attributes\MassDestroyHandler;
+use MoonShine\Crud\Attributes\SaveHandler;
+
+#[DestroyHandler(MoonShineUserRoleDestroyHandler::class)]
+#[MassDestroyHandler(MoonShineUserRoleDestroyHandler::class)]
+#[SaveHandler(MoonShineUserRoleSaveHandler::class)]
+class MoonShineUserRoleResource extends ModelResource
+{
+//..
 }
 ```
