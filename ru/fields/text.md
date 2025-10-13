@@ -10,6 +10,7 @@
   - [Копирование](#copy)
   - [Скрытие значения](#eye)
   - [Замок](#locked)
+  - [Префикс](#prefix)
   - [Суффикс](#suffix)
 - [Редактирование в режиме preview](#preview-edit)
 
@@ -142,6 +143,20 @@ Text::make('Password', 'password')
 ```php
 Text::make('Protected field', 'protected_field')
     ->locked()
+```
+
+<a name="prefix"></a>
+### Префикс
+
+Метод `prefix()` добавляет префикс к полю ввода.
+
+```php
+prefix(string $ext)
+```
+
+```php
+Text::make('Domain', 'domain')
+    ->prefix('https://')
 ```
 
 <a name="suffix"></a>
