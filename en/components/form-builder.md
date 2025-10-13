@@ -547,11 +547,11 @@ $form->apply(
     static fn(Model $item) => $item->save(),
     before: function (Model $item) {
         if (! $item->exists) {
-            $item = $this->beforeCreating($item);
+            $item = $this->beforeCreating($this->getCaster()->cast($item));
         }
 
         if ($item->exists) {
-            $item = $this->beforeUpdating($item);
+            $item = $this->beforeUpdating($this->getCaster()->cast($item));
         }
 
         return $item;
@@ -562,11 +562,11 @@ $form->apply(
         $item->save();
 
         if ($wasRecentlyCreated) {
-            $item = $this->afterCreated($item);
+            $item = $this->afterCreated($this->getCaster()->cast($item));
         }
 
         if (! $wasRecentlyCreated) {
-            $item = $this->afterUpdated($item);
+            $item = $this->afterUpdated($this->getCaster()->cast($item));
         }
 
         return $item;
