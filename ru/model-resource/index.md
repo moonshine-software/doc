@@ -688,7 +688,7 @@ public function modifyErrorResponse(Response $response, Throwable $exception): R
 
 Вы можете изменить логику операций сохранения, удаления и массового удаления записей в `ModelResource` с помощью своих обработчиков и атрибутов `SaveHandler`, `DestroyHandler` и `MassDestroyHandler`.
 
-В методе `save()` вы получаете массив `$data`, который уже прошёл через метод `apply()` у полей формы.
+В обработчик операции сохранения прокидывается массив `$data`, который уже прошёл через метод `apply()` у полей формы.
 
 Пример использования:
 

@@ -688,7 +688,7 @@ public function modifyErrorResponse(Response $response, Throwable $exception): R
 
 You can change the logic of save, delete, and mass delete operations in `ModelResource` using `SaveHandler`, `DestroyHandler` and `MassDestroyHandler` attributes and your custom handlers.
 
-In the `save()` method you receive the `$data` array, which has already been passed through the `apply()` method of the form fields.
+The `$data` array, which has already passed through the `apply()` method of the form fields, is passed into the save operation handler.
 
 Usage example:
 
