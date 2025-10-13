@@ -25,6 +25,7 @@
   - [Save State in URL](#save-state-in-url)
   - [Modify Row Checkbox](#modify-row-checkbox)
   - [Slots](#slots)
+  - [Filters via FormBuilder](#form-builder-filters)
 - [Attribute Configuration](#attribute-configuration)
 - [Async Loading](#async-loading)
   - [Lazy and whenAsync Methods](#lazy)
@@ -507,6 +508,46 @@ TableBuilder::make()
             ])
         ];
     })
+```
+
+<a name="form-builder-filters"></a>
+### Filters via FormBuilder
+
+Using the `withFilters()` method you can add a `FormBuilder` with fields to filter the data in the table. After submitting the form, the data will be loaded again.
+
+```php
+->withFilters(formName: 'dashboard-form')
+```
+
+- `$formName` - Unique form name.
+
+> [!WARNING]
+> The logic for applying filters to data in a table must be implemented independently.
+
+Example with asynchronous loading:
+
+```php
+FormBuilder::make()
+    ->name('dashboard-form')
+    ->fields([
+        Date::make('Date')
+    ])
+    ->dispatchEvent([
+        AlpineJs::event(
+            JsEvent::TABLE_UPDATED, 'dashboard-table'
+        )
+    ]),
+
+TableBuilder::make()
+    ->name('dashboard-table')
+    ->withFilters('dashboard-form')
+    ->async()
+    ->fields([
+        Text::make('Title')->sortable()
+    ])
+    ->items([
+        ['title' => fake()->word()]
+    ])
 ```
 
 <a name="attribute-configuration"></a>

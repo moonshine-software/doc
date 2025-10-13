@@ -25,6 +25,7 @@
   - [Сохранение состояния в URL](#save-state-in-url)
   - [Модификация чекбокса массовых действий](#modify-row-checkbox)
   - [Слоты](#slots)
+  - [Фильтры через FormBuilder](#form-builder-filters)
 - [Настройка атрибутов](#attribute-configuration)
 - [Асинхронная загрузка](#async-loading)
   - [Lazy и whenAsync методы](#lazy)
@@ -507,6 +508,46 @@ TableBuilder::make()
             ])
         ];
     })
+```
+
+<a name="form-builder-filters"></a>
+### Фильтры через FormBuilder
+
+С помощью метода `withFilters()` вы можете добавить `FormBuilder` с полями для фильтрации данных в таблице. После отправки формы данные будут загружены заново.
+
+```php
+->withFilters(formName: 'dashboard-form')
+```
+
+- `$formName` - Уникальное имя формы.
+
+> [!WARNING]
+> Логику применения фильтров к данным в таблице необходимо реализовать самостоятельно.
+
+Пример с асинхронной загрузкой:
+
+```php
+FormBuilder::make()
+    ->name('dashboard-form')
+    ->fields([
+        Date::make('Date')
+    ])
+    ->dispatchEvent([
+        AlpineJs::event(
+            JsEvent::TABLE_UPDATED, 'dashboard-table'
+        )
+    ]),
+
+TableBuilder::make()
+    ->name('dashboard-table')
+    ->withFilters('dashboard-form')
+    ->async()
+    ->fields([
+        Text::make('Title')->sortable()
+    ])
+    ->items([
+        ['title' => fake()->word()]
+    ])
 ```
 
 <a name="attribute-configuration"></a>
