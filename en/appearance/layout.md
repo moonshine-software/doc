@@ -11,7 +11,9 @@ video: https://www.youtube.com/watch?v=6eUtdbCLVZQ
 - [Favicons](#favicons)
 - [Menu](#menu)
     - [Top Menu](#top-menu)
-- [Dark mode](#dark-mode)
+- [Themes](#themes)
+    - [Dark mode](#dark-mode)
+    - [Toggle themes on/off](#toggle-on-off-themes)
 - [Colors](#colors)
 - [Blade](#blade)
 
@@ -577,20 +579,32 @@ final class MoonShineLayout extends CompactLayout
 > [!WARNING]
 > If you want to keep both Sidebar and TopBar at the same time, be sure to maintain the order; TopBar must be first.
 
-<a name="dark-mode"></a>
-## Dark mode
+<a name="themes"></a>
+## Themes
 
-If you want the dark theme to always be enabled, override the `isAlwaysDark()` method and return `true`.
+**Moonshine** supports two themes out of the box: light and dark. By default, the theme specified in the system is used, or light if it could not be determined.
+
+<a name="dark-mode"></a>
+### Dark mode
+
+If you want the dark theme to always be enabled, override the `isAlwaysDark()` method and return `true`. The theme switcher will not be displayed.
 
 ```php
-final class MoonShineLayout extends AppLayout
+protected function isAlwaysDark(): bool
 {
-    // ..
-    protected function isAlwaysDark(): bool
-    {
-        return true;
-    }
-    // ..
+    return true;
+}
+```
+
+<a name="toggle-on-off-themes"></a>
+### Toggle themes on/off
+
+To remove the theme switcher and leave only the light theme, override the `hasThemes()` method and return `false`.
+
+```php
+protected function hasThemes(): bool
+{
+    return false;
 }
 ```
 
