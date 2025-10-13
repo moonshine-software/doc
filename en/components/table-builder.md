@@ -37,6 +37,7 @@
   - [With "Not Found" Notification](#blade-notfound)
   - [Slots](#blade-slots)
   - [Styling](#blade-styles)
+- [Loading mode](#loading-mode)
 
 ---
 
@@ -895,6 +896,25 @@ Available classes:
         </tr>
     </x-slot:tbody>
 </x-moonshine::table>
+```
+
+<a name="#loading-mode"></a>
+## Loading mode
+
+To enable and disable the skeleton mode in a table, use the `sceleton()` method.
+
+Example of using `sceleton()`:
+
+```php
+TableBuilder::make()->skeleton(true|false);
+```
+
+To enable and disable the spinner mode in the table, use the `loader()` method.
+
+Example of using `loader()`:
+
+```php
+TableBuilder::make()->loader(true|false);
 ```
 
 `TableBuilder` in **MoonShine** offers a wide range of capabilities for creating flexible and functional tables in the admin panel.
