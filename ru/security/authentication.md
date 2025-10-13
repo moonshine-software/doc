@@ -30,7 +30,9 @@
     'enabled' => true,
     'guard' => 'moonshine',
     'model' => MoonshineUser::class,
-    'middleware' => Authenticate::class,
+    'middleware' => [
+        Authenticate::class,
+    ],
     'pipelines' => [],
 ],
 ```
@@ -40,7 +42,7 @@
 - `enabled` - включение/отключение встроенной аутентификации,
 - `guard` - имя guard'а для аутентификации,
 - `model` - класс модели пользователя,
-- `middleware` - middleware для аутентификации,
+- `middleware` - массив middleware для маршрутов аутентификации,
 - `pipelines` - дополнительные pipeline'ы для процесса аутентификации.
 
 <a name="customization"></a>
@@ -53,7 +55,9 @@
     'enabled' => true,
     'guard' => 'moonshine',
     'model' => CustomUser::class,
-    'middleware' => CustomAuthMiddleware::class,
+    'middleware' => [
+        CustomAuthMiddleware::class,
+    ],
     'pipelines' => [
         TwoFactorAuthentication::class,
         PhoneVerification::class,

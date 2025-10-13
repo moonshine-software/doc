@@ -63,7 +63,9 @@ return [
     ],
     'auth' => [
         // ...
-        'middleware' => AuthenticateApi::class,
+        'middleware' => [
+            AuthenticateApi::class,
+        ],
         'pipelines' => [
             JWTAuthPipe::class
         ],
