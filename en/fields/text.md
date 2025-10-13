@@ -10,6 +10,7 @@
   - [Copy](#copy)
   - [Hide value](#eye)
   - [Lock](#locked)
+  - [Prefix](#prefix)
   - [Suffix](#suffix)
 - [Editing in preview mode](#preview-edit)
 
@@ -142,6 +143,20 @@ The `locked()` method adds a lock icon to the field.
 ```php
 Text::make('Protected field', 'protected_field')
     ->locked()
+```
+
+<a name="prefix"></a>
+### Prefix
+
+The `prefix()` method adds a prefix to the input field.
+
+```php
+prefix(string $ext)
+```
+
+```php
+Text::make('Domain', 'domain')
+    ->prefix('https://')
 ```
 
 <a name="suffix"></a>
