@@ -36,6 +36,7 @@
   - [С уведомлением "Ничего не найдено"](#blade-notfound)
   - [Слоты](#blade-slots)
   - [Стилизация](#blade-styles)
+- [Состояние загрузки](#loading-mode)
 
 ---
 
@@ -854,6 +855,25 @@ TableBuilder::make()
         </tr>
     </x-slot:tbody>
 </x-moonshine::table>
+```
+
+<a name="#loading-mode"></a>
+## Состояние загрузки
+
+Для включения и выключения режима скелетона в таблице используйте метод `sceleton()`.
+
+Пример использования `sceleton()`:
+
+```php
+TableBuilder::make()->skeleton(true|false);
+```
+
+Для включения и выключения режима спиннера в таблице используйте метод `loader()`.
+
+Пример использования `loader()`:
+
+```php
+TableBuilder::make()->loader(true|false);
 ```
 
 `TableBuilder` в **MoonShine** предоставляет широкий спектр возможностей для создания гибких и функциональных таблиц в административной панели.
