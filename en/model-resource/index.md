@@ -734,7 +734,7 @@ final readonly class MoonShineUserRoleHandlers
 }
 ```
 
-You can also use handler classes instead of methods:
+You can also use handler classes instead of methods, in which case they must implement the `__invoke()` method:
 
 ```php
 use MoonShine\Laravel\Resources\ModelResource;

@@ -734,7 +734,7 @@ final readonly class MoonShineUserRoleHandlers
 }
 ```
 
-Вы также можете использовать классы-обработчики вместо методов:
+Вы также можете использовать классы-обработчики вместо методов — в этом случае они должны реализовывать метод `__invoke()`:
 
 ```php
 use MoonShine\Laravel\Resources\ModelResource;
