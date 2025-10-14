@@ -8,6 +8,7 @@ video: https://youtu.be/kC1KIdO_MZ4?si=H2JRdmEzn4F5XOM2
 - [Установка через composer](#composer)
 - [Установка панели](#install)
 - [Поддержка IDE](#ide-support)
+- [MoonShine и AI](#moonshine-ai)
 
 ---
 
@@ -77,5 +78,10 @@ php artisan moonshine:install
 <a name="ide-support"></a>
 ## Поддержка IDE
 
-Если вы используете IDE **PhpStorm**, то рекомендуем вам использовать плагин [MetaStorm](https://plugins.jetbrains.com/plugin/26121-metastorm/)!
+Если вы используете IDE **PhpStorm**, то рекомендуем вам использовать плагин [MoonShine](https://plugins.jetbrains.com/plugin/28640-moonshine) или [MetaStorm](https://plugins.jetbrains.com/plugin/26121-metastorm/)!
 Работать с **MoonShine** станет легче и удобнее :)
+
+<a name="moonshine-ai"></a>
+## MoonShine и AI
+
+Для продуктивной работы с ИИ используйте пакет [FortyFive](https://github.com/moonshine-software/forty-five).

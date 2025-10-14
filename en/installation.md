@@ -8,6 +8,7 @@ video: https://youtu.be/kazEtUFIZKM?si=30KYlPjK1pMKdewq
 - [Installation via composer](#composer)
 - [Panel installation](#install)
 - [IDE support](#ide-support)
+- [MoonShine and AI](#moonshine-ai)
 
 ---
 
@@ -77,5 +78,10 @@ The next section is **Configuration**, where you will also find answers on how t
 <a name="ide-support"></a>
 ## IDE support
 
-If you are using **PhpStorm** IDE, we recommend that you use [MetaStorm](https://plugins.jetbrains.com/plugin/26121-metastorm/) plugin!
+If you are using **PhpStorm** IDE, we recommend that you use [MoonShine plugin](https://plugins.jetbrains.com/plugin/28640-moonshine) or [MetaStorm plugin](https://plugins.jetbrains.com/plugin/26121-metastorm/)!
 Working with **MoonShine** will become easier and more convenient :)
+
+<a name="moonshine-ai"></a>
+## MoonShine and AI
+
+For productive work with AI, use the [FortyFive](https://github.com/moonshine-software/forty-five) package.
