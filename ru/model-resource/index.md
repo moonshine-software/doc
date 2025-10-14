@@ -24,6 +24,7 @@ video: https://youtu.be/bcFOkXuPSRk?si=LIXgfO1LpjfqwWyR
     - [Создание экземпляра](#on-boot)
 - [Assets](#assets)
 - [Response модификаторы](#response-modifiers)
+- [Обработчики CRUD-операций](#crud-operations-handlers)
 
 ---
 
@@ -679,5 +680,102 @@ public function modifySaveResponse(MoonShineJsonResponse $response): MoonShineJs
 public function modifyErrorResponse(Response $response, Throwable $exception): Response
 {
     return $response;
+}
+```
+
+<a name="crud-operations-handlers"></a>
+## Обработчики CRUD-операций
+
+Вы можете изменить логику операций сохранения, удаления и массового удаления записей в `ModelResource` с помощью своих обработчиков и атрибутов `SaveHandler`, `DestroyHandler` и `MassDestroyHandler`.
+
+В обработчик операции сохранения прокидывается массив `$data`, который уже прошёл через метод `apply()` у полей формы.
+
+Пример использования:
+
+```php
+use MoonShine\Laravel\Resources\ModelResource;
+use MoonShine\Crud\Attributes\DestroyHandler;
+use MoonShine\Crud\Attributes\MassDestroyHandler;
+use MoonShine\Crud\Attributes\SaveHandler;
+
+#[DestroyHandler(MoonShineUserRoleHandlers::class, 'destroy')]
+#[MassDestroyHandler(MoonShineUserRoleHandlers::class, 'massDestroy')]
+#[SaveHandler(MoonShineUserRoleHandlers::class, 'save')]
+class MoonShineUserRoleResource extends ModelResource
+{
+//...
+}
+```
+
+Класс с методами для обработки операций может выглядеть так:
+
+```php
+final readonly class MoonShineUserRoleHandlers
+{
+    public function save(MoonshineUserRole $model, array $data): MoonshineUserRole
+    {
+        $model->fill($data);
+        $model->save();
+
+        return $model;
+    }
+
+    public function destroy(MoonshineUserRole $model): bool
+    {
+        return $model->delete();
+    }
+
+    public function massDestroy(array $ids): void
+    {
+        foreach ($ids as $id) {
+            MoonshineUserRole::query()->whereKey($id)->delete();
+        }
+    }
+}
+```
+
+Вы также можете использовать классы-обработчики вместо методов — в этом случае они должны реализовывать метод `__invoke()`:
+
+```php
+use MoonShine\Laravel\Resources\ModelResource;
+use MoonShine\Crud\Attributes\DestroyHandler;
+use MoonShine\Crud\Attributes\MassDestroyHandler;
+use MoonShine\Crud\Attributes\SaveHandler;
+
+#[SaveHandler(MoonShineUserRoleSaveHandler::class)]
+#[DestroyHandler(MoonShineUserRoleDestroyHandler::class)]
+#[MassDestroyHandler(MoonShineUserRoleMassDestroyHandler::class)]
+class MoonShineUserRoleResource extends ModelResource
+{
+//..
+}
+```
+
+```php
+final readonly class MoonShineUserRoleSaveHandler
+{
+    public function __invoke(MoonshineUserRole $model, array $data): MoonshineUserRole
+    {
+        $model->fill($data);
+        $model->save();
+
+        return $model;
+    }
+}
+final readonly class MoonShineUserRoleDestroyHandler
+{
+    public function __invoke(MoonshineUserRole $model): bool
+    {
+        return $model->delete();
+    }
+}
+final readonly class MoonShineUserRoleMassDestroyHandler
+{
+    public function __invoke(array $ids): void
+    {
+        foreach ($ids as $id) {
+            MoonshineUserRole::query()->whereKey($id)->delete();
+        }
+    }
 }
 ```
