@@ -140,13 +140,13 @@ Text::make('Title')
 Если необходимо указать какие изменения в коде, то можно воспользоваться специальной конструкцией.
 
 ```php
-MenuItem::make('Settings', new SettingResource(), 'heroicons.outline.adjustments-vertical') // [tl! remove]
-MenuItem::make('Settings', SettingResource::class, 'adjustments-vertical') // [tl! add]
+MenuItem::make('Settings', SettingResource::class, 'heroicons.outline.adjustments-vertical') // [tl! remove]
+MenuItem::make(SettingResource::class, 'Settings', 'adjustments-vertical') // [tl! add]
 ```
 или
 ```php
-MenuItem::make('Settings', new SettingResource(), 'heroicons.outline.adjustments-vertical') // [tl! --]
-MenuItem::make('Settings', SettingResource::class, 'adjustments-vertical') // [tl! ++]
+MenuItem::make('Settings', SettingResource::class, 'heroicons.outline.adjustments-vertical') // [tl! --]
+MenuItem::make(SettingResource::class, 'Settings', 'adjustments-vertical') // [tl! ++]
 ```
 
 Указать название файла или класса, к которому относится код, можно через параметр `filename`.

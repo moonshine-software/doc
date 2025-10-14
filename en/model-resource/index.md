@@ -222,16 +222,10 @@ final class MoonShineLayout extends CompactLayout
     {
         return [
             MenuGroup::make(__('moonshine::ui.resource.system'), [
-                MenuItem::make(
-                    __('moonshine::ui.resource.admins_title'),
-                    MoonShineUserResource::class
-                ),
-                MenuItem::make(
-                    __('moonshine::ui.resource.role_title'),
-                    MoonShineUserRoleResource::class
-                ),
+                MenuItem::make(MoonShineUserResource::class),
+                MenuItem::make(MoonShineUserRoleResource::class),
             ]),
-            MenuItem::make('Posts', PostResource::class),
+            MenuItem::make(PostResource::class),
             // ...
         ];
     }

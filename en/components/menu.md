@@ -26,7 +26,7 @@ use MoonShine\MenuManager\MenuItem;
 use MoonShine\UI\Components\Layout\Menu;
 
 Menu::make([
-    MenuItem::make('Item', '/')
+    MenuItem::make('/', 'Item')
 ]);
 ```
 tab: Blade
@@ -42,8 +42,8 @@ You can also initialize the menu through a primitive array.
 
 ```php
 Menu::make([
-    ['label' => 'Dashboard', 'url' => '/'],
-    ['label' => 'Section', 'url' => '/section'],
+    ['url' => '/', 'label' => 'Dashboard'],
+    ['url' => '/section', 'label' => 'Section'],
 ])
 ```
 

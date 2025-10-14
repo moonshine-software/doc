@@ -68,7 +68,7 @@ class MyPackageServiceProvider extends ServiceProvider
     ): void
     {
         $menu->add([
-            MenuItem::make('MyPackagePage', MyPackagePage::class)
+            MenuItem::make(MyPackagePage::class)
         ]);
     }
 }

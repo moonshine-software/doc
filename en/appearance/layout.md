@@ -515,7 +515,7 @@ final class MyLayout extends AppLayout
     {
         return [
             ...parent::menu(),
-            MenuItem::make('Articles', ArticleResource::class),
+            MenuItem::make(ArticleResource::class),
         ];
     }
 }
