@@ -742,11 +742,40 @@ use MoonShine\Crud\Attributes\DestroyHandler;
 use MoonShine\Crud\Attributes\MassDestroyHandler;
 use MoonShine\Crud\Attributes\SaveHandler;
 
-#[DestroyHandler(MoonShineUserRoleDestroyHandler::class)]
-#[MassDestroyHandler(MoonShineUserRoleDestroyHandler::class)]
 #[SaveHandler(MoonShineUserRoleSaveHandler::class)]
+#[DestroyHandler(MoonShineUserRoleDestroyHandler::class)]
+#[MassDestroyHandler(MoonShineUserRoleMassDestroyHandler::class)]
 class MoonShineUserRoleResource extends ModelResource
 {
 //..
+}
+```
+
+```php
+final readonly class MoonShineUserRoleSaveHandler
+{
+    public function __invoke(MoonshineUserRole $model, array $data): MoonshineUserRole
+    {
+        $model->fill($data);
+        $model->save();
+
+        return $model;
+    }
+}
+final readonly class MoonShineUserRoleDestroyHandler
+{
+    public function __invoke(MoonshineUserRole $model): bool
+    {
+        return $model->delete();
+    }
+}
+final readonly class MoonShineUserRoleMassDestroyHandler
+{
+    public function __invoke(array $ids): void
+    {
+        foreach ($ids as $id) {
+            MoonshineUserRole::query()->whereKey($id)->delete();
+        }
+    }
 }
 ```
