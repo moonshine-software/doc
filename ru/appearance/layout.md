@@ -11,10 +11,10 @@ video: https://www.youtube.com/watch?v=95qxienFmtI
 - [Favicons](#favicons)
 - [Меню](#menu)
     - [Верхнее меню](#top-menu)
-- [Цвета](#colors)
 - [Темы оформления](#themes)
     - [Тёмная тема](#dark-mode)
     - [Вкл/выкл тем оформления](#toggle-on-off-themes)
+- [Цвета](#colors)
 - [Blade](#blade)
 
 ---
@@ -515,7 +515,7 @@ final class MyLayout extends AppLayout
     {
         return [
             ...parent::menu(),
-            MenuItem::make('Articles', ArticleResource::class),
+            MenuItem::make(ArticleResource::class),
         ];
     }
 }

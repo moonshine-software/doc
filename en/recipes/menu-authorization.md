@@ -12,7 +12,7 @@ use MoonShine\MenuManager\MenuItem; // [tl! collapse:end]
 protected function menu(): array
 {
   return [
-    MenuItem::make('Roles', MoonShineUserRoleResource::class)
+    MenuItem::make(MoonShineUserRoleResource::class)
       ->canSee(fn() => Gate::check(Ability::VIEW_ANY, MoonshineUserRole::class)),
   ];
 }
@@ -26,7 +26,7 @@ use MoonShine\Support\Enums\Ability;
 protected function menu(): array
 {
   return [
-    MenuItem::make('Roles', MoonShineUserRoleResource::class)
+    MenuItem::make(MoonShineUserRoleResource::class)
       ->canSee(fn(MenuItem $item) => $item->getFiller()->can(Ability::VIEW_ANY)),
   ];
 }
@@ -38,14 +38,11 @@ protected function menu(): array
 protected function menu(): array
 {
     $menu = [
-        MenuItem::make('Articles', ArticleResource::class),
+        MenuItem::make(ArticleResource::class),
     ];
 
     if (request()->user()->isSuperUser()) {
-        $menu[] = MenuItem::make(
-            'Admins',
-            MoonShineUserResource::class
-        );
+        $menu[] = MenuItem::make(MoonShineUserResource::class);
     }
 
     return $menu;

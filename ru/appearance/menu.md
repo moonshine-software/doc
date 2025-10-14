@@ -29,8 +29,8 @@ video: https://www.youtube.com/watch?v=zN3fi4g-2tQ
 
 Настройка навигационного меню осуществляется в классе, который расширяет `MoonShine\Laravel\Layouts\AppLayout` через метод `menu()`.
 
-В процессе установки админ-панели, в зависимости от выбранных вами конфигураций, будет создан класс `App\MoonShine\Layouts\MoonShineLayout`,
-который уже содержит метод `menu()`.
+В процессе установки админ-панели, в зависимости от выбранных вами конфигураций,
+будет создан класс `App\MoonShine\Layouts\MoonShineLayout`, который уже содержит метод `menu()`.
 
 В дальнейшем, если вам потребуется, вы сможете создавать другие *Layout* для определенных страниц.
 
@@ -44,20 +44,21 @@ video: https://www.youtube.com/watch?v=zN3fi4g-2tQ
 
 ```php
 make(
-    Closure|string $label,
     Closure|MenuFillerContract|string $filler,
+    Closure|string $label = null,
     string $icon = null,
-    Closure|bool $blank = false,
+    Closure|bool $blank = false
 )
 ```
 
-- `$label` - название пункта меню,
 - `$filler` - элемент для формирования url,
+- `$label` - название пункта меню (по умолчанию берётся из метода `getTitle()` наполнителя),
 - `$icon` - иконка для пункта меню,
 - `$blank` - открыть в новой вкладке.
 
 > [!TIP]
-> В качестве второго параметра можно передать [ModelResource](/docs/{{version}}/model-resource/index), [Page](/docs/{{version}}/page/index) или [CrudResource](/docs/{{version}}/advanced/crud-resource).
+> В качестве `$filler` можно передать любой класс, реализующий интерфейс `MenuFillerContract`.
+> По умолчанию доступны [ModelResource](/docs/{{version}}/model-resource/index) и [Page](/docs/{{version}}/page/index).
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -75,10 +76,10 @@ final class MoonShineLayout extends AppLayout
     protected function menu(): array
     {
         return [
-            MenuItem::make('Admins', MoonShineUserResource::class),
-            MenuItem::make('Home', fn() => route('home')),
-            MenuItem::make('Docs', 'https://moonshine-laravel.com/docs'),
-            MenuItem::make('Laravel Docs', 'https://laravel.com/docs', blank: true),
+            MenuItem::make(MoonShineUserResource::class),
+            MenuItem::make(fn() => route('home'), 'Home'),
+            MenuItem::make('https://moonshine-laravel.com/docs', 'Docs', blank: true),
+            MenuItem::make('https://laravel.com/docs', 'Laravel Docs', blank: true),
         ];
     }
 }
@@ -124,8 +125,8 @@ final class MoonShineLayout extends AppLayout
     {
         return [
             MenuGroup::make('System', [
-                MenuItem::make('Admins', MoonShineUserResource::class),
-                MenuItem::make('Roles', MoonShineUserRoleResource::class),
+                MenuItem::make(MoonShineUserResource::class),
+                MenuItem::make(MoonShineUserRoleResource::class),
             ])
         ];
     }
@@ -157,8 +158,8 @@ final class MoonShineLayout extends AppLayout
     {
         return [
             MenuGroup::make('System')->setItems([
-                MenuItem::make('Admins', MoonShineUserResource::class),
-                MenuItem::make('Roles', MoonShineUserRoleResource::class),
+                MenuItem::make(MoonShineUserResource::class),
+                MenuItem::make(MoonShineUserRoleResource::class),
             ])
         ];
     }
@@ -198,9 +199,9 @@ final class MoonShineLayout extends AppLayout
     protected function menu(): array
     {
         return [
-            MenuItem::make('Admins', MoonShineUserResource::class),
+            MenuItem::make(MoonShineUserResource::class),
             MenuDivider::make(),
-            MenuItem::make('Roles', MoonShineUserRoleResource::class),
+            MenuItem::make(MoonShineUserRoleResource::class),
         ];
     }
 }
@@ -231,8 +232,8 @@ final class MoonShineLayout extends AppLayout
     protected function menu(): array
     {
         return [
-            MenuItem::make('Admins', MoonShineUserResource::class, 'users'),
-            MenuItem::make('Roles', MoonShineUserRoleResource::class, 'hashtag')
+            MenuItem::make(MoonShineUserResource::class, icon: 'users'),
+            MenuItem::make(MoonShineUserRoleResource::class, icon: 'hashtag')
         ];
     }
 }
@@ -273,9 +274,9 @@ final class MoonShineLayout extends AppLayout
     {
         return [
             MenuGroup::make('System', [
-                MenuItem::make('Admins', MoonShineUserResource::class)
+                MenuItem::make(MoonShineUserResource::class)
                     ->icon('users'),
-                MenuItem::make('Roles', MoonShineUserRoleResource::class)
+                MenuItem::make(MoonShineUserRoleResource::class)
                     ->icon(svg('path-to-icon-pack')->toHtml(), custom: true),
             ])
                 ->icon('cog', path: 'icons')
@@ -334,7 +335,7 @@ final class MoonShineLayout extends AppLayout
     protected function menu(): array
     {
         return [
-            MenuItem::make('Comments', CommentResource::class)
+            MenuItem::make(CommentResource::class)
                 ->badge(fn() => Comment::count())
         ];
     }
@@ -366,10 +367,10 @@ final class MoonShineLayout extends AppLayout
     protected function menu(): array
     {
         return [
-            MenuItem::make('menu.Comments', CommentResource::class)
+            MenuItem::make(CommentResource::class, 'menu.Comments')
                 ->translatable()
             // or
-            MenuItem::make('Comments', CommentResource::class)
+            MenuItem::make(CommentResource::class, 'Comments')
                 ->translatable('menu')
         ];
     }
@@ -400,7 +401,7 @@ final class MoonShineLayout extends AppLayout
     protected function menu(): array
     {
         return [
-            MenuItem::make('Comments', CommentResource::class)
+            MenuItem::make(CommentResource::class)
                 ->badge(fn() => __('menu.badge.new'))
         ];
     }
@@ -431,8 +432,8 @@ final class MoonShineLayout extends AppLayout
     protected function menu(): array
     {
         return [
-            MenuItem::make('MoonShine Docs', 'https://moonshine-laravel.com/docs', 'heroicons.arrow-up', true),
-            MenuItem::make('Laravel Docs', 'https://laravel.com/docs', blank: fn() => true),
+            MenuItem::make('https://moonshine-laravel.com/docs', 'MoonShine Docs', 'heroicons.arrow-up', true),
+            MenuItem::make('https://laravel.com/docs', 'Laravel Docs', blank: fn() => true),
         ];
     }
 }
@@ -464,8 +465,9 @@ final class MoonShineLayout extends AppLayout
     protected function menu(): array
     {
         return [
-            MenuItem::make('MoonShine Docs', 'https://moonshine-laravel.com/docs', 'heroicons.arrow-up', true),
-            MenuItem::make('Laravel Docs', 'https://laravel.com/docs')->blank(fn() => true),
+            MenuItem::make('https://moonshine-laravel.com/docs', 'MoonShine Docs', 'heroicons.arrow-up', true),
+            MenuItem::make('https://laravel.com/docs', 'Laravel Docs')
+                ->blank(fn() => true),
         ];
     }
 }
@@ -503,10 +505,10 @@ final class MoonShineLayout extends AppLayout
     {
         return [
             MenuGroup::make('System', [
-                MenuItem::make('Admins', MoonShineUserResource::class),
+                MenuItem::make(MoonShineUserResource::class),
                 MenuDivider::make()
                     ->canSee(fn() => true),
-                MenuItem::make('Roles', MoonShineUserRoleResource::class)
+                MenuItem::make(MoonShineUserRoleResource::class)
                     ->canSee(fn() => false)
             ])
                 ->canSee(static fn(): bool => request()->user('moonshine')?->id === 1)
@@ -542,7 +544,7 @@ final class MoonShineLayout extends AppLayout
     protected function menu(): array
     {
         return [
-            MenuItem::make('Label', '/endpoint')
+            MenuItem::make('/endpoint', 'Label')
                 ->whenActive(fn() => request()->fullUrlIs('*admin/endpoint/*')),
         ];
     }
@@ -576,8 +578,8 @@ final class MoonShineLayout extends AppLayout
     {
         return [
             MenuGroup::make('System')->setItems([
-                MenuItem::make('Admins', MoonShineUserResource::class),
-                MenuItem::make('Roles', MoonShineUserRoleResource::class)
+                MenuItem::make(MoonShineUserResource::class),
+                MenuItem::make(MoonShineUserRoleResource::class)
                     ->customAttributes(['class' => 'group-li-custom-class'])
             ])
                 ->setAttribute('data-id', '123')
@@ -615,7 +617,7 @@ final class MoonShineLayout extends AppLayout
     protected function menu(): array
     {
         return [
-            MenuItem::make('Label', '/endpoint')
+            MenuItem::make('/endpoint', 'Label')
                 ->changeButton(static fn(ActionButton $button) => $button->class('new-item')),
         ];
     }
@@ -654,7 +656,7 @@ final class MoonShineLayout extends AppLayout
     {
         return [
             MenuGroup::make('Group', [
-                MenuItem::make('Label', '/endpoint')
+                MenuItem::make('/endpoint', 'Label')
                     ->customView('admin.custom-menu-item'),
             ])
                 ->customView('admin.custom-menu-group'),
@@ -736,5 +738,16 @@ class ArticleResource extends ModelResource
 use MoonShine\MenuManager\Attributes\Order;
 
 #[Order(1)]
+class ArticleResource extends ModelResource {}
+```
+
+Если вам нужно добавить бейдж к элементу меню, используйте атрибут `Badge`.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\MenuManager\Attributes\Badge;
+
+#[\MoonShine\MenuManager\Attributes\Badge('new')]
 class ArticleResource extends ModelResource {}
 ```

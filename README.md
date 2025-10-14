@@ -140,13 +140,13 @@ Text::make('Title')
 If you need to specify what changes in the code, then you can use a special design.
 
 ```php
-MenuItem::make('Settings', new SettingResource(), 'heroicons.outline.adjustments-vertical') // [tl! remove]
-MenuItem::make('Settings', SettingResource::class, 'adjustments-vertical') // [tl! add]
+MenuItem::make('Settings', SettingResource::class, 'heroicons.outline.adjustments-vertical') // [tl! remove]
+MenuItem::make(SettingResource::class, 'Settings', 'adjustments-vertical') // [tl! add]
 ```
 or
 ```php
-MenuItem::make('Settings', new SettingResource(), 'heroicons.outline.adjustments-vertical') // [tl! --]
-MenuItem::make('Settings', SettingResource::class, 'adjustments-vertical') // [tl! ++]
+MenuItem::make('Settings', SettingResource::class, 'heroicons.outline.adjustments-vertical') // [tl! --]
+MenuItem::make(SettingResource::class, 'Settings', 'adjustments-vertical') // [tl! ++]
 ```
 
 You can specify the name of the file or class to which the code belongs using the `filename` parameter.
