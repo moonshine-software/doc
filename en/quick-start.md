@@ -43,7 +43,7 @@ php artisan moonshine:install -Q
 
 Create the first administrator. Enter e-mail (login), name and password — this will be used to log in.
 
-![make-user](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/quick-start-user.png)
+![make-user](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/quick-start-user.png)
 
 ### 3. Run the project
 
@@ -71,7 +71,7 @@ Done! Now the section `Users` is available in the admin panel.
 
 You will also find it in the menu.
 
-![user-resource](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/user-resource.png)
+![user-resource](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/user-resource.png)
 
 ### 5. Adding fields to the resource
 

@@ -58,8 +58,8 @@ HasMany::make(
 > [!WARNING]
 > The BelongsTo field, referring to the parent record, is required.
 
-![has_many](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/has_many.png#light)
-![has_many_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/has_many_dark.png#dark)
+![has_many](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/has_many.png#light)
+![has_many_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/has_many_dark.png#dark)
 
 You can omit the `$resource` if the `ModelResource` matches the name of the relation.
 
@@ -110,8 +110,8 @@ HasMany::make('Comments', resource: CommentResource::class)
     ])
 ```
 
-![has_many_fields](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/has_many_fields.png#light)
-![has_many_fields_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/has_many_fields_dark.png#dark)
+![has_many_fields](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/has_many_fields.png#light)
+![has_many_fields_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/has_many_fields_dark.png#dark)
 
 <a name="creatable"></a>
 ## Creating a relationship object
@@ -138,8 +138,8 @@ HasMany::make('Comments', resource: CommentResource::class)
 > [!WARNING]
 > The BelongsTo field, referring to the parent record, is required.
 
-![has_many_creatable](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/has_many_creatable.png#light)
-![has_many_creatable_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/has_many_creatable_dark.png#dark)
+![has_many_creatable](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/has_many_creatable.png#light)
+![has_many_creatable_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/has_many_creatable_dark.png#dark)
 
 You can customize the *create* button by passing the button parameter in the method.
 
@@ -202,8 +202,8 @@ use MoonShine\Laravel\Fields\Relationships\HasMany;
 HasMany::make('Comments', resource: CommentResource::class)
     ->relatedLink()
 ```
-![has_many_link](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/has_many_link.png#light)
-![has_many_link_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/has_many_link_dark.png#dark)
+![has_many_link](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/has_many_link.png#light)
+![has_many_link_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/has_many_link_dark.png#dark)
 
 The `linkRelation` parameter allows you to create a link to the relation with parent resource binding.
 

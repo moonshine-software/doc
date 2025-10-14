@@ -62,8 +62,8 @@ Json::make('Product Options', 'options')
     ])
 ```
 
-![json_fields](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/json_fields.png#light)
-![json_fields_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/json_fields_dark.png#dark)
+![json_fields](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/json_fields.png#light)
+![json_fields_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/json_fields_dark.png#dark)
 
 <a name="key-value"></a>
 ## Key/Value Mode
@@ -91,8 +91,8 @@ Json::make('Data')
     ->keyValue()
 ```
 
-![json_key_value](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/json_key_value.png#light)
-![json_key_value_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/json_key_value_dark.png#dark)
+![json_key_value](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/json_key_value.png#light)
+![json_key_value_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/json_key_value_dark.png#dark)
 
 Example with changing field types:
 
@@ -133,8 +133,8 @@ Json::make('Data')
     ->onlyValue()
 ```
 
-![json_only_value](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/json_only_value.png#light)
-![json_only_value_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/json_only_value_dark.png#dark)
+![json_only_value](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/json_only_value.png#light)
+![json_only_value_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/json_only_value_dark.png#dark)
 
 <a name="object-mode"></a>
 ## Object Mode
@@ -277,8 +277,8 @@ Json::make('Data')
     ->removable()
 ```
 
-![json_removable](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/json_removable.png#light)
-![json_removable_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/json_removable_dark.png#dark)
+![json_removable](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/json_removable.png#light)
+![json_removable_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/json_removable_dark.png#dark)
 
 ### Customizing the Add Button
 
@@ -320,8 +320,8 @@ Json::make('Data')
     ->vertical()
 ```
 
-![json_vertical](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/json_vertical.png#light)
-![json_vertical_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/json_vertical_dark.png#dark)
+![json_vertical](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/json_vertical.png#light)
+![json_vertical_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/json_vertical_dark.png#dark)
 
 Вот перевод секции **«Сортировка перетаскиванием»** на английский:
 

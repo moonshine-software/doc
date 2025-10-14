@@ -46,8 +46,8 @@ tab: Blade
 ```
 ~~~
 
-![select](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/select.png#light)
-![select](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/select_dark.png#dark)
+![select](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/select.png#light)
+![select](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/select_dark.png#dark)
 
 <a name="basic-methods"></a>
 ## Basic Methods
@@ -122,8 +122,8 @@ tab: Blade
 ```
 ~~~
 
-![select nullable](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/select_nullable.png#light)
-![select nullable](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/select_nullable_dark.png#dark)
+![select nullable](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/select_nullable.png#light)
+![select nullable](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/select_nullable_dark.png#dark)
 
 <a name="placeholder"></a>
 ### Placeholder
@@ -184,8 +184,8 @@ Select::make('City')
 ```
 ~~~
 
-![select group](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/select_group.png#light)
-![select group](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/select_group_dark.png#dark)
+![select group](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/select_group.png#light)
+![select group](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/select_group_dark.png#dark)
 
 <a name="multiple"></a>
 ## Multiple values selection
@@ -210,8 +210,8 @@ Select::make('Country', 'country_id')
 
 @include('_includes/note-about-multiple-cast')
 
-![select multiple](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/select_multiple.png#light)
-![select multiple](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/select_multiple_dark.png#dark)
+![select multiple](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/select_multiple.png#light)
+![select multiple](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/select_multiple_dark.png#dark)
 
 <a name="search"></a>
 ## Search
@@ -238,8 +238,8 @@ tab: Blade
 ```
 ~~~
 
-![searchable](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/select_searchable.png#light)
-![searchable](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/select_searchable_dark.png#dark)
+![searchable](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/select_searchable.png#light)
+![searchable](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/select_searchable_dark.png#dark)
 
 <a name="async"></a>
 ## Asynchronous search
@@ -468,8 +468,8 @@ Select::make('Select')
     )
 ```
 
-![belongs to image](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/belongs_to_image.png#light)
-![belongs to image](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/belongs_to_image_dark.png#dark)
+![belongs to image](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/belongs_to_image.png#light)
+![belongs to image](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/belongs_to_image_dark.png#dark)
 
 To customize images, provide an `OptionImage` object to `OptionProperty` rather than a string.
 

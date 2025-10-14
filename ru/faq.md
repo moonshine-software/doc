@@ -69,7 +69,7 @@ public function formFields(): array
 Компонент **TableBuilder** имеет метод [reorderable()](/docs/{{version}}/components/table-builder#drag-and-drop-sorting),
 который добавляет возможность сортировки строк перетаскиванием.
 
-Вот [рецепт](/docs/3.x/recipes/reorderable-resource) реализации сортировки перетаскиванием в ресурсе.
+Вот [рецепт](/docs/4.x/recipes/reorderable-resource) реализации сортировки перетаскиванием в ресурсе.
 
 ## Как кастомизировать внешний вид админ-панели?
 

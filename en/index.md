@@ -59,5 +59,5 @@ The name "**MoonShine**" has an interesting origin. It refers not so much to "mo
 
 Your contribution is crucial for the project's development and improving the experience of using **MoonShine** for all developers.
 
-![main](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/main.png#light)
-![main_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/main_dark.png#dark)
+![main](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/main.png#light)
+![main_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/main_dark.png#dark)

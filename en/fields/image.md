@@ -22,8 +22,8 @@ tab: Blade
 ```
 ~~~
 
-![image](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/image.png#light)
-![image dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/image_dark.png#dark)
+![image](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/image.png#light)
+![image dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/image_dark.png#dark)
 
 If you need to customize a modal window with an image in "preview" mode, then you can use the `extraAttributes()` method.
 

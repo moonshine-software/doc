@@ -12,5 +12,5 @@ use MoonShine\UI\Fields\Color;
 Color::make('Color')
 ```
 
-![Color](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/color.png#light)
-![Color](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/color_dark.png#dark)
+![Color](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/color.png#light)
+![Color](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/color_dark.png#dark)

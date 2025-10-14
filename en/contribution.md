@@ -64,7 +64,7 @@ If you are ready to participate in development, join - [MoonShine](https://t.me/
 <a name="main-branch"></a>
 ## Main branch
 
-Currently, the main branch is `3.x`.
+Currently, the main branch is `4.x`.
 
 <a name="coding-style"></a>
 ## Coding style

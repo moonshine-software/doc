@@ -29,8 +29,8 @@ Preview::make(
 )
 ```
 
-![preview](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/preview.png#light)
-![preview_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/preview_dark.png#dark)
+![preview](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/preview.png#light)
+![preview_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/preview_dark.png#dark)
 
 <a name="view-methods"></a>
 ## Виды отображений
@@ -125,8 +125,8 @@ Preview::make('Link')
     ->link(fn($link, Field $field) => $link, fn($name, Field $field) => 'Go')
 ```
 
-![preview_all](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/preview_all.png#light)
-![preview_all_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/preview_all_dark.png#dark)
+![preview_all](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/preview_all.png#light)
+![preview_all_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/preview_all_dark.png#dark)
 
 <a name="image"></a>
 ### Изображение
@@ -140,5 +140,5 @@ Preview::make('Thumb')
     ->image()
 ```
 
-![preview_image](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/preview_image.png#light)
-![preview_image_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/preview_image_dark.png#dark)
+![preview_image](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/preview_image.png#light)
+![preview_image_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/preview_image_dark.png#dark)

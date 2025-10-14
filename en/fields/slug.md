@@ -27,8 +27,8 @@ use MoonShine\Laravel\Fields\Slug;
 Slug::make('Slug')
 ```
 
-![slug](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/slug.png#light)
-![slug_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/slug_dark.png#dark)
+![slug](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/slug.png#light)
+![slug_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/slug_dark.png#dark)
 
 <a name="from"></a>
 ## Slug Generation

@@ -95,5 +95,5 @@ enum StatusEnum: string
 }
 ```
 
-![enum](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/enum.png#light)
-![enum_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/enum_dark.png#dark)
+![enum](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/enum.png#light)
+![enum_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/enum_dark.png#dark)

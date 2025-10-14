@@ -49,8 +49,8 @@ class PostResource extends ModelResource
 }
 ```
 
-![validation](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/validation.png#light)
-![validation_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/validation_dark.png#dark)
+![validation](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/validation.png#light)
+![validation_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/validation_dark.png#dark)
 
 <a name="messages"></a>
 ## Сообщения

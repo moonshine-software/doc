@@ -32,7 +32,7 @@
 - **Расширяемость**: Возможность использовать `Blade` и `Livewire`-компоненты,
 - **Кастомизация**: Удобный конструктор шаблонов, возможность изменения цветов и общего дизайна.
 
-![ms_img](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/MS_img_300.jpg)
+![ms_img](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/MS_img_300.jpg)
 
 <a name="who-is-it-for"></a>
 ## Для кого подходит MoonShine
@@ -61,5 +61,5 @@
 
 Ваш вклад очень важен для развития проекта и улучшения опыта использования **MoonShine** для всех разработчиков.
 
-![main](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/main.png#light)
-![main_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/main_dark.png#dark)
+![main](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/main.png#light)
+![main_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/main_dark.png#dark)

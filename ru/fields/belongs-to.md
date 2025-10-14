@@ -53,8 +53,8 @@ BelongsTo::make(
 )
 ```
 
-![belongs_to](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/belongs_to.png#light)
-![belongs_to_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/belongs_to_dark.png#dark)
+![belongs_to](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/belongs_to.png#light)
+![belongs_to_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/belongs_to_dark.png#dark)
 
 Вы можете опустить `$resource`, если `ModelResource` совпадает с названием связи.
 
@@ -155,8 +155,8 @@ BelongsTo::make('Country', resource: CategoryResource::class)
     ->nullable()
 ```
 
-![select_nullable](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/select_nullable.png#light)
-![select_nullable_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/select_nullable_dark.png#dark)
+![select_nullable](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/select_nullable.png#light)
+![select_nullable_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/select_nullable_dark.png#dark)
 
 Не забудьте указать в таблице базы данных, что поле может принимать значение `Null`.
 
@@ -209,8 +209,8 @@ BelongsTo::make('Author', resource: AuthorResource::class)
     ->creatable()
 ```
 
-![belongs_to_creatable](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/belongs_to_creatable.png#light)
-![belongs_to_creatable_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/belongs_to_creatable_dark.png#dark)
+![belongs_to_creatable](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/belongs_to_creatable.png#light)
+![belongs_to_creatable_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/belongs_to_creatable_dark.png#dark)
 
 Вы можете настроить кнопку создания, передав параметр _button_ в метод.
 
@@ -397,8 +397,8 @@ BelongsTo::make('Country', resource: CountryResource::class)
     ->withImage('thumb', 'public', 'countries')
 ```
 
-![belongs_to_image](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/belongs_to_image.png#light)
-![belongs_to_image_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/belongs_to_image_dark.png#dark)
+![belongs_to_image](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/belongs_to_image.png#light)
+![belongs_to_image_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/belongs_to_image_dark.png#dark)
 
 <a name="options"></a>
 ## Опции

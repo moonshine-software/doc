@@ -43,7 +43,7 @@ php artisan moonshine:install -Q
 
 Создайте первого администратора. Введите e-mail (логин), имя и пароль — эти данные будут использоваться для входа.
 
-![make-user](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/quick-start-user.png)
+![make-user](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/quick-start-user.png)
 
 ### 3. Запуск проекта
 
@@ -71,7 +71,7 @@ php artisan moonshine:resource User
 
 Также вы найдёте его в меню.
 
-![user-resource](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/user-resource.png)
+![user-resource](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/user-resource.png)
 
 ### 5. Добавление полей в ресурс
 

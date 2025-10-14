@@ -26,5 +26,5 @@ tab: Blade
 ```
 ~~~
 
-![switcher](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/switcher.png#light)
-![switcher_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/switcher_dark.png#dark)
+![switcher](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/switcher.png#light)
+![switcher_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/switcher_dark.png#dark)

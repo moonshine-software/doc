@@ -47,8 +47,8 @@ HasOne::make(
 )
 ```
 
-![has_one](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/has_one.png#light)
-![has_one_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/has_one_dark.png#dark)
+![has_one](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/has_one.png#light)
+![has_one_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/has_one_dark.png#dark)
 
 Если вы не указываете `$relationName`, тогда имя отношения будет определено автоматически на основе `$label` (по правилам camelCase).
 
@@ -90,8 +90,8 @@ HasOne::make('Profile', resource: ProfileResource::class)
     ])
 ```
 
-![has_one_preview](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/has_one_preview.png#light)
-![has_one_preview_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/has_one_preview_dark.png#dark)
+![has_one_preview](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/has_one_preview.png#light)
+![has_one_preview_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/has_one_preview_dark.png#dark)
 
 <a name="parent-id"></a>
 ## ID родителя

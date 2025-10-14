@@ -14,8 +14,8 @@ MorphTo::make('Commentable')->types([
 ])
 ```
 
-![morph_to](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/morph_to.png#light)
-![morph_to_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/morph_to_dark.png#dark)
+![morph_to](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/morph_to.png#light)
+![morph_to_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/morph_to_dark.png#dark)
 
 > [!NOTE]
 > The `types()` method is required, specifying the available classes.
@@ -37,8 +37,8 @@ MorphTo::make('Imageable')->types([
 ])
 ```
 
-![morph_to_array](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/morph_to_array.png#light)
-![morph_to_array_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/morph_to_array_dark.png#dark)
+![morph_to_array](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/morph_to_array.png#light)
+![morph_to_array_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/morph_to_array_dark.png#dark)
 
 > [!WARNING]
 > When using a field in third-party resources, be sure to specify the resource,

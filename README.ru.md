@@ -206,19 +206,19 @@ Content tab 2
 
 Изображения добавляем в директорию `/resources/screenshots`.
 
-Ссылку указываем - https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/filename.png
+Ссылку указываем - https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/filename.png
 
 Пример:
 
 ```
-![belongs_to_many](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/belongs_to_many.png)
+![belongs_to_many](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/belongs_to_many.png)
 ```
 
 Для показа изображения в темной или светлой теме, необходимо к ссылке добавить hash тег `#light` или `#dark`.
 
 ```
-![belongs_to_many](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/belongs_to_many.png#light)
-![belongs_to_many](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/belongs_to_many_dark.png#dark)
+![belongs_to_many](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/belongs_to_many.png#light)
+![belongs_to_many](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/belongs_to_many_dark.png#dark)
 ```
 
 <a name="shortcodes"></a>

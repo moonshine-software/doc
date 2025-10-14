@@ -206,19 +206,19 @@ The documentation uses several types of alerts:
 
 Images are added to the `/resources/screenshots` directory.
 
-The link is specified - https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/filename.png
+The link is specified - https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/filename.png
 
 Example:
 
 ```
-![belongs_to_many](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/belongs_to_many.png)
+![belongs_to_many](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/belongs_to_many.png)
 ```
 
 To show the image in a dark or light themes, you must add to the link hashtag `#light` or `#dark`.
 
 ```
-![belongs_to_many](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/belongs_to_many.png#light)
-![belongs_to_many](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/belongs_to_many_dark.png#dark)
+![belongs_to_many](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/belongs_to_many.png#light)
+![belongs_to_many](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/belongs_to_many_dark.png#dark)
 ```
 
 <a name="shortcodes"></a>

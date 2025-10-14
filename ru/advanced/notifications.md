@@ -54,8 +54,8 @@ public function di(MoonShineNotificationContract $notification)
 }
 ```
 
-![notifications](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/notifications.png#light)
-![notifications_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/notifications_dark.png#dark)
+![notifications](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/notifications.png#light)
+![notifications_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/notifications_dark.png#dark)
 
 <a name="settings"></a>
 ## Настройка

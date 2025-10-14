@@ -40,8 +40,8 @@ tab: Blade
 ```
 ~~~
 
-![Creation date](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/date.png#light)
-![Creation date](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/date_dark.png#dark)
+![Creation date](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/date.png#light)
+![Creation date](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/date_dark.png#dark)
 
 <a name="basic-methods"></a>
 ## Basic Methods
@@ -56,8 +56,8 @@ Date::make('Created at', 'created_at')
     ->withTime()
 ```
 
-![date_time](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/date_time.png#light)
-![date_time_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/date_time_dark.png#dark)
+![date_time](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/date_time.png#light)
+![date_time_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/date_time_dark.png#dark)
 
 <a name="time"></a>
 ### Time
@@ -93,8 +93,8 @@ Date::make('Created at', 'created_at')
 
 The field supports various extensions for help and input control.
 
-![expansion](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/expansion.png#light)
-![expansion_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/expansion_dark.png#dark)
+![expansion](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/expansion.png#light)
+![expansion_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/expansion_dark.png#dark)
 
 <a name="copy"></a>
 ### Copy

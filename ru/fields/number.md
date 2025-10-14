@@ -95,7 +95,7 @@ Number::make('Rating')
     ->buttons()
 ```
 
-![number_buttons](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/number_buttons.png)
+![number_buttons](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/number_buttons.png)
 
 <a name="number-type-methods"></a>
 ## Методы для работы с числовыми значениями
@@ -154,8 +154,8 @@ Number::make('Rating')
 
 Поля поддерживает различные расширения для помощи и контроля ввода
 
-![expansion](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/expansion.png#light)
-![expansion_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/expansion_dark.png#dark)
+![expansion](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/expansion.png#light)
+![expansion_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/expansion_dark.png#dark)
 
 <a name="copy"></a>
 ### Копирование
