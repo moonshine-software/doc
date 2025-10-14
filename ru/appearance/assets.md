@@ -17,6 +17,7 @@ video: [Основы](https://youtu.be/95qxienFmtI?si=umF9mxBMftHenk5B&t=512),[�
     - [Component](#component)
     - [Field](#field)
 - [Вывод через Blade](#blade)
+- [Собственная сборка](#custom-build)
 
 ---
 
@@ -355,4 +356,137 @@ final class MyComponent extends MoonShineComponent
         'resources/js/app.js',
     ], 'vendor/moonshine')
 </x-moonshine::layout.assets>
+```
+
+<a name="custom-build"></a>
+## Собственная сборка
+
+В процессе работы с **MoonShine**, особенно при использовании подхода через *Blade*, вам могут потребоваться дополнительные CSS-классы *TailwindCSS*, которых нет в изначальной сборке **MoonShine**. Для решения этой задачи подойдет собственная сборка, в которой будет включен **MoonShine**, и вы сможете собирать билды со своим набором классов и стилей + **MoonShine**.
+
+### Автоматическая публикация
+
+Для автоматической публикации собственной сборки выполните команду:
+
+```shell
+php artisan moonshine:publish
+```
+
+Выберите `Assets Template`.
+
+После чего будут опубликованы и заменены следующие файлы:
+
+- `vite.config.js`,
+- `postcss.config.js`,
+- `resources/css/app.css`.
+
+> [!WARNING]
+> Для автоматической публикации ассетов необходим *TailwindCSS* 4+ и *Laravel* 12+.
+
+Вам останется только добавить ассеты в ваш проект.
+
+### Реализация через MoonShineLayout
+
+Необходимо добавить JavaScript **MoonShine** `$this->getMainThemeJs()`, а также ассеты вашего приложения, где `Css::make(Vite::asset('resources/css/app.css'))` также содержит CSS **MoonShine**.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:3]
+use Illuminate\Support\Facades\Vite;
+use MoonShine\AssetManager\Css;
+use MoonShine\AssetManager\Js;
+
+final class MoonShineLayout extends AppLayout
+{
+    protected function assets(): array
+    {
+        return [
+            $this->getMainThemeJs(),
+            Css::make(Vite::asset('resources/css/app.css')),
+            Js::make(Vite::asset('resources/js/app.js')),
+        ];
+    }
+}
+```
+
+### Реализация через Blade
+
+Необходимо добавить JavaScript **MoonShine** `@vite(['resources/js/app.js'], 'vendor/moonshine')`, а также ассеты вашего приложения, где `resources/css/app.css` также содержит CSS **MoonShine**.
+
+```blade
+<x-moonshine::layout.head>
+    <x-moonshine::layout.assets>
+        @vite(['resources/js/app.js'], 'vendor/moonshine')
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    </x-moonshine::layout.assets>
+</x-moonshine::layout.head>
+```
+
+### Ручная реализация собственной сборки
+
+#### vite.config.js
+
+```js
+import { defineConfig } from 'vite';
+import laravel from 'laravel-vite-plugin';
+
+export default defineConfig({
+    plugins: [
+        laravel({
+            input: ['resources/css/app.css', 'resources/js/app.js'],
+            refresh: true,
+        }),
+    ],
+    resolve: {
+        alias: {
+            '@moonshine-resources': '/vendor/moonshine/moonshine/src/UI/resources',
+        }
+    },
+});
+```
+
+Удален плагин `tailwindcss()`:
+
+```js
+plugins: [
+    laravel({
+        input: ['resources/css/app.css', 'resources/js/app.js'],
+        refresh: true,
+    }),
+    tailwindcss() // [tl! remove]
+]
+```
+
+Добавлен алиас для путей, где находятся ресурсы **MoonShine**:
+
+```js
+resolve: {
+    alias: {
+        '@moonshine-resources': '/vendor/moonshine/moonshine/src/UI/resources',
+    }
+}
+```
+
+#### postcss.config.js
+
+Необходимо установить `@tailwindcss/postcss` и опубликовать `postcss.config.js` со следующим содержимым:
+
+```js
+export default {
+  plugins: {
+    '@tailwindcss/postcss': {},
+  },
+};
+```
+
+#### resources/css/app.css
+
+Добавьте импорт CSS **MoonShine**:
+
+```css
+@import '../../vendor/moonshine/moonshine/src/UI/resources/css/main.css';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
 ```
