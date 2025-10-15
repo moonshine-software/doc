@@ -17,6 +17,7 @@
 - [Дополнительные возможности](#additional-features)
   - [Добавление новых строк](#adding-new-rows)
   - [Переиндексация](#reindexing)
+  - [Без ключей](#without-key)
   - [Сортировка перетаскиванием](#drag-and-drop-sorting)
   - [Фиксированный заголовок](#sticky-header)
   - [Выбор колонок](#column-selection)
@@ -390,6 +391,16 @@ TableBuilder::make()
 
 ```php
 ->reindex()
+```
+
+<a name="without-key"></a>
+### Без ключей
+
+Метод `withoutKey()` заставляет таблицу использовать порядковые индексы вместо уникального ключа строки. Это полезно, когда источник данных может содержать повторяющиеся идентификаторы — например, при работе с `BelongsToMany::deduplication(false)` или любыми коллекциями, где одна и та же модель должна отображаться несколько раз.
+
+```php
+TableBuilder::make(items: $items)
+    ->withoutKey()
 ```
 
 <a name="drag-and-drop-sorting"></a>
