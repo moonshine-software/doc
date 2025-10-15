@@ -1,8 +1,10 @@
+
 # BelongsToMany
 
 - [Основы](#basics)
 - [Заголовок столбца](#label-column)
 - [Pivot](#pivot)
+- [Дедупликация](#deduplication)
 - [Создание объекта отношения](#creatable)
 - [Выбор](#select)
 - [Опции](#options)
@@ -152,6 +154,26 @@ BelongsToMany::make(
 > [!WARNING]
 > В отношении необходимо указать, какие поля *pivot* используются в промежуточной таблице!
 > Подробнее в официальной документации [Laravel](https://laravel.com/docs/eloquent-relationships#retieving-intermediate-table-columns).
+
+<a name="deduplication"></a>
+## Дедупликация
+
+По умолчанию `BelongsToMany` исключает дубли по ключу модели, чтобы один и тот же объект связи нельзя было выбрать несколько раз, даже если у него разные значения *pivot*. Для сценариев, когда требуется сохранить несколько строк с одинаковым ключом (например, одинаковая категория, но разные данные в промежуточной таблице), отключите проверку:
+```php
+deduplication(
+    Closure|bool|null $condition = null
+)
+```
+```php
+BelongsToMany::make('Categories')
+    ->fields([
+        Text::make('pivot_field', 'pivot_field'),
+    ])
+    ->deduplication(false)
+```
+
+- Метод принимает `bool` или `Closure`, что позволяет включать/выключать проверку динамически.
+- При отключенной дедупликации каждая строка сохраняется отдельно, а данные *pivot* добавляются в порядке их заполнения.
 
 <a name="creatable"></a>
 ## Создание объекта отношения

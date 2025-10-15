@@ -17,6 +17,7 @@
 - [Additional Features](#additional-features)
   - [Adding New Rows](#adding-new-rows)
   - [Reindexing](#reindexing)
+  - [Keyless Mode](#without-key)
   - [Drag and Drop Sorting](#drag-and-drop-sorting)
   - [Sticky Header](#sticky-header)
   - [Column Selection](#column-selection)
@@ -390,6 +391,16 @@ In `creatable` or `removable` mode, when adding/removing a new row, all `name` a
 
 ```php
 ->reindex()
+```
+
+<a name="without-key"></a>
+### Keyless Mode
+
+The `withoutKey()` method forces the table to rely on sequential indexes instead of a unique row key. Use it when the data source may contain duplicate identifiers—for example, together with `BelongsToMany::deduplication(false)` or any collection that needs to display the same model multiple times.
+
+```php
+TableBuilder::make(items: $items)
+    ->withoutKey()
 ```
 
 <a name="drag-and-drop-sorting"></a>
