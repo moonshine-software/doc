@@ -157,16 +157,19 @@ BelongsToMany::make(
 <a name="deduplication"></a>
 ## Deduplication
 
-By default, `BelongsToMany` prevents duplicate selections by key so the same related model cannot be added twice, even if different *pivot* values are provided. For use cases where you need multiple rows with the same related key (for example, the same category paired with different pivot data), disable the check:
+By default, `BelongsToMany` prevents duplicate selections by key so the same related model cannot be added twice, even if different *pivot* values are provided. 
+For use cases where you need multiple rows with the same related key (for example, the same category paired with different pivot data), disable the check:
+
 ```php
 deduplication(
     Closure|bool|null $condition = null
 )
 ```
+
 ```php
 BelongsToMany::make('Categories')
     ->fields([
-        Text::make('pivot_field', 'pivot_field'),
+        Text::make('pivot_field'),
     ])
     ->deduplication(false)
 ```
