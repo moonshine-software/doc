@@ -62,8 +62,8 @@ FieldsGroup::make($fields)
 You can switch all fields in the set to without wrappers mode using the `withoutWrappers()` method.
 
 > [!NOTE]
-> Wrappers - fields that implement the `FieldsWrapperContract` interface, for example, `StackFields`.
-> Therefore, when using the `withoutWrappers` method, all nested fields will be extracted from the wrapper field,
+> Wrappers - fields that implement the `FieldsWrapperContract` interface, for example, `Fieldset`.
+> Therefore, when using the `withoutWrappers()` method, all nested fields will be extracted from the wrapper field,
 > and the wrapper field itself will not be included in the final set.
 
 ```php

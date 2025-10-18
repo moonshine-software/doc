@@ -112,7 +112,7 @@ class UserResource extends ModelResource
         ];
     }
 
-    protected function rules(mixed $item): array
+    protected function rules(DataWrapperContract $item): array
     {
         return [];
     }
@@ -166,7 +166,7 @@ protected function formFields(): iterable
 Добавим валидацию:
 
 ```php
-protected function rules(mixed $item): array
+protected function rules(DataWrapperContract $item): array
 {
     return [
         'name' => 'required',
