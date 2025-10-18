@@ -40,7 +40,7 @@ class PostResource extends ModelResource
 {
     // ...
 
-    protected function rules(mixed $item): array
+    protected function rules(DataWrapperContract $item): array
     {
         return [
             'title' => ['required', 'string', 'min:5']

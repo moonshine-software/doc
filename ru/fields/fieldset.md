@@ -13,19 +13,35 @@
 
 Поле `Fieldset` позволяет группировать поля при отображении в предварительном просмотре, а в форме оборачивает в HTML тег `fieldset`.
 
-Параметр или метод `fields()` должен принимать массив полей для группировки.
+```php
+make(
+    string|Closure|null $label = null,
+    iterable|Closure|FieldsContract $fields = []
+)
+```
+
+- `$label` - заголовок,
+- `$fields` - поля для группировки.
+
+Так же, поля для группировки можно указать с помощью метода `fields()`.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:3]
-use MoonShine\Laravel\Fields\BelongsTo;
 use MoonShine\UI\Fields\Fieldset;
+use MoonShine\UI\Fields\Slug;
 use MoonShine\UI\Fields\Text;
 
 Fieldset::make('Title', [
     Text::make('Title'),
-    BelongsTo::make('Author', resource: 'name'),
-])
+    Slug::make('Slug'),
+]),
+
+Fieldset::make()
+    ->fields([
+        Text::make('Title'),
+        Slug::make('Slug'),
+    ]),
 ```
 
 <a name="edit-view"></a>
@@ -37,7 +53,7 @@ Fieldset::make('Title', [
 Fieldset::make('Title', [
     Text::make('Title'),
     LineBreak::make(),
-    BelongsTo::make('Author', resource: 'name'),
+    Slug::make('Slug'),
 ])
 ```
 
