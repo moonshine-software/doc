@@ -60,7 +60,7 @@ class PostResource extends ModelResource
 Для добавления кнопок в таблицу используются `ActionButton` и методы `indexButtons()`, а также `detailButtons()` для детальной страницы.
 
 > [!TIP]
-> [Подробнее об ActionButton](/docs/{{version}}/components/action-button)
+> [Подробнее об ActionButton](/docs/{{version}}/components/action-button).
 
 После основных:
 
@@ -464,20 +464,17 @@ class PostResource extends ModelResource
 
 У таблицы можно асинхронно обновить ряд, для этого необходимо вызвать событие:
 
-```php
-table-row-updated-{{componentName}}-{{row-id}}
+```
+table-row-updated:{{componentName}}
 ```
 
-- `{{componentName}}` - название компонента;
-- `{{row-id}}` - ключ элемента ряда
+- `{{componentName}}` - shortcode для названия компонента.
 
 Для добавления события можно воспользоваться классом-помощником:
 
 ```php
-AlpineJs::event(JsEvent::TABLE_ROW_UPDATED, 'main-table-{row-id}')
+AlpineJs::event(JsEvent::TABLE_ROW_UPDATED, 'main-table')
 ```
-
-- `{row-id}` - shortcode для id текущей записи модели.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -502,7 +499,12 @@ class PostResource extends ModelResource
             Text::make('Title'),
             Switcher::make('Active')
                 ->updateOnPreview(
-                    events: [AlpineJs::event(JsEvent::TABLE_ROW_UPDATED, $this->getListComponentNameWithRow())]
+                    events: [
+                        AlpineJs::event(
+                            JsEvent::TABLE_ROW_UPDATED,
+                            $this->getListComponentName(),
+                        )
+                    ]
                 )
         ];
     }
@@ -519,7 +521,10 @@ public function softDelete(MoonShineRequest $request): MoonShineJsonResponse
 
     return MoonShineJsonResponse::make()
         ->events([
-            AlpineJs::event(JsEvent::TABLE_ROW_UPDATED, $this->getListComponentNameWithRow($item->getKey()))
+            AlpineJs::event(
+                JsEvent::TABLE_ROW_UPDATED,
+                $this->getListComponentName($item->getKey())
+            )
         ])
         ->toast('Success');
 }

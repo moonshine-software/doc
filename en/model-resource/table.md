@@ -60,7 +60,7 @@ class PostResource extends ModelResource
 To add buttons to the table, you can use `ActionButton` and the methods `indexButtons()`, as well as `detailButtons()` for the detail page.
 
 > [!TIP]
-> [More details about ActionButton](/docs/{{version}}/components/action-button)
+> [More details about ActionButton](/docs/{{version}}/components/action-button).
 
 After the main buttons:
 
@@ -464,20 +464,17 @@ class PostResource extends ModelResource
 
 You can asynchronously update a row in the table by triggering the event:
 
-```php
-table-row-updated-{{componentName}}-{{row-id}}
+```
+table-row-updated:{{componentName}}
 ```
 
-- `{{componentName}}` - the name of the component;
-- `{{row-id}}` - the key of the row item.
+- `{{componentName}}` - shortcode for component name.
 
 To add an event, you can use the helper class:
 
 ```php
-AlpineJs::event(JsEvent::TABLE_ROW_UPDATED, 'main-table-{row-id}')
+AlpineJs::event(JsEvent::TABLE_ROW_UPDATED, 'main-table')
 ```
-
-- `{row-id}` - shortcode for the id of the current model record.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -502,7 +499,12 @@ class PostResource extends ModelResource
             Text::make('Title'),
             Switcher::make('Active')
                 ->updateOnPreview(
-                    events: [AlpineJs::event(JsEvent::TABLE_ROW_UPDATED, $this->getListComponentNameWithRow())]
+                    events: [
+                        AlpineJs::event(
+                            JsEvent::TABLE_ROW_UPDATED,
+                            $this->getListComponentName(),
+                        )
+                    ]
                 )
         ];
     }
@@ -519,7 +521,10 @@ public function softDelete(MoonShineRequest $request): MoonShineJsonResponse
 
     return MoonShineJsonResponse::make()
         ->events([
-            AlpineJs::event(JsEvent::TABLE_ROW_UPDATED, $this->getListComponentNameWithRow($item->getKey()))
+            AlpineJs::event(
+                JsEvent::TABLE_ROW_UPDATED,
+                $this->getListComponentName($item->getKey())
+            )
         ])
         ->toast('Success');
 }
