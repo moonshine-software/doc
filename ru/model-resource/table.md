@@ -473,7 +473,11 @@ table-row-updated:{{componentName}}
 Для добавления события можно воспользоваться классом-помощником:
 
 ```php
-AlpineJs::event(JsEvent::TABLE_ROW_UPDATED, 'main-table')
+AlpineJs::event(
+    JsEvent::TABLE_ROW_UPDATED,
+    'main-table',
+    ListRowEventParams::make(1)
+)
 ```
 
 ```php
@@ -503,6 +507,7 @@ class PostResource extends ModelResource
                         AlpineJs::event(
                             JsEvent::TABLE_ROW_UPDATED,
                             $this->getListComponentName(),
+                            ListRowEventParams::make($this->getItem()->getKey())
                         )
                     ]
                 )
@@ -523,7 +528,8 @@ public function softDelete(MoonShineRequest $request): MoonShineJsonResponse
         ->events([
             AlpineJs::event(
                 JsEvent::TABLE_ROW_UPDATED,
-                $this->getListComponentName($item->getKey())
+                $this->getListComponentName(),
+                ListRowEventParams::make($item->getKey())
             )
         ])
         ->toast('Success');
