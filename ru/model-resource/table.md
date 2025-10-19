@@ -468,7 +468,7 @@ class PostResource extends ModelResource
 table-row-updated:{{componentName}}
 ```
 
-- `{{componentName}}` - shortcode для названия компонента.
+- `{{componentName}}` - имя компонента.
 
 Для добавления события можно воспользоваться классом-помощником:
 
@@ -481,12 +481,12 @@ AlpineJs::event(JsEvent::TABLE_ROW_UPDATED, 'main-table')
 // [tl! collapse:8]
 namespace App\MoonShine\Resources;
 
-use MoonShine\UI\Fields\ID;
-use MoonShine\UI\Fields\Switcher;
-use MoonShine\UI\Fields\Text;
 use MoonShine\Laravel\Resources\ModelResource;
 use MoonShine\Support\AlpineJs;
 use MoonShine\Support\Enums\JsEvent;
+use MoonShine\UI\Fields\ID;
+use MoonShine\UI\Fields\Switcher;
+use MoonShine\UI\Fields\Text;
 
 class PostResource extends ModelResource
 {

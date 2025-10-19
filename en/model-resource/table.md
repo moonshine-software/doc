@@ -468,7 +468,7 @@ You can asynchronously update a row in the table by triggering the event:
 table-row-updated:{{componentName}}
 ```
 
-- `{{componentName}}` - shortcode for component name.
+- `{{componentName}}` - component name.
 
 To add an event, you can use the helper class:
 
@@ -481,12 +481,12 @@ AlpineJs::event(JsEvent::TABLE_ROW_UPDATED, 'main-table')
 // [tl! collapse:8]
 namespace App\MoonShine\Resources;
 
-use MoonShine\UI\Fields\ID;
-use MoonShine\UI\Fields\Switcher;
-use MoonShine\UI\Fields\Text;
 use MoonShine\Laravel\Resources\ModelResource;
 use MoonShine\Support\AlpineJs;
 use MoonShine\Support\Enums\JsEvent;
+use MoonShine\UI\Fields\ID;
+use MoonShine\UI\Fields\Switcher;
+use MoonShine\UI\Fields\Text;
 
 class PostResource extends ModelResource
 {

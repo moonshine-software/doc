@@ -130,7 +130,7 @@ tab: Blade
 tab: Class
 ```php
 Tabs::make([
-    // ..
+    // ...
 ])->vertical(),
 ```
 tab: Blade
@@ -166,7 +166,7 @@ But if attributes are required for the heading, then use the `labelAttributes()`
 ```php
 Tabs::make([
     Tabs\Tab::make([
-        // ..
+        // ...
     ])->labelAttributes(['x-show' => '!flag'])
 ]),
 ```
