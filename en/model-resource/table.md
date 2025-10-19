@@ -481,44 +481,6 @@ AlpineJs::event(
 ```
 
 ```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:8]
-namespace App\MoonShine\Resources;
-
-use MoonShine\Laravel\Resources\ModelResource;
-use MoonShine\Support\AlpineJs;
-use MoonShine\Support\Enums\JsEvent;
-use MoonShine\UI\Fields\ID;
-use MoonShine\UI\Fields\Switcher;
-use MoonShine\UI\Fields\Text;
-
-class PostResource extends ModelResource
-{
-    // ...
-
-    protected function indexFields(): iterable
-    {
-        return [
-            ID::make(),
-            Text::make('Title'),
-            Switcher::make('Active')
-                ->updateOnPreview(
-                    events: [
-                        AlpineJs::event(
-                            JsEvent::TABLE_ROW_UPDATED,
-                            $this->getListComponentName(),
-                            ListRowEventParams::make($this->getItem()->getKey())
-                        )
-                    ]
-                )
-        ];
-    }
-}
-```
-
-Also, an example of a response with an event.
-
-```php
 public function softDelete(MoonShineRequest $request): MoonShineJsonResponse
 {
     $item = $request->getResource()->getItem();
