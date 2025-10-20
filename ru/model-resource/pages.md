@@ -170,6 +170,12 @@ class ArticleIndexPage extends IndexPage
 > [!NOTE]
 > Пример страницы индекса с компонентом `CardsBuilder` в разделе [Рецепты](/docs/{{version}}/recipes/index-page-cards).
 
+Метод `getListComponent()` позволяет получить базовые компоненты страницы индекса.
+
+```php
+$page->getListComponent()
+```
+
 ### DetailPage
 
 Метод `getDetailComponent()` позволяет изменить основной компонент страницы детального просмотра.
@@ -204,6 +210,13 @@ class ArticleDetailPage extends DetailPage
     }
 }
 ```
+
+Метод `getDetailComponent()` позволяет получить базовые компоненты страницы детального просмотра.
+
+```php
+$page->getDetailComponent()
+```
+
 ### FormPage
 
 Метод `getFormComponent()` позволяет изменить основной компонент на странице с формой.
@@ -305,6 +318,12 @@ class ArticleFormPage extends FormPage
             ->buttons($resource->getFormBuilderButtons());
     }
 }
+```
+
+Метод `getFormComponent()` позволяет получить базовые компоненты на странице с формой.
+
+```php
+$page->getFormComponent()
 ```
 
 <a name="layers"></a>

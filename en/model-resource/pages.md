@@ -170,6 +170,12 @@ class ArticleIndexPage extends IndexPage
 > [!NOTE]
 > Example of an index page with the `CardsBuilder` component in the [Recipes](/docs/{{version}}/recipes/index-page-cards) section.
 
+The `getListComponent()` method allows you to get the basic components of the index page.
+
+```php
+$page->getListComponent()
+```
+
 ### DetailPage
 
 The `getDetailComponent()` method allows you to change the main component of the detail page.
@@ -204,6 +210,13 @@ class ArticleDetailPage extends DetailPage
     }
 }
 ```
+
+The `getDetailComponent()` method allows you to get the basic components of the detailed view page.
+
+```php
+$page->getDetailComponent()
+```
+
 ### FormPage
 
 The `getFormComponent()` method allows you to change the main component on the form page.
@@ -305,6 +318,12 @@ class ArticleFormPage extends FormPage
             ->buttons($resource->getFormBuilderButtons());
     }
 }
+```
+
+The `getFormComponent()` method allows you to get the basic components on a form page.
+
+```php
+$page->getFormComponent()
 ```
 
 <a name="layers"></a>
