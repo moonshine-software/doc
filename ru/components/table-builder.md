@@ -45,7 +45,9 @@
 <a name="basics"></a>
 ## Основы
 
-`TableBuilder` - инструмент в **MoonShine** для создания настраиваемых таблиц для отображения данных. Он используется на индексной и детальной CRUD-страницах, а также для полей отношений, таких как `HasMany`, `BelongsToMany`, `RelationRepeater` и поля `Json`.
+`TableBuilder` - инструмент в **MoonShine** для создания настраиваемых таблиц для отображения данных.
+Он используется на индексной и детальной CRUD-страницах, а также для полей отношений,
+таких как `HasMany`, `BelongsToMany`, `RelationRepeater` и поля `Json`.
 
 ~~~tabs
 tab: Class
@@ -77,11 +79,11 @@ tab: Blade
 ```php
 TableBuilder::make()
     ->items([
-      ['id' => 1, 'title' => 'Hello world']
+        ['id' => 1, 'title' => 'Hello world']
     ])
     ->fields([
         ID::make()->sortable(),
-        Text::make('Название', 'title'),
+        Text::make('Title'),
     ])
 ```
 
@@ -92,29 +94,30 @@ TableBuilder::make()
 ### Поля
 
 Поля для `TableBuilder` упрощают наполнение данными и отображение ячеек таблицы.
-По умолчанию поля выводятся в режиме `preview`.
-Метод `fields` определяет поля таблицы, каждое поле является ячейкой таблицы (`td`):
+По умолчанию поля выводятся в режиме "preview".
+Метод `fields()` определяет поля таблицы, каждое поле является ячейкой таблицы (`td`).
 
 ```php
 ->fields([
     ID::make()->sortable(),
-    Text::make('Название', 'title'),
+    Text::make('Title'),
 ])
 ```
 
-Если необходимо указать атрибуты для `td`, воспользуйтесь методом `customWrapperAttributes`:
+Если необходимо указать атрибуты для `td`, воспользуйтесь методом `customWrapperAttributes()`.
 
 ```php
 ->fields([
     ID::make()->sortable(),
-    Text::make('Название', 'title')->customWrapperAttributes(['class' => 'my-class']),
+    Text::make('Title')
+        ->customWrapperAttributes(['class' => 'my-class']),
 ])
 ```
 
 <a name="items"></a>
 ### Данные
 
-Метод `items()` устанавливает данные для таблицы:
+Метод `items()` устанавливает данные для таблицы.
 
 ```php
 ->items($this->getCollection())
@@ -123,17 +126,18 @@ TableBuilder::make()
 <a name="paginator"></a>
 ### Пагинация
 
-Метод `paginator` устанавливает пагинатор для таблицы. Необходимо передать объект, реализующий интерфейс `MoonShine\Contracts\Core\Paginator\PaginatorContract`:
+Метод `paginator()` устанавливает пагинатор для таблицы.
+Необходимо передать объект, реализующий интерфейс `MoonShine\Contracts\Core\Paginator\PaginatorContract`.
 
 > [!NOTE]
-> Если необходимо указать пагинатор для QueryBuilder, можно воспользоваться встроенным `ModelCaster`, как в примере ниже:
+> Если необходимо указать пагинатор для QueryBuilder, можно воспользоваться встроенным `ModelCaster`, как в примере ниже.
 
 ```php
 ->paginator(
-  (new ModelCaster(Article::class))
-    ->paginatorCast(
-        Article::query()->paginate()
-    )
+    (new ModelCaster(Article::class))
+        ->paginatorCast(
+            Article::query()->paginate()
+        )
 )
 ```
 
@@ -143,7 +147,7 @@ TableBuilder::make()
 <a name="simple-paginate"></a>
 ### Упрощенный вид пагинатора
 
-Метод `simple()` применяет упрощенный стиль пагинации в таблице:
+Метод `simple()` применяет упрощенный стиль пагинации в таблице.
 
 ```php
 ->simple()
@@ -152,7 +156,7 @@ TableBuilder::make()
 <a name="buttons"></a>
 ### Кнопки
 
-Метод `buttons` добавляет кнопки действий:
+Метод `buttons()` добавляет кнопки действий.
 
 ```php
 ->buttons([
@@ -163,15 +167,18 @@ TableBuilder::make()
 ])
 ```
 
-Для указания массовых действий над элементами таблицы необходимо у `ActionButton` указать метод `bulk()`:
+Для указания массовых действий над элементами таблицы необходимо у `ActionButton` указать метод `bulk()`.
 
 ```php
 ->buttons([
-    ActionButton::make('Mass Delete', fn() => route('name.mass_delete'))->bulk(),
+    ActionButton::make(
+        'Mass Delete',
+        fn() => route('name.mass_delete')
+    )->bulk(),
 ])
 ```
 
-Если вам необходимо зафиксировать кнопки (sticky), тогда воспользуйтесь методом `stickyButtons()`:
+Если вам необходимо зафиксировать кнопки (sticky), тогда воспользуйтесь методом `stickyButtons()`.
 
 ```php
 ->stickyButtons()
@@ -183,13 +190,20 @@ TableBuilder::make()
 <a name="vertical-display"></a>
 ### Вертикальное отображение
 
-Метод `vertical()` отображает таблицу в вертикальном формате (используется на `DetailPage`):
+Метод `vertical()` отображает таблицу в вертикальном формате (используется на `DetailPage`).
 
 ```php
 ->vertical()
 ```
 
-Если вы хотите изменить атрибуты колонок при вертикальном режиме, то воспользуйтесь параметрами `title` или `value`:
+Если вы хотите изменить атрибуты колонок при вертикальном режиме, то воспользуйтесь параметрами `title` или `value`.
+
+```php
+vertical(null|Closure|int $title = null, null|Closure|int $value = null)
+```
+
+- `title` - Колонка с заголовком,
+- `value` - Колонка со значением.
 
 ```php
 /** @param TableBuilder $component */
@@ -202,10 +216,7 @@ public function modifyDetailComponent(ComponentContract $component): ComponentCo
 }
 ```
 
-- `title` - Колонка с заголовком
-- `value` - Колонка со значением
-
-Также можно передать целочисленное значение для указания колонок:
+Также можно передать целочисленное значение для указания колонок.
 
 ```php
 $component->vertical(
@@ -217,7 +228,7 @@ $component->vertical(
 <a name="editable-table"></a>
 ### Редактируемая таблица
 
-Метод `editable()` делает таблицу редактируемой, все поля переводятся в режим `defaultMode` (режим формы):
+Метод `editable()` делает таблицу редактируемой. Все поля переводятся в режим `defaultMode` (режим формы).
 
 ```php
 ->editable()
@@ -226,7 +237,7 @@ $component->vertical(
 <a name="preview-table"></a>
 ### Упрощенный режим
 
-Метод `preview()` отключает отображение кнопок и сортировок для таблицы:
+Метод `preview()` отключает отображение кнопок и сортировок для таблицы.
 
 ```php
 ->preview()
@@ -236,73 +247,70 @@ $component->vertical(
 ### С уведомлением "Ничего не найдено"
 
 По умолчанию если у таблицы нет данных, то она будет пустой, но можно вывести сообщение "Пока записей нет".
-Для этого воспользуйтесь методом `withNotFound()`:
+Для этого воспользуйтесь методом `withNotFound()`.
 
 ```php
-TableBuilder::make()
-    ->withNotFound()
+->withNotFound()
 ```
 
 <a name="rows"></a>
 ### Кастомизация строк
 
-Поля ускоряют процесс и наполняют таблицу самостоятельно, выстраивая шапку таблицы с заголовками полей и сортировок, тело таблицы с выводом данных через поля и футер таблицы с массовыми действиями. Однако иногда может возникнуть потребность указать строки самостоятельно либо добавить дополнительные.
+Поля ускоряют процесс и наполняют таблицу самостоятельно, выстраивая шапку таблицы с заголовками полей и сортировок,
+тело таблицы с выводом данных через поля и футер таблицы с массовыми действиями.
+Однако иногда может возникнуть потребность указать строки самостоятельно либо добавить дополнительные.
 Для этой задачи существуют методы для соответствующих секций таблицы: `headRows` (`thead`), `rows` (`tbody`), `footRows` (`tfoot`).
 
 ```php
 // tbody
 TableBuilder::make()
-  ->rows(
-    static fn(TableRowsContract $default) => $default->pushRow(
-        TableCells::make()->pushCell(
-            'td content'
+    ->rows(
+        static fn(TableRowsContract $default) => $default->pushRow(
+            TableCells::make()->pushCell('td content')
         )
     )
-  )
 
 // thead
 TableBuilder::make()
-  ->headRows(
-    static fn(TableRowContract $default) => TableRows::make([$default])->pushRow(
-        TableCells::make()->pushCell(
-            'td content'
+    ->headRows(
+        static fn(TableRowContract $default) => TableRows::make([$default])->pushRow(
+            TableCells::make()->pushCell('td content')
         )
     )
-  )
 
 // tfoot
 TableBuilder::make()
-  ->footRows(
-    static fn(?TableRowContract $default) => TableRows::make([$default])->pushRow(
-        TableCells::make()->pushCell(
-            'td content'
+    ->footRows(
+        static fn(?TableRowContract $default) => TableRows::make([$default])->pushRow(
+            TableCells::make()->pushCell('td content')
         )
     )
-  )
 ```
+
 > [!NOTE]
-> Обратите внимание, для `footRows` передается `?TableRowContract` и в значении `$default` будет передано `null`, если кнопки массовых действий отсутствуют. Значение `null` можно указывать в списке `$items` в `TableRows::make`, оно будет проигнорировано.
+> Обратите внимание, для `footRows` передается `?TableRowContract` и в значении `$default` будет передано `null`, если кнопки массовых действий отсутствуют.
+> Значение `null` можно указывать в списке `$items` в `TableRows::make`, оно будет проигнорировано.
 
 `TableRows` и `TableCells` - это коллекции компонентов с дополнительным функционалом для быстрого добавления строки или ячейки таблицы.
 
 ```php
 TableRows::make()->pushRow(
-  TableCellsContract $cells,
-  int|string|null $key = null,
-  ?Closure $builder = null
+    TableCellsContract $cells,
+    int|string|null $key = null,
+    ?Closure $builder = null
 )
 ```
 
 - `$cells` - коллекция ячеек,
-- `$key` - уникальный ключ tr для массовых действий и событий обновления строк таблицы,
+- `$key` - уникальный ключ `tr` для массовых действий и событий обновления строк таблицы,
 - `$builder` - доступ к `TableBuilder`.
 
 ```php
 TableCells::make()->pushCell(
-  Closure|string $content,
-  ?int $index = null,
-  ?Closure $builder = null,
-  array $attributes = []
+    Closure|string $content,
+    ?int $index = null,
+    ?Closure $builder = null,
+    array $attributes = []
 )
 ```
 
@@ -311,23 +319,23 @@ TableCells::make()->pushCell(
 - `$builder` - доступ к `TableBuilder`,
 - `$attributes` - HTML атрибуты ячейки.
 
-У TableCells также есть дополнительные вспомогательные методы.
+У `TableCells` также есть дополнительные вспомогательные методы.
 
-`pushFields` для быстрой генерации ячеек на основе полей:
+Метод `pushFields()` для быстрой генерации ячеек на основе полей.
 
 ```php
 TableCells::make()->pushFields(
-  FieldsContract $fields,
-  ?Closure $builder = null,
-  int $startIndex = 0
+    FieldsContract $fields,
+    ?Closure $builder = null,
+    int $startIndex = 0
 )
 ```
 
 - `$fields` - коллекция полей,
 - `$builder` - доступ к `TableBuilder`,
-- `$startIndex` - начальный индекс (так как до этого, возможно, уже были добавлены ячейки таблицы)
+- `$startIndex` - начальный индекс (так как до этого, возможно, уже были добавлены ячейки таблицы).
 
-Также доступны условные методы `pushWhen` и `pushCellWhen`.
+Также доступны условные методы `pushWhen()` и `pushCellWhen()`.
 
 <a name="additional-features"></a>
 ## Дополнительные возможности
@@ -335,11 +343,7 @@ TableCells::make()->pushFields(
 <a name="adding-new-rows"></a>
 ### Добавление новых строк
 
-Метод `creatable()` позволяет добавлять новые строки, делает таблицу динамической:
-
-```php
-->creatable(reindex: true, limit: 5, label: 'Добавить', icon: 'plus', attributes: ['class' => 'my-class'])
-```
+Метод `creatable()` позволяет добавлять новые строки, делает таблицу динамической.
 
 ```php
 creatable(
@@ -359,10 +363,20 @@ creatable(
 - `$attributes` - дополнительные атрибуты,
 - `$button` - кастомная кнопка добавления.
 
+```php
+->creatable(
+    reindex: true,
+    limit: 5,
+    label: 'Add',
+    icon: 'plus',
+    attributes: ['class' => 'my-class']
+)
+```
+
 > [!NOTE]
 > В режиме добавления необходимо, чтобы последний элемент был пустым (скелет новой записи)!
 
-Если в таблице находятся поля в режиме редактирования с динамическим name, то нужно добавить метод или параметр `reindex`:
+Если в таблице находятся поля в режиме редактирования с динамическим name, то нужно добавить метод или параметр `$reindex`.
 
 ```php
 TableBuilder::make()
@@ -376,10 +390,9 @@ TableBuilder::make()
 Пример с указанием кастомной кнопки добавления:
 
 ```php
-TableBuilder::make()
-    ->creatable(
-        button: ActionButton::make('Foo', '#')
-    )
+->creatable(
+    button: ActionButton::make('Foo', '#')
+)
 ```
 
 <a name="reindexing"></a>
@@ -396,17 +409,18 @@ TableBuilder::make()
 <a name="without-key"></a>
 ### Без ключей
 
-Метод `withoutKey()` заставляет таблицу использовать порядковые индексы вместо уникального ключа строки. Это полезно, когда источник данных может содержать повторяющиеся идентификаторы — например, при работе с `BelongsToMany::deduplication(false)` или любыми коллекциями, где одна и та же модель должна отображаться несколько раз.
+Метод `withoutKey()` заставляет таблицу использовать порядковые индексы вместо уникального ключа строки.
+Это полезно, когда источник данных может содержать повторяющиеся идентификаторы — например,
+при работе с `BelongsToMany::deduplication(false)` или любыми коллекциями, где одна и та же модель должна отображаться несколько раз.
 
 ```php
-TableBuilder::make(items: $items)
-    ->withoutKey()
+->withoutKey()
 ```
 
 <a name="drag-and-drop-sorting"></a>
 ### Сортировка перетаскиванием
 
-Метод `reorderable()` добавляет возможность сортировки строк перетаскиванием:
+Метод `reorderable()` добавляет возможность сортировки строк перетаскиванием.
 
 ```php
 ->reorderable(url: '/reorder-url', key: 'id', group: 'group-name')
@@ -419,7 +433,7 @@ TableBuilder::make(items: $items)
 <a name="sticky-header"></a>
 ### Фиксированный заголовок
 
-Метод `sticky()` делает заголовок таблицы фиксированным:
+Метод `sticky()` делает заголовок таблицы фиксированным.
 
 ```php
 ->sticky()
@@ -428,13 +442,13 @@ TableBuilder::make(items: $items)
 <a name="column-selection"></a>
 ### Выбор колонок
 
-Метод `columnSelection()` добавляет возможность выбора отображаемых колонок:
+Метод `columnSelection()` добавляет возможность выбора отображаемых колонок.
 
 ```php
 ->columnSelection()
 ```
 
-Если необходимо у определенных полей отключить выбор отображения, то воспользуйтесь методом `columnSelection` у поля с параметром, равным `false`:
+Если необходимо у определенных полей отключить выбор отображения, то воспользуйтесь методом `columnSelection` у поля с параметром, равным `false`.
 
 ```php
 TableBuilder::make()
@@ -462,14 +476,14 @@ TableBuilder::make()
 <a name="click-action"></a>
 ### Действие по клику
 
-Метод `clickAction()` задает действие при клике на строку:
+Метод `clickAction()` задает действие при клике на строку.
 В примере ниже при клике на строку таблицы произойдет клик на кнопку редактирования.
 
 ```php
 ->clickAction(ClickAction::EDIT)
 ```
 
-Если вы используете кастомные кнопки или переопределили кнопки по умолчанию, в таком случае также может потребоваться указать селектор кнопки:
+Если вы используете кастомные кнопки или переопределили кнопки по умолчанию, в таком случае также может потребоваться указать селектор кнопки.
 
 ```php
 ->clickAction(ClickAction::EDIT, '.edit-button')
@@ -484,7 +498,7 @@ TableBuilder::make()
 <a name="save-state-in-url"></a>
 ### Сохранение состояния в URL
 
-Метод `pushState()` сохраняет состояние таблицы в URL:
+Метод `pushState()` сохраняет состояние таблицы в URL.
 
 ```php
 ->pushState()
@@ -494,11 +508,13 @@ TableBuilder::make()
 ### Модификация чекбокса массовых действий
 
 Метод `modifyRowCheckbox()` позволяет модифицировать чекбокс массовых действий.
-Пример ниже демонстрирует выбор активного чекбокса по умолчанию:
+Пример ниже демонстрирует выбор активного чекбокса по умолчанию.
 
 ```php
 ->modifyRowCheckbox(
-    fn(Checkbox $checkbox, DataWrapperContract $data, TableBuilder $ctx) => $data->getKey() === 2 ? $checkbox->customAttributes(['checked' => true]) : $checkbox
+    fn(Checkbox $checkbox, DataWrapperContract $data, TableBuilder $ctx) => $data->getKey() === 2
+        ? $checkbox->customAttributes(['checked' => true])
+        : $checkbox
 )
 ```
 
@@ -509,14 +525,14 @@ TableBuilder::make()
 
 ```php
 TableBuilder::make()
-    // ..
+    // ...
     ->topLeft(function (): array {
         return [];
     })
     ->topRight(function (): array {
         return [
             Div::make([
-                // ..
+                // ...
             ])
         ];
     })
@@ -525,7 +541,8 @@ TableBuilder::make()
 <a name="form-builder-filters"></a>
 ### Фильтры через FormBuilder
 
-С помощью метода `withFilters()` вы можете добавить `FormBuilder` с полями для фильтрации данных в таблице. После отправки формы данные будут загружены заново.
+С помощью метода `withFilters()` вы можете добавить `FormBuilder` с полями для фильтрации данных в таблице.
+После отправки формы данные будут загружены заново.
 
 ```php
 ->withFilters(formName: 'dashboard-form')
@@ -565,30 +582,31 @@ TableBuilder::make()
 <a name="attribute-configuration"></a>
 ## Настройка атрибутов
 
-`TableBuilder` предоставляет методы для настройки HTML-атрибутов:
+`TableBuilder` предоставляет методы для настройки HTML-атрибутов.
 
 ```php
-->trAttributes(fn(?DataWrapperContract $data, int $row): array => ['class' => $row % 2 ? 'bg-gray-100' : ''])
-->tdAttributes(fn(?DataWrapperContract $data, int $row, int $cell): array => ['class' => $cell === 0 ? 'font-bold' : ''])
-->headAttributes(['class' => 'bg-blue-500 text-white'])
-->bodyAttributes(['class' => 'text-sm'])
-->footAttributes(['class' => 'bg-gray-200'])
-->customAttributes(['class' => 'custom-table'])
+TableBuilder::make()
+    ->trAttributes(fn(?DataWrapperContract $data, int $row): array => ['class' => $row % 2 ? 'bg-gray-100' : ''])
+    ->tdAttributes(fn(?DataWrapperContract $data, int $row, int $cell): array => ['class' => $cell === 0 ? 'font-bold' : ''])
+    ->headAttributes(['class' => 'bg-blue-500 text-white'])
+    ->bodyAttributes(['class' => 'text-sm'])
+    ->footAttributes(['class' => 'bg-gray-200'])
+    ->customAttributes(['class' => 'custom-table'])
 ```
 
 <a name="async-loading"></a>
 ## Асинхронная загрузка
 
-Метод `async()` настраивает асинхронную загрузку таблицы:
+Метод `async()` настраивает асинхронную загрузку таблицы.
 
 > [!NOTE]
-> Метод `async` должен быть после метода `name`
+> Метод `async()` должен быть после метода `name`.
 
 ```php
 ->async(
-  Closure|string|null $url = null,
-  string|array|null $events = null,
-  ?AsyncCallback $callback = null,
+    Closure|string|null $url = null,
+    string|array|null $events = null,
+    ?AsyncCallback $callback = null,
 )
 ```
 
@@ -596,39 +614,47 @@ TableBuilder::make()
 - `$events` - события, которые будут вызваны после успешного ответа,
 - `$callback` - JS callback, который можно добавить как обертку ответа.
 
-После успешного запроса можно вызвать события, добавив параметр `events`.
+После успешного запроса можно вызвать события, добавив параметр `$events`.
 
 ```php
 use MoonShine\Support\AlpineJs;
 use MoonShine\Support\Enums\JsEvent;
 
 TableBuilder::make()
-        ->name('crud')
-        ->async(events: [
-          AlpineJs::event(JsEvent::FORM_RESET, 'main-form'),
-          AlpineJs::event(JsEvent::TOAST, params: ['text' => 'Success', 'type' => 'success']),
-        ])
+    ->name('crud')
+    ->async(events: [
+        AlpineJs::event(JsEvent::FORM_RESET, 'main-form'),
+        AlpineJs::event(JsEvent::TOAST, params: ['text' => 'Success', 'type' => 'success']),
+    ])
 ```
 
 Список событий для `TableBuilder`:
 
 - `JsEvent::TABLE_UPDATED` - обновление таблицы,
-- `JsEvent::TABLE_REINDEX` - реиндексация таблицы (см. `reindex()`)
-- `JsEvent::TABLE_ROW_UPDATED` - обновление строки таблицы (`AlpineJs::event(JsEvent::TABLE_ROW_UPDATED, "{component-name}-{row-id}")`)
+- `JsEvent::TABLE_REINDEX` - реиндексация таблицы (см. `reindex()`),
+- `JsEvent::TABLE_ROW_UPDATED` - обновление строки таблицы (`AlpineJs::event(JsEvent::TABLE_ROW_UPDATED, "{component-name}")`),
+- `JsEvent::TABLE_ROW_ADDED` - добавление новой клонированной строки,
+- `JsEvent::TABLE_EMPTY_ROW_ADDED` - добавление новой строки.
 
 > [!NOTE]
 > Для получения дополнительной информации о js событиях обратитесь к разделу [Events](/docs/{{version}}/frontend/js#events).
 
-Все параметры метода `async` являются опциональными, и по умолчанию `TableBuilder` автоматически укажет URL на основе текущей страницы.
+Все параметры метода `async()` являются опциональными, и по умолчанию `TableBuilder` автоматически укажет URL на основе текущей страницы.
 
-В процессе использования `TableBuilder` в режиме `async` может возникнуть задача, когда вы используете его вне админ-панели на страницах, не объявленных в системе **MoonShine**.
-Тогда вам потребуется указать собственный URL и реализовать ответ с HTML таблицей. Давайте рассмотрим пример реализации:
+В процессе использования `TableBuilder` в режиме `async` может возникнуть задача,
+когда вы используете его вне админ-панели на страницах, не объявленных в системе **MoonShine**.
+Тогда вам потребуется указать собственный URL и реализовать ответ с HTML таблицей.
+Давайте рассмотрим пример реализации:
 
 ```php
-TableBuilder::make()->name('my-table')->async(route('undefined-page.component', [
-    '_namespace' => self::class,
-    '_component_name' => 'my-table'
-]))
+TableBuilder::make()
+    ->name('my-table')
+    ->async(
+        route('undefined-page.component', [
+            '_namespace' => self::class,
+            '_component_name' => 'my-table'
+        ])
+    )
 ```
 
 `Controller`
@@ -730,7 +756,7 @@ TableBuilder::make()
   ]),
 ```
 
-Метод `cast` служит для приведения значений таблицы к определенному типу.
+Метод `cast()` служит для приведения значений таблицы к определенному типу.
 Так как по умолчанию поля работают с примитивными типами:
 
 ```php
@@ -914,18 +940,14 @@ TableBuilder::make()
 
 Для включения и выключения режима скелетона в таблице используйте метод `sceleton()`.
 
-Пример использования `sceleton()`:
-
 ```php
-TableBuilder::make()->skeleton(true|false);
+->skeleton(true|false);
 ```
 
 Для включения и выключения режима спиннера в таблице используйте метод `loader()`.
 
-Пример использования `loader()`:
-
 ```php
-TableBuilder::make()->loader(true|false);
+->loader(true|false);
 ```
 
 `TableBuilder` в **MoonShine** предоставляет широкий спектр возможностей для создания гибких и функциональных таблиц в административной панели.

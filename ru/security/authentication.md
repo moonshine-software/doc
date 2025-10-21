@@ -73,7 +73,7 @@
 ```php
 'auth' => [
     'enabled' => false,
-    // ..
+    // ...
 ],
 ```
 
