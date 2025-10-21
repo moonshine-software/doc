@@ -46,9 +46,8 @@ During the installation process, you will be asked to perform:
 1. *Authentication*. Enable/disable the `middleware` that checks whether the user has access to the panel.
 2. *Migrations*. Necessary if you choose to use the built-in capabilities of **MoonShine** for managing users and roles.
 3. *Notifications*. Enable/disable the notification system, and you will also be asked whether to use the database driver for storing notifications in the database.
-4. *Template theme*. Standard or compact.
-5. *Superuser*. If you chose the migration option, you will be prompted to create a superuser who will gain access to the admin panel with the credentials specified during installation.
-6. *Don't forget to star the GitHub repository. Thank you!*
+4. *Superuser*. If you chose the migration option, you will be prompted to create a superuser who will gain access to the admin panel with the credentials specified during installation.
+5. *Don't forget to star the GitHub repository. Thank you!*
 
 During the installation, the following will be added and executed:
 

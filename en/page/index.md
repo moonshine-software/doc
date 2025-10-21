@@ -166,7 +166,7 @@ class CustomPage extends Page
 <a name="layout"></a>
 ## Layout
 
-By default, pages use the `AppLayout` or `CompactLayout` display template.
+By default, pages use the `AppLayout` display template.
 For more information about templates, see the [Layout](/docs/{{version}}/appearance/layout) section.
 
 ```php

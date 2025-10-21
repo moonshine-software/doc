@@ -11,7 +11,8 @@
 <a name="intro"></a>
 ## Introduction
 
-This recipe demonstrates the use of **MoonShine** not as an admin panel, but as a personal account under the `User` model with login, registration, password recovery, and profile (basic set).
+This recipe demonstrates the use of **MoonShine** not as an admin panel,
+but as a personal account under the `User` model with login, registration, password recovery, and profile (basic set).
 A good example of working with different `Layouts` for different pages.
 
 <a name="routes"></a>
@@ -19,12 +20,12 @@ A good example of working with different `Layouts` for different pages.
 
 Let's start with routing, but first, we need to create a few controllers:
 
-- `AuthenticateController`
-- `ForgotController`
-- `ProfileController`
-- `RegisterController`
+- `AuthenticateController`,
+- `ForgotController`,
+- `ProfileController`,
+- `RegisterController`.
 
-We will declare the routes in `routes/web.php`:
+We will declare the routes in `routes/web.php`.
 
 ```php
 use App\Http\Controllers\AuthenticateController;
@@ -59,25 +60,26 @@ Route::controller(ProfileController::class)->middleware('auth')->prefix('profile
 ```
 
 > [!NOTE]
-> We will create `ResetPasswordPage` a bit later
+> We will create `ResetPasswordPage` a bit later.
 
 <a name="layouts"></a>
 ## Layouts
 
-We will have pages with forms for login, registration, and password recovery, and they will differ in template from the user profile page, so we need to create 2 templates:
+We will have pages with forms for login, registration, and password recovery, and they will differ in template
+from the user profile page, so we need to create 2 templates:
 
-- `AppLayout` - for the profile
-- `FormLayout` - for authentication
+- `ProfileLayout` - for the profile,
+- `FormLayout` - for authentication.
 
-### AppLayout
+### ProfileLayout
 
-Let's start by executing the command to create the template
+Let's start by executing the command to create the template.
 
 ```shell
-php artisan moonshine:layout AppLayout --compact
+php artisan moonshine:layout ProfileLayout
 ```
 
-Next, we will assemble the constructor from the components we need
+Next, we will assemble the constructor from the components we need.
 
 ```php
 namespace App\MoonShine\Layouts;
@@ -87,7 +89,7 @@ use App\MoonShine\Resources\PackageResource;
 use App\MoonShine\Resources\UserResource;
 use MoonShine\ColorManager\ColorManager;
 use MoonShine\Contracts\ColorManager\ColorManagerContract;
-use MoonShine\Laravel\Layouts\CompactLayout;
+use MoonShine\Laravel\Layouts\AppLayout;
 use MoonShine\MenuManager\MenuGroup;
 use MoonShine\MenuManager\MenuItem;
 use MoonShine\UI\Components\{Components,
@@ -99,7 +101,7 @@ use MoonShine\UI\Components\{Components,
     Layout\Layout,
     Layout\Wrapper};
 
-final class AppLayout extends CompactLayout
+final class ProfileLayout extends AppLayout
 {
     protected function getHomeUrl(): string
     {
@@ -139,13 +141,13 @@ final class AppLayout extends CompactLayout
 ### FormLayout
 
 ```shell
-php artisan moonshine:layout FormLayout --compact
+php artisan moonshine:layout FormLayout
 ```
 
 ```php
 namespace App\MoonShine\Layouts;
 
-use MoonShine\Laravel\Layouts\CompactLayout;
+use MoonShine\Laravel\Layouts\AppLayout;
 use MoonShine\UI\Components\{Components,
     FlexibleRender,
     Heading,
@@ -157,7 +159,7 @@ use MoonShine\UI\Components\{Components,
     Layout\Layout,
     Layout\Wrapper};
 
-final class FormLayout extends CompactLayout
+final class FormLayout extends AppLayout
 {
     protected function getHomeUrl(): string
     {
@@ -195,11 +197,11 @@ final class FormLayout extends CompactLayout
 <a name="pages"></a>
 ## Pages
 
-Let's create **MoonShine** pages for displaying data:
+Let's create **MoonShine** pages for displaying data.
 
 ### LoginPage
 
-Execute the command to create a page, selecting the type `Custom`:
+Execute the command to create a page, selecting the type `Custom`.
 
 ```shell
 php artisan moonshine:page LoginPage
@@ -276,7 +278,7 @@ class LoginPage extends Page
 }
 ```
 
-Also, note that we specify the required template for the pages
+Also, note that we specify the required template for the pages.
 
 ```php
 protected ?string $layout = FormLayout::class;
@@ -638,7 +640,7 @@ final class AuthenticateController extends Controller
 }
 ```
 
-Note how we render pages in controllers:
+Note how we render pages in controllers.
 
 ```php
 public function form(LoginPage $page): LoginPage
