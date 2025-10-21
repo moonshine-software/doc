@@ -26,13 +26,7 @@ video: https://www.youtube.com/watch?v=95qxienFmtI
 Каждый элемент страницы, включая HTML теги, является компонентом **MoonShine**.
 Это обеспечивает высокую степень гибкости и возможность кастомизации.
 
-**MoonShine** предлагает два готовых шаблона:
-
-- `AppLayout` - базовый шаблон,
-- `CompactLayout` - компактный шаблон.
-
-При установке **MoonShine** вы выбираете один из этих шаблонов по умолчанию.
-Выбранный шаблон публикуется в директорию `app/MoonShine/Layouts` и указывается в конфигурационном файле `moonshine.layout`.
+При установке **MoonShine**, публикуется шаблон по умолчанию `app/MoonShine/Layouts/AppLayout.php` и регистрируется в конфигурационном файле.
 
 Вы можете:
 
@@ -53,7 +47,7 @@ use App\MoonShine\Resources\UserResource;
 use MoonShine\ColorManager\ColorManager;
 use MoonShine\Contracts\ColorManager\ColorManagerContract;
 use MoonShine\Laravel\Components\Layout\{Locales, Notifications, Profile, Search};
-use MoonShine\Laravel\Layouts\CompactLayout;
+use MoonShine\Laravel\Layouts\AppLayout;
 use MoonShine\MenuManager\MenuGroup;
 use MoonShine\MenuManager\MenuItem;
 use MoonShine\UI\Components\{Breadcrumbs,
@@ -78,7 +72,7 @@ use MoonShine\UI\Components\{Breadcrumbs,
     Layout\Wrapper,
     When}; // [tl! collapse:end]
 
-final class MoonShineLayout extends CompactLayout
+final class MoonShineLayout extends AppLayout
 {
     // ...
 
@@ -193,9 +187,9 @@ final class MoonShineLayout extends CompactLayout
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:1]
-use MoonShine\Laravel\Layouts\CompactLayout;
+use MoonShine\Laravel\Layouts\AppLayout;
 
-final class MoonShineLayout extends CompactLayout
+final class MoonShineLayout extends AppLayout
 {
     // ...
 
@@ -395,8 +389,8 @@ php artisan moonshine:layout
 <a name="page"></a>
 ## Изменение шаблона страницы
 
-По умолчанию страницы используют шаблон отображения `AppLayout` или `CompactLayout`.
-Но вы можете изменить на собственный шаблон, просто заменив значение свойства `$layout`.
+По умолчанию страницы используют шаблон отображения `AppLayout`.
+Но вы можете изменить его на собственный шаблон, просто заменив значение свойства `$layout`.
 
 Подробнее про страницы читайте в разделе [Страница](/docs/{{version}}/page/index).
 
@@ -445,8 +439,8 @@ final class MyLayout extends AppLayout
 > [!NOTE]
 > За более подробной информацией обратитесь в раздел [Assets](/docs/{{version}}/appearance/assets).
 
-<a name="compact-with-rounded"></a>
-### Компактная тема с rounded radius
+<a name="assets-inline"></a>
+### Добавление инлайн-стилей
 
 ```php
 protected function assets(): array
@@ -536,9 +530,9 @@ final class MyLayout extends AppLayout
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:1]
-use MoonShine\Laravel\Layouts\CompactLayout;
+use MoonShine\Laravel\Layouts\AppLayout;
 
-final class MoonShineLayout extends CompactLayout
+final class MoonShineLayout extends AppLayout
 {
     // ...
 
@@ -582,7 +576,8 @@ final class MoonShineLayout extends CompactLayout
 <a name="themes"></a>
 ## Темы оформления
 
-В **Moonshine** "из коробки" доступна поддержка двух тем оформления — светлой и тёмной. По умолчанию используется тема, заданная в системе, либо светлая, если определить не удалось.
+В **Moonshine** "из коробки" доступна поддержка двух тем оформления — светлой и тёмной.
+По умолчанию используется тема, заданная в системе, либо светлая, если определить не удалось.
 
 <a name="dark-mode"></a>
 ### Тёмная тема

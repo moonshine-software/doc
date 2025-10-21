@@ -26,13 +26,7 @@ video: https://www.youtube.com/watch?v=6eUtdbCLVZQ
 Each element of the page, including HTML tags, is a **MoonShine** component.
 This provides a high degree of flexibility and customization options.
 
-**MoonShine** offers two ready-made templates:
-
-- `AppLayout` - basic template,
-- `CompactLayout` - compact template.
-
-When installing **MoonShine**, you choose one of these templates by default.
-The selected template is published in the `app/MoonShine/Layouts` directory and specified in the `moonshine.layout` configuration file.
+When installing **MoonShine**, the default template `app/MoonShine/Layouts/AppLayout.php` is published and registered in the configuration file.
 
 You can:
 
@@ -53,7 +47,7 @@ use App\MoonShine\Resources\UserResource;
 use MoonShine\ColorManager\ColorManager;
 use MoonShine\Contracts\ColorManager\ColorManagerContract;
 use MoonShine\Laravel\Components\Layout\{Locales, Notifications, Profile, Search};
-use MoonShine\Laravel\Layouts\CompactLayout;
+use MoonShine\Laravel\Layouts\AppLayout;
 use MoonShine\MenuManager\MenuGroup;
 use MoonShine\MenuManager\MenuItem;
 use MoonShine\UI\Components\{Breadcrumbs,
@@ -78,7 +72,7 @@ use MoonShine\UI\Components\{Breadcrumbs,
     Layout\Wrapper,
     When}; // [tl! collapse:end]
 
-final class MoonShineLayout extends CompactLayout
+final class MoonShineLayout extends AppLayout
 {
     // ...
 
@@ -193,9 +187,9 @@ Find the complete list of components in the [Components](/docs/{{version}}/compo
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:1]
-use MoonShine\Laravel\Layouts\CompactLayout;
+use MoonShine\Laravel\Layouts\AppLayout;
 
-final class MoonShineLayout extends CompactLayout
+final class MoonShineLayout extends AppLayout
 {
     // ...
 
@@ -395,7 +389,7 @@ php artisan moonshine:layout
 <a name="page"></a>
 ## Changing the Page Template
 
-By default, pages use the display template `AppLayout` or `CompactLayout`.
+By default, pages use the display template `AppLayout`.
 But you can change it to your custom template by simply replacing the value of the `$layout` property.
 
 Read more about pages in the [Page](/docs/{{version}}/page/index) section.
@@ -445,8 +439,8 @@ final class MyLayout extends AppLayout
 > [!NOTE]
 > For more detailed information, refer to the [Assets](/docs/{{version}}/appearance/assets) section.
 
-<a name="compact-with-rounded"></a>
-### Compact theme with rounded radius
+<a name="assets-inline"></a>
+### Adding inline styles
 
 ```php
 protected function assets(): array
@@ -536,9 +530,9 @@ Let’s see how to replace `Sidebar` with `TopBar` in `Layout`.
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:1]
-use MoonShine\Laravel\Layouts\CompactLayout;
+use MoonShine\Laravel\Layouts\AppLayout;
 
-final class MoonShineLayout extends CompactLayout
+final class MoonShineLayout extends AppLayout
 {
     // ...
 
@@ -582,7 +576,8 @@ final class MoonShineLayout extends CompactLayout
 <a name="themes"></a>
 ## Themes
 
-**Moonshine** supports two themes out of the box: light and dark. By default, the theme specified in the system is used, or light if it could not be determined.
+**Moonshine** supports two themes out of the box: light and dark.
+By default, the theme specified in the system is used, or light if it could not be determined.
 
 <a name="dark-mode"></a>
 ### Dark mode

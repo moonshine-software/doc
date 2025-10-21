@@ -216,7 +216,7 @@ public function boot(
 use Illuminate\Support\Facades\Vite;
 use MoonShine\AssetManager\Js;
 
-final class MoonShineLayout extends CompactLayout
+final class MoonShineLayout extends AppLayout
 {
     protected function assets(): array
     {
@@ -335,24 +335,10 @@ The same as with `Component`, since `Field` is a component.
 <a name="blade"></a>
 ## Conclusion via Blade
 
-### Default theme
-
 ```blade
 <x-moonshine::layout.assets>
     @vite([
         'resources/css/main.css',
-        'resources/js/app.js',
-    ], 'vendor/moonshine')
-</x-moonshine::layout.assets>
-```
-
-### Compact theme
-
-```blade
-<x-moonshine::layout.assets>
-    @vite([
-        'resources/css/main.css',
-        'resources/css/minimalistic.css',
         'resources/js/app.js',
     ], 'vendor/moonshine')
 </x-moonshine::layout.assets>
@@ -361,7 +347,9 @@ The same as with `Component`, since `Field` is a component.
 <a name="custom-build"></a>
 ## Custom Build
 
-When working with **MoonShine**, especially when using the *Blade* approach, you may need additional *TailwindCSS* CSS classes that are not included in the original **MoonShine** build. For this purpose, a custom build is suitable, which will include **MoonShine**, and you will be able to build with your own set of classes and styles + **MoonShine**.
+When working with **MoonShine**, especially when using the *Blade* approach,
+you may need additional *TailwindCSS* CSS classes that are not included in the original **MoonShine** build.
+For this purpose, a custom build is suitable, which will include **MoonShine**, and you will be able to build with your own set of classes and styles + **MoonShine**.
 
 ### Automatic Publishing
 
@@ -386,7 +374,8 @@ You will only need to add the assets to your project.
 
 ### Implementation via MoonShineLayout
 
-You need to add **MoonShine** JavaScript `$this->getMainThemeJs()`, as well as your application assets, where `Css::make(Vite::asset('resources/css/app.css'))` also contains **MoonShine** CSS.
+You need to add **MoonShine** JavaScript `$this->getMainThemeJs()`, as well as your application assets,
+where `Css::make(Vite::asset('resources/css/app.css'))` also contains **MoonShine** CSS.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -410,7 +399,8 @@ final class MoonShineLayout extends AppLayout
 
 ### Implementation via Blade
 
-You need to add **MoonShine** JavaScript `@vite(['resources/js/app.js'], 'vendor/moonshine')`, as well as your application assets, where `resources/css/app.css` also contains **MoonShine** CSS.
+You need to add **MoonShine** JavaScript `@vite(['resources/js/app.js'], 'vendor/moonshine')`,
+as well as your application assets, where `resources/css/app.css` also contains **MoonShine** CSS.
 
 ```blade
 <x-moonshine::layout.head>

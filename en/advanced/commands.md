@@ -29,6 +29,7 @@ php artisan moonshine:install
 ```
 
 Signature:
+
 ```
 moonshine:install {--u|without-user} {--m|without-migrations} {--l|default-layout} {--a|without-auth} {--d|without-notifications} {--t|tests-mode} {--Q|quick-mode}
 ```
@@ -37,7 +38,7 @@ Available options:
 
 - `--u|without-user` - without creating a superuser,
 - `--m|without-migrations` - without running migrations,
-- `--l|default-layout` - select the default template (without prompting for a compact theme),
+- `--l|default-layout` - select the default template,
 - `--a|without-auth` - without authentication,
 - `--d|without-notifications` - without notifications,
 - `--t|tests-mode` - test mode,
@@ -56,6 +57,7 @@ php artisan moonshine:user
 ```
 
 Signature:
+
 ```
 moonshine:user {--u|username=} {--N|name=} {--p|password=}
 ```
@@ -149,13 +151,11 @@ php artisan moonshine:layout
 
 Signature:
 ```
-moonshine:layout {className?} {--compact} {--full} {--default} {--dir=} {--base-dir=} {--base-namespace=}
+moonshine:layout {className?} {--default} {--dir=} {--base-dir=} {--base-namespace=}
 ```
 
 Available options:
 
-- `--compact` - inherits the compact theme,
-- `--full` - inherits the base theme,
 - `--default` - set as the default template in the config,
 - `--dir=` - directory where the files will be located relative to `app/MoonShine`, defaults to `Layouts`,
 - `--base-dir=, --base-namespace=` - change the base directory and namespace of the class.
