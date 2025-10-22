@@ -6,6 +6,7 @@ video: https://youtu.be/6eUtdbCLVZQ?si=Ll3Xg1LihfigMhqs&t=1106
 
 - [Basics](#basics)
 - [Default Colors](#default-colors)
+- [Palettes](#palettes)
 - [Methods](#methods)
     - [Set Colors](#set-colors)
     - [Get Colors](#get-colors)
@@ -28,38 +29,99 @@ It allows you to configure the colors of various interface elements for both lig
 <a name="default-colors"></a>
 ## Default Colors
 
-The following colors are available by default:
+MoonShine ships with `MoonShine\ColorManager\Palettes\DefaultPalette`.  
+It exposes the light and dark palettes in OKLCH notation:
 
 ```php
-// Primary colors
-'primary' => '120, 67, 233' // Primary color
-'secondary' => '236, 65, 118' // Secondary color
-'body' => '27, 37, 59' // Background color
+[
+    'primary' => '0.627 0.265 303.9',
+    'primary-text' => '1 0 0',
+    'secondary' => '0.746 0.16 232.661',
+    'secondary-text' => '1 0 0',
+    'body' => '0.98 0.0035 67.78',
+    'theme' => [
+        'body' => '0 0 0',         // default text
+        'stroke' => '0 0 0 / 10%', // borders
+        'default' => '1 0 0',      // background
+        50 => '0.99 0 0',
+        100 => '0.98 0 0',
+        // ...
+        900 => '0.90 0 0',
+    ],
+    'success-bg' => '0.639 0.218 142.495',
+    'success-text' => '0.4676 0.1549 142.495',
+    // ...
+];
+```
 
-// Dark shades
-'dark' => [
-    'DEFAULT' => '30, 31, 67',
-    50 => '83, 103, 132', // search, toasts, progress bars
-    100 => '74, 90, 121', // separators
-    200 => '65, 81, 114', // separators
-    300 => '53, 69, 103', // borders
-    400 => '48, 61, 93',  // dropdowns, buttons, pagination
-    500 => '41, 53, 82',  // default button background
-    600 => '40, 51, 78',  // table rows
-    700 => '39, 45, 69',  // content background
-    800 => '27, 37, 59',  // sidebar background
-    900 => '15, 23, 42',  // main background
-]
+The dark palette mirrors the same structure:
 
-// Status colors
-'success-bg' => '0, 170, 0'
-'success-text' => '255, 255, 255'
-'warning-bg' => '255, 220, 42'
-'warning-text' => '139, 116, 0'
-'error-bg' => '224, 45, 45'
-'error-text' => '255, 255, 255'
-'info-bg' => '0, 121, 255'
-'info-text' => '255, 255, 255'
+```php
+[
+    'primary' => '0.606 0.25 292.717',
+    'body' => '0.2 0.0168 274.32',
+    'theme' => [
+        'body' => '1 0 0',
+        'stroke' => '1 0 0 / 10%',
+        'default' => '0.24 0.0168 274.32',
+        // ...
+    ],
+    'success-bg' => '0.639 0.218 142.495',
+    'warning-bg' => '0.898 0.177 96.726',
+    'error-bg' => '0.589 0.214 26.855',
+    'info-bg' => '0.601 0.219 257.63',
+];
+```
+
+<a name="palettes"></a>
+## Palettes
+
+Palettes allow you to encapsulate light and dark color schemes in dedicated classes.  
+A palette implements `MoonShine\Contracts\ColorManager\PaletteContract` and returns two associative arrays:
+
+```php
+namespace App\MoonShine\Palettes;
+
+use MoonShine\Contracts\ColorManager\PaletteContract;
+
+final class CorporatePalette implements PaletteContract
+{
+    public function getColors(): array
+    {
+        return [
+            'primary' => 'oklch(65% 0.18 264)',
+            'theme' => [
+                'body' => '0 0 0',
+                50 => 'oklch(98% 0.02 250)',
+                // ...
+            ],
+        ];
+    }
+
+    public function getDarkColors(): array
+    {
+        return [
+            'primary' => 'oklch(60% 0.17 264)',
+            900 => 'oklch(24% 0.04 274)',
+            // ...
+        ];
+    }
+}
+```
+
+You can activate a palette:
+
+- in a layout by setting the `$palette` property to the palette class name;
+- programmatically, by calling `$colorManager->palette(new CorporatePalette());`.
+
+```php
+use App\MoonShine\Palettes\CorporatePalette;
+use MoonShine\Laravel\Layouts\AppLayout;
+
+final class MoonShineLayout extends AppLayout
+{
+    protected ?string $palette = CorporatePalette::class;
+}
 ```
 
 <a name="methods"></a>
@@ -69,17 +131,27 @@ The following colors are available by default:
 ### Set Colors
 
 ```php
-// Set a single color
-$colorManager->set('primary', '120, 67, 233');
+// Set a single color (OKLCH, HEX, RGB, and RGBA are accepted)
+$colorManager->set('primary', 'oklch(65% 0.18 264)');
 
 // Set color for dark theme
-$colorManager->set('primary', '120, 67, 233', dark: true);
+$colorManager->set('primary', 'oklch(60% 0.17 264)', dark: true);
 
-// Bulk assign colors
+// Bulk assign colors (use arrays to define shades)
 $colorManager->bulkAssign([
-    'primary' => '120, 67, 233',
-    'secondary' => '236, 65, 118'
+    'theme' => [
+        'body' => '0 0 0',
+        50 => '0.99 0 0',
+        100 => '0.98 0 0',
+    ],
 ]);
+
+// Apply a palette object
+$colorManager->palette(new \App\MoonShine\Palettes\CorporatePalette());
+
+// Update a specific shade via dot notation
+$colorManager->set('theme.500', 'oklch(70% 0.10 280)');
+$colorManager->set('theme.500', '0.36 0.023 274.32', dark: true);
 ```
 
 <a name="get-colors"></a>
@@ -87,11 +159,11 @@ $colorManager->bulkAssign([
 
 ```php
 // Get color
-$colorManager->get('primary'); // Returns HEX
-$colorManager->get('primary', hex: false); // Returns RGB
+$colorManager->get('primary'); // Returns HEX by default
+$colorManager->get('primary', hex: false); // Returns the stored format
 
 // Get shade
-$colorManager->get('dark', 500); // Get a specific shade
+$colorManager->get('theme', 500); // Get a specific shade
 
 // Get all colors
 $colorManager->getAll(); // For light theme
@@ -103,17 +175,17 @@ $colorManager->getAll(dark: true); // For dark theme
 
 ```php
 // Set background colors
-$colorManager->background('27, 37, 59');
+$colorManager->background('oklch(91% 0.0 0)');
 
 // Set content colors
-$colorManager->content('39, 45, 69');
+$colorManager->content('oklch(58% 0.05 274)');
 
 // Configure interface components
-$colorManager->tableRow('40, 51, 78'); // Table rows
-$colorManager->borders('53, 69, 103'); // Borders
-$colorManager->dropdowns('48, 61, 93'); // Dropdowns
-$colorManager->buttons('83, 103, 132'); // Buttons
-$colorManager->dividers('74, 90, 121'); // Dividers
+$colorManager->tableRow('oklch(56% 0.07 274)'); // Table rows
+$colorManager->borders('oklch(72% 0.02 274)'); // Borders
+$colorManager->dropdowns('oklch(68% 0.04 274)'); // Dropdowns
+$colorManager->buttons('oklch(80% 0.08 274)'); // Buttons
+$colorManager->dividers('oklch(90% 0.02 274)'); // Dividers
 ```
 
 <a name="special"></a>
@@ -122,16 +194,18 @@ $colorManager->dividers('74, 90, 121'); // Dividers
 `ColorManager` supports dynamic methods for all primary colors.
 
 ```php
-$colorManager->primary('120, 67, 233');
-$colorManager->secondary('236, 65, 118');
-$colorManager->successBg('0, 170, 0');
-$colorManager->successText('255, 255, 255');
-$colorManager->warningBg('255, 220, 42');
-$colorManager->warningText('139, 116, 0');
-$colorManager->errorBg('224, 45, 45');
-$colorManager->errorText('255, 255, 255');
-$colorManager->infoBg('0, 121, 255');
-$colorManager->infoText('255, 255, 255');
+$colorManager->primary('oklch(65% 0.18 264)');
+$colorManager->secondary('oklch(70% 0.14 230)');
+$colorManager->theme('oklch(95% 0.01 274)', 400);
+$colorManager->theme('oklch(35% 0.18 274)', 800, dark: true);
+$colorManager->successBg('oklch(63.9% 0.218 142.495)');
+$colorManager->successText('oklch(46.76% 0.1549 142.495)');
+$colorManager->warningBg('oklch(80.88% 0.170358 75.3501)');
+$colorManager->warningText('oklch(50% 0.1031 76.1)');
+$colorManager->errorBg('oklch(58.9% 0.214 26.855)');
+$colorManager->errorText('oklch(37.06% 0.145 26.855)');
+$colorManager->infoBg('oklch(60.1% 0.219 257.63)');
+$colorManager->infoText('oklch(34.71% 0.1204 257.63)');
 ```
 
 <a name="html"></a>
@@ -148,8 +222,8 @@ Result:
 ```html
 <style>
     :root {
-        --primary:120,67,233;
-        --secondary:236,65,118;
+        --primary:0.627 0.265 303.9;
+        --secondary:0.746 0.16 232.661;
         /* other light theme variables */
     }
     :root.dark {
@@ -161,16 +235,19 @@ Result:
 <a name="conversion"></a>
 ## Color Conversion
 
-`ColorManager` includes the `ColorMutator` utility for converting between HEX and RGB formats.
+`ColorManager` includes the `ColorMutator` utility for converting between HEX, RGB, RGBA, and OKLCH formats.
 
 ```php
 use MoonShine\ColorManager\ColorMutator;
 
 // Convert to HEX
-ColorMutator::toHEX('120, 67, 233'); // '#7843e9'
+ColorMutator::toHEX('oklch(65% 0.18 264)'); // '#7357ff'
 
 // Convert to RGB
-ColorMutator::toRGB('#7843e9'); // '120,67,233'
+ColorMutator::toRGB('#7357ff'); // 'rgb(115,87,255)'
+
+// Convert to OKLCH (accepts RGB, HEX, or short OKLCH strings)
+ColorMutator::toOKLCH('rgb(115,87,255)'); // 'oklch(65.07% 0.20052 282.513)'
 ```
 
 <a name="service-provider"></a>
@@ -203,10 +280,14 @@ class MoonShineServiceProvider extends ServiceProvider
         ColorManagerContract $colors,
     ): void
     {
-        $colors->primary('#7843e9');
+        $colors->palette(new \App\MoonShine\Palettes\CorporatePalette());
+
+        $colors->primary('oklch(65% 0.18 264)');
+        $colors->successBg('oklch(70% 0.15 142)');
     }
 }
 ```
 
 > [!WARNING]
-> `Layout` loads after `ServiceProvider` and will take precedence, so when setting colors through `ServiceProvider`, ensure they are not overridden in `Layout`.
+> `Layout` loads after `ServiceProvider` and will take precedence.  
+> When using palettes globally, make sure the target layout does not override colors or provide its own `$palette`.
