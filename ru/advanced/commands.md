@@ -29,6 +29,7 @@ php artisan moonshine:install
 ```
 
 Сигнатура:
+
 ```
 moonshine:install {--u|without-user} {--m|without-migrations} {--l|default-layout} {--a|without-auth} {--d|without-notifications} {--t|tests-mode} {--Q|quick-mode}
 ```
@@ -37,7 +38,7 @@ moonshine:install {--u|without-user} {--m|without-migrations} {--l|default-layou
 
 - `--u|without-user` - без создания супер-пользователя,
 - `--m|without-migrations` - без выполнения миграций,
-- `--l|default-layout` - выбор шаблона по умолчанию (без вопроса про компактную тему),
+- `--l|default-layout` - выбор шаблона по умолчанию,
 - `--a|without-auth` - без аутентификации,
 - `--d|without-notifications` - без уведомлений,
 - `--t|tests-mode` - тестовый режим,
@@ -56,6 +57,7 @@ php artisan moonshine:user
 ```
 
 Сигнатура:
+
 ```
 moonshine:user {--u|username=} {--N|name=} {--p|password=}
 ```
@@ -149,13 +151,11 @@ php artisan moonshine:layout
 
 Сигнатура:
 ```
-moonshine:layout {className?} {--compact} {--full} {--default} {--dir=} {--base-dir=} {--base-namespace=}
+moonshine:layout {className?} {--default} {--dir=} {--base-dir=} {--base-namespace=}
 ```
 
 Доступные опции:
 
-- `--compact` - наследует компактную тему,
-- `--full` - наследует базовую тему,
 - `--default` - установить в конфиге как шаблон по умолчанию,
 - `--dir=` - директория, в которой будут располагаться файлы относительно `app/MoonShine`, по умолчанию `Layouts`,
 - `--base-dir=, --base-namespace=` - изменить базовую директорию и неймспейс класса.

@@ -130,7 +130,7 @@ tab: Blade
 tab: Class
 ```php
 Tabs::make([
-    // ..
+    // ...
 ])->vertical(),
 ```
 tab: Blade
@@ -166,7 +166,7 @@ tab: Blade
 ```php
 Tabs::make([
     Tabs\Tab::make([
-        // ..
+        // ...
     ])->labelAttributes(['x-show' => '!flag'])
 ]),
 ```

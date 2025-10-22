@@ -166,7 +166,7 @@ class CustomPage extends Page
 <a name="layout"></a>
 ## Шаблон
 
-По умолчанию страницы используют шаблон отображения `AppLayout` или `CompactLayout`.
+По умолчанию страницы используют шаблон отображения `AppLayout`.
 Подробнее про шаблоны читайте в разделе [Layout](/docs/{{version}}/appearance/layout).
 
 ```php

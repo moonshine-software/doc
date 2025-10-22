@@ -11,7 +11,8 @@
 <a name="intro"></a>
 ## Вступление
 
-Данный рецепт демонстрирует использование **MoonShine** не в роли панели администратора, а в роли личного кабинета под модель `User` с логином, регистрацией, восстановлением пароля и профилем (базовый набор).
+Данный рецепт демонстрирует использование **MoonShine** не в роли панели администратора,
+а в роли личного кабинета под модель `User` с логином, регистрацией, восстановлением пароля и профилем (базовый набор).
 Хороший пример работы с разными `Layout` под разные страницы.
 
 <a name="routes"></a>
@@ -19,12 +20,12 @@
 
 Начнем с маршрутизации, но для начала создадим несколько контроллеров:
 
-- `AuthenticateController`
-- `ForgotController`
-- `ProfileController`
-- `RegisterController`
+- `AuthenticateController`,
+- `ForgotController`,
+- `ProfileController`,
+- `RegisterController`.
 
-Объявим маршруты в `routes/web.php`:
+Объявим маршруты в `routes/web.php`.
 
 ```php
 use App\Http\Controllers\AuthenticateController;
@@ -59,25 +60,26 @@ Route::controller(ProfileController::class)->middleware('auth')->prefix('profile
 ```
 
 > [!NOTE]
-> `ResetPasswordPage` мы создадим немного позже
+> `ResetPasswordPage` мы создадим немного позже.
 
 <a name="layouts"></a>
 ## Layouts
 
-У нас будут страницы с формами входа, регистрации и восстановления пароля и они будут отличаться шаблоном от страницы с профилем пользователя, поэтому нам необходимо создать 2 шаблона:
+У нас будут страницы с формами входа, регистрации и восстановления пароля и они будут отличаться шаблоном
+от страницы с профилем пользователя, поэтому нам необходимо создать 2 шаблона:
 
-- `AppLayout` - для профиля
-- `FormLayout` - для аутентификации
+- `ProfileLayout` - для профиля,
+- `FormLayout` - для аутентификации.
 
-### AppLayout
+### ProfileLayout
 
-Начнем с выполнения команды на создание шаблона
+Начнем с выполнения команды на создание шаблона.
 
 ```shell
-php artisan moonshine:layout AppLayout --compact
+php artisan moonshine:layout ProfileLayout
 ```
 
-Далее соберем конструктор из нужных нам компонентов
+Далее соберем конструктор из нужных нам компонентов.
 
 ```php
 namespace App\MoonShine\Layouts;
@@ -87,7 +89,7 @@ use App\MoonShine\Resources\PackageResource;
 use App\MoonShine\Resources\UserResource;
 use MoonShine\ColorManager\ColorManager;
 use MoonShine\Contracts\ColorManager\ColorManagerContract;
-use MoonShine\Laravel\Layouts\CompactLayout;
+use MoonShine\Laravel\Layouts\AppLayout;
 use MoonShine\MenuManager\MenuGroup;
 use MoonShine\MenuManager\MenuItem;
 use MoonShine\UI\Components\{Components,
@@ -99,7 +101,7 @@ use MoonShine\UI\Components\{Components,
     Layout\Layout,
     Layout\Wrapper};
 
-final class AppLayout extends CompactLayout
+final class ProfileLayout extends AppLayout
 {
     protected function getHomeUrl(): string
     {
@@ -139,13 +141,13 @@ final class AppLayout extends CompactLayout
 ### FormLayout
 
 ```shell
-php artisan moonshine:layout FormLayout --compact
+php artisan moonshine:layout FormLayout
 ```
 
 ```php
 namespace App\MoonShine\Layouts;
 
-use MoonShine\Laravel\Layouts\CompactLayout;
+use MoonShine\Laravel\Layouts\AppLayout;
 use MoonShine\UI\Components\{Components,
     FlexibleRender,
     Heading,
@@ -157,7 +159,7 @@ use MoonShine\UI\Components\{Components,
     Layout\Layout,
     Layout\Wrapper};
 
-final class FormLayout extends CompactLayout
+final class FormLayout extends AppLayout
 {
     protected function getHomeUrl(): string
     {
@@ -195,11 +197,11 @@ final class FormLayout extends CompactLayout
 <a name="pages"></a>
 ## Страницы
 
-Создадим страницы **MoonShine** для отображения данных:
+Создадим страницы **MoonShine** для отображения данных.
 
 ### LoginPage
 
-Выполним команду создания страницы, а тип выберем `Custom`:
+Выполним команду создания страницы, а тип выберем `Custom`.
 
 ```shell
 php artisan moonshine:page LoginPage
@@ -276,7 +278,7 @@ class LoginPage extends Page
 }
 ```
 
-Также обратите внимание, что у страниц мы указываем нужный шаблон
+Также обратите внимание, что у страниц мы указываем нужный шаблон.
 
 ```php
 protected ?string $layout = FormLayout::class;
@@ -610,7 +612,7 @@ final class AuthenticateController extends Controller
 
     public function authenticate(AuthenticateFormRequest $request): RedirectResponse
     {
-        if(!auth()->attempt($request->validated())) {
+        if (!auth()->attempt($request->validated())) {
             return back()->withErrors([
                 'email' => __('moonshine::auth.failed')
             ]);
@@ -638,7 +640,7 @@ final class AuthenticateController extends Controller
 }
 ```
 
-Обратите внимание на то как мы рендерим страницы в контроллерах
+Обратите внимание на то, как мы рендерим страницы в контроллерах.
 
 ```php
 public function form(LoginPage $page): LoginPage
@@ -647,7 +649,7 @@ public function form(LoginPage $page): LoginPage
 }
 ```
 
-Также буду выкладывать и `FormRequest` классы, чтобы рецепт был максимально готовым
+Также буду выкладывать и `FormRequest` классы, чтобы рецепт был максимально готовым.
 
 ```php
 namespace App\Http\Requests;
@@ -823,7 +825,7 @@ final class ProfileController extends Controller
     {
         $data = $request->only(['email', 'name']);
 
-        if($request->filled('password')) {
+        if ($request->filled('password')) {
             $data['password'] = Hash::make($request->input('password'));
         }
 
@@ -926,4 +928,4 @@ class RegisterFormRequest extends FormRequest
 }
 ```
 
-Вот и все! **MoonShine** не ограничивает вас только панелью администратора, ведь это полноценный UI kit
+Вот и все! **MoonShine** не ограничивает вас только панелью администратора, ведь это полноценный UI kit.

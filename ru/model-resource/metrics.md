@@ -40,7 +40,7 @@ class PostResource extends ModelResource
 > [!NOTE]
 > Для более подробной информации, обратитесь к разделам [Metrics](/docs/{{version}}/components/metrics).
 
-Если вам необходимо обвернуть метрики во `Fragment`:
+Если вам необходимо обернуть метрики во `Fragment`:
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}

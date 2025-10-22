@@ -208,13 +208,13 @@ namespace App\MoonShine\Layouts;
 
 use App\MoonShine\Resources\PostResource;
 
-use MoonShine\Laravel\Layouts\CompactLayout;
+use MoonShine\Laravel\Layouts\AppLayout;
 use MoonShine\Laravel\Resources\MoonShineUserResource;
 use MoonShine\Laravel\Resources\MoonShineUserRoleResource;
 use MoonShine\MenuManager\MenuGroup;
 use MoonShine\MenuManager\MenuItem; // [tl! collapse:end]
 
-final class MoonShineLayout extends CompactLayout
+final class MoonShineLayout extends AppLayout
 {
     // ...
 

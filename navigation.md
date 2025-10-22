@@ -58,7 +58,6 @@
     - [RangeSlider](/docs/{{version}}/fields/range-slider)
     - [Select](/docs/{{version}}/fields/select)
     - [Slug](/docs/{{version}}/fields/slug)
-    - [StackFields](/docs/{{version}}/fields/stack-fields)
     - [Switcher](/docs/{{version}}/fields/switcher)
     - [Template](/docs/{{version}}/fields/template)
     - [Text](/docs/{{version}}/fields/text)

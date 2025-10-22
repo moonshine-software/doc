@@ -1,7 +1,7 @@
 # Relationship fields in tabs
 
-In this recipe we will show how to customize a page with a form (we took an example of articles from the main demo repository), where we will place the relationship fields in separate tabs,
-and this recipe will also give you an understanding of the enormous possibilities of page customization.
+In this recipe, we will demonstrate how to customize a form page by separating relationship fields into separate tabs,
+and show you how flexibly you can customize pages.
 
 ## Creating a page with a form
 
@@ -57,7 +57,6 @@ use MoonShine\UI\Fields\Json;
 use MoonShine\UI\Fields\Number;
 use MoonShine\UI\Fields\Preview;
 use MoonShine\UI\Fields\RangeSlider;
-use MoonShine\UI\Fields\StackFields;
 use MoonShine\UI\Fields\Switcher;
 use MoonShine\UI\Fields\Text;
 use MoonShine\UI\Fields\Url;
@@ -106,13 +105,6 @@ final class ArticleFormPage extends FormPage
                                 ->name('flex-titles')
                                 ->justifyAlign('start')
                                 ->itemsAlign('start'),
-                        ]),
-
-                        StackFields::make('Files')->fields([
-                            Image::make('Thumbnail')
-                                ->removable()
-                                ->disk('public')
-                                ->dir('articles'),
                         ]),
 
                         Preview::make('No input field', 'no_input', static fn () => fake()->realText()),
@@ -223,7 +215,7 @@ final class ArticleFormPage extends FormPage
 }
 ```
 
-It is worth paying attention to the fact that we have moved the `HasOne` and `HasMany` fields into separate methods, which we also duplicate in the `fields` method.
+Please note that we have moved the `HasOne` and `HasMany` fields into separate methods, which we also duplicate in the `fields()` method.
 This is necessary so that **MoonShine**, when interacting with fields, can find them in the system.
 
 ```php
@@ -288,10 +280,10 @@ final class ArticleFormPage extends FormPage
 ```
 
 > [!NOTE]
-> The `bottomLayer` method has been nulled to avoid duplicating relationship fields under the main form
+> The `bottomLayer()` method has been nulled to avoid duplicating relationship fields under the main form.
 
-Additionally, in this recipe we have added `TableBuilder`, where we also display data from the relationship, thereby we want to show that you are not limited only by fields,
-You can also display your own tables and forms
+Additionally, in this recipe we use the `TableBuilder` component to output data from relationships, demonstrating
+that your capabilities are not limited to standard fields - you can create additional tables and forms yourself.
 
 > [!WARNING]
 > For more complex page customization, you must follow the following rules:

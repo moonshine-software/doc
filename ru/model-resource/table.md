@@ -60,7 +60,7 @@ class PostResource extends ModelResource
 Для добавления кнопок в таблицу используются `ActionButton` и методы `indexButtons()`, а также `detailButtons()` для детальной страницы.
 
 > [!TIP]
-> [Подробнее об ActionButton](/docs/{{version}}/components/action-button)
+> [Подробнее об ActionButton](/docs/{{version}}/components/action-button).
 
 После основных:
 
@@ -464,52 +464,21 @@ class PostResource extends ModelResource
 
 У таблицы можно асинхронно обновить ряд, для этого необходимо вызвать событие:
 
-```php
-table-row-updated-{{componentName}}-{{row-id}}
+```
+table-row-updated:{{componentName}}
 ```
 
-- `{{componentName}}` - название компонента;
-- `{{row-id}}` - ключ элемента ряда
+- `{{componentName}}` - имя компонента.
 
 Для добавления события можно воспользоваться классом-помощником:
 
 ```php
-AlpineJs::event(JsEvent::TABLE_ROW_UPDATED, 'main-table-{row-id}')
+AlpineJs::event(
+    JsEvent::TABLE_ROW_UPDATED,
+    'main-table',
+    ListRowEventParams::make(1)
+)
 ```
-
-- `{row-id}` - shortcode для id текущей записи модели.
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:8]
-namespace App\MoonShine\Resources;
-
-use MoonShine\UI\Fields\ID;
-use MoonShine\UI\Fields\Switcher;
-use MoonShine\UI\Fields\Text;
-use MoonShine\Laravel\Resources\ModelResource;
-use MoonShine\Support\AlpineJs;
-use MoonShine\Support\Enums\JsEvent;
-
-class PostResource extends ModelResource
-{
-    // ...
-
-    protected function indexFields(): iterable
-    {
-        return [
-            ID::make(),
-            Text::make('Title'),
-            Switcher::make('Active')
-                ->updateOnPreview(
-                    events: [AlpineJs::event(JsEvent::TABLE_ROW_UPDATED, $this->getListComponentNameWithRow())]
-                )
-        ];
-    }
-}
-```
-
-Также пример ответа с событием.
 
 ```php
 public function softDelete(MoonShineRequest $request): MoonShineJsonResponse
@@ -519,7 +488,11 @@ public function softDelete(MoonShineRequest $request): MoonShineJsonResponse
 
     return MoonShineJsonResponse::make()
         ->events([
-            AlpineJs::event(JsEvent::TABLE_ROW_UPDATED, $this->getListComponentNameWithRow($item->getKey()))
+            AlpineJs::event(
+                JsEvent::TABLE_ROW_UPDATED,
+                $this->getListComponentName(),
+                ListRowEventParams::make($item->getKey())
+            )
         ])
         ->toast('Success');
 }

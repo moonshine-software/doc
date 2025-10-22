@@ -73,7 +73,7 @@ If you want to disable the built-in authentication of **MoonShine**.
 ```php
 'auth' => [
     'enabled' => false,
-    // ..
+    // ...
 ],
 ```
 

@@ -17,6 +17,7 @@
 - [Additional Features](#additional-features)
   - [Adding New Rows](#adding-new-rows)
   - [Reindexing](#reindexing)
+  - [Keyless Mode](#without-key)
   - [Drag and Drop Sorting](#drag-and-drop-sorting)
   - [Sticky Header](#sticky-header)
   - [Column Selection](#column-selection)
@@ -44,7 +45,9 @@
 <a name="basics"></a>
 ## Basics
 
-`TableBuilder` is a tool in **MoonShine** for creating customizable tables for displaying data. It is used on index and detail CRUD pages, as well as for relationship fields such as `HasMany`, `BelongsToMany`, `RelationRepeater`, and `Json` fields.
+`TableBuilder` is a tool in **MoonShine** for creating customizable tables for displaying data.
+It is used on index and detail CRUD pages, as well as for relationship fields
+such as `HasMany`, `BelongsToMany`, `RelationRepeater`, and `Json` fields.
 
 ~~~tabs
 tab: Class
@@ -76,11 +79,11 @@ Example of using `TableBuilder`:
 ```php
 TableBuilder::make()
     ->items([
-      ['id' => 1, 'title' => 'Hello world']
+        ['id' => 1, 'title' => 'Hello world']
     ])
     ->fields([
         ID::make()->sortable(),
-        Text::make('Title', 'title'),
+        Text::make('Title'),
     ])
 ```
 
@@ -91,29 +94,30 @@ TableBuilder::make()
 ### Fields
 
 Fields for `TableBuilder` simplify the filling of data and displaying table cells.
-By default, fields are displayed in `preview` mode.
-The `fields` method defines the table fields, each field is a table cell (`td`):
+By default, fields are displayed in "preview" mode.
+The `fields()` method defines the table fields, each field is a table cell (`td`).
 
 ```php
 ->fields([
     ID::make()->sortable(),
-    Text::make('Title', 'title'),
+    Text::make('Title'),
 ])
 ```
 
-If you need to specify attributes for `td`, use the `customWrapperAttributes` method:
+If you need to specify attributes for `td`, use the `customWrapperAttributes()` method.
 
 ```php
 ->fields([
     ID::make()->sortable(),
-    Text::make('Title', 'title')->customWrapperAttributes(['class' => 'my-class']),
+    Text::make('Title')
+        ->customWrapperAttributes(['class' => 'my-class']),
 ])
 ```
 
 <a name="items"></a>
 ### Items
 
-The `items()` method sets the data for the table:
+The `items()` method sets the data for the table.
 
 ```php
 ->items($this->getCollection())
@@ -122,17 +126,18 @@ The `items()` method sets the data for the table:
 <a name="paginator"></a>
 ### Paginator
 
-The `paginator` method sets the paginator for the table. You need to pass an object that implements the `MoonShine\Contracts\Core\Paginator\PaginatorContract` interface:
+The `paginator()` method sets the paginator for the table.
+You need to pass an object that implements the `MoonShine\Contracts\Core\Paginator\PaginatorContract` interface.
 
 > [!NOTE]
-> If you need to specify a paginator for QueryBuilder, you can use the built-in `ModelCaster`, as in the example below:
+> If you need to specify a paginator for QueryBuilder, you can use the built-in `ModelCaster`, as in the example below.
 
 ```php
 ->paginator(
-  (new ModelCaster(Article::class))
-    ->paginatorCast(
-        Article::query()->paginate()
-    )
+    (new ModelCaster(Article::class))
+        ->paginatorCast(
+            Article::query()->paginate()
+        )
 )
 ```
 
@@ -142,7 +147,7 @@ The `paginator` method sets the paginator for the table. You need to pass an obj
 <a name="simple-paginate"></a>
 ### Simple Paginator
 
-The `simple()` method applies a simplified pagination style to the table:
+The `simple()` method applies a simplified pagination style to the table.
 
 ```php
 ->simple()
@@ -151,7 +156,7 @@ The `simple()` method applies a simplified pagination style to the table:
 <a name="buttons"></a>
 ### Buttons
 
-The `buttons` method adds action buttons:
+The `buttons()` method adds action buttons.
 
 ```php
 ->buttons([
@@ -162,15 +167,18 @@ The `buttons` method adds action buttons:
 ])
 ```
 
-To specify bulk actions on table items, the `bulk()` method should be set on `ActionButton`:
+To specify bulk actions on table items, the `bulk()` method should be set on `ActionButton`.
 
 ```php
 ->buttons([
-    ActionButton::make('Mass Delete', fn() => route('name.mass_delete'))->bulk(),
+    ActionButton::make(
+        'Mass Delete',
+        fn() => route('name.mass_delete')
+    )->bulk(),
 ])
 ```
 
-If you need to stick buttons, then use the `stickyButtons()` method:
+If you need to stick buttons, then use the `stickyButtons()` method.
 
 ```php
 ->stickyButtons()
@@ -182,13 +190,20 @@ If you need to stick buttons, then use the `stickyButtons()` method:
 <a name="vertical-display"></a>
 ### Vertical Display
 
-The `vertical()` method displays the table in vertical format (used on `DetailPage`):
+The `vertical()` method displays the table in vertical format (used on `DetailPage`).
 
 ```php
 ->vertical()
 ```
 
-If you want to change the attributes of the columns in vertical mode, use the `title` or `value` parameters:
+If you want to change the attributes of the columns in vertical mode, use the `title` or `value` parameters.
+
+```php
+vertical(null|Closure|int $title = null, null|Closure|int $value = null)
+```
+
+- `title` - Column with the header,
+- `value` - Column with the value.
 
 ```php
 /** @param TableBuilder $component */
@@ -201,10 +216,7 @@ public function modifyDetailComponent(ComponentContract $component): ComponentCo
 }
 ```
 
-- `title` - Column with the header
-- `value` - Column with the value
-
-You can also pass an integer value to specify the columns:
+You can also pass an integer value to specify the columns.
 
 ```php
 $component->vertical(
@@ -216,7 +228,7 @@ $component->vertical(
 <a name="editable-table"></a>
 ### Editable Table
 
-The `editable()` method makes the table editable, switching all fields to `defaultMode` (form mode):
+The `editable()` method makes the table editable. All fields are set to `defaultMode` (form mode).
 
 ```php
 ->editable()
@@ -225,7 +237,7 @@ The `editable()` method makes the table editable, switching all fields to `defau
 <a name="preview-table"></a>
 ### Preview Mode
 
-The `preview()` method disables the display of buttons and sorting for the table:
+The `preview()` method disables the display of buttons and sorting for the table.
 
 ```php
 ->preview()
@@ -235,60 +247,57 @@ The `preview()` method disables the display of buttons and sorting for the table
 ### With "Not Found" Notification
 
 By default, if the table has no data, it will be empty, but you can display a message saying "No records found yet."
-To do this, use the `withNotFound()` method:
+To do this, use the `withNotFound()` method.
 
 ```php
-TableBuilder::make()
-    ->withNotFound()
+->withNotFound()
 ```
 
 <a name="rows"></a>
 ### Row Customization
 
-Fields accelerate the process and fill the table independently, constructing the table header with field headers and sorts, the body of the table with data output through fields, and the footer of the table with bulk actions. However, sometimes there may be a need to specify rows manually or add additional ones.
+Fields accelerate the process and fill the table independently, constructing the table header with field headers and sorts,
+the body of the table with data output through fields, and the footer of the table with bulk actions.
+However, sometimes there may be a need to specify rows manually or add additional ones.
 For this task, methods are provided for the corresponding sections of the table: `headRows` (`thead`), `rows` (`tbody`), `footRows` (`tfoot`).
 
 ```php
 // tbody
 TableBuilder::make()
-  ->rows(
-    static fn(TableRowsContract $default) => $default->pushRow(
-        TableCells::make()->pushCell(
-            'td content'
+    ->rows(
+        static fn(TableRowsContract $default) => $default->pushRow(
+            TableCells::make()->pushCell('td content')
         )
     )
-  )
 
 // thead
 TableBuilder::make()
-  ->headRows(
-    static fn(TableRowContract $default) => TableRows::make([$default])->pushRow(
-        TableCells::make()->pushCell(
-            'td content'
+    ->headRows(
+        static fn(TableRowContract $default) => TableRows::make([$default])->pushRow(
+            TableCells::make()->pushCell('td content')
         )
     )
-  )
 
 // tfoot
 TableBuilder::make()
-  ->footRows(
-    static fn(?TableRowContract $default) => TableRows::make([$default])->pushRow(
-        TableCells::make()->pushCell(
-            'td content'
+    ->footRows(
+        static fn(?TableRowContract $default) => TableRows::make([$default])->pushRow(
+            TableCells::make()->pushCell('td content')
         )
     )
-  )
 ```
+
 > [!NOTE]
-> Note that for `footRows`, a `?TableRowContract` is passed, and the value of `$default` will be passed as `null` if there are no bulk action buttons. The `null` value can be specified in the `$items` list in `TableRows::make`, and it will be ignored.
+> Note that for `footRows`, a `?TableRowContract` is passed, and the value of `$default` will be passed as `null` if there are no bulk action buttons.
+> The `null` value can be specified in the `$items` list in `TableRows::make`, and it will be ignored.
 
 `TableRows` and `TableCells` are collections of components with additional functionality for quickly adding a row or cell to the table.
 
 ```php
 TableRows::make()->pushRow(
-  TableCellsContract $cells,
-  int|string|null $key = null,
-  ?Closure $builder = null
+    TableCellsContract $cells,
+    int|string|null $key = null,
+    ?Closure $builder = null
 )
 ```
 
@@ -298,10 +307,10 @@ TableRows::make()->pushRow(
 
 ```php
 TableCells::make()->pushCell(
-  Closure|string $content,
-  ?int $index = null,
-  ?Closure $builder = null,
-  array $attributes = []
+    Closure|string $content,
+    ?int $index = null,
+    ?Closure $builder = null,
+    array $attributes = []
 )
 ```
 
@@ -312,21 +321,21 @@ TableCells::make()->pushCell(
 
 `TableCells` also has additional helper methods.
 
-`pushFields` for quick generation of cells based on fields:
+The `pushFields()` method for quickly generating cells based on fields.
 
 ```php
 TableCells::make()->pushFields(
-  FieldsContract $fields,
-  ?Closure $builder = null,
-  int $startIndex = 0
+    FieldsContract $fields,
+    ?Closure $builder = null,
+    int $startIndex = 0
 )
 ```
 
 - `$fields` - collection of fields,
 - `$builder` - access to `TableBuilder`,
-- `$startIndex` - starting index (since there may have already been cells added to the table previously)
+- `$startIndex` - starting index (since there may have already been cells added to the table previously).
 
-Conditional methods `pushWhen` and `pushCellWhen` are also available.
+Conditional methods `pushWhen()` and `pushCellWhen()` are also available.
 
 <a name="additional-features"></a>
 ## Additional Features
@@ -334,11 +343,7 @@ Conditional methods `pushWhen` and `pushCellWhen` are also available.
 <a name="adding-new-rows"></a>
 ### Adding New Rows
 
-The `creatable()` method allows adding new rows, making the table dynamic:
-
-```php
-->creatable(reindex: true, limit: 5, label: 'Add', icon: 'plus', attributes: ['class' => 'my-class'])
-```
+The `creatable()` method allows adding new rows, making the table dynamic.
 
 ```php
 creatable(
@@ -358,10 +363,20 @@ creatable(
 - `$attributes` - additional attributes,
 - `$button` - custom add button.
 
+```php
+->creatable(
+    reindex: true,
+    limit: 5,
+    label: 'Add',
+    icon: 'plus',
+    attributes: ['class' => 'my-class']
+)
+```
+
 > [!NOTE]
 > In add mode, it is necessary for the last element to be empty (skeleton for a new record)!
 
-If there are fields in the table in editing mode with dynamic name, you need to add the method or parameter `reindex`:
+If there are fields in the table in editing mode with dynamic name, you need to add the method or parameter `$reindex`.
 
 ```php
 TableBuilder::make()
@@ -375,10 +390,9 @@ TableBuilder::make()
 Example with specifying a custom add button:
 
 ```php
-TableBuilder::make()
-    ->creatable(
-        button: ActionButton::make('Foo', '#')
-    )
+->creatable(
+    button: ActionButton::make('Foo', '#')
+)
 ```
 
 <a name="reindexing"></a>
@@ -392,10 +406,21 @@ In `creatable` or `removable` mode, when adding/removing a new row, all `name` a
 ->reindex()
 ```
 
+<a name="without-key"></a>
+### Keyless Mode
+
+The `withoutKey()` method forces the table to use ordinal indexes instead of a unique row key.
+This is useful when the data source may contain duplicate identifiers - for example,
+when working with `BelongsToMany::deduplication(false)` or any collections where the same model must be rendered multiple times.
+
+```php
+->withoutKey()
+```
+
 <a name="drag-and-drop-sorting"></a>
 ### Drag and Drop Sorting
 
-The `reorderable()` method adds the ability to sort rows by dragging:
+The `reorderable()` method adds the ability to sort rows by dragging.
 
 ```php
 ->reorderable(url: '/reorder-url', key: 'id', group: 'group-name')
@@ -408,7 +433,7 @@ The `reorderable()` method adds the ability to sort rows by dragging:
 <a name="sticky-header"></a>
 ### Sticky Header
 
-The `sticky()` method makes the table header fixed:
+The `sticky()` method makes the table header fixed.
 
 ```php
 ->sticky()
@@ -417,13 +442,13 @@ The `sticky()` method makes the table header fixed:
 <a name="column-selection"></a>
 ### Column Selection
 
-The `columnSelection()` method adds the ability to select displayed columns:
+The `columnSelection()` method adds the ability to select displayed columns.
 
 ```php
 ->columnSelection()
 ```
 
-If you need to disable the display selection for certain fields, use the `columnSelection` method on the field with the parameter set to `false`:
+If you need to disable the display selection for certain fields, use the `columnSelection` method on the field with the parameter set to `false`.
 
 ```php
 TableBuilder::make()
@@ -451,14 +476,14 @@ The `searchable()` method adds the search function for the table:
 <a name="click-action"></a>
 ### Click Action
 
-The `clickAction()` method sets an action to be performed on clicking the row:
+The `clickAction()` method sets an action to be performed on clicking the row.
 In the example below, clicking the table row will trigger a click on the edit button.
 
 ```php
 ->clickAction(ClickAction::EDIT)
 ```
 
-If you use custom buttons or have overridden the default buttons, you may also need to specify a button selector:
+If you use custom buttons or have overridden the default buttons, you may also need to specify a button selector.
 
 ```php
 ->clickAction(ClickAction::EDIT, '.edit-button')
@@ -473,7 +498,7 @@ Types of ClickAction:
 <a name="save-state-in-url"></a>
 ### Save State in URL
 
-The `pushState()` method saves the state of the table in the URL:
+The `pushState()` method saves the state of the table in the URL.
 
 ```php
 ->pushState()
@@ -483,11 +508,13 @@ The `pushState()` method saves the state of the table in the URL:
 ### Modify Row Checkbox
 
 The `modifyRowCheckbox()` method allows modifying the bulk action checkbox.
-The example below demonstrates selecting the active checkbox by default:
+The example below demonstrates selecting the active checkbox by default.
 
 ```php
 ->modifyRowCheckbox(
-    fn(Checkbox $checkbox, DataWrapperContract $data, TableBuilder $ctx) => $data->getKey() === 2 ? $checkbox->customAttributes(['checked' => true]) : $checkbox
+    fn(Checkbox $checkbox, DataWrapperContract $data, TableBuilder $ctx) => $data->getKey() === 2
+        ? $checkbox->customAttributes(['checked' => true])
+        : $checkbox
 )
 ```
 
@@ -498,14 +525,14 @@ You can add content above the table on the left or right using the `topLeft()` a
 
 ```php
 TableBuilder::make()
-    // ..
+    // ...
     ->topLeft(function (): array {
         return [];
     })
     ->topRight(function (): array {
         return [
             Div::make([
-                // ..
+                // ...
             ])
         ];
     })
@@ -514,7 +541,8 @@ TableBuilder::make()
 <a name="form-builder-filters"></a>
 ### Filters via FormBuilder
 
-Using the `withFilters()` method you can add a `FormBuilder` with fields to filter the data in the table. After submitting the form, the data will be loaded again.
+Using the `withFilters()` method you can add a `FormBuilder` with fields to filter the data in the table.
+After submitting the form, the data will be loaded again.
 
 ```php
 ->withFilters(formName: 'dashboard-form')
@@ -554,30 +582,31 @@ TableBuilder::make()
 <a name="attribute-configuration"></a>
 ## Attribute Configuration
 
-`TableBuilder` provides methods for configuring HTML attributes:
+`TableBuilder` provides methods for configuring HTML attributes.
 
 ```php
-->trAttributes(fn(?DataWrapperContract $data, int $row): array => ['class' => $row % 2 ? 'bg-gray-100' : ''])
-->tdAttributes(fn(?DataWrapperContract $data, int $row, int $cell): array => ['class' => $cell === 0 ? 'font-bold' : ''])
-->headAttributes(['class' => 'bg-blue-500 text-white'])
-->bodyAttributes(['class' => 'text-sm'])
-->footAttributes(['class' => 'bg-gray-200'])
-->customAttributes(['class' => 'custom-table'])
+TableBuilder::make()
+    ->trAttributes(fn(?DataWrapperContract $data, int $row): array => ['class' => $row % 2 ? 'bg-gray-100' : ''])
+    ->tdAttributes(fn(?DataWrapperContract $data, int $row, int $cell): array => ['class' => $cell === 0 ? 'font-bold' : ''])
+    ->headAttributes(['class' => 'bg-blue-500 text-white'])
+    ->bodyAttributes(['class' => 'text-sm'])
+    ->footAttributes(['class' => 'bg-gray-200'])
+    ->customAttributes(['class' => 'custom-table'])
 ```
 
 <a name="async-loading"></a>
 ## Async Loading
 
-The `async()` method configures asynchronous loading of the table:
+The `async()` method configures asynchronous loading of the table.
 
 > [!NOTE]
-> The `async` method must be after the `name` method
+> The `async()` method must be after the `name` method.
 
 ```php
 ->async(
-  Closure|string|null $url = null,
-  string|array|null $events = null,
-  ?AsyncCallback $callback = null,
+    Closure|string|null $url = null,
+    string|array|null $events = null,
+    ?AsyncCallback $callback = null,
 )
 ```
 
@@ -585,39 +614,47 @@ The `async()` method configures asynchronous loading of the table:
 - `$events` - events that will be triggered after a successful response,
 - `$callback` - JS callback that can be added as a wrapper for the response.
 
-After a successful request, you can trigger events by adding the `events` parameter.
+After a successful request, you can trigger events by adding the `$events` parameter.
 
 ```php
 use MoonShine\Support\AlpineJs;
 use MoonShine\Support\Enums\JsEvent;
 
 TableBuilder::make()
-        ->name('crud')
-        ->async(events: [
-          AlpineJs::event(JsEvent::FORM_RESET, 'main-form'),
-          AlpineJs::event(JsEvent::TOAST, params: ['text' => 'Success', 'type' => 'success']),
-        ])
+    ->name('crud')
+    ->async(events: [
+        AlpineJs::event(JsEvent::FORM_RESET, 'main-form'),
+        AlpineJs::event(JsEvent::TOAST, params: ['text' => 'Success', 'type' => 'success']),
+    ])
 ```
 
 Event list for `TableBuilder`:
 
 - `JsEvent::TABLE_UPDATED` - table update,
-- `JsEvent::TABLE_REINDEX` - table reindexing (see `reindex()`)
-- `JsEvent::TABLE_ROW_UPDATED` - table row update (`AlpineJs::event(JsEvent::TABLE_ROW_UPDATED, "{component-name}-{row-id}")`)
+- `JsEvent::TABLE_REINDEX` - table reindexing (see `reindex()`),
+- `JsEvent::TABLE_ROW_UPDATED` - table row update (`AlpineJs::event(JsEvent::TABLE_ROW_UPDATED, "{component-name}")`),
+- `JsEvent::TABLE_ROW_ADDED` - append new cloned row,
+- `JsEvent::TABLE_EMPTY_ROW_ADDED` - append/prepend new row.
 
 > [!NOTE]
 > For more information on js events, refer to the [Events](/docs/{{version}}/frontend/js#events) section.
 
-All parameters of the `async` method are optional, and by default, `TableBuilder` will automatically set URL based on the current page.
+All parameters of the `async()` method are optional, and by default, `TableBuilder` will automatically set URL based on the current page.
 
-In the process of using `TableBuilder` in `async` mode, there may arise a task where you use it outside the admin panel on pages that are not declared in the **MoonShine** system.
-Then you will need to specify your own URL and implement a response with the HTML table. Let's consider an implementation example:
+In the process of using `TableBuilder` in `async` mode, there may arise a task
+where you use it outside the admin panel on pages that are not declared in the **MoonShine** system.
+Then you will need to specify your own URL and implement a response with the HTML table.
+Let's consider an implementation example:
 
 ```php
-TableBuilder::make()->name('my-table')->async(route('undefined-page.component', [
-    '_namespace' => self::class,
-    '_component_name' => 'my-table'
-]))
+TableBuilder::make()
+    ->name('my-table')
+    ->async(
+        route('undefined-page.component', [
+            '_namespace' => self::class,
+            '_component_name' => 'my-table'
+        ])
+    )
 ```
 
 `Controller`
@@ -690,7 +727,7 @@ TableBuilder::make()
             Http::get('https://jsonplaceholder.org/posts')->json()
         )
     )
-    ->withNotFound()
+    ->withNotFound(),
 ```
 
 <a name="type-cast"></a>
@@ -719,7 +756,7 @@ TableBuilder::make()
   ]),
 ```
 
-The `cast` method is used to cast values in the table to a certain type.
+The `cast()` method is used to cast values in the table to a certain type.
 Since by default, fields work with primitive types:
 
 ```php
@@ -903,18 +940,14 @@ Available classes:
 
 To enable and disable the skeleton mode in a table, use the `sceleton()` method.
 
-Example of using `sceleton()`:
-
 ```php
-TableBuilder::make()->skeleton(true|false);
+->skeleton(true|false);
 ```
 
 To enable and disable the spinner mode in the table, use the `loader()` method.
 
-Example of using `loader()`:
-
 ```php
-TableBuilder::make()->loader(true|false);
+->loader(true|false);
 ```
 
 `TableBuilder` in **MoonShine** offers a wide range of capabilities for creating flexible and functional tables in the admin panel.

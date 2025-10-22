@@ -13,19 +13,35 @@ Contains all [Basic Methods](/docs/{{version}}/fields/basic-methods).
 
 The `Fieldset` field allows grouping of fields when displayed in preview mode and wraps them in an HTML `fieldset` tag within forms.
 
-The parameter or method `fields()` must accept an array of fields to group.
+```php
+make(
+    string|Closure|null $label = null,
+    iterable|Closure|FieldsContract $fields = []
+)
+```
+
+- `$label` - label,
+- `$fields` - fields for grouping.
+
+Also, fields for grouping can be specified using the `fields()` method.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:3]
-use MoonShine\Laravel\Fields\BelongsTo;
 use MoonShine\UI\Fields\Fieldset;
+use MoonShine\UI\Fields\Slug;
 use MoonShine\UI\Fields\Text;
 
 Fieldset::make('Title', [
     Text::make('Title'),
-    BelongsTo::make('Author', resource: 'name'),
-])
+    Slug::make('Slug'),
+]),
+
+Fieldset::make()
+    ->fields([
+        Text::make('Title'),
+        Slug::make('Slug'),
+    ]),
 ```
 
 <a name="edit-view"></a>
@@ -36,8 +52,8 @@ You can customize the display for `Fieldset` using components.
 ```php
 Fieldset::make('Title', [
     Text::make('Title'),
-    LineBreak::make(), // adds a line break
-    BelongsTo::make('Author', resource: 'name'),
+    LineBreak::make(),
+    Slug::make('Slug'),
 ])
 ```
 

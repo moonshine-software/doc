@@ -3,6 +3,7 @@
 - [Basics](#basics)
 - [Column Label](#label-column)
 - [Pivot](#pivot)
+- [Deduplication](#deduplication)
 - [Creating Relationship Object](#creatable)
 - [Select](#select)
 - [Options](#options)
@@ -152,6 +153,29 @@ BelongsToMany::make(
 > [!WARNING]
 > In the relationship, you must specify which *pivot* fields are used in the intermediate table!
 > For more details, see the official documentation [Laravel](https://laravel.com/docs/eloquent-relationships#retieving-intermediate-table-columns).
+
+<a name="deduplication"></a>
+## Deduplication
+
+By default, `BelongsToMany` prevents duplicate selections by key so the same related model cannot be added twice, even if different *pivot* values are provided. 
+For use cases where you need multiple rows with the same related key (for example, the same category paired with different pivot data), disable the check:
+
+```php
+deduplication(
+    Closure|bool|null $condition = null
+)
+```
+
+```php
+BelongsToMany::make('Categories')
+    ->fields([
+        Text::make('pivot_field'),
+    ])
+    ->deduplication(false)
+```
+
+- The method accepts a `bool` or `Closure`, making it possible to toggle the behaviour dynamically.
+- With deduplication disabled, each row is saved separately and pivot data is applied in the order it was submitted.
 
 <a name="creatable"></a>
 ## Creating Relationship Object
