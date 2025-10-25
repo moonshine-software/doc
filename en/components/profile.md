@@ -3,6 +3,7 @@
 - [Basics](#basics)
 - [Avatar placeholder](#avatar-placeholder)
 - [Menu](#menu)
+- [Update SideBar and TopBar](#update-sidebar-and-topbar)
 
 ---
 
@@ -90,3 +91,12 @@ tab: Blade
 </x-moonshine::layout.profile>
 ```
 ~~~
+
+<a name="update-sidebar-and-topbar"></a>
+## Update SideBar and TopBar
+
+After updating the profile, fragments with the `SideBar` and `TopBar` components are automatically updated so that the user immediately sees the updated profile data and interface elements that depend on this data.
+
+> [!NOTE]
+> Important condition: The `SideBar` and `TopBar` components must be in the `sidebar-content` and `topbar-actions` fragments. The base template `MoonShine\Laravel\Layouts\BaseLayout` implements this by default.
+

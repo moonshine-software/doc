@@ -11,6 +11,7 @@ video: https://www.youtube.com/watch?v=95qxienFmtI
 - [Favicons](#favicons)
 - [Меню](#menu)
     - [Верхнее меню](#top-menu)
+    - [Fragments](#fragments-in-menu)
 - [Темы оформления](#themes)
     - [Тёмная тема](#dark-mode)
     - [Вкл/выкл тем оформления](#toggle-on-off-themes)
@@ -572,6 +573,35 @@ final class MoonShineLayout extends AppLayout
 
 > [!WARNING]
 > Если вы хотите оставить и Sidebar и TopBar одновременно, то обязательно соблюдайте очередность, первым должен идти TopBar.
+
+<a name="fragments-in-menu"></a>
+### Fragments
+
+По умолчанию в базовом шаблоне отдельные части бокового и верхнего меню находятся внутри компонентов `Fragment`. За счёт этого вы можете обновлять их без перезагрузки страницы с помощью событий [JSEvents](/docs/{{version}}/frontend/js#events).
+
+Доступные фрагменты:
+
+- `sidebar-top` - Верхняя часть бокового меню (логотип и переключатель темы оформления),
+- `sidebar-content` - Контентная часть бокового меню,
+- `topbar-logo` - Логотип в верхнем меню,
+- `topbar-menu` - Пункты верхнего меню,
+- `topbar-actions` - Блок действий в верхнем меню (профиль пользователя).
+
+Пример обновления всех блоков меню из метода контроллера:
+
+```php
+public function saveElement(CrudRequestContract $request): JsonResponse
+{
+    //...
+    return JsonResponse::make()->events([
+        AlpineJs::event(JsEvent::FRAGMENT_UPDATED, 'sidebar-top'),
+        AlpineJs::event(JsEvent::FRAGMENT_UPDATED, 'sidebar-content'),
+        AlpineJs::event(JsEvent::FRAGMENT_UPDATED, 'topbar-logo'),
+        AlpineJs::event(JsEvent::FRAGMENT_UPDATED, 'topbar-menu'),
+        AlpineJs::event(JsEvent::FRAGMENT_UPDATED, 'topbar-actions'),
+    ]);
+}
+```
 
 <a name="themes"></a>
 ## Темы оформления
