@@ -220,7 +220,7 @@ final class MoonShineLayout extends AppLayout
 ### Переопределить компонент Head
 
 ```php
-protected function getHeadComponent(): Head
+protected function getHeadComponent(bool $withAssetsFragment = true): Head
 {
     return Head::make([
         // ...
@@ -585,7 +585,8 @@ final class MoonShineLayout extends AppLayout
 - `sidebar-content` - Контентная часть бокового меню,
 - `topbar-logo` - Логотип в верхнем меню,
 - `topbar-menu` - Пункты верхнего меню,
-- `topbar-actions` - Блок действий в верхнем меню (профиль пользователя).
+- `topbar-actions` - Блок действий в верхнем меню,
+- `assets` - Набор стилей и скриптов.
 
 Пример обновления всех блоков меню из метода контроллера:
 
@@ -599,6 +600,7 @@ public function saveElement(CrudRequestContract $request): JsonResponse
         AlpineJs::event(JsEvent::FRAGMENT_UPDATED, 'topbar-logo'),
         AlpineJs::event(JsEvent::FRAGMENT_UPDATED, 'topbar-menu'),
         AlpineJs::event(JsEvent::FRAGMENT_UPDATED, 'topbar-actions'),
+        AlpineJs::event(JsEvent::FRAGMENT_UPDATED, 'assets'),
     ]);
 }
 ```

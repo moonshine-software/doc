@@ -3,7 +3,7 @@
 - [Основы](#basics)
 - [Аватар placeholder](#avatar-placeholder)
 - [Меню](#menu)
-- [Обновление SideBar и TopBar](#update-sidebar-and-topbar)
+- [Fragments](#fragments)
 
 ---
 
@@ -92,10 +92,20 @@ tab: Blade
 ```
 ~~~
 
-<a name="update-sidebar-and-topbar"></a>
-## Обновление SideBar и TopBar
+<a name="fragments"></a>
+## Fragments
 
-После обновления профиля автоматически обновляются фрагменты с компонентами `SideBar` и `TopBar`, чтобы пользователь сразу увидел обновлённые данные профиля и элементы интерфейса, зависящие от этих данных.
+Компонент `Profile` размещен внутри `Fragment`, благодаря чему данные профиля обновляются без перезагрузки страницы при изменении пользователя.
+При необходимости вы можете вручную перезапустить обновление блока профиля, вызвав событие [JSEvents](/docs/{{version}}/frontend/js#events) для фрагмента `profile`.
 
-> [!NOTE]
-> Важное условие: Компоненты `SideBar` и `TopBar` должны находиться во фрагментах `sidebar-content` и `topbar-actions`. В базовом шаблоне `MoonShine\Laravel\Layouts\BaseLayout` это реализовано по умолчанию.
+Пример с обновлением из метода контроллера:
+
+```php
+public function saveElement(CrudRequestContract $request): JsonResponse
+{
+    //...
+    return JsonResponse::make()->events([
+        AlpineJs::event(JsEvent::FRAGMENT_UPDATED, 'profile'),
+    ]);
+}
+```

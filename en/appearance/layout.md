@@ -220,7 +220,7 @@ Available quick methods:
 ### Override the Head component
 
 ```php
-protected function getHeadComponent(): Head
+protected function getHeadComponent(bool $withAssetsFragment = true): Head
 {
     return Head::make([
         // ...
@@ -585,7 +585,8 @@ Available fragments:
 - `sidebar-content` - Content part of the side menu,
 - `topbar-logo` - Logo in the top menu,
 - `topbar-menu` - Top menu items,
-- `topbar-actions` - Action block in the top menu (user profile).
+- `topbar-actions` - Action block in the top menu,
+- `assets` - A set of styles and scripts.
 
 An example of updating all menu blocks from a controller method:
 
@@ -599,6 +600,7 @@ public function saveElement(CrudRequestContract $request): JsonResponse
         AlpineJs::event(JsEvent::FRAGMENT_UPDATED, 'topbar-logo'),
         AlpineJs::event(JsEvent::FRAGMENT_UPDATED, 'topbar-menu'),
         AlpineJs::event(JsEvent::FRAGMENT_UPDATED, 'topbar-actions'),
+        AlpineJs::event(JsEvent::FRAGMENT_UPDATED, 'assets'),
     ]);
 }
 ```
