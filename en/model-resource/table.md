@@ -16,6 +16,7 @@ video: https://youtu.be/5o8qSf94Bf0?si=9dLj_SiXA1-w6hFo&t=1183
   - [Cursor](#simple-pagination)
   - [Simple](#simple-pagination)
   - [Disable Pagination](#disable-pagination)
+- [Query parameters prefix](#query-params-prefix)
 - [Async Mode](#async)
   - [Updating a row](#update-row)
   - [Lazy](#lazy)
@@ -434,6 +435,18 @@ class PostResource extends ModelResource
     protected bool $usePagination = false;
 
     // ...
+}
+```
+
+<a name="query-params-prefix"></a>
+## Query parameters prefix
+
+If a page contains more than one `TableBuilder` components (for example, the main one from a resource and an additional table with other data), their query parameters may overlap. To avoid conflicts, set your resource's own prefix for pagination, filters, quick filters (tags), and sorting options.
+
+```php
+class PostResource extends ModelResource
+{
+    protected string $queryParamPrefix = 'posts_';
 }
 ```
 

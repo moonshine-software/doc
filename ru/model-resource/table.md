@@ -16,6 +16,7 @@ video: [Основы](https://youtu.be/bcFOkXuPSRk?si=qYRIXosjXUbp7ucg&t=1183),[
   - [Курсорная](#simple-pagination)
   - [Упрощенная](#simple-pagination)
   - [Отключение пагинации](#disable-pagination)
+- [Префикс query-параметров](#query-params-prefix)
 - [Асинхронный режим](#async)
   - [Обновление ряда](#update-row)
   - [Lazy режим](#lazy)
@@ -434,6 +435,18 @@ class PostResource extends ModelResource
     protected bool $usePagination = false;
 
     // ...
+}
+```
+
+<a name="query-params-prefix"></a>
+## Префикс query-параметров
+
+Если на странице размещено несколько компонентов `TableBuilder` (например, основной из ресурса и дополнительная таблица с другими данными), их query-параметры могут пересекаться. Чтобы избежать конфликтов, задайте для ресурса собственный префикс параметров пагинации, фильтров, быстрых фильтров (тегов) и сортировки.
+
+```php
+class PostResource extends ModelResource
+{
+    protected string $queryParamPrefix = 'posts_';
 }
 ```
 
