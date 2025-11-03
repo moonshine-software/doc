@@ -326,6 +326,37 @@ protected function getHomeUrl(): string
 }
 ```
 
+### Упрощенное отображение контента
+
+Вы можете убрать обводку и фон у контентной части страницы, установив свойство `$contentSimpled = true` в вашем `Layout`:
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\Laravel\Layouts\AppLayout;
+
+final class MoonShineLayout extends AppLayout
+{
+    protected bool $contentSimpled = true; // default false
+}
+```
+
+
+### Отображение контента по центру
+
+По умолчанию контент страницы занимает всю ширину экрана. Чтобы разместить его в центрированном контейнере фиксированной ширины, установите свойство `$contentCentered = true` в вашем `Layout`.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\Laravel\Layouts\AppLayout;
+
+final class MoonShineLayout extends AppLayout
+{
+    protected bool $contentCentered = true; // default false
+}
+```
+
 <a name="slots"></a>
 ### Slots
 
