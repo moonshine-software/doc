@@ -96,216 +96,323 @@ class PostIndexPage extends IndexPage
 <a name="components"></a>
 ## Main Components
 
-In **MoonShine**, you can quickly change the main component on the page.
+The main component of the page is specified by a class that implements one of the namespace interfaces `MoonShine\Crud\Contracts\PageComponents`. This allows you to completely replace a component, encapsulate the logic, and reuse it between pages and resources.
+
+Available interfaces:
+
+- `DefaultListComponentContract` - the main component of the index page (list of elements),
+- `DefaultDetailComponentContract` - the main component of the detail page,
+- `DefaultFormContract` - the main form component.
+
+The class must implement the `__invoke()` method, which returns a component that implements the `MoonShine\Contracts\UI\ComponentContract` interface.
 
 ### IndexPage
 
-The `getItemsComponent()` method allows you to change the main component of the index page.
+To change the index page component, you need to create a class that implements the `DefaultListComponentContract` interface:
 
 ```php
-getItemsComponent(iterable $items, Fields $fields)
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:8]
+use MoonShine\Contracts\Core\DependencyInjection\CoreContract;
+use MoonShine\Contracts\Core\DependencyInjection\FieldsContract;
+use MoonShine\Contracts\UI\ComponentContract;
+use MoonShine\Contracts\UI\TableBuilderContract;
+use MoonShine\Core\Traits\WithCore;
+use MoonShine\Crud\Contracts\Page\IndexPageContract;
+use MoonShine\Crud\Contracts\PageComponents\DefaultListComponentContract;
+use MoonShine\UI\Components\Table\TableBuilder;
+
+final class ArticleListComponent implements DefaultListComponentContract
+{
+    use WithCore;
+
+    public function __construct(CoreContract $core) {
+        $this->setCore($core);
+    }
+
+    /**
+     * @param  iterable<array-key, mixed>  $items
+     */
+    public function __invoke(
+        IndexPageContract $page,
+        iterable $items,
+        FieldsContract $fields
+    ): ComponentContract
+    {
+        $resource = $page->getResource();
+
+        return TableBuilder::make(items: $items)
+            ->name($page->getListComponentName())
+            ->fields($fields)
+            ->cast($resource->getCaster())
+            ->withNotFound()
+            ->buttons($page->getButtons())
+            ->when($page->isAsync(), function (TableBuilderContract $table) use($page): void {
+                $table->async(
+                    url: fn (): string
+                        => $page->getRouter()->getEndpoints()->component(
+                        name: $table->getName(),
+                        additionally: $this->getCore()->getRequest()->getRequest()->getQueryParams(),
+                    ),
+                )->pushState();
+            })
+            ->when($page->isLazy(), function (TableBuilderContract $table) use($resource): void {
+                $table->lazy()->whenAsync(
+                    fn (TableBuilderContract $t): TableBuilderContract
+                        => $t->items(
+                        $resource->getItems(),
+                    ),
+                );
+            })
+            ->when(
+                ! \is_null($resource->getItemsResolver()),
+                function (TableBuilderContract $table) use($resource): void {
+                    $table->itemsResolver(
+                        $resource->getItemsResolver(),
+                    );
+                },
+            );
+    }
+}
+```
+
+`__invoke()` method arguments:
+
+- `$page` - object of the index page on which the component is located,
+- `$items` - list elements to display,
+- `$fields` - fields that will be displayed in the list.
+
+Now in the page class in the `$component` property you need to override the component to display the list:
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\Crud\Contracts\PageComponents\DefaultListComponentContract;
+use MoonShine\Laravel\Pages\Crud\IndexPage;
+
+class ArticleIndexPage extends IndexPage
+{
+    /**
+     * @var class-string<DefaultListComponentContract>
+     */
+    protected string $component = ArticleListComponent::class;
+}
+```
+
+You can also change the list component using the `getItemsComponent()` method:
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\Contracts\Core\DependencyInjection\FieldsContract;
+use MoonShine\Contracts\UI\ComponentContract;
+
+getItemsComponent(iterable $items, FieldsContract $fields): ComponentContract
 ```
 
 - `$items` - field values,
 - `$fields` - fields.
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:4]
-use MoonShine\Contracts\UI\ComponentContract;
-use MoonShine\Contracts\UI\TableBuilderContract;
-use MoonShine\Laravel\Pages\Crud\IndexPage;
-use MoonShine\UI\Components\Table\TableBuilder;
-
-class ArticleIndexPage extends IndexPage
-{
-    // ...
-
-    protected function getItemsComponent(iterable $items, Fields $fields): ComponentContract
-    {
-        return TableBuilder::make(items: $items)
-            ->name($this->getListComponentName())
-            ->fields($fields)
-            ->cast($this->getResource()->getCaster())
-            ->withNotFound()
-            ->when(
-                ! is_null($head = $this->getResource()->getHeadRows()),
-                fn (TableBuilderContract $table): TableBuilderContract => $table->headRows($head)
-            )
-            ->when(
-                ! is_null($body = $this->getResource()->getRows()),
-                fn (TableBuilderContract $table): TableBuilderContract => $table->rows($body)
-            )
-            ->when(
-                ! is_null($foot = $this->getResource()->getFootRows()),
-                fn (TableBuilderContract $table): TableBuilderContract => $table->footRows($foot)
-            )
-            ->when(
-                ! is_null($this->getResource()->getTrAttributes()),
-                fn (TableBuilderContract $table): TableBuilderContract => $table->trAttributes(
-                    $this->getResource()->getTrAttributes()
-                )
-            )
-            ->when(
-                ! is_null($this->getResource()->getTdAttributes()),
-                fn (TableBuilderContract $table): TableBuilderContract => $table->tdAttributes(
-                    $this->getResource()->getTdAttributes()
-                )
-            )
-            ->buttons($this->getResource()->getIndexButtons())
-            ->clickAction($this->getResource()->getClickAction())
-            ->when($this->getResource()->isAsync(), static function (TableBuilderContract $table): void {
-                $table->async()->pushState();
-            })
-            ->when($this->getResource()->isStickyTable(), function (TableBuilderContract $table): void {
-                $table->sticky();
-            })
-            ->when($this->getResource()->isColumnSelection(), function (TableBuilderContract $table): void {
-                $table->columnSelection();
-            });
-    }
-}
-```
 
 > [!NOTE]
 > Example of an index page with the `CardsBuilder` component in the [Recipes](/docs/{{version}}/recipes/index-page-cards) section.
 
 ### DetailPage
 
-The `getDetailComponent()` method allows you to change the main component of the detail page.
-
-```php
-getDetailComponent(?DataWrapperContract $item, Fields $fields)
-```
-
-- `$item` - data,
-- `$fields` - fields.
+To change the detail view page component, you need to create a class that implements the `DefaultDetailComponentContract` interface:
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:4]
+// [tl! collapse:6]
+use MoonShine\Contracts\Core\DependencyInjection\FieldsContract;
 use MoonShine\Contracts\Core\TypeCasts\DataWrapperContract;
 use MoonShine\Contracts\UI\ComponentContract;
-use MoonShine\Laravel\Collections\Fields;
+use MoonShine\Crud\Contracts\Page\DetailPageContract;
+use MoonShine\Crud\Contracts\PageComponents\DefaultDetailComponentContract;
 use MoonShine\UI\Components\Table\TableBuilder;
 
-class ArticleDetailPage extends DetailPage
+final class ArticleDetailComponent implements DefaultDetailComponentContract
 {
-    // ...
+    public function __invoke(
+        DetailPageContract $page,
+        ?DataWrapperContract $item,
+        FieldsContract $fields,
+    ): ComponentContract {
+        $resource = $page->getResource();
 
-    protected function getDetailComponent(?DataWrapperContract $item, Fields $fields): ComponentContract
-    {
         return TableBuilder::make($fields)
-            ->cast($this->getResource()->getCaster())
+            ->cast($resource->getCaster())
             ->items([$item])
-            ->vertical()
+            ->vertical(
+                title: $resource->isDetailInModal() ? 3 : 2,
+                value: $resource->isDetailInModal() ? 9 : 10,
+            )
             ->simple()
-            ->preview();
+            ->preview()
+            ->class('table-divider');
     }
 }
 ```
-### FormPage
 
-The `getFormComponent()` method allows you to change the main component on the form page.
+`__invoke()` method arguments:
+
+- `$page` - object of the detailed page on which the component is located,
+- `$item` - object with data,
+- `$fields` - fields that will be displayed in the component.
+
+Now in the page class in the `$component` property you need to override the component for detailed viewing:
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-use MoonShine\Contracts\Core\TypeCasts\DataWrapperContract;
-use MoonShine\Contracts\UI\ComponentContract;
-use MoonShine\Laravel\Collections\Fields;
+// [tl! collapse:2]
+use MoonShine\Crud\Contracts\PageComponents\DefaultDetailComponentContract;
+use MoonShine\Laravel\Pages\Crud\DetailPage;
 
-getFormComponent(
-  string $action,
-  ?DataWrapperContract $item,
-  Fields $fields,
-  bool $isAsync = true,
-)
+class ArticleDetailPage extends DetailPage
+{
+    /**
+     * @var class-string<DefaultDetailComponentContract>
+     */
+    protected string $component = ArticleDetailComponent::class;
+}
 ```
 
-- `$action` - endpoint,
-- `$item` - data,
-- `$fields` - fields,
-- `$isAsync` - asynchronous mode.
+You can also change the main component of the detail view page using the `getDetailComponent()` method:
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:start]
-use MoonShine\Contracts\Core\TypeCasts\DataWrapperContract;
+// [tl! collapse:1]
 use MoonShine\Contracts\UI\ComponentContract;
+
+getDetailComponent(bool $withoutFragment = false): ComponentContract
+```
+
+- `$withoutFragment` - flag of whether the component should be wrapped in a `Fragment`.
+
+### FormPage
+
+To change a page component with an element edit form, you need to create a class that implements the `DefaultFormContract` interface:
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:12]
+use MoonShine\Contracts\Core\DependencyInjection\CoreContract;
+use MoonShine\Contracts\Core\DependencyInjection\FieldsContract;
+use MoonShine\Contracts\Core\TypeCasts\DataWrapperContract;
 use MoonShine\Contracts\UI\FormBuilderContract;
-use MoonShine\Laravel\Collections\Fields;
-use MoonShine\Laravel\Pages\Crud\FormPage;
+use MoonShine\Core\Traits\WithCore;
+use MoonShine\Crud\Collections\Fields;
+use MoonShine\Crud\Contracts\Page\FormPageContract;
+use MoonShine\Crud\Contracts\PageComponents\DefaultFormContract;
 use MoonShine\Support\AlpineJs;
 use MoonShine\Support\Enums\JsEvent;
 use MoonShine\UI\Components\FormBuilder;
-use MoonShine\UI\Fields\Hidden; // [tl! collapse:end]
+use MoonShine\UI\Fields\Hidden;
 
-class ArticleFormPage extends FormPage
+final class ArticleForm implements DefaultFormContract
 {
-    // ...
+    use WithCore;
 
-    protected function getFormComponent(
+    public function __construct(CoreContract $core) {
+        $this->setCore($core);
+    }
+
+    public function __invoke(
+        FormPageContract $page,
         string $action,
         ?DataWrapperContract $item,
-        Fields $fields,
+        FieldsContract $fields,
         bool $isAsync = true,
-    ): ComponentContract {
-        $resource = $this->getResource();
+    ): FormBuilderContract
+    {
+        $resource = $page->getResource();
 
         return FormBuilder::make($action)
-            ->cast($this->getResource()->getCaster())
+            ->cast($resource->getCaster())
             ->fill($item)
             ->fields([
+                /** @phpstan-ignore argument.templateType */
                 ...$fields
                     ->when(
-                        ! is_null($item),
-                        static fn (Fields $fields): Fields => $fields->push(
-                            Hidden::make('_method')->setValue('PUT')
-                        )
-                    )
-                    ->when(
-                        ! $resource->isItemExists() && ! $resource->isCreateInModal(),
-                        static fn (Fields $fields): Fields => $fields->push(
-                            Hidden::make('_force_redirect')->setValue(true)
-                        )
+                        ! \is_null($item),
+                        static fn (Fields $fields): Fields
+                            => $fields->push(
+                            Hidden::make('_method')->setValue('PUT'),
+                        ),
                     )
                     ->toArray(),
             ])
             ->when(
-                ! $resource->hasErrorsAbove(),
-                fn (FormBuilderContract $form): FormBuilderContract => $form->errorsAbove($resource->hasErrorsAbove())
+                ! $page->hasErrorsAbove(),
+                fn (FormBuilderContract $form): FormBuilderContract => $form->errorsAbove($page->hasErrorsAbove()),
             )
             ->when(
                 $isAsync,
-                static fn (FormBuilderContract $formBuilder): FormBuilderContract => $formBuilder
-                    ->async(events: array_filter([
-                        $resource->getListEventName(
-                            request()->input('_component_name', 'default'),
-                            $isAsync && $resource->isItemExists() ? array_filter([
-                                'page' => request()->input('page'),
-                                'sort' => request()->input('sort'),
-                            ]) : []
-                        ),
-                        ! $resource->isItemExists() && $resource->isCreateInModal()
-                            ? AlpineJs::event(JsEvent::FORM_RESET, $resource->getUriKey())
-                            : null,
-                    ]))
+                fn (FormBuilderContract $formBuilder): FormBuilderContract
+                    => $formBuilder
+                    ->async(
+                        events: array_filter([
+                            $resource->getListEventName(
+                                $this->getCore()->getRequest()->getScalar('_component_name', 'default'),
+                                $isAsync && $resource->isItemExists() ? array_filter([
+                                    'page' => $this->getCore()->getRequest()->getScalar('page'),
+                                    'sort' => $this->getCore()->getRequest()->getScalar('sort'),
+                                ]) : [],
+                            ),
+                            ! $resource->isItemExists() && $resource->isCreateInModal()
+                                ? AlpineJs::event(JsEvent::FORM_RESET, $resource->getUriKey())
+                                : null,
+                        ]),
+                    ),
             )
             ->when(
-                $resource->isPrecognitive() || (moonshineRequest()->isFragmentLoad('crud-form') && ! $isAsync),
-                static fn (FormBuilderContract $form): FormBuilderContract => $form->precognitive()
-            )
-            ->when(
-                $resource->isSubmitShowWhen(),
-                static fn (FormBuilderContract $form): FormBuilderContract => $form->submitShowWhenAttribute()
+                $page->isPrecognitive() || ($this->getCore()->getCrudRequest()->isFragmentLoad('crud-form') && ! $isAsync),
+                static fn (FormBuilderContract $form): FormBuilderContract => $form->precognitive(),
             )
             ->name($resource->getUriKey())
-            ->submit(__('moonshine::ui.save'), ['class' => 'btn-primary btn-lg'])
-            ->buttons($resource->getFormBuilderButtons());
+            ->submit(
+                $this->getCore()->getTranslator()->get('moonshine::ui.save'),
+                ['class' => 'btn-primary btn-lg'],
+            )
+            ->buttons($page->getFormButtons());
     }
 }
 ```
+
+`__invoke()` method arguments:
+
+- `$page` - object of the page on which the component is located,
+- `$action` - form handler,
+- `$item` - object with data,
+- `$fields` - fields that will be displayed in the component.
+
+Now in the page class in the `$component` property you need to override the form component:
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\Crud\Contracts\PageComponents\DefaultFormContract;
+use MoonShine\Laravel\Pages\Crud\FormPage;
+
+class ArticleFormPage extends FormPage
+{
+    /**
+     * @var class-string<DefaultFormContract>
+     */
+    protected string $component = ArticleForm::class;
+}
+```
+
+You can also use the `getFormComponent()` method to change the main component on the form page:
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\Contracts\UI\ComponentContract;
+
+getFormComponent(bool $withoutFragment = false): ComponentContract
+```
+
+- `$withoutFragment` - flag of whether the component should be wrapped in a `Fragment`.
 
 <a name="layers"></a>
 ## Layers on the Page
