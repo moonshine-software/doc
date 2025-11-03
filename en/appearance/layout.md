@@ -11,11 +11,11 @@ video: https://www.youtube.com/watch?v=6eUtdbCLVZQ
 - [Favicons](#favicons)
 - [Menu](#menu)
     - [Top Menu](#top-menu)
-    - [Fragments](#fragments-in-menu)
 - [Themes](#themes)
     - [Dark mode](#dark-mode)
     - [Toggle themes on/off](#toggle-on-off-themes)
 - [Colors](#colors)
+- [Fragments](#fragments)
 - [Blade](#blade)
 
 ---
@@ -574,37 +574,6 @@ final class MoonShineLayout extends AppLayout
 > [!WARNING]
 > If you want to keep both Sidebar and TopBar at the same time, be sure to maintain the order; TopBar must be first.
 
-<a name="fragments-in-menu"></a>
-### Fragments
-
-By default, in the base template, separate parts of the sidebar and top menu are located inside `Fragment` components. Due to this, you can update them without reloading the page using [JSEvents](/docs/{{version}}/frontend/js#events) events.
-
-Available fragments:
-
-- `sidebar-top` - The top part of the side menu (logo and theme switch),
-- `sidebar-content` - Content part of the side menu,
-- `topbar-logo` - Logo in the top menu,
-- `topbar-menu` - Top menu items,
-- `topbar-actions` - Action block in the top menu,
-- `assets` - A set of styles and scripts.
-
-An example of updating all menu blocks from a controller method:
-
-```php
-public function saveElement(CrudRequestContract $request): JsonResponse
-{
-    //...
-    return JsonResponse::make()->events([
-        AlpineJs::event(JsEvent::FRAGMENT_UPDATED, 'sidebar-top'),
-        AlpineJs::event(JsEvent::FRAGMENT_UPDATED, 'sidebar-content'),
-        AlpineJs::event(JsEvent::FRAGMENT_UPDATED, 'topbar-logo'),
-        AlpineJs::event(JsEvent::FRAGMENT_UPDATED, 'topbar-menu'),
-        AlpineJs::event(JsEvent::FRAGMENT_UPDATED, 'topbar-actions'),
-        AlpineJs::event(JsEvent::FRAGMENT_UPDATED, 'assets'),
-    ]);
-}
-```
-
 <a name="themes"></a>
 ## Themes
 
@@ -705,6 +674,37 @@ final class MyLayout extends AppLayout
 
 > [!NOTE]
 > For more detailed information, refer to the [Color Scheme](/docs/{{version}}/appearance/colors) section.
+
+<a name="fragments"></a>
+### Fragments
+
+By default, in the base layout, its individual parts are located inside `Fragment` components. Due to this, you can update them without reloading the page using [JSEvents](/docs/{{version}}/frontend/js#events) events.
+
+Available fragments:
+
+- `sidebar-top` - The top part of the side menu (logo and theme switch),
+- `sidebar-content` - Content part of the side menu,
+- `topbar-logo` - Logo in the top menu,
+- `topbar-menu` - Top menu items,
+- `topbar-actions` - Action block in the top menu,
+- `assets` - A set of styles and scripts.
+
+An example of updating all layout fragments from a controller method:
+
+```php
+public function saveElement(CrudRequestContract $request): JsonResponse
+{
+    //...
+    return JsonResponse::make()->events([
+        AlpineJs::event(JsEvent::FRAGMENT_UPDATED, 'sidebar-top'),
+        AlpineJs::event(JsEvent::FRAGMENT_UPDATED, 'sidebar-content'),
+        AlpineJs::event(JsEvent::FRAGMENT_UPDATED, 'topbar-logo'),
+        AlpineJs::event(JsEvent::FRAGMENT_UPDATED, 'topbar-menu'),
+        AlpineJs::event(JsEvent::FRAGMENT_UPDATED, 'topbar-actions'),
+        AlpineJs::event(JsEvent::FRAGMENT_UPDATED, 'assets'),
+    ]);
+}
+```
 
 <a name="blade"></a>
 ## Blade
