@@ -109,8 +109,9 @@ final class CorporatePalette implements PaletteContract
 }
 ```
 
-Активировать палитру можно двумя способами:
+Активировать палитру можно несколькими способами:
 
+- глобально указать класс в ключе `palette` внутри `config/moonshine.php` (или через `MoonShineConfigurator`);
 - указать класс палитры в свойстве `$palette` внутри `Layout`;
 - вызвать `$colorManager->palette(new CorporatePalette());` в коде.
 
@@ -123,6 +124,8 @@ final class MoonShineLayout extends AppLayout
     protected ?string $palette = CorporatePalette::class;
 }
 ```
+
+Если layout не задаёт `$palette`, MoonShine использует значение из глобальной конфигурации.
 
 <a name="methods"></a>
 ## Методы

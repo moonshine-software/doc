@@ -619,6 +619,8 @@ final class MyLayout extends AppLayout
 }
 ```
 
+Если оставить `$palette` равным `null`, будет использоваться значение из `config('moonshine.palette')`.
+
 Если требуется полное управление, переопределите метод `colors()`:
 
 ```php

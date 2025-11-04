@@ -619,6 +619,8 @@ final class MyLayout extends AppLayout
 }
 ```
 
+Leaving `$palette` as `null` keeps using the global `config('moonshine.palette')` value.
+
 For full control you can still override the `colors()` method:
 
 ```php

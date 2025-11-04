@@ -151,12 +151,13 @@ php artisan moonshine:layout
 
 Signature:
 ```
-moonshine:layout {className?} {--default} {--dir=} {--base-dir=} {--base-namespace=}
+moonshine:layout {className?} {--default} {--palette=} {--dir=} {--base-dir=} {--base-namespace=}
 ```
 
 Available options:
 
 - `--default` - set as the default template in the config,
+- `--palette=` - preselect a palette class for the layout (uses the global config value if omitted),
 - `--dir=` - directory where the files will be located relative to `app/MoonShine`, defaults to `Layouts`,
 - `--base-dir=, --base-namespace=` - change the base directory and namespace of the class.
 

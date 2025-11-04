@@ -151,12 +151,13 @@ php artisan moonshine:layout
 
 Сигнатура:
 ```
-moonshine:layout {className?} {--default} {--dir=} {--base-dir=} {--base-namespace=}
+moonshine:layout {className?} {--default} {--palette=} {--dir=} {--base-dir=} {--base-namespace=}
 ```
 
 Доступные опции:
 
 - `--default` - установить в конфиге как шаблон по умолчанию,
+- `--palette=` - выбрать класс палитры, который будет назначен layout'у (по умолчанию используется значение из конфигурации),
 - `--dir=` - директория, в которой будут располагаться файлы относительно `app/MoonShine`, по умолчанию `Layouts`,
 - `--base-dir=, --base-namespace=` - изменить базовую директорию и неймспейс класса.
 

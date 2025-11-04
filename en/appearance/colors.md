@@ -111,6 +111,7 @@ final class CorporatePalette implements PaletteContract
 
 You can activate a palette:
 
+- globally by setting the `palette` key in `config/moonshine.php` (or via `MoonShineConfigurator`);
 - in a layout by setting the `$palette` property to the palette class name;
 - programmatically, by calling `$colorManager->palette(new CorporatePalette());`.
 
@@ -123,6 +124,8 @@ final class MoonShineLayout extends AppLayout
     protected ?string $palette = CorporatePalette::class;
 }
 ```
+
+If the layout does not define `$palette`, MoonShine falls back to the global configuration value.
 
 <a name="methods"></a>
 ## Methods
