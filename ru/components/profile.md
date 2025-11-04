@@ -3,6 +3,7 @@
 - [Основы](#basics)
 - [Аватар placeholder](#avatar-placeholder)
 - [Меню](#menu)
+- [Fragments](#fragments)
 
 ---
 
@@ -90,3 +91,21 @@ tab: Blade
 </x-moonshine::layout.profile>
 ```
 ~~~
+
+<a name="fragments"></a>
+## Fragments
+
+Компонент `Profile` размещен внутри `Fragment`, благодаря чему данные профиля обновляются без перезагрузки страницы при изменении пользователя.
+При необходимости вы можете вручную перезапустить обновление блока профиля, вызвав событие [JSEvents](/docs/{{version}}/frontend/js#events) для фрагмента `profile`.
+
+Пример с обновлением из метода контроллера:
+
+```php
+public function saveElement(CrudRequestContract $request): JsonResponse
+{
+    //...
+    return JsonResponse::make()->events([
+        AlpineJs::event(JsEvent::FRAGMENT_UPDATED, 'profile'),
+    ]);
+}
+```
