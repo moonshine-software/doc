@@ -327,6 +327,23 @@ protected function getHomeUrl(): string
 }
 ```
 
+### Simplified Content Layout
+
+You can remove the border and background from the content block of the page by setting the `$contentSimpled = true` property in your `Layout`:
+
+```php
+protected bool $contentSimpled = true; // default false
+```
+
+
+### Centered Content Layout
+
+By default, page content takes up the entire width of the screen. To place it in a centered fixed-width container, set the `$contentCentered = true` property in your `Layout`.
+
+```php
+protected bool $contentCentered = true; // default false
+```
+
 <a name="slots"></a>
 ### Slots
 
