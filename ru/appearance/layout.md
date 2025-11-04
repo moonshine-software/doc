@@ -607,7 +607,7 @@ protected function hasThemes(): bool
 ## Цвета
 
 Каждый шаблон может иметь собственную цветовую схему.  
-Самый простой способ — указать реализацию `PaletteContract` в свойстве `$palette`:
+Самый простой способ задать её — указать реализацию `PaletteContract` в свойстве `$palette`:
 
 ```php
 use App\MoonShine\Palettes\CorporatePalette;
@@ -618,6 +618,9 @@ final class MyLayout extends AppLayout
     protected ?string $palette = CorporatePalette::class;
 }
 ```
+
+> [!NOTE]
+> За более подробной информацией обратитесь в раздел [Палитры](/docs/{{version}}/appearance/colors#palettes).
 
 Если оставить `$palette` равным `null`, будет использоваться значение из `config('moonshine.palette')`.
 

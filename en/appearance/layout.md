@@ -607,7 +607,7 @@ protected function hasThemes(): bool
 ## Colors
 
 Each template can have its own color scheme.  
-The easiest way is to point a layout to a `PaletteContract` implementation:
+The easiest way to set it is to specify a `PaletteContract` implementation in the `$palette` property:
 
 ```php
 use App\MoonShine\Palettes\CorporatePalette;
@@ -618,6 +618,9 @@ final class MyLayout extends AppLayout
     protected ?string $palette = CorporatePalette::class;
 }
 ```
+
+> [!NOTE]
+> For more details, see the [Palettes](/docs/{{version}}/appearance/colors#palettes) section.
 
 Leaving `$palette` as `null` keeps using the global `config('moonshine.palette')` value.
 
