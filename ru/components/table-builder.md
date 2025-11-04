@@ -27,6 +27,7 @@
   - [Модификация чекбокса массовых действий](#modify-row-checkbox)
   - [Слоты](#slots)
   - [Фильтры через FormBuilder](#form-builder-filters)
+  - [Префикс query-параметров](#query-params-prefix)
 - [Настройка атрибутов](#attribute-configuration)
 - [Асинхронная загрузка](#async-loading)
   - [Lazy и whenAsync методы](#lazy)
@@ -578,6 +579,17 @@ TableBuilder::make()
         ['title' => fake()->word()]
     ])
 ```
+
+<a name="query-params-prefix"></a>
+### Префикс query-параметров
+
+Вы можете задать префикс для query-параметров пагинации и сортировки. Это удобно, когда на странице используется несколько компонентов `TableBuilder`, и каждому нужны собственные параметры запроса, чтобы избежать конфликтов между ними.
+
+```php
+->queryParamPrefix(prefix: 'users_')
+```
+
+- `$prefix` - Строковый префикс.
 
 <a name="attribute-configuration"></a>
 ## Настройка атрибутов

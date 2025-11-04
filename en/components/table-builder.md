@@ -27,6 +27,7 @@
   - [Modify Row Checkbox](#modify-row-checkbox)
   - [Slots](#slots)
   - [Filters via FormBuilder](#form-builder-filters)
+  - [Query parameters prefix](#query-params-prefix)
 - [Attribute Configuration](#attribute-configuration)
 - [Async Loading](#async-loading)
   - [Lazy and whenAsync Methods](#lazy)
@@ -578,6 +579,17 @@ TableBuilder::make()
         ['title' => fake()->word()]
     ])
 ```
+
+<a name="query-params-prefix"></a>
+### Query parameters prefix
+
+You can set a prefix for pagination and sorting query parameters. This is useful when a page uses multiple `TableBuilder` components and each needs its own query parameters to avoid conflicts between them.
+
+```php
+->queryParamPrefix(prefix: 'users_')
+```
+
+- `$prefix` - String prefix.
 
 <a name="attribute-configuration"></a>
 ## Attribute Configuration
