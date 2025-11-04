@@ -109,6 +109,30 @@ final class CorporatePalette implements PaletteContract
 }
 ```
 
+### Стандартные палитры
+
+MoonShine поставляется с набором предустановленных палитр:
+
+| Класс | Описание |
+| --- | --- |
+| `MoonShine\ColorManager\Palettes\DefaultPalette` | Черно-белая классика. |
+| `MoonShine\ColorManager\Palettes\CyanPalette` | Чистый циан с голубовато-зеленым оттенком. |
+| `MoonShine\ColorManager\Palettes\GrayPalette` | Холодный нейтральный серый. |
+| `MoonShine\ColorManager\Palettes\GreenPalette` | Натуральный зелёный. |
+| `MoonShine\ColorManager\Palettes\HalloweenPalette` | Оранжево-фиолетовая палитра с атмосферой Хэллоуина. |
+| `MoonShine\ColorManager\Palettes\LimePalette` | Яркий лаймово-салатовый. |
+| `MoonShine\ColorManager\Palettes\OrangePalette` | Классический оранжевый. |
+| `MoonShine\ColorManager\Palettes\PinkPalette` | Насыщенные тона ярко-розового. |
+| `MoonShine\ColorManager\Palettes\PurplePalette` | Классическая пурпурно-магентовая палитра. |
+| `MoonShine\ColorManager\Palettes\RetroPalette` | Винтажный желтовато-зеленый. |
+| `MoonShine\ColorManager\Palettes\RosePalette` | Тёплые персиково-розовые оттенки. |
+| `MoonShine\ColorManager\Palettes\SkyPalette` | Небесно-голубая с лёгким фиолетовым подтоном. |
+| `MoonShine\ColorManager\Palettes\SpringPalette` | Нежный пастельный мятный. |
+| `MoonShine\ColorManager\Palettes\TealPalette` | Чистый бирюзовый. |
+| `MoonShine\ColorManager\Palettes\ValentinePalette` | Романтичные красно-розовые оттенки. |
+| `MoonShine\ColorManager\Palettes\WinterPalette` | Прохладные ледяные голубые тона. |
+| `MoonShine\ColorManager\Palettes\YellowPalette` | Зеленовато-желтая палитра. |
+
 Активировать палитру можно несколькими способами:
 
 - глобально указать класс в ключе `palette` внутри `config/moonshine.php` (или через `MoonShineConfigurator`);

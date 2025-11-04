@@ -109,6 +109,30 @@ final class CorporatePalette implements PaletteContract
 }
 ```
 
+### Built-in palettes
+
+MoonShine ships with a set of ready-made palettes:
+
+| Class | Description |
+| --- | --- |
+| `MoonShine\ColorManager\Palettes\DefaultPalette` | Black and white classic. |
+| `MoonShine\ColorManager\Palettes\CyanPalette` | True cyan blue-green. |
+| `MoonShine\ColorManager\Palettes\GrayPalette` | Cool neutral gray. |
+| `MoonShine\ColorManager\Palettes\GreenPalette` | Natural green tones. |
+| `MoonShine\ColorManager\Palettes\HalloweenPalette` | Orange and purple spooky theme. |
+| `MoonShine\ColorManager\Palettes\LimePalette` | Bright lime/chartreuse. |
+| `MoonShine\ColorManager\Palettes\OrangePalette` | Classic orange. |
+| `MoonShine\ColorManager\Palettes\PinkPalette` | Bold hot pink shades. |
+| `MoonShine\ColorManager\Palettes\PurplePalette` | Classic purple and magenta mix. |
+| `MoonShine\ColorManager\Palettes\RetroPalette` | Vintage yellowish green. |
+| `MoonShine\ColorManager\Palettes\RosePalette` | Warm peachy-rose tones. |
+| `MoonShine\ColorManager\Palettes\SkyPalette` | Sky blue with a purple undertone. |
+| `MoonShine\ColorManager\Palettes\SpringPalette` | Fresh pastel mint green. |
+| `MoonShine\ColorManager\Palettes\TealPalette` | Pure cyan-teal blend. |
+| `MoonShine\ColorManager\Palettes\ValentinePalette` | Romantic red and pink duo. |
+| `MoonShine\ColorManager\Palettes\WinterPalette` | Cool icy blue tones. |
+| `MoonShine\ColorManager\Palettes\YellowPalette` | Greenish yellow. |
+
 You can activate a palette:
 
 - globally by setting the `palette` key in `config/moonshine.php` (or via `MoonShineConfigurator`);
