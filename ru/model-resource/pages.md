@@ -4,21 +4,26 @@ video: https://youtu.be/bcFOkXuPSRk?si=RmlstXkRnan5r1K8&t=246
 
 # Страницы
 
-- [Основы](#basics)
 - [Обратная совместимость](#backward-compatibility)
 - [Breaking Changes](#breaking-changes)
-- [Структура](#structure)
-- [Типы страниц](#page-type)
-- [Добавление полей](#fields)
-- [Основные компоненты](#components)
-- [Слои на странице](#layers)
-- [Симуляция Route](#simulate)
+- [Основы](#basics)
+- [Индексная страница](#indexpage)
+- [Индексная страница. Поля](#indexpage-fields)
+- [Индексная страница. Фильтры](#indexpage-filters)
+- [Индексная страница. Основной компонент](#indexpage-mainComponent)
+- [Индексная страница. Кнопки индексной страницы](#indexpage-buttons)
+- [Индексная страница. Быстрые фильтры (теги)](#indexpage-tags)
+- [Индексная страница. topLeftButtons](#indexpage-topLeftButtons)
+- [Индексная страница. topRightButtons](#indexpage-topRightButtons)
+- [Индексная страница. Метрики](#indexpage-metrics)
+- [Индексная страница. Хендлер](#indexpage-handlers)
+- [Индексная страница. Логин](#indexpage-logIn)
+- [Детальная страница.](#detailpage)
+- [Страница формы.](#formpage)
+- [Слои на странице.](#layers)
+- [Симуляция Route.](#simulate)
 
 ---
-
-<a name="basics"></a>
-## Основы
-
 В **MoonShine 4** страницы являются главным элементом ресурса.
 Вся логика отображения, построения таблиц и форм, а также действий с записями находится непосредственно в классах страниц.
 
@@ -44,37 +49,11 @@ video: https://youtu.be/bcFOkXuPSRk?si=RmlstXkRnan5r1K8&t=246
 | метод `topButtons`                | в слое `mainLayer`                             | в слое `topLayer`                                                  |
 
 
-<a name="structure"></a>
-## Структура
-Cтруктура страниц ресурса, позволяет гибко управлять отображением, маршрутизацией и поведением каждой страницы отдельно. Каждая страница ресурса располагается в отдельном классе в директории Pages внутри ресурса.
-```
-app
-    └── MoonShine
-        └── Resources
-            └── User
-                ├── UserResource.php
-                └── Pages
-                    ├── UserIndexPage.php
-                    ├── UserFormPage.php
-                    └── UserDetailPage.php
-```
-
-
-### Назначение файлов
-| Файл                 | Описание                                                                               |
-| -------------------- | -------------------------------------------------------------------------------------- |
-| `UserResource.php`   | Основной класс ресурса. Определяет модель, заголовки, разрешения, фильтры, поля и т.д. |
-| `UserIndexPage.php`  | Класс страницы списка записей (аналог `index()` ранее).                                |
-| `UserFormPage.php`   | Класс страницы формы создания или редактирования записи.                               |
-| `UserDetailPage.php` | Класс страницы просмотра одной записи.                                                 |
-
-
-
-## осталось из 3 версии пока
-Это создаст класс ресурса модели и дополнительные классы для страниц индекса, детального просмотра и формы.
-Классы страниц по умолчанию будут располагаться в директории `app/MoonShine/Pages`.
-
-В созданном ресурсе модели страницы `CRUD` будут зарегистрированы в методе `pages()`.
+<a name="basics"></a>
+## Основы
+Классы страниц по умолчанию будут располагаться в директории `app/MoonShine/Resources/{ResourceName}/Pages`
+и будут зарегистрированы методе `pages()` ресурса.
+**MoonShine** предоставляет возможность настройки CRUD страниц.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -116,11 +95,13 @@ PageType::FORM; // Страница формы
 PageType::DETAIL; // Страница детального просмотра
 ```
 
-<a name="fields"></a>
-## Добавление полей
+<a name="indexpage"></a>
+## Индексная страница
 
-[Поля](/docs/{{version}}/fields/index) в **MoonShine** используются не только для ввода данных, но и для их вывода.
-Метод `fields()` в классе страницы `CRUD` позволяет указать необходимые поля.
+<a name="indexpage-fields"></a>
+### Поля
+
+Метод `fields()` в классе индексной страницы позволяет указать необходимые [поля](/docs/{{version}}/fields/index) для таблицы.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -145,37 +126,75 @@ class PostIndexPage extends IndexPage
 }
 ```
 
-<a name="components"></a>
-## Основные компоненты
+<a name="indexpage-filters"></a>
+### Фильтры
+Для создания фильтров также используются [поля](/docs/{{version}}/fields/index).
+Фильтры отображаются только на главной странице раздела.
 
-В **MoonShine** можно быстро изменить основной компонент на странице.
+Чтобы указать, по каким полям фильтровать данные, достаточно в классе индексной страницы `IndexPage` в методе `filters()` вернуть массив с необходимыми полями.
 
-### IndexPage
+> [!NOTE]
+> Если метод отсутствует или возвращает пустой массив, то фильтры не будут отображаться.
 
-Метод `getItemsComponent()` позволяет изменить основной компонент страницы индекса.
-
-```php
-getItemsComponent(iterable $items, Fields $fields)
-```
-
-- `$items` - значения полей,
-- `$fields` - поля.
+> [!NOTE]
+> Некоторые поля не могут участвовать в построении запроса фильтрации, поэтому они будут автоматически исключены из списка фильтров.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:4]
-use MoonShine\Contracts\UI\ComponentContract;
-use MoonShine\Contracts\UI\TableBuilderContract;
-use MoonShine\Laravel\Pages\Crud\IndexPage;
-use MoonShine\UI\Components\Table\TableBuilder;
+namespace App\MoonShine\Resources;
 
-class ArticleIndexPage extends IndexPage
+use MoonShine\UI\Fields\Text;
+use MoonShine\Laravel\Resources\ModelResource;
+
+class PostResource extends ModelResource
 {
     // ...
 
-    protected function getItemsComponent(iterable $items, Fields $fields): ComponentContract
+    protected function filters(): iterable
     {
-        return TableBuilder::make(items: $items)
+        return [
+            Text::make('Title', 'title'),
+        ];
+    }
+}
+```
+
+![filters](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/filters.png#light)
+![filters_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/filters_dark.png#dark)
+
+> [!NOTE]
+> Поля являются ключевым элементом в построении форм **Moonshine**.
+[Подробнее о полях](/docs/{{version}}/fields/index).
+
+Для переопределения логики фильтрации вы можете применять метод полей [onApply()](/docs/{{version}}/fields/basic-methods#apply).
+Так же предлагаем рассмотреть [процесс применения полей](/docs/{{version}}/fields/index#apply) на примере фильтрации.
+
+Если вам нужно кэшировать состояние фильтров, используйте свойство `$saveQueryState` в ресурсе.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:3]
+namespace App\MoonShine\Resources;
+
+use MoonShine\Laravel\Resources\ModelResource;
+
+class PostResource extends ModelResource
+{
+    protected bool $saveQueryState = true;
+
+    // ...
+}
+```
+
+
+<a name="indexpage-mainComponent"></a>
+### Основной компонент
+Вы можете полностью заменить или модифицировать TableBuilder ресурса для индексной. Для этого воспользуйтесь методам `modifyListComponent()`
+```php
+    protected function modifyListComponent(ComponentContract $component): TableBuilder
+    {
+        return $component
             ->name($this->getListComponentName())
             ->fields($fields)
             ->cast($this->getResource()->getCaster())
@@ -214,15 +233,142 @@ class ArticleIndexPage extends IndexPage
             })
             ->when($this->getResource()->isColumnSelection(), function (TableBuilderContract $table): void {
                 $table->columnSelection();
-            });
+            })
+            ;
     }
-}
 ```
-
 > [!NOTE]
 > Пример страницы индекса с компонентом `CardsBuilder` в разделе [Рецепты](/docs/{{version}}/recipes/index-page-cards).
 
-### DetailPage
+<a name="indexpage-buttons"></a>
+### Кнопки индексной страницы
+Для добавления кнопок в таблицу индекса используйте метод `buttons()`
+```php
+    protected function buttons(): ListOf
+    {
+        return parent::buttons()->add(
+            ActionButton::make('Log in')->method('logIn'),
+            ActionButton::make('Log in bulk')->method('logIn')->bulk(),
+        );
+    }
+```
+<a name="indexpage-tags"></a>
+### Быстрые фильтры (теги)
+Иногда возникает необходимость создать фильтры (выборку результатов) и отобразить их на листинге. Для таких ситуаций были созданы теги.
+```php
+    protected function queryTags(): array
+    {
+        return [
+            QueryTag::make('Test', fn($q) => $q),
+        ];
+    }
+```
+Подробнее в разделе [Быстрые фильтры (теги)](/docs/{{version}}/fields/query-tags)
+
+
+<a name="indexpage-topLeftButtons"></a>
+### topLeftButtons
+```php
+   protected function topLeftButtons(): ListOf
+    {
+        return parent::topLeftButtons()->add(
+            ActionButton::make('Log in')->method('logIn')
+        );
+    }
+
+```
+
+<a name="indexpage-topRightButtons"></a>
+### topRightButtons
+```php
+    protected function topRightButtons(): ListOf
+    {
+        return parent::topRightButtons()->add(
+            ActionButton::make('Log in')->method('logIn')
+        );
+    }
+
+```
+
+<a name="indexpage-metrics"></a>
+### Метрики
+На странице индекса модели ресурса вы можете отображать информационные блоки со статистикой - метрики.
+Для этого в методе `metrics()` верните массив из `Metric`.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
+namespace App\MoonShine\Resources;
+
+use App\Models\Post;
+use App\Models\Comment;
+use MoonShine\UI\Components\Metrics\Wrapped\Metric;
+use MoonShine\UI\Components\Metrics\Wrapped\ValueMetric;
+use MoonShine\Laravel\Resources\ModelResource; // [tl! collapse:end]
+
+class PostResource extends ModelResource
+{
+    // ...
+
+    /**
+     * @return list<Metric>
+     */
+    protected function metrics(): array
+    {
+        return [
+            ValueMetric::make('Articles')
+                ->value(fn() => Post::count())
+                ->columnSpan(6),
+            ValueMetric::make('Comments')
+                ->value(fn() => Comment::count())
+                ->columnSpan(6),
+        ];
+    }
+}
+```
+![metrics](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/metrics.png#light)
+![metrics_dark](https://raw.githubusercontent.com/moonshine-software/doc/3.x/resources/screenshots/metrics_dark.png#dark)
+
+> [!NOTE]
+> Для более подробной информации, обратитесь к разделам [Metrics](/docs/{{version}}/components/metrics).
+
+Если вам необходимо обвернуть метрики во `Fragment`:
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use Closure;
+use MoonShine\Laravel\Components\Fragment;
+
+protected function fragmentMetrics(): ?Closure
+{
+    return static fn(array $components): Fragment => Fragment::make($components)->name('metrics');
+}
+```
+
+<a name="indexpage-handlers"></a>
+### Хендлер
+```php
+    protected function handlers(): ListOf
+    {
+        return parent::handlers()->add(
+            TestHandler::make('Test')
+        );
+    }
+```
+
+<a name="indexpage-logIn"></a>
+### Логин
+```php
+    public function logIn(MoonShineJsonResponse $response): MoonShineJsonResponse
+    {
+        return $response->toast('Logged in successfully.');
+    }
+```
+
+
+<a name="detailpage"></a>
+## DetailPage
 
 Метод `getDetailComponent()` позволяет изменить основной компонент страницы детального просмотра.
 
@@ -256,7 +402,9 @@ class ArticleDetailPage extends DetailPage
     }
 }
 ```
-### FormPage
+<a name="formpage"></a>
+## FormPage
+
 
 Метод `getFormComponent()` позволяет изменить основной компонент на странице с формой.
 
