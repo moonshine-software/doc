@@ -7,6 +7,8 @@ video: https://youtu.be/6eUtdbCLVZQ?si=Ll3Xg1LihfigMhqs&t=1106
 - [Basics](#basics)
 - [Default Colors](#default-colors)
 - [Palettes](#palettes)
+    - [Standard Palettes](#standard-palettes)
+    - [Palette Usage](#palette-usage)
 - [Methods](#methods)
     - [Set Colors](#set-colors)
     - [Get Colors](#get-colors)
@@ -109,7 +111,8 @@ final class CorporatePalette implements PaletteContract
 }
 ```
 
-### Built-in palettes
+<a name="standard-palettes"></a>
+### Standard Palettes
 
 MoonShine ships with a set of ready-made palettes:
 
@@ -133,6 +136,9 @@ MoonShine ships with a set of ready-made palettes:
 | `MoonShine\ColorManager\Palettes\WinterPalette` | Cool icy blue tones. |
 | `MoonShine\ColorManager\Palettes\YellowPalette` | Greenish yellow. |
 
+<a name="palette-usage"></a>
+### Palette Usage
+
 You can activate a palette:
 
 - globally by setting the `palette` key in `config/moonshine.php` (or via `MoonShineConfigurator`);
@@ -150,6 +156,8 @@ final class MoonShineLayout extends AppLayout
 ```
 
 If the layout does not define `$palette`, MoonShine falls back to the global configuration value.
+
+After choosing a palette, you can move on to configuring colors via the `ColorManager` API. The following sections cover the core methods, ways to read values back, and shortcuts for common components.
 
 <a name="methods"></a>
 ## Methods
@@ -348,3 +356,5 @@ class MoonShineServiceProvider extends ServiceProvider
 > [!WARNING]
 > `Layout` loads after `ServiceProvider` and will take precedence.  
 > When using palettes globally, make sure the target layout does not override colors or provide its own `$palette`.
+
+Combine the approaches described above: start by choosing a palette, adjust single tokens with `set()` or `setEverything()`, apply shortcuts to tweak related components in bulk, and finish by exporting the variables with `toHtml()` for a quick interface review.
