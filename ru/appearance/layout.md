@@ -744,44 +744,46 @@ public function saveElement(CrudRequestContract $request): JsonResponse
                 ], 'vendor/moonshine')
             </x-moonshine::layout.assets>
         </x-moonshine::layout.head>
-
         <x-moonshine::layout.body>
             <x-moonshine::layout.wrapper>
                 <x-moonshine::layout.sidebar :collapsed="true">
-                    <x-moonshine::layout.div class="menu-heading">
-                        <x-moonshine::layout.div class="menu-heading-logo">
-                            <x-moonshine::layout.logo href="/" logo="/logo.png" :minimized="true"/>
+                    <x-moonshine::layout.div class="menu-header">
+                        <x-moonshine::layout.div class="menu-logo">
+                            <x-moonshine::layout.logo href="/" logo="/tableau.png" logo-small="/tableau.png" :minimized="true"/>
                         </x-moonshine::layout.div>
 
-                        <x-moonshine::layout.div class="menu-heading-actions">
-                            <x-moonshine::layout.div class="menu-heading-mode">
-                                <x-moonshine::layout.theme-switcher/>
-                            </x-moonshine::layout.div>
-                            <x-moonshine::layout.div class="menu-heading-burger">
-                                <x-moonshine::layout.burger/>
-                            </x-moonshine::layout.div>
+                        <x-moonshine::layout.div class="menu-actions">
+                            <x-moonshine::layout.theme-switcher/>
                         </x-moonshine::layout.div>
 
+                        <x-moonshine::layout.div class="menu-burger">
+                            <x-moonshine::layout.burger/>
+                        </x-moonshine::layout.div>
                     </x-moonshine::layout.div>
 
-                    <x-moonshine::layout.div class="menu" ::class="asideMenuOpen && '_is-opened'">
+                    <x-moonshine::layout.div class="menu menu--vertical">
                         <x-moonshine::layout.menu :elements="[['label' => 'Dashboard', 'url' => '/'], ['label' => 'Section', 'url' => '/section']]"/>
                     </x-moonshine::layout.div>
                 </x-moonshine::layout.sidebar>
 
-                <x-moonshine::layout.div class="layout-page">
-                    <x-moonshine::layout.header>
-                        <x-moonshine::breadcrumbs :items="['#' => 'Home']"/>
-                        <x-moonshine::layout.search placeholder="Search" />
-                        <x-moonshine::layout.locales :locales="collect()"/>
-                    </x-moonshine::layout.header>
-
-                    <x-moonshine::layout.content>
-                        <article class="article">
-                            Your content
-                        </article>
-                    </x-moonshine::layout.content>
+                <x-moonshine::layout.div class="layout-main">
+                    <x-moonshine::layout.div class="layout-page">
+                        <x-moonshine::layout.header>
+                            <x-moonshine::layout.div class="menu-burger">
+                                <x-moonshine::layout.burger/>
+                            </x-moonshine::layout.div>
+                            <x-moonshine::breadcrumbs :items="['#' => 'Home']"/>
+                            <x-moonshine::layout.search placeholder="Search" />
+                            <x-moonshine::layout.locales :locales="collect()"/>
+                        </x-moonshine::layout.header>
+                        <x-moonshine::layout.content>
+                            <article class="article">
+                                Your content
+                            </article>
+                        </x-moonshine::layout.content>
+                    </x-moonshine::layout.div>
                 </x-moonshine::layout.div>
+
             </x-moonshine::layout.wrapper>
         </x-moonshine::layout.body>
     </x-moonshine::layout.html>
