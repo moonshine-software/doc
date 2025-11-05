@@ -11,7 +11,7 @@ video: https://youtu.be/6eUtdbCLVZQ?si=Ll3Xg1LihfigMhqs&t=1106
     - [Set Colors](#set-colors)
     - [Get Colors](#get-colors)
     - [Theme Management](#theme)
-    - [Special Methods](#special)
+    - [Component Shortcuts](#shortcuts)
 - [HTML Output](#html)
 - [Color Conversion](#conversion)
 - [Global Override](#service-provider)
@@ -157,12 +157,21 @@ If the layout does not define `$palette`, MoonShine falls back to the global con
 <a name="set-colors"></a>
 ### Set Colors
 
+Use `set()`, `setEverything()`, or `bulkAssign()` to control individual variables.  
+Pass `everything: true` when you want to apply the same value to both light and dark themes.
+
 ```php
 // Set a single color (OKLCH, HEX, RGB, and RGBA are accepted)
 $colorManager->set('primary', 'oklch(65% 0.18 264)');
 
 // Set color for dark theme
 $colorManager->set('primary', 'oklch(60% 0.17 264)', dark: true);
+
+// Apply color to both light and dark themes at once
+$colorManager->set('primary', '#7357ff', everything: true);
+
+// Explicit helper that syncs both themes
+$colorManager->setEverything('primary-text', '#ffffff');
 
 // Bulk assign colors (use arrays to define shades)
 $colorManager->bulkAssign([
@@ -171,7 +180,7 @@ $colorManager->bulkAssign([
         50 => '0.99 0 0',
         100 => '0.98 0 0',
     ],
-]);
+], everything: true);
 
 // Apply a palette object
 $colorManager->palette(new \App\MoonShine\Palettes\CorporatePalette());
@@ -200,39 +209,60 @@ $colorManager->getAll(dark: true); // For dark theme
 <a name="theme"></a>
 ### Theme Management
 
+`ColorManager` includes component helpers that configure several related variables in one call.
+
 ```php
-// Set background colors
-$colorManager->background('oklch(91% 0.0 0)');
-
-// Set content colors
-$colorManager->content('oklch(58% 0.05 274)');
-
-// Configure interface components
-$colorManager->tableRow('oklch(56% 0.07 274)'); // Table rows
-$colorManager->borders('oklch(72% 0.02 274)'); // Borders
-$colorManager->dropdowns('oklch(68% 0.04 274)'); // Dropdowns
-$colorManager->buttons('oklch(80% 0.08 274)'); // Buttons
-$colorManager->dividers('oklch(90% 0.02 274)'); // Dividers
+$colorManager->background('oklch(91% 0 0)', pageBg: 'oklch(98% 0 0)');
+$colorManager->text('oklch(20% 0.04 274)');
+$colorManager->borders('oklch(72% 0.02 274)');
+$colorManager->button(
+    'oklch(65% 0.18 264)',
+    text: '#ffffff',
+    hoverBg: 'oklch(60% 0.18 264)',
+    hoverText: '#f8fafc'
+);
+$colorManager->menu(
+    'oklch(70% 0.14 230)',
+    text: '#0f172a',
+    hoverBg: 'oklch(80% 0.05 230)'
+);
+$colorManager->dropzone(
+    'oklch(98% 0 0)',
+    text: '#0f172a',
+    icon: '#2563eb'
+);
+$colorManager->form(
+    bg: 'oklch(100% 0 0)',
+    text: '#0f172a',
+    focus: '#2563eb',
+    disabled: '#f1f5f9',
+    disabledText: '#64748b'
+);
 ```
 
-<a name="special"></a>
-### Special Methods
+`dropzone()` now also controls the file name color through the `text` argument.
 
-`ColorManager` supports dynamic methods for all primary colors.
+<a name="shortcuts"></a>
+### Component Shortcuts
+
+`ColorManager` supports dynamic methods for all palette entries and ships with the `ColorShortcuts` trait for higher-level helpers.  
+Each helper accepts `dark` and `everything` flags and optional arguments for related colors.
 
 ```php
-$colorManager->primary('oklch(65% 0.18 264)');
-$colorManager->secondary('oklch(70% 0.14 230)');
+$colorManager->primary('oklch(65% 0.18 264)', text: '#ffffff');
+$colorManager->success('oklch(63.9% 0.218 142.495)', text: '#194638', everything: true);
+$colorManager->collapse(
+    'oklch(100% 0 0)',
+    text: '#0f172a',
+    bgOpen: 'oklch(96% 0 0)'
+);
+$colorManager->progress(
+    bg: 'oklch(96% 0 0)',
+    barBg: 'oklch(65% 0.18 264)',
+    text: '#0f172a'
+);
 $colorManager->theme('oklch(95% 0.01 274)', 400);
 $colorManager->theme('oklch(35% 0.18 274)', 800, dark: true);
-$colorManager->successBg('oklch(63.9% 0.218 142.495)');
-$colorManager->successText('oklch(46.76% 0.1549 142.495)');
-$colorManager->warningBg('oklch(80.88% 0.170358 75.3501)');
-$colorManager->warningText('oklch(50% 0.1031 76.1)');
-$colorManager->errorBg('oklch(58.9% 0.214 26.855)');
-$colorManager->errorText('oklch(37.06% 0.145 26.855)');
-$colorManager->infoBg('oklch(60.1% 0.219 257.63)');
-$colorManager->infoText('oklch(34.71% 0.1204 257.63)');
 ```
 
 <a name="html"></a>

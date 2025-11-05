@@ -11,7 +11,7 @@ video: https://youtu.be/95qxienFmtI?si=89rh5M5inDBim5ZP&t=1144
     - [Установка цветов](#set-colors)
     - [Получение цветов](#get-colors)
     - [Управление темой](#theme)
-    - [Специальные методы](#special)
+    - [Компонентные шорткаты](#shortcuts)
 - [Вывод в HTML](#html)
 - [Конвертация цветов](#conversion)
 - [Глобальное переопределение](#service-provider)
@@ -79,6 +79,32 @@ MoonShine поставляется с палитрой `MoonShine\ColorManager\P
 Палитры помогают инкапсулировать светлую и тёмную схемы в отдельных классах.  
 Класс палитры реализует `MoonShine\Contracts\ColorManager\PaletteContract` и возвращает два массива:
 
+### Стандартные палитры
+
+MoonShine поставляется с набором предустановленных палитр:
+
+| Класс | Описание |
+| --- | --- |
+| `MoonShine\ColorManager\Palettes\DefaultPalette` | Черно-белая классика. |
+| `MoonShine\ColorManager\Palettes\CyanPalette` | Чистый циан с голубовато-зеленым оттенком. |
+| `MoonShine\ColorManager\Palettes\GrayPalette` | Холодный нейтральный серый. |
+| `MoonShine\ColorManager\Palettes\GreenPalette` | Натуральный зелёный. |
+| `MoonShine\ColorManager\Palettes\HalloweenPalette` | Оранжево-фиолетовая палитра с атмосферой Хэллоуина. |
+| `MoonShine\ColorManager\Palettes\LimePalette` | Яркий лаймово-салатовый. |
+| `MoonShine\ColorManager\Palettes\OrangePalette` | Классический оранжевый. |
+| `MoonShine\ColorManager\Palettes\PinkPalette` | Насыщенные тона ярко-розового. |
+| `MoonShine\ColorManager\Palettes\PurplePalette` | Классическая пурпурно-магентовая палитра. |
+| `MoonShine\ColorManager\Palettes\RetroPalette` | Винтажный желтовато-зеленый. |
+| `MoonShine\ColorManager\Palettes\RosePalette` | Тёплые персиково-розовые оттенки. |
+| `MoonShine\ColorManager\Palettes\SkyPalette` | Небесно-голубая с лёгким фиолетовым подтоном. |
+| `MoonShine\ColorManager\Palettes\SpringPalette` | Нежный пастельный мятный. |
+| `MoonShine\ColorManager\Palettes\TealPalette` | Чистый бирюзовый. |
+| `MoonShine\ColorManager\Palettes\ValentinePalette` | Романтичные красно-розовые оттенки. |
+| `MoonShine\ColorManager\Palettes\WinterPalette` | Прохладные ледяные голубые тона. |
+| `MoonShine\ColorManager\Palettes\YellowPalette` | Зеленовато-желтая палитра. |
+
+Чтобы создать собственную палитру, реализуйте контракт и верните пары светлых и тёмных значений:
+
 ```php
 namespace App\MoonShine\Palettes;
 
@@ -109,29 +135,8 @@ final class CorporatePalette implements PaletteContract
 }
 ```
 
-### Стандартные палитры
-
-MoonShine поставляется с набором предустановленных палитр:
-
-| Класс | Описание |
-| --- | --- |
-| `MoonShine\ColorManager\Palettes\DefaultPalette` | Черно-белая классика. |
-| `MoonShine\ColorManager\Palettes\CyanPalette` | Чистый циан с голубовато-зеленым оттенком. |
-| `MoonShine\ColorManager\Palettes\GrayPalette` | Холодный нейтральный серый. |
-| `MoonShine\ColorManager\Palettes\GreenPalette` | Натуральный зелёный. |
-| `MoonShine\ColorManager\Palettes\HalloweenPalette` | Оранжево-фиолетовая палитра с атмосферой Хэллоуина. |
-| `MoonShine\ColorManager\Palettes\LimePalette` | Яркий лаймово-салатовый. |
-| `MoonShine\ColorManager\Palettes\OrangePalette` | Классический оранжевый. |
-| `MoonShine\ColorManager\Palettes\PinkPalette` | Насыщенные тона ярко-розового. |
-| `MoonShine\ColorManager\Palettes\PurplePalette` | Классическая пурпурно-магентовая палитра. |
-| `MoonShine\ColorManager\Palettes\RetroPalette` | Винтажный желтовато-зеленый. |
-| `MoonShine\ColorManager\Palettes\RosePalette` | Тёплые персиково-розовые оттенки. |
-| `MoonShine\ColorManager\Palettes\SkyPalette` | Небесно-голубая с лёгким фиолетовым подтоном. |
-| `MoonShine\ColorManager\Palettes\SpringPalette` | Нежный пастельный мятный. |
-| `MoonShine\ColorManager\Palettes\TealPalette` | Чистый бирюзовый. |
-| `MoonShine\ColorManager\Palettes\ValentinePalette` | Романтичные красно-розовые оттенки. |
-| `MoonShine\ColorManager\Palettes\WinterPalette` | Прохладные ледяные голубые тона. |
-| `MoonShine\ColorManager\Palettes\YellowPalette` | Зеленовато-желтая палитра. |
+<a name="palette-usage"></a>
+### Способы подключения
 
 Активировать палитру можно несколькими способами:
 
@@ -151,11 +156,16 @@ final class MoonShineLayout extends AppLayout
 
 Если layout не задаёт `$palette`, MoonShine использует значение из глобальной конфигурации.
 
+После выбора палитры можно переходить к настройке цветов через API `ColorManager`.
+
 <a name="methods"></a>
 ## Методы
 
 <a name="set-colors"></a>
 ### Установка цветов
+
+Используйте `set()`, `setEverything()` или `bulkAssign()` для управления отдельными переменными.  
+Передавайте `everything: true`, если значение нужно применить сразу к светлой и тёмной темам.
 
 ```php
 // Установка одного цвета (поддерживаются OKLCH, HEX, RGB, RGBA)
@@ -164,6 +174,12 @@ $colorManager->set('primary', 'oklch(65% 0.18 264)');
 // Значение для тёмной темы
 $colorManager->set('primary', 'oklch(60% 0.17 264)', dark: true);
 
+// Одновременное применение к светлой и тёмной темам
+$colorManager->set('primary', '#7357ff', everything: true);
+
+// Явный хелпер для синхронизации тем
+$colorManager->setEverything('primary-text', '#ffffff');
+
 // Массовая установка (массивом удобно задавать оттенки)
 $colorManager->bulkAssign([
     'theme' => [
@@ -171,7 +187,7 @@ $colorManager->bulkAssign([
         50 => '0.99 0 0',
         100 => '0.98 0 0',
     ],
-]);
+], everything: true);
 
 // Подключение палитры
 $colorManager->palette(new \App\MoonShine\Palettes\CorporatePalette());
@@ -200,39 +216,58 @@ $colorManager->getAll(dark: true); // Для тёмной темы
 <a name="theme"></a>
 ### Управление темой
 
+`ColorManager` включает компонентные хелперы, которые настраивают связанные переменные одним вызовом.
+
 ```php
-// Установка цветов фона
-$colorManager->background('oklch(91% 0.0 0)');
-
-// Установка цветов контента
-$colorManager->content('oklch(58% 0.05 274)');
-
-// Настройка компонентов интерфейса
-$colorManager->tableRow('oklch(56% 0.07 274)'); // Строки таблицы
-$colorManager->borders('oklch(72% 0.02 274)'); // Границы
-$colorManager->dropdowns('oklch(68% 0.04 274)'); // Выпадающие списки
-$colorManager->buttons('oklch(80% 0.08 274)'); // Кнопки
-$colorManager->dividers('oklch(90% 0.02 274)'); // Разделители
+$colorManager->background('oklch(91% 0 0)', pageBg: 'oklch(98% 0 0)');
+$colorManager->text('oklch(20% 0.04 274)');
+$colorManager->borders('oklch(72% 0.02 274)');
+$colorManager->button(
+    'oklch(65% 0.18 264)',
+    text: '#ffffff',
+    hoverBg: 'oklch(60% 0.18 264)',
+    hoverText: '#f8fafc'
+);
+$colorManager->menu(
+    'oklch(70% 0.14 230)',
+    text: '#0f172a',
+    hoverBg: 'oklch(80% 0.05 230)'
+);
+$colorManager->dropzone(
+    'oklch(98% 0 0)',
+    text: '#0f172a',
+    icon: '#2563eb'
+);
+$colorManager->form(
+    bg: 'oklch(100% 0 0)',
+    text: '#0f172a',
+    focus: '#2563eb',
+    disabled: '#f1f5f9',
+    disabledText: '#64748b'
+);
 ```
 
-<a name="special"></a>
-### Специальные методы
+<a name="shortcuts"></a>
+### Компонентные шорткаты
 
-`ColorManager` поддерживает динамические методы для всех основных цветов.
+`ColorManager` поддерживает динамические методы для всех записей палитры и включает трейт `ColorShortcuts` с высокоуровневыми хелперами.  
+Каждый хелпер принимает флаги `dark` и `everything`, а также дополнительные аргументы для связанных цветов.
 
 ```php
-$colorManager->primary('oklch(65% 0.18 264)');
-$colorManager->secondary('oklch(70% 0.14 230)');
+$colorManager->primary('oklch(65% 0.18 264)', text: '#ffffff');
+$colorManager->success('oklch(63.9% 0.218 142.495)', text: '#194638', everything: true);
+$colorManager->collapse(
+    'oklch(100% 0 0)',
+    text: '#0f172a',
+    bgOpen: 'oklch(96% 0 0)'
+);
+$colorManager->progress(
+    bg: 'oklch(96% 0 0)',
+    barBg: 'oklch(65% 0.18 264)',
+    text: '#0f172a'
+);
 $colorManager->theme('oklch(95% 0.01 274)', 400);
 $colorManager->theme('oklch(35% 0.18 274)', 800, dark: true);
-$colorManager->successBg('oklch(63.9% 0.218 142.495)');
-$colorManager->successText('oklch(46.76% 0.1549 142.495)');
-$colorManager->warningBg('oklch(80.88% 0.170358 75.3501)');
-$colorManager->warningText('oklch(50% 0.1031 76.1)');
-$colorManager->errorBg('oklch(58.9% 0.214 26.855)');
-$colorManager->errorText('oklch(37.06% 0.145 26.855)');
-$colorManager->infoBg('oklch(60.1% 0.219 257.63)');
-$colorManager->infoText('oklch(34.71% 0.1204 257.63)');
 ```
 
 <a name="html"></a>

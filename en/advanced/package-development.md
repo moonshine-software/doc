@@ -108,11 +108,11 @@ public function boot(
 {
     $colors
         ->background('#A3C3D9')
-        ->content('#A3C3D9')
-        ->tableRow('#AE76A6')
+        ->text('#A3C3D9')
+        ->table('#AE76A6')
         ->dividers('#AE76A6')
         ->borders('#AE76A6')
-        ->buttons('#AE76A6')
+        ->button('#AE76A6')
         ->primary('#CCD6EB')
         ->secondary('#AE76A6');
 }
