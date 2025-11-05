@@ -31,47 +31,39 @@ video: https://youtu.be/95qxienFmtI?si=89rh5M5inDBim5ZP&t=1144
 <a name="default-colors"></a>
 ## Основные цвета
 
-MoonShine поставляется с палитрой `MoonShine\ColorManager\Palettes\DefaultPalette`.  
-Она возвращает светлую и тёмную схемы в нотации OKLCH:
+По умолчанию MoonShine приходит с преднастроенным набором цветовых переменных.  
+Ниже приведён массив, который используется сразу после установки (подробнее о палитрах рассказываем в следующем разделе):
 
 ```php
-[
-    'primary' => '0.627 0.265 303.9',
+return [
+    'body' => '0.99 0 0',
+    'primary' => '0.25 0 0',
     'primary-text' => '1 0 0',
-    'secondary' => '0.746 0.16 232.661',
+    'secondary' => '0.6 0 0',
     'secondary-text' => '1 0 0',
-    'body' => '0.98 0.0035 67.78',
-    'theme' => [
-        'body' => '0 0 0',         // текст по умолчанию
-        'stroke' => '0 0 0 / 10%', // границы
-        'default' => '1 0 0',      // фон
-        50 => '0.99 0 0',
-        100 => '0.98 0 0',
-        // ...
-        900 => '0.90 0 0',
+    'base' => [
+        'text' => '0.25 0 0',
+        'stroke' => '0.25 0 0 / 20%',
+        'default' => '1 0 0',
+        50 => '0.985 0 0',
+        100 => '0.97 0 0',
+        200 => '0.955 0 0',
+        300 => '0.94 0 0',
+        400 => '0.925 0 0',
+        500 => '0.91 0 0',
+        600 => '0.88 0 0',
+        700 => '0.85 0 0',
+        800 => '0.80 0 0',
+        900 => '0.75 0 0',
     ],
-    'success-bg' => '0.639 0.218 142.495',
-    'success-text' => '0.4676 0.1549 142.495',
-    // ...
-];
-```
-
-Тёмная палитра имеет ту же структуру:
-
-```php
-[
-    'primary' => '0.606 0.25 292.717',
-    'body' => '0.2 0.0168 274.32',
-    'theme' => [
-        'body' => '1 0 0',
-        'stroke' => '1 0 0 / 10%',
-        'default' => '0.24 0.0168 274.32',
-        // ...
-    ],
-    'success-bg' => '0.639 0.218 142.495',
-    'warning-bg' => '0.898 0.177 96.726',
-    'error-bg' => '0.589 0.214 26.855',
-    'info-bg' => '0.601 0.219 257.63',
+    'success-bg' => '0.64 0.22 142.49',
+    'success-text' => '0.46 0.16 142.49',
+    'warning-bg' => '0.75 0.17 75.35',
+    'warning-text' => '0.5 0.10 76.10',
+    'error-bg' => '0.58 0.21 26.855',
+    'error-text' => '0.37 0.145 26.85',
+    'info-bg' => '0.60 0.219 257.63',
+    'info-text' => '0.35 0.12 257.63',
 ];
 ```
 
@@ -119,8 +111,8 @@ final class CorporatePalette implements PaletteContract
     {
         return [
             'primary' => 'oklch(65% 0.18 264)',
-            'theme' => [
-                'body' => '0 0 0',
+            'base' => [
+                'default' => '0 0 0',
                 50 => 'oklch(98% 0.02 250)',
                 // ...
             ],
@@ -131,7 +123,11 @@ final class CorporatePalette implements PaletteContract
     {
         return [
             'primary' => 'oklch(60% 0.17 264)',
-            900 => 'oklch(24% 0.04 274)',
+            'base' => [
+                'default' => '0.24 0 0',
+                50 => 'oklch(98% 0.02 250)',
+                // ...
+            ],
             // ...
         ];
     }
@@ -185,8 +181,8 @@ $colorManager->setEverything('primary-text', '#ffffff');
 
 // Массовая установка (массивом удобно задавать оттенки)
 $colorManager->bulkAssign([
-    'theme' => [
-        'body' => '0 0 0',
+    'base' => [
+        'default' => '0 0 0',
         50 => '0.99 0 0',
         100 => '0.98 0 0',
     ],
@@ -196,8 +192,8 @@ $colorManager->bulkAssign([
 $colorManager->palette(new \App\MoonShine\Palettes\CorporatePalette());
 
 // Обновление конкретного оттенка через dot-нотацию
-$colorManager->set('theme.500', 'oklch(70% 0.10 280)');
-$colorManager->set('theme.500', '0.36 0.023 274.32', dark: true);
+$colorManager->set('base.500', 'oklch(70% 0.10 280)');
+$colorManager->set('base.500', '0.36 0.023 274.32', dark: true);
 ```
 
 <a name="get-colors"></a>
@@ -209,7 +205,7 @@ $colorManager->get('primary'); // Возвращает HEX по умолчани
 $colorManager->get('primary', hex: false); // Возвращает исходный формат
 
 // Получение оттенка
-$colorManager->get('theme', 500); // Конкретный оттенок
+$colorManager->get('base', 500); // Конкретный оттенок
 
 // Получение всех цветов
 $colorManager->getAll(); // Для светлой темы
