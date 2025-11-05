@@ -76,11 +76,11 @@ return [
 <a name="standard-palettes"></a>
 ### Стандартные палитры
 
-MoonShine поставляется с набором предустановленных палитр:
+MoonShine поставляется с набором предустановленных палитр. По умолчанию активна `MoonShine\ColorManager\Palettes\PurplePalette`.
 
 | Класс | Описание |
 | --- | --- |
-| `MoonShine\ColorManager\Palettes\DefaultPalette` | Черно-белая классика. |
+| `MoonShine\ColorManager\Palettes\NeutralPalette` | Нейтральная черно-белая классика. |
 | `MoonShine\ColorManager\Palettes\CyanPalette` | Чистый циан с голубовато-зеленым оттенком. |
 | `MoonShine\ColorManager\Palettes\GrayPalette` | Холодный нейтральный серый. |
 | `MoonShine\ColorManager\Palettes\GreenPalette` | Натуральный зелёный. |

@@ -71,7 +71,7 @@ return [
         // ...
     ],
     'layout' => \MoonShine\Laravel\Layouts\AppLayout::class,
-    'palette' => \MoonShine\ColorManager\Palettes\DefaultPalette::class,
+    'palette' => \MoonShine\ColorManager\Palettes\PurplePalette::class,
     'locale' => 'en',
     'locales' => ['en', 'ru'],
 
