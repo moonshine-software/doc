@@ -2,7 +2,7 @@
 
 First, prepare the model to enable [soft deletes](https://laravel.com/docs/eloquent#soft-deleting).
 
-Next, we will override the `modifyItemQueryBuilder()` method in the resource to correctly get the "deleted" module.
+Next, we will override the `modifyItemQueryBuilder()` method in the resource to correctly get the "deleted" model.
 
 ```php
 use Illuminate\Contracts\Database\Eloquent\Builder;
