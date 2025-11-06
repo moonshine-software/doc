@@ -19,7 +19,8 @@ Then add all the necessary functionality to the index page class.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:8]
+// [tl! collapse:9]
+use App\Models\Article;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use MoonShine\Contracts\Core\DependencyInjection\CrudRequestContract;
 use MoonShine\Contracts\UI\ActionButtonContract;
@@ -48,7 +49,7 @@ protected function buttons(): ListOf
                 events: [$this->getListEventName()]
             )
             ->canSee(
-                fn(Car $model) => $model->trashed()
+                fn(Article $model) => $model->trashed()
             ),
 
         ActionButton::make('Force delete')
@@ -57,7 +58,7 @@ protected function buttons(): ListOf
                 events: [$this->getListEventName()]
             )
             ->canSee(
-                fn(Car $model) => $model->trashed()
+                fn(Article $model) => $model->trashed()
             ),
     );
 }
@@ -91,7 +92,7 @@ protected function modifyDeleteButton(
 ): ActionButtonContract
 {
     return $button->canSee(
-        fn(Car $model) => !$model->trashed()
+        fn(Article $model) => !$model->trashed()
     );
 }
 
