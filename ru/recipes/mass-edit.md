@@ -1,28 +1,30 @@
 # Массовое редактирование записей
 
-В данным примере мы добавим `bulk` кнопку в список `indexButtons` и в модальном окне отредактируем заголовки всех записей.
-
-В примере используется системный **MoonShineUserRoleResource**:
+В данным примере мы добавим `bulk` кнопку на индексной странице и в модальном окне отредактируем заголовки всех выбранных записей.
 
 > [!NOTE]
-> Если решите использовать данный рецепт, не забудьте добавить валидацию и используйте пример с умом
+> Если решите использовать данный рецепт, не забудьте добавить валидацию и используйте пример с умом.
 
 ```php
-public function massEdit(MoonShineRequest $request): MoonShineJsonResponse
+use MoonShine\Contracts\Core\DependencyInjection\CrudRequestContract;
+use MoonShine\Crud\JsonResponse;
+
+#[AsyncMethod]
+public function massEdit(CrudRequestContract $request): JsonResponse
 {
-    MoonshineUserRole::query()
+    Post::query()
         ->whereIn('id', $request->array('ids'))
         ->update([
             'name' => $request->input('name')
         ]);
 
-    return MoonShineJsonResponse::make()->toast('Success', ToastType::SUCCESS);
+    return JsonResponse::make()->toast('Success', ToastType::SUCCESS);
 }
 
-protected function indexButtons(): ListOf
+protected function buttons(): ListOf
 {
-    return parent::indexButtons()->add(
-        ActionButton::make('')
+    return parent::buttons()->add(
+        ActionButton::make()
             ->bulk()
             ->icon('pencil')
             ->inModal(
@@ -34,7 +36,10 @@ protected function indexButtons(): ListOf
                         Text::make('Name')->required(),
                     ])
                     ->asyncMethod('massEdit', events: [
-                        AlpineJs::event(JsEvent::TABLE_UPDATED, $this->getListComponentName())
+                        AlpineJs::event(
+                            JsEvent::TABLE_UPDATED,
+                            $this->getListComponentName()
+                        )
                     ])
                     ->submit('Save'),
             ),
