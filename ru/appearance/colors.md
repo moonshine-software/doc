@@ -6,11 +6,14 @@ video: https://youtu.be/95qxienFmtI?si=89rh5M5inDBim5ZP&t=1144
 
 - [Основы](#basics)
 - [Основные цвета](#default-colors)
+- [Палитры](#palettes)
+    - [Стандартные палитры](#standard-palettes)
+    - [Способы подключения](#palette-usage)
 - [Методы](#methods)
     - [Установка цветов](#set-colors)
     - [Получение цветов](#get-colors)
     - [Управление темой](#theme)
-    - [Специальные методы](#special)
+    - [Компонентные шорткаты](#shortcuts)
 - [Вывод в HTML](#html)
 - [Конвертация цветов](#conversion)
 - [Глобальное переопределение](#service-provider)
@@ -28,39 +31,131 @@ video: https://youtu.be/95qxienFmtI?si=89rh5M5inDBim5ZP&t=1144
 <a name="default-colors"></a>
 ## Основные цвета
 
-По умолчанию доступны следующие цвета:
+По умолчанию MoonShine приходит с преднастроенным набором цветовых переменных.  
+Ниже приведён массив, который используется сразу после установки (подробнее о палитрах рассказываем в следующем разделе):
 
 ```php
-// Основные
-'primary' => '120, 67, 233' // Основной цвет
-'secondary' => '236, 65, 118' // Вторичный цвет
-'body' => '27, 37, 59' // Цвет фона
-
-// Оттенки тёмного (dark)
-'dark' => [
-    'DEFAULT' => '30, 31, 67',
-    50 => '83, 103, 132', // поиск, тосты, прогресс бары
-    100 => '74, 90, 121', // разделители
-    200 => '65, 81, 114', // разделители
-    300 => '53, 69, 103', // границы
-    400 => '48, 61, 93',  // выпадающие списки, кнопки, пагинация
-    500 => '41, 53, 82',  // фон кнопок по умолчанию
-    600 => '40, 51, 78',  // строки таблицы
-    700 => '39, 45, 69',  // фон контента
-    800 => '27, 37, 59',  // фон сайдбара
-    900 => '15, 23, 42',  // основной фон
-]
-
-// Статусные цвета
-'success-bg' => '0, 170, 0'
-'success-text' => '255, 255, 255'
-'warning-bg' => '255, 220, 42'
-'warning-text' => '139, 116, 0'
-'error-bg' => '224, 45, 45'
-'error-text' => '255, 255, 255'
-'info-bg' => '0, 121, 255'
-'info-text' => '255, 255, 255'
+return [
+    'body' => '0.99 0 0',
+    'primary' => '0.25 0 0',
+    'primary-text' => '1 0 0',
+    'secondary' => '0.6 0 0',
+    'secondary-text' => '1 0 0',
+    'base' => [
+        'text' => '0.25 0 0',
+        'stroke' => '0.25 0 0 / 20%',
+        'default' => '1 0 0',
+        50 => '0.985 0 0',
+        100 => '0.97 0 0',
+        200 => '0.955 0 0',
+        300 => '0.94 0 0',
+        400 => '0.925 0 0',
+        500 => '0.91 0 0',
+        600 => '0.88 0 0',
+        700 => '0.85 0 0',
+        800 => '0.80 0 0',
+        900 => '0.75 0 0',
+    ],
+    'success-bg' => '0.64 0.22 142.49',
+    'success-text' => '0.46 0.16 142.49',
+    'warning-bg' => '0.75 0.17 75.35',
+    'warning-text' => '0.5 0.10 76.10',
+    'error-bg' => '0.58 0.21 26.855',
+    'error-text' => '0.37 0.145 26.85',
+    'info-bg' => '0.60 0.219 257.63',
+    'info-text' => '0.35 0.12 257.63',
+];
 ```
+
+<a name="palettes"></a>
+## Палитры
+
+Палитры помогают инкапсулировать светлую и тёмную схемы в отдельных классах.  
+
+<a name="standard-palettes"></a>
+### Стандартные палитры
+
+MoonShine поставляется с набором предустановленных палитр. По умолчанию активна `MoonShine\ColorManager\Palettes\PurplePalette`.
+
+- `CyanPalette`: Чистый циан с голубовато-зеленым оттенком.
+- `GrayPalette`: Холодный нейтральный серый.
+- `GreenPalette`: Натуральный зелёный.
+- `HalloweenPalette`: Оранжево-фиолетовая палитра с атмосферой Хэллоуина.
+- `LimePalette`: Яркий лаймово-салатовый.
+- `NeutralPalette`: Нейтральная черно-белая классика.
+- `OrangePalette`: Классический оранжевый.
+- `PinkPalette`: Насыщенные тона ярко-розового.
+- `PurplePalette`: Классическая пурпурно-магентовая палитра.
+- `RetroPalette`: Винтажный желтовато-зеленый.
+- `RosePalette`: Тёплые персиково-розовые оттенки.
+- `SkyPalette`: Небесно-голубая с лёгким фиолетовым подтоном.
+- `SpringPalette`: Нежный пастельный мятный.
+- `TealPalette`: Чистый бирюзовый.
+- `ValentinePalette`: Романтичные красно-розовые оттенки.
+- `WinterPalette`: Прохладные ледяные голубые тона.
+- `YellowPalette`: Зеленовато-желтая палитра.
+
+> [!TIP]
+> Вы можете посмотреть, как всё выглядит, или создать свою палитру на [getmoonshine.app/palette-generator](https://getmoonshine.app/palette-generator).
+
+Чтобы создать собственную палитру, реализуйте контракт и верните пары светлых и тёмных значений:
+
+```php
+namespace App\MoonShine\Palettes;
+
+use MoonShine\Contracts\ColorManager\PaletteContract;
+
+final class CorporatePalette implements PaletteContract
+{
+    public function getColors(): array
+    {
+        return [
+            'primary' => 'oklch(65% 0.18 264)',
+            'base' => [
+                'default' => '0 0 0',
+                50 => 'oklch(98% 0.02 250)',
+                // ...
+            ],
+        ];
+    }
+
+    public function getDarkColors(): array
+    {
+        return [
+            'primary' => 'oklch(60% 0.17 264)',
+            'base' => [
+                'default' => '0.24 0 0',
+                50 => 'oklch(98% 0.02 250)',
+                // ...
+            ],
+            // ...
+        ];
+    }
+}
+```
+
+<a name="palette-usage"></a>
+### Способы подключения
+
+Активировать палитру можно несколькими способами:
+
+- глобально указать класс в ключе `palette` внутри `config/moonshine.php` (или через `MoonShineConfigurator`);
+- указать класс палитры в свойстве `$palette` внутри `Layout`;
+- вызвать `$colorManager->palette(new CorporatePalette());` в коде.
+
+```php
+use App\MoonShine\Palettes\CorporatePalette;
+use MoonShine\Laravel\Layouts\AppLayout;
+
+final class MoonShineLayout extends AppLayout
+{
+    protected ?string $palette = CorporatePalette::class;
+}
+```
+
+Если layout не задаёт `$palette`, MoonShine использует значение из глобальной конфигурации.
+
+После выбора палитры можно переходить к настройке цветов через API `ColorManager`. Далее мы последовательно разберём базовые методы, способы получения значений и готовые хелперы для компонентов.
 
 <a name="methods"></a>
 ## Методы
@@ -68,18 +163,37 @@ video: https://youtu.be/95qxienFmtI?si=89rh5M5inDBim5ZP&t=1144
 <a name="set-colors"></a>
 ### Установка цветов
 
+Используйте `set()`, `setEverything()` или `bulkAssign()` для управления отдельными переменными.  
+Передавайте `everything: true`, если значение нужно применить сразу к светлой и тёмной темам.
+
 ```php
-// Установка одного цвета
-$colorManager->set('primary', '120, 67, 233');
+// Установка одного цвета (поддерживаются OKLCH, HEX, RGB, RGBA)
+$colorManager->set('primary', 'oklch(65% 0.18 264)');
 
-// Установка цвета для тёмной темы
-$colorManager->set('primary', '120, 67, 233', dark: true);
+// Значение для тёмной темы
+$colorManager->set('primary', 'oklch(60% 0.17 264)', dark: true);
 
-// Массовая установка цветов
+// Одновременное применение к светлой и тёмной темам
+$colorManager->set('primary', '#7357ff', everything: true);
+
+// Явный хелпер для синхронизации тем
+$colorManager->setEverything('primary-text', '#ffffff');
+
+// Массовая установка (массивом удобно задавать оттенки)
 $colorManager->bulkAssign([
-    'primary' => '120, 67, 233',
-    'secondary' => '236, 65, 118'
-]);
+    'base' => [
+        'default' => '0 0 0',
+        50 => '0.99 0 0',
+        100 => '0.98 0 0',
+    ],
+], everything: true);
+
+// Подключение палитры
+$colorManager->palette(new \App\MoonShine\Palettes\CorporatePalette());
+
+// Обновление конкретного оттенка через dot-нотацию
+$colorManager->set('base.500', 'oklch(70% 0.10 280)');
+$colorManager->set('base.500', '0.36 0.023 274.32', dark: true);
 ```
 
 <a name="get-colors"></a>
@@ -87,11 +201,11 @@ $colorManager->bulkAssign([
 
 ```php
 // Получение цвета
-$colorManager->get('primary'); // Возвращает HEX
-$colorManager->get('primary', hex: false); // Возвращает RGB
+$colorManager->get('primary'); // Возвращает HEX по умолчанию
+$colorManager->get('primary', hex: false); // Возвращает исходный формат
 
 // Получение оттенка
-$colorManager->get('dark', 500); // Получение конкретного оттенка
+$colorManager->get('base', 500); // Конкретный оттенок
 
 // Получение всех цветов
 $colorManager->getAll(); // Для светлой темы
@@ -101,37 +215,62 @@ $colorManager->getAll(dark: true); // Для тёмной темы
 <a name="theme"></a>
 ### Управление темой
 
+`ColorManager` включает компонентные хелперы, которые настраивают связанные переменные одним вызовом. Примеры ниже показывают три частых сценария: базовые настройки фона и текста, интерактивные элементы навигации и формы со всеми состояниями.
+
 ```php
-// Установка цветов фона
-$colorManager->background('27, 37, 59');
-
-// Установка цветов контента
-$colorManager->content('39, 45, 69');
-
-// Настройка компонентов интерфейса
-$colorManager->tableRow('40, 51, 78'); // Строки таблицы
-$colorManager->borders('53, 69, 103'); // Границы
-$colorManager->dropdowns('48, 61, 93'); // Выпадающие списки
-$colorManager->buttons('83, 103, 132'); // Кнопки
-$colorManager->dividers('74, 90, 121'); // Разделители
+$colorManager->background('oklch(91% 0 0)', pageBg: 'oklch(98% 0 0)');
+$colorManager->text('oklch(20% 0.04 274)');
+$colorManager->borders('oklch(72% 0.02 274)');
+$colorManager->button(
+    'oklch(65% 0.18 264)',
+    text: '#ffffff',
+    hoverBg: 'oklch(60% 0.18 264)',
+    hoverText: '#f8fafc'
+);
+$colorManager->menu(
+    'oklch(70% 0.14 230)',
+    text: '#0f172a',
+    hoverBg: 'oklch(80% 0.05 230)'
+);
+$colorManager->dropzone(
+    'oklch(98% 0 0)',
+    text: '#0f172a',
+    icon: '#2563eb'
+);
+$colorManager->form(
+    bg: 'oklch(100% 0 0)',
+    text: '#0f172a',
+    focus: '#2563eb',
+    disabled: '#f1f5f9',
+    disabledText: '#64748b'
+);
 ```
 
-<a name="special"></a>
-### Специальные методы
+Метод `dropzone()` также управляет цветом имени файла через аргумент `text`.
 
-`ColorManager` поддерживает динамические методы для всех основных цветов.
+<a name="shortcuts"></a>
+### Компонентные шорткаты
+
+`ColorManager` поддерживает динамические методы для всех записей палитры и включает трейт `ColorShortcuts` с высокоуровневыми хелперами.  
+Когда нужно скорректировать сразу группу переменных (фон, текст, hover-состояния), используйте соответствующий шорткат; 
+когда требуется точечное изменение конкретного токена, выбирайте `set()` или `setEverything()`. 
+Каждый хелпер принимает флаги `dark` и `everything`, а также дополнительные аргументы для связанных цветов.
 
 ```php
-$colorManager->primary('120, 67, 233');
-$colorManager->secondary('236, 65, 118');
-$colorManager->successBg('0, 170, 0');
-$colorManager->successText('255, 255, 255');
-$colorManager->warningBg('255, 220, 42');
-$colorManager->warningText('139, 116, 0');
-$colorManager->errorBg('224, 45, 45');
-$colorManager->errorText('255, 255, 255');
-$colorManager->infoBg('0, 121, 255');
-$colorManager->infoText('255, 255, 255');
+$colorManager->primary('oklch(65% 0.18 264)', text: '#ffffff');
+$colorManager->success('oklch(63.9% 0.218 142.495)', text: '#194638', everything: true);
+$colorManager->collapse(
+    'oklch(100% 0 0)',
+    text: '#0f172a',
+    bgOpen: 'oklch(96% 0 0)'
+);
+$colorManager->progress(
+    bg: 'oklch(96% 0 0)',
+    barBg: 'oklch(65% 0.18 264)',
+    text: '#0f172a'
+);
+$colorManager->theme('oklch(95% 0.01 274)', 400);
+$colorManager->theme('oklch(35% 0.18 274)', 800, dark: true);
 ```
 
 <a name="html"></a>
@@ -148,8 +287,8 @@ $colorManager->toHtml()
 ```html
 <style>
     :root {
-        --primary:120,67,233;
-        --secondary:236,65,118;
+        --primary:0.627 0.265 303.9;
+        --secondary:0.746 0.16 232.661;
         /* остальные переменные светлой темы */
     }
     :root.dark {
@@ -161,16 +300,19 @@ $colorManager->toHtml()
 <a name="conversion"></a>
 ## Конвертация цветов
 
-`ColorManager` включает утилиту `ColorMutator` для конвертации между HEX и RGB форматами.
+`ColorManager` включает утилиту `ColorMutator` для конвертации между HEX, RGB, RGBA и OKLCH.
 
 ```php
 use MoonShine\ColorManager\ColorMutator;
 
 // Конвертация в HEX
-ColorMutator::toHEX('120, 67, 233'); // '#7843e9'
+ColorMutator::toHEX('oklch(65% 0.18 264)'); // '#7357ff'
 
 // Конвертация в RGB
-ColorMutator::toRGB('#7843e9'); // '120,67,233'
+ColorMutator::toRGB('#7357ff'); // 'rgb(115,87,255)'
+
+// Конвертация в OKLCH (принимает RGB, HEX и сокращённые OKLCH-строки)
+ColorMutator::toOKLCH('rgb(115,87,255)'); // 'oklch(65.07% 0.20052 282.513)'
 ```
 
 <a name="service-provider"></a>
@@ -203,10 +345,16 @@ class MoonShineServiceProvider extends ServiceProvider
         ColorManagerContract $colors,
     ): void
     {
-        $colors->primary('#7843e9');
+        $colors->palette(new \App\MoonShine\Palettes\CorporatePalette());
+
+        $colors->primary('oklch(65% 0.18 264)');
+        $colors->successBg('oklch(70% 0.15 142)');
     }
 }
 ```
 
 > [!WARNING]
-> `Layout` загружается после `ServiceProvider` и будет иметь приоритет, поэтому, устанавливая цвета через `ServiceProvider`, убедитесь, что они не переопределяются в `Layout`.
+> `Layout` загружается после `ServiceProvider` и имеет приоритет.  
+> При использовании глобальных палитр убедитесь, что нужный Layout не переопределяет цвета и не задаёт своё свойство `$palette`.
+
+Комбинируйте описанные подходы: начните с выбора палитры, при необходимости настройте отдельные переменные через `set()` или `setEverything()`, затем примените шорткаты для пакетной правки компонентов и, наконец, выведите итоговые значения через `toHtml()` для быстрой проверки в интерфейсе.

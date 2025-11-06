@@ -71,6 +71,7 @@ return [
         // ...
     ],
     'layout' => \MoonShine\Laravel\Layouts\AppLayout::class,
+    'palette' => \MoonShine\ColorManager\Palettes\PurplePalette::class,
     'locale' => 'en',
     'locales' => ['en', 'ru'],
 
@@ -462,6 +463,22 @@ tab: config/moonshine.php
 tab: MoonShineServiceProvider
 ```php
 $config->layout(\App\MoonShine\Layouts\CustomLayout::class);
+```
+~~~
+
+<a name="palette"></a>
+### Palette
+
+The default palette class used when a layout does not define its own.
+
+~~~tabs
+tab: config/moonshine.php
+```php
+'palette' => \App\MoonShine\Palettes\CorporatePalette::class,
+```
+tab: MoonShineServiceProvider
+```php
+$config->set('palette', \App\MoonShine\Palettes\CorporatePalette::class);
 ```
 ~~~
 
