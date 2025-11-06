@@ -71,32 +71,32 @@ return [
 ## Палитры
 
 Палитры помогают инкапсулировать светлую и тёмную схемы в отдельных классах.  
-Класс палитры реализует `MoonShine\Contracts\ColorManager\PaletteContract` и возвращает два массива:
 
 <a name="standard-palettes"></a>
 ### Стандартные палитры
 
 MoonShine поставляется с набором предустановленных палитр. По умолчанию активна `MoonShine\ColorManager\Palettes\PurplePalette`.
 
-| Класс | Описание |
-| --- | --- |
-| `MoonShine\ColorManager\Palettes\NeutralPalette` | Нейтральная черно-белая классика. |
-| `MoonShine\ColorManager\Palettes\CyanPalette` | Чистый циан с голубовато-зеленым оттенком. |
-| `MoonShine\ColorManager\Palettes\GrayPalette` | Холодный нейтральный серый. |
-| `MoonShine\ColorManager\Palettes\GreenPalette` | Натуральный зелёный. |
-| `MoonShine\ColorManager\Palettes\HalloweenPalette` | Оранжево-фиолетовая палитра с атмосферой Хэллоуина. |
-| `MoonShine\ColorManager\Palettes\LimePalette` | Яркий лаймово-салатовый. |
-| `MoonShine\ColorManager\Palettes\OrangePalette` | Классический оранжевый. |
-| `MoonShine\ColorManager\Palettes\PinkPalette` | Насыщенные тона ярко-розового. |
-| `MoonShine\ColorManager\Palettes\PurplePalette` | Классическая пурпурно-магентовая палитра. |
-| `MoonShine\ColorManager\Palettes\RetroPalette` | Винтажный желтовато-зеленый. |
-| `MoonShine\ColorManager\Palettes\RosePalette` | Тёплые персиково-розовые оттенки. |
-| `MoonShine\ColorManager\Palettes\SkyPalette` | Небесно-голубая с лёгким фиолетовым подтоном. |
-| `MoonShine\ColorManager\Palettes\SpringPalette` | Нежный пастельный мятный. |
-| `MoonShine\ColorManager\Palettes\TealPalette` | Чистый бирюзовый. |
-| `MoonShine\ColorManager\Palettes\ValentinePalette` | Романтичные красно-розовые оттенки. |
-| `MoonShine\ColorManager\Palettes\WinterPalette` | Прохладные ледяные голубые тона. |
-| `MoonShine\ColorManager\Palettes\YellowPalette` | Зеленовато-желтая палитра. |
+- `CyanPalette`: Чистый циан с голубовато-зеленым оттенком.
+- `GrayPalette`: Холодный нейтральный серый.
+- `GreenPalette`: Натуральный зелёный.
+- `HalloweenPalette`: Оранжево-фиолетовая палитра с атмосферой Хэллоуина.
+- `LimePalette`: Яркий лаймово-салатовый.
+- `NeutralPalette`: Нейтральная черно-белая классика.
+- `OrangePalette`: Классический оранжевый.
+- `PinkPalette`: Насыщенные тона ярко-розового.
+- `PurplePalette`: Классическая пурпурно-магентовая палитра.
+- `RetroPalette`: Винтажный желтовато-зеленый.
+- `RosePalette`: Тёплые персиково-розовые оттенки.
+- `SkyPalette`: Небесно-голубая с лёгким фиолетовым подтоном.
+- `SpringPalette`: Нежный пастельный мятный.
+- `TealPalette`: Чистый бирюзовый.
+- `ValentinePalette`: Романтичные красно-розовые оттенки.
+- `WinterPalette`: Прохладные ледяные голубые тона.
+- `YellowPalette`: Зеленовато-желтая палитра.
+
+> [!TIP]
+> Вы можете посмотреть, как всё выглядит, или создать свою палитру на [getmoonshine.app/palette-generator](https://getmoonshine.app/palette-generator).
 
 Чтобы создать собственную палитру, реализуйте контракт и верните пары светлых и тёмных значений:
 
@@ -246,13 +246,15 @@ $colorManager->form(
 );
 ```
 
-Метод `dropzone()` теперь также управляет цветом имени файла через аргумент `text`.
+Метод `dropzone()` также управляет цветом имени файла через аргумент `text`.
 
 <a name="shortcuts"></a>
 ### Компонентные шорткаты
 
 `ColorManager` поддерживает динамические методы для всех записей палитры и включает трейт `ColorShortcuts` с высокоуровневыми хелперами.  
-Когда нужно скорректировать сразу группу переменных (фон, текст, hover-состояния), используйте соответствующий шорткат; когда требуется точечное изменение конкретного токена, выбирайте `set()` или `setEverything()`. Каждый хелпер принимает флаги `dark` и `everything`, а также дополнительные аргументы для связанных цветов.
+Когда нужно скорректировать сразу группу переменных (фон, текст, hover-состояния), используйте соответствующий шорткат; 
+когда требуется точечное изменение конкретного токена, выбирайте `set()` или `setEverything()`. 
+Каждый хелпер принимает флаги `dark` и `everything`, а также дополнительные аргументы для связанных цветов.
 
 ```php
 $colorManager->primary('oklch(65% 0.18 264)', text: '#ffffff');

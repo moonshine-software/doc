@@ -112,25 +112,26 @@ final class CorporatePalette implements PaletteContract
 
 MoonShine ships with a set of ready-made palettes. The default palette is `MoonShine\ColorManager\Palettes\PurplePalette`.
 
-| Class | Description |
-| --- | --- |
-| `MoonShine\ColorManager\Palettes\NeutralPalette` | Neutral black and white classic. |
-| `MoonShine\ColorManager\Palettes\CyanPalette` | True cyan blue-green. |
-| `MoonShine\ColorManager\Palettes\GrayPalette` | Cool neutral gray. |
-| `MoonShine\ColorManager\Palettes\GreenPalette` | Natural green tones. |
-| `MoonShine\ColorManager\Palettes\HalloweenPalette` | Orange and purple spooky theme. |
-| `MoonShine\ColorManager\Palettes\LimePalette` | Bright lime/chartreuse. |
-| `MoonShine\ColorManager\Palettes\OrangePalette` | Classic orange. |
-| `MoonShine\ColorManager\Palettes\PinkPalette` | Bold hot pink shades. |
-| `MoonShine\ColorManager\Palettes\PurplePalette` | Classic purple and magenta mix. |
-| `MoonShine\ColorManager\Palettes\RetroPalette` | Vintage yellowish green. |
-| `MoonShine\ColorManager\Palettes\RosePalette` | Warm peachy-rose tones. |
-| `MoonShine\ColorManager\Palettes\SkyPalette` | Sky blue with a purple undertone. |
-| `MoonShine\ColorManager\Palettes\SpringPalette` | Fresh pastel mint green. |
-| `MoonShine\ColorManager\Palettes\TealPalette` | Pure cyan-teal blend. |
-| `MoonShine\ColorManager\Palettes\ValentinePalette` | Romantic red and pink duo. |
-| `MoonShine\ColorManager\Palettes\WinterPalette` | Cool icy blue tones. |
-| `MoonShine\ColorManager\Palettes\YellowPalette` | Greenish yellow. |
+- `CyanPalette`: True cyan blue-green.
+- `GrayPalette`: Cool neutral gray.
+- `GreenPalette`: Natural green tones.
+- `HalloweenPalette`: Orange and purple spooky theme.
+- `LimePalette`: Bright lime/chartreuse.
+- `NeutralPalette`: Neutral black and white classic.
+- `OrangePalette`: Classic orange.
+- `PinkPalette`: Bold hot pink shades.
+- `PurplePalette`: Classic purple and magenta mix.
+- `RetroPalette`: Vintage yellowish green.
+- `RosePalette`: Warm peachy-rose tones.
+- `SkyPalette`: Sky blue with a purple undertone.
+- `SpringPalette`: Fresh pastel mint green.
+- `TealPalette`: Pure cyan-teal blend.
+- `ValentinePalette`: Romantic red and pink duo.
+- `WinterPalette`: Cool icy blue tones.
+- `YellowPalette`: Greenish yellow.
+
+> [!TIP]
+> Preview or build palettes at [getmoonshine.app/palette-generator](https://getmoonshine.app/palette-generator).
 
 <a name="palette-usage"></a>
 ### Palette Usage
@@ -245,7 +246,7 @@ $colorManager->form(
 );
 ```
 
-`dropzone()` now also controls the file name color through the `text` argument.
+`dropzone()` also controls the file name color through the `text` argument.
 
 <a name="shortcuts"></a>
 ### Component Shortcuts
