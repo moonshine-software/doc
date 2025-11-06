@@ -31,7 +31,7 @@ It allows you to configure the colors of various interface elements for both lig
 <a name="default-colors"></a>
 ## Default Colors
 
-MoonShine ships with a preconfigured set of color variables.  
+MoonShine ships with a preconfigured set of color variables.
 The array below reflects the values you get right after installation (palettes are covered in the following section):
 
 ```php
@@ -56,13 +56,13 @@ return [
         800 => '0.80 0 0',
         900 => '0.75 0 0',
     ],
-    'success-bg' => '0.64 0.22 142.49',
+    'success' => '0.64 0.22 142.49',
     'success-text' => '0.46 0.16 142.49',
-    'warning-bg' => '0.75 0.17 75.35',
+    'warning' => '0.75 0.17 75.35',
     'warning-text' => '0.5 0.10 76.10',
-    'error-bg' => '0.58 0.21 26.855',
+    'error' => '0.58 0.21 26.855',
     'error-text' => '0.37 0.145 26.85',
-    'info-bg' => '0.60 0.219 257.63',
+    'info' => '0.60 0.219 257.63',
     'info-text' => '0.35 0.12 257.63',
 ];
 ```
@@ -70,7 +70,7 @@ return [
 <a name="palettes"></a>
 ## Palettes
 
-Palettes allow you to encapsulate light and dark color schemes in dedicated classes.  
+Palettes allow you to encapsulate light and dark color schemes in dedicated classes.
 A palette implements `MoonShine\Contracts\ColorManager\PaletteContract` and returns two associative arrays:
 
 ```php
@@ -162,7 +162,7 @@ After choosing a palette, you can move on to configuring colors via the `ColorMa
 <a name="set-colors"></a>
 ### Set Colors
 
-Use `set()`, `setEverything()`, or `bulkAssign()` to control individual variables.  
+Use `set()`, `setEverything()`, or `bulkAssign()` to control individual variables.
 Pass `everything: true` when you want to apply the same value to both light and dark themes.
 
 ```php
@@ -214,7 +214,7 @@ $colorManager->getAll(dark: true); // For dark theme
 <a name="theme"></a>
 ### Theme Management
 
-`ColorManager` includes component helpers that configure several related variables in one call.  
+`ColorManager` includes component helpers that configure several related variables in one call.
 The examples below highlight three common scenarios: baseline text/background tweaks, interactive navigation elements, and fully stateful forms.
 
 ```php
@@ -251,7 +251,7 @@ $colorManager->form(
 <a name="shortcuts"></a>
 ### Component Shortcuts
 
-`ColorManager` supports dynamic methods for all palette entries and ships with the `ColorShortcuts` trait for higher-level helpers.  
+`ColorManager` supports dynamic methods for all palette entries and ships with the `ColorShortcuts` trait for higher-level helpers.
 Each helper accepts `dark` and `everything` flags and optional arguments for related colors.
 
 ```php
@@ -352,7 +352,7 @@ class MoonShineServiceProvider extends ServiceProvider
 ```
 
 > [!WARNING]
-> `Layout` loads after `ServiceProvider` and will take precedence.  
+> `Layout` loads after `ServiceProvider` and will take precedence.
 > When using palettes globally, make sure the target layout does not override colors or provide its own `$palette`.
 
 Combine the approaches described above: start by choosing a palette, adjust single tokens with `set()` or `setEverything()`, apply shortcuts to tweak related components in bulk, and finish by exporting the variables with `toHtml()` for a quick interface review.
