@@ -1,55 +1,34 @@
 # Soft deletes
 
-В модели нужно подключить Laravel трейт `SoftDeletes`.
+Сначала подготовьте модель для включения [soft deletes](https://laravel.com/docs/eloquent#soft-deleting).
+
+Далее переопределим метод `modifyItemQueryBuilder()` в ресурсе для корректного получения "удаленной" модели.
 
 ```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:1]
-use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 
-class Article extends Model
+protected function modifyItemQueryBuilder(
+    Builder $builder
+): Builder
 {
-    use SoftDeletes;
-
-    // ...
+    return $builder->withTrashed();
 }
 ```
 
-Далее добавим необходимый функционал в ресурс.
+Затем добавим весь необходимый функционал в класс индексной страницы.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:6]
+// [tl! collapse:9]
+use App\Models\Article;
 use Illuminate\Contracts\Database\Eloquent\Builder;
+use MoonShine\Contracts\Core\DependencyInjection\CrudRequestContract;
 use MoonShine\Contracts\UI\ActionButtonContract;
-use MoonShine\Laravel\Http\Responses\MoonShineJsonResponse;
-use MoonShine\Laravel\MoonShineRequest;
+use MoonShine\Crud\JsonResponse;
 use MoonShine\Laravel\QueryTags\QueryTag;
+use MoonShine\Support\Attributes\AsyncMethod;
+use MoonShine\Support\ListOf;
 use MoonShine\UI\Components\ActionButton;
-
-protected function indexButtons(): ListOf
-{
-    return parent::indexButtons()
-        ->prepend(
-            ActionButton::make('Restore')
-                ->method(
-                    'restore',
-                    events: [$this->getListEventName()]
-                )
-                ->canSee(
-                    fn(Article $model) => $model->trashed()
-                ),
-
-            ActionButton::make('Force delete')
-                ->method(
-                    'forceDelete',
-                    events: [$this->getListEventName()]
-                )
-                ->canSee(
-                    fn(Article $model) => $model->trashed()
-                ),
-        );
-}
 
 protected function queryTags(): array
 {
@@ -61,32 +40,50 @@ protected function queryTags(): array
     ];
 }
 
-protected function modifyItemQueryBuilder(
-    Builder $builder
-): Builder
+protected function buttons(): ListOf
 {
-    return $builder->withTrashed();
+    return parent::buttons()->prepend(
+        ActionButton::make('Restore')
+            ->method(
+                'restore',
+                events: [$this->getListEventName()]
+            )
+            ->canSee(
+                fn(Article $model) => $model->trashed()
+            ),
+
+        ActionButton::make('Force delete')
+            ->method(
+                'forceDelete',
+                events: [$this->getListEventName()]
+            )
+            ->canSee(
+                fn(Article $model) => $model->trashed()
+            ),
+    );
 }
 
+#[AsyncMethod]
 public function restore(
-    MoonShineRequest $request
-): MoonShineJsonResponse
+    CrudRequestContract $request
+): JsonResponse
 {
     $item = $request->getResource()->getItem();
     $item->restore();
 
-    return MoonShineJsonResponse::make()
+    return JsonResponse::make()
         ->toast('Success');
 }
 
+#[AsyncMethod]
 public function forceDelete(
-    MoonShineRequest $request
-): MoonShineJsonResponse
+    CrudRequestContract $request
+): JsonResponse
 {
     $item = $request->getResource()->getItem();
     $item->forceDelete();
 
-    return MoonShineJsonResponse::make()
+    return JsonResponse::make()
         ->toast('Success');
 }
 
