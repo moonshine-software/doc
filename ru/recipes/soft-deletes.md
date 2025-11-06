@@ -2,7 +2,7 @@
 
 Сначала подготовьте модель для включения [soft deletes](https://laravel.com/docs/eloquent#soft-deleting).
 
-Далее переопределим метод `modifyItemQueryBuilder()` в ресурсе для корректного получения "удаленной" модули.
+Далее переопределим метод `modifyItemQueryBuilder()` в ресурсе для корректного получения "удаленной" модели.
 
 ```php
 use Illuminate\Contracts\Database\Eloquent\Builder;
