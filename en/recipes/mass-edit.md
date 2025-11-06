@@ -1,28 +1,30 @@
-# Bulk editing of rows
+# Bulk Edit Records
 
-In this example, we will add a `bulk` button to the `indexButtons` list and edit the titles of all entries in the modal window.
-
-The example uses the system **MoonShineUserRoleResource**:
+In this example, we will add a `bulk` button on the index page and edit the headers of all selected entries in the modal.
 
 > [!NOTE]
-> If you decide to use this recipe, be sure to add validation and use the example wisely
+> If you decide to use this recipe, be sure to add validation and use the example wisely.
 
 ```php
-public function massEdit(MoonShineRequest $request): MoonShineJsonResponse
+use MoonShine\Contracts\Core\DependencyInjection\CrudRequestContract;
+use MoonShine\Crud\JsonResponse;
+
+#[AsyncMethod]
+public function massEdit(CrudRequestContract $request): JsonResponse
 {
-    MoonshineUserRole::query()
+    Post::query()
         ->whereIn('id', $request->array('ids'))
         ->update([
             'name' => $request->input('name')
         ]);
 
-    return MoonShineJsonResponse::make()->toast('Success', ToastType::SUCCESS);
+    return JsonResponse::make()->toast('Success', ToastType::SUCCESS);
 }
 
-protected function indexButtons(): ListOf
+protected function buttons(): ListOf
 {
-    return parent::indexButtons()->add(
-        ActionButton::make('')
+    return parent::buttons()->add(
+        ActionButton::make()
             ->bulk()
             ->icon('pencil')
             ->inModal(
@@ -34,7 +36,10 @@ protected function indexButtons(): ListOf
                         Text::make('Name')->required(),
                     ])
                     ->asyncMethod('massEdit', events: [
-                        AlpineJs::event(JsEvent::TABLE_UPDATED, $this->getListComponentName())
+                        AlpineJs::event(
+                            JsEvent::TABLE_UPDATED,
+                            $this->getListComponentName()
+                        )
                     ])
                     ->submit('Save'),
             ),
