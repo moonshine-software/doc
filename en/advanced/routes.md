@@ -4,7 +4,7 @@
 All displayed pages are rendered through `PageController`, which has a very simple appearance.
 
 ```php
-public function __invoke(MoonShineRequest $request): PageContract
+public function __invoke(CrudRequestContract $request): PageContract
 {
     $request->getResource();
 

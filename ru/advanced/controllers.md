@@ -127,13 +127,13 @@ final class CustomViewController extends MoonShineController
 // [tl! collapse:5]
 namespace App\MoonShine\Controllers;
 
+use MoonShine\Contracts\Core\DependencyInjection\CrudRequestContract;
 use MoonShine\Laravel\Http\Controllers\MoonShineController;
-use MoonShine\Laravel\MoonShineRequest;
 use Symfony\Component\HttpFoundation\Response;
 
 final class CustomViewController extends MoonShineController
 {
-    public function __invoke(MoonShineRequest $request)
+    public function __invoke(CrudRequestContract $request)
     {
         // $request->getPage();
         // $request->getResource();

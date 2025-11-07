@@ -544,7 +544,7 @@ use MoonShine\Support\Attributes\AsyncMethod;
 
 // С уведомлением
 #[AsyncMethod]
-public function updateSomething(MoonShineRequest $request, MoonShineJsonResponse $response): MoonShineJsonResponse
+public function updateSomething(CrudRequestContract $request, JsonResponse $response): JsonResponse
 {
     // $request->getResource();
     // $request->getResource()->getItem();
@@ -555,30 +555,30 @@ public function updateSomething(MoonShineRequest $request, MoonShineJsonResponse
 
 // Редирект
 #[AsyncMethod]
-public function updateSomething(MoonShineRequest $request, MoonShineJsonResponse $response): MoonShineJsonResponse
+public function updateSomething(CrudRequestContract $request, JsonResponse $response): JsonResponse
 {
     return $response->redirect('/');
 }
 
 // Редирект
 #[AsyncMethod]
-public function updateSomething(MoonShineRequest $request): RedirectResponse
+public function updateSomething(CrudRequestContract $request): RedirectResponse
 {
     return back();
 }
 
 // Исключение
 #[AsyncMethod]
-public function updateSomething(MoonShineRequest $request): void
+public function updateSomething(CrudRequestContract $request): void
 {
     throw new \Exception('My message');
 }
 
 // Пользовательский JSON-ответ
 #[AsyncMethod]
-public function updateSomething(MoonShineRequest $request)
+public function updateSomething(CrudRequestContract $request)
 {
-    return MoonShineJsonResponse::make()->html('Content');
+    return JsonResponse::make()->html('Content');
 }
 ```
 
@@ -629,12 +629,12 @@ ActionButton::make('Button Label')
 ```
 
 ```php
-use MoonShine\Laravel\Http\Responses\MoonShineJsonResponse;
-use MoonShine\Laravel\MoonShineRequest;
+use MoonShine\Contracts\Core\DependencyInjection\CrudRequestContract;
+use MoonShine\Crud\JsonResponse;
 
-public function updateSomething(MoonShineRequest $request): MoonShineJsonResponse
+public function updateSomething(CrudRequestContract $request): JsonResponse
 {
-    return MoonShineJsonResponse::make()
+    return JsonResponse::make()
         ->toast($request->get('slug', 'Error'));
 }
 ```

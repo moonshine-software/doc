@@ -494,12 +494,12 @@ AlpineJs::event(
 ```
 
 ```php
-public function softDelete(MoonShineRequest $request): MoonShineJsonResponse
+public function softDelete(CrudRequestContract $request): JsonResponse
 {
     $item = $request->getResource()->getItem();
     $item->delete();
 
-    return MoonShineJsonResponse::make()
+    return JsonResponse::make()
         ->events([
             AlpineJs::event(
                 JsEvent::TABLE_ROW_UPDATED,

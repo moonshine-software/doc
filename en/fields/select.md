@@ -280,7 +280,7 @@ The response returned with the search results must be in *json* format.
 You can also use the `Options` object.
 
 ```php
-public function selectOptions(): MoonShineJsonResponse
+public function selectOptions(): JsonResponse
 {
     $options = new Options([
         new Option(
@@ -296,7 +296,7 @@ public function selectOptions(): MoonShineJsonResponse
         ),
     ]);
 
-    return MoonShineJsonResponse::make(data: $options->toArray());
+    return JsonResponse::make(data: $options->toArray());
 }
 ```
 

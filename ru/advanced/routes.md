@@ -4,7 +4,7 @@
 Все отображаемые страницы рендерятся через `PageController`, который имеет очень простой вид.
 
 ```php
-public function __invoke(MoonShineRequest $request): PageContract
+public function __invoke(CrudRequestContract $request): PageContract
 {
     $request->getResource();
 

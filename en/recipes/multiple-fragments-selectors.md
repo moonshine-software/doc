@@ -3,9 +3,9 @@
 An example of several selectors at once:
 
 ```php
-public function multipleSelectors(): MoonShineJsonResponse
+public function multipleSelectors(): JsonResponse
 {
-    return MoonShineJsonResponse::make()->html([
+    return JsonResponse::make()->html([
         '.selector1' => 'here 1',
         '.selector2' => 'here 2',
     ]);

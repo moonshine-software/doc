@@ -337,7 +337,7 @@ use MoonShine\Support\Attributes\AsyncMethod;
 
 // With notification
 #[AsyncMethod]
-public function updateSomething(MoonShineRequest $request, MoonShineJsonResponse $response): MoonShineJsonResponse
+public function updateSomething(CrudRequestContract $request, JsonResponse $response): JsonResponse
 {
     // $request->getResource();
     // $request->getResource()->getItem();
@@ -348,21 +348,21 @@ public function updateSomething(MoonShineRequest $request, MoonShineJsonResponse
 
 // Redirect
 #[AsyncMethod]
-public function updateSomething(MoonShineRequest $request, MoonShineJsonResponse $response): MoonShineJsonResponse
+public function updateSomething(CrudRequestContract $request, JsonResponse $response): JsonResponse
 {
     return $response->redirect('/');
 }
 
 // Redirect
 #[AsyncMethod]
-public function updateSomething(MoonShineRequest $request): RedirectResponse
+public function updateSomething(CrudRequestContract $request): RedirectResponse
 {
     return back();
 }
 
 // Exception
 #[AsyncMethod]
-public function updateSomething(MoonShineRequest $request): void
+public function updateSomething(CrudRequestContract $request): void
 {
     throw new \Exception('My message');
 }
@@ -385,12 +385,12 @@ FormBuilder::make()
 ### Field values
 
 If you are using your own controller handler, `asyncMethod` or response handler,
-then using `MoonShineJsonResponse` you have the opportunity to replace the values of form fields using the selector.
+then using `JsonResponse` you have the opportunity to replace the values of form fields using the selector.
 
 ```php
-public function formAction(): MoonShineJsonResponse
+public function formAction(): JsonResponse
 {
-    return MoonShineJsonResponse::make()
+    return JsonResponse::make()
         ->fieldsValues([
             '.title' => 'Hello',
         ]);
@@ -414,9 +414,9 @@ protected function components(): iterable
 You can also replace *HTML* areas by selectors using the `asyncSelector` method.
 
 ```php
-public function formAction(): MoonShineJsonResponse
+public function formAction(): JsonResponse
 {
-  return MoonShineJsonResponse::make()->html([
+  return JsonResponse::make()->html([
     '.some-class1' => time(),
     '.some-class2' => time(),
   ]);
