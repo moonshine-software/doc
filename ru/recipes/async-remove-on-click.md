@@ -20,7 +20,7 @@ protected function formFields(): iterable
     ];
 }
 
-public function removeAvatar(MoonShineRequest $request): void
+public function removeAvatar(CrudRequestContract $request): void
 {
     $item = $request->getResource()?->getItem();
 
@@ -55,7 +55,7 @@ protected function formFields(): iterable
     ];
 }
 
-public function removeJsonData(MoonShineRequest $request): void
+public function removeJsonData(CrudRequestContract $request): void
 {
     $item = $request->getResource()?->getItem();
     $index = $request->integer('index') - 1;

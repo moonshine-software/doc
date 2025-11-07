@@ -964,9 +964,9 @@ Switcher::make('Active')
 ```
 
 ```php
-use MoonShine\Laravel\MoonShineRequest;
+use MoonShine\Contracts\Core\DependencyInjection\CrudRequestContract;
 
-public function someMethod(MoonShineRequest $request): void
+public function someMethod(CrudRequestContract $request): void
 {
     // Logic
 }

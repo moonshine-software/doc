@@ -494,7 +494,7 @@ AlpineJs::event(
 ```
 
 ```php
-public function softDelete(MoonShineRequest $request): JsonResponse
+public function softDelete(CrudRequestContract $request): JsonResponse
 {
     $item = $request->getResource()->getItem();
     $item->delete();

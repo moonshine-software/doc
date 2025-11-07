@@ -24,7 +24,7 @@ protected function formFields(): iterable
     ];
 }
 
-public function updatePivot(MoonShineRequest $request): JsonResponse
+public function updatePivot(CrudRequestContract $request): JsonResponse
 {
     $item = TournamentTeam::query()->findOrFail($request->get('parent'));
 

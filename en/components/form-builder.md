@@ -337,7 +337,7 @@ use MoonShine\Support\Attributes\AsyncMethod;
 
 // With notification
 #[AsyncMethod]
-public function updateSomething(MoonShineRequest $request, JsonResponse $response): JsonResponse
+public function updateSomething(CrudRequestContract $request, JsonResponse $response): JsonResponse
 {
     // $request->getResource();
     // $request->getResource()->getItem();
@@ -348,21 +348,21 @@ public function updateSomething(MoonShineRequest $request, JsonResponse $respons
 
 // Redirect
 #[AsyncMethod]
-public function updateSomething(MoonShineRequest $request, JsonResponse $response): JsonResponse
+public function updateSomething(CrudRequestContract $request, JsonResponse $response): JsonResponse
 {
     return $response->redirect('/');
 }
 
 // Redirect
 #[AsyncMethod]
-public function updateSomething(MoonShineRequest $request): RedirectResponse
+public function updateSomething(CrudRequestContract $request): RedirectResponse
 {
     return back();
 }
 
 // Exception
 #[AsyncMethod]
-public function updateSomething(MoonShineRequest $request): void
+public function updateSomething(CrudRequestContract $request): void
 {
     throw new \Exception('My message');
 }

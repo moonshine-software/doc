@@ -9,7 +9,7 @@ Add the following methods to the resource:
 
 ```php
 use MoonShine\Contracts\UI\ComponentContract;
-use MoonShine\Laravel\MoonShineRequest;
+use MoonShine\Contracts\Core\DependencyInjection\CrudRequestContract;
 use MoonShine\UI\Components\Table\TableBuilder;
 
 protected string $sortColumn = 'position';
@@ -26,7 +26,7 @@ public function modifyListComponent(ComponentContract $component): ComponentCont
     );
 }
 
-public function reorder(MoonShineRequest $request): void
+public function reorder(CrudRequestContract $request): void
 {
     if ($request->str('data')->isNotEmpty()) {
         $request->str('data')->explode(',')->each(

@@ -675,12 +675,12 @@ TableBuilder::make()
 namespace App\MoonShine\Controllers;
 
 use Illuminate\Contracts\View\View;
-use MoonShine\Laravel\MoonShineRequest;
+use MoonShine\Contracts\Core\DependencyInjection\CrudRequestContract;
 use MoonShine\Laravel\Http\Controllers\MoonShineController;
 
 final class UndefinedPageController extends MoonShineController
 {
-    public function component(MoonShineRequest $request): View
+    public function component(CrudRequestContract $request): View
     {
         $page = app($request->input('_namespace'));
 

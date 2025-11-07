@@ -544,7 +544,7 @@ use MoonShine\Support\Attributes\AsyncMethod;
 
 // With notification
 #[AsyncMethod]
-public function updateSomething(MoonShineRequest $request, JsonResponse $response): JsonResponse
+public function updateSomething(CrudRequestContract $request, JsonResponse $response): JsonResponse
 {
     // $request->getResource();
     // $request->getResource()->getItem();
@@ -555,28 +555,28 @@ public function updateSomething(MoonShineRequest $request, JsonResponse $respons
 
 // Redirect
 #[AsyncMethod]
-public function updateSomething(MoonShineRequest $request, JsonResponse $response): JsonResponse
+public function updateSomething(CrudRequestContract $request, JsonResponse $response): JsonResponse
 {
     return $response->redirect('/');
 }
 
 // Redirect
 #[AsyncMethod]
-public function updateSomething(MoonShineRequest $request): RedirectResponse
+public function updateSomething(CrudRequestContract $request): RedirectResponse
 {
     return back();
 }
 
 // Exception
 #[AsyncMethod]
-public function updateSomething(MoonShineRequest $request): void
+public function updateSomething(CrudRequestContract $request): void
 {
     throw new \Exception('My message');
 }
 
 // Custom JSON response
 #[AsyncMethod]
-public function updateSomething(MoonShineRequest $request)
+public function updateSomething(CrudRequestContract $request)
 {
     return JsonResponse::make()->html('Content');
 }
@@ -629,10 +629,10 @@ ActionButton::make('Button Label')
 ```
 
 ```php
+use MoonShine\Contracts\Core\DependencyInjection\CrudRequestContract;
 use MoonShine\Crud\JsonResponse;
-use MoonShine\Laravel\MoonShineRequest;
 
-public function updateSomething(MoonShineRequest $request): JsonResponse
+public function updateSomething(CrudRequestContract $request): JsonResponse
 {
     return JsonResponse::make()
         ->toast($request->get('slug', 'Error'));
