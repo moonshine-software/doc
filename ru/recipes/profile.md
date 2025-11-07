@@ -117,22 +117,25 @@ final class ProfileLayout extends AppLayout
                 Body::make([
                     Wrapper::make([
                         Div::make([
-                            Flash::make(),
+                            Fragment::make([
+                                Flash::make(),
 
-                            Content::make([
-                                Components::make(
-                                    $this->getPage()->getComponents()
-                                ),
-                            ]),
-                        ])->class('layout-page'),
+                                Content::make($this->getContentComponents()),
+
+                                $this->getFooterComponent(),
+                            ])->class('layout-page')->name(self::CONTENT_FRAGMENT_NAME),
+                        ])->class('layout-main')->customAttributes(['id' => self::CONTENT_ID]),
                     ]),
-                ])->class('theme-minimalistic'),
+                ]),
             ])
                 ->customAttributes([
                     'lang' => $this->getHeadLang(),
                 ])
                 ->withAlpineJs()
-                ->withThemes(),
+                ->when(
+                    $this->hasThemes() || $this->isAlwaysDark(),
+                    fn (Html $html): Html => $html->withThemes($this->isAlwaysDark())
+                ),
         ]);
     }
 }
