@@ -46,7 +46,7 @@ If you need to wrap the metrics in a `Fragment`:
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:2]
 use Closure;
-use MoonShine\Laravel\Components\Fragment;
+use MoonShine\Crud\Components\Fragment;
 
 protected function fragmentMetrics(): ?Closure
 {

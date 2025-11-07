@@ -44,7 +44,7 @@ Or via `DI`:
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:1]
-use MoonShine\Laravel\Contracts\Notifications\MoonShineNotificationContract;
+use MoonShine\Crud\Contracts\Notifications\MoonShineNotificationContract;
 
 public function di(MoonShineNotificationContract $notification)
 {
