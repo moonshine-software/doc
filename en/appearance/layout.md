@@ -35,151 +35,6 @@ You can:
 - Create a new template,
 - Apply different templates for various pages.
 
-An example of a possible template for your application:
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:start]
-namespace App\MoonShine\Layouts;
-
-use App\MoonShine\Resources\PackageCategoryResource;
-use App\MoonShine\Resources\PackageResource;
-use App\MoonShine\Resources\UserResource;
-use MoonShine\ColorManager\ColorManager;
-use MoonShine\Contracts\ColorManager\ColorManagerContract;
-use MoonShine\Laravel\Components\Layout\{Locales, Notifications, Profile, Search};
-use MoonShine\Laravel\Layouts\AppLayout;
-use MoonShine\MenuManager\MenuGroup;
-use MoonShine\MenuManager\MenuItem;
-use MoonShine\UI\Components\{Breadcrumbs,
-    Components,
-    Layout\Assets,
-    Layout\Div,
-    Layout\Body,
-    Layout\Burger,
-    Layout\Content,
-    Layout\Favicon,
-    Layout\Flash,
-    Layout\Footer,
-    Layout\Head,
-    Layout\Header,
-    Layout\Html,
-    Layout\Layout,
-    Layout\Logo,
-    Layout\Menu,
-    Layout\Meta,
-    Layout\Sidebar,
-    Layout\ThemeSwitcher,
-    Layout\Wrapper,
-    When}; // [tl! collapse:end]
-
-final class MoonShineLayout extends AppLayout
-{
-    // ...
-
-    public function build(): Layout
-    {
-        return Layout::make([
-            Html::make([
-                Head::make([
-                    Meta::make()->customAttributes([
-                        'name' => 'csrf-token',
-                        'content' => csrf_token(),
-                    ]),
-                    Favicon::make()->bodyColor($this->getColorManager()->get('body')),
-                    Assets::make(),
-                ])
-                    ->bodyColor($this->getColorManager()->get('body'))
-                    ->title($this->getPage()->getTitle()),
-                Body::make([
-                    Wrapper::make([
-                        Sidebar::make([
-                            Div::make([
-                                Div::make([
-                                    Logo::make(
-                                        $this->getHomeUrl(),
-                                        $this->getLogo(),
-                                        $this->getLogo(small: true),
-                                    )->minimized(),
-                                ])->class('menu-heading-logo'),
-
-                                Div::make([
-                                    Div::make([
-                                        ThemeSwitcher::make(),
-                                    ])->class('menu-heading-mode'),
-
-                                    Div::make([
-                                        Burger::make(),
-                                    ])->class('menu-heading-burger'),
-                                ])->class('menu-heading-actions'),
-                            ])->class('menu-heading'),
-
-                            Div::make([
-                                Menu::make(),
-                                When::make(
-                                    fn(): bool => $this->isAuthEnabled(),
-                                    static fn(): array => [Profile::make(withBorder: true)],
-                                ),
-                            ])->customAttributes([
-                                'class' => 'menu',
-                                ':class' => "asideMenuOpen && '_is-opened'",
-                            ]),
-                        ])->collapsed(),
-
-                        Div::make([
-                            Flash::make(),
-                            Header::make([
-                                Breadcrumbs::make($this->getPage()->getBreadcrumbs())->prepend(
-                                    $this->getHomeUrl(),
-                                    icon: 'home',
-                                ),
-                                Search::make(),
-                                When::make(
-                                    fn(): bool => $this->isUseNotifications(),
-                                    static fn(): array => [Notifications::make()],
-                                ),
-                                Locales::make(),
-                            ]),
-
-                            Content::make([
-                                Components::make(
-                                    $this->getPage()->getComponents(),
-                                ),
-                            ]),
-
-                            Footer::make()
-                                ->copyright(static fn(): string
-                                    => sprintf(
-                                    <<<'HTML'
-                                        &copy; 2021-%d Made with ❤️ by
-                                        <a href="https://cutcode.dev"
-                                            class="font-semibold text-primary hover:text-secondary"
-                                            target="_blank"
-                                        >
-                                            CutCode
-                                        </a>
-                                        HTML,
-                                    now()->year,
-                                ))
-                                ->menu([
-                                    'https://moonshine-laravel.com/docs' => 'Documentation',
-                                ]),
-                        ])->class('layout-page'),
-                    ]),
-                ])->class('theme-minimalistic'),
-            ])
-                ->customAttributes([
-                    'lang' => $this->getHeadLang(),
-                ])
-                ->withAlpineJs()
-                ->withThemes(),
-        ]);
-    }
-}
-```
-
-As you can see, everything in **MoonShine**, starting from the <html> tag, consists of components, which provides tremendous freedom to customize your admin panel.
-
 Find the complete list of components in the [Components](/docs/{{version}}/components/index) section.
 
 > [!NOTE]
@@ -543,50 +398,8 @@ final class MyLayout extends AppLayout
 ### Top Menu
 
 By default, **MoonShine** has a top menu component that can be used instead of `Sidebar` or together with it.
-Let’s see how to replace `Sidebar` with `TopBar` in `Layout`.
 
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:1]
-use MoonShine\Laravel\Layouts\AppLayout;
-
-final class MoonShineLayout extends AppLayout
-{
-    // ...
-
-    public function build(): Layout
-    {
-        return Layout::make([
-            Html::make([
-                $this->getHeadComponent(),
-                Body::make([
-                    Wrapper::make([
-                        $this->getTopBarComponent(),
-                        //$this->getSidebarComponent(),
-                        Div::make([
-                            Flash::make(),
-                            $this->getHeaderComponent(),
-
-                            Content::make([
-                                Components::make(
-                                    $this->getPage()->getComponents()
-                                ),
-                            ]),
-
-                            $this->getFooterComponent(),
-                        ])->class('layout-page'),
-                    ]),
-                ])->class('theme-minimalistic'),
-            ])
-                ->customAttributes([
-                    'lang' => $this->getHeadLang(),
-                ])
-                ->withAlpineJs()
-                ->withThemes(),
-        ]);
-    }
-}
-```
+To replace `Sidebar` with `TopBar`, override the `build()` method and replace the call to the `getSidebarComponent()` method with `getTopBarComponent()`.
 
 > [!WARNING]
 > If you want to keep both Sidebar and TopBar at the same time, be sure to maintain the order; TopBar must be first.
@@ -624,7 +437,7 @@ protected function hasThemes(): bool
 <a name="colors"></a>
 ## Colors
 
-Each template can have its own color scheme.  
+Each template can have its own color scheme.
 The easiest way to set it is to specify a `PaletteContract` implementation in the `$palette` property:
 
 ```php
