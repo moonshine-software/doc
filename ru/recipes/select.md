@@ -17,14 +17,14 @@ protected function formFields(): iterable
     ]
 }
 
-public function selectOptions(): MoonShineJsonResponse
+public function selectOptions(): JsonResponse
 {
     $options = new Options([
         new Option(label: 'Option 1', value: '1', selected: true, properties: new OptionProperty(image: 'https://cutcode.dev/images/platforms/youtube.png')),
         new Option(label: 'Option 2', value: '2', properties: new OptionProperty(image: 'https://cutcode.dev/images/platforms/youtube.png')),
     ]);
 
-    return MoonShineJsonResponse::make(data: $options->toArray());
+    return JsonResponse::make(data: $options->toArray());
 }
 ```
 
@@ -76,14 +76,14 @@ Select::make('Dynamic value', 'dynamic_value')
 Подход, в котором при изменении основного `Select` мы отправляем запрос и возвращаем `html` следующего `Select`, отображаем его в блоке по селектору:
 
 ```php
-public function selectValues(): MoonShineJsonResponse
+public function selectValues(): JsonResponse
 {
     $options = new Options([
         new Option('Option 1', '1', false, new OptionProperty(image: 'https://cutcode.dev/images/platforms/youtube.png')),
         new Option('Option 2', '2', true, new OptionProperty(image: 'https://cutcode.dev/images/platforms/youtube.png')),
     ]);
 
-    return MoonShineJsonResponse::make()
+    return JsonResponse::make()
         ->html(
             (string) Select::make('Next')->options($options)
         );

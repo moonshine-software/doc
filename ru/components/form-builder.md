@@ -337,7 +337,7 @@ use MoonShine\Support\Attributes\AsyncMethod;
 
 // С уведомлением
 #[AsyncMethod]
-public function updateSomething(MoonShineRequest $request, MoonShineJsonResponse $response): MoonShineJsonResponse
+public function updateSomething(MoonShineRequest $request, JsonResponse $response): JsonResponse
 {
     // $request->getResource();
     // $request->getResource()->getItem();
@@ -348,7 +348,7 @@ public function updateSomething(MoonShineRequest $request, MoonShineJsonResponse
 
 // Редирект
 #[AsyncMethod]
-public function updateSomething(MoonShineRequest $request, MoonShineJsonResponse $response): MoonShineJsonResponse
+public function updateSomething(MoonShineRequest $request, JsonResponse $response): JsonResponse
 {
     return $response->redirect('/');
 }
@@ -385,12 +385,12 @@ FormBuilder::make()
 ### Значения полей
 
 Если вы используете собственный controller обработчик, `asyncMethod` или обработчик ответа,
-то с помощью `MoonShineJsonResponse` у вас есть возможность заменить значения полей формы по селектору.
+то с помощью `JsonResponse` у вас есть возможность заменить значения полей формы по селектору.
 
 ```php
-public function formAction(): MoonShineJsonResponse
+public function formAction(): JsonResponse
 {
-    return MoonShineJsonResponse::make()
+    return JsonResponse::make()
         ->fieldsValues([
             '.title' => 'Hello',
         ]);
@@ -414,9 +414,9 @@ protected function components(): iterable
 Также вы можете заменить *HTML* области по селекторам через метод `asyncSelector`.
 
 ```php
-public function formAction(): MoonShineJsonResponse
+public function formAction(): JsonResponse
 {
-  return MoonShineJsonResponse::make()->html([
+  return JsonResponse::make()->html([
     '.some-class1' => time(),
     '.some-class2' => time(),
   ]);

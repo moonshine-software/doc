@@ -1,7 +1,7 @@
 # Toasts
 
 - [Flash](#flash)
-- [MoonShineJsonResponse](#response)
+- [JsonResponse](#response)
 - [Events](#events)
 - [Длительность](#duration)
 
@@ -38,13 +38,14 @@ MoonShineUI::toast(message: 'Success', duration: false);
 ```
 
 <a name="response"></a>
-## MoonShineJsonResponse
+## JsonResponse
 
 ```php
-MoonShineJsonResponse::make()->toast('Test', type: ToastType::SUCCESS, duration: 1000)
+JsonResponse::make()
+    ->toast('Test', type: ToastType::SUCCESS, duration: 1000)
 ```
 > [!TIP]
-> Если необходимо изменить уведомления в ModelResource, смотрите раздел [ModelResource > Response модификаторы](/docs/{{version}}/model-resource/index#response-modifiers)
+> Если необходимо изменить уведомления в ModelResource, смотрите раздел [ModelResource > Response модификаторы](/docs/{{version}}/model-resource/index#response-modifiers).
 
 > [!NOTE]
 > Используются такие же параметры

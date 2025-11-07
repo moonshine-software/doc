@@ -129,7 +129,7 @@ this.$dispatch('modal_toggled:my-modal')
 <a name="#response-events"></a>
 ### Calling events through Response
 
-In **MoonShine**, you can return events in *MoonShineJsonResponse*, which will then be triggered.
+In **MoonShine**, you can return events in *JsonResponse*, which will then be triggered.
 To do this, you need to use the `events()` method.
 
 ```php
@@ -141,13 +141,13 @@ events(array $events)
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:3]
-use MoonShine\Laravel\Http\Responses\MoonShineJsonResponse;
+use MoonShine\Crud\JsonResponse;
 use MoonShine\Support\AlpineJs;
 use MoonShine\Support\Enums\JsEvent;
 
 // ...
 
-return MoonShineJsonResponse::make()
+return JsonResponse::make()
     ->events([
         AlpineJs::event(JsEvent::TABLE_UPDATED, 'index'),
     ]);

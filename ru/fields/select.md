@@ -286,7 +286,7 @@ async(
 Также можно воспользоваться объектом `Options`.
 
 ```php
-public function selectOptions(): MoonShineJsonResponse
+public function selectOptions(): JsonResponse
 {
     $options = new Options([
         new Option(
@@ -302,7 +302,7 @@ public function selectOptions(): MoonShineJsonResponse
         ),
     ]);
 
-    return MoonShineJsonResponse::make(data: $options->toArray());
+    return JsonResponse::make(data: $options->toArray());
 }
 ```
 

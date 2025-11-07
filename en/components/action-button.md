@@ -544,7 +544,7 @@ use MoonShine\Support\Attributes\AsyncMethod;
 
 // With notification
 #[AsyncMethod]
-public function updateSomething(MoonShineRequest $request, MoonShineJsonResponse $response): MoonShineJsonResponse
+public function updateSomething(MoonShineRequest $request, JsonResponse $response): JsonResponse
 {
     // $request->getResource();
     // $request->getResource()->getItem();
@@ -555,7 +555,7 @@ public function updateSomething(MoonShineRequest $request, MoonShineJsonResponse
 
 // Redirect
 #[AsyncMethod]
-public function updateSomething(MoonShineRequest $request, MoonShineJsonResponse $response): MoonShineJsonResponse
+public function updateSomething(MoonShineRequest $request, JsonResponse $response): JsonResponse
 {
     return $response->redirect('/');
 }
@@ -578,7 +578,7 @@ public function updateSomething(MoonShineRequest $request): void
 #[AsyncMethod]
 public function updateSomething(MoonShineRequest $request)
 {
-    return MoonShineJsonResponse::make()->html('Content');
+    return JsonResponse::make()->html('Content');
 }
 ```
 
@@ -629,12 +629,12 @@ ActionButton::make('Button Label')
 ```
 
 ```php
-use MoonShine\Laravel\Http\Responses\MoonShineJsonResponse;
+use MoonShine\Crud\JsonResponse;
 use MoonShine\Laravel\MoonShineRequest;
 
-public function updateSomething(MoonShineRequest $request): MoonShineJsonResponse
+public function updateSomething(MoonShineRequest $request): JsonResponse
 {
-    return MoonShineJsonResponse::make()
+    return JsonResponse::make()
         ->toast($request->get('slug', 'Error'));
 }
 ```

@@ -654,19 +654,19 @@ If the resource is in "async" mode, then you can modify the answer:
 
 ```php
 use Symfony\Component\HttpFoundation\Response;
-use MoonShine\Laravel\Http\Responses\MoonShineJsonResponse;
+use MoonShine\Crud\JsonResponse;
 
-public function modifyDestroyResponse(MoonShineJsonResponse $response): MoonShineJsonResponse
+public function modifyDestroyResponse(JsonResponse $response): JsonResponse
 {
     return $response;
 }
 
-public function modifyMassDeleteResponse(MoonShineJsonResponse $response): MoonShineJsonResponse
+public function modifyMassDeleteResponse(JsonResponse $response): JsonResponse
 {
     return $response;
 }
 
-public function modifySaveResponse(MoonShineJsonResponse $response): MoonShineJsonResponse
+public function modifySaveResponse(JsonResponse $response): JsonResponse
 {
     return $response;
 }

@@ -6,11 +6,11 @@ private function getSetting(): Setting
     return Setting::query()->find(1);
 }
 
-public function store(): MoonShineJsonResponse
+public function store(): JsonResponse
 {
     $this->form()->apply(fn(Setting $item) => $item->save());
 
-    return MoonShineJsonResponse::make()->toast('Saved');
+    return JsonResponse::make()->toast('Saved');
 }
 
 private function form(): FormBuilder

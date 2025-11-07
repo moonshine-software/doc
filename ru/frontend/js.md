@@ -129,7 +129,7 @@ this.$dispatch('modal_toggled:my-modal')
 <a name="#response-events"></a>
 ### Вызов событий через Response
 
-В **MoonShine** можно возвращать события в *MoonShineJsonResponse*, которые затем будут вызваны.
+В **MoonShine** можно возвращать события в *JsonResponse*, которые затем будут вызваны.
 Для этого нужно использовать метод `events()`.
 
 ```php
@@ -141,13 +141,13 @@ events(array $events)
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:3]
-use MoonShine\Laravel\Http\Responses\MoonShineJsonResponse;
+use MoonShine\Crud\JsonResponse;
 use MoonShine\Support\AlpineJs;
 use MoonShine\Support\Enums\JsEvent;
 
 // ...
 
-return MoonShineJsonResponse::make()
+return JsonResponse::make()
     ->events([
         AlpineJs::event(JsEvent::TABLE_UPDATED, 'index'),
     ]);

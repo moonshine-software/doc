@@ -1,4 +1,4 @@
-# MoonShineJsonResponse
+# JsonResponse
 
 - [Basics](#basics)
 - [Methods](#methods)
@@ -14,7 +14,7 @@
 <a name="basics"></a>
 ## Basics
 
-MoonShineJsonResponse extends `Illuminate\Http\JsonResponse` and is supplemented with helper methods for interacting with the frontend part of the admin panel interface after processing a request.
+`JsonResponse` extends `Illuminate\Http\JsonResponse` and is supplemented with helper methods for interacting with the frontend part of the admin panel interface after processing a request.
 
 <a name="methods"></a>
 ## Methods
@@ -29,7 +29,7 @@ toast(string $value, ToastType $type = ToastType::DEFAULT, null|int|false $durat
 ```
 Example:
 ```php
-MoonShineJsonResponse::make()->toast('My message', ToastType::SUCCESS, duration: 3000);
+JsonResponse::make()->toast('My message', ToastType::SUCCESS, duration: 3000);
 ```
 
 <a name="redirect"></a>
@@ -44,7 +44,7 @@ redirect(string $value)
 Example:
 
 ```php
-MoonShineJsonResponse::make()->redirect('/');
+JsonResponse::make()->redirect('/');
 ```
 
 <a name="events"></a>
@@ -59,7 +59,7 @@ events(array $events)
 Example:
 
 ```php
-MoonShineJsonResponse::make()->events([AlpineJs::event(JsEvent::TABLE_UPDATED, 'index')]);
+JsonResponse::make()->events([AlpineJs::event(JsEvent::TABLE_UPDATED, 'index')]);
 ```
 
 <a name="html"></a>
@@ -98,7 +98,7 @@ ActionButton::make('Button Label', '/endpoint')->async(selector: '#my-selector')
 
 //...
 
-MoonShineJsonResponse::make()->html('Content');
+JsonResponse::make()->html('Content');
 ```
 
 <a name="htmldata"></a>
@@ -113,7 +113,7 @@ htmlData(string|array $value, string $selector, HtmlMode $mode = HtmlMode::INNER
 Example:
 
 ```php
-MoonShineJsonResponse::make()
+JsonResponse::make()
       ->htmlData((string) Text::make('One'), '#selector1')
       ->htmlData((string) Text::make('Two'), '#selector2', HtmlMode::BEFORE_END)
 ```
@@ -130,7 +130,7 @@ fieldsValues(array $values)
 Example:
 
 ```php
-MoonShineJsonResponse::make()
+JsonResponse::make()
       ->fieldsValues([
         '.field-title-1' => 'some value 1',
         '.field-title-2' => 'some value 2',
