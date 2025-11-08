@@ -624,7 +624,7 @@ protected function hasThemes(): bool
 <a name="colors"></a>
 ## Colors
 
-Each template can have its own color scheme.  
+Each template can have its own color scheme.
 The easiest way to set it is to specify a `PaletteContract` implementation in the `$palette` property:
 
 ```php
