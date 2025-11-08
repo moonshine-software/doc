@@ -4,6 +4,7 @@ title: Upgrade guide
 
 # Руководство по обновлению MoonShine 3.x → 4.0
 
+- [Автоматический апгрейд](#auto-upgrade)
 - [Обновление зависимостей](#update-dependencies)
 - [Изменения пространств имен](#namespace-changes)
 - [Изменения в ресурсах](#resource-changes)
@@ -13,6 +14,11 @@ title: Upgrade guide
 - [Асинхронные методы](#async-methods)
 
 ---
+
+<a name="auto-upgrade"></a>
+## Автоматический апгрейд
+
+Для упрощения процесса миграции вы можете воспользоваться пакетом [warete/moonshine-upgrade](https://github.com/warete/moonshine-upgrade), который автоматически выполнит все необходимые изменения для перехода на MoonShine 4.0.
 
 <a name="update-dependencies"></a>
 ## Обновление пакета
