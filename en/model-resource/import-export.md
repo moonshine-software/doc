@@ -417,9 +417,10 @@ unless(
 <a name="custom"></a>
 ## Custom implementation
 
-There may be situations where you want to change the import or export implementation. To do this, you need to implement your own class extending `ImportHandler` or `ExportHandler`.
+There may be situations where you want to change the import or export implementation.
+To do this, you need to implement your own class extending `ImportHandler` or `ExportHandler`.
 
-You can generate the class by using the console command:
+The class can be generated using the following console command:
 
 ```shell
 php artisan moonshine:handler

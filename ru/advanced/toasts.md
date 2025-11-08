@@ -31,7 +31,7 @@ MoonShineUI::toast(
 - `$type` - управляет цветом уведомления,
 - `$duration` - устанавливает время отображения уведомления в миллисекундах. По умолчанию уведомления отображаются 2 секунды.
 
-Если вы хотите, чтобы уведомление не исчезало автоматически, а убиралось только после клика:
+Если вы хотите, чтобы уведомление не исчезало автоматически, а убиралось только после клика пользователя, установите параметр `$duration` в значение `false`.
 
 ```php
 MoonShineUI::toast(message: 'Success', duration: false);
@@ -44,11 +44,12 @@ MoonShineUI::toast(message: 'Success', duration: false);
 JsonResponse::make()
     ->toast('Test', type: ToastType::SUCCESS, duration: 1000)
 ```
+
 > [!TIP]
 > Если необходимо изменить уведомления в ModelResource, смотрите раздел [ModelResource > Response модификаторы](/docs/{{version}}/model-resource/index#response-modifiers).
 
 > [!NOTE]
-> Используются такие же параметры
+> Используются такие же параметры.
 
 <a name="events"></a>
 ## Events
@@ -67,8 +68,8 @@ ActionButton::make('Toast')->dispatchEvent(
 <a name="duration"></a>
 ## Длительность
 
-Вы можете подключить js скрипт и глобально переопределить длительность отображения уведомлений
+Вы можете подключить js скрипт и глобально переопределить длительность отображения уведомлений:
 
 ```js
-MoonShine.config().setToastDuration(5000)
+MoonShine.config().setToastDuration(5000);
 ```
