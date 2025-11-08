@@ -31,7 +31,7 @@ MoonShineUI::toast(
 - `$type` - sets the color of the notification.
 - `$duration` - sets the duration for which the notification is displayed (milliseconds). By default, notifications are displayed for 2 seconds.
 
-If you want the toast to remain visible until manually clicked:
+If you want the notification not to disappear automatically, but to be removed only after the user clicks, set the `$duration` parameter to `false`.
 
 ```php
 MoonShineUI::toast(message: 'Success', duration: false);

@@ -20,7 +20,7 @@ APP_URL=https://moonshine.test:8080
 <a name="problems-with-https"></a>
 ## Problems with HTTPS
 
-If you have forms that use URLs with http but expect https:
+If you have forms that use URLs with http but expect https.
 
 - Make sure you have a valid SSL certificate,
 - In the [`TrustProxies`](https://laravel.com/docs/requests#configuring-trusted-proxies) middleware, set `protected $proxies = ['*']`.
