@@ -11,7 +11,7 @@ video: https://youtu.be/kC1KIdO_MZ4?si=sPPVUjeEzjUI6krA&t=126
 
 #### Laravel
 
-Убедитесь, что у вас установлен **Laravel** `10.48+`. [Подробнее в документации Laravel](https://laravel.com/docs/installation)
+Убедитесь, что у вас установлен **Laravel** `10.48+`. Подробнее в [документации Laravel](https://laravel.com/docs/installation).
 
 ```shell
 composer global require laravel/installer
@@ -73,48 +73,55 @@ php artisan moonshine:resource User
 
 ![user-resource](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/user-resource.png)
 
-### 5. Добавление полей в ресурс
+### 5. Настройка ресурса
 
-Раздел добавлен, но если открыть создание записей, то вы увидите пустую страницу без полей формы. Давайте это исправим.
+Раздел добавлен, но если открыть страницу создания записей, вы увидите пустую страницу без полей формы. Давайте это исправим.
 
-Вот как выглядит новый ресурс сразу после создания:
+Воспользуемся полями `Text`, `Email`, `Password` и компонентами для лучшей структуры и сразу добавим валидацию.
 
 ```php
-/**
- * @extends ModelResource<User>
- */
-class UserResource extends ModelResource
+class UsersFormPage extends FormPage
 {
-    protected string $model = User::class;
-
-    protected string $title = 'Users';
-
-    protected function indexFields(): iterable
+    protected function fields(): iterable
     {
         return [
-            ID::make()->sortable(),
-        ];
-    }
+            Grid::make([
+                Column::make([
+                    Box::make('Contact information', [
+                        ID::make(),
+                        Text::make('Name'),
+                        Email::make('E-mail', 'email'),
+                    ]),
 
-    protected function formFields(): iterable
-    {
-        return [
-            Box::make([
-                ID::make(),
+                    LineBreak::make(),
+
+                    Box::make('Change password', [
+                        Password::make('Password')
+                            ->customAttributes(['autocomplete' => 'new-password']),
+
+                        PasswordRepeat::make('Password repeat')
+                            ->customAttributes(['autocomplete' => 'confirm-password']),
+                    ]),
+                ]),
             ]),
-        ];
-    }
-
-    protected function detailFields(): iterable
-    {
-        return [
-            ID::make(),
         ];
     }
 
     protected function rules(DataWrapperContract $item): array
     {
-        return [];
+        return [
+            'name' => 'required',
+            'email' => [
+                'sometimes',
+                'bail',
+                'required',
+                'email',
+                Rule::unique('users', 'email')->ignore($item->id),
+            ],
+            'password' => !$item->exists
+                ? 'required|min:6|required_with:password_repeat|same:password_repeat'
+                : 'sometimes|nullable|min:6|required_with:password_repeat|same:password_repeat',
+        ];
     }
 }
 ```
@@ -134,67 +141,22 @@ public function getTitle(): string
 protected string $column = 'email';
 ```
 
-Теперь добавим поля формы. Используем `Text`, `Email`, `Password` и компоненты для лучшей структуры:
-
-```php
-protected function formFields(): iterable
-{
-    return [
-        Grid::make([
-            Column::make([
-                Box::make('Contact information', [
-                    ID::make()->sortable(),
-                    Text::make('Name'),
-                    Email::make('E-mail', 'email'),
-                ]),
-
-                LineBreak::make(),
-
-                Box::make('Change password', [
-                    Password::make('Password')
-                        ->customAttributes(['autocomplete' => 'new-password']),
-
-                    PasswordRepeat::make('Password repeat')
-                        ->customAttributes(['autocomplete' => 'confirm-password']),
-                ]),
-            ]),
-        ]),
-    ];
-}
-```
-
-Добавим валидацию:
-
-```php
-protected function rules(DataWrapperContract $item): array
-{
-    return [
-        'name' => 'required',
-        'email' => [
-            'sometimes',
-            'bail',
-            'required',
-            'email',
-            Rule::unique('users', 'email')->ignore($item->id),
-        ],
-        'password' => !$item->exists
-            ? 'required|min:6|required_with:password_repeat|same:password_repeat'
-            : 'sometimes|nullable|min:6|required_with:password_repeat|same:password_repeat',
-    ];
-}
-```
-
 ### 6. Фильтрация записей
 
-Добавим фильтр по email:
+Добавим фильтр по email на индексной странице:
 
 ```php
-protected function filters(): iterable
+class UsersIndexPage extends IndexPage
 {
-    return [
-        Text::make('E-mail', 'email')
-            ->onApply(fn(Builder $query, ?string $value) => $value === null ? $query : $query->whereLike('email', "%$value%")),
-    ];
+    protected function filters(): iterable
+    {
+        return [
+            Text::make('E-mail', 'email')
+                ->onApply(fn(Builder $query, ?string $value) => $value === null ? $query : $query->whereLike('email', "%$value%")),
+        ];
+    }
+
+    // ...
 }
 ```
 
@@ -241,4 +203,3 @@ $colors
 - [Компоненты](/docs/{{version}}/components/index)
 
 Спасибо, что выбрали MoonShine!
-

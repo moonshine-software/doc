@@ -11,7 +11,7 @@ Below - step-by-step instructions for installation and primary setting.
 
 #### Laravel
 
-Make sure you have **Laravel** `10.48+`. [Read more in the Laravel documentation](https://laravel.com/docs/installation)
+Make sure you have **Laravel** `10.48+`. Read more in the [Laravel documentation](https://laravel.com/docs/installation).
 
 ```shell
 composer global require laravel/installer
@@ -73,48 +73,55 @@ You will also find it in the menu.
 
 ![user-resource](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/user-resource.png)
 
-### 5. Adding fields to the resource
+### 5. Set up a resource
 
-The section is added, but if you open record creation, you'll see a blank page. Let's fix that.
+The section has been added, but if you open the post creation page, you'll see a blank page with no form fields. Let's fix it.
 
-Here is how a new resource looks right after creation:
+Let's use the `Text`, `Email`, `Password` and components for a better structure and immediately add validation.
 
 ```php
-/**
- * @extends ModelResource<User>
- */
-class UserResource extends ModelResource
+class UsersFormPage extends FormPage
 {
-    protected string $model = User::class;
-
-    protected string $title = 'Users';
-
-    protected function indexFields(): iterable
+    protected function fields(): iterable
     {
         return [
-            ID::make()->sortable(),
-        ];
-    }
+            Grid::make([
+                Column::make([
+                    Box::make('Contact information', [
+                        ID::make(),
+                        Text::make('Name'),
+                        Email::make('E-mail', 'email'),
+                    ]),
 
-    protected function formFields(): iterable
-    {
-        return [
-            Box::make([
-                ID::make(),
+                    LineBreak::make(),
+
+                    Box::make('Change password', [
+                        Password::make('Password')
+                            ->customAttributes(['autocomplete' => 'new-password']),
+
+                        PasswordRepeat::make('Password repeat')
+                            ->customAttributes(['autocomplete' => 'confirm-password']),
+                    ]),
+                ]),
             ]),
-        ];
-    }
-
-    protected function detailFields(): iterable
-    {
-        return [
-            ID::make(),
         ];
     }
 
     protected function rules(DataWrapperContract $item): array
     {
-        return [];
+        return [
+            'name' => 'required',
+            'email' => [
+                'sometimes',
+                'bail',
+                'required',
+                'email',
+                Rule::unique('users', 'email')->ignore($item->id),
+            ],
+            'password' => !$item->exists
+                ? 'required|min:6|required_with:password_repeat|same:password_repeat'
+                : 'sometimes|nullable|min:6|required_with:password_repeat|same:password_repeat',
+        ];
     }
 }
 ```
@@ -134,67 +141,22 @@ It's also recommended to specify `$column`, to change the displayed field during
 protected string $column = 'email';
 ```
 
-Now let's add form fields. We use `Text`, `Email`, `Password` and components for the best structure:
-
-```php
-protected function formFields(): iterable
-{
-    return [
-        Grid::make([
-            Column::make([
-                Box::make('Contact information', [
-                    ID::make()->sortable(),
-                    Text::make('Name'),
-                    Email::make('E-mail', 'email'),
-                ]),
-
-                LineBreak::make(),
-
-                Box::make('Change password', [
-                    Password::make('Password')
-                        ->customAttributes(['autocomplete' => 'new-password']),
-
-                    PasswordRepeat::make('Password repeat')
-                        ->customAttributes(['autocomplete' => 'confirm-password']),
-                ]),
-            ]),
-        ]),
-    ];
-}
-```
-
-Let's add validation:
-
-```php
-protected function rules(DataWrapperContract $item): array
-{
-    return [
-        'name' => 'required',
-        'email' => [
-            'sometimes',
-            'bail',
-            'required',
-            'email',
-            Rule::unique('users', 'email')->ignore($item->id),
-        ],
-        'password' => !$item->exists
-            ? 'required|min:6|required_with:password_repeat|same:password_repeat'
-            : 'sometimes|nullable|min:6|required_with:password_repeat|same:password_repeat',
-    ];
-}
-```
-
 ### 6. Filtering records
 
-Add filter by email:
+Let's add a filter by email on the index page:
 
 ```php
-protected function filters(): iterable
+class UsersIndexPage extends IndexPage
 {
-    return [
-        Text::make('E-mail', 'email')
-            ->onApply(fn(Builder $query, ?string $value) => $value === null ? $query : $query->whereLike('email', "%$value%")),
-    ];
+    protected function filters(): iterable
+    {
+        return [
+            Text::make('E-mail', 'email')
+                ->onApply(fn(Builder $query, ?string $value) => $value === null ? $query : $query->whereLike('email', "%$value%")),
+        ];
+    }
+
+    // ...
 }
 ```
 
@@ -241,4 +203,3 @@ Important sections:
 - [Components](/docs/{{version}}/components/index)
 
 Thanks for choosing MoonShine!
-
