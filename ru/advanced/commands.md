@@ -79,26 +79,26 @@ php artisan moonshine:resource
 
 Сигнатура:
 ```
-moonshine:resource {className?} {--type=} {--m|model=} {--t|title=} {--test} {--pest} {--p|policy} {--base-dir=} {--base-namespace=}
+moonshine:resource {className?} {--type=} {--m|model=} {--t|title=} {--test} {--pest} {--force} {--p|policy} {--base-dir=} {--base-namespace=}
 ```
 
 Доступные опции:
 
+- `--type=` - быстрый выбор типа ресурса (1 - ModelResource (по умолчанию), 2 - CrudResource, 3 - Blank Resource),
 - `--m|model=` - Eloquent модель для `ModelResource`,
 - `--t|title=` - заголовок раздела,
-- `--type=` - быстрый выбор типа ресурса (1 - по умолчанию, 2 - со страницами, 3 - пустой),
-- `--p|policy` - также создать Policy,
 - `--test` или `--pest` - дополнительно сгенерировать тестовый класс,
+- `--force` - перезаписать ресурс без дополнительно подтверждения, если уже существует,
+- `--p|policy` - также создать Policy,
 - `--base-dir=, --base-namespace=` - изменить базовую директорию и неймспейс класса.
 
 При создании ресурса доступно несколько вариантов:
 
-- [Default model resource](/docs/{{version}}/model-resource/fields) - `ModelResource` по умолчанию с объявлением полей в методах `indexFields()`, `formFields()` и `detailFields()`,
-- [Model resource with pages](/docs/{{version}}/model-resource/pages) - `ModelResource` c публикацией страниц `IndexPage`, `FormPage` и `DetailPage`,
-- **Empty resource** - пустой ресурс для кастомных реализаций.
+- [ModelResource](/docs/{{version}}/model-resource/fields) - стандартный ресурс для управления Eloquent моделями,
+- [CrudResource](/docs/{{version}}/advanced/crud-resource) - ресурс без зависимости от Eloquent,
+- **Blank Resource** - пустой ресурс для кастомных реализаций.
 
-После выполнения команды в директории `app/MoonShine/Resources` будет создан файл ресурса.
-Если создается `ModelResource` со страницами, то в директории `app/MoonShine/Pages` будут созданы дополнительные страницы.
+После выполнения команды будет создан файл ресурса с CRUD-страницами.
 
 Примеры:
 ```shell

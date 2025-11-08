@@ -79,26 +79,26 @@ php artisan moonshine:resource
 
 Signature:
 ```
-moonshine:resource {className?} {--type=} {--m|model=} {--t|title=} {--test} {--pest} {--p|policy} {--base-dir=} {--base-namespace=}
+moonshine:resource {className?} {--type=} {--m|model=} {--t|title=} {--test} {--pest} {--force} {--p|policy} {--base-dir=} {--base-namespace=}
 ```
 
 Available options:
 
+- `--type=` - quick selection of resource type (1 - ModelResource (default), 2 - CrudResource, 3 - Blank Resource),
 - `--m|model=` - Eloquent model for `ModelResource`,
 - `--t|title=` - section title,
-- `--type=` - quick selection of resource type (1 - default, 2 - with pages, 3 - empty),
-- `--p|policy` - also create Policy,
 - `--test` or `--pest` - additionally generate a test class,
+- `--force` - overwrite the resource without additional confirmation if it already exists,
+- `--p|policy` - also create Policy,
 - `--base-dir=, --base-namespace=` - change the base directory and namespace of the class.
 
 When creating a resource, several options are available:
 
-- [Default model resource](/docs/{{version}}/model-resource/fields) - default `ModelResource` with the declaration of fields in the methods `indexFields()`, `formFields()` and `detailFields()`,
-- [Model resource with pages](/docs/{{version}}/model-resource/pages) - `ModelResource` with the publication of the pages `IndexPage`, `FormPage` and `DetailPage`,
-- **Empty resource** - empty resource for custom implementations.
+- [ModelResource](/docs/{{version}}/model-resource/fields) - Standard resource for managing Eloquent models,
+- [CrudResource](/docs/{{version}}/advanced/crud-resource) - Resource without dependence on Eloquent,
+- **Blank Resource** - empty resource for custom implementations.
 
-After executing the command, a resource file will be created in the `app/MoonShine/Resources` directory.
-If `ModelResource` with pages is created, additional pages will be created in the `app/MoonShine/Pages` directory.
+After the command is executed, a resource file with CRUD pages is created.
 
 Examples:
 ```shell
