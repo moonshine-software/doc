@@ -22,7 +22,6 @@ video: [Основы](https://youtu.be/bcFOkXuPSRk?si=qYRIXosjXUbp7ucg&t=1183),[
   - [Lazy режим](#lazy)
 - [Модификаторы](#modifiers)
   - [Компоненты](#components)
-  - [Элементы thead, tbody, tfoot](#thead-tbody-tfoot)
 
 ---
 
@@ -561,8 +560,8 @@ class PostResource extends ModelResource
 <a name="components"></a>
 ### Компоненты
 
-Вы можете полностью заменить или модифицировать `TableBuilder` ресурса для индексной и детальной страницы.
-Для этого воспользуйтесь методами `modifyListComponent()` или `modifyDetailComponent()`.
+Вы можете полностью заменить или модифицировать `TableBuilder` для индексной и детальной страницы.
+Для этого воспользуйтесь методами `modifyListComponent()` в `IndexPage` или `modifyDetailComponent()` в `DetailPage`.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -587,74 +586,6 @@ public function modifyDetailComponent(ComponentContract $component): ComponentCo
     return parent::modifyDetailComponent($component)->customAttributes([
         'data-my-attr' => 'value'
     ]);
-}
-```
-
-<a name="thead-tbody-tfoot"></a>
-### Элементы thead, tbody, tfoot
-
-Если вам недостаточно просто автоматически выводить поля в `thead`, `tbody` и `tfoot`,
-то вы можете переопределить или дополнить эту логику на основе методов ресурса `thead()`, `tbody()`, `tfoot()`.
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:5]
-use Closure;
-use MoonShine\Contracts\UI\Collection\TableRowsContract;
-use MoonShine\Contracts\UI\TableRowContract;
-use MoonShine\UI\Collections\TableCells;
-use MoonShine\UI\Collections\TableRows;
-
-protected function thead(): null|TableRowsContract|Closure
-{
-    return static fn(TableRowContract $default) => TableRows::make([$default])->pushRow(
-        TableCells::make()->pushCell(
-            'td content'
-        )
-    );
-}
-
-protected function tbody(): null|TableRowsContract|Closure
-{
-    return static fn(TableRowsContract $default) => $default->pushRow(
-        TableCells::make()->pushCell(
-            'td content'
-        )
-    );
-}
-
-protected function tfoot(): null|TableRowsContract|Closure
-{
-    return static fn(?TableRowContract $default) => TableRows::make([$default])->pushRow(
-        TableCells::make()->pushCell(
-            'td content'
-        )
-    );
-}
-```
-
-#### Пример добавления строки в tfoot
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:7]
-use Closure;
-use MoonShine\Contracts\UI\Collection\TableRowsContract;
-use MoonShine\Contracts\UI\TableRowContract;
-use MoonShine\UI\Collections\TableCells;
-use MoonShine\UI\Collections\TableRows;
-use MoonShine\UI\Components\Table\TableBuilder;
-use MoonShine\UI\Components\Table\TableRow;
-
-protected function tfoot(): null|TableRowsContract|Closure
-{
-    return static function(?TableRowContract $default, TableBuilder $table) {
-        $cells = TableCells::make();
-
-        $cells->pushCell('Balance:');
-        $cells->pushCell('$1000');
-
-        return TableRows::make([TableRow::make($cells), $default]);
-    };
 }
 ```
 

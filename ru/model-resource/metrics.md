@@ -1,20 +1,20 @@
 # Метрики
 
-На странице индекса модели ресурса вы можете отображать информационные блоки со статистикой - метрики.
-Для этого в методе `metrics()` верните массив из `Metric`.
+На странице индекса вы можете отображать информационные блоки со статистикой - метрики.
+Для этого в методе `metrics()` страницы `IndexPage` верните массив из `Metric`.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:start]
-namespace App\MoonShine\Resources;
+namespace App\MoonShine\Resources\Post\Pages;
 
 use App\Models\Post;
 use App\Models\Comment;
 use MoonShine\UI\Components\Metrics\Wrapped\Metric;
 use MoonShine\UI\Components\Metrics\Wrapped\ValueMetric;
-use MoonShine\Laravel\Resources\ModelResource; // [tl! collapse:end]
+use MoonShine\Laravel\Pages\Crud\IndexPage; // [tl! collapse:end]
 
-class PostResource extends ModelResource
+class PostIndexPage extends IndexPage
 {
     // ...
 

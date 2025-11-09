@@ -5,6 +5,7 @@ video: https://youtu.be/bcFOkXuPSRk?si=RmlstXkRnan5r1K8&t=246
 # Страницы
 
 - [Основы](#basics)
+- [Функциональность страниц](#functionality)
 - [Типы страниц](#page-type)
 - [Добавление полей](#fields)
 - [Основные компоненты](#components)
@@ -29,9 +30,9 @@ video: https://youtu.be/bcFOkXuPSRk?si=RmlstXkRnan5r1K8&t=246
 // [tl! collapse:start]
 namespace App\MoonShine\Resources;
 
-use App\MoonShine\Pages\Post\PostIndexPage;
-use App\MoonShine\Pages\Post\PostFormPage;
-use App\MoonShine\Pages\Post\PostDetailPage;
+use App\MoonShine\Resources\Post\Pages\PostIndexPage;
+use App\MoonShine\Resources\Post\Pages\PostFormPage;
+use App\MoonShine\Resources\Post\Pages\PostDetailPage;
 use MoonShine\Laravel\Resources\ModelResource; // [tl! collapse:end]
 
 class PostResource extends ModelResource
@@ -48,6 +49,37 @@ class PostResource extends ModelResource
     }
 }
 ```
+
+<a name="functionality"></a>
+## Функциональность страниц
+
+Страницы являются основой архитектуры **MoonShine**. Вся ключевая функциональность определяется непосредственно в классах страниц, что обеспечивает гибкость и модульность.
+
+### IndexPage
+
+`IndexPage` отвечает за отображение списка элементов и содержит следующую функциональность:
+
+- **Метрики** - метод `metrics()` позволяет определить метрики для отображения на странице списка (подробнее в разделе [Метрики](/docs/{{version}}/model-resource/metrics)).
+- **Фильтры** - метод `filters()` для определения фильтров данных (подробнее в разделе [Фильтры](/docs/{{version}}/model-resource/filters)).
+- **Query Tags** - метод `queryTags()` для быстрой фильтрации по предустановленным условиям (подробнее в разделе [Query Tags](/docs/{{version}}/model-resource/query-tags)).
+- **Обработчики** - метод `handlers()` для регистрации обработчиков событий (подробнее в разделе [Обработчики](/docs/{{version}}/advanced/handlers)).
+- **Кнопки** - метод `topButtons()` для добавления кнопок в верхнюю часть страницы (подробнее в разделе [Кнопки](/docs/{{version}}/model-resource/buttons)).
+- **Работа с компонентами** - для полной замены компонента используйте собственный класс (подробнее в разделе [Основные компоненты](#components) ниже), для модификации существующего компонента используйте метод `modifyListComponent()` (подробнее в разделе [Таблицы](/docs/{{version}}/model-resource/table#modifiers)).
+
+### FormPage
+
+`FormPage` отвечает за создание и редактирование элементов:
+
+- **Работа с компонентами** - для полной замены компонента используйте собственный класс (подробнее в разделе [Основные компоненты](#components) ниже), для модификации существующего компонента используйте метод `modifyFormComponent()` (подробнее в разделе [Форма](/docs/{{version}}/model-resource/form#modifiers)).
+
+### DetailPage
+
+`DetailPage` отвечает за детальное отображение элемента:
+
+- **Работа с компонентами** - для полной замены компонента используйте собственный класс (подробнее в разделе [Основные компоненты](#components) ниже), для модификации существующего компонента используйте метод `modifyDetailComponent()` (подробнее в разделе [Таблицы](/docs/{{version}}/model-resource/table#modifiers)).
+
+> [!NOTE]
+> Для обратной совместимости все перечисленные методы также доступны в классе `ModelResource`, но рекомендуется определять их непосредственно в соответствующих классах страниц.
 
 <a name="page-type"></a>
 ## Типы страниц
@@ -73,7 +105,7 @@ PageType::DETAIL; // Страница детального просмотра
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:5]
-namespace App\MoonShine\Pages\Post;
+namespace App\MoonShine\Resources\Post\Pages;
 
 use MoonShine\Laravel\Pages\Crud\IndexPage;
 use MoonShine\UI\Fields\ID;

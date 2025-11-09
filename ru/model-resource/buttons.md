@@ -164,26 +164,34 @@ protected function modifyFiltersButton(ActionButtonContract $button): ActionButt
 <a name="top-buttons"></a>
 ## Кнопки индексной страницы
 
-По умолчанию на странице индекса ресурса модели есть только кнопка создания.
-Метод `topButtons()` позволяет добавить дополнительные [кнопки](/docs/{{version}}/components/action-button).
+По умолчанию на странице индекса есть только кнопка создания.
+Метод `topButtons()` в `IndexPage` позволяет добавить дополнительные [кнопки](/docs/{{version}}/components/action-button).
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:4]
+namespace App\MoonShine\Resources\Post\Pages;
+
 use MoonShine\Support\AlpineJs;
 use MoonShine\Support\Enums\JsEvent;
 use MoonShine\Support\ListOf;
 use MoonShine\UI\Components\ActionButton;
+use MoonShine\Laravel\Pages\Crud\IndexPage;
 
-protected function topButtons(): ListOf
+class PostIndexPage extends IndexPage
 {
-    return parent::topButtons()
-        ->add(
-            ActionButton::make('Refresh', '#')
-                ->dispatchEvent(
-                    AlpineJs::event(JsEvent::TABLE_UPDATED, $this->getListComponentName())
-                )
-        );
+    // ...
+
+    protected function topButtons(): ListOf
+    {
+        return parent::topButtons()
+            ->add(
+                ActionButton::make('Refresh', '#')
+                    ->dispatchEvent(
+                        AlpineJs::event(JsEvent::TABLE_UPDATED, $this->getListComponentName())
+                    )
+            );
+    }
 }
 ```
 

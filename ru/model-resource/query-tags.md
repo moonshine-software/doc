@@ -20,13 +20,13 @@
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:5]
-namespace App\MoonShine\Resources;
+namespace App\MoonShine\Resources\Post\Pages;
 
 use Illuminate\Database\Eloquent\Builder;
 use MoonShine\Laravel\QueryTags\QueryTag;
-use MoonShine\Laravel\Resources\ModelResource;
+use MoonShine\Laravel\Pages\Crud\IndexPage;
 
-class PostResource extends ModelResource
+class PostIndexPage extends IndexPage
 {
     // ...
 
@@ -45,6 +45,9 @@ class PostResource extends ModelResource
 
 ![query_tags](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/query_tags.png#light)
 ![query_tags_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/query_tags_dark.png#dark)
+
+> [!NOTE]
+> Метод `queryTags()` также доступен в классе `ModelResource` для обратной совместимости, но рекомендуется определять теги непосредственно в `IndexPage`.
 
 <a name="icon"></a>
 ## Иконка
