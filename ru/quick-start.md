@@ -11,7 +11,7 @@ video: https://youtu.be/kC1KIdO_MZ4?si=sPPVUjeEzjUI6krA&t=126
 
 #### Laravel
 
-Убедитесь, что у вас установлен **Laravel** `10.48+`. [Подробнее в документации Laravel](https://laravel.com/docs/installation)
+Убедитесь, что у вас установлен **Laravel** `10.48+`. Подробнее в [документации Laravel](https://laravel.com/docs/installation).
 
 ```shell
 composer global require laravel/installer
@@ -67,59 +67,120 @@ php artisan moonshine:resource User
 
 Готово! Теперь раздел `Users` доступен в админке.
 
-`http://127.0.0.1:8000/admin/resource/user-resource/index-page`
+`http://127.0.0.1:8000/admin/resource/user-resource/user-index-page`
 
 Также вы найдёте его в меню.
 
 ![user-resource](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/user-resource.png)
 
-### 5. Добавление полей в ресурс
+### 5. Настройка ресурса
 
-Раздел добавлен, но если открыть создание записей, то вы увидите пустую страницу без полей формы. Давайте это исправим.
+Раздел добавлен, но если открыть страницу создания записей, вы увидите пустую страницу без полей формы.
+Далее мы это исправим.
 
-Вот как выглядит новый ресурс сразу после создания:
+При создании ресурса так же были созданы 3 CRUD-страницы: `UserIndexPage`, `UserFormPage` и `UserDetailPage`.
+
+Начнём с `UserFormPage`.
+Воспользуемся полями `Text`, `Email`, `Password` и компонентами для лучшей структуры и сразу добавим валидацию.
 
 ```php
-/**
- * @extends ModelResource<User>
- */
-class UserResource extends ModelResource
+class UserFormPage extends FormPage
 {
-    protected string $model = User::class;
-
-    protected string $title = 'Users';
-
-    protected function indexFields(): iterable
+    protected function fields(): iterable
     {
         return [
-            ID::make()->sortable(),
-        ];
-    }
+            Grid::make([
+                Column::make([
+                    Box::make('Contact information', [
+                        ID::make(),
+                        Text::make('Name'),
+                        Email::make('E-mail', 'email'),
+                    ]),
 
-    protected function formFields(): iterable
-    {
-        return [
-            Box::make([
-                ID::make(),
+                    LineBreak::make(),
+
+                    Box::make('Change password', [
+                        Password::make('Password')
+                            ->customAttributes(['autocomplete' => 'new-password']),
+
+                        PasswordRepeat::make('Password repeat')
+                            ->customAttributes(['autocomplete' => 'confirm-password']),
+                    ]),
+                ]),
             ]),
-        ];
-    }
-
-    protected function detailFields(): iterable
-    {
-        return [
-            ID::make(),
         ];
     }
 
     protected function rules(DataWrapperContract $item): array
     {
-        return [];
+        return [
+            'name' => 'required',
+            'email' => [
+                'sometimes',
+                'bail',
+                'required',
+                'email',
+                Rule::unique('users', 'email')->ignore($item->id),
+            ],
+            'password' => !$item->exists
+                ? 'required|min:6|required_with:password_repeat|same:password_repeat'
+                : 'sometimes|nullable|min:6|required_with:password_repeat|same:password_repeat',
+        ];
     }
 }
 ```
 
-Изменим заголовок раздела, добавив метод `getTitle()` для удобства локализации в будущем:
+Далее наполним страницу `UserIndexPage`, на которой выводится список записей.
+Дополнительно добавим фильтрацию и применим некоторые модификации индексной таблицы.
+
+```php
+class UserIndexPage extends IndexPage
+{
+    protected bool $isLazy = true;
+
+    protected function fields(): iterable
+    {
+        return [
+            ID::make()->sortable(),
+            Text::make('Name'),
+            Email::make('E-mail', 'email'),
+        ];
+    }
+
+    protected function filters(): iterable
+    {
+        return [
+            Text::make('Name'),
+        ];
+    }
+
+    protected function modifyListComponent(ComponentContract $component): ComponentContract
+    {
+        return $component
+            ->columnSelection()
+            ->sticky()
+            ->stickyButtons();
+    }
+}
+```
+
+Теперь давайте наполним раздел `UserDetailPage` для просмотра детальной информации об одной записи.
+
+```php
+class UserDetailPage extends DetailPage
+{
+    protected function fields(): iterable
+    {
+        return [
+            ID::make(),
+            Text::make('Name'),
+            Email::make('E-mail', 'email'),
+        ];
+    }
+}
+```
+
+Изменим заголовок раздела, добавив метод `getTitle()` для удобства локализации в будущем.
 
 ```php
 public function getTitle(): string
@@ -128,79 +189,15 @@ public function getTitle(): string
 }
 ```
 
-Также рекомендуется указать `$column`, чтобы изменить отображаемое поле при связях. Вместо `id` укажем `email`:
+Также рекомендуется указать `$column`, чтобы изменить отображаемое поле при связях. Вместо `id` укажем `email`.
 
 ```php
 protected string $column = 'email';
 ```
 
-Теперь добавим поля формы. Используем `Text`, `Email`, `Password` и компоненты для лучшей структуры:
+### 6. Брендирование
 
-```php
-protected function formFields(): iterable
-{
-    return [
-        Grid::make([
-            Column::make([
-                Box::make('Contact information', [
-                    ID::make()->sortable(),
-                    Text::make('Name'),
-                    Email::make('E-mail', 'email'),
-                ]),
-
-                LineBreak::make(),
-
-                Box::make('Change password', [
-                    Password::make('Password')
-                        ->customAttributes(['autocomplete' => 'new-password']),
-
-                    PasswordRepeat::make('Password repeat')
-                        ->customAttributes(['autocomplete' => 'confirm-password']),
-                ]),
-            ]),
-        ]),
-    ];
-}
-```
-
-Добавим валидацию:
-
-```php
-protected function rules(DataWrapperContract $item): array
-{
-    return [
-        'name' => 'required',
-        'email' => [
-            'sometimes',
-            'bail',
-            'required',
-            'email',
-            Rule::unique('users', 'email')->ignore($item->id),
-        ],
-        'password' => !$item->exists
-            ? 'required|min:6|required_with:password_repeat|same:password_repeat'
-            : 'sometimes|nullable|min:6|required_with:password_repeat|same:password_repeat',
-    ];
-}
-```
-
-### 6. Фильтрация записей
-
-Добавим фильтр по email:
-
-```php
-protected function filters(): iterable
-{
-    return [
-        Text::make('E-mail', 'email')
-            ->onApply(fn(Builder $query, ?string $value) => $value === null ? $query : $query->whereLike('email', "%$value%")),
-    ];
-}
-```
-
-### 7. Брендирование
-
-Настроим логотип и цветовую схему в `App\Providers\MoonShineServiceProvider.php`:
+Настроим логотип и цветовую схему в `App\Providers\MoonShineServiceProvider.php`.
 
 ```php
 $config
@@ -212,7 +209,7 @@ $colors
     ->secondary('#93C5FD');
 ```
 
-### 8. Локализация
+### 6. Локализация
 
 Настройка локализации в `config/moonshine.php`:
 
@@ -224,9 +221,10 @@ $colors
 ],
 ```
 
-> Языковые файлы должны находиться в `/lang/vendor/moonshine`. Их можно найти в разделе [Плагины](/plugins) или сделать самостоятельно.
+> Языковые файлы должны находиться в "/lang/vendor/moonshine".
+> Их можно найти в разделе [Плагины](/plugins) или сделать самостоятельно.
 
-### 9. Документация
+### 8. Документация
 
 Мы установили **MoonShine**, настроили ресурс, добавили поля, фильтры, брендирование и локализацию.
 
@@ -241,4 +239,3 @@ $colors
 - [Компоненты](/docs/{{version}}/components/index)
 
 Спасибо, что выбрали MoonShine!
-

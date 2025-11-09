@@ -11,7 +11,7 @@ Below - step-by-step instructions for installation and primary setting.
 
 #### Laravel
 
-Make sure you have **Laravel** `10.48+`. [Read more in the Laravel documentation](https://laravel.com/docs/installation)
+Make sure you have **Laravel** `10.48+`. Read more in the [Laravel documentation](https://laravel.com/docs/installation).
 
 ```shell
 composer global require laravel/installer
@@ -67,59 +67,120 @@ php artisan moonshine:resource User
 
 Done! Now the section `Users` is available in the admin panel.
 
-`http://127.0.0.1:8000/admin/resource/user-resource/index-page`
+`http://127.0.0.1:8000/admin/resource/user-resource/user-index-page`
 
 You will also find it in the menu.
 
 ![user-resource](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/user-resource.png)
 
-### 5. Adding fields to the resource
+### 5. Set up a resource
 
-The section is added, but if you open record creation, you'll see a blank page. Let's fix that.
+The section has been added, but if you open the post creation page, you'll see a blank page with no form fields.
+Next, we will fix this.
 
-Here is how a new resource looks right after creation:
+When creating the resource, 3 CRUD pages were also created: `UserIndexPage`, `UserFormPage` and `UserDetailPage`.
+
+Let's start with `UserFormPage`.
+Let's use the `Text`, `Email`, `Password` and components for a better structure and immediately add validation.
 
 ```php
-/**
- * @extends ModelResource<User>
- */
-class UserResource extends ModelResource
+class UserFormPage extends FormPage
 {
-    protected string $model = User::class;
-
-    protected string $title = 'Users';
-
-    protected function indexFields(): iterable
+    protected function fields(): iterable
     {
         return [
-            ID::make()->sortable(),
-        ];
-    }
+            Grid::make([
+                Column::make([
+                    Box::make('Contact information', [
+                        ID::make(),
+                        Text::make('Name'),
+                        Email::make('E-mail', 'email'),
+                    ]),
 
-    protected function formFields(): iterable
-    {
-        return [
-            Box::make([
-                ID::make(),
+                    LineBreak::make(),
+
+                    Box::make('Change password', [
+                        Password::make('Password')
+                            ->customAttributes(['autocomplete' => 'new-password']),
+
+                        PasswordRepeat::make('Password repeat')
+                            ->customAttributes(['autocomplete' => 'confirm-password']),
+                    ]),
+                ]),
             ]),
-        ];
-    }
-
-    protected function detailFields(): iterable
-    {
-        return [
-            ID::make(),
         ];
     }
 
     protected function rules(DataWrapperContract $item): array
     {
-        return [];
+        return [
+            'name' => 'required',
+            'email' => [
+                'sometimes',
+                'bail',
+                'required',
+                'email',
+                Rule::unique('users', 'email')->ignore($item->id),
+            ],
+            'password' => !$item->exists
+                ? 'required|min:6|required_with:password_repeat|same:password_repeat'
+                : 'sometimes|nullable|min:6|required_with:password_repeat|same:password_repeat',
+        ];
     }
 }
 ```
 
-Let's change the section title by adding the method `getTitle()` for easier future localization:
+Next, fill in the `UserIndexPage` page, which displays a list of records.
+Additionally, we will add filtering and apply some modifications to the index table.
+
+```php
+class UserIndexPage extends IndexPage
+{
+    protected bool $isLazy = true;
+
+    protected function fields(): iterable
+    {
+        return [
+            ID::make()->sortable(),
+            Text::make('Name'),
+            Email::make('E-mail', 'email'),
+        ];
+    }
+
+    protected function filters(): iterable
+    {
+        return [
+            Text::make('Name'),
+        ];
+    }
+
+    protected function modifyListComponent(ComponentContract $component): ComponentContract
+    {
+        return $component
+            ->columnSelection()
+            ->sticky()
+            ->stickyButtons();
+    }
+}
+```
+
+Now let's fill in the `UserDetailPage` section to view the details of a single record.
+
+```php
+class UserDetailPage extends DetailPage
+{
+    protected function fields(): iterable
+    {
+        return [
+            ID::make(),
+            Text::make('Name'),
+            Email::make('E-mail', 'email'),
+        ];
+    }
+}
+```
+
+Let's change the section title by adding the method `getTitle()` for easier future localization.
 
 ```php
 public function getTitle(): string
@@ -128,79 +189,15 @@ public function getTitle(): string
 }
 ```
 
-It's also recommended to specify `$column`, to change the displayed field during ties. Instead of `id`, we indicate `email`:
+It's also recommended to specify `$column`, to change the displayed field during ties. Instead of `id`, we indicate `email`.
 
 ```php
 protected string $column = 'email';
 ```
 
-Now let's add form fields. We use `Text`, `Email`, `Password` and components for the best structure:
+### 6. Branding
 
-```php
-protected function formFields(): iterable
-{
-    return [
-        Grid::make([
-            Column::make([
-                Box::make('Contact information', [
-                    ID::make()->sortable(),
-                    Text::make('Name'),
-                    Email::make('E-mail', 'email'),
-                ]),
-
-                LineBreak::make(),
-
-                Box::make('Change password', [
-                    Password::make('Password')
-                        ->customAttributes(['autocomplete' => 'new-password']),
-
-                    PasswordRepeat::make('Password repeat')
-                        ->customAttributes(['autocomplete' => 'confirm-password']),
-                ]),
-            ]),
-        ]),
-    ];
-}
-```
-
-Let's add validation:
-
-```php
-protected function rules(DataWrapperContract $item): array
-{
-    return [
-        'name' => 'required',
-        'email' => [
-            'sometimes',
-            'bail',
-            'required',
-            'email',
-            Rule::unique('users', 'email')->ignore($item->id),
-        ],
-        'password' => !$item->exists
-            ? 'required|min:6|required_with:password_repeat|same:password_repeat'
-            : 'sometimes|nullable|min:6|required_with:password_repeat|same:password_repeat',
-    ];
-}
-```
-
-### 6. Filtering records
-
-Add filter by email:
-
-```php
-protected function filters(): iterable
-{
-    return [
-        Text::make('E-mail', 'email')
-            ->onApply(fn(Builder $query, ?string $value) => $value === null ? $query : $query->whereLike('email', "%$value%")),
-    ];
-}
-```
-
-### 7. Branding
-
-Configure logo and color scheme в `App\Providers\MoonShineServiceProvider.php`:
+Configure logo and color scheme в `App\Providers\MoonShineServiceProvider.php`.
 
 ```php
 $config
@@ -212,7 +209,7 @@ $colors
     ->secondary('#93C5FD');
 ```
 
-### 8. Localization
+### 7. Localization
 
 Localization Configuration in `config/moonshine.php`:
 
@@ -224,9 +221,10 @@ Localization Configuration in `config/moonshine.php`:
 ],
 ```
 
-> Language files should be located at `/lang/vendor/moonshine`. You can find them in the section [Plugins](/plugins) or create them manually.
+> Language files should be located at "/lang/vendor/moonshine".
+> You can find them in the section [Plugins](/plugins) or create them manually.
 
-### 9. Documentation
+### 8. Documentation
 
 We have installed **MoonShine**, configured a resource, added fields, filters, branding and localization.
 
@@ -241,4 +239,3 @@ Important sections:
 - [Components](/docs/{{version}}/components/index)
 
 Thanks for choosing MoonShine!
-
