@@ -19,7 +19,6 @@ make(
     ?Closure $avatar = null,
     ?Closure $nameOfUser = null,
     ?Closure $username = null,
-    bool $withBorder = false,
     ?string $guard = null,
 )
 ```
@@ -29,7 +28,6 @@ make(
 - `$avatar` - Аватар пользователя,
 - `$nameOfUser` - Имя пользователя,
 - `$username` - Nickname пользователя,
-- `$withBorder` - С разделителем сверху,
 - `$guard` - Guard.
 
 ~~~tabs

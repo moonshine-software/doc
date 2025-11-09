@@ -143,9 +143,9 @@ protected function getFooterComponent(): Footer
 ### Override the Profile component
 
 ```php
-protected function getProfileComponent(bool $sidebar = false): Profile
+protected function getProfileComponent(): Profile
 {
-    return Profile::make(withBorder: $sidebar);
+    return Profile::make();
 }
 ```
 

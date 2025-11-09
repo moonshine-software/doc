@@ -29,7 +29,7 @@ final class MoonShineLayout extends AppLayout
                 Menu::make()->customAttributes(['class' => 'mt-2']),
                 When::make(
                     static fn() => config('moonshine.auth.enabled', true),
-                    static fn() => [Profile::make(withBorder: true)],
+                    static fn() => [Profile::make()],
                 )
             ]),
         ]);
