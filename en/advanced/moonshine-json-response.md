@@ -14,7 +14,8 @@
 <a name="basics"></a>
 ## Basics
 
-`JsonResponse` extends `Illuminate\Http\JsonResponse` and is supplemented with helper methods for interacting with the frontend part of the admin panel interface after processing a request.
+`JsonResponse` extends `Illuminate\Http\JsonResponse` and is supplemented with helper methods for interacting
+with the frontend part of the admin panel interface after processing a request.
 
 <a name="methods"></a>
 ## Methods
@@ -25,11 +26,16 @@
 The `toast()` method triggers a standard [toast notification](/docs/{{version}}/advanced/toasts) of the admin panel.
 
 ```php
-toast(string $value, ToastType $type = ToastType::DEFAULT, null|int|false $duration = null)
+toast(
+    string $value,
+    ToastType $type = ToastType::DEFAULT,
+    null|int|false $duration = null
+)
 ```
-Example:
+
 ```php
-JsonResponse::make()->toast('My message', ToastType::SUCCESS, duration: 3000);
+JsonResponse::make()
+    ->toast('My message', ToastType::SUCCESS, duration: 3000);
 ```
 
 <a name="redirect"></a>
@@ -40,8 +46,6 @@ The `redirect()` method will redirect to the specified URL.
 ```php
 redirect(string $value)
 ```
-
-Example:
 
 ```php
 JsonResponse::make()->redirect('/');
@@ -56,10 +60,9 @@ The `events()` method adds [JSEvents](/docs/{{version}}/frontend/js#events) to t
 events(array $events)
 ```
 
-Example:
-
 ```php
-JsonResponse::make()->events([AlpineJs::event(JsEvent::TABLE_UPDATED, 'index')]);
+JsonResponse::make()
+    ->events([AlpineJs::event(JsEvent::TABLE_UPDATED, 'index')]);
 ```
 
 <a name="html"></a>
@@ -70,10 +73,12 @@ The `html()` method inserts the required HTML code into the selector specified w
 ```php
 html(string|array $value, HtmlMode $mode = HtmlMode::INNER_HTML)
 ```
+
 - `$value` - the value to be inserted into the selector,
 - `$mode` - the mode of content replacement in the selector.
 
-HtmlMode is an Enum with the following values:
+`HtmlMode` is an Enum with the following values:
+
 ```php
 enum HtmlMode: string
 {
@@ -91,7 +96,7 @@ enum HtmlMode: string
 }
 ```
 
-In the following example, the value `Content` will be inserted into the selector `#my-selector`
+In the following example, the value `Content` will be inserted into the selector `#my-selector`.
 
 ```php
 ActionButton::make('Button Label', '/endpoint')->async(selector: '#my-selector')
@@ -107,10 +112,12 @@ JsonResponse::make()->html('Content');
 The `htmlData()` method allows specifying multiple selectors and HTML content for insertion into these selectors.
 
 ```php
-htmlData(string|array $value, string $selector, HtmlMode $mode = HtmlMode::INNER_HTML)
+htmlData(
+    string|array $value,
+    string $selector,
+    HtmlMode $mode = HtmlMode::INNER_HTML
+)
 ```
-
-Example:
 
 ```php
 JsonResponse::make()
@@ -127,8 +134,6 @@ The `fieldsValues()` method allows you to set the values of the field fields thr
 fieldsValues(array $values)
 ```
 
-Example:
-
 ```php
 JsonResponse::make()
       ->fieldsValues([
@@ -138,4 +143,4 @@ JsonResponse::make()
 ```
 
 > [!NOTE]
-> Also, when filling the field, the event `change` will be caused
+> Also, when filling the field, the event `change` will be caused.

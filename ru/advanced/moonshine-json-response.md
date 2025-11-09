@@ -14,7 +14,8 @@
 <a name="basics"></a>
 ## Основы
 
-`JsonResponse` наследует `Illuminate\Http\JsonResponse` и дополнен вспомогательными методами для взаимодействия с frontend частью интерфейса админ-панели после обработки запроса.
+`JsonResponse` наследует `Illuminate\Http\JsonResponse` и дополнен вспомогательными методами для взаимодействия
+с frontend частью интерфейса админ-панели после обработки запроса.
 
 <a name="methods"></a>
 ## Методы
@@ -25,11 +26,16 @@
 Метод `toast()` вызывает стандартное [всплывающее уведомление](/docs/{{version}}/advanced/toasts) админ-панели.
 
 ```php
-toast(string $value, ToastType $type = ToastType::DEFAULT, null|int|false $duration = null)
+toast(
+    string $value,
+    ToastType $type = ToastType::DEFAULT,
+    null|int|false $duration = null
+)
 ```
-Пример:
+
 ```php
-JsonResponse::make()->toast('My message', ToastType::SUCCESS, duration: 3000);
+JsonResponse::make()
+    ->toast('My message', ToastType::SUCCESS, duration: 3000);
 ```
 
 <a name="redirect"></a>
@@ -40,8 +46,6 @@ JsonResponse::make()->toast('My message', ToastType::SUCCESS, duration: 3000);
 ```php
 redirect(string $value)
 ```
-
-Пример:
 
 ```php
 JsonResponse::make()->redirect('/');
@@ -56,10 +60,9 @@ JsonResponse::make()->redirect('/');
 events(array $events)
 ```
 
-Пример:
-
 ```php
-JsonResponse::make()->events([AlpineJs::event(JsEvent::TABLE_UPDATED, 'index')]);
+JsonResponse::make()
+    ->events([AlpineJs::event(JsEvent::TABLE_UPDATED, 'index')]);
 ```
 
 <a name="html"></a>
@@ -70,10 +73,12 @@ JsonResponse::make()->events([AlpineJs::event(JsEvent::TABLE_UPDATED, 'index')])
 ```php
 html(string|array $value, HtmlMode $mode = HtmlMode::INNER_HTML)
 ```
+
 - `$value` - значение, которое нужно подставить в селектор,
 - `$mode` - режим замены контента в селекторе.
 
-HtmlMode является Enum, которому доступны следующие значения:
+`HtmlMode` является Enum, которому доступны следующие значения:
+
 ```php
 enum HtmlMode: string
 {
@@ -91,7 +96,7 @@ enum HtmlMode: string
 }
 ```
 
-В следующем примере значение `Content` будет подставлено в селектор `#my-selector`
+В следующем примере значение `Content` будет подставлено в селектор `#my-selector`.
 
 ```php
 ActionButton::make('Button Label', '/endpoint')->async(selector: '#my-selector')
@@ -107,10 +112,12 @@ JsonResponse::make()->html('Content');
 Метод `htmlData()` позволяет указать сразу несколько селекторов и HTML контент для подстановки в данные селекторы.
 
 ```php
-htmlData(string|array $value, string $selector, HtmlMode $mode = HtmlMode::INNER_HTML)
+htmlData(
+    string|array $value,
+    string $selector,
+    HtmlMode $mode = HtmlMode::INNER_HTML
+)
 ```
-
-Пример:
 
 ```php
 JsonResponse::make()
@@ -127,8 +134,6 @@ JsonResponse::make()
 fieldsValues(array $values)
 ```
 
-Пример:
-
 ```php
 JsonResponse::make()
       ->fieldsValues([
@@ -138,4 +143,4 @@ JsonResponse::make()
 ```
 
 > [!NOTE]
-> Также при наполнении поля будет вызвано событие `change`
+> Также при наполнении поля будет вызвано событие `change`.

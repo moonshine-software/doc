@@ -582,6 +582,9 @@ public function updateSomething(CrudRequestContract $request)
 }
 ```
 
+> [!NOTE]
+> For more information about sending a JSON response, see [JsonResponse](/docs/{{version}}/advanced/moonshine-json-response).
+
 > [!WARNING]
 > Методы, вызываемые через `ActionButton` в ресурсе, должны быть публичными!
 
