@@ -67,7 +67,7 @@ php artisan moonshine:resource User
 
 Готово! Теперь раздел `Users` доступен в админке.
 
-`http://127.0.0.1:8000/admin/resource/user-resource/index-page`
+`http://127.0.0.1:8000/admin/resource/user-resource/user-index-page`
 
 Также вы найдёте его в меню.
 
@@ -75,12 +75,16 @@ php artisan moonshine:resource User
 
 ### 5. Настройка ресурса
 
-Раздел добавлен, но если открыть страницу создания записей, вы увидите пустую страницу без полей формы. Давайте это исправим.
+Раздел добавлен, но если открыть страницу создания записей, вы увидите пустую страницу без полей формы.
+Далее мы это исправим.
 
+При создании ресурса так же были созданы 3 CRUD-страницы: `UserIndexPage`, `UserFormPage` и `UserDetailPage`.
+
+Начнём с `UserFormPage`.
 Воспользуемся полями `Text`, `Email`, `Password` и компонентами для лучшей структуры и сразу добавим валидацию.
 
 ```php
-class UsersFormPage extends FormPage
+class UserFormPage extends FormPage
 {
     protected function fields(): iterable
     {
@@ -126,7 +130,57 @@ class UsersFormPage extends FormPage
 }
 ```
 
-Изменим заголовок раздела, добавив метод `getTitle()` для удобства локализации в будущем:
+Далее наполним страницу `UserIndexPage`, на которой выводится список записей.
+Дополнительно добавим фильтрацию и применим некоторые модификации индексной таблицы.
+
+```php
+class UserIndexPage extends IndexPage
+{
+    protected bool $isLazy = true;
+
+    protected function fields(): iterable
+    {
+        return [
+            ID::make()->sortable(),
+            Text::make('Name'),
+            Email::make('E-mail', 'email'),
+        ];
+    }
+
+    protected function filters(): iterable
+    {
+        return [
+            Text::make('Name'),
+        ];
+    }
+
+    protected function modifyListComponent(ComponentContract $component): ComponentContract
+    {
+        return $component
+            ->columnSelection()
+            ->sticky()
+            ->stickyButtons();
+    }
+}
+```
+
+Теперь давайте наполним раздел `UserDetailPage` для просмотра детальной информации об одной записи.
+
+```php
+class UserDetailPage extends DetailPage
+{
+    protected function fields(): iterable
+    {
+        return [
+            ID::make(),
+            Text::make('Name'),
+            Email::make('E-mail', 'email'),
+        ];
+    }
+}
+```
+
+Изменим заголовок раздела, добавив метод `getTitle()` для удобства локализации в будущем.
 
 ```php
 public function getTitle(): string
@@ -135,34 +189,15 @@ public function getTitle(): string
 }
 ```
 
-Также рекомендуется указать `$column`, чтобы изменить отображаемое поле при связях. Вместо `id` укажем `email`:
+Также рекомендуется указать `$column`, чтобы изменить отображаемое поле при связях. Вместо `id` укажем `email`.
 
 ```php
 protected string $column = 'email';
 ```
 
-### 6. Фильтрация записей
+### 6. Брендирование
 
-Добавим фильтр по email на индексной странице:
-
-```php
-class UsersIndexPage extends IndexPage
-{
-    protected function filters(): iterable
-    {
-        return [
-            Text::make('E-mail', 'email')
-                ->onApply(fn(Builder $query, ?string $value) => $value === null ? $query : $query->whereLike('email', "%$value%")),
-        ];
-    }
-
-    // ...
-}
-```
-
-### 7. Брендирование
-
-Настроим логотип и цветовую схему в `App\Providers\MoonShineServiceProvider.php`:
+Настроим логотип и цветовую схему в `App\Providers\MoonShineServiceProvider.php`.
 
 ```php
 $config
@@ -174,7 +209,7 @@ $colors
     ->secondary('#93C5FD');
 ```
 
-### 8. Локализация
+### 6. Локализация
 
 Настройка локализации в `config/moonshine.php`:
 
@@ -186,9 +221,10 @@ $colors
 ],
 ```
 
-> Языковые файлы должны находиться в `/lang/vendor/moonshine`. Их можно найти в разделе [Плагины](/plugins) или сделать самостоятельно.
+> Языковые файлы должны находиться в "/lang/vendor/moonshine".
+> Их можно найти в разделе [Плагины](/plugins) или сделать самостоятельно.
 
-### 9. Документация
+### 8. Документация
 
 Мы установили **MoonShine**, настроили ресурс, добавили поля, фильтры, брендирование и локализацию.
 
