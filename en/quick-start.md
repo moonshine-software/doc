@@ -67,7 +67,7 @@ php artisan moonshine:resource User
 
 Done! Now the section `Users` is available in the admin panel.
 
-`http://127.0.0.1:8000/admin/resource/user-resource/index-page`
+`http://127.0.0.1:8000/admin/resource/user-resource/user-index-page`
 
 You will also find it in the menu.
 
@@ -75,12 +75,16 @@ You will also find it in the menu.
 
 ### 5. Set up a resource
 
-The section has been added, but if you open the post creation page, you'll see a blank page with no form fields. Let's fix it.
+The section has been added, but if you open the post creation page, you'll see a blank page with no form fields.
+Next, we will fix this.
 
+When creating the resource, 3 CRUD pages were also created: `UserIndexPage`, `UserFormPage` and `UserDetailPage`.
+
+Let's start with `UserFormPage`.
 Let's use the `Text`, `Email`, `Password` and components for a better structure and immediately add validation.
 
 ```php
-class UsersFormPage extends FormPage
+class UserFormPage extends FormPage
 {
     protected function fields(): iterable
     {
@@ -126,7 +130,57 @@ class UsersFormPage extends FormPage
 }
 ```
 
-Let's change the section title by adding the method `getTitle()` for easier future localization:
+Next, fill in the `UserIndexPage` page, which displays a list of records.
+Additionally, we will add filtering and apply some modifications to the index table.
+
+```php
+class UserIndexPage extends IndexPage
+{
+    protected bool $isLazy = true;
+
+    protected function fields(): iterable
+    {
+        return [
+            ID::make()->sortable(),
+            Text::make('Name'),
+            Email::make('E-mail', 'email'),
+        ];
+    }
+
+    protected function filters(): iterable
+    {
+        return [
+            Text::make('Name'),
+        ];
+    }
+
+    protected function modifyListComponent(ComponentContract $component): ComponentContract
+    {
+        return $component
+            ->columnSelection()
+            ->sticky()
+            ->stickyButtons();
+    }
+}
+```
+
+Now let's fill in the `UserDetailPage` section to view the details of a single record.
+
+```php
+class UserDetailPage extends DetailPage
+{
+    protected function fields(): iterable
+    {
+        return [
+            ID::make(),
+            Text::make('Name'),
+            Email::make('E-mail', 'email'),
+        ];
+    }
+}
+```
+
+Let's change the section title by adding the method `getTitle()` for easier future localization.
 
 ```php
 public function getTitle(): string
@@ -135,34 +189,15 @@ public function getTitle(): string
 }
 ```
 
-It's also recommended to specify `$column`, to change the displayed field during ties. Instead of `id`, we indicate `email`:
+It's also recommended to specify `$column`, to change the displayed field during ties. Instead of `id`, we indicate `email`.
 
 ```php
 protected string $column = 'email';
 ```
 
-### 6. Filtering records
+### 6. Branding
 
-Let's add a filter by email on the index page:
-
-```php
-class UsersIndexPage extends IndexPage
-{
-    protected function filters(): iterable
-    {
-        return [
-            Text::make('E-mail', 'email')
-                ->onApply(fn(Builder $query, ?string $value) => $value === null ? $query : $query->whereLike('email', "%$value%")),
-        ];
-    }
-
-    // ...
-}
-```
-
-### 7. Branding
-
-Configure logo and color scheme в `App\Providers\MoonShineServiceProvider.php`:
+Configure logo and color scheme в `App\Providers\MoonShineServiceProvider.php`.
 
 ```php
 $config
@@ -174,7 +209,7 @@ $colors
     ->secondary('#93C5FD');
 ```
 
-### 8. Localization
+### 7. Localization
 
 Localization Configuration in `config/moonshine.php`:
 
@@ -186,9 +221,10 @@ Localization Configuration in `config/moonshine.php`:
 ],
 ```
 
-> Language files should be located at `/lang/vendor/moonshine`. You can find them in the section [Plugins](/plugins) or create them manually.
+> Language files should be located at "/lang/vendor/moonshine".
+> You can find them in the section [Plugins](/plugins) or create them manually.
 
-### 9. Documentation
+### 8. Documentation
 
 We have installed **MoonShine**, configured a resource, added fields, filters, branding and localization.
 
