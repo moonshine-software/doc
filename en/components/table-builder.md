@@ -69,6 +69,50 @@ tab: Blade
         [3, fake()->firstName(), fake()->lastName(), fake()->safeEmail()]
     ]"
 />
+
+<x-moonshine::table>
+<x-slot:thead>
+    <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Date</th>
+        <th>Status</th>
+        <th></th>
+    </tr>
+</x-slot:thead>
+
+<x-slot:tbody>
+    <tr>
+        <td>1</td>
+        <td>Ivan Ivanov</td>
+        <td>ivan@gmail.com</td>
+        <td>Editor</td>
+        <td>01.01.2025</td>
+        <td>
+            <x-moonshine::badge color="success">Active</x-moonshine::badge>
+        </td>
+        <td>
+            <x-moonshine::layout.flex justify-align="end" without-space class="gap-2">
+                <x-moonshine::link-button href="/" class="btn-square">
+                    <x-moonshine::icon icon="eye"></x-moonshine::icon>
+                </x-moonshine::link-button>
+
+                <x-moonshine::link-button href="/" class="btn-square btn-secondary">
+                    <x-moonshine::icon icon="pencil"></x-moonshine::icon>
+                </x-moonshine::link-button>
+
+                <x-moonshine::link-button href="/" class="btn-square btn-error">
+                    <x-moonshine::icon icon="trash"></x-moonshine::icon>
+                </x-moonshine::link-button>
+            </x-moonshine::layout.flex>
+
+        </td>
+    </tr>
+</x-slot:tbody>
+<x-slot:tfoot></x-slot:tfoot>
+</x-moonshien::table>
 ```
 ~~~
 

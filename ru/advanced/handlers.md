@@ -39,8 +39,7 @@ php artisan moonshine:handler MyCustomHandler
 namespace App\MoonShine\Handlers;
 
 use MoonShine\Contracts\UI\ActionButtonContract;
-use MoonShine\Laravel\Handlers\Handler;
-use MoonShine\Laravel\MoonShineUI;
+use MoonShine\Crud\Handlers\Handler;
 use MoonShine\UI\Components\ActionButton;
 use MoonShine\UI\Exceptions\ActionButtonException;
 use Symfony\Component\HttpFoundation\Response;
@@ -59,7 +58,7 @@ class MyCustomHandler extends Handler
         if ($this->isQueue()) {
             // Job here
 
-            MoonShineUI::toast(
+            toast(
                 __('moonshine::ui.resource.queued')
             );
 

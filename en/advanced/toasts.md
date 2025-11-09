@@ -15,13 +15,13 @@ Toast notifications use the session mechanism (`session()->flash()`) and can be 
 ```php
 use MoonShine\Support\Enums\ToastType;
 
-MoonShineUI::toast(message: 'Hello');
+toast(message: 'Hello');
 ```
 
 You can also specify the notification type and duration:
 
 ```php
-MoonShineUI::toast(
+toast(
     message: 'Success',
     type: ToastType::SUCCESS,
     duration: 3000
@@ -34,7 +34,7 @@ MoonShineUI::toast(
 If you want the notification not to disappear automatically, but to be removed only after the user clicks, set the `$duration` parameter to `false`.
 
 ```php
-MoonShineUI::toast(message: 'Success', duration: false);
+toast(message: 'Success', duration: false);
 ```
 
 <a name="response"></a>

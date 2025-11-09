@@ -127,7 +127,7 @@ namespace App\MoonShine\Resources;
 use MoonShine\ImportExport\Contracts\HasImportExportContract;
 use MoonShine\ImportExport\ImportHandler;
 use MoonShine\ImportExport\Traits\ImportExportConcern;
-use MoonShine\Laravel\Handlers\Handler;
+use MoonShine\Crud\Handlers\Handler;
 use MoonShine\Laravel\Resources\ModelResource;
 use MoonShine\UI\Components\ActionButton;
 
@@ -268,7 +268,7 @@ namespace App\MoonShine\Resources;
 use MoonShine\ImportExport\Contracts\HasImportExportContract;
 use MoonShine\ImportExport\ExportHandler;
 use MoonShine\ImportExport\Traits\ImportExportConcern;
-use MoonShine\Laravel\Handlers\Handler;
+use MoonShine\Crud\Handlers\Handler;
 use MoonShine\Laravel\Resources\ModelResource;
 use MoonShine\UI\Components\ActionButton;
 
@@ -374,7 +374,7 @@ namespace App\MoonShine\Resources;
 use MoonShine\ImportExport\Contracts\HasImportExportContract;
 use MoonShine\ImportExport\ImportHandler;
 use MoonShine\ImportExport\Traits\ImportExportConcern;
-use MoonShine\Laravel\Handlers\Handler;
+use MoonShine\Crud\Handlers\Handler;
 use MoonShine\Laravel\Resources\ModelResource;
 
 class CategoryResource extends ModelResource implements HasImportExportContract

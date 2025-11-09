@@ -15,13 +15,13 @@
 ```php
 use MoonShine\Support\Enums\ToastType;
 
-MoonShineUI::toast(message: 'Hello');
+toast(message: 'Hello');
 ```
 
 Вы можете дополнительно задать тип уведомления и длительность его отображения:
 
 ```php
-MoonShineUI::toast(
+toast(
     message: 'Success',
     type: ToastType::SUCCESS,
     duration: 3000
@@ -34,7 +34,7 @@ MoonShineUI::toast(
 Если вы хотите, чтобы уведомление не исчезало автоматически, а убиралось только после клика пользователя, установите параметр `$duration` в значение `false`.
 
 ```php
-MoonShineUI::toast(message: 'Success', duration: false);
+toast(message: 'Success', duration: false);
 ```
 
 <a name="response"></a>

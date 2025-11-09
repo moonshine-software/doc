@@ -697,7 +697,6 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
-use MoonShine\Laravel\MoonShineUI;
 
 class ForgotController extends Controller
 {
@@ -713,7 +712,7 @@ class ForgotController extends Controller
         );
 
         if ($status === Password::RESET_LINK_SENT) {
-            MoonShineUI::toast(__('If the account exists, then the instructions are sent to your email'));
+            toast(__('If the account exists, then the instructions are sent to your email'));
         }
 
         return $status === Password::RESET_LINK_SENT

@@ -23,7 +23,7 @@ Directly via the static method `send()`:
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:3]
 use MoonShine\Laravel\Notifications\MoonShineNotification;
-use MoonShine\Laravel\Notifications\NotificationButton;
+use MoonShine\Crud\Notifications\NotificationButton;
 use MoonShine\Support\Enums\Color;
 
 MoonShineNotification::send(
