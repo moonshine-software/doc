@@ -22,7 +22,6 @@ video: https://youtu.be/5o8qSf94Bf0?si=9dLj_SiXA1-w6hFo&t=1183
   - [Lazy](#lazy)
 - [Modifiers](#modifiers)
   - [Components](#components)
-  - [Elements thead, tbody, tfoot](#thead-tbody-tfoot)
 
 ---
 
@@ -561,100 +560,44 @@ class PostResource extends ModelResource
 <a name="components"></a>
 ### Components
 
-You can completely replace or modify the resource's `TableBuilder` for both the index and detail pages.
-Use the `modifyListComponent()` or `modifyDetailComponent()` methods for this.
+You can completely replace or modify `TableBuilder` for both the index and detail pages.
+Use the `modifyListComponent()` method in `IndexPage` or the `modifyDetailComponent()` method in `DetailPage` for this.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:1]
+// [tl! collapse:3]
+namespace App\MoonShine\Resources\Post\Pages;
+
 use MoonShine\Contracts\UI\ComponentContract;
+use MoonShine\Laravel\Pages\Crud\IndexPage;
 
-public function modifyListComponent(ComponentContract $component): ComponentContract
+class PostIndexPage extends IndexPage
 {
-    return parent::modifyListComponent($component)->customAttributes([
-        'data-my-attr' => 'value'
-    ]);
+    public function modifyListComponent(ComponentContract $component): ComponentContract
+    {
+        return parent::modifyListComponent($component)->customAttributes([
+            'data-my-attr' => 'value'
+        ]);
+    }
 }
 ```
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:1]
+// [tl! collapse:3]
+namespace App\MoonShine\Resources\Post\Pages;
+
 use MoonShine\Contracts\UI\ComponentContract;
+use MoonShine\Laravel\Pages\Crud\DetailPage;
 
-public function modifyDetailComponent(ComponentContract $component): ComponentContract
+class PostDetailPage extends DetailPage
 {
-    return parent::modifyDetailComponent($component)->customAttributes([
-        'data-my-attr' => 'value'
-    ]);
-}
-```
-
-<a name="thead-tbody-tfoot"></a>
-### Elements thead, tbody, tfoot
-
-If it is not enough to just automatically output fields in `thead`, `tbody`, and `tfoot`,
-you can override or extend this logic based on the resource methods `thead()`, `tbody()`, `tfoot()`.
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:5]
-use Closure;
-use MoonShine\Contracts\UI\Collection\TableRowsContract;
-use MoonShine\Contracts\UI\TableRowContract;
-use MoonShine\UI\Collections\TableCells;
-use MoonShine\UI\Collections\TableRows;
-
-protected function thead(): null|TableRowsContract|Closure
-{
-    return static fn(TableRowContract $default) => TableRows::make([$default])->pushRow(
-        TableCells::make()->pushCell(
-            'td content'
-        )
-    );
-}
-
-protected function tbody(): null|TableRowsContract|Closure
-{
-    return static fn(TableRowsContract $default) => $default->pushRow(
-        TableCells::make()->pushCell(
-            'td content'
-        )
-    );
-}
-
-protected function tfoot(): null|TableRowsContract|Closure
-{
-    return static fn(?TableRowContract $default) => TableRows::make([$default])->pushRow(
-        TableCells::make()->pushCell(
-            'td content'
-        )
-    );
-}
-```
-
-#### Example of adding a row in tfoot
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:7]
-use Closure;
-use MoonShine\Contracts\UI\Collection\TableRowsContract;
-use MoonShine\Contracts\UI\TableRowContract;
-use MoonShine\UI\Collections\TableCells;
-use MoonShine\UI\Collections\TableRows;
-use MoonShine\UI\Components\Table\TableBuilder;
-use MoonShine\UI\Components\Table\TableRow;
-
-protected function tfoot(): null|TableRowsContract|Closure
-{
-    return static function(?TableRowContract $default, TableBuilder $table) {
-        $cells = TableCells::make();
-
-        $cells->pushCell('Balance:');
-        $cells->pushCell('$1000');
-
-        return TableRows::make([TableRow::make($cells), $default]);
-    };
+    public function modifyDetailComponent(ComponentContract $component): ComponentContract
+    {
+        return parent::modifyDetailComponent($component)->customAttributes([
+            'data-my-attr' => 'value'
+        ]);
+    }
 }
 ```
 
