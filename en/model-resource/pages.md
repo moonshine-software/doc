@@ -53,7 +53,8 @@ class PostResource extends ModelResource
 <a name="functionality"></a>
 ## Page Functionality
 
-Pages are the foundation of the **MoonShine** architecture. All key functionality is defined directly in page classes, ensuring flexibility and modularity.
+Pages are the foundation of the **MoonShine** architecture.
+All key functionality is defined directly in page classes, ensuring flexibility and modularity.
 
 ### IndexPage
 
@@ -64,22 +65,26 @@ Pages are the foundation of the **MoonShine** architecture. All key functionalit
 - **Query Tags** - the `queryTags()` method for quick filtering by preset conditions (see [Query Tags](/docs/{{version}}/model-resource/query-tags) section for details).
 - **Handlers** - the `handlers()` method for registering event handlers (see [Handlers](/docs/{{version}}/advanced/handlers) section for details).
 - **Buttons** - the `topButtons()` method for adding buttons to the top of the page (see [Buttons](/docs/{{version}}/model-resource/buttons) section for details).
-- **Working with components** - to completely replace a component, use your own class (see [Main Components](#components) section below for details), to modify an existing component, use the `modifyListComponent()` method (see [Tables](/docs/{{version}}/model-resource/table#modifiers) section for details).
+- **Working with components** - to completely replace a component, use your own class (see [Main Components](#components) section below for details),
+to modify an existing component, use the `modifyListComponent()` method (see [Basics](/docs/{{version}}/model-resource/index#modifiers) section for details).
 
 ### FormPage
 
 `FormPage` is responsible for creating and editing items:
 
-- **Working with components** - to completely replace a component, use your own class (see [Main Components](#components) section below for details), to modify an existing component, use the `modifyFormComponent()` method (see [Form](/docs/{{version}}/model-resource/form#modifiers) section for details).
+- **Working with components** - to completely replace a component, use your own class (see [Main Components](#components) section below for details),
+to modify an existing component, use the `modifyFormComponent()` method (see [Basics](/docs/{{version}}/model-resource/index#modifiers) section for details).
 
 ### DetailPage
 
 `DetailPage` is responsible for the detailed display of an item:
 
-- **Working with components** - to completely replace a component, use your own class (see [Main Components](#components) section below for details), to modify an existing component, use the `modifyDetailComponent()` method (see [Tables](/docs/{{version}}/model-resource/table#modifiers) section for details).
+- **Working with components** - to completely replace a component, use your own class (see [Main Components](#components) section below for details),
+to modify an existing component, use the `modifyDetailComponent()` method (see [Basics](/docs/{{version}}/model-resource/index#modifiers) section for details).
 
 > [!NOTE]
-> For backward compatibility, all the listed methods are also available in the `ModelResource` class, but it is recommended to define them directly in the corresponding page classes.
+> For backward compatibility, all the listed methods are also available in the `ModelResource` class,
+> but it is recommended to define them directly in the corresponding page classes.
 
 <a name="page-type"></a>
 ## Page Types
@@ -128,7 +133,8 @@ class PostIndexPage extends IndexPage
 <a name="components"></a>
 ## Main Components
 
-The main component of the page is specified by a class that implements one of the namespace interfaces `MoonShine\Crud\Contracts\PageComponents`. This allows you to completely replace a component, encapsulate the logic, and reuse it between pages and resources.
+The main component of the page is specified by a class that implements one of the namespace interfaces `MoonShine\Crud\Contracts\PageComponents`.
+This allows you to completely replace a component, encapsulate the logic, and reuse it between pages and resources.
 
 Available interfaces:
 
@@ -452,7 +458,8 @@ getFormComponent(bool $withoutFragment = false): ComponentContract
 For convenience, all *CRUD* pages are divided into three layers, which are responsible for displaying a certain area on the page.
 
 - `TopLayer` - used for displaying metrics on the index page and for additional buttons on the edit page,
-- `MainLayer` - this layer is used for displaying main information using [FormBuilder](/docs/{{version}}/components/form-builder) and [TableBuilder](/docs/{{version}}/components/table-builder),
+- `MainLayer` - this layer is used for displaying main information using [FormBuilder](/docs/{{version}}/components/form-builder)
+and [TableBuilder](/docs/{{version}}/components/table-builder),
 - `BottomLayer` - used for displaying additional information.
 
 To configure the layers, the corresponding methods are used: `topLayer()`, `mainLayer()`, and `bottomLayer()`.

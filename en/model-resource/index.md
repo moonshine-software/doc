@@ -9,6 +9,11 @@ video: https://youtu.be/5o8qSf94Bf0?si=9dLj_SiXA1-w6hFo
 - [Basic Properties](#basic-properties)
 - [Declaring in the System](#declaring-in-the-system)
 - [Autoloading](#autoloading)
+- [Sorting](#sorting)
+- [Pagination](#pagination)
+- [Async mode](#is-async)
+- [Lazy mode](#is-lazy)
+- [Validation](#validation)
 - [Adding to the Menu](#adding-to-the-menu)
     - [Alias](#alias)
 - [Current Element/Model](#current-element-model)
@@ -187,10 +192,132 @@ In addition to its basic functions, it will also perform **MoonShine** resource 
 
 When using Laravel 10, you must manually call the `php artisan moonshine:optimize` console command to optimize the admin panel initialization process.
 
-You can clear the panel cache either with the `php artisan optimize:clear` command in Laravel 11 or by directly calling the `php artisan moonshine:optimize-clear` console command.
+You can clear the panel cache either with the `php artisan optimize:clear` command in Laravel 11
+or by directly calling the `php artisan moonshine:optimize-clear` console command.
 
 > [!WARNING]
 > If the application does not see them after creating the classes, update the composer cache with the `composer dump-autoload` command.
+
+<a name="sorting"></a>
+## Sorting
+
+By default, table records are sorted by the `id` field in descending order.
+You can change the sorting using the `$sortColumn` and `$sortDirection` properties.
+
+```php filename:PostResource.php
+protected string $sortColumn = 'created_at';
+
+protected string $sortDirection = 'DESC';
+```
+
+<a name="pagination"></a>
+## Pagination
+
+By default, **MoonShine** uses Laravel's standard pagination.
+You can switch to cursor pagination or simple pagination using the `$cursorPaginate` and `$simplePaginate` properties.
+
+```php filename:PostResource.php
+protected bool $cursorPaginate = true;
+```
+
+```php filename:PostResource.php
+protected bool $simplePaginate = true;
+```
+
+> [!NOTE]
+> Learn more about pagination types in the [Laravel documentation](https://laravel.com/docs/pagination).
+
+<a name="is-async"></a>
+## Async Mode
+
+By default, the resource is set to Asynchronous mode.
+To disable it, override the `$isAsync` property in the resource or on individual CRUD pages.
+
+```php filename:PostIndexPage.php
+protected bool $isAsync = false;
+```
+
+> [!NOTE]
+> For more information about asynchronous table loading, see [TableBuilder](/docs/{{version}}/components/table-builder#async-loading).
+
+> [!NOTE]
+> For more information about asynchronous form submission, see [FormBuilder](/docs/{{version}}/components/form-builder#asynchronous-mode).
+
+<a name="is-lazy"></a>
+## Lazy Mode
+
+Lazy mode delays the loading of the index table until it becomes visible on the page.
+
+```php filename:PostResource.php
+protected bool $isLazy = true;
+```
+
+<a name="validation"></a>
+## Validation
+
+You can add validation to resource form fields using Laravel's standard validation rules.
+
+### Validation Rules
+
+The `rules()` method allows you to define validation rules for fields.
+
+```php filename:PostFormPage.php
+protected function rules(DataWrapperContract $item): array
+{
+    return [
+        'title' => ['required', 'string', 'min:5'],
+        'content' => ['required', 'string'],
+        'email' => ['sometimes', 'email'],
+    ];
+}
+```
+
+### Validation Messages
+
+The `validationMessages()` method allows you to override validation error messages.
+
+```php filename:PostFormPage.php
+protected function rules(DataWrapperContract $item): array
+{
+    return [
+        'title' => ['required', 'string', 'min:5'],
+    ];
+}
+
+public function validationMessages(): array
+{
+    return [
+        'title.required' => 'The title is required',
+        'title.min' => 'The title must contain at least :min characters',
+    ];
+}
+```
+
+### Preparing data for validation
+
+The `prepareForValidation()` method allows you to change the data before validation.
+
+```php filename:PostFormPage.php
+public function prepareForValidation(): void
+{
+    request()->merge([
+        'slug' => request()
+            ->string('slug')
+            ->lower()
+            ->value(),
+    ]);
+}
+```
+
+### Precognitive validation
+
+The `$isPrecognitive` property allows you to enable [precognitive validation](https://laravel.com/docs/precognition) for the form.
+
+```php filename:PostFormPage.php
+protected bool $isPrecognitive = true;
+```
+
+Precognitive validation allows you to validate form fields in real time when data is entered.
 
 <a name="adding-to-the-menu"></a>
 ## Adding to the Menu
@@ -212,7 +339,8 @@ use MoonShine\Laravel\Layouts\AppLayout;
 use MoonShine\Laravel\Resources\MoonShineUserResource;
 use MoonShine\Laravel\Resources\MoonShineUserRoleResource;
 use MoonShine\MenuManager\MenuGroup;
-use MoonShine\MenuManager\MenuItem; // [tl! collapse:end]
+use MoonShine\MenuManager\MenuItem;
+// [tl! collapse:end]
 
 final class MoonShineLayout extends AppLayout
 {

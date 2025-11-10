@@ -9,6 +9,11 @@ video: https://youtu.be/bcFOkXuPSRk?si=LIXgfO1LpjfqwWyR
 - [Базовые свойства](#basic-properties)
 - [Объявление в системе](#declaring-in-the-system)
 - [Автозагрузка](#autoloading)
+- [Сортировка](#sorting)
+- [Пагинация](#pagination)
+- [Асинхронный режим](#is-async)
+- [Lazy режим](#is-lazy)
+- [Валидация](#validation)
 - [Добавление в меню](#adding-to-the-menu)
     - [Alias](#alias)
 - [Текущий элемент/модель](#current-element-model)
@@ -187,10 +192,132 @@ class MoonShineServiceProvider extends ServiceProvider
 
 При использовании Laravel 10 необходимо вручную вызывать консольную команду `php artisan moonshine:optimize` для оптимизации процесса инициализации админ панели.
 
-Очистить кэш панели можно как командой `php artisan optimize:clear` в Laravel 11, так и прямым вызовом консольной команды `php artisan moonshine:optimize-clear`.
+Очистить кэш панели можно как командой `php artisan optimize:clear` в Laravel 11,
+так и прямым вызовом консольной команды `php artisan moonshine:optimize-clear`.
 
 > [!WARNING]
 > Если после создания классов приложение их не видит - обновите кэш композера командой `composer dump-autoload`.
+
+<a name="sorting"></a>
+## Сортировка
+
+По умолчанию записи в таблице ресурса сортируются по полю `id` в порядке убывания.
+Вы можете изменить сортировку с помощью свойств `$sortColumn` и `$sortDirection`.
+
+```php filename:PostResource.php
+protected string $sortColumn = 'created_at';
+
+protected string $sortDirection = 'DESC';
+```
+
+<a name="pagination"></a>
+## Пагинация
+
+По умолчанию **MoonShine** использует стандартную пагинацию Laravel.
+Вы можете переключиться на cursor pagination или simple pagination с помощью свойств `$cursorPaginate` и `$simplePaginate`.
+
+```php filename:PostResource.php
+protected bool $cursorPaginate = true;
+```
+
+```php filename:PostResource.php
+protected bool $simplePaginate = true;
+```
+
+> [!NOTE]
+> Подробнее о типах пагинации можно узнать в [документации Laravel](https://laravel.com/docs/pagination).
+
+<a name="is-async"></a>
+## Асинхронный режим
+
+По умолчанию в ресурсе включен "Асинхронный режим".
+Чтобы его выключить, переопределите свойство `$isAsync` в ресурсе или на отдельных CRUD страницах.
+
+```php filename:PostIndexPage.php
+protected bool $isAsync = false;
+```
+
+> [!NOTE]
+> Подробнее об асинхронной загрузке таблицы можно узнать в разделе [TableBuilder](/docs/{{version}}/components/table-builder#async-loading).
+
+> [!NOTE]
+> Подробнее об асинхронной отправке форм можно узнать в разделе [FormBuilder](/docs/{{version}}/components/form-builder#asynchronous-mode).
+
+<a name="is-lazy"></a>
+## Lazy режим
+
+Lazy-режим откладывает загрузку индексной таблицы до момента, когда она станет видимой на странице.
+
+```php filename:PostResource.php
+protected bool $isLazy = true;
+```
+
+<a name="validation"></a>
+## Validation
+
+Вы можете добавить валидацию для полей формы ресурса, используя стандартные правила валидации Laravel.
+
+### Правила валидации
+
+Метод `rules()` позволяет определить правила валидации для полей.
+
+```php filename:PostFormPage.php
+protected function rules(DataWrapperContract $item): array
+{
+    return [
+        'title' => ['required', 'string', 'min:5'],
+        'content' => ['required', 'string'],
+        'email' => ['sometimes', 'email'],
+    ];
+}
+```
+
+### Сообщения валидации
+
+Метод `validationMessages()` позволяет переопределить сообщения об ошибках валидации.
+
+```php filename:PostFormPage.php
+protected function rules(DataWrapperContract $item): array
+{
+    return [
+        'title' => ['required', 'string', 'min:5'],
+    ];
+}
+
+public function validationMessages(): array
+{
+    return [
+        'title.required' => 'Заголовок обязателен для заполнения',
+        'title.min' => 'Заголовок должен содержать минимум :min символов',
+    ];
+}
+```
+
+### Подготовка данных для валидации
+
+Метод `prepareForValidation()` позволяет изменить данные перед валидацией.
+
+```php filename:PostFormPage.php
+public function prepareForValidation(): void
+{
+    request()->merge([
+        'slug' => request()
+            ->string('slug')
+            ->lower()
+            ->value(),
+    ]);
+}
+```
+
+### Precognitive валидация
+
+Свойство `$isPrecognitive` позволяет включить [precognitive валидацию](https://laravel.com/docs/precognition) для формы.
+
+```php filename:PostFormPage.php
+protected bool $isPrecognitive = true;
+```
+
+Precognitive валидация позволяет валидировать поля формы в реальном времени при вводе данных.
 
 <a name="adding-to-the-menu"></a>
 ## Добавление в меню
@@ -212,7 +339,8 @@ use MoonShine\Laravel\Layouts\AppLayout;
 use MoonShine\Laravel\Resources\MoonShineUserResource;
 use MoonShine\Laravel\Resources\MoonShineUserRoleResource;
 use MoonShine\MenuManager\MenuGroup;
-use MoonShine\MenuManager\MenuItem; // [tl! collapse:end]
+use MoonShine\MenuManager\MenuItem;
+// [tl! collapse:end]
 
 final class MoonShineLayout extends AppLayout
 {
