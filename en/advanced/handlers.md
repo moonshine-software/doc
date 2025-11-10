@@ -85,10 +85,17 @@ class MyCustomHandler extends Handler
 <a name="registration"></a>
 ## Registration
 
-To register a `Handler` in a resource, you need to override the `handlers()` method:
+To register a `Handler` in `IndexPage`, you need to override the `handlers()` method:
 
 ```php
-class PostResource extends ModelResource
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:3]
+namespace App\MoonShine\Resources\Post\Pages;
+
+use MoonShine\Support\ListOf;
+use MoonShine\Laravel\Pages\Crud\IndexPage;
+
+class PostIndexPage extends IndexPage
 {
     protected function handlers(): ListOf
     {
@@ -97,7 +104,7 @@ class PostResource extends ModelResource
 }
 ```
 
-After registration, a button for launching the `Handler` will automatically appear on the right side of the resource's index page.
+After registration, a button for launching the `Handler` will automatically appear on the right side of the index page.
 
 <a name="interaction"></a>
 ## Interaction

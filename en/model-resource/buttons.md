@@ -164,26 +164,34 @@ protected function modifyFiltersButton(ActionButtonContract $button): ActionButt
 <a name="top-buttons"></a>
 ## Index page buttons
 
-By default, the model resource index page has only a create button.
-The `topButtons()` method allows you to add additional [buttons](/docs/{{version}}/components/action-button).
+By default, the index page has only a create button.
+The `topButtons()` method in `IndexPage` allows you to add additional [buttons](/docs/{{version}}/components/action-button).
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:4]
+namespace App\MoonShine\Resources\Post\Pages;
+
 use MoonShine\Support\AlpineJs;
 use MoonShine\Support\Enums\JsEvent;
 use MoonShine\Support\ListOf;
 use MoonShine\UI\Components\ActionButton;
+use MoonShine\Laravel\Pages\Crud\IndexPage;
 
-protected function topButtons(): ListOf
+class PostIndexPage extends IndexPage
 {
-    return parent::topButtons()
-        ->add(
-            ActionButton::make('Refresh', '#')
-                ->dispatchEvent(
-                    AlpineJs::event(JsEvent::TABLE_UPDATED, $this->getListComponentName())
-                )
-        );
+    // ...
+
+    protected function topButtons(): ListOf
+    {
+        return parent::topButtons()
+            ->add(
+                ActionButton::make('Refresh', '#')
+                    ->dispatchEvent(
+                        AlpineJs::event(JsEvent::TABLE_UPDATED, $this->getListComponentName())
+                    )
+            );
+    }
 }
 ```
 

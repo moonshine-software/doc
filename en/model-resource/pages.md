@@ -5,6 +5,7 @@ video: https://youtu.be/5o8qSf94Bf0?si=5mR85avWy4pZWfM2&t=245
 # Pages
 
 - [Basics](#basics)
+- [Page Functionality](#functionality)
 - [Page Types](#page-type)
 - [Adding Fields](#fields)
 - [Main Components](#components)
@@ -29,9 +30,9 @@ In the created model resource, `CRUD` pages will be registered in the `pages()` 
 // [tl! collapse:start]
 namespace App\MoonShine\Resources;
 
-use App\MoonShine\Pages\Post\PostIndexPage;
-use App\MoonShine\Pages\Post\PostFormPage;
-use App\MoonShine\Pages\Post\PostDetailPage;
+use App\MoonShine\Resources\Post\Pages\PostIndexPage;
+use App\MoonShine\Resources\Post\Pages\PostFormPage;
+use App\MoonShine\Resources\Post\Pages\PostDetailPage;
 use MoonShine\Laravel\Resources\ModelResource; // [tl! collapse:end]
 
 class PostResource extends ModelResource
@@ -48,6 +49,37 @@ class PostResource extends ModelResource
     }
 }
 ```
+
+<a name="functionality"></a>
+## Page Functionality
+
+Pages are the foundation of the **MoonShine** architecture. All key functionality is defined directly in page classes, ensuring flexibility and modularity.
+
+### IndexPage
+
+`IndexPage` is responsible for displaying the list of items and contains the following functionality:
+
+- **Metrics** - the `metrics()` method allows you to define metrics for display on the list page (see [Metrics](/docs/{{version}}/model-resource/metrics) section for details).
+- **Filters** - the `filters()` method for defining data filters (see [Filters](/docs/{{version}}/model-resource/filters) section for details).
+- **Query Tags** - the `queryTags()` method for quick filtering by preset conditions (see [Query Tags](/docs/{{version}}/model-resource/query-tags) section for details).
+- **Handlers** - the `handlers()` method for registering event handlers (see [Handlers](/docs/{{version}}/advanced/handlers) section for details).
+- **Buttons** - the `topButtons()` method for adding buttons to the top of the page (see [Buttons](/docs/{{version}}/model-resource/buttons) section for details).
+- **Working with components** - to completely replace a component, use your own class (see [Main Components](#components) section below for details), to modify an existing component, use the `modifyListComponent()` method (see [Tables](/docs/{{version}}/model-resource/table#modifiers) section for details).
+
+### FormPage
+
+`FormPage` is responsible for creating and editing items:
+
+- **Working with components** - to completely replace a component, use your own class (see [Main Components](#components) section below for details), to modify an existing component, use the `modifyFormComponent()` method (see [Form](/docs/{{version}}/model-resource/form#modifiers) section for details).
+
+### DetailPage
+
+`DetailPage` is responsible for the detailed display of an item:
+
+- **Working with components** - to completely replace a component, use your own class (see [Main Components](#components) section below for details), to modify an existing component, use the `modifyDetailComponent()` method (see [Tables](/docs/{{version}}/model-resource/table#modifiers) section for details).
+
+> [!NOTE]
+> For backward compatibility, all the listed methods are also available in the `ModelResource` class, but it is recommended to define them directly in the corresponding page classes.
 
 <a name="page-type"></a>
 ## Page Types
@@ -73,7 +105,7 @@ The `fields()` method in the `CRUD` page class allows you to specify the necessa
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:5]
-namespace App\MoonShine\Pages\Post;
+namespace App\MoonShine\Resources\Post\Pages;
 
 use MoonShine\Laravel\Pages\Crud\IndexPage;
 use MoonShine\UI\Fields\ID;

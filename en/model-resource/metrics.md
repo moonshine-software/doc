@@ -1,20 +1,20 @@
 # Metrics
 
-On the resource model index page, you can display informational blocks with statistics - metrics.
-To do this, return an array of `Metric` in the `metrics()` method.
+On the index page, you can display informational blocks with statistics - metrics.
+To do this, return an array of `Metric` in the `metrics()` method of the `IndexPage`.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:start]
-namespace App\MoonShine\Resources;
+namespace App\MoonShine\Resources\Post\Pages;
 
 use App\Models\Post;
 use App\Models\Comment;
 use MoonShine\UI\Components\Metrics\Wrapped\Metric;
 use MoonShine\UI\Components\Metrics\Wrapped\ValueMetric;
-use MoonShine\Laravel\Resources\ModelResource; // [tl! collapse:end]
+use MoonShine\Laravel\Pages\Crud\IndexPage; // [tl! collapse:end]
 
-class PostResource extends ModelResource
+class PostIndexPage extends IndexPage
 {
     // ...
 
@@ -39,6 +39,9 @@ class PostResource extends ModelResource
 
 > [!NOTE]
 > For more detailed information, refer to the sections [Metrics](/docs/{{version}}/components/metrics).
+
+> [!NOTE]
+> The `metrics()` method is also available in the `ModelResource` class for backward compatibility, but it is recommended to define metrics directly in `IndexPage`.
 
 If you need to wrap the metrics in a `Fragment`:
 

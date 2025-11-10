@@ -85,10 +85,17 @@ class MyCustomHandler extends Handler
 <a name="registration"></a>
 ## Регистрация
 
-Для регистрации `Handler` в ресурсе необходимо переопределить метод `handlers()`:
+Для регистрации `Handler` в `IndexPage` необходимо переопределить метод `handlers()`:
 
 ```php
-class PostResource extends ModelResource
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:3]
+namespace App\MoonShine\Resources\Post\Pages;
+
+use MoonShine\Support\ListOf;
+use MoonShine\Laravel\Pages\Crud\IndexPage;
+
+class PostIndexPage extends IndexPage
 {
     protected function handlers(): ListOf
     {
@@ -97,7 +104,7 @@ class PostResource extends ModelResource
 }
 ```
 
-После регистрации на индексной странице ресурса справа автоматически появится кнопка для запуска `Handler`.
+После регистрации на индексной странице справа автоматически появится кнопка для запуска `Handler`.
 
 <a name="interaction"></a>
 ## Взаимодействие
