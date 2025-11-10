@@ -464,7 +464,7 @@ ActionButton::make('Button Label', '/endpoint')
 ```
 
 > [!NOTE]
-> Для работы события `JsEvent::TABLE_UPDATED` у таблицы должен быть включен [асинхронный режим](/docs/{{version}}/model-resource/table#async).
+> Для работы события `JsEvent::TABLE_UPDATED` у таблицы должен быть включен [асинхронный режим](/docs/{{version}}/components/table-builder#async-loading).
 
 ### Обратный вызов
 

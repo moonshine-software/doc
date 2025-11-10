@@ -464,7 +464,7 @@ ActionButton::make('Button Label', '/endpoint')
 ```
 
 > [!NOTE]
-> For the `JsEvent::TABLE_UPDATED` event to work, the table must have [async mode](/docs/{{version}}/model-resource/table#async) enabled.
+> For the `JsEvent::TABLE_UPDATED` event to work, the table must have [async mode](/docs/{{version}}/components/table-builder#async-loading) enabled.
 
 ### Callback
 
