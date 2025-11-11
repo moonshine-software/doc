@@ -123,6 +123,10 @@ MenuItem::make('Settings', SettingResource::class) // [tl! remove]
 MenuItem::make(SettingResource::class) // [tl! add]
 ```
 
+### Component changes
+
+In the `Profile` component, the `$withBorder` parameter has been removed.
+
 <a name="deprecated"></a>
 ## Deprecated Classes and Methods
 
