@@ -20,8 +20,6 @@ video: https://youtu.be/bcFOkXuPSRk?si=LIXgfO1LpjfqwWyR
 - [Модальные окна](#modal-windows)
 - [Редиректы](#redirects)
 - [Активные действия](#active-actions)
-- [Кнопки](#buttons)
-    - [Отображение](#display)
 - [Модификаторы](#modifiers)
 - [Компоненты](#components)
 - [Жизненный цикл](#lifecycle)
@@ -517,66 +515,6 @@ use MoonShine\Support\ListOf;
 protected function activeActions(): ListOf
 {
     return new ListOf(Action::class, [Action::VIEW, Action::UPDATE]);
-}
-```
-
-<a name="buttons"></a>
-## Кнопки
-
-По умолчанию на индексной странице ресурса модели присутствует только кнопка для создания.
-Метод `topButtons()` позволяет добавить дополнительные [кнопки](/docs/{{version}}/components/action-button).
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:start]
-namespace App\MoonShine\Resources;
-
-use MoonShine\Laravel\Resources\ModelResource;
-use MoonShine\Support\AlpineJs;
-use MoonShine\Support\Enums\JsEvent;
-use MoonShine\Support\ListOf;
-use MoonShine\UI\Components\ActionButton; // [tl! collapse:end]
-
-class PostResource extends ModelResource
-{
-    // ...
-
-    protected function topButtons(): ListOf
-    {
-        return parent::topButtons()->add(
-            ActionButton::make('Refresh', '#')
-                ->dispatchEvent(AlpineJs::event(JsEvent::TABLE_UPDATED, $this->getListComponentName()))
-        );
-    }
-}
-```
-
-<a name="display"></a>
-#### Отображение
-
-Вы также можете изменить отображение кнопок, отображать их в линию или же в выпадающем меню для экономии места.
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:4]
-namespace App\MoonShine\Resources;
-
-use MoonShine\Support\ListOf;
-use MoonShine\UI\Components\ActionButton;
-
-class PostResource extends ModelResource
-{
-    // ...
-
-    protected function indexButtons(): ListOf
-    {
-        return parent::indexButtons()->prepend(
-            ActionButton::make('Button 1', '/')
-                ->showInLine(),
-            ActionButton::make('Button 2', '/')
-                ->showInDropdown(),
-        );
-    }
 }
 ```
 

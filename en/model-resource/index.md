@@ -20,8 +20,6 @@ video: https://youtu.be/5o8qSf94Bf0?si=9dLj_SiXA1-w6hFo
 - [Modal Windows](#modal-windows)
 - [Redirects](#redirects)
 - [Active Actions](#active-actions)
-- [Buttons](#buttons)
-    - [Display](#display)
 - [Modifiers](#modifiers)
 - [Components](#components)
 - [Lifecycle](#lifecycle)
@@ -517,66 +515,6 @@ use MoonShine\Support\ListOf;
 protected function activeActions(): ListOf
 {
     return new ListOf(Action::class, [Action::VIEW, Action::UPDATE]);
-}
-```
-
-<a name="buttons"></a>
-## Buttons
-
-By default, the index page of the resource model contains only a button for creation.
-The `topButtons()` method allows you to add additional [buttons](/docs/{{version}}/components/action-button).
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:start]
-namespace App\MoonShine\Resources;
-
-use MoonShine\Laravel\Resources\ModelResource;
-use MoonShine\Support\AlpineJs;
-use MoonShine\Support\Enums\JsEvent;
-use MoonShine\Support\ListOf;
-use MoonShine\UI\Components\ActionButton; // [tl! collapse:end]
-
-class PostResource extends ModelResource
-{
-    // ...
-
-    protected function topButtons(): ListOf
-    {
-        return parent::topButtons()->add(
-            ActionButton::make('Refresh', '#')
-                ->dispatchEvent(AlpineJs::event(JsEvent::TABLE_UPDATED, $this->getListComponentName()))
-        );
-    }
-}
-```
-
-<a name="display"></a>
-#### Display
-
-You can also change the button display, showing them inline or in a dropdown menu to save space.
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:4]
-namespace App\MoonShine\Resources;
-
-use MoonShine\Support\ListOf;
-use MoonShine\UI\Components\ActionButton;
-
-class PostResource extends ModelResource
-{
-    // ...
-
-    protected function indexButtons(): ListOf
-    {
-        return parent::indexButtons()->prepend(
-            ActionButton::make('Button 1', '/')
-                ->showInLine(),
-            ActionButton::make('Button 2', '/')
-                ->showInDropdown(),
-        );
-    }
 }
 ```
 
