@@ -7,7 +7,7 @@ title: Upgrade guide
 - [Auto Upgrade](#auto-upgrade)
 - [Updating Dependencies](#update-dependencies)
 - [Namespace Changes](#namespace-changes)
-- [Resource Changes](#resource-changes)
+- [Resource Structure Changes](#resource-changes)
 - [Field Changes](#field-changes)
 - [Layout Changes](#layout-changes)
 - [Deprecated Classes and Methods](#deprecated)
@@ -64,7 +64,7 @@ use MoonShine\Crud\Traits\WithComponentsPusher; // [tl! add]
 ```
 
 <a name="resource-changes"></a>
-## Changes in resource structures
+## Resource Structure Changes
 
 Many methods and properties have been moved from resources to the corresponding CRUD pages.
 
