@@ -7,7 +7,7 @@ title: Upgrade guide
 - [Автоматический апгрейд](#auto-upgrade)
 - [Обновление зависимостей](#update-dependencies)
 - [Изменения пространств имен](#namespace-changes)
-- [Изменения в ресурсах](#resource-changes)
+- [Изменения в структуре ресурсов](#resource-changes)
 - [Изменения в полях](#field-changes)
 - [Изменения в Layout](#layout-changes)
 - [Устаревшие классы и методы](#deprecated)
@@ -64,7 +64,7 @@ use MoonShine\Crud\Traits\WithComponentsPusher; // [tl! add]
 ```
 
 <a name="resource-changes"></a>
-## Изменения в структуры ресурсов
+## Изменения в структуре ресурсов
 
 Многие методы и свойства перенесены из ресурсов в соответствующие CRUD-страницы.
 
