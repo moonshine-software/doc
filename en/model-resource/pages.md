@@ -5,11 +5,13 @@ video: https://youtu.be/5o8qSf94Bf0?si=5mR85avWy4pZWfM2&t=245
 # Pages
 
 - [Basics](#basics)
-- [Page Functionality](#functionality)
+- [IndexPage](#index-page)
+- [FormPage](#form-page)
+- [DetailPage](#detail-page)
 - [Page Types](#page-type)
-- [Adding Fields](#fields)
-- [Main Components](#components)
+- [Fields](#fields)
 - [Layers on the Page](#layers)
+- [Main Components](#components)
 - [Simulate Route](#simulate)
 
 ---
@@ -17,13 +19,11 @@ video: https://youtu.be/5o8qSf94Bf0?si=5mR85avWy4pZWfM2&t=245
 <a name="basics"></a>
 ## Basics
 
-**MoonShine** provides the ability to configure `CRUD` pages.
-To do this, you need to choose the resource type `Model resource with pages` when creating a resource via the command.
+Pages are the core of the **MoonShine** architecture.
+All key functionality is defined directly in page classes, which provides flexibility and modularity.
 
-This will create a model resource class and additional classes for the index, detail view, and form pages.
-The page classes will, by default, be located in the `app/MoonShine/Pages` directory.
-
-In the created model resource, `CRUD` pages will be registered in the `pages()` method.
+When creating a resource, classes are also created for the index pages (`IndexPage`), detailed view (`DetailPage`) and form (`FormPage`).
+These pages will be registered with the resource in the `pages()` method.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -50,44 +50,142 @@ class PostResource extends ModelResource
 }
 ```
 
-<a name="functionality"></a>
-## Page Functionality
+<a name="index-page"></a>
+## IndexPage
 
-Pages are the foundation of the **MoonShine** architecture.
-All key functionality is defined directly in page classes, ensuring flexibility and modularity.
+`IndexPage` is the main section of the resource and is responsible for displaying the list of elements.
 
-### IndexPage
+### Lazy mode
 
-`IndexPage` is responsible for displaying the list of items and contains the following functionality:
+Lazy mode delays loading the index table until it becomes visible on the page.
 
-- **Metrics** - the `metrics()` method allows you to define metrics for display on the list page (see [Metrics](/docs/{{version}}/model-resource/metrics) section for details).
-- **Filters** - the `filters()` method for defining data filters (see [Filters](/docs/{{version}}/model-resource/filters) section for details).
-- **Query Tags** - the `queryTags()` method for quick filtering by preset conditions (see [Query Tags](/docs/{{version}}/model-resource/query-tags) section for details).
-- **Handlers** - the `handlers()` method for registering event handlers (see [Handlers](/docs/{{version}}/advanced/handlers) section for details).
-- **Buttons** - the `topButtons()` method for adding buttons to the top of the page (see [Buttons](/docs/{{version}}/model-resource/buttons) section for details).
-- **Working with components** - to completely replace a component, use your own class (see [Main Components](#components) section below for details),
-to modify an existing component, use the `modifyListComponent()` method (see [Basics](/docs/{{version}}/model-resource/index#modifiers) section for details).
+```php
+protected bool $isLazy = true;
+```
 
-### FormPage
+### Metrics
 
-`FormPage` is responsible for creating and editing items:
+The `metrics()` method allows you to define metrics to display on the list page
+(more details in the [Metrics](/docs/{{version}}/model-resource/metrics) section).
 
-- **Working with components** - to completely replace a component, use your own class (see [Main Components](#components) section below for details),
-to modify an existing component, use the `modifyFormComponent()` method (see [Basics](/docs/{{version}}/model-resource/index#modifiers) section for details).
+### Filters
 
-### DetailPage
+In the `filters()` method you can specify a list of fields to form the filter form
+(more details in the [Filters](/docs/{{version}}/model-resource/filters) section).
 
-`DetailPage` is responsible for the detailed display of an item:
+### Query Tags
 
-- **Working with components** - to completely replace a component, use your own class (see [Main Components](#components) section below for details),
-to modify an existing component, use the `modifyDetailComponent()` method (see [Basics](/docs/{{version}}/model-resource/index#modifiers) section for details).
+The `queryTags()` method allows you to add quick filtering buttons based on preset conditions
+(more details in the [Query Tags](/docs/{{version}}/model-resource/query-tags) section).
 
-> [!NOTE]
-> For backward compatibility, all the listed methods are also available in the `ModelResource` class,
-> but it is recommended to define them directly in the corresponding page classes.
+### Handlers
+
+The `handlers()` method for registering event handlers
+(more details in the [Handlers](/docs/{{version}}/advanced/handlers) section).
+
+### Main component
+
+To modify an existing component, use the `modifyListComponent()` method
+(more details in the [Basics](/docs/{{version}}/model-resource/index#modifiers) section).
+
+To completely replace the main index page component, use your own class
+(more details in the [Main components](#components) section below).
+
+<a name="form-page"></a>
+##FormPage
+
+`FormPage` is responsible for creating and editing elements.
+
+<a name="validation"></a>
+### Validation
+
+You can add validation for resource form fields using Laravel's standard validation rules.
+
+#### Validation rules
+
+The `rules()` method allows you to define validation rules for fields.
+
+```php filename:PostFormPage.php
+protected function rules(DataWrapperContract $item): array
+{
+    return [
+        'title' => ['required', 'string', 'min:5'],
+        'content' => ['required', 'string'],
+        'email' => ['sometimes', 'email'],
+    ];
+}
+```
+
+#### Validation messages
+
+The `validationMessages()` method allows you to override validation error messages.
+
+```php filename:PostFormPage.php
+protected function rules(DataWrapperContract $item): array
+{
+    return [
+        'title' => ['required', 'string', 'min:5'],
+    ];
+}
+
+public function validationMessages(): array
+{
+    return [
+        'title.required' => 'Title is required',
+        'title.min' => 'Title must contain at least :min characters',
+    ];
+}
+```
+
+#### Preparing data for validation
+
+The `prepareForValidation()` method allows you to change data before validation.
+
+```php filename:PostFormPage.php
+public function prepareForValidation(): void
+{
+    request()->merge([
+        'slug' => request()
+            ->string('slug')
+            ->lower()
+            ->value(),
+    ]);
+}
+```
+
+#### Precognitive validation
+
+The `$isPrecognitive` property allows you to enable [precognitive validation](https://laravel.com/docs/precognition) for the form.
+
+```php filename:PostFormPage.php
+protected bool $isPrecognitive = true;
+```
+
+Precognitive validation allows you to validate form fields in real time as you enter data.
+
+### Main component
+
+To modify an existing component, use the `modifyFormComponent()` method
+(more details in the [Basics](/docs/{{version}}/model-resource/index#modifiers) section).
+
+To completely replace the main form page component, use your own class
+(more details in the [Main components](#components) section below).
+
+<a name="detail-page"></a>
+## DetailPage
+
+`DetailPage` is responsible for detailed display of the element.
+
+### Main component
+
+To modify an existing component, use the `modifyDetailComponent()` method
+(more details in the [Basics](/docs/{{version}}/model-resource/index#modifiers) section).
+
+To completely replace the main form page component, use your own class
+(more details in the [Main components](#components) section below).
 
 <a name="page-type"></a>
-## Page Types
+## Page types
 
 To specify the page type in `ModelResource`, the `enum` class `PageType` is used.
 
@@ -96,37 +194,101 @@ To specify the page type in `ModelResource`, the `enum` class `PageType` is used
 // [tl! collapse:1]
 use MoonShine\Support\Enums\PageType;
 
-PageType::INDEX; // Index page
-PageType::FORM; // Form page
-PageType::DETAIL; // Detail page
+PageType::INDEX;
+PageType::FORM;
+PageType::DETAIL;
 ```
 
 <a name="fields"></a>
-## Adding Fields
+## Fields
 
-[Fields](/docs/{{version}}/fields/index) in **MoonShine** are used not only for data input but also for output.
-The `fields()` method in the `CRUD` page class allows you to specify the necessary fields.
+> [!TIP]
+> To learn about adding fields to pages, see [ModelResource > Fields](/docs/{{version}}/model-resource/fields).
+
+<a name="layers"></a>
+## Layers on the page
+
+For convenience, all *crud* pages are divided into three layers, which are responsible for displaying a specific area on the page.
+
+- `TopLayer` - used to display metrics on the index page and for additional buttons on the edit page,
+- `MainLayer` - this layer is used to display main information using [FormBuilder](/docs/{{version}}/components/form-builder)
+and [TableBuilder](/docs/{{version}}/components/table-builder),
+- `BottomLayer` - used to display additional information.
+
+To configure layers, the corresponding methods are used: `topLayer()`, `mainLayer()` and `bottomLayer()`.
+Methods must return an array of [Components](/docs/{{version}}/page/index#components).
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:5]
-namespace App\MoonShine\Resources\Post\Pages;
-
+// [tl! collapse:2]
 use MoonShine\Laravel\Pages\Crud\IndexPage;
-use MoonShine\UI\Fields\ID;
-use MoonShine\UI\Fields\Text;
+use MoonShine\UI\Components\Heading;
 
 class PostIndexPage extends IndexPage
 {
     // ...
 
-    protected function fields(): iterable
+    protected function topLayer(): array
     {
         return [
-            ID::make(),
-            Text::make('Title'),
+            Heading::make('Custom top'),
+            ...parent::topLayer()
         ];
     }
+
+    protected function mainLayer(): array
+    {
+        return [
+            Heading::make('Custom main'),
+            ...parent::mainLayer()
+        ];
+    }
+
+    protected function bottomLayer(): array
+    {
+        return [
+            Heading::make('Custom bottom'),
+            ...parent::bottomLayer()
+        ];
+    }
+}
+```
+
+> [!TIP]
+> If you need to access the components of a specific layer, then use the `getLayerComponents()` method.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\Support\Enums\Layer;
+
+// Resource
+$this->getFormPage()->getLayerComponents(Layer::BOTTOM);
+
+// Page
+$this->getLayerComponents(Layer::BOTTOM);
+```
+
+> [!TIP]
+> If you need to add a component for a specified page to the desired layer via a resource,
+> then use the `onLoad()` method of the resource and the `pushToLayer()` method of the page.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\Permissions\Components\Permissions;
+use MoonShine\Support\Enums\Layer;
+
+protected function onLoad(): void
+{
+    $this->getFormPage()
+        ->pushToLayer(
+            layer: Layer::BOTTOM,
+            component: Permissions::make(
+                'Permissions',
+                $this,
+            )
+        );
 }
 ```
 
@@ -440,7 +602,7 @@ class ArticleFormPage extends FormPage
 }
 ```
 
-You can also use the `getFormComponent()` method to change the main component on the form page:
+You can also use the `getFormComponent()` method to change the main component on the form page.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -451,94 +613,6 @@ getFormComponent(bool $withoutFragment = false): ComponentContract
 ```
 
 - `$withoutFragment` - flag of whether the component should be wrapped in a `Fragment`.
-
-<a name="layers"></a>
-## Layers on the Page
-
-For convenience, all *CRUD* pages are divided into three layers, which are responsible for displaying a certain area on the page.
-
-- `TopLayer` - used for displaying metrics on the index page and for additional buttons on the edit page,
-- `MainLayer` - this layer is used for displaying main information using [FormBuilder](/docs/{{version}}/components/form-builder)
-and [TableBuilder](/docs/{{version}}/components/table-builder),
-- `BottomLayer` - used for displaying additional information.
-
-To configure the layers, the corresponding methods are used: `topLayer()`, `mainLayer()`, and `bottomLayer()`.
-The methods must return an array of [Components](/docs/{{version}}/page/index#components).
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use MoonShine\Laravel\Pages\Crud\IndexPage;
-use MoonShine\UI\Components\Heading;
-
-class PostIndexPage extends IndexPage
-{
-    // ...
-
-    protected function topLayer(): array
-    {
-        return [
-            Heading::make('Custom top'),
-            ...parent::topLayer()
-        ];
-    }
-
-    protected function mainLayer(): array
-    {
-        return [
-            Heading::make('Custom main'),
-            ...parent::mainLayer()
-        ];
-    }
-
-    protected function bottomLayer(): array
-    {
-        return [
-            Heading::make('Custom bottom'),
-            ...parent::bottomLayer()
-        ];
-    }
-}
-```
-
-> [!TIP]
-> If you need to access components of a specific layer from a resource or page, use the `getLayerComponents()` method.
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:1]
-use MoonShine\Support\Enums\Layer;
-
-// ...
-
-// Resource
-$this->getFormPage()->getLayerComponents(Layer::BOTTOM);
-
-// Page
-$this->getLayerComponents(Layer::BOTTOM);
-```
-
-> [!TIP]
-> If you need to add a component to a specified page in the desired layer from a resource, use the resource's `onLoad()` method and the page's `pushToLayer()`.
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use MoonShine\Permissions\Components\Permissions;
-use MoonShine\Support\Enums\Layer;
-
-protected function onLoad(): void
-{
-    $this->getFormPage()
-        ->pushToLayer(
-            layer: Layer::BOTTOM,
-            component: Permissions::make(
-                'Permissions',
-                $this,
-            )
-        );
-}
-```
 
 <a name="simulate"></a>
 ## Simulate Route
