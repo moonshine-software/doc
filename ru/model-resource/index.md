@@ -12,16 +12,13 @@ video: https://youtu.be/bcFOkXuPSRk?si=LIXgfO1LpjfqwWyR
 - [Сортировка](#sorting)
 - [Пагинация](#pagination)
 - [Асинхронный режим](#is-async)
-- [Lazy режим](#is-lazy)
-- [Валидация](#validation)
 - [Добавление в меню](#adding-to-the-menu)
-    - [Alias](#alias)
+- [Alias](#alias)
 - [Текущий элемент/модель](#current-element-model)
 - [Модальные окна](#modal-windows)
 - [Редиректы](#redirects)
 - [Активные действия](#active-actions)
 - [Модификаторы](#modifiers)
-- [Компоненты](#components)
 - [Жизненный цикл](#lifecycle)
     - [Активный ресурс](#on-load)
     - [Создание экземпляра](#on-boot)
@@ -235,87 +232,11 @@ protected bool $simplePaginate = true;
 protected bool $isAsync = false;
 ```
 
-> [!NOTE]
+> [!TIP]
 > Подробнее об асинхронной загрузке таблицы можно узнать в разделе [TableBuilder](/docs/{{version}}/components/table-builder#async-loading).
 
-> [!NOTE]
+> [!TIP]
 > Подробнее об асинхронной отправке форм можно узнать в разделе [FormBuilder](/docs/{{version}}/components/form-builder#asynchronous-mode).
-
-<a name="is-lazy"></a>
-## Lazy режим
-
-Lazy-режим откладывает загрузку индексной таблицы до момента, когда она станет видимой на странице.
-
-```php filename:PostResource.php
-protected bool $isLazy = true;
-```
-
-<a name="validation"></a>
-## Validation
-
-Вы можете добавить валидацию для полей формы ресурса, используя стандартные правила валидации Laravel.
-
-### Правила валидации
-
-Метод `rules()` позволяет определить правила валидации для полей.
-
-```php filename:PostFormPage.php
-protected function rules(DataWrapperContract $item): array
-{
-    return [
-        'title' => ['required', 'string', 'min:5'],
-        'content' => ['required', 'string'],
-        'email' => ['sometimes', 'email'],
-    ];
-}
-```
-
-### Сообщения валидации
-
-Метод `validationMessages()` позволяет переопределить сообщения об ошибках валидации.
-
-```php filename:PostFormPage.php
-protected function rules(DataWrapperContract $item): array
-{
-    return [
-        'title' => ['required', 'string', 'min:5'],
-    ];
-}
-
-public function validationMessages(): array
-{
-    return [
-        'title.required' => 'Заголовок обязателен для заполнения',
-        'title.min' => 'Заголовок должен содержать минимум :min символов',
-    ];
-}
-```
-
-### Подготовка данных для валидации
-
-Метод `prepareForValidation()` позволяет изменить данные перед валидацией.
-
-```php filename:PostFormPage.php
-public function prepareForValidation(): void
-{
-    request()->merge([
-        'slug' => request()
-            ->string('slug')
-            ->lower()
-            ->value(),
-    ]);
-}
-```
-
-### Precognitive валидация
-
-Свойство `$isPrecognitive` позволяет включить [precognitive валидацию](https://laravel.com/docs/precognition) для формы.
-
-```php filename:PostFormPage.php
-protected bool $isPrecognitive = true;
-```
-
-Precognitive валидация позволяет валидировать поля формы в реальном времени при вводе данных.
 
 <a name="adding-to-the-menu"></a>
 ## Добавление в меню
@@ -365,7 +286,7 @@ final class MoonShineLayout extends AppLayout
 > О расширенных настройках `MenuManager` можно узнать в разделе [Menu](/docs/{{version}}/appearance/menu).
 
 <a name="alias"></a>
-### Alias
+## Alias
 
 По умолчанию alias ресурса, который используется в `url`, генерируется на основе наименования класс в `kebab-case`, например:
 `MoonShineUserResource` -> `moon-shine-user-resource`.
@@ -521,7 +442,8 @@ protected function activeActions(): ListOf
 <a name="modifiers"></a>
 ## Модификаторы
 
-Для модификации основного компонента `IndexPage`, `FormPage` или `DetailPage` страницы из ресурса можно переопределить соответствующие методы `modifyListComponent()`, `modifyFormComponent()` и `modifyDetailComponent()`.
+Для модификации основного компонента `IndexPage`, `FormPage` или `DetailPage` можно переопределить
+методы `modifyListComponent()`, `modifyFormComponent()` и `modifyDetailComponent()` на соответствующих страницах.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -564,40 +486,6 @@ public function modifyDetailComponent(ComponentContract $component): ComponentCo
     ]);
 }
 ```
-
-<a name="components"></a>
-## Компоненты
-
-Лучший способ изменить компоненты страниц - это опубликовать страницы и взаимодействовать через них.
-Но, если вы хотите быстро добавить компоненты на страницы, то можете воспользоваться методами ресурса `pageComponents()`, `indexPageComponents()`, `formPageComponents()` и `detailPageComponents()`.
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:4]
-use MoonShine\Core\Collections\Components;
-use MoonShine\UI\Components\FormBuilder;
-use MoonShine\UI\Components\Modal;
-use MoonShine\UI\Fields\Text;
-
-// or indexPageComponents/formPageComponents/detailPageComponents
-protected function pageComponents(): array
-{
-    return [
-        Modal::make(
-            'My Modal'
-            components: Components::make([
-                FormBuilder::make()->fields([
-                    Text::make('Title')
-                ])
-            ])
-        )
-        ->name('demo-modal')
-    ];
-}
-```
-
-> [!NOTE]
-> Компоненты будут добавлены в `bottomLayer`.
 
 <a name="lifecycle"></a>
 ## Жизненный цикл

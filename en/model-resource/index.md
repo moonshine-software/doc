@@ -12,16 +12,13 @@ video: https://youtu.be/5o8qSf94Bf0?si=9dLj_SiXA1-w6hFo
 - [Sorting](#sorting)
 - [Pagination](#pagination)
 - [Async mode](#is-async)
-- [Lazy mode](#is-lazy)
-- [Validation](#validation)
 - [Adding to the Menu](#adding-to-the-menu)
-    - [Alias](#alias)
+- [Alias](#alias)
 - [Current Element/Model](#current-element-model)
 - [Modal Windows](#modal-windows)
 - [Redirects](#redirects)
 - [Active Actions](#active-actions)
 - [Modifiers](#modifiers)
-- [Components](#components)
 - [Lifecycle](#lifecycle)
     - [Active Resource](#on-load)
     - [Creating an Instance](#on-boot)
@@ -235,87 +232,11 @@ To disable it, override the `$isAsync` property in the resource or on individual
 protected bool $isAsync = false;
 ```
 
-> [!NOTE]
+> [!TIP]
 > For more information about asynchronous table loading, see [TableBuilder](/docs/{{version}}/components/table-builder#async-loading).
 
-> [!NOTE]
+> [!TIP]
 > For more information about asynchronous form submission, see [FormBuilder](/docs/{{version}}/components/form-builder#asynchronous-mode).
-
-<a name="is-lazy"></a>
-## Lazy Mode
-
-Lazy mode delays the loading of the index table until it becomes visible on the page.
-
-```php filename:PostResource.php
-protected bool $isLazy = true;
-```
-
-<a name="validation"></a>
-## Validation
-
-You can add validation to resource form fields using Laravel's standard validation rules.
-
-### Validation Rules
-
-The `rules()` method allows you to define validation rules for fields.
-
-```php filename:PostFormPage.php
-protected function rules(DataWrapperContract $item): array
-{
-    return [
-        'title' => ['required', 'string', 'min:5'],
-        'content' => ['required', 'string'],
-        'email' => ['sometimes', 'email'],
-    ];
-}
-```
-
-### Validation Messages
-
-The `validationMessages()` method allows you to override validation error messages.
-
-```php filename:PostFormPage.php
-protected function rules(DataWrapperContract $item): array
-{
-    return [
-        'title' => ['required', 'string', 'min:5'],
-    ];
-}
-
-public function validationMessages(): array
-{
-    return [
-        'title.required' => 'The title is required',
-        'title.min' => 'The title must contain at least :min characters',
-    ];
-}
-```
-
-### Preparing data for validation
-
-The `prepareForValidation()` method allows you to change the data before validation.
-
-```php filename:PostFormPage.php
-public function prepareForValidation(): void
-{
-    request()->merge([
-        'slug' => request()
-            ->string('slug')
-            ->lower()
-            ->value(),
-    ]);
-}
-```
-
-### Precognitive validation
-
-The `$isPrecognitive` property allows you to enable [precognitive validation](https://laravel.com/docs/precognition) for the form.
-
-```php filename:PostFormPage.php
-protected bool $isPrecognitive = true;
-```
-
-Precognitive validation allows you to validate form fields in real time when data is entered.
 
 <a name="adding-to-the-menu"></a>
 ## Adding to the Menu
@@ -365,7 +286,7 @@ final class MoonShineLayout extends AppLayout
 > You can learn about advanced `MenuManager` settings in the section [Menu](/docs/{{version}}/appearance/menu).
 
 <a name="alias"></a>
-### Alias
+## Alias
 
 By default, the alias of the resource used in the `url` is generated based on the class name in `kebab-case`, for example:
 `MoonShineUserResource` -> `moon-shine-user-resource`.
@@ -521,7 +442,8 @@ protected function activeActions(): ListOf
 <a name="modifiers"></a>
 ## Modifiers
 
-To modify the main component of `IndexPage`, `FormPage`, or `DetailPage` from the resource, you can override the corresponding methods `modifyListComponent()`, `modifyFormComponent()`, and `modifyDetailComponent()`.
+To modify the main component of `IndexPage`, `FormPage`, or `DetailPage` from the resource, you can override
+the corresponding methods `modifyListComponent()`, `modifyFormComponent()`, and `modifyDetailComponent()`.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -564,40 +486,6 @@ public function modifyDetailComponent(ComponentContract $component): ComponentCo
     ]);
 }
 ```
-
-<a name="components"></a>
-## Components
-
-The best way to change page components is to publish the pages and interact through them.
-But, if you want to quickly add components to pages, you can use the resource methods `pageComponents()`, `indexPageComponents()`, `formPageComponents()` and `detailPageComponents()`.
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:4]
-use MoonShine\Core\Collections\Components;
-use MoonShine\UI\Components\FormBuilder;
-use MoonShine\UI\Components\Modal;
-use MoonShine\UI\Fields\Text;
-
-// or indexPageComponents/formPageComponents/detailPageComponents
-protected function pageComponents(): array
-{
-    return [
-        Modal::make(
-            'My Modal'
-            components: Components::make([
-                FormBuilder::make()->fields([
-                    Text::make('Title')
-                ])
-            ])
-        )
-        ->name('demo-modal')
-    ];
-}
-```
-
-> [!NOTE]
-> Components will be added to `bottomLayer`.
 
 <a name="lifecycle"></a>
 ## Lifecycle

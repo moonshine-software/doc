@@ -4,8 +4,8 @@ video: https://youtu.be/5o8qSf94Bf0?si=9dLj_SiXA1-w6hFo&t=391
 
 # Fields
 
-Fields usually refer to database table fields.
-Within the `CRUD`, they will be displayed on the main page of the section (resource) with the list and on the page for creating and editing records.
+[Fields](/docs/{{version}}/fields/index) in **MoonShine** are used not only for entering data, but also for outputting it.
+In most cases, they refer to table fields from the database.
 
 In **MoonShine**, there are many types of fields that cover all possible requirements!
 They also encompass all possible relationships in **Laravel** and are conveniently named after the relationship methods

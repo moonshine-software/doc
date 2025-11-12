@@ -5,11 +5,13 @@ video: https://youtu.be/bcFOkXuPSRk?si=RmlstXkRnan5r1K8&t=246
 # Страницы
 
 - [Основы](#basics)
-- [Функциональность страниц](#functionality)
+- [IndexPage](#index-page)
+- [FormPage](#form-page)
+- [DetailPage](#detail-page)
 - [Типы страниц](#page-type)
-- [Добавление полей](#fields)
-- [Основные компоненты](#components)
+- [Поля](#fields)
 - [Слои на странице](#layers)
+- [Основные компоненты](#components)
 - [Симуляция Route](#simulate)
 
 ---
@@ -17,13 +19,11 @@ video: https://youtu.be/bcFOkXuPSRk?si=RmlstXkRnan5r1K8&t=246
 <a name="basics"></a>
 ## Основы
 
-**MoonShine** предоставляет возможность настройки `CRUD` страниц.
-Для этого необходимо при создании ресурса через команду выбрать тип ресурса `Model resource with pages`.
+Страницы являются основой архитектуры **MoonShine**.
+Вся ключевая функциональность определяется непосредственно в классах страниц, что обеспечивает гибкость и модульность.
 
-Это создаст класс ресурса модели и дополнительные классы для страниц индекса, детального просмотра и формы.
-Классы страниц по умолчанию будут располагаться в директории `app/MoonShine/Pages`.
-
-В созданном ресурсе модели страницы `CRUD` будут зарегистрированы в методе `pages()`.
+При создании ресурса так же создаются классы для страниц индекса (`IndexPage`), детального просмотра (`DetailPage`) и формы (`FormPage`).
+Эти страницы зарегистрируются в ресурсе в методе `pages()`.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -50,41 +50,139 @@ class PostResource extends ModelResource
 }
 ```
 
-<a name="functionality"></a>
-## Функциональность страниц
+<a name="index-page"></a>
+## IndexPage
 
-Страницы являются основой архитектуры **MoonShine**.
-Вся ключевая функциональность определяется непосредственно в классах страниц, что обеспечивает гибкость и модульность.
+`IndexPage` является основным разделом ресурса и отвечает за отображение списка элементов.
 
-### IndexPage
+### Lazy режим
 
-`IndexPage` отвечает за отображение списка элементов и содержит следующую функциональность:
+Lazy-режим откладывает загрузку индексной таблицы до момента, когда она станет видимой на странице.
 
-- **Метрики** - метод `metrics()` позволяет определить метрики для отображения на странице списка (подробнее в разделе [Метрики](/docs/{{version}}/model-resource/metrics)).
-- **Фильтры** - метод `filters()` для определения фильтров данных (подробнее в разделе [Фильтры](/docs/{{version}}/model-resource/filters)).
-- **Query Tags** - метод `queryTags()` для быстрой фильтрации по предустановленным условиям (подробнее в разделе [Query Tags](/docs/{{version}}/model-resource/query-tags)).
-- **Обработчики** - метод `handlers()` для регистрации обработчиков событий (подробнее в разделе [Обработчики](/docs/{{version}}/advanced/handlers)).
-- **Кнопки** - метод `topButtons()` для добавления кнопок в верхнюю часть страницы (подробнее в разделе [Кнопки](/docs/{{version}}/model-resource/buttons)).
-- **Работа с компонентами** - для полной замены компонента используйте собственный класс (подробнее в разделе [Основные компоненты](#components) ниже),
-для модификации существующего компонента используйте метод `modifyListComponent()` (подробнее в разделе [Основы](/docs/{{version}}/model-resource/index#modifiers)).
+```php
+protected bool $isLazy = true;
+```
 
-### FormPage
+### Метрики
 
-`FormPage` отвечает за создание и редактирование элементов:
+Метод `metrics()` позволяет определить метрики для отображения на странице списка
+(подробнее в разделе [Метрики](/docs/{{version}}/model-resource/metrics)).
 
-- **Работа с компонентами** - для полной замены компонента используйте собственный класс (подробнее в разделе [Основные компоненты](#components) ниже),
-для модификации существующего компонента используйте метод `modifyFormComponent()` (подробнее в разделе [Основы](/docs/{{version}}/model-resource/index#modifiers)).
+### Фильтры
 
-### DetailPage
+В методе `filters()` вы можете указать список полей для формирования формы фильтра
+(подробнее в разделе [Фильтры](/docs/{{version}}/model-resource/filters)).
 
-`DetailPage` отвечает за детальное отображение элемента:
+### Query Tags
 
-- **Работа с компонентами** - для полной замены компонента используйте собственный класс (подробнее в разделе [Основные компоненты](#components) ниже),
-для модификации существующего компонента используйте метод `modifyDetailComponent()` (подробнее в разделе [Основы](/docs/{{version}}/model-resource/index#modifiers)).
+Метод `queryTags()` позволяет добавлять кнопки быстрой фильтрации по предустановленным условиям
+(подробнее в разделе [Query Tags](/docs/{{version}}/model-resource/query-tags)).
 
-> [!NOTE]
-> Для обратной совместимости все перечисленные методы также доступны в классе `ModelResource`,
-> но рекомендуется определять их непосредственно в соответствующих классах страниц.
+### Обработчики
+
+Метод `handlers()` для регистрации обработчиков событий
+(подробнее в разделе [Обработчики](/docs/{{version}}/advanced/handlers)).
+
+### Основной компонент
+
+Для модификации существующего компонента используйте метод `modifyListComponent()`
+(подробнее в разделе [Основы](/docs/{{version}}/model-resource/index#modifiers)).
+
+Для полной замены основного компонента индексной страницы используйте собственный класс
+(подробнее в разделе [Основные компоненты](#components) ниже).
+
+<a name="form-page"></a>
+## FormPage
+
+`FormPage` отвечает за создание и редактирование элементов.
+
+<a name="validation"></a>
+### Validation
+
+Вы можете добавить валидацию для полей формы ресурса, используя стандартные правила валидации Laravel.
+
+#### Правила валидации
+
+Метод `rules()` позволяет определить правила валидации для полей.
+
+```php filename:PostFormPage.php
+protected function rules(DataWrapperContract $item): array
+{
+    return [
+        'title' => ['required', 'string', 'min:5'],
+        'content' => ['required', 'string'],
+        'email' => ['sometimes', 'email'],
+    ];
+}
+```
+
+#### Сообщения валидации
+
+Метод `validationMessages()` позволяет переопределить сообщения об ошибках валидации.
+
+```php filename:PostFormPage.php
+protected function rules(DataWrapperContract $item): array
+{
+    return [
+        'title' => ['required', 'string', 'min:5'],
+    ];
+}
+
+public function validationMessages(): array
+{
+    return [
+        'title.required' => 'Заголовок обязателен для заполнения',
+        'title.min' => 'Заголовок должен содержать минимум :min символов',
+    ];
+}
+```
+
+#### Подготовка данных для валидации
+
+Метод `prepareForValidation()` позволяет изменить данные перед валидацией.
+
+```php filename:PostFormPage.php
+public function prepareForValidation(): void
+{
+    request()->merge([
+        'slug' => request()
+            ->string('slug')
+            ->lower()
+            ->value(),
+    ]);
+}
+```
+
+#### Precognitive валидация
+
+Свойство `$isPrecognitive` позволяет включить [precognitive валидацию](https://laravel.com/docs/precognition) для формы.
+
+```php filename:PostFormPage.php
+protected bool $isPrecognitive = true;
+```
+
+Precognitive валидация позволяет валидировать поля формы в реальном времени при вводе данных.
+
+### Основной компонент
+
+Для модификации существующего компонента используйте метод `modifyFormComponent()`
+(подробнее в разделе [Основы](/docs/{{version}}/model-resource/index#modifiers)).
+
+Для полной замены основного компонента страницы формы используйте собственный класс
+(подробнее в разделе [Основные компоненты](#components) ниже).
+
+<a name="detail-page"></a>
+## DetailPage
+
+`DetailPage` отвечает за детальное отображение элемента.
+
+### Основной компонент
+
+Для модификации существующего компонента используйте метод `modifyDetailComponent()`
+(подробнее в разделе [Основы](/docs/{{version}}/model-resource/index#modifiers)).
+
+Для полной замены основного компонента страницы формы используйте собственный класс
+(подробнее в разделе [Основные компоненты](#components) ниже).
 
 <a name="page-type"></a>
 ## Типы страниц
@@ -96,37 +194,101 @@ class PostResource extends ModelResource
 // [tl! collapse:1]
 use MoonShine\Support\Enums\PageType;
 
-PageType::INDEX; // Страница индекса
-PageType::FORM; // Страница формы
-PageType::DETAIL; // Страница детального просмотра
+PageType::INDEX;
+PageType::FORM;
+PageType::DETAIL;
 ```
 
 <a name="fields"></a>
-## Добавление полей
+## Поля
 
-[Поля](/docs/{{version}}/fields/index) в **MoonShine** используются не только для ввода данных, но и для их вывода.
-Метод `fields()` в классе страницы `CRUD` позволяет указать необходимые поля.
+> [!TIP]
+> О добавлении полей на страницы смотрите в разделе [ModelResource > Поля](/docs/{{version}}/model-resource/fields).
+
+<a name="layers"></a>
+## Слои на странице
+
+Для удобства все страницы *crud* разделены на три слоя, которые отвечают за отображение определенной области на странице.
+
+- `TopLayer` - используется для отображения метрик на странице индекса и для дополнительных кнопок на странице редактирования,
+- `MainLayer` - этот слой используется для отображения основной информации с помощью [FormBuilder](/docs/{{version}}/components/form-builder)
+и [TableBuilder](/docs/{{version}}/components/table-builder),
+- `BottomLayer` - используется для отображения дополнительной информации.
+
+Для настройки слоев используются соответствующие методы: `topLayer()`, `mainLayer()` и `bottomLayer()`.
+Методы должны возвращать массив [Компонентов](/docs/{{version}}/page/index#components).
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:5]
-namespace App\MoonShine\Resources\Post\Pages;
-
+// [tl! collapse:2]
 use MoonShine\Laravel\Pages\Crud\IndexPage;
-use MoonShine\UI\Fields\ID;
-use MoonShine\UI\Fields\Text;
+use MoonShine\UI\Components\Heading;
 
 class PostIndexPage extends IndexPage
 {
     // ...
 
-    protected function fields(): iterable
+    protected function topLayer(): array
     {
         return [
-            ID::make(),
-            Text::make('Title'),
+            Heading::make('Custom top'),
+            ...parent::topLayer()
         ];
     }
+
+    protected function mainLayer(): array
+    {
+        return [
+            Heading::make('Custom main'),
+            ...parent::mainLayer()
+        ];
+    }
+
+    protected function bottomLayer(): array
+    {
+        return [
+            Heading::make('Custom bottom'),
+            ...parent::bottomLayer()
+        ];
+    }
+}
+```
+
+> [!TIP]
+> Если вам нужно получить доступ к компонентам определенного слоя, то используйте метод `getLayerComponents()`.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\Support\Enums\Layer;
+
+// Resource
+$this->getFormPage()->getLayerComponents(Layer::BOTTOM);
+
+// Page
+$this->getLayerComponents(Layer::BOTTOM);
+```
+
+> [!TIP]
+> Если вам нужно добавить компонент для указанной страницы в нужный слой через ресурс,
+> то используйте метод `onLoad()` ресурса и `pushToLayer()` страницы.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\Permissions\Components\Permissions;
+use MoonShine\Support\Enums\Layer;
+
+protected function onLoad(): void
+{
+    $this->getFormPage()
+        ->pushToLayer(
+            layer: Layer::BOTTOM,
+            component: Permissions::make(
+                'Permissions',
+                $this,
+            )
+        );
 }
 ```
 
@@ -256,7 +418,7 @@ getItemsComponent(iterable $items, FieldsContract $fields): ComponentContract
 
 ### DetailPage
 
-Чтобы изменить компонент страницы детального просмотра необходимо создать класс, реализующий интерфейс `DefaultDetailComponentContract`:
+Чтобы изменить компонент страницы детального просмотра, необходимо создать класс, реализующий интерфейс `DefaultDetailComponentContract`:
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -440,7 +602,7 @@ class ArticleFormPage extends FormPage
 }
 ```
 
-Вы также с помощью метода `getFormComponent()` можете изменить основной компонент на странице с формой:
+Вы также можете с помощью метода `getFormComponent()` изменить основной компонент на странице с формой.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -451,94 +613,6 @@ getFormComponent(bool $withoutFragment = false): ComponentContract
 ```
 
 - `$withoutFragment` - флаг необходимости оборачивать компонент в `Fragment`.
-
-<a name="layers"></a>
-## Слои на странице
-
-Для удобства все страницы *crud* разделены на три слоя, которые отвечают за отображение определенной области на странице.
-
-- `TopLayer` - используется для отображения метрик на странице индекса и для дополнительных кнопок на странице редактирования,
-- `MainLayer` - этот слой используется для отображения основной информации с помощью [FormBuilder](/docs/{{version}}/components/form-builder)
-и [TableBuilder](/docs/{{version}}/components/table-builder),
-- `BottomLayer` - используется для отображения дополнительной информации.
-
-Для настройки слоев используются соответствующие методы: `topLayer()`, `mainLayer()` и `bottomLayer()`.
-Методы должны возвращать массив [Компонентов](/docs/{{version}}/page/index#components).
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use MoonShine\Laravel\Pages\Crud\IndexPage;
-use MoonShine\UI\Components\Heading;
-
-class PostIndexPage extends IndexPage
-{
-    // ...
-
-    protected function topLayer(): array
-    {
-        return [
-            Heading::make('Custom top'),
-            ...parent::topLayer()
-        ];
-    }
-
-    protected function mainLayer(): array
-    {
-        return [
-            Heading::make('Custom main'),
-            ...parent::mainLayer()
-        ];
-    }
-
-    protected function bottomLayer(): array
-    {
-        return [
-            Heading::make('Custom bottom'),
-            ...parent::bottomLayer()
-        ];
-    }
-}
-```
-
-> [!TIP]
-> Если вам нужно получить доступ к компонентам определенного слоя через ресурс или страницу, то используйте метод `getLayerComponents()`.
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:1]
-use MoonShine\Support\Enums\Layer;
-
-// ...
-
-// Resource
-$this->getFormPage()->getLayerComponents(Layer::BOTTOM);
-
-// Page
-$this->getLayerComponents(Layer::BOTTOM);
-```
-
-> [!TIP]
-> Если вам нужно добавить компонент для указанной страницы в нужный слой через ресурс, то используйте метод `onLoad()` ресурса и `pushToLayer()` страницы.
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use MoonShine\Permissions\Components\Permissions;
-use MoonShine\Support\Enums\Layer;
-
-protected function onLoad(): void
-{
-    $this->getFormPage()
-        ->pushToLayer(
-            layer: Layer::BOTTOM,
-            component: Permissions::make(
-                'Permissions',
-                $this,
-            )
-        );
-}
-```
 
 <a name="simulate"></a>
 ## Симуляция Route
