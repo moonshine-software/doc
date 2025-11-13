@@ -5,13 +5,13 @@ video: https://youtu.be/5o8qSf94Bf0?si=5mR85avWy4pZWfM2&t=245
 # Pages
 
 - [Basics](#basics)
-- [IndexPage](#index-page)
-- [FormPage](#form-page)
-- [DetailPage](#detail-page)
+- [List Page](#index-page)
+- [Form Page](#form-page)
+- [Detail Page](#detail-page)
 - [Page Types](#page-type)
 - [Fields](#fields)
 - [Layers on the Page](#layers)
-- [Main Components](#components)
+- [Main Components](#main-components)
 - [Simulate Route](#simulate)
 
 ---
@@ -22,7 +22,7 @@ video: https://youtu.be/5o8qSf94Bf0?si=5mR85avWy4pZWfM2&t=245
 Pages are the core of the **MoonShine** architecture.
 All key functionality is defined directly in page classes, which provides flexibility and modularity.
 
-When creating a resource, classes are also created for the index pages (`IndexPage`), detailed view (`DetailPage`) and form (`FormPage`).
+When creating a resource, classes are also created for the list pages (`IndexPage`), detailed view (`DetailPage`) and form (`FormPage`).
 These pages will be registered with the resource in the `pages()` method.
 
 ```php
@@ -51,9 +51,10 @@ class PostResource extends ModelResource
 ```
 
 <a name="index-page"></a>
-## IndexPage
+## List Page
 
-`IndexPage` is the main section of the resource and is responsible for displaying the list of elements.
+List page extends the `IndexPage` class.
+It is the main section of the resource and is responsible for displaying the list of elements, filtering it, sorting it, and much more.
 
 ### Lazy mode
 
@@ -85,16 +86,16 @@ The `handlers()` method for registering event handlers
 
 ### Main component
 
-To modify an existing component, use the `modifyListComponent()` method
-(more details in the [Basics](/docs/{{version}}/model-resource/index#modifiers) section).
+To modify the main `IndexPage` component, use the `modifyListComponent()` method
+(more details in the section [ModelResource > Basics](/docs/{{version}}/model-resource/index#modifiers)).
 
-To completely replace the main index page component, use your own class
+To completely replace the main `IndexPage` component, use your own class
 (more details in the [Main components](#components) section below).
 
 <a name="form-page"></a>
-##FormPage
+## FormPage
 
-`FormPage` is responsible for creating and editing elements.
+Form page extends the `FormPage` class and is responsible for creating and editing elements.
 
 <a name="validation"></a>
 ### Validation
@@ -165,23 +166,23 @@ Precognitive validation allows you to validate form fields in real time as you e
 
 ### Main component
 
-To modify an existing component, use the `modifyFormComponent()` method
-(more details in the [Basics](/docs/{{version}}/model-resource/index#modifiers) section).
+To modify the main `FormPage` component, use the `modifyListComponent()` method
+(more details in the section [ModelResource > Basics](/docs/{{version}}/model-resource/index#modifiers)).
 
-To completely replace the main form page component, use your own class
+To completely replace the main `FormPage` component, use your own class
 (more details in the [Main components](#components) section below).
 
 <a name="detail-page"></a>
-## DetailPage
+## Detail Page
 
-`DetailPage` is responsible for detailed display of the element.
+Detail page extends the `DetailPage` class and is responsible for displaying an element in detail.
 
 ### Main component
 
-To modify an existing component, use the `modifyDetailComponent()` method
-(more details in the [Basics](/docs/{{version}}/model-resource/index#modifiers) section).
+To modify the main `DetailPage` component, use the `modifyListComponent()` method
+(more details in the section [ModelResource > Basics](/docs/{{version}}/model-resource/index#modifiers)).
 
-To completely replace the main form page component, use your own class
+To completely replace the main `DetailPage` component, use your own class
 (more details in the [Main components](#components) section below).
 
 <a name="page-type"></a>
@@ -292,23 +293,30 @@ protected function onLoad(): void
 }
 ```
 
-<a name="components"></a>
+<a name="main-components"></a>
 ## Main Components
 
-The main component of the page is specified by a class that implements one of the namespace interfaces `MoonShine\Crud\Contracts\PageComponents`.
-This allows you to completely replace a component, encapsulate the logic, and reuse it between pages and resources.
+You can completely override the main resource page component.
+This allows you to encapsulate your own component implementation and reuse it between pages and resources.
 
-Available interfaces:
+To do this, you need to create a class that implements the appropriate interface,
+implement the `__invoke()` method in it and replace the value of the `$component` property on the page with this class.
 
-- `DefaultListComponentContract` - the main component of the index page (list of elements),
-- `DefaultDetailComponentContract` - the main component of the detail page,
-- `DefaultFormContract` - the main form component.
-
-The class must implement the `__invoke()` method, which returns a component that implements the `MoonShine\Contracts\UI\ComponentContract` interface.
+Below we provide specific examples of implementation for different pages.
 
 ### IndexPage
 
-To change the index page component, you need to create a class that implements the `DefaultListComponentContract` interface:
+```php
+function __invoke(
+    IndexPageContract $page,
+    iterable $items,
+    FieldsContract $fields
+): ComponentContract
+```
+
+- `$page` - object of the index page on which the component is located,
+- `$items` - list elements to display,
+- `$fields` - fields that will be displayed in the list.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -376,30 +384,11 @@ final class ArticleListComponent implements DefaultListComponentContract
 }
 ```
 
-`__invoke()` method arguments:
-
-- `$page` - object of the index page on which the component is located,
-- `$items` - list elements to display,
-- `$fields` - fields that will be displayed in the list.
-
-Now in the page class in the `$component` property you need to override the component to display the list:
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use MoonShine\Crud\Contracts\PageComponents\DefaultListComponentContract;
-use MoonShine\Laravel\Pages\Crud\IndexPage;
-
-class ArticleIndexPage extends IndexPage
-{
-    /**
-     * @var class-string<DefaultListComponentContract>
-     */
-    protected string $component = ArticleListComponent::class;
-}
+```php filename:ArticleIndexPage
+protected string $component = ArticleListComponent::class;
 ```
 
-You can also change the list component using the `getItemsComponent()` method:
+You can also change the main `IndexPage` component without creating a separate class, using the `getItemsComponent()` method.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -408,17 +397,27 @@ use MoonShine\Contracts\Core\DependencyInjection\FieldsContract;
 use MoonShine\Contracts\UI\ComponentContract;
 
 getItemsComponent(iterable $items, FieldsContract $fields): ComponentContract
+{
+    // ...
+}
 ```
-
-- `$items` - field values,
-- `$fields` - fields.
 
 > [!NOTE]
 > Example of an index page with the `CardsBuilder` component in the [Recipes](/docs/{{version}}/recipes/index-page-cards) section.
 
 ### DetailPage
 
-To change the detail view page component, you need to create a class that implements the `DefaultDetailComponentContract` interface:
+```php
+function __invoke(
+    DetailPageContract $page,
+    ?DataWrapperContract $item,
+    FieldsContract $fields,
+): ComponentContract
+```
+
+- `$page` - object of the detailed page on which the component is located,
+- `$item` - object with data,
+- `$fields` - fields that will be displayed in the component.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -453,30 +452,11 @@ final class ArticleDetailComponent implements DefaultDetailComponentContract
 }
 ```
 
-`__invoke()` method arguments:
-
-- `$page` - object of the detailed page on which the component is located,
-- `$item` - object with data,
-- `$fields` - fields that will be displayed in the component.
-
-Now in the page class in the `$component` property you need to override the component for detailed viewing:
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use MoonShine\Crud\Contracts\PageComponents\DefaultDetailComponentContract;
-use MoonShine\Laravel\Pages\Crud\DetailPage;
-
-class ArticleDetailPage extends DetailPage
-{
-    /**
-     * @var class-string<DefaultDetailComponentContract>
-     */
-    protected string $component = ArticleDetailComponent::class;
-}
+```php filename:ArticleDetailPage
+protected string $component = ArticleDetailComponent::class;
 ```
 
-You can also change the main component of the detail view page using the `getDetailComponent()` method:
+You can also change the main `DetailPage` component without creating a separate class, using the `getDetailComponent()` method.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -484,13 +464,29 @@ You can also change the main component of the detail view page using the `getDet
 use MoonShine\Contracts\UI\ComponentContract;
 
 getDetailComponent(bool $withoutFragment = false): ComponentContract
+{
+    // ...
+}
 ```
 
 - `$withoutFragment` - flag of whether the component should be wrapped in a `Fragment`.
 
 ### FormPage
 
-To change a page component with an element edit form, you need to create a class that implements the `DefaultFormContract` interface:
+```php
+function __invoke(
+    FormPageContract $page,
+    string $action,
+    ?DataWrapperContract $item,
+    FieldsContract $fields,
+    bool $isAsync = true,
+): FormBuilderContract
+```
+
+- `$page` - object of the page on which the component is located,
+- `$action` - form handler,
+- `$item` - object with data,
+- `$fields` - fields that will be displayed in the component.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -508,7 +504,7 @@ use MoonShine\Support\Enums\JsEvent;
 use MoonShine\UI\Components\FormBuilder;
 use MoonShine\UI\Fields\Hidden;
 
-final class ArticleForm implements DefaultFormContract
+final class ArticleFormComponent implements DefaultFormContract
 {
     use WithCore;
 
@@ -578,31 +574,11 @@ final class ArticleForm implements DefaultFormContract
 }
 ```
 
-`__invoke()` method arguments:
-
-- `$page` - object of the page on which the component is located,
-- `$action` - form handler,
-- `$item` - object with data,
-- `$fields` - fields that will be displayed in the component.
-
-Now in the page class in the `$component` property you need to override the form component:
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use MoonShine\Crud\Contracts\PageComponents\DefaultFormContract;
-use MoonShine\Laravel\Pages\Crud\FormPage;
-
-class ArticleFormPage extends FormPage
-{
-    /**
-     * @var class-string<DefaultFormContract>
-     */
-    protected string $component = ArticleForm::class;
-}
+```php filename:ArticleFormPage
+protected string $component = ArticleFormComponent::class;
 ```
 
-You can also use the `getFormComponent()` method to change the main component on the form page.
+You can also change the main `FormPage` component without creating a separate class, using the `getFormComponent()` method.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -610,6 +586,9 @@ You can also use the `getFormComponent()` method to change the main component on
 use MoonShine\Contracts\UI\ComponentContract;
 
 getFormComponent(bool $withoutFragment = false): ComponentContract
+{
+    // ...
+}
 ```
 
 - `$withoutFragment` - flag of whether the component should be wrapped in a `Fragment`.
