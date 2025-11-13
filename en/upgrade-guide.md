@@ -18,7 +18,8 @@ title: Upgrade guide
 <a name="auto-upgrade"></a>
 ## Auto Upgrade
 
-To simplify the migration process, you can use the [warete/moonshine-upgrade](https://github.com/warete/moonshine-upgrade) package, which will automatically make all the necessary changes to migrate to MoonShine 4.0.
+To simplify the migration process, you can use the [warete/moonshine-upgrade](https://github.com/warete/moonshine-upgrade) package,
+which will automatically make all the necessary changes to migrate to MoonShine 4.0.
 
 <a name="update-dependencies"></a>
 ## Package Update
@@ -70,12 +71,21 @@ Many methods and properties have been moved from resources to the corresponding 
 
 The `rules()` method has been moved from the resource to the `FormPage`.
 
-The methods `metrics()`, `queryTags()`, `filters()`, etc. have been moved to `IndexPage`.
+The `metrics()`, `queryTags()`, `filters()` methods have been moved to the index page class.
 
-The `indexButtons()` method has been removed from the resource, and the `buttons()` method in the corresponding index page should be used instead.
+The `indexButtons()` method has been removed from the resource, and the `buttons()` method should be used instead on the corresponding index page.
 
-This is not a complete list of changes in the resource,
-but the process of transferring all the relevant functionality from the resource to CRUD pages is quite intuitive and should not be difficult.
+The `topButtons()` method has been removed from the resource, and the `topLeftButtons()` and `topRightButtons()` methods should be used instead in the corresponding index page.
+
+The `formButtons()` method has been removed from the resource, and the `buttons()` method should be used instead on the corresponding form page.
+
+The `formBuilderButtons()` method has been removed from the resource, and the `formButtons()` method should be used instead on the appropriate form page.
+
+The properties `$clickAction`, `$stickyTable`, `$stickyButtons`, `$columnSelection` have been removed from the resource.
+The `modifyListComponent()` method should be overridden instead.
+
+This is not a complete list of changes in the resource, but the process of transferring all relevant functionality
+from a resource to a CRUD page is quite intuitive and should not be difficult.
 
 <a name="field-changes"></a>
 ## Field Changes
