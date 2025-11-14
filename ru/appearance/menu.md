@@ -670,6 +670,9 @@ final class MoonShineLayout extends AppLayout
 
 Чтобы активировать альтернативный вариант создания меню, замените массив в методе `menu()` на вызов метода `autoloadMenu()`.
 
+> [!NOTE]
+> Чтобы работала автозагрузка меню, необходимо также включить [автозагрузку ресурсов и страниц](/docs/{{version}}/model-resource/index#autoloading).
+
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:3]
