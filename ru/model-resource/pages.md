@@ -388,19 +388,15 @@ final class ArticleListComponent implements DefaultListComponentContract
 protected string $component = ArticleListComponent::class;
 ```
 
-Вы также можете изменить основной компонент `IndexPage`, не создавая отдельный класс, с помощью метода `getItemsComponent()`.
+Вы также можете изменить основной компонент `IndexPage`, не создавая отдельный класс, с помощью метода `getListComponent()`.
 
 ```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use MoonShine\Contracts\Core\DependencyInjection\FieldsContract;
-use MoonShine\Contracts\UI\ComponentContract;
-
-getItemsComponent(iterable $items, FieldsContract $fields): ComponentContract
-{
-    // ...
-}
+getListComponent(
+    bool $withoutFragment = false
+): ?ComponentContract
 ```
+
+- `$withoutFragment` - флаг необходимости оборачивать компонент в `Fragment`.
 
 > [!NOTE]
 > Пример страницы индекса с компонентом `CardsBuilder` в разделе [Рецепты](/docs/{{version}}/recipes/index-page-cards).
@@ -459,14 +455,9 @@ protected string $component = ArticleDetailComponent::class;
 Вы также можете изменить основной компонент `DetailPage`, не создавая отдельный класс, с помощью метода `getDetailComponent()`.
 
 ```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:1]
-use MoonShine\Contracts\UI\ComponentContract;
-
-getDetailComponent(bool $withoutFragment = false): ComponentContract
-{
-    // ...
-}
+getDetailComponent(
+    bool $withoutFragment = false
+): ComponentContract
 ```
 
 - `$withoutFragment` - флаг необходимости оборачивать компонент в `Fragment`.
@@ -581,14 +572,9 @@ protected string $component = ArticleFormComponent::class;
 Вы также можете изменить основной компонент `FormPage`, не создавая отдельный класс, с помощью метода `getFormComponent()`.
 
 ```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:1]
-use MoonShine\Contracts\UI\ComponentContract;
-
-getFormComponent(bool $withoutFragment = false): ComponentContract
-{
-    // ...
-}
+getFormComponent(
+    bool $withoutFragment = false
+): ComponentContract
 ```
 
 - `$withoutFragment` - флаг необходимости оборачивать компонент в `Fragment`.

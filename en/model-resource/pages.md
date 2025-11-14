@@ -388,19 +388,15 @@ final class ArticleListComponent implements DefaultListComponentContract
 protected string $component = ArticleListComponent::class;
 ```
 
-You can also change the main `IndexPage` component without creating a separate class, using the `getItemsComponent()` method.
+You can also change the main `IndexPage` component without creating a separate class, using the `getListComponent()` method.
 
 ```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use MoonShine\Contracts\Core\DependencyInjection\FieldsContract;
-use MoonShine\Contracts\UI\ComponentContract;
-
-getItemsComponent(iterable $items, FieldsContract $fields): ComponentContract
-{
-    // ...
-}
+getListComponent(
+    bool $withoutFragment = false
+): ?ComponentContract
 ```
+
+- `$withoutFragment` - flag of whether the component should be wrapped in a `Fragment`.
 
 > [!NOTE]
 > Example of an index page with the `CardsBuilder` component in the [Recipes](/docs/{{version}}/recipes/index-page-cards) section.
@@ -459,14 +455,9 @@ protected string $component = ArticleDetailComponent::class;
 You can also change the main `DetailPage` component without creating a separate class, using the `getDetailComponent()` method.
 
 ```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:1]
-use MoonShine\Contracts\UI\ComponentContract;
-
-getDetailComponent(bool $withoutFragment = false): ComponentContract
-{
-    // ...
-}
+getDetailComponent(
+    bool $withoutFragment = false
+): ComponentContract
 ```
 
 - `$withoutFragment` - flag of whether the component should be wrapped in a `Fragment`.
@@ -581,14 +572,9 @@ protected string $component = ArticleFormComponent::class;
 You can also change the main `FormPage` component without creating a separate class, using the `getFormComponent()` method.
 
 ```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:1]
-use MoonShine\Contracts\UI\ComponentContract;
-
-getFormComponent(bool $withoutFragment = false): ComponentContract
-{
-    // ...
-}
+getFormComponent(
+    bool $withoutFragment = false
+): ComponentContract
 ```
 
 - `$withoutFragment` - flag of whether the component should be wrapped in a `Fragment`.
