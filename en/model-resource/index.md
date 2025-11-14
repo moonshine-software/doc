@@ -18,7 +18,6 @@ video: https://youtu.be/5o8qSf94Bf0?si=9dLj_SiXA1-w6hFo
 - [Modal Windows](#modal-windows)
 - [Redirects](#redirects)
 - [Active Actions](#active-actions)
-- [Modifiers](#modifiers)
 - [Lifecycle](#lifecycle)
     - [Active Resource](#on-load)
     - [Creating an Instance](#on-boot)
@@ -436,54 +435,6 @@ use MoonShine\Support\ListOf;
 protected function activeActions(): ListOf
 {
     return new ListOf(Action::class, [Action::VIEW, Action::UPDATE]);
-}
-```
-
-<a name="modifiers"></a>
-## Modifiers
-
-To modify the main component of `IndexPage`, `FormPage`, or `DetailPage` from the resource, you can override
-the corresponding methods `modifyListComponent()`, `modifyFormComponent()`, and `modifyDetailComponent()`.
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:1]
-use MoonShine\Contracts\UI\ComponentContract;
-
-public function modifyListComponent(ComponentContract $component): ComponentContract
-{
-    return parent::modifyListComponent($component)->customAttributes([
-        'data-my-attr' => 'value'
-    ]);
-}
-```
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use MoonShine\Contracts\UI\ComponentContract;
-use MoonShine\UI\Components\FlexibleRender;
-
-public function modifyFormComponent(ComponentContract $component): ComponentContract
-{
-    return parent::modifyFormComponent($component)->fields([
-        FlexibleRender::make('Top'),
-        ...parent::modifyFormComponent($component)->getFields()->toArray(),
-        FlexibleRender::make('Bottom'),
-    ])->submit('Go');
-}
-```
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:1]
-use MoonShine\Contracts\UI\ComponentContract;
-
-public function modifyDetailComponent(ComponentContract $component): ComponentContract
-{
-    return parent::modifyDetailComponent($component)->customAttributes([
-        'data-my-attr' => 'value'
-    ]);
 }
 ```
 

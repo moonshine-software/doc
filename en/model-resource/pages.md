@@ -11,7 +11,7 @@ video: https://youtu.be/5o8qSf94Bf0?si=5mR85avWy4pZWfM2&t=245
 - [Page Types](#page-type)
 - [Fields](#fields)
 - [Layers on the Page](#layers)
-- [Main Components](#main-components)
+- [Main Component](#main-component)
 - [Simulate Route](#simulate)
 
 ---
@@ -86,11 +86,35 @@ The `handlers()` method for registering event handlers
 
 ### Main component
 
-To modify the main `IndexPage` component, use the `modifyListComponent()` method
-(more details in the section [ModelResource > Basics](/docs/{{version}}/model-resource/index#modifiers)).
+You can get the main component of a list page using the `getListComponent()` method to output it somewhere.
+
+```php
+$resource->getIndexPage()->getListComponent()
+```
+
+To modify the main `IndexPage` component, use the `modifyListComponent()` method.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\Contracts\UI\ComponentContract;
+use MoonShine\UI\Components\Table\TableBuilder;
+
+/**
+ * @param TableBuilder $component
+ * @return ComponentContract
+ */
+protected function modifyListComponent(ComponentContract $component): ComponentContract
+{
+    return $component
+        ->sticky()
+        ->stickyButtons()
+        ->columnSelection();
+}
+```
 
 To completely replace the main `IndexPage` component, use your own class
-(more details in the [Main components](#components) section below).
+(more details in the [Main Component](#main-component) section below).
 
 <a name="form-page"></a>
 ## FormPage
@@ -106,7 +130,7 @@ You can add validation for resource form fields using Laravel's standard validat
 
 The `rules()` method allows you to define validation rules for fields.
 
-```php filename:PostFormPage.php
+```php
 protected function rules(DataWrapperContract $item): array
 {
     return [
@@ -121,7 +145,7 @@ protected function rules(DataWrapperContract $item): array
 
 The `validationMessages()` method allows you to override validation error messages.
 
-```php filename:PostFormPage.php
+```php
 protected function rules(DataWrapperContract $item): array
 {
     return [
@@ -142,7 +166,7 @@ public function validationMessages(): array
 
 The `prepareForValidation()` method allows you to change data before validation.
 
-```php filename:PostFormPage.php
+```php
 public function prepareForValidation(): void
 {
     request()->merge([
@@ -166,24 +190,64 @@ Precognitive validation allows you to validate form fields in real time as you e
 
 ### Main component
 
-To modify the main `FormPage` component, use the `modifyListComponent()` method
-(more details in the section [ModelResource > Basics](/docs/{{version}}/model-resource/index#modifiers)).
+You can get the main form page component using the `getFormComponent()` method to output it somewhere.
+
+```php
+$resource->getFormPage()->getFormComponent()
+```
+
+To modify the main `FormPage` component, use the `modifyFormComponent()` method.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\Contracts\UI\FormBuilderContract;
+
+protected function modifyFormComponent(FormBuilderContract $component): FormBuilderContract
+{
+    return $component->withoutRedirect();
+}
+```
 
 To completely replace the main `FormPage` component, use your own class
-(more details in the [Main components](#components) section below).
+(more details in the [Main Component](#main-component) section below).
 
 <a name="detail-page"></a>
 ## Detail Page
+
+You can get the detail page's main component using the `getDetailComponent()` method to output it somewhere.
+
+```php
+$resource->getDetailPage()->getDetailComponent()
+```
 
 Detail page extends the `DetailPage` class and is responsible for displaying an element in detail.
 
 ### Main component
 
-To modify the main `DetailPage` component, use the `modifyListComponent()` method
-(more details in the section [ModelResource > Basics](/docs/{{version}}/model-resource/index#modifiers)).
+To modify the main `DetailPage` component, use the `modifyDetailComponent()` method.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\Contracts\UI\ComponentContract;
+use MoonShine\UI\Components\Table\TableBuilder;
+
+/**
+ * @param TableBuilder $component
+ * @return ComponentContract
+ */
+public function modifyDetailComponent(ComponentContract $component): ComponentContract
+{
+    return $component->vertical(
+        title: fn(FieldContract $field, Column $default, TableBuilder $ctx) => $default->columnSpan(2),
+        value: fn(FieldContract $field, Column $default, TableBuilder $ctx) => $default->columnSpan(10),
+    );
+}
+```
 
 To completely replace the main `DetailPage` component, use your own class
-(more details in the [Main components](#components) section below).
+(more details in the [Main Component](#main-component) section below).
 
 <a name="page-type"></a>
 ## Page types
@@ -293,8 +357,8 @@ protected function onLoad(): void
 }
 ```
 
-<a name="main-components"></a>
-## Main Components
+<a name="main-component"></a>
+## Main Component
 
 You can completely override the main resource page component.
 This allows you to encapsulate your own component implementation and reuse it between pages and resources.
@@ -388,16 +452,6 @@ final class ArticleListComponent implements DefaultListComponentContract
 protected string $component = ArticleListComponent::class;
 ```
 
-You can also change the main `IndexPage` component without creating a separate class, using the `getListComponent()` method.
-
-```php
-getListComponent(
-    bool $withoutFragment = false
-): ?ComponentContract
-```
-
-- `$withoutFragment` - flag of whether the component should be wrapped in a `Fragment`.
-
 > [!NOTE]
 > Example of an index page with the `CardsBuilder` component in the [Recipes](/docs/{{version}}/recipes/index-page-cards) section.
 
@@ -451,16 +505,6 @@ final class ArticleDetailComponent implements DefaultDetailComponentContract
 ```php filename:ArticleDetailPage
 protected string $component = ArticleDetailComponent::class;
 ```
-
-You can also change the main `DetailPage` component without creating a separate class, using the `getDetailComponent()` method.
-
-```php
-getDetailComponent(
-    bool $withoutFragment = false
-): ComponentContract
-```
-
-- `$withoutFragment` - flag of whether the component should be wrapped in a `Fragment`.
 
 ### FormPage
 
@@ -568,16 +612,6 @@ final class ArticleFormComponent implements DefaultFormContract
 ```php filename:ArticleFormPage
 protected string $component = ArticleFormComponent::class;
 ```
-
-You can also change the main `FormPage` component without creating a separate class, using the `getFormComponent()` method.
-
-```php
-getFormComponent(
-    bool $withoutFragment = false
-): ComponentContract
-```
-
-- `$withoutFragment` - flag of whether the component should be wrapped in a `Fragment`.
 
 <a name="simulate"></a>
 ## Simulate Route

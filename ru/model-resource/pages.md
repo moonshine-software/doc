@@ -11,7 +11,7 @@ video: https://youtu.be/bcFOkXuPSRk?si=RmlstXkRnan5r1K8&t=246
 - [Типы страниц](#page-type)
 - [Поля](#fields)
 - [Слои на странице](#layers)
-- [Основные компоненты](#main-components)
+- [Основной компонент](#main-component)
 - [Симуляция Route](#simulate)
 
 ---
@@ -86,11 +86,35 @@ protected bool $isLazy = true;
 
 ### Основной компонент
 
-Для модификации основного компонента `IndexPage`, используйте метод `modifyListComponent()`
-(подробнее в разделе [ModelResource > Основы](/docs/{{version}}/model-resource/index#modifiers)).
+Вы можете получить основной компонент страницы списка с помощью метода `getListComponent()`, чтобы вывести его где-либо.
+
+```php
+$resource->getIndexPage()->getListComponent()
+```
+
+Для модификации основного компонента `IndexPage`, используйте метод `modifyListComponent()`.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\Contracts\UI\ComponentContract;
+use MoonShine\UI\Components\Table\TableBuilder;
+
+/**
+ * @param TableBuilder $component
+ * @return ComponentContract
+ */
+protected function modifyListComponent(ComponentContract $component): ComponentContract
+{
+    return $component
+        ->sticky()
+        ->stickyButtons()
+        ->columnSelection();
+}
+```
 
 Для полной замены основного компонента `IndexPage` используйте собственный класс
-(подробнее в разделе [Основные компоненты](#components) ниже).
+(подробнее в разделе [Основной компонент](#main-component) ниже).
 
 <a name="form-page"></a>
 ## Страница формы
@@ -106,7 +130,7 @@ protected bool $isLazy = true;
 
 Метод `rules()` позволяет определить правила валидации для полей.
 
-```php filename:PostFormPage.php
+```php
 protected function rules(DataWrapperContract $item): array
 {
     return [
@@ -121,7 +145,7 @@ protected function rules(DataWrapperContract $item): array
 
 Метод `validationMessages()` позволяет переопределить сообщения об ошибках валидации.
 
-```php filename:PostFormPage.php
+```php
 protected function rules(DataWrapperContract $item): array
 {
     return [
@@ -142,7 +166,7 @@ public function validationMessages(): array
 
 Метод `prepareForValidation()` позволяет изменить данные перед валидацией.
 
-```php filename:PostFormPage.php
+```php
 public function prepareForValidation(): void
 {
     request()->merge([
@@ -166,24 +190,64 @@ Precognitive валидация позволяет валидировать по
 
 ### Основной компонент
 
-Для модификации основного компонента `FormPage`, используйте метод `modifyListComponent()`
-(подробнее в разделе [ModelResource > Основы](/docs/{{version}}/model-resource/index#modifiers)).
+Вы можете получить основной компонент страницы формы с помощью метода `getFormComponent()`, чтобы вывести его где-либо.
+
+```php
+$resource->getFormPage()->getFormComponent()
+```
+
+Для модификации основного компонента `FormPage`, используйте метод `modifyFormComponent()`.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\Contracts\UI\FormBuilderContract;
+
+protected function modifyFormComponent(FormBuilderContract $component): FormBuilderContract
+{
+    return $component->withoutRedirect();
+}
+```
 
 Для полной замены основного компонента `FormPage` используйте собственный класс
-(подробнее в разделе [Основные компоненты](#components) ниже).
+(подробнее в разделе [Основной компонент](#main-component) ниже).
 
 <a name="detail-page"></a>
 ## Детальная страница
+
+Вы можете получить основной компонент детальной страницы с помощью метода `getDetailComponent()`, чтобы вывести его где-либо.
+
+```php
+$resource->getDetailPage()->getDetailComponent()
+```
 
 Детальная страница расширяет класс `DetailPage` и отвечает за детальное отображение элемента.
 
 ### Основной компонент
 
-Для модификации основного компонента `DetailPage`, используйте метод `modifyListComponent()`
-(подробнее в разделе [ModelResource > Основы](/docs/{{version}}/model-resource/index#modifiers)).
+Для модификации основного компонента `DetailPage`, используйте метод `modifyDetailComponent()`.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\Contracts\UI\ComponentContract;
+use MoonShine\UI\Components\Table\TableBuilder;
+
+/**
+ * @param TableBuilder $component
+ * @return ComponentContract
+ */
+public function modifyDetailComponent(ComponentContract $component): ComponentContract
+{
+    return $component->vertical(
+        title: fn(FieldContract $field, Column $default, TableBuilder $ctx) => $default->columnSpan(2),
+        value: fn(FieldContract $field, Column $default, TableBuilder $ctx) => $default->columnSpan(10),
+    );
+}
+```
 
 Для полной замены основного компонента `DetailPage` используйте собственный класс
-(подробнее в разделе [Основные компоненты](#components) ниже).
+(подробнее в разделе [Основной компонент](#main-component) ниже).
 
 <a name="page-type"></a>
 ## Типы страниц
@@ -293,8 +357,8 @@ protected function onLoad(): void
 }
 ```
 
-<a name="main-components"></a>
-## Основные компоненты
+<a name="main-component"></a>
+## Основной компонент
 
 Вы можете полностью переопределить основной компонент страницы ресурса.
 Это позволяет инкапсулировать собственную реализацию компонента и переиспользовать ее между страницами и ресурсами.
@@ -388,16 +452,6 @@ final class ArticleListComponent implements DefaultListComponentContract
 protected string $component = ArticleListComponent::class;
 ```
 
-Вы также можете изменить основной компонент `IndexPage`, не создавая отдельный класс, с помощью метода `getListComponent()`.
-
-```php
-getListComponent(
-    bool $withoutFragment = false
-): ?ComponentContract
-```
-
-- `$withoutFragment` - флаг необходимости оборачивать компонент в `Fragment`.
-
 > [!NOTE]
 > Пример страницы индекса с компонентом `CardsBuilder` в разделе [Рецепты](/docs/{{version}}/recipes/index-page-cards).
 
@@ -451,16 +505,6 @@ final class ArticleDetailComponent implements DefaultDetailComponentContract
 ```php filename:ArticleDetailPage
 protected string $component = ArticleDetailComponent::class;
 ```
-
-Вы также можете изменить основной компонент `DetailPage`, не создавая отдельный класс, с помощью метода `getDetailComponent()`.
-
-```php
-getDetailComponent(
-    bool $withoutFragment = false
-): ComponentContract
-```
-
-- `$withoutFragment` - флаг необходимости оборачивать компонент в `Fragment`.
 
 ### FormPage
 
@@ -568,16 +612,6 @@ final class ArticleFormComponent implements DefaultFormContract
 ```php filename:ArticleFormPage
 protected string $component = ArticleFormComponent::class;
 ```
-
-Вы также можете изменить основной компонент `FormPage`, не создавая отдельный класс, с помощью метода `getFormComponent()`.
-
-```php
-getFormComponent(
-    bool $withoutFragment = false
-): ComponentContract
-```
-
-- `$withoutFragment` - флаг необходимости оборачивать компонент в `Fragment`.
 
 <a name="simulate"></a>
 ## Симуляция Route
