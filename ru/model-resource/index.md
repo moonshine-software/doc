@@ -18,7 +18,6 @@ video: https://youtu.be/bcFOkXuPSRk?si=LIXgfO1LpjfqwWyR
 - [Модальные окна](#modal-windows)
 - [Редиректы](#redirects)
 - [Активные действия](#active-actions)
-- [Модификаторы](#modifiers)
 - [Жизненный цикл](#lifecycle)
     - [Активный ресурс](#on-load)
     - [Создание экземпляра](#on-boot)
@@ -436,54 +435,6 @@ use MoonShine\Support\ListOf;
 protected function activeActions(): ListOf
 {
     return new ListOf(Action::class, [Action::VIEW, Action::UPDATE]);
-}
-```
-
-<a name="modifiers"></a>
-## Модификаторы
-
-Для модификации основного компонента `IndexPage`, `FormPage` или `DetailPage` можно переопределить
-методы `modifyListComponent()`, `modifyFormComponent()` и `modifyDetailComponent()` на соответствующих страницах.
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:1]
-use MoonShine\Contracts\UI\ComponentContract;
-
-public function modifyListComponent(ComponentContract $component): ComponentContract
-{
-    return parent::modifyListComponent($component)->customAttributes([
-        'data-my-attr' => 'value'
-    ]);
-}
-```
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use MoonShine\Contracts\UI\ComponentContract;
-use MoonShine\UI\Components\FlexibleRender;
-
-public function modifyFormComponent(ComponentContract $component): ComponentContract
-{
-    return parent::modifyFormComponent($component)->fields([
-        FlexibleRender::make('Top'),
-        ...parent::modifyFormComponent($component)->getFields()->toArray(),
-        FlexibleRender::make('Bottom'),
-    ])->submit('Go');
-}
-```
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:1]
-use MoonShine\Contracts\UI\ComponentContract;
-
-public function modifyDetailComponent(ComponentContract $component): ComponentContract
-{
-    return parent::modifyDetailComponent($component)->customAttributes([
-        'data-my-attr' => 'value'
-    ]);
 }
 ```
 

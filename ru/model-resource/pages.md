@@ -5,13 +5,13 @@ video: https://youtu.be/bcFOkXuPSRk?si=RmlstXkRnan5r1K8&t=246
 # Страницы
 
 - [Основы](#basics)
-- [IndexPage](#index-page)
-- [FormPage](#form-page)
-- [DetailPage](#detail-page)
+- [Страница списка](#index-page)
+- [Страница формы](#form-page)
+- [Детальная страница](#detail-page)
 - [Типы страниц](#page-type)
 - [Поля](#fields)
 - [Слои на странице](#layers)
-- [Основные компоненты](#components)
+- [Основной компонент](#main-component)
 - [Симуляция Route](#simulate)
 
 ---
@@ -22,7 +22,7 @@ video: https://youtu.be/bcFOkXuPSRk?si=RmlstXkRnan5r1K8&t=246
 Страницы являются основой архитектуры **MoonShine**.
 Вся ключевая функциональность определяется непосредственно в классах страниц, что обеспечивает гибкость и модульность.
 
-При создании ресурса так же создаются классы для страниц индекса (`IndexPage`), детального просмотра (`DetailPage`) и формы (`FormPage`).
+При создании ресурса так же создаются классы для страниц списка (`IndexPage`), детального просмотра (`DetailPage`) и формы (`FormPage`).
 Эти страницы зарегистрируются в ресурсе в методе `pages()`.
 
 ```php
@@ -51,9 +51,10 @@ class PostResource extends ModelResource
 ```
 
 <a name="index-page"></a>
-## IndexPage
+## Страница списка
 
-`IndexPage` является основным разделом ресурса и отвечает за отображение списка элементов.
+Страница списка расширяет класс `IndexPage`.
+Она является основным разделом ресурса и отвечает за отображение списка элементов, его фильтрацию, сортировку и многое другое.
 
 ### Lazy режим
 
@@ -85,16 +86,42 @@ protected bool $isLazy = true;
 
 ### Основной компонент
 
-Для модификации существующего компонента используйте метод `modifyListComponent()`
-(подробнее в разделе [Основы](/docs/{{version}}/model-resource/index#modifiers)).
+Вы можете получить основной компонент страницы списка с помощью метода `getListComponent()`, чтобы вывести его где-либо.
 
-Для полной замены основного компонента индексной страницы используйте собственный класс
-(подробнее в разделе [Основные компоненты](#components) ниже).
+```php
+$page->getListComponent();
+// or
+$resource->getIndexPage()->getListComponent();
+```
+
+Для модификации основного компонента `IndexPage`, используйте метод `modifyListComponent()`.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\Contracts\UI\ComponentContract;
+use MoonShine\UI\Components\Table\TableBuilder;
+
+/**
+ * @param TableBuilder $component
+ * @return ComponentContract
+ */
+protected function modifyListComponent(ComponentContract $component): ComponentContract
+{
+    return $component
+        ->sticky()
+        ->stickyButtons()
+        ->columnSelection();
+}
+```
+
+Для полной замены основного компонента `IndexPage` используйте собственный класс
+(подробнее в разделе [Основной компонент](#main-component) ниже).
 
 <a name="form-page"></a>
-## FormPage
+## Страница формы
 
-`FormPage` отвечает за создание и редактирование элементов.
+Страница формы расширяет класс `FormPage` и отвечает за создание и редактирование элементов.
 
 <a name="validation"></a>
 ### Validation
@@ -105,7 +132,7 @@ protected bool $isLazy = true;
 
 Метод `rules()` позволяет определить правила валидации для полей.
 
-```php filename:PostFormPage.php
+```php
 protected function rules(DataWrapperContract $item): array
 {
     return [
@@ -120,7 +147,7 @@ protected function rules(DataWrapperContract $item): array
 
 Метод `validationMessages()` позволяет переопределить сообщения об ошибках валидации.
 
-```php filename:PostFormPage.php
+```php
 protected function rules(DataWrapperContract $item): array
 {
     return [
@@ -141,7 +168,7 @@ public function validationMessages(): array
 
 Метод `prepareForValidation()` позволяет изменить данные перед валидацией.
 
-```php filename:PostFormPage.php
+```php
 public function prepareForValidation(): void
 {
     request()->merge([
@@ -165,24 +192,68 @@ Precognitive валидация позволяет валидировать по
 
 ### Основной компонент
 
-Для модификации существующего компонента используйте метод `modifyFormComponent()`
-(подробнее в разделе [Основы](/docs/{{version}}/model-resource/index#modifiers)).
+Вы можете получить основной компонент страницы формы с помощью метода `getFormComponent()`, чтобы вывести его где-либо.
 
-Для полной замены основного компонента страницы формы используйте собственный класс
-(подробнее в разделе [Основные компоненты](#components) ниже).
+```php
+$page->getFormComponent();
+// or
+$resource->getFormPage()->getFormComponent();
+```
+
+Для модификации основного компонента `FormPage`, используйте метод `modifyFormComponent()`.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\Contracts\UI\FormBuilderContract;
+
+protected function modifyFormComponent(FormBuilderContract $component): FormBuilderContract
+{
+    return $component->withoutRedirect();
+}
+```
+
+Для полной замены основного компонента `FormPage` используйте собственный класс
+(подробнее в разделе [Основной компонент](#main-component) ниже).
 
 <a name="detail-page"></a>
-## DetailPage
+## Детальная страница
 
-`DetailPage` отвечает за детальное отображение элемента.
+Вы можете получить основной компонент детальной страницы с помощью метода `getDetailComponent()`, чтобы вывести его где-либо.
+
+```php
+$page->getDetailComponent();
+// or
+$resource->getDetailPage()->getDetailComponent();
+```
+
+Детальная страница расширяет класс `DetailPage` и отвечает за детальное отображение элемента.
 
 ### Основной компонент
 
-Для модификации существующего компонента используйте метод `modifyDetailComponent()`
-(подробнее в разделе [Основы](/docs/{{version}}/model-resource/index#modifiers)).
+Для модификации основного компонента `DetailPage`, используйте метод `modifyDetailComponent()`.
 
-Для полной замены основного компонента страницы формы используйте собственный класс
-(подробнее в разделе [Основные компоненты](#components) ниже).
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\Contracts\UI\ComponentContract;
+use MoonShine\UI\Components\Table\TableBuilder;
+
+/**
+ * @param TableBuilder $component
+ * @return ComponentContract
+ */
+public function modifyDetailComponent(ComponentContract $component): ComponentContract
+{
+    return $component->vertical(
+        title: fn(FieldContract $field, Column $default, TableBuilder $ctx) => $default->columnSpan(2),
+        value: fn(FieldContract $field, Column $default, TableBuilder $ctx) => $default->columnSpan(10),
+    );
+}
+```
+
+Для полной замены основного компонента `DetailPage` используйте собственный класс
+(подробнее в разделе [Основной компонент](#main-component) ниже).
 
 <a name="page-type"></a>
 ## Типы страниц
@@ -292,23 +363,30 @@ protected function onLoad(): void
 }
 ```
 
-<a name="components"></a>
-## Основные компоненты
+<a name="main-component"></a>
+## Основной компонент
 
-Основной компонент страницы задается классом, реализующим один из интерфейсов неймспейса `MoonShine\Crud\Contracts\PageComponents`.
-Это позволяет полностью заменить компонент, инкапсулировать логику и переиспользовать ее между страницами и ресурсами.
+Вы можете полностью переопределить основной компонент страницы ресурса.
+Это позволяет инкапсулировать собственную реализацию компонента и переиспользовать ее между страницами и ресурсами.
 
-Доступные интерфейсы:
+Для этого необходимо создать класс, реализующий соответствующий интерфейс,
+реализовать в нём метод `__invoke()` и заменить этим классом значение свойства `$component` на странице.
 
-- `DefaultListComponentContract` — основной компонент индексной страницы (список элементов),
-- `DefaultDetailComponentContract` — основной компонент детальной страницы,
-- `DefaultFormContract` — основной компонент формы.
-
-Класс должен реализовывать метод `__invoke()`, который возвращает компонент, реализующий интерфейс `MoonShine\Contracts\UI\ComponentContract`.
+Далее приведём конкретные примеры реализации для разных страниц.
 
 ### IndexPage
 
-Для изменения компонента индексной страницы необходимо создать класс, реализующий интерфейс `DefaultListComponentContract`:
+```php
+function __invoke(
+    IndexPageContract $page,
+    iterable $items,
+    FieldsContract $fields
+): ComponentContract
+```
+
+- `$page` - объект индексной страницы, на которой располагается компонент,
+- `$items` - элементы списка для отображения,
+- `$fields` - поля, которые будут отображаться в списке.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -376,49 +454,26 @@ final class ArticleListComponent implements DefaultListComponentContract
 }
 ```
 
-Аргументы метода `__invoke()`:
-
-- `$page` - объект индексной страницы, на которой располагается компонент,
-- `$items` - элементы списка для отображения,
-- `$fields` - поля, которые будут отображаться в списке.
-
-Теперь в классе страницы в свойстве `$component` нужно переопределить компонент для отображения списка:
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use MoonShine\Crud\Contracts\PageComponents\DefaultListComponentContract;
-use MoonShine\Laravel\Pages\Crud\IndexPage;
-
-class ArticleIndexPage extends IndexPage
-{
-    /**
-     * @var class-string<DefaultListComponentContract>
-     */
-    protected string $component = ArticleListComponent::class;
-}
+```php filename:ArticleIndexPage
+protected string $component = ArticleListComponent::class;
 ```
-
-Вы также можете изменить компонент списка с помощью метода `getItemsComponent()`:
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use MoonShine\Contracts\Core\DependencyInjection\FieldsContract;
-use MoonShine\Contracts\UI\ComponentContract;
-
-getItemsComponent(iterable $items, FieldsContract $fields): ComponentContract
-```
-
-- `$items` - значения полей,
-- `$fields` - поля.
 
 > [!NOTE]
 > Пример страницы индекса с компонентом `CardsBuilder` в разделе [Рецепты](/docs/{{version}}/recipes/index-page-cards).
 
 ### DetailPage
 
-Чтобы изменить компонент страницы детального просмотра, необходимо создать класс, реализующий интерфейс `DefaultDetailComponentContract`:
+```php
+function __invoke(
+    DetailPageContract $page,
+    ?DataWrapperContract $item,
+    FieldsContract $fields,
+): ComponentContract
+```
+
+- `$page` - объект детальной страницы, на которой располагается компонент,
+- `$item` - объект с данными,
+- `$fields` - поля, которые будут отображаться в компоненте.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -453,44 +508,26 @@ final class ArticleDetailComponent implements DefaultDetailComponentContract
 }
 ```
 
-Аргументы метода `__invoke()`:
-
-- `$page` - объект детальной страницы, на которой располагается компонент,
-- `$item` - объект с данными,
-- `$fields` - поля, которые будут отображаться в компоненте.
-
-Теперь в классе страницы в свойстве `$component` нужно переопределить компонент для детального просмотра:
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use MoonShine\Crud\Contracts\PageComponents\DefaultDetailComponentContract;
-use MoonShine\Laravel\Pages\Crud\DetailPage;
-
-class ArticleDetailPage extends DetailPage
-{
-    /**
-     * @var class-string<DefaultDetailComponentContract>
-     */
-    protected string $component = ArticleDetailComponent::class;
-}
+```php filename:ArticleDetailPage
+protected string $component = ArticleDetailComponent::class;
 ```
-
-Также изменить основной компонент страницы детального просмотра можно с помощью метода `getDetailComponent()`:
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:1]
-use MoonShine\Contracts\UI\ComponentContract;
-
-getDetailComponent(bool $withoutFragment = false): ComponentContract
-```
-
-- `$withoutFragment` - флаг необходимости оборачивать компонент в `Fragment`.
 
 ### FormPage
 
-Для изменения компонента страницы с формой редактирования элемента необходимо создать класс, реализующий интерфейс `DefaultFormContract`:
+```php
+function __invoke(
+    FormPageContract $page,
+    string $action,
+    ?DataWrapperContract $item,
+    FieldsContract $fields,
+    bool $isAsync = true,
+): FormBuilderContract
+```
+
+- `$page` - объект страницы, на которой располагается компонент,
+- `$action` - обработчик формы,
+- `$item` - объект с данными,
+- `$fields` - поля, которые будут отображаться в компоненте.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -508,7 +545,7 @@ use MoonShine\Support\Enums\JsEvent;
 use MoonShine\UI\Components\FormBuilder;
 use MoonShine\UI\Fields\Hidden;
 
-final class ArticleForm implements DefaultFormContract
+final class ArticleFormComponent implements DefaultFormContract
 {
     use WithCore;
 
@@ -578,41 +615,9 @@ final class ArticleForm implements DefaultFormContract
 }
 ```
 
-Аргументы метода `__invoke()`:
-
-- `$page` - объект страницы, на которой располагается компонент,
-- `$action` - обработчик формы,
-- `$item` - объект с данными,
-- `$fields` - поля, которые будут отображаться в компоненте.
-
-Теперь в классе страницы в свойстве `$component` нужно переопределить компонент формы:
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use MoonShine\Crud\Contracts\PageComponents\DefaultFormContract;
-use MoonShine\Laravel\Pages\Crud\FormPage;
-
-class ArticleFormPage extends FormPage
-{
-    /**
-     * @var class-string<DefaultFormContract>
-     */
-    protected string $component = ArticleForm::class;
-}
+```php filename:ArticleFormPage
+protected string $component = ArticleFormComponent::class;
 ```
-
-Вы также можете с помощью метода `getFormComponent()` изменить основной компонент на странице с формой.
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:1]
-use MoonShine\Contracts\UI\ComponentContract;
-
-getFormComponent(bool $withoutFragment = false): ComponentContract
-```
-
-- `$withoutFragment` - флаг необходимости оборачивать компонент в `Fragment`.
 
 <a name="simulate"></a>
 ## Симуляция Route
