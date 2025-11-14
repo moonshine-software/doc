@@ -89,7 +89,9 @@ protected bool $isLazy = true;
 Вы можете получить основной компонент страницы списка с помощью метода `getListComponent()`, чтобы вывести его где-либо.
 
 ```php
-$resource->getIndexPage()->getListComponent()
+$page->getListComponent();
+// or
+$resource->getIndexPage()->getListComponent();
 ```
 
 Для модификации основного компонента `IndexPage`, используйте метод `modifyListComponent()`.
@@ -193,7 +195,9 @@ Precognitive валидация позволяет валидировать по
 Вы можете получить основной компонент страницы формы с помощью метода `getFormComponent()`, чтобы вывести его где-либо.
 
 ```php
-$resource->getFormPage()->getFormComponent()
+$page->getFormComponent();
+// or
+$resource->getFormPage()->getFormComponent();
 ```
 
 Для модификации основного компонента `FormPage`, используйте метод `modifyFormComponent()`.
@@ -218,7 +222,9 @@ protected function modifyFormComponent(FormBuilderContract $component): FormBuil
 Вы можете получить основной компонент детальной страницы с помощью метода `getDetailComponent()`, чтобы вывести его где-либо.
 
 ```php
-$resource->getDetailPage()->getDetailComponent()
+$page->getDetailComponent();
+// or
+$resource->getDetailPage()->getDetailComponent();
 ```
 
 Детальная страница расширяет класс `DetailPage` и отвечает за детальное отображение элемента.

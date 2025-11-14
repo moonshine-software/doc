@@ -89,7 +89,9 @@ The `handlers()` method for registering event handlers
 You can get the main component of a list page using the `getListComponent()` method to output it somewhere.
 
 ```php
-$resource->getIndexPage()->getListComponent()
+$page->getListComponent();
+// or
+$resource->getIndexPage()->getListComponent();
 ```
 
 To modify the main `IndexPage` component, use the `modifyListComponent()` method.
@@ -193,7 +195,9 @@ Precognitive validation allows you to validate form fields in real time as you e
 You can get the main form page component using the `getFormComponent()` method to output it somewhere.
 
 ```php
-$resource->getFormPage()->getFormComponent()
+$page->getFormComponent();
+// or
+$resource->getFormPage()->getFormComponent();
 ```
 
 To modify the main `FormPage` component, use the `modifyFormComponent()` method.
@@ -218,7 +222,9 @@ To completely replace the main `FormPage` component, use your own class
 You can get the detail page's main component using the `getDetailComponent()` method to output it somewhere.
 
 ```php
-$resource->getDetailPage()->getDetailComponent()
+$page->getDetailComponent();
+// or
+$resource->getDetailPage()->getDetailComponent();
 ```
 
 Detail page extends the `DetailPage` class and is responsible for displaying an element in detail.
