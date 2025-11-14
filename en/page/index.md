@@ -340,7 +340,8 @@ protected function modifyResponse(): ?Response
 }
 ```
 
-Using `modifyResponse()` provides a flexible way to manage the page response, allowing for complex request and response handling logic in the admin panel.
+Using `modifyResponse()` provides a flexible way to manage the page response,
+allowing for complex request and response handling logic in the admin panel.
 
 <a name="lifecycle"></a>
 ## Lifecycle
@@ -400,7 +401,8 @@ class PostPage extends Page
 <a name="link-from-resource"></a>
 ## Creating a Link to a Page from a Resource
 
-In this example, to create a link to a new page, we'll use the [ActionButton](/docs/{{version}}/components/action-button) and the [getPageUrl](/docs/{{version}}/model-resource/routes) method.
+In this example, to create a link to a new page we will use [ActionButton](/docs/{{version}}/components/action-button) component
+and the resource method [getPageUrl](/docs/{{version}}/model-resource/routes).
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -408,18 +410,16 @@ In this example, to create a link to a new page, we'll use the [ActionButton](/d
 use MoonShine\Support\ListOf;
 use MoonShine\UI\Components\ActionButton;
 
-/**
- * @throws Throwable
- */
-public function indexButtons(): ListOf
+public function buttons(): ListOf
 {
-    return parent::indexButtons()->add(
-        ActionButton::make('To custom page',
-            url: fn($model) => $this->getPageUrl(
-                PostPage::class, params: ['resourceItem' => $model->getKey()]
+    return parent::buttons()
+        ->add(
+            ActionButton::make('To custom page',
+                url: fn($model) => $this->getResource()?->getPageUrl(
+                    PostPage::class, params: ['resourceItem' => $model->getKey()]
+                ),
             ),
-        ),
-    );
+        );
 }
 ```
 

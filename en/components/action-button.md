@@ -323,7 +323,8 @@ ActionButton::make('Button Label')
 <a name="group"></a>
 ## Grouping
 
-If you need to organize logic with multiple `ActionButton`, with some of them needing to be hidden or displayed in a dropdown menu, use the `ActionGroup` component.
+If you need to organize logic with multiple `ActionButton`,
+while some of them should be hidden or displayed in a dropdown menu, use the `ActionGroup` component.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -367,15 +368,15 @@ ActionGroup::make([
 The `bulk()` method allows creating a bulk action button for `ModelResource`.
 
 ```php
-protected function indexButtons(): ListOf
+class PostIndexPage extends IndexPage
 {
-    return parent::indexButtons()
-        ->add(ActionButton::make('Link', '/endpoint')->bulk());
+    protected function buttons(): ListOf
+    {
+        return parent::buttons()
+            ->add(ActionButton::make('Link', '/endpoint')->bulk());
+    }
 }
 ```
-
-> [!NOTE]
-> The `bulk()` method is only used within `ModelResource`.
 
 <a name="async"></a>
 ## Async mode
@@ -595,8 +596,23 @@ public function updateSomething(CrudRequestContract $request)
 
 If the request contains `resourceItem`, you can access the current item in the resource through the `getItem()` method.
 
-When the data contains a model and the button is created in the `indexButtons()` method or `detailButtons()` or `formButtons()` of [TableBuilder](/docs/{{version}}/components/table-builder#buttons), [CardsBuilder](/docs/{{version}}/components/cards-builder#buttons) or [FormBuilder](/docs/{{version}}/components/form-builder#buttons),
-it automatically gets the data, and the parameters will contain `resourceItem`.
+If a button is placed within a component that has access to a model, then this model can be obtained through a callback in the button.
+
+```php
+class ArticleIndexPage extends IndexPage
+{
+    protected function buttons(): ListOf
+    {
+        return parent::buttons()
+            ->add(
+                ActionButton::make(
+                    'Go to',
+                    static fn(Article $model) => route('articles.show', $model),
+                )->blank(),
+            );
+    }
+}
+```
 
 When the button is on the form page of `ModelResource`, you can pass the id of the current item.
 
