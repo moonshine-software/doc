@@ -20,9 +20,7 @@ video: https://youtu.be/bcFOkXuPSRk?si=YksYKURpk1koywfT&t=1113
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:4]
-namespace App\MoonShine\Resources;
-
+// [tl! collapse:2]
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use MoonShine\Laravel\Resources\ModelResource;
 
@@ -47,9 +45,7 @@ class PostResource extends ModelResource
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:4]
-namespace App\MoonShine\Resources;
-
+// [tl! collapse:2]
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use MoonShine\Laravel\Resources\ModelResource;
 
@@ -72,9 +68,7 @@ class PostResource extends ModelResource
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-namespace App\MoonShine\Resources;
-
+// [tl! collapse:1]
 use MoonShine\Laravel\Resources\ModelResource;
 
 class PostResource extends ModelResource
@@ -92,9 +86,7 @@ class PostResource extends ModelResource
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-namespace App\MoonShine\Resources;
-
+// [tl! collapse:1]
 use MoonShine\Laravel\Resources\ModelResource;
 
 class PostResource extends ModelResource
@@ -114,9 +106,7 @@ class PostResource extends ModelResource
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-namespace App\MoonShine\Resources;
-
+// [tl! collapse:1]
 use MoonShine\Laravel\Resources\ModelResource;
 
 class PostResource extends ModelResource
@@ -132,6 +122,7 @@ class PostResource extends ModelResource
         });
     }
 }
+```
 
 Также вы можете полностью переопределить логику, включая и полнотекстовый поиск.
 
@@ -151,9 +142,7 @@ protected function resolveSearch(string $terms, ?iterable $fullTextColumns = nul
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-namespace App\MoonShine\Resources;
-
+// [tl! collapse:1]
 use MoonShine\Laravel\Resources\ModelResource;
 
 class PostResource extends ModelResource
