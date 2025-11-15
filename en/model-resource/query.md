@@ -20,9 +20,7 @@ You can easily override the `QueryBuilder` in the resource.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:4]
-namespace App\MoonShine\Resources;
-
+// [tl! collapse:2]
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use MoonShine\Laravel\Resources\ModelResource;
 
@@ -47,9 +45,7 @@ The `modifyItemQueryBuilder()` method is used if you need to modify the query fo
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:4]
-namespace App\MoonShine\Resources;
-
+// [tl! collapse:2]
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use MoonShine\Laravel\Resources\ModelResource;
 
@@ -72,9 +68,7 @@ class PostResource extends ModelResource
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-namespace App\MoonShine\Resources;
-
+// [tl! collapse:1]
 use MoonShine\Laravel\Resources\ModelResource;
 
 class PostResource extends ModelResource
@@ -92,9 +86,7 @@ The `searchQuery()` method allows you to override the query when searching for r
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-namespace App\MoonShine\Resources;
-
+// [tl! collapse:1]
 use MoonShine\Laravel\Resources\ModelResource;
 
 class PostResource extends ModelResource
@@ -114,9 +106,7 @@ If you only want to expand the query, you need to call the parent method.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-namespace App\MoonShine\Resources;
-
+// [tl! collapse:1]
 use MoonShine\Laravel\Resources\ModelResource;
 
 class PostResource extends ModelResource
@@ -132,6 +122,7 @@ class PostResource extends ModelResource
         });
     }
 }
+```
 
 You can also completely override the logic, including full-text search.
 
@@ -151,9 +142,7 @@ By overriding the `resolveOrder()` method, you can customize the sorting of reco
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-namespace App\MoonShine\Resources;
-
+// [tl! collapse:1]
 use MoonShine\Laravel\Resources\ModelResource;
 
 class PostResource extends ModelResource
