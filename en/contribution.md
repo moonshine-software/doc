@@ -89,7 +89,7 @@ cd packages && git clone git@github.com:moonshine-software/moonshine.git && cd m
 3. Go back to the project directory and in `composer.json` change the dependency for moonshine/moonshine.
 
 ```
-"moonshine/moonshine": "3.*.*-dev",
+"moonshine/moonshine": "4.x",
 ```
 
 4. Add the following to `composer.json`.
@@ -101,7 +101,7 @@ cd packages && git clone git@github.com:moonshine-software/moonshine.git && cd m
         "url": "packages/moonshine",
         "options": {
             "versions": {
-                "moonshine/moonshine": "3.*.*-dev"
+                "moonshine/moonshine": "4.x"
             },
             "symlink": true
         }
