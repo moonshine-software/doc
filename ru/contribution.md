@@ -89,7 +89,7 @@ cd packages && git clone git@github.com:moonshine-software/moonshine.git && cd m
 3. Вернитесь в директорию проекта и в `composer.json` измените зависимость moonshine/moonshine.
 
 ```
-"moonshine/moonshine": "3.*.*-dev",
+"moonshine/moonshine": "4.x",
 ```
 
 4. Добавьте в `composer.json`.
@@ -101,7 +101,7 @@ cd packages && git clone git@github.com:moonshine-software/moonshine.git && cd m
         "url": "packages/moonshine",
         "options": {
             "versions": {
-                "moonshine/moonshine": "3.*.*-dev"
+                "moonshine/moonshine": "4.x"
             },
             "symlink": true
         }
