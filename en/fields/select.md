@@ -492,7 +492,7 @@ new OptionProperty(
 <a name="options"></a>
 ## Options
 
-All *Choices.js* options are available for modification through *data attributes*.
+All *Tom Select* options are available for modification through *data attributes*.
 
 ```php
 use MoonShine\UI\Fields\Select;
@@ -503,18 +503,18 @@ Select::make('Country', 'country_id')
         2 => 'United Arab Emirates',
     ])
     ->customAttributes([
-        'data-max-item-count' => 2
+        'data-remove-item-button' => true,
     ])
 
 ```
 
 > [!TIP]
-> For more detailed information refer to the [Choices.js](https://choices-js.github.io/Choices/).
+> For more detailed information refer to the [Tom Select documentation](https://tom-select.js.org/docs/).
 
 <a name="native"></a>
 ## Native display mode
 
-The `native()` method disables the *Choices.js* library and outputs the `Select` in native mode.
+The `native()` method disables the *Tom Select* library and outputs the `Select` in native mode.
 
 ```php
 use MoonShine\UI\Fields\Select;
