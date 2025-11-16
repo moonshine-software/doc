@@ -250,12 +250,12 @@ use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 BelongsToMany::make('Categories', resource: CategoryResource::class)
     ->selectMode()
     ->customAttributes([
-        'data-max-item-count' => 2
+        'data-search-enabled' => true,
     ])
 ```
 
 > [!NOTE]
-> For more detailed information, please refer to [Choices](https://choices-js.github.io/Choices/).
+> For more detailed information, please refer to the [Tom Select documentation](https://tom-select.js.org/docs/).
 
 <a name="placeholder"></a>
 ## Placeholder

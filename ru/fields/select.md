@@ -499,7 +499,7 @@ new OptionProperty(
 <a name="options"></a>
 ## Опции
 
-Все опции *Сhoices.js* доступны для изменения через *data attributes*.
+Все опции *Tom Select* доступны для изменения через *data attributes*.
 
 ```php
 use MoonShine\UI\Fields\Select;
@@ -510,18 +510,18 @@ Select::make('Country', 'country_id')
         2 => 'United Arab Emirates',
     ])
     ->customAttributes([
-        'data-max-item-count' => 2
+        'data-remove-item-button' => true,
     ])
 
 ```
 
 > [!TIP]
-> За более подробной информацией обратитесь к [Choices.js](https://choices-js.github.io/Choices/).
+> За более подробной информацией обратитесь к [документации Tom Select](https://tom-select.js.org/docs/).
 
 <a name="native"></a>
 ## Нативный режим отображения
 
-Метод `native()` отключает библиотеку *Choices.js* и выводит `Select` в нативном режиме.
+Метод `native()` отключает библиотеку *Tom Select* и выводит `Select` в нативном режиме.
 
 ```php
 use MoonShine\UI\Fields\Select;
@@ -581,7 +581,7 @@ Select::make('Type')
 <a name="settings"></a>
 ## Пользовательские настройки
 
-Метод `settings()` разрешает использовать все пользовательские настройки `Tom select`.
+Метод `settings()` разрешает использовать все пользовательские настройки `Tom Select`.
 
 ```php
 use MoonShine\Support\DTOs\Select\Settings;
