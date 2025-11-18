@@ -69,23 +69,25 @@ use MoonShine\Crud\Traits\WithComponentsPusher; // [tl! add]
 
 Many methods and properties have been moved from resources to the corresponding CRUD pages.
 
-The `rules()` method has been moved from the resource to the `FormPage`.
+The `rules()` and `modifyFormComponent()` methods have been moved to the form class.
 
-The `metrics()`, `queryTags()`, `filters()` methods have been moved to the index page class.
+The `metrics()`, `queryTags()`, `filters()`, `modifyListComponent()` methods have been moved to the index page class.
 
-The `indexButtons()` method has been removed from the resource, and the `buttons()` method should be used instead on the corresponding index page.
+The `modifyDetailComponent()` method has been moved to the detail page class.
 
-The `topButtons()` method has been removed from the resource, and the `topLeftButtons()` and `topRightButtons()` methods should be used instead in the corresponding index page.
+The `indexButtons()` method has been removed from the resource and the `buttons()` method should be used in the index page class instead.
 
-The `formButtons()` method has been removed from the resource, and the `buttons()` method should be used instead on the corresponding form page.
+The `topButtons()` method has been removed from the resource, and the `topLeftButtons()` and `topRightButtons()` methods should be used instead in the index page class.
 
-The `formBuilderButtons()` method has been removed from the resource, and the `formButtons()` method should be used instead on the appropriate form page.
+The `formButtons()` method has been removed from the resource and the `buttons()` method should be used in the form page class instead.
+
+The `formBuilderButtons()` method has been removed from the resource and the `formButtons()` method should be used in the form page class instead.
 
 The properties `$clickAction`, `$stickyTable`, `$stickyButtons`, `$columnSelection` have been removed from the resource.
-The `modifyListComponent()` method should be overridden instead.
+Instead, you should override the `modifyListComponent()` method in the index page class.
 
-This is not a complete list of changes in the resource, but the process of transferring all relevant functionality
-from a resource to a CRUD page is quite intuitive and should not be difficult.
+This is not a complete list of changes to the resource, but the process of transferring all relevant functionality from the resource to
+CRUD pages are quite intuitive and should not be difficult.
 
 <a name="field-changes"></a>
 ## Field Changes
