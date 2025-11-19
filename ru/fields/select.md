@@ -18,8 +18,8 @@
 - [Пользовательские настройки](#settings)
   - [Именные настройки](#fields-names)
   - [Доп. настройки асинхронности](#async-settings)
-  - [Создания новых опции](#select-creatable)
-  - [Макс. выбор опции](#select-max-items)
+  - [Создание новых опций](#select-creatable)
+  - [Максимальный выбор опций](#select-max-items)
 
 ---
 
@@ -31,6 +31,8 @@
 ~~~tabs
 tab: Class
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Select;
 
 Select::make('Country', 'country_id')
@@ -68,6 +70,8 @@ default(mixed $default)
 ```
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Select;
 
 Select::make('Country', 'country_id')
@@ -81,6 +85,13 @@ Select::make('Country', 'country_id')
 Также вы можете указывать опции через объект `Options`.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:4]
+use MoonShine\Support\DTOs\Select\Option;
+use MoonShine\Support\DTOs\Select\OptionProperty;
+use MoonShine\Support\DTOs\Select\Options;
+use MoonShine\UI\Fields\Select;
+
 Select::make('Select')
     ->options(
         new Options([
@@ -111,6 +122,8 @@ nullable(Closure|bool|null $condition = null)
 ~~~tabs
 tab: Class
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Select;
 
 Select::make('Country', 'country_id')
@@ -141,6 +154,8 @@ placeholder(string $value)
 ```
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Select;
 
 Select::make('Country', 'country')
@@ -156,6 +171,8 @@ Select::make('Country', 'country')
 ~~~tabs
 tab: array
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Select;
 
 Select::make('City', 'city_id')
@@ -172,6 +189,8 @@ Select::make('City', 'city_id')
 ```
 tab: OptionGroup
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Select;
 
 Select::make('City')
@@ -203,6 +222,8 @@ multiple(Closure|bool|null $condition = null)
 ```
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Select;
 
 Select::make('Country', 'country_id')
@@ -227,6 +248,8 @@ Select::make('Country', 'country_id')
 ~~~tabs
 tab: Class
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Select;
 
 Select::make('Country', 'country_id')
@@ -329,6 +352,8 @@ public function selectOptions(): JsonResponse
 ~~~tabs
 tab: Class
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Select;
 
 Select::make('Country', 'country_id')
@@ -347,6 +372,8 @@ tab: Blade
 Если необходимо сразу же после отображения страницы отправить запрос на значения, тогда необходимо добавить метод `asyncOnInit(whenOpen: false)`.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Select;
 
 Select::make('Country', 'country_id')
@@ -370,6 +397,8 @@ Select::make('Country', 'country_id')
 При изменении значения `Select`, вы можете вызвать события через метод `onChangeEvent()`.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Select;
 
 Select::make('Country', 'country_id')
@@ -425,6 +454,8 @@ updateOnPreview(
 > Параметры не являются обязательными и их необходимо передавать, если поле работает вне ресурса.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Select;
 
 Select::make('Country')
@@ -441,6 +472,8 @@ optionProperties(Closure|array $data)
 ```
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Select;
 
 Select::make('Country', 'country_id')
@@ -502,6 +535,8 @@ new OptionProperty(
 Все опции *Tom Select* доступны для изменения через *data attributes*.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Select;
 
 Select::make('Country', 'country_id')
@@ -524,14 +559,13 @@ Select::make('Country', 'country_id')
 Метод `native()` отключает библиотеку *Tom Select* и выводит `Select` в нативном режиме.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Select;
 
 Select::make('Type')
     ->native()
 ```
-
-> [!TIP]
-> Смотрите также рецепты по использованию [Select](/docs/{{version}}/recipes/select).
 
 <a name="plugins"></a>
 ## Плагины
@@ -539,6 +573,8 @@ Select::make('Type')
 Метод `addPlugin(array|string $plugin, array $pluginOptions = [])` добавляет плагин в `Select`.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Select;
 
 Select::make('Type')
@@ -560,19 +596,18 @@ Select::make('Type')
 
 Вы также можете очень легко создавать свои собственные плагины.
 
-```html
-<script>
-    document.addEventListener('moonshine:select_init', function({ detail: { createPlugin } }) {
-        createPlugin('myPlugin', function(pluginOptions) {
-            console.log(pluginOptions, this.getValue())
+```js
+document.addEventListener('moonshine:select_init', function({ detail: { createPlugin } }) {
+    createPlugin('myPlugin', function(pluginOptions) {
+        console.log(pluginOptions, this.getValue())
 
-            this.on('change', value => {
-                //
-            })
+        this.on('change', value => {
+            // ...
         })
     })
-</script>
+})
 ```
+
 Далее, подключаем плагин, как показано выше.
 
 > [!TIP]
@@ -581,13 +616,15 @@ Select::make('Type')
 <a name="settings"></a>
 ## Пользовательские настройки
 
-Метод `settings()` разрешает использовать все пользовательские настройки `Tom Select`.
+Метод `settings()` разрешает использовать все пользовательские настройки **Tom Select**.
 
 ```php
-use MoonShine\Support\DTOs\Select\Settings;
 settings(array|Settings $settings)
 ```
+
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
 use MoonShine\UI\Fields\Select;
 use MoonShine\Support\DTOs\Select\Settings;
 
@@ -603,13 +640,17 @@ Select::make('Type')
 > Все доступные [настройки](https://tom-select.js.org/docs/#general-configuration).
 
 <a name="fields-names"></a>
-### Для всех именных настроек, есть очень удобный метод `fieldsNames()`
+### Именные настройки
+
+Для всех именных настроек, есть очень удобный метод `fieldsNames()`.
 
 ```php
-use MoonShine\Support\DTOs\Select\FieldsNames;
 fieldsNames(FieldsNames $names)
 ```
+
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
 use MoonShine\UI\Fields\Select;
 use MoonShine\Support\DTOs\Select\FieldsNames;
 
@@ -623,15 +664,19 @@ Select::make('Type')
 ```
 
 <a name="async-settings"></a>
-### Для дополнительной настройки асинхронности, можно воспользоваться методом `asyncSettings()`
+### Доп. настройки асинхронности
+
+Для дополнительной настройки асинхронности, можно воспользоваться методом `asyncSettings()`.
 
 ```php
-use MoonShine\Support\DTOs\Select\AsyncSettings;
 asyncSettings(array|AsyncSettings $settings)
 ```
+
 ```php
-use MoonShine\UI\Fields\Select;
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
 use MoonShine\Support\DTOs\Select\AsyncSettings;
+use MoonShine\UI\Fields\Select;
 
 Select::make('Type')
     ->asyncSettings(
@@ -651,7 +696,9 @@ Select::make('Type')
 ```
 
 <a name="select-creatable"></a>
-### Для переключения в режим "создания новых опции", можно воспользоваться методом `selectCreatable()`
+### Создание новых опций
+
+Для переключения в режим "создания новых опции", можно воспользоваться методом `selectCreatable()`.
 
 ```php
 selectCreatable(
@@ -662,7 +709,10 @@ selectCreatable(
     bool $addPrecedence = false,
 )
 ```
+
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Select;
 
 Select::make('Type')
@@ -670,22 +720,33 @@ Select::make('Type')
         /^\d+$/
     );
 ```
+
 > [!TIP]
 > Более подробно описано [здесь](https://tom-select.js.org/examples/create-filter/).
 
-
 <a name="select-max-items"></a>
-### Если нужно ограничить максимальный выбор опции, можно воспользоваться методом `selectMaxItems()`
+### Максимальный выбор опций
+
+Если нужно ограничить максимальный выбор опции, можно воспользоваться методом `selectMaxItems()`.
 
 ```php
 selectMaxItems(
     ?int $limit = null,
-    ?string $text = null // По умолчанию "Максимальное количество элементов: :count"
+    ?string $text = null
 )
 ```
+
+- `$limit` - макс. количество,
+- `$text` - сообщение в случае превышения лимита.
+
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Select;
 
 Select::make('Type')
     ->selectMaxItems(5);
 ```
+
+> [!TIP]
+> Смотрите также рецепты по использованию [Select](/docs/{{version}}/recipes/select).
