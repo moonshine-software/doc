@@ -8,7 +8,6 @@
 <a name="basics"></a>
 ## Basics
 
-Компонент `Img` просто отображает тег `<img>` с возможностью добавления атрибутов.
 The `Img` component simply displays a `<img>` tag with the ability to add attributes.
 
 ```php
