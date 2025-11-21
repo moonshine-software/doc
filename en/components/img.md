@@ -42,7 +42,7 @@ tab: Blade
 - `asyncDecoding()` - decode the image after displaying the rest of the DOM elements (attribute `loading="async"`)
 - `srcset(array $sources)` - sets additional image sources for different screen resolutions (attribute `srcset`)
 
-### Usage example method `srcset(array $sources)`
+Usage example method `srcset(array $sources)`
 ```php
 // definition by width
 Img::make('logo.png')
