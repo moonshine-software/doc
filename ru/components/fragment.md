@@ -10,7 +10,6 @@
 
 С помощью `Fragment` вы можете обернуть определенную область вашей страницы и обновлять только её, вызывая события.
 Для этого вы можете использовать [Blade Fragments](https://laravel.com/docs/blade#rendering-blade-fragments).
-`Fragment` позволяет реализовать эту возможность.
 
 ```php
 make(iterable $components = [])
@@ -20,18 +19,14 @@ make(iterable $components = [])
 use MoonShine\Crud\Components\Fragment;
 use MoonShine\UI\Fields\Text;
 
-// ...
-
 protected function components(): iterable
 {
     return [
         Fragment::make([
-            Text::make('Имя', 'first_name')
+            Text::make('Name', 'first_name')
         ])->name('fragment-name')
     ];
 }
-
-// ...
 ```
 
 <a name="async"></a>
@@ -84,17 +79,17 @@ Fragment::make([
             AlpineJs::event(JsEvent::FRAGMENT_UPDATED, 'fg-step-2'),
         ],
     )
-    ->name('fg-step-1')
-,
+    ->name('fg-step-1'),
 
 Fragment::make([
     FlexibleRender::make('<p> Step 2: ' . time() . '</p>')
 ])
-    ->name('fg-step-2')
-,
+    ->name('fg-step-2'),
+
 // ...
-ActionButton::make('Start')->dispatchEvent([AlpineJs::event(JsEvent::FRAGMENT_UPDATED, 'fg-step-1')])
-,
+
+ActionButton::make('Start')
+    ->dispatchEvent([AlpineJs::event(JsEvent::FRAGMENT_UPDATED, 'fg-step-1')]),
 ```
 
 ### Обработка ответа
@@ -107,8 +102,7 @@ Fragment::make($components)
     ->updateWith(
         callback: AsyncCallback::with(afterResponse: 'afterResponseFunction')
     )
-    ->name('fragment-name')
-,
+    ->name('fragment-name'),
 ```
 
 ### Параметры запроса URL
@@ -120,6 +114,5 @@ Fragment::make($components)
 ```php
 Fragment::make($components)
     ->name('fragment-name')
-    ->withQueryParams()
-,
+    ->withQueryParams(),
 ```

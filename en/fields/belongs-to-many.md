@@ -592,7 +592,8 @@ use App\MoonShine\Resources\CityResource;
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 
 BelongsToMany::make('Cities', resource: CityResource::class)
-    ->withImage('thumb', 'public', 'countries')->selectMode()
+    ->withImage('thumb', 'public', 'countries')
+    ->selectMode()
 ```
 
 ![with_image](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/belongs_to_image.png#light)
@@ -611,8 +612,8 @@ buttons(array $buttons)
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:3]
 use App\MoonShine\Resources\CategoryResource;
-use MoonShine\UI\Components\ActionButton;
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
+use MoonShine\UI\Components\ActionButton;
 
 BelongsToMany::make('Categories', resource: CategoryResource::class)
     ->buttons([

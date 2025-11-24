@@ -97,7 +97,8 @@ $config->localeKey('_lang');
 ## Language Switching
 
 The logic for switching languages in the panel interface is handled by the middleware `MoonShine\Laravel\Http\Middleware\ChangeLocale`.
-`ChangeLocale` saves the selection in the session and retrieves the value from the session to set the language, or uses the data from the config if a request to change the language is present.
+`ChangeLocale` saves the selection in the session and retrieves the value from the session to set the language, or uses
+the data from the config if a request to change the language is present.
 
 If you want to change the language switching logic to your own, simply replace the `middleware` with your own.
 

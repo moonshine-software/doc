@@ -52,7 +52,8 @@ tab: Blade
 ## Аватар placeholder
 
 ```php
-Profile::make()->avatarPlaceholder('https://robohash.org/username.png')
+Profile::make()
+    ->avatarPlaceholder('https://robohash.org/username.png')
 ```
 
 <a name="menu"></a>
@@ -101,7 +102,7 @@ tab: Blade
 ```php
 public function saveElement(CrudRequestContract $request): JsonResponse
 {
-    //...
+    // ...
     return JsonResponse::make()->events([
         AlpineJs::event(JsEvent::FRAGMENT_UPDATED, 'profile'),
     ]);
