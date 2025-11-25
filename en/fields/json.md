@@ -323,10 +323,6 @@ Json::make('Data')
 ![json_vertical](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/json_vertical.png#light)
 ![json_vertical_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/json_vertical_dark.png#dark)
 
-Вот перевод секции **«Сортировка перетаскиванием»** на английский:
-
----
-
 <a name="reorderable"></a>
 ## Drag-and-Drop Sorting
 

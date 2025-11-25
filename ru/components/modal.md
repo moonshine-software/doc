@@ -2,7 +2,7 @@
 
 - [Основы](#basics)
 - [События](#events)
-    -  [Открытие/Закрытие](#open-close)
+    - [Открытие/Закрытие](#open-close)
 - [Состояние по умолчанию](#open)
 - [Клик вне окна](#click-outside)
 - [Автозакрытие](#auto-close)
@@ -135,7 +135,8 @@ MoonShine.ui.toggleModal('my-modal')
 ```
 
 > [!NOTE]
-> Более подробную информацию можно получить из официальной документации Alpine.js в разделах [Events](https://alpinejs.dev/essentials/events) и [$dispatch](https://alpinejs.dev/magics/dispatch).
+> Более подробную информацию можно получить из официальной документации Alpine.js
+> в разделах [Events](https://alpinejs.dev/essentials/events) и [$dispatch](https://alpinejs.dev/magics/dispatch).
 
 <a name="open-close"></a>
 ### Открытие/Закрытие
@@ -156,7 +157,8 @@ Modal::make('My modal', asyncUrl: '/')
     ], onlyOpening: false, onlyClosing: true),
 ```
 
-Параметры `onlyOpening` и `onlyClosing` позволяют настраивать, будут ли события срабатывать при открытии и закрытии. По умолчанию оба параметра установлены в `TRUE`, что означает, что список событий будет вызываться как при открытии боковой панели, так и при её закрытии.
+Параметры `onlyOpening` и `onlyClosing` позволяют настраивать, будут ли события срабатывать при открытии и закрытии.
+По умолчанию оба параметра установлены в `TRUE`, что означает, что список событий будет вызываться как при открытии боковой панели, так и при её закрытии.
 
 <a name="open"></a>
 ## Состояние по умолчанию
@@ -168,7 +170,7 @@ open(Closure|bool|null $condition = null)
 ```
 
 ```php
-Modal::make('Заголовок', 'Содержимое...', view('path'))
+Modal::make('Title', 'Content...', view('path'))
     ->open(),
 ```
 
@@ -181,14 +183,15 @@ Modal::make('Заголовок', 'Содержимое...', view('path'))
 По умолчанию модальное окно закрывается при клике вне области окна. Метод `closeOutside()` позволяет переопределить это поведение.
 
 ```php
-Modal::make('Заголовок', 'Содержимое...', ActionButton::make('Показать модальное окно', '#'))
-            ->closeOutside(false),
+Modal::make('Title', 'Content...', ActionButton::make('Show Modal', '#'))
+    ->closeOutside(false),
 ```
 
 <a name="autoclose"></a>
 ## Автозакрытие
 
-По умолчанию модальные окна закрываются после успешного запроса (к примеру при отправке формы). Метод `autoClose()` позволяет управлять этим поведением.
+По умолчанию модальные окна закрываются после успешного запроса (к примеру при отправке формы).
+Метод `autoClose()` позволяет управлять этим поведением.
 
 ```php
 autoClose(Closure|bool|null $autoClose = null)
@@ -196,12 +199,12 @@ autoClose(Closure|bool|null $autoClose = null)
 
 ```php
 Modal::make(
-    'Демо модальное окно',
+    'Demo Modal',
     static fn() => FormBuilder::make(route('alert.post'))
         ->fields([
-            Text::make('Текст'),
+            Text::make('Text'),
         ])
-        ->submit('Отправить', ['class' => 'btn-primary'])
+        ->submit('Submit', ['class' => 'btn-primary'])
         ->async(),
     )
     ->name('demo-modal')
@@ -221,7 +224,7 @@ wide(Closure|bool|null $condition = null)
 
 ```php
 Modal::make('Заголовок', 'Содержимое...', ActionButton::make('Показать модальное окно', '#'))
-            ->wide(),
+    ->wide(),
 ```
 
 #### auto
@@ -234,22 +237,27 @@ auto(Closure|bool|null $condition = null)
 
 ```php
 Modal::make('Заголовок', 'Содержимое...', ActionButton::make('Показать модальное окно', '#'))
-            ->auto(),
+    ->auto(),
 ```
 
 <a name="async"></a>
 ## Асинхронность
 
 ```php
-Modal::make('Заголовок', '', ActionButton::make('Показать модальное окно', '#'), asyncUrl: '/endpoint'),
+Modal::make(
+    'Title',
+    '',
+    ActionButton::make('Show Modal', '#'),
+    asyncUrl: '/endpoint'
+),
 ```
 
 > [!NOTE]
-> Запрос будет отправлен один раз, но если вам нужно отправлять запрос при каждом открытии, то используйте метод `alwaysLoad`
+> Запрос будет отправлен один раз, но если вам нужно отправлять запрос при каждом открытии, то используйте метод `alwaysLoad()`.
 
 ```php
 Modal::make(...)
-        ->alwaysLoad(),
+    ->alwaysLoad(),
 ```
 
 <a name="outer-attributes"></a>
@@ -262,7 +270,7 @@ outerAttributes(array $attributes)
 ```
 
 ```php
-Modal::make('Заголовок', 'Содержимое...', ActionButton::make('Показать модальное окно', '#'))
+Modal::make('Title', 'Content...', ActionButton::make('Show Modal', '#'))
     ->outerAttributes([
         'class' => 'mt-2'
     ]),
@@ -325,7 +333,8 @@ Modal::make('Заголовок', 'Содержимое...', ActionButton::make(
 <a name="=close"></a>
 ### Закрытие окна
 
-По умолчанию модальные окна закрываются при клике вне области окна. Вы можете переопределить это поведение с помощью параметра `closeOutside`.
+По умолчанию модальные окна закрываются при клике вне области окна.
+Вы можете переопределить это поведение с помощью параметра `closeOutside`.
 
 ```blade
 <x-moonshine::modal :closeOutside="false" title="Title">

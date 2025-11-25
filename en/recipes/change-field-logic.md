@@ -2,7 +2,11 @@
 
 ## Storing Images in a Related Table
 
-To solve this task, it is necessary to block the method `onApply()` and transfer the logic to `onAfterApply()`. This will allow us to obtain the parent model on the creation page. We will have access to the model, and we will be able to work with its relationships. The method `onAfterApply()` saves and retrieves old and current values, as well as cleans up deleted files. After deleting the parent record, the method `onAfterDestroy()` removes the uploaded files.
+To solve this task, it is necessary to block the method `onApply()` and transfer the logic to `onAfterApply()`.
+This will allow us to obtain the parent model on the creation page.
+We will have access to the model, and we will be able to work with its relationships.
+The method `onAfterApply()` saves and retrieves old and current values, as well as cleans up deleted files.
+After deleting the parent record, the method `onAfterDestroy()` removes the uploaded files.
 
 ```php
 use MoonShine\UI\Fields\Image;

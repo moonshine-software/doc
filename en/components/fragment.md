@@ -8,7 +8,8 @@
 <a name="basics"></a>
 ## Basics
 
-With `Fragment`, you can wrap a specific area of your page and update only that area by triggering events. For this, you can use [Blade Fragments](https://laravel.com/docs/blade#rendering-blade-fragments). `Fragment` enables this capability.
+With `Fragment`, you can wrap a specific area of your page and update only that area by triggering events.
+For this, you can use [Blade Fragments](https://laravel.com/docs/blade#rendering-blade-fragments).
 
 ```php
 make(iterable $components = [])
@@ -18,8 +19,6 @@ make(iterable $components = [])
 use MoonShine\Crud\Components\Fragment;
 use MoonShine\UI\Fields\Text;
 
-// ...
-
 protected function components(): iterable
 {
     return [
@@ -28,8 +27,6 @@ protected function components(): iterable
         ])->name('fragment-name')
     ];
 }
-
-// ...
 ```
 
 <a name="async"></a>
@@ -70,7 +67,8 @@ Fragment::make($components)
 
 ### Triggering Events
 
-Upon successful update, `Fragment` can also trigger additional events. Let's consider an example of updating fragments one after another when clicking a button:
+Upon successful update, `Fragment` can also trigger additional events.
+Let's consider an example of updating fragments one after another when clicking a button:
 
 ```php
 Fragment::make([
@@ -81,17 +79,17 @@ Fragment::make([
             AlpineJs::event(JsEvent::FRAGMENT_UPDATED, 'fg-step-2'),
         ],
     )
-    ->name('fg-step-1')
-,
+    ->name('fg-step-1'),
 
 Fragment::make([
     FlexibleRender::make('<p> Step 2: ' . time() . '</p>')
 ])
-    ->name('fg-step-2')
-,
+    ->name('fg-step-2'),
+
 // ...
-ActionButton::make('Start')->dispatchEvent([AlpineJs::event(JsEvent::FRAGMENT_UPDATED, 'fg-step-1')])
-,
+
+ActionButton::make('Start')
+    ->dispatchEvent([AlpineJs::event(JsEvent::FRAGMENT_UPDATED, 'fg-step-1')]),
 ```
 
 ### Response Handling
@@ -104,8 +102,7 @@ Fragment::make($components)
     ->updateWith(
         callback: AsyncCallback::with(afterResponse: 'afterResponseFunction')
     )
-    ->name('fragment-name')
-,
+    ->name('fragment-name'),
 ```
 
 ### URL Query Parameters
@@ -117,6 +114,5 @@ This will preserve all parameters from the current request URL when loading the 
 ```php
 Fragment::make($components)
     ->name('fragment-name')
-    ->withQueryParams()
-,
+    ->withQueryParams(),
 ```

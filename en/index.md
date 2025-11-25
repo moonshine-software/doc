@@ -11,14 +11,16 @@
 <a name="what-is-moonshine"></a>
 ## What is MoonShine
 
-**MoonShine** is an open-source package for projects on **Laravel** (license **MIT**), designed for accelerated development of web projects. It is perfect for creating:
+**MoonShine** is an open-source package for projects on **Laravel** (license **MIT**), designed for accelerated development of web projects.
+It is perfect for creating:
 
 - Admin panels,
 - `MVP` (minimum viable products),
 - Backoffice applications,
 - Content management systems (`CMS`).
 
-**MoonShine** provides developers with tools for quickly creating functional and user-friendly administrative interfaces, working as a "framework on framework" and extending the capabilities of **Laravel**.
+**MoonShine** provides developers with tools for quickly creating functional and user-friendly administrative interfaces,
+working as a "framework on framework" and extending the capabilities of **Laravel**.
 
 <a name="features"></a>
 ## Features
@@ -31,6 +33,8 @@
 - **Familiar tools**: `TailwindCSS` and `Blade`, familiar to most **Laravel** developers,
 - **Extensibility**: Ability to use `Blade` and `Livewire` components,
 - **Customization**: Convenient template builder, possibility to change colors and overall design.
+
+![ms_img](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/MS_img_300.jpg)
 
 <a name="who-is-it-for"></a>
 ## Who is it for
@@ -47,7 +51,10 @@
 <a name="name-history"></a>
 ## Name history
 
-The name "**MoonShine**" has an interesting origin. It refers not so much to "moonlight" as to the process of making drinks independently in illegal conditions under the cover of night. It is a metaphor for the process of developing an admin panel: creating a quality product "with soul" in one's free time, mainly at night, initially for personal use and for friends.
+The name "**MoonShine**" has an interesting origin. It refers not so much to "moonlight"
+as to the process of making drinks independently in illegal conditions under the cover of night.
+It is a metaphor for the process of developing an admin panel: creating a quality product "with soul" in one's free time,
+mainly at night, initially for personal use and for friends.
 
 <a name="contributing"></a>
 ## Contributing

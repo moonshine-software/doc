@@ -8,11 +8,9 @@
 // [tl! collapse:start]
 namespace App\MoonShine\Resources\Post\Pages;
 
-use App\Models\Post;
-use App\Models\Comment;
+use MoonShine\Laravel\Pages\Crud\IndexPage;
 use MoonShine\UI\Components\Metrics\Wrapped\Metric;
-use MoonShine\UI\Components\Metrics\Wrapped\ValueMetric;
-use MoonShine\Laravel\Pages\Crud\IndexPage; // [tl! collapse:end]
+use MoonShine\UI\Components\Metrics\Wrapped\ValueMetric; // [tl! collapse:end]
 
 class PostIndexPage extends IndexPage
 {

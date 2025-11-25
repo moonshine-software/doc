@@ -8,11 +8,9 @@ To do this, return an array of `Metric` in the `metrics()` method of the `IndexP
 // [tl! collapse:start]
 namespace App\MoonShine\Resources\Post\Pages;
 
-use App\Models\Post;
-use App\Models\Comment;
+use MoonShine\Laravel\Pages\Crud\IndexPage;
 use MoonShine\UI\Components\Metrics\Wrapped\Metric;
-use MoonShine\UI\Components\Metrics\Wrapped\ValueMetric;
-use MoonShine\Laravel\Pages\Crud\IndexPage; // [tl! collapse:end]
+use MoonShine\UI\Components\Metrics\Wrapped\ValueMetric; // [tl! collapse:end]
 
 class PostIndexPage extends IndexPage
 {
@@ -39,9 +37,6 @@ class PostIndexPage extends IndexPage
 
 > [!NOTE]
 > For more detailed information, refer to the sections [Metrics](/docs/{{version}}/components/metrics).
-
-> [!NOTE]
-> The `metrics()` method is also available in the `ModelResource` class for backward compatibility, but it is recommended to define metrics directly in `IndexPage`.
 
 If you need to wrap the metrics in a `Fragment`:
 

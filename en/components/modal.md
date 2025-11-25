@@ -2,7 +2,7 @@
 
 - [Basics](#basics)
 - [Events](#events)
-    -  [Open/Close](#open-close)
+    - [Open/Close](#open-close)
 - [Default State](#open)
 - [Click Outside](#click-outside)
 - [Auto Close](#auto-close)
@@ -65,7 +65,8 @@ tab: Blade
 <a name="events"></a>
 ## Events
 
-You can open or close a modal window without using the component through `javascript` events. To access the events, you must set a unique name for the modal window using the `name()` method.
+You can open or close a modal window without using the component through `javascript` events.
+To access the events, you must set a unique name for the modal window using the `name()` method.
 
 ```php
 use MoonShine\UI\Components\ActionButton;
@@ -134,7 +135,8 @@ MoonShine.ui.toggleModal('my-modal')
 ```
 
 > [!NOTE]
-> More detailed information can be found in the official Alpine.js documentation in the sections [Events](https://alpinejs.dev/essentials/events) and [$dispatch](https://alpinejs.dev/magics/dispatch).
+> More detailed information can be found in the official Alpine.js documentation
+> in the sections [Events](https://alpinejs.dev/essentials/events) and [$dispatch](https://alpinejs.dev/magics/dispatch).
 
 <a name="open-close"></a>
 ### Open/Close
@@ -155,7 +157,8 @@ Modal::make('My Modal', asyncUrl: '/')
     ], onlyOpening: false, onlyClosing: true),
 ```
 
-The parameters `onlyOpening` and `onlyClosing` allow you to configure whether events will fire on opening and closing. By default, both parameters are set to `TRUE`, which means the event list will be triggered on both opening and closing of the modal.
+The parameters `onlyOpening` and `onlyClosing` allow you to configure whether events will fire on opening and closing.
+By default, both parameters are set to `TRUE`, which means the event list will be triggered on both opening and closing of the modal.
 
 <a name="open"></a>
 ## Default State
@@ -181,13 +184,14 @@ By default, the modal window closes when clicking outside the window area. The `
 
 ```php
 Modal::make('Title', 'Content...', ActionButton::make('Show Modal', '#'))
-            ->closeOutside(false),
+    ->closeOutside(false),
 ```
 
 <a name="autoclose"></a>
 ## Auto Close
 
-By default, modal windows close after a successful request (for example, when submitting a form). The `autoClose()` method allows you to control this behavior.
+By default, modal windows close after a successful request (for example, when submitting a form).
+The `autoClose()` method allows you to control this behavior.
 
 ```php
 autoClose(Closure|bool|null $autoClose = null)
@@ -220,7 +224,7 @@ wide(Closure|bool|null $condition = null)
 
 ```php
 Modal::make('Title', 'Content...', ActionButton::make('Show Modal', '#'))
-            ->wide(),
+    ->wide(),
 ```
 
 #### auto
@@ -233,22 +237,27 @@ auto(Closure|bool|null $condition = null)
 
 ```php
 Modal::make('Title', 'Content...', ActionButton::make('Show Modal', '#'))
-            ->auto(),
+    ->auto(),
 ```
 
 <a name="async"></a>
 ## Asynchronicity
 
 ```php
-Modal::make('Title', '', ActionButton::make('Show Modal', '#'), asyncUrl: '/endpoint'),
+Modal::make(
+    'Title',
+    '',
+    ActionButton::make('Show Modal', '#'),
+    asyncUrl: '/endpoint'
+),
 ```
 
 > [!NOTE]
-> The request will be sent once, but if you need to send a request each time it opens, use the `alwaysLoad` method.
+> The request will be sent once, but if you need to send a request each time it opens, use the `alwaysLoad()` method.
 
 ```php
 Modal::make(...)
-        ->alwaysLoad(),
+    ->alwaysLoad(),
 ```
 
 <a name="outer-attributes"></a>
@@ -324,7 +333,8 @@ The `auto` parameter allows modal windows to take width based on content.
 <a name="=close"></a>
 ### Closing Window
 
-By default, modal windows close when clicking outside the window area. You can override this behavior using the `closeOutside` parameter.
+By default, modal windows close when clicking outside the window area.
+You can override this behavior using the `closeOutside` parameter.
 
 ```blade
 <x-moonshine::modal :closeOutside="false" title="Title">

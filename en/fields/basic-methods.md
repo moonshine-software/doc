@@ -966,6 +966,7 @@ Switcher::make('Active')
 ```php
 use MoonShine\Contracts\Core\DependencyInjection\CrudRequestContract;
 
+#[AsyncMethod]
 public function someMethod(CrudRequestContract $request): void
 {
     // Logic

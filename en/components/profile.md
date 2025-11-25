@@ -52,7 +52,8 @@ tab: Blade
 ## Avatar placeholder
 
 ```php
-Profile::make()->avatarPlaceholder('https://robohash.org/username.png')
+Profile::make()
+    ->avatarPlaceholder('https://robohash.org/username.png')
 ```
 
 <a name="menu"></a>
@@ -90,7 +91,6 @@ tab: Blade
 ```
 ~~~
 
-
 <a name="fragments"></a>
 ## Fragments
 
@@ -102,7 +102,7 @@ Example with update from controller method:
 ```php
 public function saveElement(CrudRequestContract $request): JsonResponse
 {
-    //...
+    // ...
     return JsonResponse::make()->events([
         AlpineJs::event(JsEvent::FRAGMENT_UPDATED, 'profile'),
     ]);

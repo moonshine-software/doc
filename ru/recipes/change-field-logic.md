@@ -3,7 +3,8 @@
 ## Сохранение изображений в связанной таблице
 
 Для решения этой задачи необходимо заблокировать метод `onApply()` и перенести логику в `onAfterApply()`.
-Это позволит получить родительскую модель на странице создания. У нас будет доступ к модели, и мы сможем работать с ее отношениями.
+Это позволит получить родительскую модель на странице создания.
+У нас будет доступ к модели, и мы сможем работать с ее отношениями.
 Метод `onAfterApply()` сохраняет и получает старые и текущие значения, а также очищает удаленные файлы.
 После удаления родительской записи метод `onAfterDestroy()` удаляет загруженные файлы.
 
@@ -20,17 +21,17 @@ Image::make('Images', 'images')
     ->removable()
     ->changeFill(function (Model $data, Image $field) {
         // return $data->images->pluck('file');
-        // или raw
+        // or raw
         return DB::table('images')->pluck('file');
     })
     ->onApply(function (Model $data): Model {
-        // блокируем onApply
+        // block onApply
         return $data;
     })
     ->onAfterApply(function (Model $data, false|array $values, Image $field) {
-        // $field->getRemainingValues(); значения, которые остались в форме с учетом удалений
-        // $field->toValue(); текущие изображения
-        // $field->toValue()->diff($field->getRemainingValues()) удаленные изображения
+        // $field->getRemainingValues(); the values that remained in the form considering deletions
+        // $field->toValue(); current images
+        // $field->toValue()->diff($field->getRemainingValues()) deleted images
 
         if($values !== false) {
             foreach ($values as $value) {
@@ -46,7 +47,7 @@ Image::make('Images', 'images')
             Storage::disk('public')->delete($removed);
         }
 
-        // или $field->removeExcludedFiles();
+        // or $field->removeExcludedFiles();
 
         return $data;
     })
@@ -63,4 +64,3 @@ Image::make('Images', 'images')
 
 > [!WARNING]
 > В коде закомментирован вариант с отношением и приведен пример нативного получения путей к файлам из другой таблицы.
-
