@@ -9,6 +9,7 @@ video: https://www.youtube.com/watch?v=zN3fi4g-2tQ
 - [Группы](#groups)
 - [Разделитель](#divider)
 - [Иконка](#icon)
+- [Только иконки](#only-icon)
 - [Метка](#badge)
 - [Перевод](#translation)
 - [Открытие в новой вкладке](#target-blank)
@@ -303,6 +304,73 @@ class MoonShineUserResource extends ModelResource
 
 > [!TIP]
 > За более подробной информацией обратитесь к разделу [Иконки](/docs/{{version}}/appearance/icons).
+
+<a name="only-icon"></a>
+## Только иконки
+
+Если вы хотите отображать пункты меню только с иконками без текстовых меток, используйте метод `onlyIcon()`.
+
+```php
+/**
+ * @param  (Closure(static $ctx): bool)|bool|null  $condition
+ */
+onlyIcon(Closure|bool|null $condition = true)
+```
+
+### Для отдельных элементов
+
+Вы можете применить `onlyIcon()` к отдельным элементам меню.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
+namespace App\MoonShine\Layouts;
+
+use MoonShine\Laravel\Layouts\AppLayout;
+use MoonShine\Laravel\Resources\MoonShineUserResource;
+use MoonShine\MenuManager\MenuItem; // [tl! collapse:end]
+
+final class MoonShineLayout extends AppLayout
+{
+    // ...
+
+    protected function menu(): array
+    {
+        return [
+            MenuItem::make('/', 'Dashboard', 'heroicons.home')
+                ->onlyIcon(),
+        ];
+    }
+}
+```
+
+### Для всего меню
+
+Вы можете применить режим только иконок ко всему меню при использовании автозагрузки, передав параметр `onlyIcons: true` в метод `autoloadMenu()`.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:3]
+namespace App\MoonShine\Layouts;
+
+use MoonShine\Laravel\Layouts\AppLayout;
+
+final class MoonShineLayout extends AppLayout
+{
+    // ...
+
+    protected function menu(): array
+    {
+        return $this->autoloadMenu(onlyIcons: true);
+    }
+}
+```
+
+> [!NOTE]
+> При наведении курсора на пункт меню с включенным режимом `onlyIcon()` отображается всплывающая подсказка с полным текстом метки.
+
+> [!TIP]
+> Если у пункта меню не задана иконка, по умолчанию будет использоваться иконка `squares-2x2`.
 
 <a name="badge"></a>
 ## Метка
