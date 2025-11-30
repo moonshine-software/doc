@@ -414,17 +414,17 @@ use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 BelongsTo::make('Country', resource: CountryResource::class)
     ->searchable()
     ->customAttributes([
-        'data-search-result-limit' => 5
+        'data-associated-with' => 'country_id',
     ])
 ```
 
 > [!NOTE]
-> Для получения более подробной информации, пожалуйста, обратитесь к [Choices](https://choices-js.github.io/Choices/).
+> Для получения более подробной информации, пожалуйста, обратитесь к [документации Tom Select](https://tom-select.js.org/docs/).
 
 <a name="native"></a>
 ## Нативный режим
 
-Метод `native()` отключает библиотеку Choices.js и отображает выбор в нативном режиме.
+Метод `native()` отключает библиотеку *Tom Select* и отображает выбор в нативном режиме.
 
 ```php
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;

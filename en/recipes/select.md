@@ -4,7 +4,8 @@ In this section, we have gathered various non-standard approaches to using `Sele
 
 ## Async
 
-The example demonstrates the `async` method, but at the same time, we use the approach of working through `asyncMethod`, thus saving time on creating a controller and writing the implementation directly in the resource or page:
+The example demonstrates the `async()` method, but at the same time, we use the approach of working through `asyncMethod`.
+Thus, we save time on creating a controller and write the implementation directly in the resource (or on the page):
 
 ```php
 protected function formFields(): iterable

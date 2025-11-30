@@ -7,7 +7,7 @@ title: Upgrade guide
 - [Автоматический апгрейд](#auto-upgrade)
 - [Обновление зависимостей](#update-dependencies)
 - [Изменения пространств имен](#namespace-changes)
-- [Изменения в ресурсах](#resource-changes)
+- [Изменения в структуре ресурсов](#resource-changes)
 - [Изменения в полях](#field-changes)
 - [Изменения в Layout](#layout-changes)
 - [Устаревшие классы и методы](#deprecated)
@@ -18,7 +18,8 @@ title: Upgrade guide
 <a name="auto-upgrade"></a>
 ## Автоматический апгрейд
 
-Для упрощения процесса миграции вы можете воспользоваться пакетом [warete/moonshine-upgrade](https://github.com/warete/moonshine-upgrade), который автоматически выполнит все необходимые изменения для перехода на MoonShine 4.0.
+Для упрощения процесса миграции вы можете воспользоваться пакетом [warete/moonshine-upgrade](https://github.com/warete/moonshine-upgrade),
+который автоматически выполнит все необходимые изменения для перехода на MoonShine 4.0.
 
 <a name="update-dependencies"></a>
 ## Обновление пакета
@@ -64,18 +65,29 @@ use MoonShine\Crud\Traits\WithComponentsPusher; // [tl! add]
 ```
 
 <a name="resource-changes"></a>
-## Изменения в структуры ресурсов
+## Изменения в структуре ресурсов
 
 Многие методы и свойства перенесены из ресурсов в соответствующие CRUD-страницы.
 
-Метод `rules()` перенесен из ресурса в `FormPage`.
+Методы `rules()`, `modifyFormComponent()` перенесены в класс формы.
 
-Методы `metrics()`, `queryTags()`, `filters()` и т.д. перенесены в `IndexPage`.
+Методы `metrics()`, `queryTags()`, `filters()`, `modifyListComponent()` перенесены в класс индексной страницы.
 
-Метод `indexButtons()` удален из ресурса, вместо него следует использовать метод `buttons()` в соответствующей индексной странице.
+Метод `modifyDetailComponent()` перенесён в класс детальной страницы.
 
-Это далеко не полный список изменений в ресурсе,
-но процесс переноса всего соответствующего функционала из ресурса в CRUD-страницы довольно интуитивный и не должен составить труда.
+Метод `indexButtons()` удален из ресурса, вместо него следует использовать метод `buttons()` в классе индексной страницы.
+
+Метод `topButtons()` удален из ресурса, вместо него следует использовать методы `topLeftButtons()` и `topRightButtons()` в классе индексной страницы.
+
+Метод `formButtons()` удален из ресурса, вместо него следует использовать метод `buttons()` в классе страницы формы.
+
+Метод `formBuilderButtons()` удален из ресурса, вместо него следует использовать метод `formButtons()` в классе страницы формы.
+
+Свойства `$clickAction`, `$stickyTable`, `$stickyButtons`, `$columnSelection` удалены из ресурса.
+Вместо них следует переопределять метод `modifyListComponent()` в классе индексной страницы.
+
+Это не полный список изменений в ресурсе, но процесс переноса всего соответствующего функционала из ресурса в
+CRUD-страницы довольно интуитивный и не должен составить труда.
 
 <a name="field-changes"></a>
 ## Изменения в полях
@@ -122,6 +134,10 @@ use MoonShine\Laravel\Layouts\AppLayout; // [tl! add]
 MenuItem::make('Settings', SettingResource::class) // [tl! remove]
 MenuItem::make(SettingResource::class) // [tl! add]
 ```
+
+### Изменения в компонентах
+
+В компоненте `Profile` удален входной параметр `$withBorder`.
 
 <a name="deprecated"></a>
 ## Устаревшие классы и методы

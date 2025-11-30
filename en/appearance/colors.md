@@ -71,7 +71,35 @@ return [
 ## Palettes
 
 Palettes allow you to encapsulate light and dark color schemes in dedicated classes.
-A palette implements `MoonShine\Contracts\ColorManager\PaletteContract` and returns two associative arrays:
+
+<a name="standard-palettes"></a>
+### Standard Palettes
+
+MoonShine ships with a set of ready-made palettes.
+The default palette is `MoonShine\ColorManager\Palettes\PurplePalette`.
+
+- `CyanPalette`: True cyan blue-green.
+- `GrayPalette`: Cool neutral gray.
+- `GreenPalette`: Natural green tones.
+- `HalloweenPalette`: Orange and purple spooky theme.
+- `LimePalette`: Bright lime/chartreuse.
+- `NeutralPalette`: Neutral black and white classic.
+- `OrangePalette`: Classic orange.
+- `PinkPalette`: Bold hot pink shades.
+- `PurplePalette`: Classic purple and magenta mix.
+- `RetroPalette`: Vintage yellowish green.
+- `RosePalette`: Warm peachy-rose tones.
+- `SkyPalette`: Sky blue with a purple undertone.
+- `SpringPalette`: Fresh pastel mint green.
+- `TealPalette`: Pure cyan-teal blend.
+- `ValentinePalette`: Romantic red and pink duo.
+- `WinterPalette`: Cool icy blue tones.
+- `YellowPalette`: Greenish yellow.
+
+> [!TIP]
+> Preview or build palettes at [getmoonshine.app/palette-generator](https://getmoonshine.app/palette-generator).
+
+To create your own palette, implement the contract and return pairs of light and dark values:
 
 ```php
 namespace App\MoonShine\Palettes;
@@ -107,39 +135,13 @@ final class CorporatePalette implements PaletteContract
 }
 ```
 
-<a name="standard-palettes"></a>
-### Standard Palettes
-
-MoonShine ships with a set of ready-made palettes. The default palette is `MoonShine\ColorManager\Palettes\PurplePalette`.
-
-- `CyanPalette`: True cyan blue-green.
-- `GrayPalette`: Cool neutral gray.
-- `GreenPalette`: Natural green tones.
-- `HalloweenPalette`: Orange and purple spooky theme.
-- `LimePalette`: Bright lime/chartreuse.
-- `NeutralPalette`: Neutral black and white classic.
-- `OrangePalette`: Classic orange.
-- `PinkPalette`: Bold hot pink shades.
-- `PurplePalette`: Classic purple and magenta mix.
-- `RetroPalette`: Vintage yellowish green.
-- `RosePalette`: Warm peachy-rose tones.
-- `SkyPalette`: Sky blue with a purple undertone.
-- `SpringPalette`: Fresh pastel mint green.
-- `TealPalette`: Pure cyan-teal blend.
-- `ValentinePalette`: Romantic red and pink duo.
-- `WinterPalette`: Cool icy blue tones.
-- `YellowPalette`: Greenish yellow.
-
-> [!TIP]
-> Preview or build palettes at [getmoonshine.app/palette-generator](https://getmoonshine.app/palette-generator).
-
 <a name="palette-usage"></a>
 ### Palette Usage
 
 You can activate a palette:
 
-- globally by setting the `palette` key in `config/moonshine.php` (or via `MoonShineConfigurator`);
-- in a layout by setting the `$palette` property to the palette class name;
+- globally by setting the `palette` key in `config/moonshine.php` (or via `MoonShineConfigurator`),
+- in a layout by setting the `$palette` property to the palette class name,
 - programmatically, by calling `$colorManager->palette(new CorporatePalette());`.
 
 ```php
@@ -154,7 +156,8 @@ final class MoonShineLayout extends AppLayout
 
 If the layout does not define `$palette`, MoonShine falls back to the global configuration value.
 
-After choosing a palette, you can move on to configuring colors via the `ColorManager` API. The following sections cover the core methods, ways to read values back, and shortcuts for common components.
+After choosing a palette, you can move on to configuring colors via the `ColorManager` API.
+The following sections cover the core methods, ways to read values back, and shortcuts for common components.
 
 <a name="methods"></a>
 ## Methods
@@ -252,6 +255,8 @@ $colorManager->form(
 ### Component Shortcuts
 
 `ColorManager` supports dynamic methods for all palette entries and ships with the `ColorShortcuts` trait for higher-level helpers.
+When you need to adjust a group of variables at once (background, text, hover states), use the appropriate shortcut.
+When a specific change to a specific token is required, choose `set()` or `setEverything()`.
 Each helper accepts `dark` and `everything` flags and optional arguments for related colors.
 
 ```php
@@ -355,4 +360,5 @@ class MoonShineServiceProvider extends ServiceProvider
 > `Layout` loads after `ServiceProvider` and will take precedence.
 > When using palettes globally, make sure the target layout does not override colors or provide its own `$palette`.
 
-Combine the approaches described above: start by choosing a palette, adjust single tokens with `set()` or `setEverything()`, apply shortcuts to tweak related components in bulk, and finish by exporting the variables with `toHtml()` for a quick interface review.
+Combine the approaches described above: start by choosing a palette, adjust single tokens with `set()` or `setEverything()`,
+apply shortcuts to tweak related components in bulk, and finish by exporting the variables with `toHtml()` for a quick interface review.

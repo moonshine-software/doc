@@ -323,7 +323,8 @@ ActionButton::make('Button Label')
 <a name="group"></a>
 ## Группировка
 
-Если вам необходимо организовать логику с несколькими `ActionButton`, при этом некоторые из них должны быть скрыты или отображены в выпадающем меню, используйте компонент `ActionGroup`.
+Если вам необходимо организовать логику с несколькими `ActionButton`,
+при этом некоторые из них должны быть скрыты или отображены в выпадающем меню, используйте компонент `ActionGroup`.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -367,15 +368,15 @@ ActionGroup::make([
 Метод `bulk()` позволяет создать кнопку массового действия для `ModelResource`.
 
 ```php
-protected function indexButtons(): ListOf
+class PostIndexPage extends IndexPage
 {
-    return parent::indexButtons()
-        ->add(ActionButton::make('Link', '/endpoint')->bulk());
+    protected function buttons(): ListOf
+    {
+        return parent::buttons()
+            ->add(ActionButton::make('Link', '/endpoint')->bulk());
+    }
 }
 ```
-
-> [!NOTE]
-> Метод `bulk()`, используется только внутри `ModelResource`.
 
 <a name="async"></a>
 ## Асинхронный режим
@@ -464,7 +465,7 @@ ActionButton::make('Button Label', '/endpoint')
 ```
 
 > [!NOTE]
-> Для работы события `JsEvent::TABLE_UPDATED` у таблицы должен быть включен [асинхронный режим](/docs/{{version}}/model-resource/table#async).
+> Для работы события `JsEvent::TABLE_UPDATED` у таблицы должен быть включен [асинхронный режим](/docs/{{version}}/components/table-builder#async-loading).
 
 ### Обратный вызов
 
@@ -582,6 +583,9 @@ public function updateSomething(CrudRequestContract $request)
 }
 ```
 
+> [!NOTE]
+> For more information about sending a JSON response, see [JsonResponse](/docs/{{version}}/advanced/moonshine-json-response).
+
 > [!WARNING]
 > Методы, вызываемые через `ActionButton` в ресурсе, должны быть публичными!
 
@@ -592,8 +596,23 @@ public function updateSomething(CrudRequestContract $request)
 
 Если в запросе присутствует `resourceItem`, вы можете получить доступ к текущему элементу в ресурсе через метод `getItem()`.
 
-Когда в данных есть модель, и кнопка создается в методе `indexButtons()` или `detailButtons()` или `formButtons()` [TableBuilder](/docs/{{version}}/components/table-builder#buttons), [CardsBuilder](/docs/{{version}}/components/cards-builder#buttons) или [FormBuilder](/docs/{{version}}/components/form-builder#buttons),
-она автоматически заполняется данными, и параметры будут содержать `resourceItem`.
+Если кнопка размещается в пределах компонента, имеющего доступ к модели, то через колбек в кнопке можно получить эту модель.
+
+```php
+class ArticleIndexPage extends IndexPage
+{
+    protected function buttons(): ListOf
+    {
+        return parent::buttons()
+            ->add(
+                ActionButton::make(
+                    'Go to',
+                    static fn(Article $model) => route('articles.show', $model),
+                )->blank(),
+            );
+    }
+}
+```
 
 Когда кнопка находится на странице формы `ModelResource`, вы можете передать id текущего элемента.
 

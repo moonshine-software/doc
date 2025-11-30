@@ -155,14 +155,16 @@ Select::make('Images')->options([
     ),
 ```
 
-This method accepts the full object that was passed to the fields by `FormBuilder`, and since we considered the context with `ModelResource`, our original data was `Model` - `Article`.
+This method accepts the full object that was passed to the fields by `FormBuilder`, and since we considered the context with `ModelResource`,
+our original data was `Model` - `Article`.
 
 In the process, we returned the values necessary for the field but changed the content.
 We used `changePreview()` from the previous step to demonstrate the result.
 
 Let's consider another example of filling.
 Suppose we need to check its value against a certain condition when outputting the `Select` in the table and add a class to the cell if it is met.
-We need to obtain the final value with which the `Select` is filled, and it is important for us that the filling has already occurred (since the conditional `when()` method is called before filling, and we do not want that).
+We need to obtain the final value with which the `Select` is filled, and it is important for us that the filling has already occurred
+(since the conditional `when()` method is called before filling, and we do not want that).
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -190,7 +192,8 @@ Select::make('Links')->options([
 ```
 
 The field builder has wide capabilities, and you can change any states on the fly.
-Let's consider a rare case of changing the default visual state, although we do not recommend doing this, and it would be better to create a separate field class for these tasks to extract the logic and reuse the field later.
+Let's consider a rare case of changing the default visual state,
+although we do not recommend doing this, and it would be better to create a separate field class for these tasks to extract the logic and reuse the field later.
 But let's assume for some reason we want to turn a `Select` field into a `Text` field:
 
 ```php
@@ -209,9 +212,11 @@ Select::make('Links')->options([
 <a name="change-mode"></a>
 ## Change Display Mode
 
-As we have already realized, fields have different visual states: in `FormBuilder`, by default, it will be a form element, in `TableBuilder` different values display, and for example in export - just the original value.
+As we have already realized, fields have different visual states: in `FormBuilder`, by default, it will be a form element,
+in `TableBuilder` different values display, and for example in export - just the original value.
 
-But let's imagine a situation where we need to output the field in `TableBuilder` not in preview mode but in default mode, or conversely, output it in preview mode inside `FormBuilder` or even in its original:
+But let's imagine a situation where we need to output the field in `TableBuilder` not in preview mode
+but in default mode, or conversely, output it in preview mode inside `FormBuilder` or even in its original:
 
 ```php
 Text::make('Title')->defaultMode()
@@ -231,8 +236,10 @@ And finally, the mode with the original state:
 Text::make('Title')->rawMode()
 ```
 
-Since we have touched on the topic of `rawMode` and have already discussed the process of changing the filling, let's also take a look at the method that allows us to modify the original value.
-For example, we use the field for export, and we do not need to perform subsequent imports; it is necessary to display the value for the manager in a clear format:
+Since we have touched on the topic of `rawMode()` and have already discussed the process of changing the filling,
+let's also take a look at the method that allows us to modify the original value.
+For example, we use the field for export, and we do not need to perform subsequent imports;
+it is necessary to display the value for the manager in a clear format:
 
 ```php
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
@@ -272,8 +279,10 @@ So it is more accurate to say that the fields are "applied" (_apply_).
 - fields within `apply()` take the value from the request based on their column property,
 - fields modify the `User` model's attribute based on their column property and return it back,
 - afterward, the `FormBuilder` will call the `save()` method of the model,
-- additionally, before the `apply()` method of the fields, the `beforeApply()` method will be called if something needs to be done with the object before the main application,
-- after the `save()` method of the model, the fields' `afterApply()` method will be called (which in this case is well suited for relationship fields to ensure they have the original object which is already saved in the database).
+- additionally, before the `apply()` method of the fields, the `beforeApply()` method will be called
+  if something needs to be done with the object before the main application,
+- after the `save()` method of the model, the fields' `afterApply()` method will be called
+  (which in this case is well suited for relationship fields to ensure they have the original object which is already saved in the database).
 
 **Life Cycle of Field Application (using filtering as an example)**
 
@@ -325,4 +334,3 @@ php artisan moonshine:field
 
 > [!NOTE]
 > You can learn about all supported options in the section [Commands](/docs/{{version}}/advanced/commands#field).
-

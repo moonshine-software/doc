@@ -9,16 +9,15 @@ video: https://youtu.be/bcFOkXuPSRk?si=LIXgfO1LpjfqwWyR
 - [Базовые свойства](#basic-properties)
 - [Объявление в системе](#declaring-in-the-system)
 - [Автозагрузка](#autoloading)
+- [Сортировка](#sorting)
+- [Пагинация](#pagination)
+- [Асинхронный режим](#is-async)
 - [Добавление в меню](#adding-to-the-menu)
-    - [Alias](#alias)
+- [Alias](#alias)
 - [Текущий элемент/модель](#current-element-model)
 - [Модальные окна](#modal-windows)
 - [Редиректы](#redirects)
 - [Активные действия](#active-actions)
-- [Кнопки](#buttons)
-    - [Отображение](#display)
-- [Модификаторы](#modifiers)
-- [Компоненты](#components)
 - [Жизненный цикл](#lifecycle)
     - [Активный ресурс](#on-load)
     - [Создание экземпляра](#on-boot)
@@ -187,10 +186,56 @@ class MoonShineServiceProvider extends ServiceProvider
 
 При использовании Laravel 10 необходимо вручную вызывать консольную команду `php artisan moonshine:optimize` для оптимизации процесса инициализации админ панели.
 
-Очистить кэш панели можно как командой `php artisan optimize:clear` в Laravel 11, так и прямым вызовом консольной команды `php artisan moonshine:optimize-clear`.
+Очистить кэш панели можно как командой `php artisan optimize:clear` в Laravel 11,
+так и прямым вызовом консольной команды `php artisan moonshine:optimize-clear`.
 
 > [!WARNING]
 > Если после создания классов приложение их не видит - обновите кэш композера командой `composer dump-autoload`.
+
+<a name="sorting"></a>
+## Сортировка
+
+По умолчанию записи в таблице ресурса сортируются по полю `id` в порядке убывания.
+Вы можете изменить сортировку с помощью свойств `$sortColumn` и `$sortDirection`.
+
+```php filename:PostResource.php
+protected string $sortColumn = 'created_at';
+
+protected string $sortDirection = 'DESC';
+```
+
+<a name="pagination"></a>
+## Пагинация
+
+По умолчанию **MoonShine** использует стандартную пагинацию Laravel.
+Вы можете переключиться на cursor pagination или simple pagination с помощью свойств `$cursorPaginate` и `$simplePaginate`.
+
+```php filename:PostResource.php
+protected bool $cursorPaginate = true;
+```
+
+```php filename:PostResource.php
+protected bool $simplePaginate = true;
+```
+
+> [!NOTE]
+> Подробнее о типах пагинации можно узнать в [документации Laravel](https://laravel.com/docs/pagination).
+
+<a name="is-async"></a>
+## Асинхронный режим
+
+По умолчанию в ресурсе включен "Асинхронный режим".
+Чтобы его выключить, переопределите свойство `$isAsync` в ресурсе или на отдельных CRUD страницах.
+
+```php filename:PostIndexPage.php
+protected bool $isAsync = false;
+```
+
+> [!TIP]
+> Подробнее об асинхронной загрузке таблицы можно узнать в разделе [TableBuilder](/docs/{{version}}/components/table-builder#async-loading).
+
+> [!TIP]
+> Подробнее об асинхронной отправке форм можно узнать в разделе [FormBuilder](/docs/{{version}}/components/form-builder#asynchronous-mode).
 
 <a name="adding-to-the-menu"></a>
 ## Добавление в меню
@@ -212,7 +257,8 @@ use MoonShine\Laravel\Layouts\AppLayout;
 use MoonShine\Laravel\Resources\MoonShineUserResource;
 use MoonShine\Laravel\Resources\MoonShineUserRoleResource;
 use MoonShine\MenuManager\MenuGroup;
-use MoonShine\MenuManager\MenuItem; // [tl! collapse:end]
+use MoonShine\MenuManager\MenuItem;
+// [tl! collapse:end]
 
 final class MoonShineLayout extends AppLayout
 {
@@ -239,7 +285,7 @@ final class MoonShineLayout extends AppLayout
 > О расширенных настройках `MenuManager` можно узнать в разделе [Menu](/docs/{{version}}/appearance/menu).
 
 <a name="alias"></a>
-### Alias
+## Alias
 
 По умолчанию alias ресурса, который используется в `url`, генерируется на основе наименования класс в `kebab-case`, например:
 `MoonShineUserResource` -> `moon-shine-user-resource`.
@@ -391,147 +437,6 @@ protected function activeActions(): ListOf
     return new ListOf(Action::class, [Action::VIEW, Action::UPDATE]);
 }
 ```
-
-<a name="buttons"></a>
-## Кнопки
-
-По умолчанию на индексной странице ресурса модели присутствует только кнопка для создания.
-Метод `topButtons()` позволяет добавить дополнительные [кнопки](/docs/{{version}}/components/action-button).
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:start]
-namespace App\MoonShine\Resources;
-
-use MoonShine\Laravel\Resources\ModelResource;
-use MoonShine\Support\AlpineJs;
-use MoonShine\Support\Enums\JsEvent;
-use MoonShine\Support\ListOf;
-use MoonShine\UI\Components\ActionButton; // [tl! collapse:end]
-
-class PostResource extends ModelResource
-{
-    // ...
-
-    protected function topButtons(): ListOf
-    {
-        return parent::topButtons()->add(
-            ActionButton::make('Refresh', '#')
-                ->dispatchEvent(AlpineJs::event(JsEvent::TABLE_UPDATED, $this->getListComponentName()))
-        );
-    }
-}
-```
-
-<a name="display"></a>
-#### Отображение
-
-Вы также можете изменить отображение кнопок, отображать их в линию или же в выпадающем меню для экономии места.
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:4]
-namespace App\MoonShine\Resources;
-
-use MoonShine\Support\ListOf;
-use MoonShine\UI\Components\ActionButton;
-
-class PostResource extends ModelResource
-{
-    // ...
-
-    protected function indexButtons(): ListOf
-    {
-        return parent::indexButtons()->prepend(
-            ActionButton::make('Button 1', '/')
-                ->showInLine(),
-            ActionButton::make('Button 2', '/')
-                ->showInDropdown(),
-        );
-    }
-}
-```
-
-<a name="modifiers"></a>
-## Модификаторы
-
-Для модификации основного компонента `IndexPage`, `FormPage` или `DetailPage` страницы из ресурса можно переопределить соответствующие методы `modifyListComponent()`, `modifyFormComponent()` и `modifyDetailComponent()`.
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:1]
-use MoonShine\Contracts\UI\ComponentContract;
-
-public function modifyListComponent(ComponentContract $component): ComponentContract
-{
-    return parent::modifyListComponent($component)->customAttributes([
-        'data-my-attr' => 'value'
-    ]);
-}
-```
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use MoonShine\Contracts\UI\ComponentContract;
-use MoonShine\UI\Components\FlexibleRender;
-
-public function modifyFormComponent(ComponentContract $component): ComponentContract
-{
-    return parent::modifyFormComponent($component)->fields([
-        FlexibleRender::make('Top'),
-        ...parent::modifyFormComponent($component)->getFields()->toArray(),
-        FlexibleRender::make('Bottom'),
-    ])->submit('Go');
-}
-```
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:1]
-use MoonShine\Contracts\UI\ComponentContract;
-
-public function modifyDetailComponent(ComponentContract $component): ComponentContract
-{
-    return parent::modifyDetailComponent($component)->customAttributes([
-        'data-my-attr' => 'value'
-    ]);
-}
-```
-
-<a name="components"></a>
-## Компоненты
-
-Лучший способ изменить компоненты страниц - это опубликовать страницы и взаимодействовать через них.
-Но, если вы хотите быстро добавить компоненты на страницы, то можете воспользоваться методами ресурса `pageComponents()`, `indexPageComponents()`, `formPageComponents()` и `detailPageComponents()`.
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:4]
-use MoonShine\Core\Collections\Components;
-use MoonShine\UI\Components\FormBuilder;
-use MoonShine\UI\Components\Modal;
-use MoonShine\UI\Fields\Text;
-
-// or indexPageComponents/formPageComponents/detailPageComponents
-protected function pageComponents(): array
-{
-    return [
-        Modal::make(
-            'My Modal'
-            components: Components::make([
-                FormBuilder::make()->fields([
-                    Text::make('Title')
-                ])
-            ])
-        )
-        ->name('demo-modal')
-    ];
-}
-```
-
-> [!NOTE]
-> Компоненты будут добавлены в `bottomLayer`.
 
 <a name="lifecycle"></a>
 ## Жизненный цикл

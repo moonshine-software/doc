@@ -5,26 +5,21 @@ video: https://youtu.be/5o8qSf94Bf0?si=9dLj_SiXA1-w6hFo&t=1955
 # Buttons
 
 - [Basics](#basics)
-- [Create button](#create)
-- [Detail button](#detail)
-- [Edit button](#edit)
-- [Delete button](#delete)
-- [Mass delete button](#mass-delete)
-- [Filters button](#filters)
-- [Index page buttons](#top-buttons)
-- [Index table buttons](#index-buttons)
-- [Form page buttons](#form-buttons)
-- [Detail page buttons](#detail-buttons)
+- [Index page buttons](#index-page-buttons)
+- [Index table buttons](#index-table-buttons)
+- [Form page buttons](#form-page-buttons)
+- [Detail page buttons](#detail-page-buttons)
 
 ---
 
 <a name="basics"></a>
 ## Basics
 
-Buttons are displayed on resource pages: index page, form pages (create / edit), and detail page.
-They are responsible for basic actions with elements and are components of [ActionButton](/docs/{{version}}/components/action-button).
+Buttons on resource pages are responsible for the main actions with elements
+and are components of [ActionButton](/docs/{{version}}/components/action-button).
 
-In **MoonShine**, there are many methods that allow you to override either a single [button](/docs/{{version}}/components/action-button) for the resource or an entire [group](/docs/{{version}}/components/action-group).
+There are many methods in MoonShine that allow you to override a resource as separate
+[buttons](/docs/{{version}}/components/action-button) and the entire [group](/docs/{{version}}/components/action-group).
 
 > [!NOTE]
 > More detailed information about the [ActionButton](/docs/{{version}}/components/action-button) component.
@@ -33,10 +28,50 @@ In **MoonShine**, there are many methods that allow you to override either a sin
 > The buttons for creating, viewing, editing, deleting, and mass deleting are placed in separate classes
 > to apply all necessary methods to them and thereby eliminate duplication, as these buttons are also used in `HasMany`, `BelongsToMany`, etc.
 
-<a name="create"></a>
-## Create button
+<a name="index-page-buttons"></a>
+## Index page buttons
 
-The `modifyCreateButton()` method allows you to modify the button for creating a new item.
+<a name="index-top-buttons"></a>
+### topLeftButtons and topRightButtons
+
+The `topLeftButtons()` and `topRightButtons()` methods in the index page class allow you to add\override
+[buttons](/docs/{{version}}/components/action-button) above the table.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:7]
+namespace App\MoonShine\Resources\Post\Pages;
+
+use MoonShine\Support\AlpineJs;
+use MoonShine\Support\Enums\JsEvent;
+use MoonShine\Support\ListOf;
+use MoonShine\UI\Components\ActionButton;
+use MoonShine\Laravel\Pages\Crud\IndexPage;
+
+class PostIndexPage extends IndexPage
+{
+    // ...
+
+    protected function topLeftButtons(): ListOf
+    {
+        return parent::topLeftButtons()
+            ->add(
+                ActionButton::make('Refresh', '#')
+                    ->dispatchEvent(
+                        AlpineJs::event(JsEvent::TABLE_UPDATED, $this->getListComponentName())
+                    )
+            );
+    }
+}
+```
+
+![resource_buttons_actions](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_buttons_actions.png#light)
+![resource_buttons_actions_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_buttons_actions_dark.png#dark)
+
+<a name="modify-create-button"></a>
+### Modification of the create button
+
+The `modifyCreateButton()` method allows you to modify the button for creating a new element.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -49,7 +84,7 @@ protected function modifyCreateButton(ActionButtonContract $button): ActionButto
 }
 ```
 
-You can also override the button.
+Also, you can redefine the button.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -66,86 +101,10 @@ protected function modifyCreateButton(ActionButtonContract $button): ActionButto
 ![resource_button_create](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_button_create.png#light)
 ![resource_button_create_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_button_create_dark.png#dark)
 
-<a name="detail"></a>
-## Detail button
+<a name="modify-filters-button"></a>
+### Modification of the filter button
 
-The `modifyDetailButton()` method allows you to modify or override the button for viewing the details of an item.
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:1]
-use MoonShine\Contracts\UI\ActionButtonContract;
-
-protected function modifyDetailButton(ActionButtonContract $button): ActionButtonContract
-{
-    return $button->warning();
-}
-```
-
-![resource_button_detail](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_button_detail.png#light)
-![resource_button_detail_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_button_detail_dark.png#dark)
-
-<a name="edit"></a>
-## Edit button
-
-The `modifyEditButton()` method allows you to modify or override the button for editing an item.
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:1]
-use MoonShine\Contracts\UI\ActionButtonContract;
-
-protected function modifyEditButton(ActionButtonContract $button): ActionButtonContract
-{
-    return $button->icon('pencil-square');
-}
-```
-
-![resource_button_edit](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_button_edit.png#light)
-![resource_button_edit_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_button_edit_dark.png#dark)
-
-<a name="delete"></a>
-## Delete button
-
-The `modifyDeleteButton()` method allows you to modify or override the button for deleting an item.
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:1]
-use MoonShine\Contracts\UI\ActionButtonContract;
-
-protected function modifyDeleteButton(ActionButtonContract $button): ActionButtonContract
-{
-    return $button->icon('x-mark');
-}
-```
-
-![resource_button_delete](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_button_delete.png#light)
-![resource_button_delete_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_button_delete_dark.png#dark)
-
-<a name="mass-delete"></a>
-## Mass delete button
-
-The `modifyMassDeleteButton()` method allows you to modify or override the button for mass deleting.
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:1]
-use MoonShine\Contracts\UI\ActionButtonContract;
-
-protected function modifyMassDeleteButton(ActionButtonContract $button): ActionButtonContract
-{
-    return $button->icon('x-mark');
-}
-```
-
-![resource_button_mass_delete](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_button_mass_delete.png#light)
-![resource_button_mass_delete](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_button_mass_delete_dark.png#dark)
-
-<a name="filters"></a>
-## Filters button
-
-The `modifyFiltersButton()` method allows you to modify or overwrite the filters button.
+The `modifyFiltersButton()` method allows you to modify or override the filter button.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -161,39 +120,10 @@ protected function modifyFiltersButton(ActionButtonContract $button): ActionButt
 ![resource_button_filters](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_button_filters.png#light)
 ![resource_button_filters_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_button_filters_dark.png#dark)
 
-<a name="top-buttons"></a>
-## Index page buttons
-
-By default, the model resource index page has only a create button.
-The `topButtons()` method allows you to add additional [buttons](/docs/{{version}}/components/action-button).
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:4]
-use MoonShine\Support\AlpineJs;
-use MoonShine\Support\Enums\JsEvent;
-use MoonShine\Support\ListOf;
-use MoonShine\UI\Components\ActionButton;
-
-protected function topButtons(): ListOf
-{
-    return parent::topButtons()
-        ->add(
-            ActionButton::make('Refresh', '#')
-                ->dispatchEvent(
-                    AlpineJs::event(JsEvent::TABLE_UPDATED, $this->getListComponentName())
-                )
-        );
-}
-```
-
-![resource_buttons_actions](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_buttons_actions.png#light)
-![resource_buttons_actions_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_buttons_actions_dark.png#dark)
-
-<a name="index-buttons"></a>
+<a name="index-table-buttons"></a>
 ## Index table buttons
 
-To add buttons in the index table, use the `indexButtons()` method.
+To add/override buttons in the index table, use the `buttons()` method in the index page class.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -202,12 +132,12 @@ use Illuminate\Database\Eloquent\Model;
 use MoonShine\UI\Components\ActionButton;
 use MoonShine\Support\ListOf;
 
-protected function indexButtons(): ListOf
+protected function buttons(): ListOf
 {
-    return parent::indexButtons()
+    return parent::buttons()
         ->prepend(
             ActionButton::make(
-                'Link',
+                'Link'
                 fn(Model $item) => '/endpoint?id=' . $item->getKey()
             )
         );
@@ -217,7 +147,7 @@ protected function indexButtons(): ListOf
 ![resource_buttons_index](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_buttons_index.png#light)
 ![resource_buttons_index_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_buttons_index_dark.png#dark)
 
-For bulk actions with elements, you need to add the `bulk()` method.
+For mass actions with elements, you need to add the `bulk()` method.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -225,9 +155,9 @@ For bulk actions with elements, you need to add the `bulk()` method.
 use MoonShine\UI\Components\ActionButton;
 use MoonShine\Support\ListOf;
 
-protected function indexButtons(): ListOf
+protected function buttons(): ListOf
 {
-    return parent::indexButtons()
+    return parent::buttons()
         ->prepend(
             ActionButton::make('Link', '/endpoint')
                 ->bulk()
@@ -238,10 +168,106 @@ protected function indexButtons(): ListOf
 ![resource_buttons_bulk](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_buttons_bulk.png#light)
 ![resource_buttons_bulk_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_buttons_bulk_dark.png#dark)
 
-<a name="form-buttons"></a>
+<a name="modify-detail-button"></a>
+### Modification of the detailed view button
+
+The `modifyDetailButton()` method allows you to modify or override the detail view button of an element.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\Contracts\UI\ActionButtonContract;
+
+protected function modifyDetailButton(ActionButtonContract $button): ActionButtonContract
+{
+    return $button->warning();
+}
+```
+
+![resource_button_detail](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_button_detail.png#light)
+![resource_button_detail_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_button_detail_dark.png#dark)
+
+<a name="modify-edit-button"></a>
+### Edit button modification
+
+The `modifyEditButton()` method allows you to modify or override an element's edit button.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\Contracts\UI\ActionButtonContract;
+
+protected function modifyEditButton(ActionButtonContract $button): ActionButtonContract
+{
+    return $button->icon('pencil-square');
+}
+```
+
+![resource_button_edit](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_button_edit.png#light)
+![resource_button_edit_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_button_edit_dark.png#dark)
+
+<a name="modify-delete-button"></a>
+### Modification of the delete button
+
+The `modifyDeleteButton()` method allows you to modify or override an element's delete button.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\Contracts\UI\ActionButtonContract;
+
+protected function modifyDeleteButton(ActionButtonContract $button): ActionButtonContract
+{
+    return $button->icon('x-mark');
+}
+```
+
+![resource_button_delete](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_button_delete.png#light)
+![resource_button_delete_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_button_delete_dark.png#dark)
+
+<a name="modify-mass-delete-button"></a>
+### Modification of the mass delete button
+
+The `modifyMassDeleteButton()` method allows you to modify or override the mass delete button.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\Contracts\UI\ActionButtonContract;
+
+protected function modifyMassDeleteButton(ActionButtonContract $button): ActionButtonContract
+{
+    return $button->icon('x-mark');
+}
+```
+
+![resource_button_mass_delete](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_button_mass_delete.png#light)
+![resource_button_mass_delete](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_button_mass_delete_dark.png#dark)
+
+<a name="form-page-buttons"></a>
 ## Form page buttons
 
-To add buttons to the form page, use the `formButtons()` method.
+To add buttons to a form page, use the `buttons()` method in the form page class.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\UI\Components\ActionButton;
+use MoonShine\Support\ListOf;
+
+protected function buttons(): ListOf
+{
+    return parent::buttons()
+        ->add(
+            ActionButton::make('Link')->method('updateSomething')
+        );
+}
+```
+
+![resource_buttons_form](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_buttons_form.png#light)
+![resource_buttons_form_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_buttons_form_dark.png#dark)
+
+The `formButtons()` method allows you to add\override [buttons](/docs/{{version}}/components/action-button) directly to the create or edit form.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -253,26 +279,6 @@ protected function formButtons(): ListOf
 {
     return parent::formButtons()
         ->add(
-            ActionButton::make('Link')->method('updateSomething')
-        );
-}
-```
-
-![resource_buttons_form](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_buttons_form.png#light)
-![resource_buttons_form_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_buttons_form_dark.png#dark)
-
-The `formBuilderButtons()` method allows you to add additional [buttons](/docs/{{version}}/components/action-button) directly in the create or edit form.
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use MoonShine\UI\Components\ActionButton;
-use MoonShine\Support\ListOf;
-
-protected function formBuilderButtons(): ListOf
-{
-    return parent::formBuilderButtons()
-        ->add(
             ActionButton::make('Back', fn() => $this->getIndexPageUrl())->class('btn-lg')
         );
 }
@@ -281,10 +287,10 @@ protected function formBuilderButtons(): ListOf
 ![resource_buttons_form_builder](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_buttons_form_builder.png#light)
 ![resource_buttons_form_builder](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_buttons_form_builder_dark.png#dark)
 
-<a name="detail-buttons"></a>
+<a name="detail-page-buttons"></a>
 ## Detail page buttons
 
-To add buttons to the detail view page, use the `detailButtons()` method.
+To add\override buttons on the detail page, use the `buttons()` method in the detail page class.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -292,9 +298,9 @@ To add buttons to the detail view page, use the `detailButtons()` method.
 use MoonShine\UI\Components\ActionButton;
 use MoonShine\Support\ListOf;
 
-protected function detailButtons(): ListOf
+protected function buttons(): ListOf
 {
-    return parent::detailButtons()
+    return parent::buttons()
         ->add(ActionButton::make('Link', '/endpoint'));
 }
 ```

@@ -7,7 +7,7 @@ title: Upgrade guide
 - [Auto Upgrade](#auto-upgrade)
 - [Updating Dependencies](#update-dependencies)
 - [Namespace Changes](#namespace-changes)
-- [Resource Changes](#resource-changes)
+- [Resource Structure Changes](#resource-changes)
 - [Field Changes](#field-changes)
 - [Layout Changes](#layout-changes)
 - [Deprecated Classes and Methods](#deprecated)
@@ -18,7 +18,8 @@ title: Upgrade guide
 <a name="auto-upgrade"></a>
 ## Auto Upgrade
 
-To simplify the migration process, you can use the [warete/moonshine-upgrade](https://github.com/warete/moonshine-upgrade) package, which will automatically make all the necessary changes to migrate to MoonShine 4.0.
+To simplify the migration process, you can use the [warete/moonshine-upgrade](https://github.com/warete/moonshine-upgrade) package,
+which will automatically make all the necessary changes to migrate to MoonShine 4.0.
 
 <a name="update-dependencies"></a>
 ## Package Update
@@ -64,18 +65,29 @@ use MoonShine\Crud\Traits\WithComponentsPusher; // [tl! add]
 ```
 
 <a name="resource-changes"></a>
-## Changes in resource structures
+## Resource Structure Changes
 
 Many methods and properties have been moved from resources to the corresponding CRUD pages.
 
-The `rules()` method has been moved from the resource to the `FormPage`.
+The `rules()` and `modifyFormComponent()` methods have been moved to the form class.
 
-The methods `metrics()`, `queryTags()`, `filters()`, etc. have been moved to `IndexPage`.
+The `metrics()`, `queryTags()`, `filters()`, `modifyListComponent()` methods have been moved to the index page class.
 
-The `indexButtons()` method has been removed from the resource, and the `buttons()` method in the corresponding index page should be used instead.
+The `modifyDetailComponent()` method has been moved to the detail page class.
 
-This is not a complete list of changes in the resource,
-but the process of transferring all the relevant functionality from the resource to CRUD pages is quite intuitive and should not be difficult.
+The `indexButtons()` method has been removed from the resource and the `buttons()` method should be used in the index page class instead.
+
+The `topButtons()` method has been removed from the resource, and the `topLeftButtons()` and `topRightButtons()` methods should be used instead in the index page class.
+
+The `formButtons()` method has been removed from the resource and the `buttons()` method should be used in the form page class instead.
+
+The `formBuilderButtons()` method has been removed from the resource and the `formButtons()` method should be used in the form page class instead.
+
+The properties `$clickAction`, `$stickyTable`, `$stickyButtons`, `$columnSelection` have been removed from the resource.
+Instead, you should override the `modifyListComponent()` method in the index page class.
+
+This is not a complete list of changes to the resource, but the process of transferring all relevant functionality from the resource to
+CRUD pages are quite intuitive and should not be difficult.
 
 <a name="field-changes"></a>
 ## Field Changes
@@ -122,6 +134,10 @@ The `$label` parameter is now optional, by default it is taken from the `getLabe
 MenuItem::make('Settings', SettingResource::class) // [tl! remove]
 MenuItem::make(SettingResource::class) // [tl! add]
 ```
+
+### Component changes
+
+In the `Profile` component, the `$withBorder` parameter has been removed.
 
 <a name="deprecated"></a>
 ## Deprecated Classes and Methods

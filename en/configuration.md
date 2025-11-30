@@ -37,8 +37,8 @@ In this section, we will examine two main ways of configuration and the primary 
 
 **MoonShine** can be configured in two ways:
 
-1. Through the configuration file `config/moonshine.php`
-2. Through `MoonShineServiceProvider` using the `MoonShineConfigurator` class
+1. Through the configuration file `config/moonshine.php`,
+2. Through `MoonShineServiceProvider` using the `MoonShineConfigurator` class.
 
 <a name="config-file"></a>
 ### Configuration via moonshine.php File
@@ -95,8 +95,8 @@ return [
 ];
 ```
 
-> ![WARNING]
-> Since the routes are loaded before the `boot` method of the `ServiceProvider` is called,
+> [!WARNING]
+> Since the routes are loaded before the `boot()` method of the `ServiceProvider` is called,
 > any route-related configuration should be defined in the `moonshine.php` config file.
 
 > [!NOTE]
@@ -177,8 +177,9 @@ Regardless of the chosen configuration method, you can set up the following basi
 
 - `use_migrations` - use default system migrations (`moonshine_users`, `moonshine_user_roles`),
 - `use_notifications` - use notification system,
-- `use_database_notifications` - use Laravel notification system based on database driver,
-- `dir` - directory for **MoonShine** (by default `app/MoonShine`). The directory is used for generating files via `artisan` commands, in general **MoonShine** is not tied to structure,
+- `use_database_notifications` - use **Laravel** notification system based on database driver,
+- `dir` - directory for **MoonShine** (by default `app/MoonShine`).
+The directory is used for generating files via `artisan` commands, in general **MoonShine** is not tied to structure,
 - `namespace` - namespace for classes created via `artisan` commands (by default `App\MoonShine`).
 
 ~~~tabs
@@ -317,7 +318,6 @@ $config->guard('admin');
 'auth' => [
     // ...
     'model' => User::class,
-    // ...
 ],
 ```
 
@@ -332,7 +332,6 @@ $config->guard('admin');
     'middleware' => [
         Authenticate::class,
     ],
-    // ...
 ],
 ```
 
@@ -430,10 +429,13 @@ tab: config/moonshine.php
 ```php
 'disk' => 'public',
 'disk_options' => [],
+'user_avatars_dir' => 'moonshine_users',
 ```
 tab: MoonShineServiceProvider
 ```php
-$config->disk('public', options: []);
+$config
+    ->disk('public', options: [])
+    ->userAvatarsDir('images/avatars');
 ```
 ~~~
 
@@ -560,27 +562,26 @@ getPage(
 )
 ```
 
-Parameters:
 - `$name` - page name in the config,
 - `$default` - default page class if not found in the config,
 - `$parameters` - additional parameters for the page constructor.
 
-Example usage:
+Example of use via helper:
 
 ```php
-// Helper
-
 $customPage = moonshineConfig()->getPage('custom');
 ```
 
-```php
-// DI
+Example of use via DI:
 
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
 use MoonShine\Contracts\Core\DependencyInjection\ConfiguratorContract;
 use MoonShine\Laravel\DependencyInjection\MoonShineConfigurator;
 
 /**
- * @param  MoonShineConfigurator  $configurator
+ * @param  MoonShineConfigurator  $config
  */
 public function index(ConfiguratorContract $config)
 {
@@ -590,7 +591,7 @@ public function index(ConfiguratorContract $config)
 
 ### Getting Forms
 
-The `getForm` method allows you to retrieve an instance of a form by its name or use the default form.
+The `getForm()` method allows you to retrieve an instance of a form by its name or use the default form.
 
 ```php
 getForm(
@@ -600,27 +601,26 @@ getForm(
 )
 ```
 
-Parameters:
 - `$name` - form name in the config,
 - `$default` - default form class,
 - `$parameters` - additional parameters for the form constructor.
 
-Example usage:
+Example of use via helper:
 
 ```php
-// Helper
-
 $form = moonshineConfig()->getForm('login');
 ```
 
-```php
-// DI
+Example of use via DI:
 
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
 use MoonShine\Contracts\Core\DependencyInjection\ConfiguratorContract;
 use MoonShine\Laravel\DependencyInjection\MoonShineConfigurator;
 
 /**
- * @param  MoonShineConfigurator  $configurator
+ * @param  MoonShineConfigurator  $config
  */
 public function index(ConfiguratorContract $config)
 {
@@ -633,22 +633,18 @@ public function index(ConfiguratorContract $config)
 You can set up the correspondence between the names and classes of pages and forms in the `moonshine.php` file.
 
 ```php
-return [
-    // Other settings...
+'pages' => [
+    'dashboard' => App\MoonShine\Pages\DashboardPage::class,
+    'custom' => App\MoonShine\Pages\CustomPage::class,
+],
 
-    'pages' => [
-        'dashboard' => \App\MoonShine\Pages\DashboardPage::class,
-        'custom' => \App\MoonShine\Pages\CustomPage::class,
-    ],
-
-    'forms' => [
-        'login' => \App\MoonShine\Forms\LoginForm::class,
-        'custom' => \App\MoonShine\Forms\CustomForm::class,
-    ],
-];
+'forms' => [
+    'login' => App\MoonShine\Forms\LoginForm::class,
+    'custom' => App\MoonShine\Forms\CustomForm::class,
+],
 ```
 
-This will allow you to easily retrieve the desired pages and forms by their names using the `getPage` and `getForm` methods.
+This will allow you to easily retrieve the desired pages and forms by their names using the `getPage()` and `getForm()` methods.
 
 <a name="choosing-configuration-method"></a>
 ## Choosing Configuration Method
@@ -667,7 +663,7 @@ When choosing a configuration method, it's important to consider the following:
    - `MoonShineServiceProvider` allows centralized management of settings in one place in the code.
 
 4. **Integration with Code**:
-   - Configuration via `MoonShineServiceProvider` integrates better with the rest of the application code and allows the use of Laravel dependencies and services.
+   - Configuration via `MoonShineServiceProvider` integrates better with the rest of the application code and allows the use of **Laravel** dependencies and services.
 
 Choose the method that best fits your development style and project requirements.
 You can also combine these approaches, for example, using the `moonshine.php` file for basic settings and the `MoonShineServiceProvider` for more complex configurations.

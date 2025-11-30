@@ -10,22 +10,16 @@
 ```php
 use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\Contracts\Core\DependencyInjection\CrudRequestContract;
+use MoonShine\Support\Attributes\AsyncMethod;
 use MoonShine\UI\Components\Table\TableBuilder;
 
 protected string $sortColumn = 'position';
 
+protected bool $usePagination = false;
+
 protected SortDirection $sortDirection = SortDirection::ASC;
 
-/**
- * @param TableBuilder $component
- */
-public function modifyListComponent(ComponentContract $component): ComponentContract
-{
-    return $component->reorderable(
-        $this->getAsyncMethodUrl('reorder')
-    );
-}
-
+#[AsyncMethod]
 public function reorder(CrudRequestContract $request): void
 {
     if ($request->str('data')->isNotEmpty()) {
@@ -37,6 +31,20 @@ public function reorder(CrudRequestContract $request): void
                 ]),
         );
     }
+}
+```
+
+Добавьте в индексную страницу ресурса код:
+
+```php
+/**
+ * @param TableBuilder $component
+ */
+protected function modifyListComponent(ComponentContract $component): ComponentContract
+{
+    return $component->reorderable(
+        $this->getResource()->getAsyncMethodUrl('reorder')
+    );
 }
 ```
 
@@ -61,7 +69,7 @@ protected function fields(): iterable
 public function modifyListComponent(ComponentContract $component): ComponentContract
 {
     return $component->reorderable(
-        $this->getAsyncMethodUrl('reorder')
+        $this->getResource()->getAsyncMethodUrl('reorder')
     )->customAttributes([
         'data-handle' => '.handle',
     ]);

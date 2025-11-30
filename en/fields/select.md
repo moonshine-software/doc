@@ -14,6 +14,12 @@
 - [Values with images](#with-image)
 - [Options](#options)
 - [Native display mode](#native)
+- [Plugins](#plugins)
+- [Custom settings](#settings)
+  - [Name settings](#fields-names)
+  - [Add. async settings](#async-settings)
+  - [Creating new options](#select-creatable)
+  - [Max select option](#select-max-items)
 
 ---
 
@@ -25,6 +31,8 @@ Contains all [Basic Methods](/docs/{{version}}/fields/basic-methods).
 ~~~tabs
 tab: Class
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Select;
 
 Select::make('Country', 'country_id')
@@ -62,6 +70,8 @@ default(mixed $default)
 ```
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Select;
 
 Select::make('Country', 'country_id')
@@ -75,6 +85,13 @@ Select::make('Country', 'country_id')
 You can also specify options via the `Options` object.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:4]
+use MoonShine\Support\DTOs\Select\Option;
+use MoonShine\Support\DTOs\Select\OptionProperty;
+use MoonShine\Support\DTOs\Select\Options;
+use MoonShine\UI\Fields\Select;
+
 Select::make('Select')
     ->options(
         new Options([
@@ -105,6 +122,8 @@ nullable(Closure|bool|null $condition = null)
 ~~~tabs
 tab: Class
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Select;
 
 Select::make('Country', 'country_id')
@@ -135,6 +154,8 @@ placeholder(string $value)
 ```
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Select;
 
 Select::make('Country', 'country')
@@ -150,6 +171,8 @@ You can group values together.
 ~~~tabs
 tab: array
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Select;
 
 Select::make('City', 'city_id')
@@ -166,6 +189,8 @@ Select::make('City', 'city_id')
 ```
 tab: OptionGroup
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Select;
 
 Select::make('City')
@@ -197,6 +222,8 @@ multiple(Closure|bool|null $condition = null)
 ```
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Select;
 
 Select::make('Country', 'country_id')
@@ -221,6 +248,8 @@ If you need to add search functionality among values, then you need to add the `
 ~~~tabs
 tab: Class
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Select;
 
 Select::make('Country', 'country_id')
@@ -323,6 +352,8 @@ The response will be:
 ~~~tabs
 tab: Class
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Select;
 
 Select::make('Country', 'country_id')
@@ -341,6 +372,8 @@ tab: Blade
 If you need to send the request for values immediately after the page is displayed, then you need to add the `asyncOnInit(whenOpen: false)` method.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Select;
 
 Select::make('Country', 'country_id')
@@ -353,6 +386,7 @@ Select::make('Country', 'country_id')
 ```
 
 If `asyncOnInit()` or `asyncOnInit(whenOpen: true)` is empty, the request will be sent after clicking on `Select`.
+And if it is necessary for the "Loader" to be shown before opening `Select`, then you can add `asyncOnInit(withLoading: true)`.
 
 > [!NOTE]
 > Don't forget to handle the `query` when using `async`, otherwise, the search will always return the same values.
@@ -363,6 +397,8 @@ If `asyncOnInit()` or `asyncOnInit(whenOpen: true)` is empty, the request will b
 When the `Select` value changes, you can trigger events using the `onChangeEvent()` method.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Select;
 
 Select::make('Country', 'country_id')
@@ -418,6 +454,8 @@ updateOnPreview(
 > Parameters are not mandatory and should be passed if the field operates outside of a resource.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Select;
 
 Select::make('Country')
@@ -434,6 +472,8 @@ optionProperties(Closure|array $data)
 ```
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Select;
 
 Select::make('Country', 'country_id')
@@ -492,9 +532,11 @@ new OptionProperty(
 <a name="options"></a>
 ## Options
 
-All *Choices.js* options are available for modification through *data attributes*.
+All *Tom Select* options are available for modification through *data attributes*.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Select;
 
 Select::make('Country', 'country_id')
@@ -503,24 +545,207 @@ Select::make('Country', 'country_id')
         2 => 'United Arab Emirates',
     ])
     ->customAttributes([
-        'data-max-item-count' => 2
+        'data-remove-item-button' => true,
     ])
 
 ```
 
 > [!TIP]
-> For more detailed information refer to the [Choices.js](https://choices-js.github.io/Choices/).
+> For more detailed information refer to the [Tom Select documentation](https://tom-select.js.org/docs/).
 
 <a name="native"></a>
 ## Native display mode
 
-The `native()` method disables the *Choices.js* library and outputs the `Select` in native mode.
+The `native()` method disables the *Tom Select* library and outputs the `Select` in native mode.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Select;
 
 Select::make('Type')
     ->native()
+```
+
+<a name="plugins"></a>
+## Plugins
+
+The `addPlugin(array|string $plugin, array $pluginOptions = [])` method adds a plugin to `Select`.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\UI\Fields\Select;
+
+Select::make('Type')
+    ->addPlugin(['plugin_1', 'plugin_2'])
+
+Select::make('Type')
+    ->addPlugin('plugin_1', [
+        'foo' => 'bar',
+        ...
+    ])
+    ->addPlugin('plugin_2', [
+        'foo' => 'bar',
+        ...
+    ])
+```
+
+> [!TIP]
+> All official [plugins](https://tom-select.js.org/plugins/).
+
+You can also create your own plugins very easily.
+
+```js
+document.addEventListener('moonshine:select_init', function({ detail: { createPlugin } }) {
+    createPlugin('myPlugin', function(pluginOptions) {
+        console.log(pluginOptions, this.getValue())
+
+        this.on('change', value => {
+            // ...
+        })
+    })
+})
+```
+
+Next, connect the plugin as shown above.
+
+> [!TIP]
+> Complete documentation on [creating plugins](https://tom-select.js.org/docs/plugins/).
+
+<a name="settings"></a>
+## Custom settings
+
+The `settings()` method allows all custom **Tom Select** settings to be used.
+
+```php
+settings(array|Settings $settings)
+```
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\UI\Fields\Select;
+use MoonShine\Support\DTOs\Select\Settings;
+
+Select::make('Type')
+    ->settings(
+        Settings::make()
+            ->maxOptions(10)
+            ->highlight(false)
+    );
+```
+
+> [!TIP]
+> All available [settings](https://tom-select.js.org/docs/#general-configuration).
+
+<a name="fields-names"></a>
+### Name settings
+
+For all name settings, there is a very convenient `fieldsNames()` method.
+
+```php
+fieldsNames(FieldsNames $names)
+```
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\UI\Fields\Select;
+use MoonShine\Support\DTOs\Select\FieldsNames;
+
+Select::make('Type')
+    ->fieldsNames(
+        FieldsNames::make()
+            ->value('id')
+            ->label('name')
+            ->children('children')
+    );
+```
+
+<a name="async-settings"></a>
+### Add. async settings
+
+To further configure asynchrony, you can use the `asyncSettings()` method.
+
+```php
+asyncSettings(array|AsyncSettings $settings)
+```
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\Support\DTOs\Select\AsyncSettings;
+use MoonShine\UI\Fields\Select;
+
+Select::make('Type')
+    ->asyncSettings(
+        AsyncSettings::make()
+            // You can change the name of the search field
+            ->queryKey('q')
+
+            // You can send the current active values, just specify the name
+            ->selectedValuesKey('name')
+
+            // If the result is wrapped, for example, in data, then we indicate this key
+            ->resultKey('data')
+
+            // If you want all the fields of the current form to go along with the request
+            ->withAllFields()
+    );
+```
+
+<a name="select-creatable"></a>
+### Create new options
+
+To switch to the "create new options" mode, you can use the `selectCreatable()` method.
+
+```php
+selectCreatable(
+    ?string $filterRegex = null,
+    bool $persist = true,
+    bool $createOnBlur = false,
+    bool $duplicates = false,
+    bool $addPrecedence = false,
+)
+```
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\UI\Fields\Select;
+
+Select::make('Type')
+    ->selectCreatable(
+        /^\d+$/
+    );
+```
+
+> [!TIP]
+> Described in more detail [here](https://tom-select.js.org/examples/create-filter/).
+
+<a name="select-max-items"></a>
+### Maximum choice of options
+
+If you need to limit the maximum selection of an option, you can use the `selectMaxItems()` method.
+
+```php
+selectMaxItems(
+    ?int $limit = null,
+    ?string $text = null
+)
+```
+
+- `$limit` - max. quantity,
+- `$text` - message if the limit is exceeded.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\UI\Fields\Select;
+
+Select::make('Type')
+    ->selectMaxItems(5);
 ```
 
 > [!TIP]

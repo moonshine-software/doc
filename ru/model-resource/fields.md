@@ -4,53 +4,71 @@ video: https://youtu.be/bcFOkXuPSRk?si=wB5vPbEn8EUN8jJx&t=391
 
 # Поля
 
-Поля в **MoonShine**, в большинстве случаев, относятся к полям таблицы из базы данных.
-В рамках `CRUD` они будут выводиться на главной странице раздела (ресурса) со списком и на странице создания и редактирования записей.
+[Поля](/docs/{{version}}/fields/index) в **MoonShine** используются не только для ввода данных, но и для их вывода.
+В большинстве случаев, они относятся к полям таблицы из базы данных.
 
 В **MoonShine** существует множество видов полей, которые покрывают все возможные требования!
 Также они охватывают и все возможные связи в **Laravel** и для удобства называются так же, как и методы отношений
 `BelongsTo`, `BelongsToMany`, `HasOne`, `HasMany`, `HasOneThrough`, `HasManyThrough`, `MorphOne`, `MorphMany`.
 
-Добавлять поля в `ModelResource` очень просто!
-Для этого можно воспользоваться методами которые позволяют объявить поля для соответствующих страниц: `indexFields()`, `formFields()` или `detailFields()`.
+Добавлять поля на страницы ресурса очень просто!
+Для этого нужно на соответствующих страницах объявить поля в методе `fields()`.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:6]
-namespace App\MoonShine\Resources;
+// [tl! collapse:2]
+use MoonShine\UI\Fields\ID;
+use MoonShine\UI\Fields\Text;
 
-use MoonShine\Laravel\Resources\ModelResource;
+class PostIndexPage extends IndexPage
+{
+    protected function fields(): iterable
+    {
+        return [
+            ID::make()->sortable(),
+            Text::make('Title'),
+        ];
+    }
+}
+```
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:3]
 use MoonShine\UI\Components\Layout\Box;
 use MoonShine\UI\Fields\ID;
 use MoonShine\UI\Fields\Text;
 
-class PostResource extends ModelResource
+class PostFormPage extends FormPage
 {
-    // ...
-
-    protected function indexFields(): iterable
-    {
-        return [
-            ID::make(),
-            Text::make('Title'),
-        ];
-    }
-
-    protected function formFields(): iterable
+    protected function fields(): iterable
     {
         return [
             Box::make([
                 ID::make(),
-                Text::make('Title'),
-                Text::make('Subtitle'),
+                Text::make('Title')
+                    ->required(),
+                Text::make('Subtitle')
+                    ->nullable(),
             ]),
         ];
     }
+}
+```
 
-    protected function detailFields(): iterable
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\UI\Fields\ID;
+use MoonShine\UI\Fields\Text;
+
+class PostDetailPage extends DetailPage
+{
+    protected function fields(): iterable
     {
         return [
-            Text::make('Title', 'title'),
+            ID::make(),
+            Text::make('Title'),
             Text::make('Subtitle'),
         ];
     }

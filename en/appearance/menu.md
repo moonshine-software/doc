@@ -670,6 +670,9 @@ final class MoonShineLayout extends AppLayout
 
 To activate an alternative menu creation option, replace the array in the `menu()` method by calling `autoloadMenu()` method.
 
+> [!NOTE]
+> For menu autoloading to work, you must also enable [autoloading of resources and pages](/docs/{{version}}/model-resource/index#autoloading).
+
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:3]

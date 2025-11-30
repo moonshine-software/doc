@@ -9,16 +9,15 @@ video: https://youtu.be/5o8qSf94Bf0?si=9dLj_SiXA1-w6hFo
 - [Basic Properties](#basic-properties)
 - [Declaring in the System](#declaring-in-the-system)
 - [Autoloading](#autoloading)
+- [Sorting](#sorting)
+- [Pagination](#pagination)
+- [Async mode](#is-async)
 - [Adding to the Menu](#adding-to-the-menu)
-    - [Alias](#alias)
+- [Alias](#alias)
 - [Current Element/Model](#current-element-model)
 - [Modal Windows](#modal-windows)
 - [Redirects](#redirects)
 - [Active Actions](#active-actions)
-- [Buttons](#buttons)
-    - [Display](#display)
-- [Modifiers](#modifiers)
-- [Components](#components)
 - [Lifecycle](#lifecycle)
     - [Active Resource](#on-load)
     - [Creating an Instance](#on-boot)
@@ -187,10 +186,56 @@ In addition to its basic functions, it will also perform **MoonShine** resource 
 
 When using Laravel 10, you must manually call the `php artisan moonshine:optimize` console command to optimize the admin panel initialization process.
 
-You can clear the panel cache either with the `php artisan optimize:clear` command in Laravel 11 or by directly calling the `php artisan moonshine:optimize-clear` console command.
+You can clear the panel cache either with the `php artisan optimize:clear` command in Laravel 11
+or by directly calling the `php artisan moonshine:optimize-clear` console command.
 
 > [!WARNING]
 > If the application does not see them after creating the classes, update the composer cache with the `composer dump-autoload` command.
+
+<a name="sorting"></a>
+## Sorting
+
+By default, table records are sorted by the `id` field in descending order.
+You can change the sorting using the `$sortColumn` and `$sortDirection` properties.
+
+```php filename:PostResource.php
+protected string $sortColumn = 'created_at';
+
+protected string $sortDirection = 'DESC';
+```
+
+<a name="pagination"></a>
+## Pagination
+
+By default, **MoonShine** uses Laravel's standard pagination.
+You can switch to cursor pagination or simple pagination using the `$cursorPaginate` and `$simplePaginate` properties.
+
+```php filename:PostResource.php
+protected bool $cursorPaginate = true;
+```
+
+```php filename:PostResource.php
+protected bool $simplePaginate = true;
+```
+
+> [!NOTE]
+> Learn more about pagination types in the [Laravel documentation](https://laravel.com/docs/pagination).
+
+<a name="is-async"></a>
+## Async Mode
+
+By default, the resource is set to Asynchronous mode.
+To disable it, override the `$isAsync` property in the resource or on individual CRUD pages.
+
+```php filename:PostIndexPage.php
+protected bool $isAsync = false;
+```
+
+> [!TIP]
+> For more information about asynchronous table loading, see [TableBuilder](/docs/{{version}}/components/table-builder#async-loading).
+
+> [!TIP]
+> For more information about asynchronous form submission, see [FormBuilder](/docs/{{version}}/components/form-builder#asynchronous-mode).
 
 <a name="adding-to-the-menu"></a>
 ## Adding to the Menu
@@ -212,7 +257,8 @@ use MoonShine\Laravel\Layouts\AppLayout;
 use MoonShine\Laravel\Resources\MoonShineUserResource;
 use MoonShine\Laravel\Resources\MoonShineUserRoleResource;
 use MoonShine\MenuManager\MenuGroup;
-use MoonShine\MenuManager\MenuItem; // [tl! collapse:end]
+use MoonShine\MenuManager\MenuItem;
+// [tl! collapse:end]
 
 final class MoonShineLayout extends AppLayout
 {
@@ -239,7 +285,7 @@ final class MoonShineLayout extends AppLayout
 > You can learn about advanced `MenuManager` settings in the section [Menu](/docs/{{version}}/appearance/menu).
 
 <a name="alias"></a>
-### Alias
+## Alias
 
 By default, the alias of the resource used in the `url` is generated based on the class name in `kebab-case`, for example:
 `MoonShineUserResource` -> `moon-shine-user-resource`.
@@ -391,147 +437,6 @@ protected function activeActions(): ListOf
     return new ListOf(Action::class, [Action::VIEW, Action::UPDATE]);
 }
 ```
-
-<a name="buttons"></a>
-## Buttons
-
-By default, the index page of the resource model contains only a button for creation.
-The `topButtons()` method allows you to add additional [buttons](/docs/{{version}}/components/action-button).
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:start]
-namespace App\MoonShine\Resources;
-
-use MoonShine\Laravel\Resources\ModelResource;
-use MoonShine\Support\AlpineJs;
-use MoonShine\Support\Enums\JsEvent;
-use MoonShine\Support\ListOf;
-use MoonShine\UI\Components\ActionButton; // [tl! collapse:end]
-
-class PostResource extends ModelResource
-{
-    // ...
-
-    protected function topButtons(): ListOf
-    {
-        return parent::topButtons()->add(
-            ActionButton::make('Refresh', '#')
-                ->dispatchEvent(AlpineJs::event(JsEvent::TABLE_UPDATED, $this->getListComponentName()))
-        );
-    }
-}
-```
-
-<a name="display"></a>
-#### Display
-
-You can also change the button display, showing them inline or in a dropdown menu to save space.
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:4]
-namespace App\MoonShine\Resources;
-
-use MoonShine\Support\ListOf;
-use MoonShine\UI\Components\ActionButton;
-
-class PostResource extends ModelResource
-{
-    // ...
-
-    protected function indexButtons(): ListOf
-    {
-        return parent::indexButtons()->prepend(
-            ActionButton::make('Button 1', '/')
-                ->showInLine(),
-            ActionButton::make('Button 2', '/')
-                ->showInDropdown(),
-        );
-    }
-}
-```
-
-<a name="modifiers"></a>
-## Modifiers
-
-To modify the main component of `IndexPage`, `FormPage`, or `DetailPage` from the resource, you can override the corresponding methods `modifyListComponent()`, `modifyFormComponent()`, and `modifyDetailComponent()`.
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:1]
-use MoonShine\Contracts\UI\ComponentContract;
-
-public function modifyListComponent(ComponentContract $component): ComponentContract
-{
-    return parent::modifyListComponent($component)->customAttributes([
-        'data-my-attr' => 'value'
-    ]);
-}
-```
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use MoonShine\Contracts\UI\ComponentContract;
-use MoonShine\UI\Components\FlexibleRender;
-
-public function modifyFormComponent(ComponentContract $component): ComponentContract
-{
-    return parent::modifyFormComponent($component)->fields([
-        FlexibleRender::make('Top'),
-        ...parent::modifyFormComponent($component)->getFields()->toArray(),
-        FlexibleRender::make('Bottom'),
-    ])->submit('Go');
-}
-```
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:1]
-use MoonShine\Contracts\UI\ComponentContract;
-
-public function modifyDetailComponent(ComponentContract $component): ComponentContract
-{
-    return parent::modifyDetailComponent($component)->customAttributes([
-        'data-my-attr' => 'value'
-    ]);
-}
-```
-
-<a name="components"></a>
-## Components
-
-The best way to change page components is to publish the pages and interact through them.
-But, if you want to quickly add components to pages, you can use the resource methods `pageComponents()`, `indexPageComponents()`, `formPageComponents()` and `detailPageComponents()`.
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:4]
-use MoonShine\Core\Collections\Components;
-use MoonShine\UI\Components\FormBuilder;
-use MoonShine\UI\Components\Modal;
-use MoonShine\UI\Fields\Text;
-
-// or indexPageComponents/formPageComponents/detailPageComponents
-protected function pageComponents(): array
-{
-    return [
-        Modal::make(
-            'My Modal'
-            components: Components::make([
-                FormBuilder::make()->fields([
-                    Text::make('Title')
-                ])
-            ])
-        )
-        ->name('demo-modal')
-    ];
-}
-```
-
-> [!NOTE]
-> Components will be added to `bottomLayer`.
 
 <a name="lifecycle"></a>
 ## Lifecycle

@@ -16,7 +16,7 @@ video: https://youtu.be/pC-wVnpypVI?si=aYU6r6Iww7B73OZH&t=1409
 Для создания фильтров также используются [поля](/docs/{{version}}/fields/index).
 Фильтры отображаются только на главной странице раздела.
 
-Чтобы указать, по каким полям фильтровать данные, достаточно в вашем `ModelResource` в методе `filters()` вернуть массив с необходимыми полями.
+Чтобы указать, по каким полям фильтровать данные, достаточно в `IndexPage` в методе `filters()` вернуть массив с необходимыми полями.
 
 > [!NOTE]
 > Если метод отсутствует или возвращает пустой массив, то фильтры не будут отображаться.
@@ -27,12 +27,12 @@ video: https://youtu.be/pC-wVnpypVI?si=aYU6r6Iww7B73OZH&t=1409
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:4]
-namespace App\MoonShine\Resources;
+namespace App\MoonShine\Resources\Post\Pages;
 
 use MoonShine\UI\Fields\Text;
-use MoonShine\Laravel\Resources\ModelResource;
+use MoonShine\Laravel\Pages\Crud\IndexPage;
 
-class PostResource extends ModelResource
+class PostIndexPage extends IndexPage
 {
     // ...
 
@@ -51,6 +51,9 @@ class PostResource extends ModelResource
 > [!NOTE]
 > Поля являются ключевым элементом в построении форм **Moonshine**.
 [Подробнее о полях](/docs/{{version}}/fields/index).
+
+> [!NOTE]
+> Метод `filters()` также доступен в классе `ModelResource` для обратной совместимости, но рекомендуется определять фильтры непосредственно в `IndexPage`.
 
 <a name="apply"></a>
 ## Apply

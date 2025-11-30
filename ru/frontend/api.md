@@ -14,6 +14,7 @@
 Также мы поставляем инструменты, дающие возможность переключения аутентификации на `JWT` токены, а также генерацию `OpenApi` спецификации и документацию на основе ресурсов.
 
 Доступные роуты:
+
 - DELETE /admin/resource/{resourceUri}/crud - Массовое удаление (ids[])
 - GET /admin/resource/{resourceUri}/crud - Список записей
 - POST /admin/resource/{resourceUri}/crud - Добавление

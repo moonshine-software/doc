@@ -366,7 +366,6 @@ BelongsTo::make('City', 'city', resource: CityResource::class)
 
 If `asyncOnInit()` or `asyncOnInit(whenOpen: true)` is empty, the request will be sent after clicking on `BelongsTo`.
 
-
 > [!NOTE]
 > For more complex configurations, you can use `asyncSearch()`.
 
@@ -415,17 +414,17 @@ use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 BelongsTo::make('Country', resource: CountryResource::class)
     ->searchable()
     ->customAttributes([
-        'data-search-result-limit' => 5
+        'data-associated-with' => 'country_id',
     ])
 ```
 
 > [!NOTE]
-> For more detailed information, please refer to [Choices](https://choices-js.github.io/Choices/).
+> For more detailed information, please refer to the [Tom Select documentation](https://tom-select.js.org/docs/).
 
 <a name="native"></a>
 ## Native Mode
 
-The `native()` method disables the Choices.js library and displays the selection in native mode.
+The `native()` method disables the *Tom Select* library and displays the selection in native mode.
 
 ```php
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;

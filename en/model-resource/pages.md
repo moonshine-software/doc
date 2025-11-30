@@ -5,10 +5,13 @@ video: https://youtu.be/5o8qSf94Bf0?si=5mR85avWy4pZWfM2&t=245
 # Pages
 
 - [Basics](#basics)
+- [List Page](#index-page)
+- [Form Page](#form-page)
+- [Detail Page](#detail-page)
 - [Page Types](#page-type)
-- [Adding Fields](#fields)
-- [Main Components](#components)
+- [Fields](#fields)
 - [Layers on the Page](#layers)
+- [Main Component](#main-component)
 - [Simulate Route](#simulate)
 
 ---
@@ -16,22 +19,20 @@ video: https://youtu.be/5o8qSf94Bf0?si=5mR85avWy4pZWfM2&t=245
 <a name="basics"></a>
 ## Basics
 
-**MoonShine** provides the ability to configure `CRUD` pages.
-To do this, you need to choose the resource type `Model resource with pages` when creating a resource via the command.
+Pages are the core of the **MoonShine** architecture.
+All key functionality is defined directly in page classes, which provides flexibility and modularity.
 
-This will create a model resource class and additional classes for the index, detail view, and form pages.
-The page classes will, by default, be located in the `app/MoonShine/Pages` directory.
-
-In the created model resource, `CRUD` pages will be registered in the `pages()` method.
+When creating a resource, classes are also created for the list pages (`IndexPage`), detailed view (`DetailPage`) and form (`FormPage`).
+These pages will be registered with the resource in the `pages()` method.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:start]
 namespace App\MoonShine\Resources;
 
-use App\MoonShine\Pages\Post\PostIndexPage;
-use App\MoonShine\Pages\Post\PostFormPage;
-use App\MoonShine\Pages\Post\PostDetailPage;
+use App\MoonShine\Resources\Post\Pages\PostIndexPage;
+use App\MoonShine\Resources\Post\Pages\PostFormPage;
+use App\MoonShine\Resources\Post\Pages\PostDetailPage;
 use MoonShine\Laravel\Resources\ModelResource; // [tl! collapse:end]
 
 class PostResource extends ModelResource
@@ -49,8 +50,213 @@ class PostResource extends ModelResource
 }
 ```
 
+<a name="index-page"></a>
+## List Page
+
+List page extends the `IndexPage` class.
+It is the main section of the resource and is responsible for displaying the list of elements, filtering it, sorting it, and much more.
+
+### Lazy mode
+
+Lazy mode delays loading the index table until it becomes visible on the page.
+
+```php
+protected bool $isLazy = true;
+```
+
+### Metrics
+
+The `metrics()` method allows you to define metrics to display on the list page
+(more details in the [Metrics](/docs/{{version}}/model-resource/metrics) section).
+
+### Filters
+
+In the `filters()` method you can specify a list of fields to form the filter form
+(more details in the [Filters](/docs/{{version}}/model-resource/filters) section).
+
+### Query Tags
+
+The `queryTags()` method allows you to add quick filtering buttons based on preset conditions
+(more details in the [Query Tags](/docs/{{version}}/model-resource/query-tags) section).
+
+### Handlers
+
+The `handlers()` method for registering event handlers
+(more details in the [Handlers](/docs/{{version}}/advanced/handlers) section).
+
+### Main component
+
+You can get the main component of a list page using the `getListComponent()` method to output it somewhere.
+
+```php
+$page->getListComponent();
+// or
+$resource->getIndexPage()->getListComponent();
+```
+
+To modify the main `IndexPage` component, use the `modifyListComponent()` method.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\Contracts\UI\ComponentContract;
+use MoonShine\UI\Components\Table\TableBuilder;
+
+/**
+ * @param TableBuilder $component
+ * @return ComponentContract
+ */
+protected function modifyListComponent(ComponentContract $component): ComponentContract
+{
+    return $component
+        ->sticky()
+        ->stickyButtons()
+        ->columnSelection();
+}
+```
+
+To completely replace the main `IndexPage` component, use your own class
+(more details in the [Main Component](#main-component) section below).
+
+<a name="form-page"></a>
+## FormPage
+
+Form page extends the `FormPage` class and is responsible for creating and editing elements.
+
+<a name="validation"></a>
+### Validation
+
+You can add validation for resource form fields using Laravel's standard validation rules.
+
+#### Validation rules
+
+The `rules()` method allows you to define validation rules for fields.
+
+```php
+protected function rules(DataWrapperContract $item): array
+{
+    return [
+        'title' => ['required', 'string', 'min:5'],
+        'content' => ['required', 'string'],
+        'email' => ['sometimes', 'email'],
+    ];
+}
+```
+
+#### Validation messages
+
+The `validationMessages()` method allows you to override validation error messages.
+
+```php
+protected function rules(DataWrapperContract $item): array
+{
+    return [
+        'title' => ['required', 'string', 'min:5'],
+    ];
+}
+
+public function validationMessages(): array
+{
+    return [
+        'title.required' => 'Title is required',
+        'title.min' => 'Title must contain at least :min characters',
+    ];
+}
+```
+
+#### Preparing data for validation
+
+The `prepareForValidation()` method allows you to change data before validation.
+
+```php
+public function prepareForValidation(): void
+{
+    request()->merge([
+        'slug' => request()
+            ->string('slug')
+            ->lower()
+            ->value(),
+    ]);
+}
+```
+
+#### Precognitive validation
+
+The `$isPrecognitive` property allows you to enable [precognitive validation](https://laravel.com/docs/precognition) for the form.
+
+```php filename:PostFormPage.php
+protected bool $isPrecognitive = true;
+```
+
+Precognitive validation allows you to validate form fields in real time as you enter data.
+
+### Main component
+
+You can get the main form page component using the `getFormComponent()` method to output it somewhere.
+
+```php
+$page->getFormComponent();
+// or
+$resource->getFormPage()->getFormComponent();
+```
+
+To modify the main `FormPage` component, use the `modifyFormComponent()` method.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\Contracts\UI\FormBuilderContract;
+
+protected function modifyFormComponent(FormBuilderContract $component): FormBuilderContract
+{
+    return $component->withoutRedirect();
+}
+```
+
+To completely replace the main `FormPage` component, use your own class
+(more details in the [Main Component](#main-component) section below).
+
+<a name="detail-page"></a>
+## Detail Page
+
+You can get the detail page's main component using the `getDetailComponent()` method to output it somewhere.
+
+```php
+$page->getDetailComponent();
+// or
+$resource->getDetailPage()->getDetailComponent();
+```
+
+Detail page extends the `DetailPage` class and is responsible for displaying an element in detail.
+
+### Main component
+
+To modify the main `DetailPage` component, use the `modifyDetailComponent()` method.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\Contracts\UI\ComponentContract;
+use MoonShine\UI\Components\Table\TableBuilder;
+
+/**
+ * @param TableBuilder $component
+ * @return ComponentContract
+ */
+public function modifyDetailComponent(ComponentContract $component): ComponentContract
+{
+    return $component->vertical(
+        title: fn(FieldContract $field, Column $default, TableBuilder $ctx) => $default->columnSpan(2),
+        value: fn(FieldContract $field, Column $default, TableBuilder $ctx) => $default->columnSpan(10),
+    );
+}
+```
+
+To completely replace the main `DetailPage` component, use your own class
+(more details in the [Main Component](#main-component) section below).
+
 <a name="page-type"></a>
-## Page Types
+## Page types
 
 To specify the page type in `ModelResource`, the `enum` class `PageType` is used.
 
@@ -59,56 +265,128 @@ To specify the page type in `ModelResource`, the `enum` class `PageType` is used
 // [tl! collapse:1]
 use MoonShine\Support\Enums\PageType;
 
-PageType::INDEX; // Index page
-PageType::FORM; // Form page
-PageType::DETAIL; // Detail page
+PageType::INDEX;
+PageType::FORM;
+PageType::DETAIL;
 ```
 
 <a name="fields"></a>
-## Adding Fields
+## Fields
 
-[Fields](/docs/{{version}}/fields/index) in **MoonShine** are used not only for data input but also for output.
-The `fields()` method in the `CRUD` page class allows you to specify the necessary fields.
+> [!TIP]
+> To learn about adding fields to pages, see [ModelResource > Fields](/docs/{{version}}/model-resource/fields).
+
+<a name="layers"></a>
+## Layers on the page
+
+For convenience, all *crud* pages are divided into three layers, which are responsible for displaying a specific area on the page.
+
+- `TopLayer` - used to display metrics on the index page and for additional buttons on the edit page,
+- `MainLayer` - this layer is used to display main information using [FormBuilder](/docs/{{version}}/components/form-builder)
+and [TableBuilder](/docs/{{version}}/components/table-builder),
+- `BottomLayer` - used to display additional information.
+
+To configure layers, the corresponding methods are used: `topLayer()`, `mainLayer()` and `bottomLayer()`.
+Methods must return an array of [Components](/docs/{{version}}/page/index#components).
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:5]
-namespace App\MoonShine\Pages\Post;
-
+// [tl! collapse:2]
 use MoonShine\Laravel\Pages\Crud\IndexPage;
-use MoonShine\UI\Fields\ID;
-use MoonShine\UI\Fields\Text;
+use MoonShine\UI\Components\Heading;
 
 class PostIndexPage extends IndexPage
 {
     // ...
 
-    protected function fields(): iterable
+    protected function topLayer(): array
     {
         return [
-            ID::make(),
-            Text::make('Title'),
+            Heading::make('Custom top'),
+            ...parent::topLayer()
+        ];
+    }
+
+    protected function mainLayer(): array
+    {
+        return [
+            Heading::make('Custom main'),
+            ...parent::mainLayer()
+        ];
+    }
+
+    protected function bottomLayer(): array
+    {
+        return [
+            Heading::make('Custom bottom'),
+            ...parent::bottomLayer()
         ];
     }
 }
 ```
 
-<a name="components"></a>
-## Main Components
+> [!TIP]
+> If you need to access the components of a specific layer, then use the `getLayerComponents()` method.
 
-The main component of the page is specified by a class that implements one of the namespace interfaces `MoonShine\Crud\Contracts\PageComponents`. This allows you to completely replace a component, encapsulate the logic, and reuse it between pages and resources.
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\Support\Enums\Layer;
 
-Available interfaces:
+// Resource
+$this->getFormPage()->getLayerComponents(Layer::BOTTOM);
 
-- `DefaultListComponentContract` - the main component of the index page (list of elements),
-- `DefaultDetailComponentContract` - the main component of the detail page,
-- `DefaultFormContract` - the main form component.
+// Page
+$this->getLayerComponents(Layer::BOTTOM);
+```
 
-The class must implement the `__invoke()` method, which returns a component that implements the `MoonShine\Contracts\UI\ComponentContract` interface.
+> [!TIP]
+> If you need to add a component for a specified page to the desired layer via a resource,
+> then use the `onLoad()` method of the resource and the `pushToLayer()` method of the page.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\Permissions\Components\Permissions;
+use MoonShine\Support\Enums\Layer;
+
+protected function onLoad(): void
+{
+    $this->getFormPage()
+        ->pushToLayer(
+            layer: Layer::BOTTOM,
+            component: Permissions::make(
+                'Permissions',
+                $this,
+            )
+        );
+}
+```
+
+<a name="main-component"></a>
+## Main Component
+
+You can completely override the main resource page component.
+This allows you to encapsulate your own component implementation and reuse it between pages and resources.
+
+To do this, you need to create a class that implements the appropriate interface,
+implement the `__invoke()` method in it and replace the value of the `$component` property on the page with this class.
+
+Below we provide specific examples of implementation for different pages.
 
 ### IndexPage
 
-To change the index page component, you need to create a class that implements the `DefaultListComponentContract` interface:
+```php
+function __invoke(
+    IndexPageContract $page,
+    iterable $items,
+    FieldsContract $fields
+): ComponentContract
+```
+
+- `$page` - object of the index page on which the component is located,
+- `$items` - list elements to display,
+- `$fields` - fields that will be displayed in the list.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -176,49 +454,26 @@ final class ArticleListComponent implements DefaultListComponentContract
 }
 ```
 
-`__invoke()` method arguments:
-
-- `$page` - object of the index page on which the component is located,
-- `$items` - list elements to display,
-- `$fields` - fields that will be displayed in the list.
-
-Now in the page class in the `$component` property you need to override the component to display the list:
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use MoonShine\Crud\Contracts\PageComponents\DefaultListComponentContract;
-use MoonShine\Laravel\Pages\Crud\IndexPage;
-
-class ArticleIndexPage extends IndexPage
-{
-    /**
-     * @var class-string<DefaultListComponentContract>
-     */
-    protected string $component = ArticleListComponent::class;
-}
+```php filename:ArticleIndexPage
+protected string $component = ArticleListComponent::class;
 ```
-
-You can also change the list component using the `getItemsComponent()` method:
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use MoonShine\Contracts\Core\DependencyInjection\FieldsContract;
-use MoonShine\Contracts\UI\ComponentContract;
-
-getItemsComponent(iterable $items, FieldsContract $fields): ComponentContract
-```
-
-- `$items` - field values,
-- `$fields` - fields.
 
 > [!NOTE]
 > Example of an index page with the `CardsBuilder` component in the [Recipes](/docs/{{version}}/recipes/index-page-cards) section.
 
 ### DetailPage
 
-To change the detail view page component, you need to create a class that implements the `DefaultDetailComponentContract` interface:
+```php
+function __invoke(
+    DetailPageContract $page,
+    ?DataWrapperContract $item,
+    FieldsContract $fields,
+): ComponentContract
+```
+
+- `$page` - object of the detailed page on which the component is located,
+- `$item` - object with data,
+- `$fields` - fields that will be displayed in the component.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -253,44 +508,26 @@ final class ArticleDetailComponent implements DefaultDetailComponentContract
 }
 ```
 
-`__invoke()` method arguments:
-
-- `$page` - object of the detailed page on which the component is located,
-- `$item` - object with data,
-- `$fields` - fields that will be displayed in the component.
-
-Now in the page class in the `$component` property you need to override the component for detailed viewing:
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use MoonShine\Crud\Contracts\PageComponents\DefaultDetailComponentContract;
-use MoonShine\Laravel\Pages\Crud\DetailPage;
-
-class ArticleDetailPage extends DetailPage
-{
-    /**
-     * @var class-string<DefaultDetailComponentContract>
-     */
-    protected string $component = ArticleDetailComponent::class;
-}
+```php filename:ArticleDetailPage
+protected string $component = ArticleDetailComponent::class;
 ```
-
-You can also change the main component of the detail view page using the `getDetailComponent()` method:
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:1]
-use MoonShine\Contracts\UI\ComponentContract;
-
-getDetailComponent(bool $withoutFragment = false): ComponentContract
-```
-
-- `$withoutFragment` - flag of whether the component should be wrapped in a `Fragment`.
 
 ### FormPage
 
-To change a page component with an element edit form, you need to create a class that implements the `DefaultFormContract` interface:
+```php
+function __invoke(
+    FormPageContract $page,
+    string $action,
+    ?DataWrapperContract $item,
+    FieldsContract $fields,
+    bool $isAsync = true,
+): FormBuilderContract
+```
+
+- `$page` - object of the page on which the component is located,
+- `$action` - form handler,
+- `$item` - object with data,
+- `$fields` - fields that will be displayed in the component.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -308,7 +545,7 @@ use MoonShine\Support\Enums\JsEvent;
 use MoonShine\UI\Components\FormBuilder;
 use MoonShine\UI\Fields\Hidden;
 
-final class ArticleForm implements DefaultFormContract
+final class ArticleFormComponent implements DefaultFormContract
 {
     use WithCore;
 
@@ -378,127 +615,8 @@ final class ArticleForm implements DefaultFormContract
 }
 ```
 
-`__invoke()` method arguments:
-
-- `$page` - object of the page on which the component is located,
-- `$action` - form handler,
-- `$item` - object with data,
-- `$fields` - fields that will be displayed in the component.
-
-Now in the page class in the `$component` property you need to override the form component:
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use MoonShine\Crud\Contracts\PageComponents\DefaultFormContract;
-use MoonShine\Laravel\Pages\Crud\FormPage;
-
-class ArticleFormPage extends FormPage
-{
-    /**
-     * @var class-string<DefaultFormContract>
-     */
-    protected string $component = ArticleForm::class;
-}
-```
-
-You can also use the `getFormComponent()` method to change the main component on the form page:
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:1]
-use MoonShine\Contracts\UI\ComponentContract;
-
-getFormComponent(bool $withoutFragment = false): ComponentContract
-```
-
-- `$withoutFragment` - flag of whether the component should be wrapped in a `Fragment`.
-
-<a name="layers"></a>
-## Layers on the Page
-
-For convenience, all *CRUD* pages are divided into three layers, which are responsible for displaying a certain area on the page.
-
-- `TopLayer` - used for displaying metrics on the index page and for additional buttons on the edit page,
-- `MainLayer` - this layer is used for displaying main information using [FormBuilder](/docs/{{version}}/components/form-builder) and [TableBuilder](/docs/{{version}}/components/table-builder),
-- `BottomLayer` - used for displaying additional information.
-
-To configure the layers, the corresponding methods are used: `topLayer()`, `mainLayer()`, and `bottomLayer()`.
-The methods must return an array of [Components](/docs/{{version}}/page/index#components).
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use MoonShine\Laravel\Pages\Crud\IndexPage;
-use MoonShine\UI\Components\Heading;
-
-class PostIndexPage extends IndexPage
-{
-    // ...
-
-    protected function topLayer(): array
-    {
-        return [
-            Heading::make('Custom top'),
-            ...parent::topLayer()
-        ];
-    }
-
-    protected function mainLayer(): array
-    {
-        return [
-            Heading::make('Custom main'),
-            ...parent::mainLayer()
-        ];
-    }
-
-    protected function bottomLayer(): array
-    {
-        return [
-            Heading::make('Custom bottom'),
-            ...parent::bottomLayer()
-        ];
-    }
-}
-```
-
-> [!TIP]
-> If you need to access components of a specific layer from a resource or page, use the `getLayerComponents()` method.
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:1]
-use MoonShine\Support\Enums\Layer;
-
-// ...
-
-// Resource
-$this->getFormPage()->getLayerComponents(Layer::BOTTOM);
-
-// Page
-$this->getLayerComponents(Layer::BOTTOM);
-```
-
-> [!TIP]
-> If you need to add a component to a specified page in the desired layer from a resource, use the resource's `onLoad()` method and the page's `pushToLayer()`.
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use MoonShine\Permissions\Components\Permissions;
-use MoonShine\Support\Enums\Layer;
-
-protected function onLoad(): void
-{
-    $this->getFormPage()
-        ->pushToLayer(
-            layer: Layer::BOTTOM,
-            component: Permissions::make(
-                'Permissions',
-                $this,
-            )
-        );
-}
+```php filename:ArticleFormPage
+protected string $component = ArticleFormComponent::class;
 ```
 
 <a name="simulate"></a>
