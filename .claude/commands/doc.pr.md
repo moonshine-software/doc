@@ -1,4 +1,5 @@
 ---
+allowed-tools: Web-fetch, Web-search, Bash(gh pr view:*), Bash(gh pr diff:*), Bash(git checkout:*)
 description: <provide pr link or pr id>
 ---
 
@@ -28,13 +29,13 @@ Your task: analyze the PR and create/update MoonShine documentation.
    - Branch name should reflect the documentation section being created/updated
 
 3. **Study Documentation Formatting Rules**
-   - Read the file `/Users/macos/Projects/moonshine/doc/README.ru.md`
+   - Read the file `@/README.ru.md`
    - This is a mandatory file with formatting and structure rules
    - Follow all rules from there
 
 4. **Determine Type of Change**
    - Is this a new documentation section or an update to existing one?
-   - If uncertain — check existing structure in `ru/` and `en/` directories
+   - If uncertain — check existing structure in `@/ru/` and `@/en/` directories
    - Use Grep/Glob to search for similar sections if needed
 
 5. **Create/Update Russian Version (ru/)**
@@ -58,12 +59,12 @@ Your task: analyze the PR and create/update MoonShine documentation.
 
 6. **Translate to English (en/)**
    - After completing the Russian version, create an English translation
-   - Place in `en/` following the same path as in `ru/`
+   - Place in `@/en/` following the same path as in `@/ru/`
    - Synchronize line-by-line with the Russian version where possible
    - Preserve all formatting and structure
 
 7. **Update Navigation (if new section)**
-   - If this is a new section, add it to the `navigation.md` file
+   - If this is a new section, add it to the `@/navigation.md` file
    - Check which section it logically belongs to
 
 8. **Quality Check**
