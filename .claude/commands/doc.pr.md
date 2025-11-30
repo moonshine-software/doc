@@ -1,6 +1,7 @@
 ---
 allowed-tools: Web-fetch, Web-search, Bash(gh pr view:*), Bash(gh pr diff:*), Bash(git checkout:*)
-description: <provide pr link or pr id>
+description: Generate documentation by PR link or PR ID
+argument-hint: [pr link or pr id]
 ---
 
 User provided Pull Request URL or ID: {{$1}}
