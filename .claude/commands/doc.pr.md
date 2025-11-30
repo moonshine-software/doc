@@ -1,3 +1,7 @@
+---
+description: <provide pr link or pr id>
+---
+
 User provided Pull Request URL or ID: {{$1}}
 
 Your task: analyze the PR and create/update MoonShine documentation.
