@@ -85,6 +85,7 @@
     - [Badge](/docs/{{version}}/components/badge)
     - [Body](/docs/{{version}}/components/body)
     - [Boolean](/docs/{{version}}/components/boolean)
+    - [BottomBar](/docs/{{version}}/components/bottom-bar)
     - [Box](/docs/{{version}}/components/box)
     - [Breadcrumbs](/docs/{{version}}/components/breadcrumbs)
     - [Burger](/docs/{{version}}/components/burger)
