@@ -715,8 +715,8 @@ return JsonResponse::make()
         ),
     ]);
 ```
-
 When using ListRowEventParams, you must specify the identifier of the row being updated.
+
 > [!NOTE]
 > For more information on js events, refer to the [Events](/docs/{{version}}/frontend/js#events) section.
 
