@@ -688,9 +688,35 @@ TableBuilder::make()
 
 - `JsEvent::TABLE_UPDATED` - обновление таблицы,
 - `JsEvent::TABLE_REINDEX` - реиндексация таблицы (см. `reindex()`),
-- `JsEvent::TABLE_ROW_UPDATED` - обновление строки таблицы (`AlpineJs::event(JsEvent::TABLE_ROW_UPDATED, "{component-name}")`),
+- `JsEvent::TABLE_ROW_UPDATED` - обновление строки таблицы (`AlpineJs::event(JsEvent::TABLE_ROW_UPDATED, 'component-name', ListRowEventParams::make($row_id))`),
 - `JsEvent::TABLE_ROW_ADDED` - добавление новой клонированной строки,
 - `JsEvent::TABLE_EMPTY_ROW_ADDED` - добавление новой строки.
+
+### Обновление строки таблицы
+
+Чтобы вызвать событие обновления отдельной строки таблица должна быть в режиме `async` и таблице должно присутствовать поле `ID`.
+
+>[!NOTE]
+> Таблица на индексной странице ресурса в режиме `async` по умолчанию, если это поведение не отключено в ресурсе.
+
+Пример вызова события обновления строки из `async` метода ресурса или из контроллера.
+ ```php
+use MoonShine\Crud\JsonResponse;
+use MoonShine\Support\AlpineJs;
+use MoonShine\Support\Enums\JsEvent;
+use MoonShine\Support\EventParams\ListRowEventParams;
+
+return JsonResponse::make()
+            ->events([
+                AlpineJs::event(
+                    JsEvent::TABLE_ROW_UPDATED,
+                    'index-table-post-resource',
+                    ListRowEventParams::make($post->id)
+                ),
+            ]);
+        )
+```
+через `ListRowEventParams` нужно обязательно указать идентификатор обновляемой строки.
 
 > [!NOTE]
 > Для получения дополнительной информации о js событиях обратитесь к разделу [Events](/docs/{{version}}/frontend/js#events).

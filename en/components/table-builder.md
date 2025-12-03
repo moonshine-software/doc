@@ -692,6 +692,31 @@ Event list for `TableBuilder`:
 - `JsEvent::TABLE_ROW_ADDED` - append new cloned row,
 - `JsEvent::TABLE_EMPTY_ROW_ADDED` - append/prepend new row.
 
+### Updating a Table Row
+
+To trigger a row update event, the table must be in async mode and must contain an ID field.
+
+> [!NOTE]
+> The table on a resource index page is in async mode by default, unless this behavior has been disabled in the resource.
+
+Example of triggering a row update event from a resource async method or from a controller:
+ ```php
+use MoonShine\Crud\JsonResponse;
+use MoonShine\Support\AlpineJs;
+use MoonShine\Support\Enums\JsEvent;
+use MoonShine\Support\EventParams\ListRowEventParams;
+
+return JsonResponse::make()
+    ->events([
+        AlpineJs::event(
+            JsEvent::TABLE_ROW_UPDATED,
+            'index-table-post-resource',
+            ListRowEventParams::make($post->id)
+        ),
+    ]);
+```
+When using ListRowEventParams, you must specify the identifier of the row being updated.
+
 > [!NOTE]
 > For more information on js events, refer to the [Events](/docs/{{version}}/frontend/js#events) section.
 
