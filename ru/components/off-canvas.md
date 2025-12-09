@@ -7,6 +7,7 @@
 - [Позиция](#position)
 - [Ширина](#width)
 - [Асинхронность](#async)
+- [Автозакрытие](#auto-close)
 - [Атрибуты переключателя](#toggler-attributes)
 
 ---
@@ -234,6 +235,30 @@ OffCanvas::make('Заголовок', '', 'Показать панель', async
 ```php
 OffCanvas::make(...)
         ->alwaysLoad(),
+```
+
+<a name="auto-close"></a>
+## Автозакрытие
+
+По умолчанию боковые панели закрываются после успешного запроса (к примеру при отправке формы).
+Метод `autoClose()` позволяет управлять этим поведением.
+
+```php
+autoClose(Closure|bool|null $autoClose = null)
+```
+
+```php
+OffCanvas::make(
+    'Заголовок',
+    static fn() => FormBuilder::make(route('endpoint'))
+        ->fields([
+            Text::make('Text'),
+        ])
+        ->submit('Submit', ['class' => 'btn-primary'])
+        ->async(),
+    'Показать панель'
+)
+    ->autoClose(false),
 ```
 
 <a name="toggler-attributes"></a>

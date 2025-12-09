@@ -362,6 +362,103 @@ class PostResource extends ModelResource
 }
 ```
 
+### Modal Modifiers
+
+You can customize the appearance and behavior of modal windows in the resource by overriding modifier methods.
+
+#### Create Modal
+
+The `modifyCreateModal()` method allows you to modify the create modal window.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\Contracts\UI\ModalContract;
+
+protected function modifyCreateModal(ModalContract $modal): ModalContract
+{
+    return $modal->full();
+}
+```
+
+#### Edit Modal
+
+The `modifyEditModal()` method allows you to modify the edit modal window.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\Contracts\UI\ModalContract;
+
+protected function modifyEditModal(ModalContract $modal): ModalContract
+{
+    return $modal->full();
+}
+```
+
+#### Detail Modal
+
+The `modifyDetailModal()` method allows you to modify the detail modal window.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\Contracts\UI\ModalContract;
+
+protected function modifyDetailModal(ModalContract $modal): ModalContract
+{
+    return $modal->full();
+}
+```
+
+#### Delete Modal
+
+The `modifyDeleteModal()` method allows you to modify the delete confirmation modal.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\Contracts\UI\ModalContract;
+
+protected function modifyDeleteModal(ModalContract $modal): ModalContract
+{
+    return $modal->auto();
+}
+```
+
+#### Mass Delete Modal
+
+The `modifyMassDeleteModal()` method allows you to modify the mass delete confirmation modal.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\Contracts\UI\ModalContract;
+
+protected function modifyMassDeleteModal(ModalContract $modal): ModalContract
+{
+    return $modal->auto();
+}
+```
+
+#### Filters OffCanvas
+
+The `modifyFiltersOffCanvas()` method allows you to modify the filters off-canvas panel.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\Contracts\UI\OffCanvasContract;
+
+protected function modifyFiltersOffCanvas(OffCanvasContract $offCanvas): OffCanvasContract
+{
+    return $offCanvas->full()->autoClose(false);
+}
+```
+
+> [!TIP]
+> All modifier methods are applied to the corresponding modal windows and off-canvas panels, allowing you to flexibly customize their appearance and behavior.
+
 <a name="redirects"></a>
 ## Redirects
 

@@ -362,6 +362,103 @@ class PostResource extends ModelResource
 }
 ```
 
+### Модификаторы модальных окон
+
+Вы можете настраивать внешний вид и поведение модальных окон в ресурсе, переопределив методы-модификаторы.
+
+#### Create Modal
+
+Метод `modifyCreateModal()` позволяет изменить модальное окно создания записи.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\Contracts\UI\ModalContract;
+
+protected function modifyCreateModal(ModalContract $modal): ModalContract
+{
+    return $modal->full();
+}
+```
+
+#### Edit Modal
+
+Метод `modifyEditModal()` позволяет изменить модальное окно редактирования записи.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\Contracts\UI\ModalContract;
+
+protected function modifyEditModal(ModalContract $modal): ModalContract
+{
+    return $modal->full();
+}
+```
+
+#### Detail Modal
+
+Метод `modifyDetailModal()` позволяет изменить модальное окно детального просмотра.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\Contracts\UI\ModalContract;
+
+protected function modifyDetailModal(ModalContract $modal): ModalContract
+{
+    return $modal->full();
+}
+```
+
+#### Delete Modal
+
+Метод `modifyDeleteModal()` позволяет изменить модальное окно удаления записи.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\Contracts\UI\ModalContract;
+
+protected function modifyDeleteModal(ModalContract $modal): ModalContract
+{
+    return $modal->auto();
+}
+```
+
+#### Mass Delete Modal
+
+Метод `modifyMassDeleteModal()` позволяет изменить модальное окно массового удаления.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\Contracts\UI\ModalContract;
+
+protected function modifyMassDeleteModal(ModalContract $modal): ModalContract
+{
+    return $modal->auto();
+}
+```
+
+#### Filters OffCanvas
+
+Метод `modifyFiltersOffCanvas()` позволяет изменить боковую панель фильтров.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\Contracts\UI\OffCanvasContract;
+
+protected function modifyFiltersOffCanvas(OffCanvasContract $offCanvas): OffCanvasContract
+{
+    return $offCanvas->full()->autoClose(false);
+}
+```
+
+> [!TIP]
+> Все методы модификаторов применяются к соответствующим модальным окнам и боковым панелям, позволяя гибко настроить их внешний вид и поведение.
+
 <a name="redirects"></a>
 ## Редиректы
 
