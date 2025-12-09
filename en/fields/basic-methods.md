@@ -406,15 +406,64 @@ Password::make('Title')
 <a name="custom-wrapper-attributes"></a>
 ### Attributes for Wrapper Field
 
-The `customWrapperAttributes()` method allows adding attributes for the wrapper field.
+The `wrapperClass()` method adds a class or several to the wrapper if you pass an array.
 
 ```php
-customWrapperAttributes(array $attributes)
+wrapperClass(string|array $classes);
 ```
 
 ```php
-Password::make('Title')
-    ->customWrapperAttributes(['class' => 'mt-8'])
+Text::make('name')
+    ->wrapperClass('my-input');
+```
+
+The `removeWrapperClass()` method removes the wrapper class. You can pass a pattern for deleting multiple classes (via the `preg_replace` function).
+
+```php
+removeWrapperClass(string $pattern);
+```
+
+```php
+Text::make('name')
+    ->removeWrapperClass('my-input');
+```
+
+```php
+Text::make('name')
+    ->removeWrapperClass('text-(success|primary)');
+```
+
+The `wrapperStyle()` method adds CSS styles.
+
+```php
+wrapperStyle(string|array $styles);
+```
+
+```php
+Text::make('name')
+    ->wrapperStyle('width: 100px');
+```
+
+The `customWrapperAttributes()` method allows you to add any attributes for the field wrapper.
+
+```php
+customWrapperAttributes(array $attributes);
+```
+
+```php
+Text::make('Name')
+    ->customWrapperAttributes(['data-handle' => 'handle']);
+```
+
+The `removeWrapperAttribute()` method removes an attribute from the wrapper.
+
+```php
+removeWrapperAttribute(string $name);
+```
+
+```php
+Text::make('Name')
+    ->removeWrapperAttribute('data-handle');
 ```
 
 <a name="name-attribute"></a>

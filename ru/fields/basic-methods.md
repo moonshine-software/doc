@@ -406,15 +406,64 @@ Password::make('Title')
 <a name="custom-wrapper-attributes"></a>
 ### Атрибуты для wrapper поля
 
-Метод `customWrapperAttributes()` позволяет добавить атрибуты для обертки поля.
+Метод `wrapperClass()` добавляет обёртке класс или несколько, если передать массив.
 
 ```php
-customWrapperAttributes(array $attributes)
+wrapperClass(string|array $classes);
 ```
 
 ```php
-Password::make('Title')
-    ->customWrapperAttributes(['class' => 'mt-8'])
+Text::make('name')
+    ->wrapperClass('my-input');
+```
+
+Метод `removeWrapperClass()` удаляет класс обёртки. Можно передать паттерн для удаления нескольких классов (через функцию `preg_replace`).
+
+```php
+removeWrapperClass(string $pattern);
+```
+
+```php
+Text::make('name')
+    ->removeWrapperClass('my-input');
+```
+
+```php
+Text::make('name')
+    ->removeWrapperClass('text-(success|primary)');
+```
+
+Метод `wrapperStyle()` добавляет CSS-стили.
+
+```php
+wrapperStyle(string|array $styles);
+```
+
+```php
+Text::make('name')
+    ->wrapperStyle('width: 100px');
+```
+
+Метод `customWrapperAttributes()` позволяет добавить любые атрибуты для обертки поля.
+
+```php
+customWrapperAttributes(array $attributes);
+```
+
+```php
+Text::make('Name')
+    ->customWrapperAttributes(['data-handle' => 'handle']);
+```
+
+Метод `removeWrapperAttribute()` удаляет атрибут у обёртки.
+
+```php
+removeWrapperAttribute(string $name);
+```
+
+```php
+Text::make('Name')
+    ->removeWrapperAttribute('data-handle');
 ```
 
 <a name="name-attribute"></a>
