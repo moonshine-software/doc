@@ -5,6 +5,11 @@ video: https://www.youtube.com/watch?v=6eUtdbCLVZQ
 # Layout
 
 - [Basics](#basics)
+- [Component Control](#sugar)
+    - [Sidebar](#sidebar)
+    - [TopBar](#topbar)
+    - [BottomBar](#bottombar)
+    - [Mobile Mode](#mobile-mode)
 - [Creating a Template](#create)
 - [Changing the Page Template](#page)
 - [Assets](#assets)
@@ -246,6 +251,99 @@ MobileBar::make([
     // ...
 ])->class('dark'),
 ```
+
+<a name="sugar"></a>
+## Component Control
+
+**MoonShine** provides a convenient way to control the display of main layout components through protected class properties.
+This allows you to quickly enable or disable interface elements without overriding the `build()` method.
+
+<a name="sidebar"></a>
+### Sidebar
+
+By default, the sidebar is enabled. To disable it, set the `$sidebar = false` property in your layout:
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\Laravel\Layouts\AppLayout;
+
+final class MoonShineLayout extends AppLayout
+{
+    protected bool $sidebar = false;
+
+    // ...
+}
+```
+
+<a name="topbar"></a>
+### TopBar
+
+The top bar is disabled by default. To enable it, set the `$topBar = true` property:
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\Laravel\Layouts\AppLayout;
+
+final class MoonShineLayout extends AppLayout
+{
+    protected bool $topBar = true;
+
+    // ...
+}
+```
+
+> [!WARNING]
+> If you use both `Sidebar` and `TopBar` simultaneously, be sure to maintain the order in the `build()` method — `TopBar` must come first.
+
+<a name="bottombar"></a>
+### BottomBar
+
+The bottom bar is disabled by default. To enable it, set the `$bottomBar = true` property:
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\Laravel\Layouts\AppLayout;
+
+final class MoonShineLayout extends AppLayout
+{
+    protected bool $bottomBar = true;
+
+    // ...
+}
+```
+
+The `BottomBar` component automatically displays the top menu inside it.
+
+<a name="mobile-mode"></a>
+### Mobile Mode
+
+You can enable a special mobile mode that optimizes the interface for mobile devices.
+When this mode is enabled, compact styles are automatically applied and the `BottomBar` component is activated:
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\Laravel\Layouts\AppLayout;
+
+final class MoonShineLayout extends AppLayout
+{
+    protected bool $mobileMode = true;
+
+    // ...
+}
+```
+
+When mobile mode is enabled:
+
+- compact paddings and element sizes are applied,
+- the `Burger` component is hidden,
+- `BottomBar` with the top menu is automatically enabled.
+
+> [!TIP]
+> You can combine these properties to create different layout variations — for example, disable `Sidebar` and enable only `TopBar` for a more horizontal interface.
 
 <a name="create"></a>
 ## Creating a Template
