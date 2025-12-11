@@ -1,6 +1,7 @@
 # CrudResource
 
 - [Основы](#basics)
+- [Методы страниц](#page-methods)
 - [Создание собственного ресурса](#custom-resource)
 - [Пример REST-ресурса](#rest-example)
 - [Полная кастомизация](#full-customization)
@@ -12,7 +13,7 @@
 
 `CrudResource` является фундаментальной частью "**MoonShine** для **Laravel**".
 Важно понимать, что ядро **MoonShine** не зависит от **Laravel** и тем более от моделей **Eloquent**.
-Но в реализации для **Laravel** мы предоставляем готовый `ModelResource` для работы с моделями и соответствующие `type-casts`.
+Но в реализации для **Laravel** мы предоставляем готовый `ModelResource` для работы с моделями и соответствующие **type-casts**.
 **MoonShine** очень гибкий и вы можете создать собственный ресурс для работы с любыми источниками данных.
 
 `CrudResource` предоставляет базовую структуру для работы с данными, не привязываясь к конкретной реализации.
@@ -22,6 +23,15 @@
 - создавать собственные реализации для специфических задач,
 - использовать единый интерфейс независимо от источника данных.
 
+<a name="page-methods"></a>
+## Методы страниц
+
+В классах страниц `DetailPage` и `FormPage` доступны вспомогательные методы для упрощения работы с элементами данных ресурсов.
+
+Метод `getItem()` позволяет получить текущий элемент данных ресурса, заменяя вызов через ресурс `$this->getResource()->getItem()`.
+
+Метод `isItemExists()` проверяет существование элемента данных ресурса, заменяя вызов через ресурс `$this->getResource()->isItemExists()`.
+
 <a name="custom-resource"></a>
 ## Создание собственного ресурса
 
@@ -29,7 +39,7 @@
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:4]
+// [tl! collapse:start]
 namespace App\MoonShine\Resources;
 
 use Illuminate\Contracts\Pagination\CursorPaginator;
@@ -38,7 +48,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\LazyCollection;
 use MoonShine\Contracts\Core\DependencyInjection\FieldsContract;
 use MoonShine\Crud\Resources\CrudResource;
-use MoonShine\Contracts\Core\TypeCasts\DataWrapperContract;
+use MoonShine\Contracts\Core\TypeCasts\DataWrapperContract; // [tl! collapse:end]
 
 final class RestCrudResource extends CrudResource
 {
@@ -76,13 +86,13 @@ final class RestCrudResource extends CrudResource
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:6]
+// [tl! collapse:start]
 namespace App\MoonShine\Resources;
 
 use Illuminate\Support\Facades\Http;
 use MoonShine\Contracts\Core\DependencyInjection\FieldsContract;
 use MoonShine\Contracts\Core\TypeCasts\DataWrapperContract;
-use MoonShine\Crud\Resources\CrudResource;
+use MoonShine\Crud\Resources\CrudResource; // [tl! collapse:end]
 
 final class RestCrudResource extends CrudResource
 {
