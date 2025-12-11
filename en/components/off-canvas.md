@@ -2,12 +2,12 @@
 
 - [Basics](#basics)
 - [Events](#events)
-  -  [Open/Close](#open-close)
+  -  [Events when opening/closing](#events-when-open-close)
 - [Default State](#open)
 - [Position](#position)
 - [Width](#width)
 - [Asynchronous](#async)
-- [Auto Close](#auto-close)
+- [Auto Close](#autoclose)
 - [Toggler Attributes](#toggler-attributes)
 
 ---
@@ -59,7 +59,7 @@ tab: Blade
     <x-slot:toggler>
          Open
     </x-slot:toggler>
-    {{ fake()->text() }}
+    Content
 </x-moonshine::off-canvas>
 ```
 ~~~
@@ -69,13 +69,11 @@ tab: Blade
 <a name="events"></a>
 ## Events
 
-You can show or hide the side panel outside of the component using *JavaScript* events.
+You can trigger the opening/closing of the sidebar from outside the component via *javascript* events.
 To access the events, you need to set a unique name for the side panel using the `name()` method.
 
 ```php
 use MoonShine\UI\Components\OffCanvas;
-
-// ...
 
 protected function components(): iterable
 {
@@ -87,8 +85,6 @@ protected function components(): iterable
             ->name('my-canvas')
     ];
 }
-
-// ...
 ```
 
 ### Triggering Event via ActionButton
@@ -103,9 +99,9 @@ Offcanvas::make(
     ->name('my-canvas'),
 
 ActionButton::make('Show Modal')
-    ->toggleOffCanvs('my-canvas')
+    ->toggleOffCanvas('my-canvas')
 
-// or asynchronously
+// or async
 ActionButton::make(
     'Show Panel',
     '/endpoint'
@@ -127,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 Or use the magic method `$dispatch()` from Alpine.js:
 
-```php
+```js
 this.$dispatch('off_canvas_toggled:my-canvas')
 ```
 
@@ -138,29 +134,39 @@ MoonShine.ui.toggleOffCanvas('my-canvas')
 ```
 
 > [!NOTE]
-> More detailed information can be found in the official Alpine.js documentation in the sections [Events](https://alpinejs.dev/essentials/events) and [$dispatch](https://alpinejs.dev/magics/dispatch).
+> More detailed information can be found in the official Alpine.js documentation
+> in the sections [Events](https://alpinejs.dev/essentials/events) and [$dispatch](https://alpinejs.dev/magics/dispatch).
 
-<a name="open-close"></a>
-### Open/Close
+<a name="events-when-open-close"></a>
+### Events when opening/closing
 
-You can also add events when opening/closing the side panel using the `toggleEvents` method.
+You can also add events when opening/closing the side panel using the `toggleEvents()` method.
 
 ```php
-toggleEvents(array $events, bool $onlyOpening = false, $onlyClosing = false)
+toggleEvents(
+    array $events,
+    bool $onlyOpening = false,
+    bool $onlyClosing = false
+)
 ```
 
+- `$events` - events,
+- `$onlyOpening` - will only fire when opening,
+- `$onlyClosing` - will only fire when closing.
+
 ```php
-ActionButton::make('Open off-canvas')->toggleOffCanvas('my-off-canvas'),
+ActionButton::make('Open off-canvas')
+    ->toggleOffCanvas('my-off-canvas'),
 
 OffCanvas::make('My OffCanvas', asyncUrl: '/')
     ->name('my-off-canvas')
-    ->left()
     ->toggleEvents([
-        AlpineJs::event(JsEvent::TOAST, params: ['text' => 'Hello off-canvas'])
+        AlpineJs::event(
+            JsEvent::TOAST,
+            params: ['text' => 'Hello off-canvas']
+        )
     ]),
 ```
-
-The parameters `onlyOpening` and `onlyClosing` allow you to configure whether events will be triggered on opening and closing. By default, both parameters are set to `TRUE`, meaning that the event list will be triggered both when opening and closing the side panel.
 
 <a name="open"></a>
 ## Default State
@@ -230,11 +236,35 @@ OffCanvas::make('Title', '', 'Show Panel', asyncUrl: '/endpoint'),
 ```
 
 > [!NOTE]
-> The request will be sent only once, but if you need to send the request each time it opens, use the `alwaysLoad` method.
+> The request will be sent only once, but if you need to send the request each time it opens, use the `alwaysLoad()` method.
 
 ```php
 OffCanvas::make(...)
-        ->alwaysLoad(),
+    ->alwaysLoad(),
+```
+
+<a name="autoclose"></a>
+## Auto Close
+
+By default, `OffCanvas` closes after the asynchronous form inside it has been successfully submitted.
+The `autoClose()` method allows you to control this behavior.
+
+```php
+autoClose(Closure|bool|null $autoClose = null)
+```
+
+```php
+OffCanvas::make(
+    'Demo OffCanvas',
+    static fn() => FormBuilder::make(route('alert.post'))
+        ->fields([
+            Text::make('Text'),
+        ])
+        ->submit('Submit', ['class' => 'btn-primary'])
+        ->async(),
+    )
+    ->name('demo-offcanvas')
+    ->autoClose(false),
 ```
 
 <a name="auto-close"></a>

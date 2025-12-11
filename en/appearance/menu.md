@@ -9,6 +9,7 @@ video: https://www.youtube.com/watch?v=fv9ublk_4mU
 - [Groups](#groups)
 - [Divider](#divider)
 - [Icon](#icon)
+- [Only icons](#only-icon)
 - [Badge](#badge)
 - [Translation](#translation)
 - [Open in a new tab](#target-blank)
@@ -303,6 +304,73 @@ class MoonShineUserResource extends ModelResource
 
 > [!TIP]
 > For more detailed information, refer to the section [Icons](/docs/{{version}}/appearance/icons).
+
+<a name="only-icon"></a>
+## Only icons
+
+If you want to display menu items with only icons without text labels, use the `onlyIcon()` method.
+
+```php
+/**
+ * @param  (Closure(static $ctx): bool)|bool|null  $condition
+ */
+onlyIcon(Closure|bool|null $condition = true)
+```
+
+### For individual items
+
+You can apply `onlyIcon()` to individual menu items.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
+namespace App\MoonShine\Layouts;
+
+use MoonShine\Laravel\Layouts\AppLayout;
+use MoonShine\Laravel\Resources\MoonShineUserResource;
+use MoonShine\MenuManager\MenuItem; // [tl! collapse:end]
+
+final class MoonShineLayout extends AppLayout
+{
+    // ...
+
+    protected function menu(): array
+    {
+        return [
+            MenuItem::make('/', 'Dashboard', 'heroicons.home')
+                ->onlyIcon(),
+        ];
+    }
+}
+```
+
+### For the entire menu
+
+You can apply the icon-only mode to the entire menu when using autoload by passing the `onlyIcons: true` parameter to the `autoloadMenu()` method.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:3]
+namespace App\MoonShine\Layouts;
+
+use MoonShine\Laravel\Layouts\AppLayout;
+
+final class MoonShineLayout extends AppLayout
+{
+    // ...
+
+    protected function menu(): array
+    {
+        return $this->autoloadMenu(onlyIcons: true);
+    }
+}
+```
+
+> [!NOTE]
+> When hovering over a menu item with the `onlyIcon()` mode enabled, a tooltip with the full label text is displayed.
+
+> [!TIP]
+> If a menu item does not have an icon set, the `squares-2x2` icon will be used by default.
 
 <a name="badge"></a>
 ## Badge

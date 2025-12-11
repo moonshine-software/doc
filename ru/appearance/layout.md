@@ -5,6 +5,11 @@ video: https://www.youtube.com/watch?v=95qxienFmtI
 # Layout
 
 - [Основы](#basics)
+- [Управление компонентами](#sugar)
+    - [Sidebar](#sidebar)
+    - [TopBar](#topbar)
+    - [BottomBar](#bottombar)
+    - [Мобильный режим](#mobile-mode)
 - [Создание шаблона](#create)
 - [Изменение шаблона страницы](#page)
 - [Assets](#assets)
@@ -246,6 +251,99 @@ MobileBar::make([
     // ...
 ])->class('dark'),
 ```
+
+<a name="sugar"></a>
+## Управление компонентами
+
+**MoonShine** предоставляет удобный способ управления отображением основных компонентов шаблона через защищённые свойства класса.
+Это позволяет быстро включать или отключать элементы интерфейса без переопределения метода `build()`.
+
+<a name="sidebar"></a>
+### Sidebar
+
+По умолчанию боковое меню включено. Чтобы отключить его, установите свойство `$sidebar = false` в вашем шаблоне:
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\Laravel\Layouts\AppLayout;
+
+final class MoonShineLayout extends AppLayout
+{
+    protected bool $sidebar = false;
+
+    // ...
+}
+```
+
+<a name="topbar"></a>
+### TopBar
+
+Верхняя панель по умолчанию отключена. Чтобы включить её, установите свойство `$topBar = true`:
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\Laravel\Layouts\AppLayout;
+
+final class MoonShineLayout extends AppLayout
+{
+    protected bool $topBar = true;
+
+    // ...
+}
+```
+
+> [!WARNING]
+> Если вы используете и `Sidebar` и `TopBar` одновременно, обязательно соблюдайте очередность в методе `build()` — первым должен идти `TopBar`.
+
+<a name="bottombar"></a>
+### BottomBar
+
+Нижняя панель по умолчанию отключена. Чтобы включить её, установите свойство `$bottomBar = true`:
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\Laravel\Layouts\AppLayout;
+
+final class MoonShineLayout extends AppLayout
+{
+    protected bool $bottomBar = true;
+
+    // ...
+}
+```
+
+Компонент `BottomBar` автоматически отображает верхнее меню внутри себя.
+
+<a name="mobile-mode"></a>
+### Мобильный режим
+
+Вы можете включить специальный мобильный режим, который оптимизирует интерфейс для мобильных устройств.
+При включении этого режима автоматически применяются компактные стили и активируется компонент `BottomBar`:
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\Laravel\Layouts\AppLayout;
+
+final class MoonShineLayout extends AppLayout
+{
+    protected bool $mobileMode = true;
+
+    // ...
+}
+```
+
+При включении мобильного режима:
+
+- применяются компактные отступы и размеры элементов,
+- скрывается компонент `Burger`,
+- автоматически включается `BottomBar` с верхним меню.
+
+> [!TIP]
+> Вы можете комбинировать эти свойства для создания различных вариантов шаблонов — например, отключить `Sidebar` и включить только `TopBar` для более горизонтального интерфейса.
 
 <a name="create"></a>
 ## Создание шаблона

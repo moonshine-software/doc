@@ -1,6 +1,7 @@
 # CrudResource
 
 - [Basics](#basics)
+- [Page Methods](#page-methods)
 - [Creating a Custom Resource](#custom-resource)
 - [REST Resource Example](#rest-example)
 - [Full Customization](#full-customization)
@@ -12,7 +13,7 @@
 
 `CrudResource` is a fundamental part of "**MoonShine** for **Laravel**".
 It is important to understand that the core of **MoonShine** does not depend on **Laravel** and even more so on **Eloquent** models.
-However, in the implementation for **Laravel**, we provide a ready-made `ModelResource` for working with models and corresponding `type-casts`.
+However, in the implementation for **Laravel**, we provide a ready-made `ModelResource` for working with models and corresponding **type-casts**.
 **MoonShine** is very flexible, and you can create your own resource to work with any data sources.
 
 `CrudResource` provides a basic structure for working with data without being tied to a specific implementation.
@@ -22,6 +23,15 @@ This allows:
 - creating your own implementations for specific tasks,
 - using a single interface regardless of the data source.
 
+<a name="page-methods"></a>
+## Page Methods
+
+Helper methods are available in the `DetailPage` and `FormPage` page classes to simplify working with resource data elements.
+
+The `getItem()` method allows you to get the current resource data item, replacing the call through the resource `$this->getResource()->getItem()`.
+
+The `isItemExists()` method checks for the existence of a resource data item, replacing the call through the resource `$this->getResource()->isItemExists()`.
+
 <a name="custom-resource"></a>
 ## Creating a Custom Resource
 
@@ -29,7 +39,7 @@ To create a custom resource, it is enough to extend `CrudResource` and implement
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:4]
+// [tl! collapse:start]
 namespace App\MoonShine\Resources;
 
 use Illuminate\Contracts\Pagination\CursorPaginator;
@@ -38,7 +48,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\LazyCollection;
 use MoonShine\Contracts\Core\DependencyInjection\FieldsContract;
 use MoonShine\Crud\Resources\CrudResource;
-use MoonShine\Contracts\Core\TypeCasts\DataWrapperContract;
+use MoonShine\Contracts\Core\TypeCasts\DataWrapperContract; // [tl! collapse:end]
 
 final class RestCrudResource extends CrudResource
 {
@@ -76,13 +86,13 @@ Here is an example of implementing a resource for working with a `REST API`:
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:6]
+// [tl! collapse:start]
 namespace App\MoonShine\Resources;
 
 use Illuminate\Support\Facades\Http;
 use MoonShine\Contracts\Core\DependencyInjection\FieldsContract;
 use MoonShine\Contracts\Core\TypeCasts\DataWrapperContract;
-use MoonShine\Crud\Resources\CrudResource;
+use MoonShine\Crud\Resources\CrudResource; // [tl! collapse:end]
 
 final class RestCrudResource extends CrudResource
 {
