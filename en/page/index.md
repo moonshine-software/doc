@@ -8,6 +8,7 @@ video: https://youtu.be/CQQLa-q2hwU?si=5vysCaXsqSOdXNMz
 - [Creating a Page](#create)
 - [Title](#title)
 - [Components](#components)
+- [Menu](#menu)
 - [Breadcrumbs](#breadcrumbs)
 - [Layout](#layout)
     - [Modifying Layout](#modify-layout)
@@ -137,6 +138,39 @@ class CustomPage extends Page
 
 > [!NOTE]
 > For more detailed information, refer to the [Components](/docs/{{version}}/components/index) section.
+
+<a name="menu"></a>
+## Menu
+
+The `menu()` method allows you to define an additional menu for the page, which will be displayed in the `SecondBar` component.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:5]
+namespace App\MoonShine\Pages;
+
+use MoonShine\Laravel\Pages\Page;
+use MoonShine\MenuManager\MenuItem;
+
+class CustomPage extends Page
+{
+    // ...
+
+    protected function menu(): array
+    {
+        return [
+            MenuItem::make('Section 1', '/section1'),
+            MenuItem::make('Section 2', '/section2'),
+            MenuItem::make('Section 3', '/section3'),
+        ];
+    }
+}
+```
+
+To display the menu, you need to enable `SecondBar` in your layout by setting the `$secondBar = true` property.
+
+> [!TIP]
+> For more detailed information about the `SecondBar` component, refer to the [SecondBar](/docs/{{version}}/components/second-bar) section.
 
 <a name="breadcrumbs"></a>
 ## Breadcrumbs

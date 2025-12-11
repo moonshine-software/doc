@@ -8,6 +8,7 @@ video: https://youtu.be/pC-wVnpypVI?si=kHFtuTn_cfLWAy4I
 - [Создание страницы](#create)
 - [Заголовок](#title)
 - [Компоненты](#components)
+- [Меню](#menu)
 - [Хлебные крошки](#breadcrumbs)
 - [Шаблон](#layout)
     - [Модификация шаблона](#modify-layout)
@@ -137,6 +138,39 @@ class CustomPage extends Page
 
 > [!NOTE]
 > Для более подробной информации обратитесь к разделу [Компоненты](/docs/{{version}}/components/index).
+
+<a name="menu"></a>
+## Меню
+
+Метод `menu()` позволяет определить дополнительное меню для страницы, которое будет отображаться в компоненте `SecondBar`.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:5]
+namespace App\MoonShine\Pages;
+
+use MoonShine\Laravel\Pages\Page;
+use MoonShine\MenuManager\MenuItem;
+
+class CustomPage extends Page
+{
+    // ...
+
+    protected function menu(): array
+    {
+        return [
+            MenuItem::make('Раздел 1', '/section1'),
+            MenuItem::make('Раздел 2', '/section2'),
+            MenuItem::make('Раздел 3', '/section3'),
+        ];
+    }
+}
+```
+
+Для отображения меню необходимо включить `SecondBar` в вашем лейауте, установив свойство `$secondBar = true`.
+
+> [!TIP]
+> Для более подробной информации о компоненте `SecondBar` обратитесь к разделу [SecondBar](/docs/{{version}}/components/second-bar).
 
 <a name="breadcrumbs"></a>
 ## Хлебные крошки
