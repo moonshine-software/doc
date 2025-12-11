@@ -2,11 +2,12 @@
 
 - [Основы](#basics)
 - [События](#events)
-  -  [Открытие/Закрытие](#open-close)
+  -  [События при открытии/закрытии](#events-when-open-close)
 - [Состояние по умолчанию](#open)
 - [Позиция](#position)
 - [Ширина](#width)
 - [Асинхронность](#async)
+- [Автозакрытие](#autoclose)
 - [Атрибуты переключателя](#toggler-attributes)
 
 ---
@@ -39,14 +40,14 @@ tab: Class
 use MoonShine\UI\Components\OffCanvas;
 
 OffCanvas::make(
-    'Подтвердить',
+    'Confirm',
     static fn() => FormBuilder::make(route('password.confirm'))
         ->async()
         ->fields([
-            Password::make('Пароль')->eye(),
+            Password::make('Password')->eye(),
         ])
-        ->submit('Подтвердить'),
-    'Показать панель'
+        ->submit('Confirm'),
+    'Show Panel'
 )
 ```
 tab: Blade
@@ -58,7 +59,7 @@ tab: Blade
     <x-slot:toggler>
          Open
     </x-slot:toggler>
-    {{ fake()->text() }}
+    Content
 </x-moonshine::off-canvas>
 ```
 ~~~
@@ -68,26 +69,22 @@ tab: Blade
 <a name="events"></a>
 ## События
 
-Вы можете показывать или скрывать боковую панель не из компонента через события *javascript*.
+Вы можете инициировать открытие/закрытие боковой панели извне компонента через события *javascript*.
 Чтобы иметь доступ к событиям, необходимо установить уникальное имя для боковой панели, используя метод `name()`.
 
 ```php
 use MoonShine\UI\Components\OffCanvas;
 
-// ...
-
 protected function components(): iterable
 {
     return [
         Offcanvas::make(
-            'Заголовок',
-            'Содержимое...'
+            'Title',
+            'Content...'
         )
             ->name('my-canvas')
     ];
 }
-
-// ...
 ```
 
 ### Вызов события через ActionButton
@@ -96,17 +93,17 @@ protected function components(): iterable
 
 ```php
 Offcanvas::make(
-    'Заголовок',
-    'Содержимое...',
+    'Title',
+    'Content...',
 )
     ->name('my-canvas'),
 
-ActionButton::make('Показать модальное окно')
-    ->toggleOffCanvs('my-canvas')
+ActionButton::make('Show Modal')
+    ->toggleOffCanvas('my-canvas')
 
-// или асинхронно
+// or async
 ActionButton::make(
-    'Показать панель',
+    'Show Panel',
     '/endpoint'
 )
     ->async(events: [AlpineJs::event(JsEvent::OFF_CANVAS_TOGGLED, 'my-canvas')])
@@ -126,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 Или используйте магический метод `$dispatch()` из Alpine.js:
 
-```php
+```js
 this.$dispatch('off_canvas_toggled:my-canvas')
 ```
 
@@ -137,29 +134,39 @@ MoonShine.ui.toggleOffCanvas('my-canvas')
 ```
 
 > [!NOTE]
-> Более подробную информацию можно получить из официальной документации Alpine.js в разделах [Events](https://alpinejs.dev/essentials/events) и [$dispatch](https://alpinejs.dev/magics/dispatch).
+> Более подробную информацию можно получить из официальной документации Alpine.js
+> в разделах [Events](https://alpinejs.dev/essentials/events) и [$dispatch](https://alpinejs.dev/magics/dispatch).
 
-<a name="open-close"></a>
-### Открытие/Закрытие
+<a name="events-when-open-close"></a>
+### События при открытии/закрытии
 
-Вы также можете добавить события при открытии/закрытии боковой панели через метод `toggleEvents`
+Вы также можете добавить события, которые будут вызываться при открытии/закрытии боковой панели, через метод `toggleEvents()`.
 
 ```php
-toggleEvents(array $events, bool $onlyOpening = false, $onlyClosing = false)
+toggleEvents(
+    array $events,
+    bool $onlyOpening = false,
+    bool $onlyClosing = false
+)
 ```
 
+- `$events` - события,
+- `$onlyOpening` - будут срабатывать только при открытии,
+- `$onlyClosing` - будут срабатывать только при закрытии.
+
 ```php
-ActionButton::make('Open off-canvas')->toggleOffCanvas('my-off-canvas'),
+ActionButton::make('Open off-canvas')
+    ->toggleOffCanvas('my-off-canvas'),
 
 OffCanvas::make('My OffCanvas', asyncUrl: '/')
     ->name('my-off-canvas')
-    ->left()
     ->toggleEvents([
-        AlpineJs::event(JsEvent::TOAST, params: ['text' => 'Hello off-canvas'])
+        AlpineJs::event(
+            JsEvent::TOAST,
+            params: ['text' => 'Hello off-canvas']
+        )
     ]),
 ```
-
-Параметры `onlyOpening` и `onlyClosing` позволяют настраивать, будут ли события срабатывать при открытии и закрытии. По умолчанию оба параметра установлены в `TRUE`, что означает, что список событий будет вызываться как при открытии боковой панели, так и при её закрытии.
 
 <a name="open"></a>
 ## Состояние по умолчанию
@@ -225,15 +232,39 @@ OffCanvas::make('Title', 'Content...', 'Show Panel')
 ## Асинхронность
 
 ```php
-OffCanvas::make('Заголовок', '', 'Показать панель', asyncUrl: '/endpoint'),
+OffCanvas::make('Title', '', 'Show Panel', asyncUrl: '/endpoint'),
 ```
 
 > [!NOTE]
-> Запрос будет отправлен один раз, но если вам нужно отправлять запрос при каждом открытии, то используйте метод `alwaysLoad`
+> Запрос будет отправлен один раз, но если вам нужно отправлять запрос при каждом открытии, то используйте метод `alwaysLoad()`.
 
 ```php
 OffCanvas::make(...)
-        ->alwaysLoad(),
+    ->alwaysLoad(),
+```
+
+<a name="autoclose"></a>
+## Автозакрытие
+
+По умолчанию `OffCanvas` закрывается после успешной отправки асинхронной формы внутри него.
+Метод `autoClose()` позволяет управлять этим поведением.
+
+```php
+autoClose(Closure|bool|null $autoClose = null)
+```
+
+```php
+OffCanvas::make(
+    'Demo OffCanvas',
+    static fn() => FormBuilder::make(route('alert.post'))
+        ->fields([
+            Text::make('Text'),
+        ])
+        ->submit('Submit', ['class' => 'btn-primary'])
+        ->async(),
+    )
+    ->name('demo-offcanvas')
+    ->autoClose(false),
 ```
 
 <a name="toggler-attributes"></a>
@@ -246,7 +277,7 @@ togglerAttributes(array $attributes)
 ```
 
 ```php
-OffCanvas::make('Заголовок', 'Содержимое...', 'Показать панель')
+OffCanvas::make('Title', 'Content...', 'Show Panel')
     ->togglerAttributes([
         'class' => 'mt-2'
     ]),
