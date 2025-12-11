@@ -75,3 +75,14 @@ Flex::make([
 ])
     ->wrap()
 ```
+
+By default, the `Flex` component always uses wrapping (`flex-wrap`).
+To disable element wrapping, you can use the `unwrap()` method.
+
+```php
+Flex::make([
+    Text::make('Test'),
+    Text::make('Test 2'),
+])
+    ->unwrap()
+```
