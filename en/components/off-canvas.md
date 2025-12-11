@@ -267,6 +267,30 @@ OffCanvas::make(
     ->autoClose(false),
 ```
 
+<a name="auto-close"></a>
+## Auto Close
+
+By default, off-canvas panels close after a successful request (for example, when submitting a form).
+The `autoClose()` method allows you to control this behavior.
+
+```php
+autoClose(Closure|bool|null $autoClose = null)
+```
+
+```php
+OffCanvas::make(
+    'Title',
+    static fn() => FormBuilder::make(route('endpoint'))
+        ->fields([
+            Text::make('Text'),
+        ])
+        ->submit('Submit', ['class' => 'btn-primary'])
+        ->async(),
+    'Show Panel'
+)
+    ->autoClose(false),
+```
+
 <a name="toggler-attributes"></a>
 ## Toggler Attributes
 

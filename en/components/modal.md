@@ -227,6 +227,19 @@ Modal::make('Title', 'Content...', ActionButton::make('Show Modal', '#'))
     ->wide(),
 ```
 
+#### full
+
+The `full()` method of the *Modal* component sets the full width of the modal window.
+
+```php
+full(Closure|bool|null $condition = null)
+```
+
+```php
+Modal::make('Title', 'Content...', ActionButton::make('Show Modal', '#'))
+    ->full(),
+```
+
 #### auto
 
 The `auto()` method of the *Modal* component sets the width of the modal window based on the content.
