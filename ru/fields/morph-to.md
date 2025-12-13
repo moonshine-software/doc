@@ -30,7 +30,7 @@ MorphTo::make('Commentable')->types([
 > Если же передаётся как массив, то первый элемент массива — это название поля для отображения, а второй — имя отношения вместо названия модели.
 
 ```php
-use MoonShine\Fields\Relationships\MorphTo;
+use MoonShine\Laravel\Fields\Relationships\MorphTo;
 
 MorphTo::make('Imageable')->types([
     Company::class => ['short_name', 'Organization']
