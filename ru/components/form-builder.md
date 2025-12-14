@@ -148,6 +148,8 @@ cast(DataCasterContract $cast)
 ```
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Laravel\TypeCasts\ModelCaster;
 
 FormBuilder::make('/crud/update')
@@ -179,6 +181,8 @@ fillCast(
 ```
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\TypeCasts\ModelCaster;
 
 FormBuilder::make('/crud/update')
@@ -195,6 +199,8 @@ FormBuilder::make('/crud/update')
 или
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\TypeCasts\ModelCaster;
 
 FormBuilder::make('/crud/update')
@@ -333,6 +339,8 @@ FormBuilder::make()
 Примеры методов:
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Support\Attributes\AsyncMethod;
 
 // С уведомлением
@@ -371,7 +379,8 @@ public function updateSomething(CrudRequestContract $request): void
 <a name="reactive"></a>
 ### Реактивность
 
-По умолчанию полям внутри формы доступна реактивность, но если форма находится вне ресурса, тогда реактивность будет недоступна, так как форма не знает куда отправлять запросы.
+По умолчанию полям внутри формы доступна реактивность, но если форма находится вне ресурса,
+тогда реактивность будет недоступна, так как форма не знает куда отправлять запросы.
 В случае использования формы вне ресурсов вы можете указать реактивный URL самостоятельно.
 
 ```php

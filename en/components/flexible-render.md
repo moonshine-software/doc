@@ -10,6 +10,8 @@ make(
 ```
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Components\FlexibleRender;
 
 FlexibleRender::make('HTML'),

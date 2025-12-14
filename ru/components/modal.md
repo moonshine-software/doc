@@ -38,11 +38,13 @@ make(
 ~~~tabs
 tab: Class
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Components\Modal;
 
 Modal::make(
-    title: 'Подтвердить',
-    content: 'Содержимое'
+    title: 'Confirm',
+    content: 'Content'
 )
 ```
 tab: Blade
@@ -69,7 +71,8 @@ tab: Blade
 Чтобы иметь доступ к событиям, вы должны установить уникальное имя для модального окна, используя метод `name()`.
 
 ```php
-use MoonShine\UI\Components\ActionButton;
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Components\Modal;
 
 // ...
@@ -78,8 +81,8 @@ protected function components(): iterable
 {
     return [
         Modal::make(
-            'Заголовок',
-            'Содержимое',
+            'Title',
+            'Content',
         )
             ->name('my-modal'),
     ];
@@ -94,17 +97,17 @@ protected function components(): iterable
 
 ```php
 Modal::make(
-    'Заголовок',
-    'Содержимое',
+    'Title',
+    'Content',
 )
     ->name('my-modal'),
 
-ActionButton::make('Показать модальное окно')
+ActionButton::make('Show Modal')
     ->toggleModal('my-modal')
 
-// или асинхронно
+// or asynchronously
 ActionButton::make(
-    'Показать модальное окно',
+    'Show Modal',
     '/endpoint'
 )
     ->async(events: [AlpineJs::event(JsEvent::MODAL_TOGGLED, 'my-modal')])

@@ -134,18 +134,21 @@ $config->changePage(
 <a name="role-based-access"></a>
 ## Ограничение доступа по ролям
 
-Если вам нужно ограничить доступ к административной панели **MoonShine** на основе ролей пользователей или других условий, вы можете легко добавить собственный `middleware`.
+Если вам нужно ограничить доступ к административной панели **MoonShine** на основе ролей пользователей или других условий,
+вы можете легко добавить собственный `middleware`.
 
 ### Создание middleware
 
 Создайте новый `middleware`, например, `CheckAdminRole`.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Response; // [tl! collapse:end]
 
 class CheckAdminRole
 {
@@ -305,9 +308,12 @@ final class MoonshineUser extends \MoonShine\Laravel\Models\MoonshineUser
 ],
 ```
 
-Мы автоматически добавим компонент `SocialAuth` на страницу профиля и `LoginLayout`, но если вы их переопределили и используете собственные, то добавьте компонент самостоятельно.
+Мы автоматически добавим компонент `SocialAuth` на страницу профиля и `LoginLayout`,
+но если вы их переопределили и используете собственные, то добавьте компонент самостоятельно.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Socialite\Components\SocialAuth;
 
 protected function components(): iterable
@@ -339,24 +345,20 @@ php artisan migrate
 ~~~tabs
 tab: config/moonshine.php
 ```php
-use MoonShine\TwoFactor\TwoFactorAuthPipe;
-
 return [
     // ...
     'auth' => [
         // ...
         'pipelines' => [
-            TwoFactorAuthPipe::class
+            MoonShine\TwoFactor\TwoFactorAuthPipe::class
         ],
     ]
 ];
 ```
 tab: MoonShineServiceProvider
 ```php
-use MoonShine\TwoFactor\TwoFactorAuthPipe;
-
 $config->authPipelines([
-    TwoFactorAuthPipe::class
+    MoonShine\TwoFactor\TwoFactorAuthPipe::class
 ]);
 ```
 ~~~
@@ -366,6 +368,8 @@ $config->authPipelines([
 Не забудьте опубликовать модель, если используете конфигурацию по умолчанию:
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\TwoFactor\Traits\TwoFactorAuthenticatable;
 
 final class MoonshineUser extends \MoonShine\Laravel\Models\MoonshineUser
@@ -386,13 +390,11 @@ final class MoonshineUser extends \MoonShine\Laravel\Models\MoonshineUser
 Мы автоматически добавим компонент `TwoFactor` на страницу профиля, но если вы её переопределили и используете собственную, то добавьте компонент самостоятельно.
 
 ```php
-use MoonShine\TwoFactor\ComponentSets\TwoFactor;
-
 protected function components(): iterable
 {
     return [
         // ...
-        TwoFactor::make(),
+        MoonShine\TwoFactor\ComponentSets\TwoFactor::make(),
     ];
 }
 ```

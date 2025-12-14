@@ -43,7 +43,8 @@ You can:
 Find the complete list of components in the [Components](/docs/{{version}}/components/index) section.
 
 > [!NOTE]
-> As you may notice, there are a huge number of components, and for convenience, we have grouped them together so that you can conveniently override only the groups required.
+> As you may notice, there are a huge number of components, and for convenience, we have grouped them together
+> so that you can conveniently override only the groups required.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -198,7 +199,8 @@ protected bool $contentSimpled = true; // default false
 
 ### Centered Content Layout
 
-By default, page content takes up the entire width of the screen. To place it in a centered fixed-width container, set the `$contentCentered = true` property in your `Layout`.
+By default, page content takes up the entire width of the screen.
+To place it in a centered fixed-width container, set the `$contentCentered = true` property in your `Layout`.
 
 ```php
 protected bool $contentCentered = true; // default false
@@ -343,7 +345,8 @@ When mobile mode is enabled:
 - `BottomBar` with the top menu is automatically enabled.
 
 > [!TIP]
-> You can combine these properties to create different layout variations — for example, disable `Sidebar` and enable only `TopBar` for a more horizontal interface.
+> You can combine these properties to create different layout variations — for example,
+> disable `Sidebar` and enable only `TopBar` for a more horizontal interface.
 
 <a name="create"></a>
 ## Creating a Template
@@ -532,6 +535,8 @@ Each template can have its own color scheme.
 The easiest way to set it is to specify a `PaletteContract` implementation in the `$palette` property:
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
 use App\MoonShine\Palettes\CorporatePalette;
 use MoonShine\Laravel\Layouts\AppLayout;
 
@@ -596,7 +601,8 @@ final class MyLayout extends AppLayout
 <a name="fragments"></a>
 ### Fragments
 
-By default, in the base layout, its individual parts are located inside `Fragment` components. Due to this, you can update them without reloading the page using [JSEvents](/docs/{{version}}/frontend/js#events) events.
+By default, in the base layout, its individual parts are located inside `Fragment` components.
+Due to this, you can update them without reloading the page using [JSEvents](/docs/{{version}}/frontend/js#events) events.
 
 Available fragments:
 

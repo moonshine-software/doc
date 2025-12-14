@@ -42,6 +42,8 @@ make(
 - `data` - optional button data, available in closures.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Components\ActionButton;
 
 ActionButton::make(
@@ -186,6 +188,8 @@ ActionButton::make('Button Label')
 You can also open a modal window using the `toggleModal()` method, and if the `ActionButton` is inside a modal window, simply `openModal()`.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
 use MoonShine\UI\Components\ActionButton;
 use MoonShine\UI\Components\Modal;
 
@@ -541,6 +545,8 @@ For security reasons, only methods marked with the `AsyncMethod` attribute will 
 Examples of methods:
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Support\Attributes\AsyncMethod;
 
 // With notification
@@ -648,6 +654,8 @@ ActionButton::make('Button Label')
 ```
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
 use MoonShine\Contracts\Core\DependencyInjection\CrudRequestContract;
 use MoonShine\Crud\JsonResponse;
 
@@ -671,8 +679,12 @@ ActionButton::make('Download')
 ```
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\Support\Attributes\AsyncMethod;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
+#[AsyncMethod]
 public function download(): BinaryFileResponse
 {
     // ...
@@ -770,7 +782,8 @@ hotKeys(array $keys, bool $withBadge = false)
 - `withBadge` - draw a hint with this combination on the button.
 
 ```php
-ActionButton::make('Button Label')->hotKeys(['shift', '2'], false)
+ActionButton::make('Button Label')
+    ->hotKeys(['shift', '2'], false)
 ```
 
 ```php

@@ -6,6 +6,8 @@ In this example, we will add a `bulk` button on the index page and edit the head
 > If you decide to use this recipe, be sure to add validation and use the example wisely.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
 use MoonShine\Contracts\Core\DependencyInjection\CrudRequestContract;
 use MoonShine\Crud\JsonResponse;
 

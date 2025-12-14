@@ -13,14 +13,16 @@
 Уведомления (Toast) работают через механизм сессий (`session()->flash()`) и легко вызываются прямо из контроллера.
 
 ```php
-use MoonShine\Support\Enums\ToastType;
-
 toast(message: 'Hello');
 ```
 
 Вы можете дополнительно задать тип уведомления и длительность его отображения:
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\Support\Enums\ToastType;
+
 toast(
     message: 'Success',
     type: ToastType::SUCCESS,
@@ -46,7 +48,8 @@ JsonResponse::make()
 ```
 
 > [!TIP]
-> Если необходимо изменить уведомления в ModelResource, смотрите раздел [ModelResource > Response модификаторы](/docs/{{version}}/model-resource/index#response-modifiers).
+> Если необходимо изменить уведомления в ModelResource,
+> смотрите раздел [ModelResource > Response модификаторы](/docs/{{version}}/model-resource/index#response-modifiers).
 
 > [!NOTE]
 > Используются такие же параметры.

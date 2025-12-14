@@ -31,7 +31,8 @@ HasOne::make(
 
 > [!WARNING]
 > Наличие `ModelResource`, на который ссылается отношение, обязательно.
-> Ресурс также необходимо [зарегистрировать](/docs/{{version}}/model-resource/index#declaring-in-the-system) в сервис-провайдере `MoonShineServiceProvider` в методе `$core->resources()`.
+> Ресурс также необходимо [зарегистрировать](/docs/{{version}}/model-resource/index#declaring-in-the-system)
+> в сервис-провайдере `MoonShineServiceProvider` в методе `$core->resources()`.
 > В противном случае будет ошибка 500.
 
 ```php
@@ -53,7 +54,10 @@ HasOne::make(
 Если вы не указываете `$relationName`, тогда имя отношения будет определено автоматически на основе `$label` (по правилам camelCase).
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 use MoonShine\Laravel\Fields\Relationships\HasOne;
+// [tl! collapse:end]
 
 HasOne::make('Profile', 'profile')
 ```
@@ -61,7 +65,10 @@ HasOne::make('Profile', 'profile')
 Вы можете опустить `$resource`, если `ModelResource` совпадает с названием связи.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 use MoonShine\Laravel\Fields\Relationships\HasOne;
+// [tl! collapse:end]
 
 HasOne::make('Profile')
 ```
@@ -188,7 +195,8 @@ HasOne::make('Comment', resource: CommentResource::class)
 
 ### Отображение внутри Tabs
 
-Поля отношений в **MoonShine** по умолчанию отображаются внизу, отдельно от формы, и следуют друг за другом. Чтобы изменить отображение поля и добавить его в `Tabs`, можно использовать метод `tabMode()`.
+Поля отношений в **MoonShine** по умолчанию отображаются внизу, отдельно от формы, и следуют друг за другом.
+Чтобы изменить отображение поля и добавить его в `Tabs`, можно использовать метод `tabMode()`.
 
 ```php
 tabMode(Closure|bool|null $condition = null)
@@ -197,7 +205,10 @@ tabMode(Closure|bool|null $condition = null)
 В следующем примере будет создан компонент [Tabs](/docs/{{version}}/components/tabs) с двумя вкладками Comment и Cover.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 use MoonShine\Laravel\Fields\Relationships\HasOne;
+// [tl! collapse:end]
 
 HasOne::make('Comment', 'comment', resource: CommentResource::class)
     ->tabMode(),
@@ -223,7 +234,10 @@ public function modalMode(
 В данном примере вместо формы теперь будет [ActionButton](/docs/{{version}}/components/action-button), который вызывает [Modal](/docs/{{version}}/components/modal).
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 use MoonShine\Laravel\Fields\Relationships\HasOne;
+// [tl! collapse:end]
 
 HasOne::make('Comment', 'comment', resource: CommentResource::class)
     ->modalMode(),
@@ -232,7 +246,10 @@ HasOne::make('Comment', 'comment', resource: CommentResource::class)
 Чтобы модифицировать `ActionButton` и `Modal`, можно воспользоваться параметрами метода `$modifyButton` и `$modifyModal`, в которые можно передать замыкание.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 use MoonShine\Laravel\Fields\Relationships\HasOne;
+// [tl! collapse:end]
 
 HasOne::make('Comment', 'comment', resource: CommentResource::class)
     ->modalMode(
@@ -249,9 +266,12 @@ HasOne::make('Comment', 'comment', resource: CommentResource::class)
 
 ### Отображение в основной форме ресурса
 
-Для HasOne доступен метод `disableOutside()`, который позволят отобразить его внутри формы на том месте, где задано данное поле. `disableOutside` для HasOne работает только в режиме `modalMode`.
+Для `HasOne` доступен метод `disableOutside()`, который позволят отобразить его внутри формы на том месте, где задано данное поле.
+`disableOutside()` для `HasOne` работает только в режиме `modalMode`.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\HasOne;
 
 HasOne::make('Comment', 'comment', resource: CommentResource::class)

@@ -8,10 +8,12 @@
 Добавьте в свой ресурс следующий код:
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\Contracts\Core\DependencyInjection\CrudRequestContract;
 use MoonShine\Support\Attributes\AsyncMethod;
-use MoonShine\UI\Components\Table\TableBuilder;
+use MoonShine\UI\Components\Table\TableBuilder; // [tl! collapse:end]
 
 protected string $sortColumn = 'position';
 
@@ -48,9 +50,13 @@ protected function modifyListComponent(ComponentContract $component): ComponentC
 }
 ```
 
-При таком подходе можно перетаскивать строки хватаясь курсором за любую ячейку. Чтобы аккуратно перетаскивать строки за ручку (как сделано в поле `Json`), необходимо добавить колонку-ручку с заданным классом и передать этот класс библиотеке `SortableJS`. Содержимое колонки не важно — в данном примере ставится иконка, а класс `handle` добавляется всей ячейке.
+При таком подходе можно перетаскивать строки хватаясь курсором за любую ячейку.
+Чтобы аккуратно перетаскивать строки за ручку (как сделано в поле `Json`),
+необходимо добавить колонку-ручку с заданным классом и передать этот класс библиотеке `SortableJS`.
+Содержимое колонки не важно — в данном примере ставится иконка, а класс `handle` добавляется всей ячейке.
 
 Добавьте новое поле в метод fields() индексной страницы с иконкой ручки:
+
 ```php
 protected function fields(): iterable
 {
@@ -64,7 +70,9 @@ protected function fields(): iterable
 }
 ```
 
-Чтобы сообщить `SortableJS` какой элемент будет ручкой, следует добавить таблице атрибут `data-handle` с css селектором. В данном примере это класс `handle`. Дополните метод ресурса:
+Чтобы сообщить `SortableJS` какой элемент будет ручкой, следует добавить таблице атрибут `data-handle` с css селектором.
+В данном примере это класс `handle`. Дополните метод ресурса:
+
 ```php
 public function modifyListComponent(ComponentContract $component): ComponentContract
 {
@@ -75,6 +83,7 @@ public function modifyListComponent(ComponentContract $component): ComponentCont
     ]);
 }
 ```
+
 Теперь строки перетаскиваются только за первую ячейку, оставляя прочие столбцы свободными для взаимодействия и выделения текста.
 
 Также можно не добавлять отдельную ячейку-ручку, а добавить класс уже существующему столбцу и передать селектор в `data-handle`.

@@ -63,6 +63,8 @@ BelongsToMany::make(
 Вы можете опустить `$resource`, если `ModelResource` совпадает с названием связи.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 
 BelongsToMany::make('Categories', 'categories')
@@ -71,6 +73,8 @@ BelongsToMany::make('Categories', 'categories')
 Если не указать `$relationName`, то имя связи будет определено автоматически на основе `$label` (по правилам camelCase).
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 
 BelongsToMany::make('Categories')
@@ -81,6 +85,8 @@ BelongsToMany::make('Categories')
 > Аргумент `$formatted` позволяет переопределить это.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 
 BelongsToMany::make(
@@ -93,6 +99,8 @@ BelongsToMany::make(
 Если вам нужно указать более сложное значение для отображения, тогда в аргумент `$formatted` можно передать функцию обратного вызова.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 
 BelongsToMany::make(

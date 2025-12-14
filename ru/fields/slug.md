@@ -22,6 +22,8 @@
 С помощью данного поля вы можете генерировать slug на основе выбранного поля, а также сохранять только уникальные значения.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Slug;
 
 Slug::make('Slug')

@@ -13,9 +13,11 @@ make(iterable $components = [])
 ~~~tabs
 tab: Class
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 namespace App\MoonShine\Layouts;
 
-use MoonShine\UI\Components\Layout\Layout;
+use MoonShine\UI\Components\Layout\Layout; // [tl! collapse:end]
 
 final class MoonShineLayout extends AppLayout
 {

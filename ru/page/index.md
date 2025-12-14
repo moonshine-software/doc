@@ -222,6 +222,8 @@ class CustomPage extends Page
 Вы также можете указать шаблон через атрибут.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
 use MoonShine\Core\Attributes\Layout;
 use MoonShine\Laravel\Layouts\AppLayout;
 

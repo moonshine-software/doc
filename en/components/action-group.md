@@ -18,6 +18,9 @@ ActionGroup::make(iterable $actions = [])
 - `$actions` - a set of `ActionButton`.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\UI\Components\ActionButton;
 use MoonShine\UI\Components\ActionGroup;
 
 ActionGroup::make([

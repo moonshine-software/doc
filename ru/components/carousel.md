@@ -25,6 +25,8 @@ make(
 ~~~tabs
 tab: Class
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Components\Carousel;
 
 Carousel::make(
@@ -54,7 +56,7 @@ items(Closure|array $value)
 
 ```php
 Carousel::make(
-    alt: fake()->sentence(3),
+    alt: 'Some alt',
 )
     ->items(['/images/image_2.jpg','/images/image_1.jpg'])
 ````

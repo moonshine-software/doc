@@ -16,6 +16,8 @@ make(iterable $components = [])
 ```
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
 use MoonShine\Crud\Components\Fragment;
 use MoonShine\UI\Fields\Text;
 

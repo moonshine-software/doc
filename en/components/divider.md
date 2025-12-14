@@ -14,6 +14,8 @@ To divide HTML content into areas, you can use `Divider`.
 ~~~tabs
 tab: Class
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Components\Layout\Divider;
 
 Divider::make()

@@ -21,7 +21,8 @@ make(iterable $components = [])
 ~~~tabs
 tab: Class
 ```php
-use MoonShine\UI\Components\Layout\Menu;
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Components\Layout\Sidebar;
 
 Sidebar::make([

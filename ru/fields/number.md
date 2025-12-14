@@ -28,6 +28,8 @@
 ~~~tabs
 tab: Class
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Number;
 
 Number::make('Sort')
@@ -56,8 +58,6 @@ default(mixed $default)
 ```
 
 ```php
-use MoonShine\UI\Fields\Number;
-
 Number::make('Title')
     ->default(2)
 ```
@@ -72,8 +72,6 @@ placeholder(string $value)
 ```
 
 ```php
-use MoonShine\UI\Fields\Number;
-
 Number::make('Rating', 'rating')
     ->nullable()
     ->placeholder('Рейтинг продукта')
@@ -89,8 +87,6 @@ buttons()
 ```
 
 ```php
-use MoonShine\UI\Fields\Number;
-
 Number::make('Rating')
     ->buttons()
 ```
@@ -123,8 +119,6 @@ step(int|float $step)
 ```
 
 ```php
-use MoonShine\UI\Fields\Number;
-
 Number::make('Price')
     ->min(0)
     ->max(100000)
@@ -141,8 +135,6 @@ stars()
 ```
 
 ```php
-use MoonShine\UI\Fields\Number;
-
 Number::make('Rating')
     ->stars()
     ->min(1)

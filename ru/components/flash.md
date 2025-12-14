@@ -27,6 +27,8 @@ make(
  - `$removable` - уведомление можно закрыть.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Components\Layout\Flash;
 
 Flash::make()

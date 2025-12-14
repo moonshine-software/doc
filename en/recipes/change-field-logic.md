@@ -9,10 +9,12 @@ The method `onAfterApply()` saves and retrieves old and current values, as well 
 After deleting the parent record, the method `onAfterDestroy()` removes the uploaded files.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 use MoonShine\UI\Fields\Image;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Storage; // [tl! collapse:end]
 
 // ...
 

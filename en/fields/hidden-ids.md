@@ -23,6 +23,8 @@ make(string $forComponent)
 - `$forComponent` - name of the component with the list of elements.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\HiddenIds;
 
 HiddenIds::make('index-table')

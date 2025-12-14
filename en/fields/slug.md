@@ -22,6 +22,8 @@ Inherits from [Text](/docs/{{version}}/fields/text).
 This field allows you to generate a slug based on the selected field and to save only unique values.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Slug;
 
 Slug::make('Slug')

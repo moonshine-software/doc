@@ -26,6 +26,8 @@ class ArticleResource extends ModelResource
 ## Кастомизация страницы
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 namespace App\MoonShine\Pages\Article;
 
 use App\Models\Comment;
@@ -59,7 +61,7 @@ use MoonShine\UI\Fields\Preview;
 use MoonShine\UI\Fields\RangeSlider;
 use MoonShine\UI\Fields\Switcher;
 use MoonShine\UI\Fields\Text;
-use MoonShine\UI\Fields\Url;
+use MoonShine\UI\Fields\Url; // [tl! collapse:end]
 
 final class ArticleFormPage extends FormPage
 {

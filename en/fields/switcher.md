@@ -9,6 +9,8 @@ The `Switcher` field is an extension of `Checkbox` with a different visual desig
 ~~~tabs
 tab: Class
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Switcher;
 
 Switcher::make('Publish', 'is_publish')

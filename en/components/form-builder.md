@@ -148,6 +148,8 @@ cast(DataCasterContract $cast)
 ```
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Laravel\TypeCasts\ModelCaster;
 
 FormBuilder::make('/crud/update')
@@ -179,6 +181,8 @@ fillCast(
 ```
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\TypeCasts\ModelCaster;
 
 FormBuilder::make('/crud/update')
@@ -195,6 +199,8 @@ FormBuilder::make('/crud/update')
 or
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\TypeCasts\ModelCaster;
 
 FormBuilder::make('/crud/update')
@@ -333,6 +339,8 @@ For security reasons, only methods marked with the `AsyncMethod` attribute will 
 Examples of methods:
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Support\Attributes\AsyncMethod;
 
 // With notification
@@ -371,7 +379,8 @@ public function updateSomething(CrudRequestContract $request): void
 <a name="reactive"></a>
 ### Reactivity
 
-By default, fields inside the form are reactive, but if the form is outside the resource, then reactivity will not be available, as the form does not know where to send requests.
+By default, fields inside the form are reactive, but if the form is outside the resource,
+then reactivity will not be available, as the form does not know where to send requests.
 In the case of using the form outside of resources, you can specify the reactive URL yourself.
 
 ```php

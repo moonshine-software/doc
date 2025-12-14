@@ -53,6 +53,8 @@
 ~~~tabs
 tab: Class
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Components\Table\TableBuilder;
 
 TableBuilder::make(iterable $fields = [], iterable $items = [])
@@ -627,7 +629,8 @@ TableBuilder::make()
 <a name="query-params-prefix"></a>
 ### Префикс query-параметров
 
-Вы можете задать префикс для query-параметров пагинации и сортировки. Это удобно, когда на странице используется несколько компонентов `TableBuilder`, и каждому нужны собственные параметры запроса, чтобы избежать конфликтов между ними.
+Вы можете задать префикс для query-параметров пагинации и сортировки.
+Это удобно, когда на странице используется несколько компонентов `TableBuilder`, и каждому нужны собственные параметры запроса, чтобы избежать конфликтов между ними.
 
 ```php
 ->queryParamPrefix(prefix: 'users_')
@@ -673,6 +676,8 @@ TableBuilder::make()
 После успешного запроса можно вызвать события, добавив параметр `$events`.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
 use MoonShine\Support\AlpineJs;
 use MoonShine\Support\Enums\JsEvent;
 
@@ -696,26 +701,28 @@ TableBuilder::make()
 
 Чтобы вызвать событие обновления отдельной строки таблица должна быть в режиме `async` и таблице должно присутствовать поле `ID`.
 
->[!NOTE]
+> [!NOTE]
 > Таблица на индексной странице ресурса в режиме `async` по умолчанию, если это поведение не отключено в ресурсе.
 
 Пример вызова события обновления строки из `async` метода ресурса или из контроллера.
  ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 use MoonShine\Crud\JsonResponse;
 use MoonShine\Support\AlpineJs;
 use MoonShine\Support\Enums\JsEvent;
-use MoonShine\Support\EventParams\ListRowEventParams;
+use MoonShine\Support\EventParams\ListRowEventParams; // [tl! collapse:end]
 
 return JsonResponse::make()
-            ->events([
-                AlpineJs::event(
-                    JsEvent::TABLE_ROW_UPDATED,
-                    'index-table-post-resource',
-                    ListRowEventParams::make($post->id)
-                ),
-            ]);
-        )
+    ->events([
+        AlpineJs::event(
+            JsEvent::TABLE_ROW_UPDATED,
+            'index-table-post-resource',
+            ListRowEventParams::make($post->id)
+        ),
+    ]);
 ```
+
 через `ListRowEventParams` нужно обязательно указать идентификатор обновляемой строки.
 
 > [!NOTE]
@@ -739,14 +746,17 @@ TableBuilder::make()
     )
 ```
 
-`Controller`
+Controller:
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 namespace App\MoonShine\Controllers;
 
 use Illuminate\Contracts\View\View;
 use MoonShine\Contracts\Core\DependencyInjection\CrudRequestContract;
 use MoonShine\Laravel\Http\Controllers\MoonShineController;
+// [tl! collapse:end]
 
 final class UndefinedPageController extends MoonShineController
 {
@@ -788,6 +798,7 @@ TableBuilder::make()
 ```
 
 Метод `whenAsync()` проверяет, является ли текущий запрос асинхронным для получения текущего компонента `TableBuilder`.
+
 Пример взаимодействия с методами, где загрузка таблицы происходит по нажатию на кнопку:
 
 ```php
@@ -842,7 +853,10 @@ TableBuilder::make()
 Так как по умолчанию поля работают с примитивными типами:
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 use MoonShine\Laravel\TypeCasts\ModelCaster;
+// [tl! collapse:end]
 
 TableBuilder::make()
     ->cast(new ModelCaster(User::class))

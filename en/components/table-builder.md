@@ -53,6 +53,8 @@ such as `HasMany`, `BelongsToMany`, `RelationRepeater`, and `Json` fields.
 ~~~tabs
 tab: Class
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Components\Table\TableBuilder;
 
 TableBuilder::make(iterable $fields = [], iterable $items = [])
@@ -627,7 +629,8 @@ TableBuilder::make()
 <a name="query-params-prefix"></a>
 ### Query parameters prefix
 
-You can set a prefix for pagination and sorting query parameters. This is useful when a page uses multiple `TableBuilder` components and each needs its own query parameters to avoid conflicts between them.
+You can set a prefix for pagination and sorting query parameters.
+This is useful when a page uses multiple `TableBuilder` components and each needs its own query parameters to avoid conflicts between them.
 
 ```php
 ->queryParamPrefix(prefix: 'users_')
@@ -673,6 +676,8 @@ The `async()` method configures asynchronous loading of the table.
 After a successful request, you can trigger events by adding the `$events` parameter.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
 use MoonShine\Support\AlpineJs;
 use MoonShine\Support\Enums\JsEvent;
 
@@ -701,10 +706,12 @@ To trigger a row update event, the table must be in async mode and must contain 
 
 Example of triggering a row update event from a resource async method or from a controller:
  ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 use MoonShine\Crud\JsonResponse;
 use MoonShine\Support\AlpineJs;
 use MoonShine\Support\Enums\JsEvent;
-use MoonShine\Support\EventParams\ListRowEventParams;
+use MoonShine\Support\EventParams\ListRowEventParams; // [tl! collapse:end]
 
 return JsonResponse::make()
     ->events([
@@ -715,6 +722,7 @@ return JsonResponse::make()
         ),
     ]);
 ```
+
 When using ListRowEventParams, you must specify the identifier of the row being updated.
 
 > [!NOTE]
@@ -738,14 +746,17 @@ TableBuilder::make()
     )
 ```
 
-`Controller`
+Controller:
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 namespace App\MoonShine\Controllers;
 
 use Illuminate\Contracts\View\View;
 use MoonShine\Contracts\Core\DependencyInjection\CrudRequestContract;
 use MoonShine\Laravel\Http\Controllers\MoonShineController;
+// [tl! collapse:end]
 
 final class UndefinedPageController extends MoonShineController
 {
@@ -787,6 +798,7 @@ TableBuilder::make()
 ```
 
 The `whenAsync()` method checks if the current request is asynchronous to get the current `TableBuilder` component.
+
 An example interaction with the methods where the loading of the table occurs by clicking a button:
 
 ```php
@@ -841,7 +853,10 @@ The `cast()` method is used to cast values in the table to a certain type.
 Since by default, fields work with primitive types:
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 use MoonShine\Laravel\TypeCasts\ModelCaster;
+// [tl! collapse:end]
 
 TableBuilder::make()
     ->cast(new ModelCaster(User::class))

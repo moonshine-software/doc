@@ -25,6 +25,8 @@ make(
 ~~~tabs
 tab: Class
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
 use MoonShine\UI\Components\Layout\Box;
 use MoonShine\UI\Components\Alert;
 

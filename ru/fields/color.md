@@ -7,6 +7,8 @@
 Использует компонент [Color](/docs/{{version}}/components/color).
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Color;
 
 Color::make('Color')

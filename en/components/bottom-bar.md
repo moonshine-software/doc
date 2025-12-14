@@ -13,6 +13,8 @@ make(iterable $components = [])
 ~~~tabs
 tab: Class
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:3]
 use MoonShine\MenuManager\MenuItem;
 use MoonShine\UI\Components\Layout\BottomBar;
 use MoonShine\UI\Components\Layout\Menu;

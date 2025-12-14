@@ -222,6 +222,8 @@ class CustomPage extends Page
 You can also specify a template through an attribute.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
 use MoonShine\Core\Attributes\Layout;
 use MoonShine\Laravel\Layouts\AppLayout;
 

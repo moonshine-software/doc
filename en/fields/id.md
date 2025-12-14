@@ -18,6 +18,8 @@ make(
 If the `primary key` has a name that is different from `id`, you need to specify the arguments in the `make()` method.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\ID;
 
 ID::make(column: 'primary_key')

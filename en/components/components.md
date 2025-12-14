@@ -9,6 +9,8 @@ make(iterable $components = [])
 - `$components` - an array of components.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Components\Components;
 
 Components::make([

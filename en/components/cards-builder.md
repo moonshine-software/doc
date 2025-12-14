@@ -30,6 +30,8 @@ You can also use `CardsBuilder` on your own pages or even outside **MoonShine**.
 ~~~tabs
 tab: Class
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Components\CardsBuilder;
 
 CardsBuilder::make(iterable $items = [], FieldsContract|iterable $fields = [])
@@ -377,6 +379,8 @@ The `cast()` method is used to cast values to a specific type.
 Because by default, fields work with primitive types:
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Laravel\TypeCasts\ModelCaster;
 
 CardsBuilder::make()

@@ -14,6 +14,8 @@
 Поле `Textarea` - это многострочное текстовое поле ввода в **MoonShine**. Это поле эквивалент тегу `<textarea></textarea>`.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Textarea;
 
 Textarea::make('Text')

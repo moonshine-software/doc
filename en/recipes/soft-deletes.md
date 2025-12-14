@@ -5,6 +5,8 @@ First, prepare the model to enable [soft deletes](https://laravel.com/docs/eloqu
 Next, we will override the `modifyItemQueryBuilder()` method in the resource to correctly get the "deleted" model.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use Illuminate\Contracts\Database\Eloquent\Builder;
 
 protected function modifyItemQueryBuilder(
@@ -19,8 +21,7 @@ Then add all the necessary functionality to the index page class.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:9]
-use App\Models\Article;
+// [tl! collapse:start]
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use MoonShine\Contracts\Core\DependencyInjection\CrudRequestContract;
 use MoonShine\Contracts\UI\ActionButtonContract;
@@ -28,7 +29,7 @@ use MoonShine\Crud\JsonResponse;
 use MoonShine\Laravel\QueryTags\QueryTag;
 use MoonShine\Support\Attributes\AsyncMethod;
 use MoonShine\Support\ListOf;
-use MoonShine\UI\Components\ActionButton;
+use MoonShine\UI\Components\ActionButton; // [tl! collapse:end]
 
 protected function queryTags(): array
 {

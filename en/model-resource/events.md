@@ -6,6 +6,8 @@ However, there is also a need to specifically bind to events within the **MoonSh
 To do this, you need to implement the required events in your resource.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Contracts\Core\TypeCasts\DataWrapperContract;
 
 protected function beforeCreating(DataWrapperContract $item): DataWrapperContract

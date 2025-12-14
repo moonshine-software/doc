@@ -8,6 +8,8 @@
 Оно наследуется от поля `HasOne` и включает все его методы.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\HasOneThrough;
 
 HasOneThrough::make(

@@ -30,6 +30,8 @@
 ~~~tabs
 tab: Class
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Components\CardsBuilder;
 
 CardsBuilder::make(iterable $items = [], FieldsContract|iterable $fields = [])
@@ -377,6 +379,8 @@ CardsBuilder::make()
 Так как по умолчанию поля работают с примитивными типами:
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Laravel\TypeCasts\ModelCaster;
 
 CardsBuilder::make()

@@ -15,6 +15,8 @@
 ~~~tabs
 tab: Class
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Components\Alert;
 
 Alert::make()->content('Text'),

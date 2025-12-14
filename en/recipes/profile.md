@@ -28,12 +28,14 @@ Let's start with routing, but first, we need to create a few controllers:
 We will declare the routes in `routes/web.php`.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 use App\Http\Controllers\AuthenticateController;
 use App\Http\Controllers\ForgotController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\MoonShine\Pages\ResetPasswordPage;
-use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Route; // [tl! collapse:end]
 
 Route::controller(AuthenticateController::class)->group(function () {
     Route::get('/login', 'form')->middleware('guest')->name('login');
@@ -82,6 +84,8 @@ php artisan moonshine:layout ProfileLayout
 Next, we will assemble the constructor from the components we need.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 namespace App\MoonShine\Layouts;
 
 use App\MoonShine\Resources\PackageCategoryResource;
@@ -99,7 +103,7 @@ use MoonShine\UI\Components\{Components,
     Layout\Flash,
     Layout\Html,
     Layout\Layout,
-    Layout\Wrapper};
+    Layout\Wrapper}; // [tl! collapse:end]
 
 final class ProfileLayout extends AppLayout
 {
@@ -148,6 +152,8 @@ php artisan moonshine:layout FormLayout
 ```
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 namespace App\MoonShine\Layouts;
 
 use MoonShine\Laravel\Layouts\AppLayout;
@@ -160,7 +166,7 @@ use MoonShine\UI\Components\{Components,
     Layout\Flash,
     Layout\Html,
     Layout\Layout,
-    Layout\Wrapper};
+    Layout\Wrapper}; // [tl! collapse:end]
 
 final class FormLayout extends AppLayout
 {
@@ -211,6 +217,8 @@ php artisan moonshine:page LoginPage
 ```
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 namespace App\MoonShine\Pages;
 
 use App\MoonShine\Layouts\FormLayout;
@@ -224,7 +232,7 @@ use MoonShine\UI\Components\Layout\LineBreak;
 use MoonShine\UI\Components\Link;
 use MoonShine\UI\Fields\Password;
 use MoonShine\UI\Fields\Switcher;
-use MoonShine\UI\Fields\Text;
+use MoonShine\UI\Fields\Text; // [tl! collapse:end]
 
 class LoginPage extends Page
 {
@@ -294,6 +302,8 @@ php artisan moonshine:page RegisterPage
 ```
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 namespace App\MoonShine\Pages;
 
 use App\MoonShine\Layouts\FormLayout;
@@ -304,7 +314,7 @@ use MoonShine\UI\Components\FormBuilder;
 use MoonShine\UI\Fields\Password;
 use MoonShine\UI\Fields\PasswordRepeat;
 use MoonShine\UI\Fields\Switcher;
-use MoonShine\UI\Fields\Text;
+use MoonShine\UI\Fields\Text; // [tl! collapse:end]
 
 class RegisterPage extends Page
 {
@@ -365,6 +375,8 @@ php artisan moonshine:page ForgotPage
 ```
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 namespace App\MoonShine\Pages;
 
 use App\MoonShine\Layouts\FormLayout;
@@ -378,7 +390,7 @@ use MoonShine\UI\Components\Layout\Flex;
 use MoonShine\UI\Components\Link;
 use MoonShine\UI\Fields\Password;
 use MoonShine\UI\Fields\Switcher;
-use MoonShine\UI\Fields\Text;
+use MoonShine\UI\Fields\Text; // [tl! collapse:end]
 
 class ForgotPage extends Page
 {
@@ -436,6 +448,8 @@ php artisan moonshine:page ResetPasswordPage
 ```
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 namespace App\MoonShine\Pages;
 
 use App\MoonShine\Layouts\FormLayout;
@@ -449,7 +463,7 @@ use MoonShine\UI\Components\Layout\Flex;
 use MoonShine\UI\Fields\Hidden;
 use MoonShine\UI\Fields\Password;
 use MoonShine\UI\Fields\PasswordRepeat;
-use MoonShine\UI\Fields\Text;
+use MoonShine\UI\Fields\Text; // [tl! collapse:end]
 
 class ResetPasswordPage extends Page
 {
@@ -507,6 +521,8 @@ php artisan moonshine:page ProfilePage
 ```
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 namespace App\MoonShine\Pages;
 
 use App\MoonShine\Layouts\AppLayout;
@@ -519,7 +535,7 @@ use MoonShine\UI\Components\Tabs\Tab;
 use MoonShine\UI\Fields\Hidden;
 use MoonShine\UI\Fields\Password;
 use MoonShine\UI\Fields\PasswordRepeat;
-use MoonShine\UI\Fields\Text;
+use MoonShine\UI\Fields\Text; // [tl! collapse:end]
 
 class ProfilePage extends Page
 {
@@ -594,6 +610,8 @@ class ProfilePage extends Page
 ### AuthenticateController
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AuthenticateFormRequest;
@@ -604,7 +622,7 @@ use Illuminate\Container\Attributes\Authenticated;
 use Illuminate\Container\Attributes\CurrentUser;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
+use Illuminate\Http\Request; // [tl! collapse:end]
 
 final class AuthenticateController extends Controller
 {
@@ -655,11 +673,13 @@ public function form(LoginPage $page): LoginPage
 I will also provide the `FormRequest` classes so that the recipe is as complete as possible.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 namespace App\Http\Requests;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rules\Password;
+use Illuminate\Validation\Rules\Password; // [tl! collapse:end]
 
 class AuthenticateFormRequest extends FormRequest
 {
@@ -686,6 +706,8 @@ class AuthenticateFormRequest extends FormRequest
 ### ForgotController
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ForgotPasswordFormRequest;
@@ -696,7 +718,7 @@ use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
-use Illuminate\Support\Str;
+use Illuminate\Support\Str; // [tl! collapse:end]
 
 class ForgotController extends Controller
 {
@@ -743,10 +765,12 @@ class ForgotController extends Controller
 ```
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 namespace App\Http\Requests;
 
 use Illuminate\Contracts\Validation\ValidationRule;
-use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Foundation\Http\FormRequest; // [tl! collapse:end]
 
 class ForgotPasswordFormRequest extends FormRequest
 {
@@ -770,12 +794,14 @@ class ForgotPasswordFormRequest extends FormRequest
 ```
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 namespace App\Http\Requests;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
-use Illuminate\Validation\Rules\Password as PasswordRules;
+use Illuminate\Validation\Rules\Password; // [tl! collapse:end]
 
 class ResetPasswordFormRequest extends FormRequest
 {
@@ -794,7 +820,7 @@ class ResetPasswordFormRequest extends FormRequest
         return [
             'token' => 'required',
             'email' => ['required', 'email'],
-            'password' => ['required', 'confirmed', PasswordRules::default()],
+            'password' => ['required', 'confirmed', Password::default()],
         ];
     }
 }
@@ -803,6 +829,8 @@ class ResetPasswordFormRequest extends FormRequest
 ### ProfileController
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileFormRequest;
@@ -810,7 +838,7 @@ use App\Models\User;
 use App\MoonShine\Pages\ProfilePage;
 use Illuminate\Container\Attributes\CurrentUser;
 use Illuminate\Support\Facades\Hash;
-use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\RedirectResponse; // [tl! collapse:end]
 
 final class ProfileController extends Controller
 {
@@ -839,11 +867,13 @@ final class ProfileController extends Controller
 ```
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 namespace App\Http\Requests;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rule; // [tl! collapse:end]
 
 class ProfileFormRequest extends FormRequest
 {
@@ -871,12 +901,14 @@ class ProfileFormRequest extends FormRequest
 ### RegisterController
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 namespace App\Http\Controllers;
 
 use App\Http\Requests\RegisterFormRequest;
 use App\Models\User;
 use App\MoonShine\Pages\RegisterPage;
-use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\RedirectResponse; // [tl! collapse:end]
 
 final class RegisterController extends Controller
 {
@@ -901,11 +933,13 @@ final class RegisterController extends Controller
 ```
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 namespace App\Http\Requests;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rule; // [tl! collapse:end]
 
 class RegisterFormRequest extends FormRequest
 {

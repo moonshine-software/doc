@@ -20,6 +20,8 @@ make(iterable $components = [])
 `$components` - набор `FieldContract`.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Components\FieldsGroup;
 
 FieldsGroup::make([

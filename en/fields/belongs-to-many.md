@@ -63,6 +63,8 @@ BelongsToMany::make(
 You can omit `$resource` if the `ModelResource` matches the relationship name.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 
 BelongsToMany::make('Categories', 'categories')
@@ -71,6 +73,8 @@ BelongsToMany::make('Categories', 'categories')
 If `$relationName` is not specified, then the relationship name will be determined automatically based on `$label` (following camelCase rules).
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 
 BelongsToMany::make('Categories')
@@ -81,6 +85,8 @@ BelongsToMany::make('Categories')
 > The `$formatted` argument allows overriding this.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 
 BelongsToMany::make(
@@ -93,6 +99,8 @@ BelongsToMany::make(
 If you need to specify a more complex value for display, then you can pass a callback function in the `$formatted` argument.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 
 BelongsToMany::make(

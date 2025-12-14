@@ -7,6 +7,8 @@ Inherits from [BelongsTo](/docs/{{version}}/fields/belongs-to).
 Relationship field in **Laravel** of type `MorphTo`.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\MorphTo;
 
 MorphTo::make('Commentable')->types([
@@ -30,6 +32,8 @@ Description of the `types` method value:
 > If passed as an array, the first element of the array is the name of the field to display, and the second is the relationship name instead of the model name.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\MorphTo;
 
 MorphTo::make('Imageable')->types([

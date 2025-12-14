@@ -20,6 +20,8 @@
 > Поле НЕ предназначено для ввода/изменения данных!
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Preview;
 
 Preview::make(
@@ -64,8 +66,6 @@ badge(string|Closure|null $color = null)
 </p>
 
 ```php
-use MoonShine\UI\Fields\Preview;
-
 Preview::make('Status')
     ->badge(fn($status, Field $field) => $status === 1 ? 'green' : 'gray')
 ```
@@ -85,8 +85,6 @@ boolean(
 Параметры `hideTrue` и `hideFalse` позволяют скрыть метку для значений.
 
 ```php
-use MoonShine\UI\Fields\Preview;
-
 Preview::make('Active')
     ->boolean(hideTrue: false, hideFalse: false)
 ```
@@ -116,8 +114,6 @@ link(
 > Для более подробной информации обратитесь к разделу [Иконки](/docs/{{version}}/icons).
 
 ```php
-use MoonShine\UI\Fields\Preview;
-
 Preview::make('Link')
     ->link('https://moonshine-laravel.com', blank: false),
 
@@ -134,8 +130,6 @@ Preview::make('Link')
 Метод `image()` позволяет преобразовать URL в миниатюру с изображением.
 
 ```php
-use MoonShine\UI\Fields\Preview;
-
 Preview::make('Thumb')
     ->image()
 ```

@@ -7,9 +7,10 @@ Inherits from [Preview](/docs/{{version}}/fields/preview).
 The *Position* field allows you to create numbering for repeating elements.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:3]
 use MoonShine\UI\Fields\Json;
 use MoonShine\UI\Fields\Position;
-use MoonShine\UI\Fields\Switcher;
 use MoonShine\UI\Fields\Text;
 
 Json::make('Product Options', 'options')
@@ -17,6 +18,5 @@ Json::make('Product Options', 'options')
         Position::make(),
         Text::make('Title'),
         Text::make('Value'),
-        Switcher::make('Active')
     ])
 ```

@@ -78,6 +78,8 @@ If this field is a relationship, the name of the relationship is used (e.g.: cou
 Example of a closure `$formatted` for formatting a value:
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Text;
 
 Text::make(
@@ -213,6 +215,8 @@ Available colors:
 </p>
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Support\Enums\Color;
 
 Text::make('Title')
@@ -220,6 +224,8 @@ Text::make('Title')
 ```
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Field;
 
 Text::make('Title')
@@ -639,6 +645,8 @@ afterRender(Closure $closure)
 ```
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Field;
 
 Text::make('Title')
@@ -660,6 +668,8 @@ Text::make('Name')
 ```
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 
 // for relationship fields
@@ -680,6 +690,8 @@ when(
 ```
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Field;
 
 Text::make('Slug')
@@ -1013,6 +1025,8 @@ Switcher::make('Active')
 ```
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Contracts\Core\DependencyInjection\CrudRequestContract;
 
 #[AsyncMethod]
@@ -1234,6 +1248,8 @@ All fields have access to the `Illuminate\Support\Traits\Macroable` trait with t
 You can use this trait to extend the functionality of fields by adding new features without the need for inheritance.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Field;
 
 Field::macro('myMethod', fn() => /*implementation*/)

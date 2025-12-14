@@ -8,20 +8,22 @@
 
 Рассмотрим использование полей отношений на примере `BelongsTo`. Например, у вас есть модели `Post` и `Author`, где каждый пост принадлежит одному автору.
 
-```php
+```php filename:app/Models/Post.php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-// В модели Post
 public function author(): BelongsTo
 {
     return $this->belongsTo(Author::class);
 }
 ```
 
-```php
+```php filename:app/MoonShine/Resources/Post/PostResource.php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 
-// В MoonShine PostResource
 public function formFields(): array
 {
     return [

@@ -6,6 +6,8 @@
 Для этого в ресурсе необходимо реализовать нужные Вам события.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Contracts\Core\TypeCasts\DataWrapperContract;
 
 protected function beforeCreating(DataWrapperContract $item): DataWrapperContract

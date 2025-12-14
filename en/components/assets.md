@@ -10,6 +10,8 @@ The `Assets` component is designed to include scripts and stylesheets into the H
 ~~~tabs
 tab: Class
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Components\Layout\Assets;
 
 Assets::make();

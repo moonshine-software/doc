@@ -3,6 +3,8 @@
 Example of implementing a `HasOne` relationship through the *Template* field.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Template;
 
 // ...

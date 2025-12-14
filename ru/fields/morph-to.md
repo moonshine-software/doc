@@ -7,6 +7,8 @@
 Поле отношения в **Laravel** типа `MorphTo`.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\MorphTo;
 
 MorphTo::make('Commentable')->types([
@@ -30,6 +32,8 @@ MorphTo::make('Commentable')->types([
 > Если же передаётся как массив, то первый элемент массива — это название поля для отображения, а второй — имя отношения вместо названия модели.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\MorphTo;
 
 MorphTo::make('Imageable')->types([
