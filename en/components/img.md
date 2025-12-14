@@ -1,8 +1,8 @@
 # Img
 
 - [Basics](#basics)
-- [Methods](#methods)
-  - [srcset() method](#srcset)
+- [Additional attributes](#additional-attributes)
+- [Examples](#examples)
 
 ---
 
@@ -28,8 +28,8 @@ tab: Blade
 ```
 ~~~
 
-<a name="methods"></a>
-## Methods
+<a name="additional-attributes"></a>
+## Additional attributes
 
 - `alt(?string $alt)` - sets the description for the image (attribute `alt`),
 - `size(int $width, ?int $height)` - sets the width and height of the image (attributes `width` и `height`),
@@ -38,16 +38,16 @@ tab: Blade
 - `rounded()` - sets the rounding of the image (applies `style="border-radius: 50%;"`),
 - `eagerLoading()` - loads the image immediately, regardless of whether it is currently in the visible viewing area
   (attribute `loading="eager"`),
-- `lazyLoading()` - delayed image loading (attribute loading="lazy"),
+- `lazyLoading()` - delayed image loading (attribute `loading="lazy"`),
 - `autoDecoding()` - The browser will choose the preferred decoding mode (attribute `loading="auto"`),
 - `syncDecoding()` - decode the image synchronously with the rest of the DOM elements (attribute `loading="sync"`),
 - `asyncDecoding()` - decode the image after displaying the rest of the DOM elements (attribute `loading="async"`),
 - `srcset(array $sources)` - sets additional image sources for different screen resolutions (attribute `srcset`).
 
-<a name="srcset"></a>
-### srcset() method
+<a name="examples"></a>
+### Examples
 
-Example of definition by width:
+Examples of using the `srcset()` method:
 
 ```php
 Img::make('logo.png')
@@ -58,8 +58,6 @@ Img::make('logo.png')
 
 // <img src="logo.png" srcset="logo-200w.png 200w, logo-400w.png 400w">
 ```
-
-Example of determination by pixel density:
 
 ```php
 Img::make('banner.jpg')
