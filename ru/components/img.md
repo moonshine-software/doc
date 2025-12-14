@@ -1,7 +1,8 @@
 # Img
 
 - [Основы](#basics)
-- [Методы](#methods)
+- [Дополнительные атрибуты](#additional-attributes)
+- [Примеры](#examples)
 
 ---
 
@@ -27,38 +28,43 @@ tab: Blade
 ```
 ~~~
 
-<a name="methods"></a>
-## Методы
+<a name="additional-attributes"></a>
+## Дополнительные атрибуты
 
-- `alt(?string $alt)` - задаёт описание для изображения (атрибт `alt`)
-- `size(int $width, ?int $height)` - задаёт ширину и высоту изображение (атрибуты `width` и `height`)
-- `width(int $width)` - задаёт ширину изображения отдельно (атрибт `width`)
-- `height(?string $height)` - задаёт высоту изображения отдельно (атрибт `height`)
-- `rounded()` - задаёт скругление изображения (применяется `style="border-radius: 50%;"`)
-- `eagerLoading()` - загружает изображение немедленно, независимо от того, находится ли оно в данный момент в видимой области просмотра (атрибут `loading="eager"`)
-- `lazyLoading()` - отложенная загрузка изображения (атрибут loading="lazy")
-- `autoDecoding()` - предпочтительный режим декодирования выберет браузер (атрибут `loading="auto"`)
-- `syncDecoding()` - декодировать изображение синхронно вместе с остальными элементами DOM (атрибут `loading="sync"`)
-- `asyncDecoding()` - декодировать изображение после отображения остальных элементов DOM (атрибут `loading="async"`)
-- `srcset(array $sources)` - задаёт дополнительные источники изображений для разных разрешений экрана (атрибут `srcset`)
+- `alt(?string $alt)` - задаёт описание для изображения (атрибут `alt`),
+- `size(int $width, ?int $height)` - задаёт ширину и высоту изображение (атрибуты `width` и `height`),
+- `width(int $width)` - задаёт ширину изображения отдельно (атрибут `width`),
+- `height(?string $height)` - задаёт высоту изображения отдельно (атрибут `height`),
+- `rounded()` - задаёт скругление изображения (применяется `style="border-radius: 50%;"`),
+- `eagerLoading()` - загружает изображение немедленно, независимо от того, находится ли оно в данный момент в видимой области просмотра
+  (атрибут `loading="eager"`),
+- `lazyLoading()` - отложенная загрузка изображения (атрибут `loading="lazy"`),
+- `autoDecoding()` - предпочтительный режим декодирования выберет браузер (атрибут `loading="auto"`),
+- `syncDecoding()` - декодировать изображение синхронно вместе с остальными элементами DOM (атрибут `loading="sync"`),
+- `asyncDecoding()` - декодировать изображение после отображения остальных элементов DOM (атрибут `loading="async"`),
+- `srcset(array $sources)` - задаёт дополнительные источники изображений для разных разрешений экрана (атрибут `srcset`).
 
-Пример использования метода `srcset(array $sources)`
+<a name="examples"></a>
+### Примеры
+
+Примеры использования метода `srcset()`:
+
 ```php
-// определение по ширине
 Img::make('logo.png')
     ->srcset([
         '200w' => 'logo-200w.png',
         '400w' => 'logo-400w.png',
     ]);
 
-// результат: <img src="logo.png" srcset="logo-200w.png 200w, logo-400w.png 400w">
-    
-// по плотности пикселей
+// <img src="logo.png" srcset="logo-200w.png 200w, logo-400w.png 400w">
+```
+
+```php
 Img::make('banner.jpg')
     ->srcset([
         '2x' => 'banner-2x.jpg',
         '4x' => 'banner-4x.jpg',
     ]);
 
-// результат: <img src="banner.jpg" srcset="banner-2x.jpg 2x, banner-4x.jpg 4x">
+// <img src="banner.jpg" srcset="banner-2x.jpg 2x, banner-4x.jpg 4x">
 ```
