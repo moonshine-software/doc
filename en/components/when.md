@@ -15,9 +15,11 @@ make(
 - `$default` - a closure that returns an array of default elements.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 namespace App\MoonShine\Layouts;
 
-use MoonShine\UI\Components\When;
+use MoonShine\UI\Components\When; // [tl! collapse:end]
 
 final class MoonShineLayout extends AppLayout
 {

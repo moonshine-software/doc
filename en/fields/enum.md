@@ -16,6 +16,8 @@ Inherits from [Select](/docs/{{version}}/fields/select).
 Operates the same as the `Select` field but accepts *Enum* as options.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Enum;
 
 Enum::make('Status')

@@ -13,14 +13,16 @@
 Toast notifications use the session mechanism (`session()->flash()`) and can be easily triggered directly from controllers.
 
 ```php
-use MoonShine\Support\Enums\ToastType;
-
 toast(message: 'Hello');
 ```
 
 You can also specify the notification type and duration:
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\Support\Enums\ToastType;
+
 toast(
     message: 'Success',
     type: ToastType::SUCCESS,
@@ -46,7 +48,8 @@ JsonResponse::make()
 ```
 
 > [!TIP]
-> If you need to change toast notifications in ModelResource, see [ModelResource > Response modifiers](/docs/{{version}}/model-resource/index#response-modifiers) section.
+> If you need to change toast notifications in ModelResource,
+> see [ModelResource > Response modifiers](/docs/{{version}}/model-resource/index#response-modifiers) section.
 
 > [!NOTE]
 > The parameters used are the same as described above.

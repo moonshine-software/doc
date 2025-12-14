@@ -16,6 +16,8 @@
 Работает так же, как поле `Select`, но принимает *Enum* в качестве опций.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Enum;
 
 Enum::make('Status')

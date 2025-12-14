@@ -32,9 +32,11 @@ fromTo(string $fromField, string $toField)
 ```
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Range;
 
-Range::make('Возраст', 'age')
+Range::make('Age', 'age')
     ->fromTo('age_from', 'age_to')
 ```
 
@@ -54,10 +56,10 @@ toAttributes(array $attributes)
 В данном примере добавляется подсказка.
 
 ```php
-Range::make('Возраст', 'age')
+Range::make('Age', 'age')
     ->fromTo('age_from', 'age_to')
-    ->fromAttributes(['placeholder' => 'от'])
-    ->toAttributes(['placeholder' => 'до'])
+    ->fromAttributes(['placeholder' => 'from'])
+    ->toAttributes(['placeholder' => 'to'])
 ```
 
 <a name="number-type-methods"></a>
@@ -114,5 +116,5 @@ Range::make('Rating')
 При использовании поля `Range` для построения фильтра метод `fromTo()` не используется, поскольку фильтрация происходит по одному полю в таблице базы данных.
 
 ```php
-Range::make('Возраст', 'age')
+Range::make('Age', 'age')
 ```

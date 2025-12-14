@@ -24,6 +24,8 @@ Creating an instance of a field is very simple.
 There is a convenient `make()` method, and for basic usage, it is sufficient to specify the label and name of the field.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Text;
 
 Text::make('Title')
@@ -197,6 +199,8 @@ although we do not recommend doing this, and it would be better to create a sepa
 But let's assume for some reason we want to turn a `Select` field into a `Text` field:
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Select;
 
 Select::make('Links')->options([
@@ -242,6 +246,8 @@ For example, we use the field for export, and we do not need to perform subseque
 it is necessary to display the value for the manager in a clear format:
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 
 BelongsTo::make('User')
@@ -255,6 +261,8 @@ No matter how smart **MoonShine** is, it will not understand that the value of â
 This task can be solved as follows:
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 
 BelongsTo::make('User')

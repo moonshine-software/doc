@@ -18,6 +18,8 @@ The `Hidden` field is a hidden field that by default sets `type=hidden`.
 ~~~tabs
 tab: Class
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Hidden;
 
 Hidden::make('category_id')

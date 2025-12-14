@@ -24,6 +24,8 @@
 Для этого есть удобный метод `make()` и для базового использования достаточно указать label и name поля.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Text;
 
 Text::make('Title')
@@ -197,6 +199,8 @@ Select::make('Links')->options([
 Но всё же представим, что из поля `Select` по каким-то причинам мы хотим сделать поле `Text`:
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Select;
 
 Select::make('Links')->options([
@@ -242,6 +246,8 @@ Text::make('Title')->rawMode()
 необходимо отобразить значение для менеджера в понятном формате:
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 
 BelongsTo::make('User')
@@ -255,6 +261,8 @@ BelongsTo::make('User')
 Эту задачу можно решить следующим образом:
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 
 BelongsTo::make('User')

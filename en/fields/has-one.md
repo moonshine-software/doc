@@ -31,7 +31,8 @@ HasOne::make(
 
 > [!WARNING]
 > Having a `ModelResource` that the relationship refers to is mandatory.
-> The resource must also be [registered](/docs/{{version}}/model-resource/index#declaring-in-the-system) in the `MoonShineServiceProvider` service provider in the `$core->resources()` method.
+> The resource must also be [registered](/docs/{{version}}/model-resource/index#declaring-in-the-system)
+> in the `MoonShineServiceProvider` service provider in the `$core->resources()` method.
 > Otherwise, there will be a 500 error.
 
 ```php
@@ -53,7 +54,10 @@ HasOne::make(
 If you do not specify `$relationName`, the relationship name will be automatically determined based on `$label` (following camelCase rules).
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 use MoonShine\Laravel\Fields\Relationships\HasOne;
+// [tl! collapse:end]
 
 HasOne::make('Profile', 'profile')
 ```
@@ -61,7 +65,10 @@ HasOne::make('Profile', 'profile')
 You can omit `$resource` if the `ModelResource` matches the name of the relationship.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 use MoonShine\Laravel\Fields\Relationships\HasOne;
+// [tl! collapse:end]
 
 HasOne::make('Profile')
 ```
@@ -188,7 +195,8 @@ HasOne::make('Comment', resource: CommentResource::class)
 
 ### Display within Tabs
 
-By default, relationship fields in **MoonShine** are displayed at the bottom, separately from the form, and follow one after another. To change the display of the field and add it to `Tabs`, you can use the `tabMode()` method.
+By default, relationship fields in **MoonShine** are displayed at the bottom, separately from the form, and follow one after another.
+To change the display of the field and add it to `Tabs`, you can use the `tabMode()` method.
 
 ```php
 tabMode(Closure|bool|null $condition = null)
@@ -197,7 +205,10 @@ tabMode(Closure|bool|null $condition = null)
 In the following example, a [Tabs](/docs/{{version}}/components/tabs) component with two tabs, Comment and Cover, will be created.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 use MoonShine\Laravel\Fields\Relationships\HasOne;
+// [tl! collapse:end]
 
 HasOne::make('Comment', 'comment', resource: CommentResource::class)
     ->tabMode(),
@@ -223,7 +234,10 @@ public function modalMode(
 In this example, instead of a form, there will now be an [ActionButton](/docs/{{version}}/components/action-button) that calls a [Modal](/docs/{{version}}/components/modal).
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 use MoonShine\Laravel\Fields\Relationships\HasOne;
+// [tl! collapse:end]
 
 HasOne::make('Comment', 'comment', resource: CommentResource::class)
     ->modalMode(),
@@ -232,7 +246,10 @@ HasOne::make('Comment', 'comment', resource: CommentResource::class)
 To modify the `ActionButton` and `Modal`, you can use the method parameters `$modifyButton` and `$modifyModal`, into which you can pass a closure.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 use MoonShine\Laravel\Fields\Relationships\HasOne;
+// [tl! collapse:end]
 
 HasOne::make('Comment', 'comment', resource: CommentResource::class)
     ->modalMode(
@@ -249,9 +266,12 @@ HasOne::make('Comment', 'comment', resource: CommentResource::class)
 
 ### Display within the Main Resource Form
 
-For HasOne, the `disableOutside()` method is available, which allows it to be displayed inside the form at the designated field location. `disableOutside` for HasOne only works in `modalMode`.
+For `HasOne`, the `disableOutside()` method is available, which allows it to be displayed inside the form at the designated field location.
+`disableOutside()` for `HasOne` only works in `modalMode`.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\HasOne;
 
 HasOne::make('Comment', 'comment', resource: CommentResource::class)

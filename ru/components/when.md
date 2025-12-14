@@ -15,9 +15,11 @@ make(
 - `$default` - замыкание, которое возвращает массив элементов по умолчанию.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 namespace App\MoonShine\Layouts;
 
-use MoonShine\UI\Components\When;
+use MoonShine\UI\Components\When; // [tl! collapse:end]
 
 final class MoonShineLayout extends AppLayout
 {

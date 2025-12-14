@@ -20,6 +20,8 @@ The `Checkbox` field is a field for selecting a yes/no value.
 ~~~tabs
 tab: Class
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Checkbox;
 
 Checkbox::make('Publish', 'is_publish')

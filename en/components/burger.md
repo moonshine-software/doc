@@ -5,6 +5,8 @@ The `Burger` component displays a button-icon for showing the mobile menu.
 ~~~tabs
 tab: Class
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Components\Layout\Burger;
 
 Burger::make()
@@ -22,6 +24,8 @@ If you need the burger to control the menu from the Topbar, use the `topbar()` m
 ~~~tabs
 tab: Class
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Components\Layout\Burger;
 
 Burger::make()->topbar()
@@ -37,6 +41,8 @@ If you need the burger to control the menu from the MobileBar, use the `mobileBa
 ~~~tabs
 tab: Class
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Components\Layout\Burger;
 
 Burger::make()->mobileBar()

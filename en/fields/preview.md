@@ -20,6 +20,8 @@ With the `Preview` field, you can display text data from any field in the model 
 > The field is NOT intended for data input/modification!
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Preview;
 
 Preview::make(
@@ -64,8 +66,6 @@ Available colors:
 </p>
 
 ```php
-use MoonShine\UI\Fields\Preview;
-
 Preview::make('Status')
     ->badge(fn($status, Field $field) => $status === 1 ? 'green' : 'gray')
 ```
@@ -85,8 +85,6 @@ boolean(
 The `hideTrue` and `hideFalse` parameters allow hiding the label for the values.
 
 ```php
-use MoonShine\UI\Fields\Preview;
-
 Preview::make('Active')
     ->boolean(hideTrue: false, hideFalse: false)
 ```
@@ -116,8 +114,6 @@ link(
 > For more details, refer to the [Icons](/docs/{{version}}/icons) section.
 
 ```php
-use MoonShine\UI\Fields\Preview;
-
 Preview::make('Link')
     ->link('https://moonshine-laravel.com', blank: false),
 
@@ -134,8 +130,6 @@ Preview::make('Link')
 The `image()` method allows you to convert a URL into a thumbnail with an image.
 
 ```php
-use MoonShine\UI\Fields\Preview;
-
 Preview::make('Thumb')
     ->image()
 ```

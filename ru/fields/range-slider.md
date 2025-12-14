@@ -19,9 +19,11 @@
 ## Создание
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\RangeSlider;
 
-RangeSlider::make('Возраст', 'age')
+RangeSlider::make('Age', 'age')
     ->fromTo('age_from', 'age_to')
 ```
 
@@ -31,7 +33,9 @@ RangeSlider::make('Возраст', 'age')
 При использовании поля `RangeSlider` для построения фильтра метод `fromTo()` не используется, так как фильтрация происходит по одному полю в таблице базы данных.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\RangeSlider;
 
-RangeSlider::make('Возраст', 'age')
+RangeSlider::make('Age', 'age')
 ```

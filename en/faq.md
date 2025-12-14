@@ -8,20 +8,22 @@
 
 Consider using relationship fields using the example of `BelongsTo`. For example, you have the `Post` and `Author` models, where each post belongs to one author.
 
-```php
+```php filename:app/Models/Post.php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-// In Post model
 public function author(): BelongsTo
 {
     return $this->belongsTo(Author::class);
 }
 ```
 
-```php
+```php filename:app/MoonShine/Resources/Post/PostResource.php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 
-// In MoonShine PostResource
 public function formFields(): array
 {
     return [

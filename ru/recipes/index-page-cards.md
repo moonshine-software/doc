@@ -2,17 +2,19 @@
 
 Давайте изменим отображение элементов на индексной странице через компонент `CardsBuilder`.
 
-Создаем класс с компонентом индексной страницы, реализующий интерфейс `DefaultListComponentContract`. Его мы потом можем переиспользовать на любых других индексных страницах ресурсов.
+Создаем класс с компонентом индексной страницы, реализующий интерфейс `DefaultListComponentContract`.
+Его мы потом можем переиспользовать на любых других индексных страницах ресурсов.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 use MoonShine\Contracts\Core\DependencyInjection\CoreContract;
 use MoonShine\Contracts\Core\DependencyInjection\FieldsContract;
 use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\Core\Traits\WithCore;
 use MoonShine\Crud\Contracts\Page\IndexPageContract;
 use MoonShine\Crud\Contracts\PageComponents\DefaultListComponentContract;
-use MoonShine\UI\Components\CardsBuilder;
-
+use MoonShine\UI\Components\CardsBuilder; // [tl! collapse:end]
 
 final class CardsListComponent implements DefaultListComponentContract
 {
@@ -67,7 +69,8 @@ final class CardsListComponent implements DefaultListComponentContract
 В классе индексной страницы ресурса переопределяем свойство `$component`:
 
 ```php
-use App\MoonShine\Resources\MoonShineUserResource;
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
 use MoonShine\Crud\Contracts\PageComponents\DefaultListComponentContract;
 use MoonShine\Laravel\Pages\Crud\IndexPage;
 

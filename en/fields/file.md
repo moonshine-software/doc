@@ -30,6 +30,8 @@ The `File` field is used for file uploads and includes all basic methods.
 ~~~tabs
 tab: Class
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\File;
 
 File::make('File')
@@ -222,6 +224,8 @@ customName(Closure $name)
 ```
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Str;
 

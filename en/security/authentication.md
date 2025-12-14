@@ -134,18 +134,21 @@ $config->changePage(
 <a name="role-based-access"></a>
 ## Role-based access
 
-If you need to restrict access to the **MoonShine** admin panel based on user roles or other conditions, you can easily add your own `middleware`.
+If you need to restrict access to the **MoonShine** admin panel based on user roles or other conditions,
+you can easily add your own `middleware`.
 
 ### Creating middleware
 
 Create a new `middleware`, for example, `CheckAdminRole`.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Response; // [tl! collapse:end]
 
 class CheckAdminRole
 {
@@ -305,9 +308,12 @@ And replace in the configuration file:
 ],
 ```
 
-We will automatically add the `SocialAuth` component to the profile page and `LoginLayout`, but if you have overridden them and are using your own, then add the component yourself.
+We will automatically add the `SocialAuth` component to the profile page and `LoginLayout`,
+but if you have overridden them and are using your own, then add the component yourself.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Socialite\Components\SocialAuth;
 
 protected function components(): iterable
@@ -339,24 +345,20 @@ Then add `authPipeline`:
 ~~~tabs
 tab: config/moonshine.php
 ```php
-use MoonShine\TwoFactor\TwoFactorAuthPipe;
-
 return [
     // ...
     'auth' => [
         // ...
         'pipelines' => [
-            TwoFactorAuthPipe::class
+            MoonShine\TwoFactor\TwoFactorAuthPipe::class
         ],
     ]
 ];
 ```
 tab: MoonShineServiceProvider
 ```php
-use MoonShine\TwoFactor\TwoFactorAuthPipe;
-
 $config->authPipelines([
-    TwoFactorAuthPipe::class
+    MoonShine\TwoFactor\TwoFactorAuthPipe::class
 ]);
 ```
 ~~~
@@ -366,6 +368,8 @@ Add the trait `MoonShine\TwoFactor\Traits\TwoFactorAuthenticatable` to the model
 Don't forget to publish the model if you're using the default configuration:
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\TwoFactor\Traits\TwoFactorAuthenticatable;
 
 final class MoonshineUser extends \MoonShine\Laravel\Models\MoonshineUser
@@ -386,13 +390,11 @@ And replace in the configuration file:
 We will automatically add the `TwoFactor` component to the profile page, but if you have overridden it and are using your own, then add the component yourself.
 
 ```php
-use MoonShine\TwoFactor\ComponentSets\TwoFactor;
-
 protected function components(): iterable
 {
     return [
         // ...
-        TwoFactor::make(),
+        MoonShine\TwoFactor\ComponentSets\TwoFactor::make(),
     ];
 }
 ```

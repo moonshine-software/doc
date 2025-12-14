@@ -102,9 +102,11 @@ MoonShine поставляется с набором предустановле�
 Чтобы создать собственную палитру, реализуйте контракт и верните пары светлых и тёмных значений:
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 namespace App\MoonShine\Palettes;
 
-use MoonShine\Contracts\ColorManager\PaletteContract;
+use MoonShine\Contracts\ColorManager\PaletteContract; // [tl! collapse:end]
 
 final class CorporatePalette implements PaletteContract
 {
@@ -145,6 +147,8 @@ final class CorporatePalette implements PaletteContract
 - вызвать `$colorManager->palette(new CorporatePalette());` в коде.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
 use App\MoonShine\Palettes\CorporatePalette;
 use MoonShine\Laravel\Layouts\AppLayout;
 
@@ -306,6 +310,8 @@ $colorManager->toHtml()
 `ColorManager` включает утилиту `ColorMutator` для конвертации между HEX, RGB, RGBA и OKLCH.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\ColorManager\ColorMutator;
 
 // Конвертация в HEX

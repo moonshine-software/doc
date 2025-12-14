@@ -38,6 +38,8 @@ make(
 ~~~tabs
 tab: Class
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Components\Modal;
 
 Modal::make(
@@ -69,7 +71,8 @@ You can open or close a modal window without using the component through `javasc
 To access the events, you must set a unique name for the modal window using the `name()` method.
 
 ```php
-use MoonShine\UI\Components\ActionButton;
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Components\Modal;
 
 // ...

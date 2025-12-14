@@ -26,6 +26,8 @@ The `Text` field is a basic text input field in **MoonShine**. This field is equ
 ~~~tabs
 tab: Class
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Text;
 
 Text::make('Title')

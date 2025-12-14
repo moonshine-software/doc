@@ -102,9 +102,11 @@ The default palette is `MoonShine\ColorManager\Palettes\PurplePalette`.
 To create your own palette, implement the contract and return pairs of light and dark values:
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 namespace App\MoonShine\Palettes;
 
-use MoonShine\Contracts\ColorManager\PaletteContract;
+use MoonShine\Contracts\ColorManager\PaletteContract; // [tl! collapse:end]
 
 final class CorporatePalette implements PaletteContract
 {
@@ -145,6 +147,8 @@ You can activate a palette:
 - programmatically, by calling `$colorManager->palette(new CorporatePalette());`.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
 use App\MoonShine\Palettes\CorporatePalette;
 use MoonShine\Laravel\Layouts\AppLayout;
 
@@ -306,6 +310,8 @@ Result:
 `ColorManager` includes the `ColorMutator` utility for converting between HEX, RGB, RGBA, and OKLCH formats.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\ColorManager\ColorMutator;
 
 // Convert to HEX

@@ -37,6 +37,8 @@ make(
 ~~~tabs
 tab: Class
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Components\OffCanvas;
 
 OffCanvas::make(
@@ -73,8 +75,6 @@ tab: Blade
 Чтобы иметь доступ к событиям, необходимо установить уникальное имя для боковой панели, используя метод `name()`.
 
 ```php
-use MoonShine\UI\Components\OffCanvas;
-
 protected function components(): iterable
 {
     return [

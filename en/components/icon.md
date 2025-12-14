@@ -11,6 +11,8 @@
 The `Icon` component is used for rendering icons.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Support\Enums\Color;
 
 make(
@@ -29,6 +31,8 @@ make(
 ~~~tabs
 tab: Class
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Components\Icon;
 
 Icon::make('users')

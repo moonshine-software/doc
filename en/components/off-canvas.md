@@ -37,6 +37,8 @@ make(
 ~~~tabs
 tab: Class
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Components\OffCanvas;
 
 OffCanvas::make(
@@ -73,8 +75,6 @@ You can trigger the opening/closing of the sidebar from outside the component vi
 To access the events, you need to set a unique name for the side panel using the `name()` method.
 
 ```php
-use MoonShine\UI\Components\OffCanvas;
-
 protected function components(): iterable
 {
     return [

@@ -19,9 +19,11 @@ The `RangeSlider` field is an extension of `Range` and additionally has the abil
 ## Creation
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\RangeSlider;
 
-RangeSlider::make('Age')
+RangeSlider::make('Age', 'age')
     ->fromTo('age_from', 'age_to')
 ```
 
@@ -31,6 +33,8 @@ RangeSlider::make('Age')
 When using the `RangeSlider` field to build a filter, the `fromTo()` method is not used, as filtering occurs by a single field in the database table.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\RangeSlider;
 
 RangeSlider::make('Age', 'age')

@@ -2,17 +2,19 @@
 
 Let's change the display of elements on the index page through the `CardsBuilder` component.
 
-We create a class with an index page component that implements the `DefaultListComponentContract` interface. We can then reuse it on any other resource index pages.
+We create a class with an index page component that implements the `DefaultListComponentContract` interface.
+We can then reuse it on any other resource index pages.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 use MoonShine\Contracts\Core\DependencyInjection\CoreContract;
 use MoonShine\Contracts\Core\DependencyInjection\FieldsContract;
 use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\Core\Traits\WithCore;
 use MoonShine\Crud\Contracts\Page\IndexPageContract;
 use MoonShine\Crud\Contracts\PageComponents\DefaultListComponentContract;
-use MoonShine\UI\Components\CardsBuilder;
-
+use MoonShine\UI\Components\CardsBuilder; // [tl! collapse:end]
 
 final class CardsListComponent implements DefaultListComponentContract
 {
@@ -67,7 +69,8 @@ final class CardsListComponent implements DefaultListComponentContract
 In the resource index page class, we override the `$component` property:
 
 ```php
-use App\MoonShine\Resources\MoonShineUserResource;
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
 use MoonShine\Crud\Contracts\PageComponents\DefaultListComponentContract;
 use MoonShine\Laravel\Pages\Crud\IndexPage;
 

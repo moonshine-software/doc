@@ -21,6 +21,8 @@ protected function menu(): array
 2. Через ресурс:
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Support\Enums\Ability;
 
 protected function menu(): array

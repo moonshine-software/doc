@@ -9,6 +9,8 @@ The `Image` field is an extension of `File` that allows previewing uploaded imag
 ~~~tabs
 tab: Class
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Image;
 
 Image::make('Thumbnail')

@@ -5,6 +5,8 @@
 The **Meta** component is designed to place metadata on html page.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Components\Layout\Meta;
 
 Meta::make('csrf-token')

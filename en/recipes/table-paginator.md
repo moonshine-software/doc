@@ -1,8 +1,10 @@
 # Paginator
 
-Paginator for *TableBuilder*
+Paginator for *TableBuilder*.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Laravel\TypeCasts\PaginatorCaster;
 
 protected function components(): iterable

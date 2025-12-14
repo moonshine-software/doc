@@ -15,6 +15,8 @@
 Поле `Phone` является расширением `Text`, которое по умолчанию устанавливает `type=tel`.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Phone;
 
 Phone::make('Phone')

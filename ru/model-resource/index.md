@@ -655,6 +655,8 @@ protected function onLoad(): void
 Если ресурс в режиме "async", то вы можете модифицировать ответ:
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
 use Symfony\Component\HttpFoundation\Response;
 use MoonShine\Crud\JsonResponse;
 
@@ -689,10 +691,12 @@ public function modifyErrorResponse(Response $response, Throwable $exception): R
 Пример использования:
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 use MoonShine\Laravel\Resources\ModelResource;
 use MoonShine\Crud\Attributes\DestroyHandler;
 use MoonShine\Crud\Attributes\MassDestroyHandler;
-use MoonShine\Crud\Attributes\SaveHandler;
+use MoonShine\Crud\Attributes\SaveHandler; // [tl! collapse:end]
 
 #[DestroyHandler(MoonShineUserRoleHandlers::class, 'destroy')]
 #[MassDestroyHandler(MoonShineUserRoleHandlers::class, 'massDestroy')]
@@ -733,10 +737,12 @@ final readonly class MoonShineUserRoleHandlers
 Вы также можете использовать классы-обработчики вместо методов — в этом случае они должны реализовывать метод `__invoke()`:
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 use MoonShine\Laravel\Resources\ModelResource;
 use MoonShine\Crud\Attributes\DestroyHandler;
 use MoonShine\Crud\Attributes\MassDestroyHandler;
-use MoonShine\Crud\Attributes\SaveHandler;
+use MoonShine\Crud\Attributes\SaveHandler; // [tl! collapse:end]
 
 #[SaveHandler(MoonShineUserRoleSaveHandler::class)]
 #[DestroyHandler(MoonShineUserRoleDestroyHandler::class)]

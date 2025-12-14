@@ -3,12 +3,14 @@
 The `HasMany` relationship stores file data that needs to be saved in a directory by the parent ID.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 use App\Models\PostImage;
 use MoonShine\UI\Fields\ID;
 use MoonShine\UI\Fields\Image;
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 use MoonShine\Laravel\Resources\ModelResource;
-use MoonShine\Laravel\Traits\Resource\ResourceWithParent;
+use MoonShine\Laravel\Traits\Resource\ResourceWithParent; // [tl! collapse:end]
 
 class PostImageResource extends ModelResource
 {
@@ -37,8 +39,7 @@ class PostImageResource extends ModelResource
                 ->when(
                     $parentId = $this->getParentId(),
                     static fn(Image $image): string => $image->dir("post_images/$parentId")
-                )
-            ,
+                ),
         ];
     }
 

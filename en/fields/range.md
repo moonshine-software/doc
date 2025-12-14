@@ -32,6 +32,8 @@ fromTo(string $fromField, string $toField)
 ```
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Range;
 
 Range::make('Age', 'age')

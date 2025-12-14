@@ -76,7 +76,8 @@ You can also create your own events in JS.
 <a name="#default-events"></a>
 ### Default events
 
-In the **MoonShine** admin panel, several standard events are defined, the names of which can be conveniently obtained through the `enum` `JsEvent`, but you can also call them from JS.
+In the **MoonShine** admin panel, several standard events are defined,
+the names of which can be conveniently obtained through the Enum `JsEvent`, but you can also call them from JS.
 
 - `fragment_updated:{componentName}`(`JsEvent::FRAGMENT_UPDATED`) - fragment update,
 - `table_updated:{componentName}`(`JsEvent::TABLE_UPDATED`) - table update,
@@ -230,9 +231,11 @@ AlpineJs::event(
 - `$params` - event parameters.
 
 ```php
-use MoonShine\UI\Components\FormBuilder;
-use MoonShine\Support\Enums\JsEvent;
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:3]
 use MoonShine\Support\AlpineJs;
+use MoonShine\Support\Enums\JsEvent;
+use MoonShine\UI\Components\FormBuilder;
 
 FormBuilder::make('/crud/update')
     ->name('main-form')
@@ -330,9 +333,11 @@ MoonShine.iterable.reindex(
 <a name="response-calback"></a>
 ## Response handling
 
-**MoonShine** allows integration into the process of executing asynchronous requests in JS, specifying which function will run before the request and after receiving the response.
+**MoonShine** allows integration into the process of executing asynchronous requests in JS,
+specifying which function will run before the request and after receiving the response.
 
-`ActionButton`, `FormBuilder`, `TableBuilder`, `Field`, and other components implementing the `HasAsyncContract` interface in `async` methods also contain the `callback` parameter.
+`ActionButton`, `FormBuilder`, `TableBuilder`, `Field`, and other components implementing the `HasAsyncContract` interface in `async` methods
+also contain the `callback` parameter.
 
 The class `AsyncCallback` is responsible for passing the `callback` parameter. Let's consider an example for `ActionButton`:
 

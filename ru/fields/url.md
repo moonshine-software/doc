@@ -16,6 +16,8 @@
 Поле `Url` является расширением `Text`, которое по умолчанию устанавливает `type=url`.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Fields\Url;
 
 Url::make('Link')
@@ -31,8 +33,6 @@ title(Closure $callback)
 ```
 
 ```php
-use MoonShine\UI\Fields\Url;
-
 Url::make('Link')
     ->title(fn(string $url, Url $ctx) => str($url)->limit(3))
 ```
@@ -47,8 +47,6 @@ blank()
 ```
 
 ```php
-use MoonShine\UI\Fields\Url;
-
 Url::make('Link')
     ->blank()
 ```

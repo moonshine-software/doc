@@ -6,6 +6,8 @@
 > Если решите использовать данный рецепт, не забудьте добавить валидацию и используйте пример с умом.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
 use MoonShine\Contracts\Core\DependencyInjection\CrudRequestContract;
 use MoonShine\Crud\JsonResponse;
 

@@ -17,6 +17,8 @@ make(Closure|string $label)
 ~~~tabs
 tab: Class
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Components\Metrics\Wrapped\ValueMetric;
 
 ValueMetric::make('Completed orders')
@@ -40,6 +42,8 @@ value(int|string|float|Closure $value)
 ```
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Components\Metrics\Wrapped\ValueMetric;
 
 // ...
@@ -118,10 +122,12 @@ columnSpan(
 <a name="line-donut"></a>
 ## Line/Donut
 
-Пакет устанавливается отдельно, основан на библиотеке [ApexCharts library](https://apexcharts.com/).
+Для представления ваших метрик в виде красивых интерактивных графиков, необходимо установить пакет `moonshine/apexcharts`.
 
 ```shell
 composer require moonshine/apexcharts
 ```
+
+Пакет основан на библиотеке [ApexCharts library](https://apexcharts.com/).
 
 Подробнее в официальном репозитории [ApexCharts](https://github.com/moonshine-software/apexcharts).

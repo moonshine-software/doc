@@ -59,6 +59,8 @@ BelongsTo::make(
 Вы можете опустить `$resource`, если `ModelResource` совпадает с названием связи.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 
 BelongsTo::make('User', 'user')
@@ -67,6 +69,8 @@ BelongsTo::make('User', 'user')
 Если не указать `$relationName`, то имя связи будет определено автоматически на основе `$label` (по правилам camelCase).
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 
 BelongsTo::make('User')
@@ -77,6 +81,8 @@ BelongsTo::make('User')
 > Аргумент `$formatted` позволяет переопределить свойство `$column`.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 
 BelongsTo::make(
@@ -89,6 +95,8 @@ BelongsTo::make(
 Если необходимо указать более сложное значение для отображения, то в аргумент `$formatted` можно передать функцию обратного вызова.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 
 BelongsTo::make(
@@ -170,6 +178,8 @@ placeholder(string $value)
 ```
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 
 BelongsTo::make('Country', 'country')
@@ -427,6 +437,8 @@ BelongsTo::make('Country', resource: CountryResource::class)
 Метод `native()` отключает библиотеку *Tom Select* и отображает выбор в нативном режиме.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 
 BelongsTo::make('Type')->native()

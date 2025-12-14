@@ -18,6 +18,8 @@ make(?string $src)
 ~~~tabs
 tab: Class
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Components\Img;
 
 Img::make('path_to_file);

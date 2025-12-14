@@ -655,6 +655,8 @@ protected function onLoad(): void
 If the resource is in "async" mode, then you can modify the answer:
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
 use Symfony\Component\HttpFoundation\Response;
 use MoonShine\Crud\JsonResponse;
 
@@ -689,10 +691,12 @@ The `$data` array, which has already passed through the `apply()` method of the 
 Usage example:
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 use MoonShine\Laravel\Resources\ModelResource;
 use MoonShine\Crud\Attributes\DestroyHandler;
 use MoonShine\Crud\Attributes\MassDestroyHandler;
-use MoonShine\Crud\Attributes\SaveHandler;
+use MoonShine\Crud\Attributes\SaveHandler; // [tl! collapse:end]
 
 #[DestroyHandler(MoonShineUserRoleHandlers::class, 'destroy')]
 #[MassDestroyHandler(MoonShineUserRoleHandlers::class, 'massDestroy')]
@@ -733,10 +737,12 @@ final readonly class MoonShineUserRoleHandlers
 You can also use handler classes instead of methods, in which case they must implement the `__invoke()` method:
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
 use MoonShine\Laravel\Resources\ModelResource;
 use MoonShine\Crud\Attributes\DestroyHandler;
 use MoonShine\Crud\Attributes\MassDestroyHandler;
-use MoonShine\Crud\Attributes\SaveHandler;
+use MoonShine\Crud\Attributes\SaveHandler; // [tl! collapse:end]
 
 #[SaveHandler(MoonShineUserRoleSaveHandler::class)]
 #[DestroyHandler(MoonShineUserRoleDestroyHandler::class)]

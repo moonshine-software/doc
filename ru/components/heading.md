@@ -26,6 +26,8 @@ make(
 ~~~tabs
 tab: Class
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Components\Heading;
 
 Heading::make('Title', 2)
@@ -51,6 +53,8 @@ h(int $gradation = 3, $asClass = true)
 - `$asClass` - использовать класс градации или тег `h`.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Components\Heading;
 
 // <div class="h1">

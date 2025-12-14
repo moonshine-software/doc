@@ -65,6 +65,8 @@ HasMany::make(
 You can omit the `$resource` if the `ModelResource` matches the name of the relation.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\HasMany;
 
 HasMany::make('Comments', 'comments')
@@ -73,6 +75,8 @@ HasMany::make('Comments', 'comments')
 If you do not specify `$relationName`, then the name of the relation will be determined automatically based on `$label` (following camelCase rules).
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\HasMany;
 
 HasMany::make('Comments')
@@ -82,6 +86,8 @@ By default, the field is displayed outside the main form.
 If you want to change this behavior and display it inside the main form, use the `disableOutside()` method.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\HasMany;
 
 HasMany::make('Comments')->disableOutside()
@@ -526,6 +532,8 @@ tabMode(Closure|bool|null $condition = null)
 In the following example, a [Tabs](/docs/{{version}}/components/tabs) component with two tabs, Comments and Covers, will be created.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\HasMany;
 
 HasMany::make('Comments', 'comments', resource: CommentResource::class)
@@ -552,6 +560,8 @@ public function modalMode(
 In this example, instead of a table, there will now be an [ActionButton](/docs/{{version}}/components/action-button) that triggers a [Modal](/docs/{{version}}/components/modal).
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\HasMany;
 
 HasMany::make('Comments', 'comments', resource: CommentResource::class)
@@ -561,6 +571,8 @@ HasMany::make('Comments', 'comments', resource: CommentResource::class)
 To modify the `ActionButton` and `Modal`, you can use the method parameters `$modifyButton` and `$modifyModal`, into which you can pass a closure.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\HasMany;
 
 HasMany::make('Comments', 'comments', resource: CommentResource::class)

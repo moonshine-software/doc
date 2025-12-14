@@ -13,6 +13,8 @@ The `Loader` component allows you to create a styled loading indicator.
 ~~~tabs
 tab: Class
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
 use MoonShine\UI\Components\Loader;
 
 Loader::make()

@@ -76,7 +76,8 @@ document.addEventListener("alpine:init", () => {
 <a name="#default-events"></a>
 ### Стандартные события
 
-В админ-панели **MoonShine** определено несколько стандартных событий, названия которых удобно получать через `enum` `JsEvent`, но вы также можете их вызвать из JS.
+В админ-панели **MoonShine** определено несколько стандартных событий,
+названия которых удобно получать через Enum `JsEvent`, но вы также можете их вызвать из JS.
 
 - `fragment_updated:{componentName}`(`JsEvent::FRAGMENT_UPDATED`) - обновление фрагмента,
 - `table_updated:{componentName}`(`JsEvent::TABLE_UPDATED`) - обновление таблицы,
@@ -230,9 +231,11 @@ AlpineJs::event(
 - `$params` - параметры события.
 
 ```php
-use MoonShine\UI\Components\FormBuilder;
-use MoonShine\Support\Enums\JsEvent;
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:3]
 use MoonShine\Support\AlpineJs;
+use MoonShine\Support\Enums\JsEvent;
+use MoonShine\UI\Components\FormBuilder;
 
 FormBuilder::make('/crud/update')
     ->name('main-form')
@@ -330,9 +333,11 @@ MoonShine.iterable.reindex(
 <a name="response-calback"></a>
 ## Обработка ответа
 
-**MoonShine** позволяет интегрироваться в процесс выполнения асинхронных запросов в JS, указывая какая функция выполнится перед запросом и после получения ответа.
+**MoonShine** позволяет интегрироваться в процесс выполнения асинхронных запросов в JS,
+указывая какая функция выполнится перед запросом и после получения ответа.
 
-`ActionButton`, `FormBuilder`, `TableBuilder`, `Field` и другие компоненты, реализующие интерфейс `HasAsyncContract` в `async` методах, также содержат параметр `callback`.
+`ActionButton`, `FormBuilder`, `TableBuilder`, `Field` и другие компоненты, реализующие интерфейс `HasAsyncContract` в `async` методах,
+также содержат параметр `callback`.
 
 За передачу параметра `callback` отвечает класс `AsyncCallback`. Давайте рассмотрим пример для `ActionButton`:
 
