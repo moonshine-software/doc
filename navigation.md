@@ -113,6 +113,7 @@
     - [Heading](/docs/{{version}}/components/heading)
     - [Html](/docs/{{version}}/components/html)
     - [Icon](/docs/{{version}}/components/icon)
+    - [Img](/docs/{{version}}/components/img)
     - [Layout](/docs/{{version}}/components/layout)
     - [LineBreak](/docs/{{version}}/components/line-break)
     - [Link](/docs/{{version}}/components/link)
