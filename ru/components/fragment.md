@@ -8,8 +8,8 @@
 <a name="basics"></a>
 ## Основы
 
-С помощью `Fragment` вы можете обернуть определенную область вашей страницы и обновлять только её, вызывая события.
-Для этого вы можете использовать [Blade Fragments](https://laravel.com/docs/blade#rendering-blade-fragments).
+`Fragment` позволяет обернуть определённую область страницы и обновлять только её при вызове событий.
+Компонент использует для этого Laravel Blade директиву [`@fragment`](https://laravel.com/docs/blade#rendering-blade-fragments).
 
 ```php
 make(iterable $components = [])
@@ -40,10 +40,11 @@ protected function components(): iterable
 Fragment::make($components)->name('fragment-name'),
 ```
 
-И в качестве примера давайте вызовем событие при успешной отправке формы:
+Например, вызовем событие при успешной отправке формы:
 
 ```php
-FormBuilder::make()->async(events: AlpineJs::event(JsEvent::FRAGMENT_UPDATED, 'fragment-name'))
+FormBuilder::make()
+    ->async(events: AlpineJs::event(JsEvent::FRAGMENT_UPDATED, 'fragment-name'))
 ```
 
 Вы также можете передать дополнительные параметры с запросом через массив:
@@ -70,7 +71,7 @@ Fragment::make($components)
 ### Вызов событий
 
 При успешном обновлении `Fragment` может также вызвать дополнительные события.
-Давайте рассмотрим пример обновления фрагментов друг за другом при клике на кнопку:
+Рассмотрим пример обновления фрагментов поочередно при нажатии на кнопку:
 
 ```php
 Fragment::make([
@@ -109,7 +110,7 @@ Fragment::make($components)
 
 ### Параметры запроса URL
 
-Вы можете включить параметры текущего запроса URL (например, `?param=value`) в запрос фрагмента:
+Вы можете включить параметры текущего URL запроса (например, `?param=value`) в запрос фрагмента.
 
 Это позволит сохранить все параметры из URL строки текущего запроса при загрузке фрагмента.
 

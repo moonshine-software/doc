@@ -8,8 +8,8 @@
 <a name="basics"></a>
 ## Basics
 
-With `Fragment`, you can wrap a specific area of your page and update only that area by triggering events.
-For this, you can use [Blade Fragments](https://laravel.com/docs/blade#rendering-blade-fragments).
+`Fragment` allows you to wrap a specific area of your page and update only that area by triggering events.
+The component uses [`@fragment`](https://laravel.com/docs/blade#rendering-blade-fragments) Laravel Blade directive for this.
 
 ```php
 make(iterable $components = [])
@@ -40,10 +40,11 @@ protected function components(): iterable
 Fragment::make($components)->name('fragment-name'),
 ```
 
-As an example, let's trigger an event upon successful form submission:
+For example, let's trigger an event upon successful form submission:
 
 ```php
-FormBuilder::make()->async(events: AlpineJs::event(JsEvent::FRAGMENT_UPDATED, 'fragment-name'))
+FormBuilder::make()
+    ->async(events: AlpineJs::event(JsEvent::FRAGMENT_UPDATED, 'fragment-name'))
 ```
 
 You can also pass additional parameters with the request via an array:
@@ -70,7 +71,7 @@ Fragment::make($components)
 ### Triggering Events
 
 Upon successful update, `Fragment` can also trigger additional events.
-Let's consider an example of updating fragments one after another when clicking a button:
+Consider an example of updating fragments sequentially when clicking a button:
 
 ```php
 Fragment::make([
