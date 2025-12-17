@@ -19,12 +19,12 @@
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:5]
+// [tl! collapse:start]
 namespace App\MoonShine\Resources\Post\Pages;
 
 use Illuminate\Database\Eloquent\Builder;
 use MoonShine\Laravel\QueryTags\QueryTag;
-use MoonShine\Laravel\Pages\Crud\IndexPage;
+use MoonShine\Laravel\Pages\Crud\IndexPage; // [tl! collapse:end]
 
 class PostIndexPage extends IndexPage
 {
@@ -34,7 +34,7 @@ class PostIndexPage extends IndexPage
     {
         return [
             QueryTag::make(
-                'Post with author', // Заголовок тега
+                'Post with author', // Tag title
                 fn(Builder $query) => $query->whereNotNull('author_id') // Query builder
             )
         ];

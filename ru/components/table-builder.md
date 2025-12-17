@@ -246,7 +246,10 @@ TableBuilder::make()
 Если вы хотите изменить атрибуты колонок при вертикальном режиме, то воспользуйтесь параметрами `title` или `value`.
 
 ```php
-vertical(null|Closure|int $title = null, null|Closure|int $value = null)
+vertical(
+    null|Closure|int $title = null,
+    null|Closure|int $value = null
+)
 ```
 
 - `title` - Колонка с заголовком,
@@ -699,12 +702,13 @@ TableBuilder::make()
 
 ### Обновление строки таблицы
 
-Чтобы вызвать событие обновления отдельной строки таблица должна быть в режиме `async` и таблице должно присутствовать поле `ID`.
+Чтобы вызвать событие обновления отдельной строки таблица должна быть в режиме `async` и в таблице должно присутствовать поле `ID`.
 
 > [!NOTE]
 > Таблица на индексной странице ресурса в режиме `async` по умолчанию, если это поведение не отключено в ресурсе.
 
-Пример вызова события обновления строки из `async` метода ресурса или из контроллера.
+Пример вызова события обновления строки из `async` метода ресурса или из контроллера:
+
  ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:start]
@@ -755,8 +759,7 @@ namespace App\MoonShine\Controllers;
 
 use Illuminate\Contracts\View\View;
 use MoonShine\Contracts\Core\DependencyInjection\CrudRequestContract;
-use MoonShine\Laravel\Http\Controllers\MoonShineController;
-// [tl! collapse:end]
+use MoonShine\Laravel\Http\Controllers\MoonShineController; // [tl! collapse:end]
 
 final class UndefinedPageController extends MoonShineController
 {
@@ -850,13 +853,12 @@ TableBuilder::make()
 ```
 
 Метод `cast()` служит для приведения значений таблицы к определенному типу.
-Так как по умолчанию поля работают с примитивными типами:
+По умолчанию поля работают с примитивными типами.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:start]
+// [tl! collapse:1]
 use MoonShine\Laravel\TypeCasts\ModelCaster;
-// [tl! collapse:end]
 
 TableBuilder::make()
     ->cast(new ModelCaster(User::class))

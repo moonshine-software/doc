@@ -24,12 +24,12 @@
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:5]
+// [tl! collapse:start]
 namespace Author\MoonShineMyPackage;
 
 use Illuminate\Support\ServiceProvider;
 use MoonShine\Contracts\Core\DependencyInjection\CoreContract;
-use MoonShine\Laravel\DependencyInjection\MoonShine;
+use MoonShine\Laravel\DependencyInjection\MoonShine; // [tl! collapse:end]
 
 class MyPackageServiceProvider extends ServiceProvider
 {
@@ -51,13 +51,13 @@ class MyPackageServiceProvider extends ServiceProvider
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:6]
+// [tl! collapse:start]
 namespace Author\MoonShineMyPackage;
 
 use Illuminate\Support\ServiceProvider;
 use MoonShine\Contracts\Core\DependencyInjection\CoreContract;
 use MoonShine\Contracts\MenuManager\MenuManagerContract;
-use MoonShine\Laravel\DependencyInjection\MoonShine;
+use MoonShine\Laravel\DependencyInjection\MoonShine; // [tl! collapse:end]
 
 class MyPackageServiceProvider extends ServiceProvider
 {
@@ -98,8 +98,6 @@ public function boot(
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:1]
 use MoonShine\Contracts\ColorManager\ColorManagerContract;
-
-// ...
 
 public function boot(
     CoreContract $core,
@@ -208,12 +206,12 @@ php artisan moonshine:field Quill
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:5]
+// [tl! collapse:start]
 namespace App\MoonShine\Fields;
 
 use MoonShine\AssetManager\Css;
 use MoonShine\AssetManager\Js;
-use MoonShine\UI\Fields\Textarea;
+use MoonShine\UI\Fields\Textarea; // [tl! collapse:end]
 
 final class Quill extends Textarea
 {

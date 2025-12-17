@@ -39,14 +39,14 @@ video: https://youtu.be/bcFOkXuPSRk?si=QcBaoPHzMemK0Pt7&t=1955
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:7]
+// [tl! collapse:start]
 namespace App\MoonShine\Resources\Post\Pages;
 
 use MoonShine\Support\AlpineJs;
 use MoonShine\Support\Enums\JsEvent;
 use MoonShine\Support\ListOf;
-use MoonShine\UI\Components\ActionButton;
 use MoonShine\Laravel\Pages\Crud\IndexPage;
+use MoonShine\UI\Components\ActionButton; // [tl! collapse:end]
 
 class PostIndexPage extends IndexPage
 {
@@ -129,8 +129,8 @@ protected function modifyFiltersButton(ActionButtonContract $button): ActionButt
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:3]
 use Illuminate\Database\Eloquent\Model;
-use MoonShine\UI\Components\ActionButton;
 use MoonShine\Support\ListOf;
+use MoonShine\UI\Components\ActionButton;
 
 protected function buttons(): ListOf
 {
@@ -152,8 +152,8 @@ protected function buttons(): ListOf
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:2]
-use MoonShine\UI\Components\ActionButton;
 use MoonShine\Support\ListOf;
+use MoonShine\UI\Components\ActionButton;
 
 protected function buttons(): ListOf
 {
@@ -252,8 +252,8 @@ protected function modifyMassDeleteButton(ActionButtonContract $button): ActionB
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:2]
-use MoonShine\UI\Components\ActionButton;
 use MoonShine\Support\ListOf;
+use MoonShine\UI\Components\ActionButton;
 
 protected function buttons(): ListOf
 {
@@ -272,8 +272,8 @@ protected function buttons(): ListOf
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:2]
-use MoonShine\UI\Components\ActionButton;
 use MoonShine\Support\ListOf;
+use MoonShine\UI\Components\ActionButton;
 
 protected function formButtons(): ListOf
 {
@@ -295,8 +295,8 @@ protected function formButtons(): ListOf
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:2]
-use MoonShine\UI\Components\ActionButton;
 use MoonShine\Support\ListOf;
+use MoonShine\UI\Components\ActionButton;
 
 protected function buttons(): ListOf
 {

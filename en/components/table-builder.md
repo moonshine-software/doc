@@ -246,7 +246,10 @@ The `vertical()` method displays the table in vertical format (used on `DetailPa
 If you want to change the attributes of the columns in vertical mode, use the `title` or `value` parameters.
 
 ```php
-vertical(null|Closure|int $title = null, null|Closure|int $value = null)
+vertical(
+    null|Closure|int $title = null,
+    null|Closure|int $value = null
+)
 ```
 
 - `title` - Column with the header,
@@ -699,12 +702,13 @@ Event list for `TableBuilder`:
 
 ### Updating a Table Row
 
-To trigger a row update event, the table must be in async mode and must contain an ID field.
+To trigger a row update event, the table must be in `async` mode and must contain an `ID` field.
 
 > [!NOTE]
 > The table on a resource index page is in async mode by default, unless this behavior has been disabled in the resource.
 
 Example of triggering a row update event from a resource async method or from a controller:
+
  ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:start]
@@ -755,8 +759,7 @@ namespace App\MoonShine\Controllers;
 
 use Illuminate\Contracts\View\View;
 use MoonShine\Contracts\Core\DependencyInjection\CrudRequestContract;
-use MoonShine\Laravel\Http\Controllers\MoonShineController;
-// [tl! collapse:end]
+use MoonShine\Laravel\Http\Controllers\MoonShineController; // [tl! collapse:end]
 
 final class UndefinedPageController extends MoonShineController
 {
@@ -850,13 +853,12 @@ TableBuilder::make()
 ```
 
 The `cast()` method is used to cast values in the table to a certain type.
-Since by default, fields work with primitive types:
+By default, fields work with primitive types:
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:start]
+// [tl! collapse:1]
 use MoonShine\Laravel\TypeCasts\ModelCaster;
-// [tl! collapse:end]
 
 TableBuilder::make()
     ->cast(new ModelCaster(User::class))

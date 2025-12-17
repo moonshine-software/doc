@@ -35,14 +35,14 @@ After executing the command, a `Handler` class will be created in the `app\MoonS
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:8]
+// [tl! collapse:start]
 namespace App\MoonShine\Handlers;
 
 use MoonShine\Contracts\UI\ActionButtonContract;
 use MoonShine\Crud\Handlers\Handler;
 use MoonShine\UI\Components\ActionButton;
 use MoonShine\UI\Exceptions\ActionButtonException;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Response; // [tl! collapse:end]
 
 class MyCustomHandler extends Handler
 {

@@ -76,11 +76,11 @@ To use `SecondBar` on a page, you need to override the `menu()` method in the pa
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:5]
+// [tl! collapse:start]
 namespace App\MoonShine\Pages;
 
 use MoonShine\Laravel\Pages\Page;
-use MoonShine\MenuManager\MenuItem;
+use MoonShine\MenuManager\MenuItem; // [tl! collapse:end]
 
 class CustomPage extends Page
 {
@@ -101,13 +101,13 @@ Then, in your custom `Layout`, you need to add the `SecondBar` component, which 
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:7]
+// [tl! collapse:start]
 namespace App\MoonShine\Layouts;
 
 use MoonShine\Laravel\Layouts\AppLayout;
 use MoonShine\UI\Components\Layout\SecondBar;
 use MoonShine\UI\Components\Layout\Menu;
-use MoonShine\UI\Components\When;
+use MoonShine\UI\Components\When; // [tl! collapse:end]
 
 class CustomLayout extends AppLayout
 {
@@ -118,4 +118,6 @@ class CustomLayout extends AppLayout
 ```
 
 > [!TIP]
-> The base `AppLayout` already implements support for `SecondBar`. Simply set the `$secondBar = true` property in your custom layout, and `SecondBar` will be automatically displayed with the menu from the current page's `menu()` method.
+> The base `AppLayout` already implements support for `SecondBar`.
+> Simply set the `$secondBar = true` property in your custom layout,
+> and `SecondBar` will be automatically displayed with the menu from the current page's `menu()` method.

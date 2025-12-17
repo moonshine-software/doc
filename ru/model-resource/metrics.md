@@ -5,12 +5,10 @@
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:start]
-namespace App\MoonShine\Resources\Post\Pages;
-
+// [tl! collapse:3]
 use MoonShine\Laravel\Pages\Crud\IndexPage;
 use MoonShine\UI\Components\Metrics\Wrapped\Metric;
-use MoonShine\UI\Components\Metrics\Wrapped\ValueMetric; // [tl! collapse:end]
+use MoonShine\UI\Components\Metrics\Wrapped\ValueMetric;
 
 class PostIndexPage extends IndexPage
 {
@@ -42,8 +40,7 @@ class PostIndexPage extends IndexPage
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use Closure;
+// [tl! collapse:1]
 use MoonShine\Crud\Components\Fragment;
 
 protected function fragmentMetrics(): ?Closure

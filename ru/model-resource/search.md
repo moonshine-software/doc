@@ -18,12 +18,6 @@
 > Если метод возвращает пустой массив, то строка поиска не будет отображаться.
 
 ```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-namespace App\MoonShine\Resources;
-
-use MoonShine\Laravel\Resources\ModelResource;
-
 class PostResource extends ModelResource
 {
     // ...
@@ -45,10 +39,7 @@ class PostResource extends ModelResource
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:4]
-namespace App\MoonShine\Resources;
-
-use MoonShine\Laravel\Resources\ModelResource;
+// [tl! collapse:1]
 use MoonShine\Support\Attributes\SearchUsingFullText;
 
 class PostResource extends ModelResource
@@ -72,12 +63,6 @@ class PostResource extends ModelResource
 Для `Json` полей, которые используются в качестве ключ-значение `keyValue()`, можно указать, какой ключ поля участвует в поиске.
 
 ```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-namespace App\MoonShine\Resources;
-
-use MoonShine\Laravel\Resources\ModelResource;
-
 class PostResource extends ModelResource
 {
     // ...
@@ -92,12 +77,6 @@ class PostResource extends ModelResource
 Для многомерных `Json`, которые формируются через поля `fields()`, ключ поиска нужно указывать следующим образом:
 
 ```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-namespace App\MoonShine\Resources;
-
-use MoonShine\Laravel\Resources\ModelResource;
-
 class PostResource extends ModelResource
 {
     // ...
@@ -115,12 +94,6 @@ class PostResource extends ModelResource
 Вы можете осуществлять поиск по связям. Для этого нужно указать, по какому полю связи осуществлять поиск.
 
 ```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-namespace App\MoonShine\Resources;
-
-use MoonShine\Laravel\Resources\ModelResource;
-
 class PostResource extends ModelResource
 {
     // ...
@@ -162,9 +135,7 @@ php artisan vendor:publish --provider="MoonShine\Scout\Providers\ScoutServicePro
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:6]
-namespace App\Models;
-
+// [tl! collapse:4]
 use Laravel\Scout\Builder;
 use Laravel\Scout\Searchable;
 use MoonShine\Scout\HasGlobalSearch;

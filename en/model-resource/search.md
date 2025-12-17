@@ -18,12 +18,6 @@ For this, you need to list them in the returned array in the `search()` method.
 > If the method returns an empty array, the search string will not be displayed.
 
 ```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-namespace App\MoonShine\Resources;
-
-use MoonShine\Laravel\Resources\ModelResource;
-
 class PostResource extends ModelResource
 {
     // ...
@@ -45,10 +39,7 @@ If full-text search is required, you need to use the attribute `SearchUsingFullT
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:4]
-namespace App\MoonShine\Resources;
-
-use MoonShine\Laravel\Resources\ModelResource;
+// [tl! collapse:1]
 use MoonShine\Support\Attributes\SearchUsingFullText;
 
 class PostResource extends ModelResource
@@ -72,12 +63,6 @@ class PostResource extends ModelResource
 For `Json` fields that are used as key-value `keyValue()`, you can specify which field key participates in the search.
 
 ```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-namespace App\MoonShine\Resources;
-
-use MoonShine\Laravel\Resources\ModelResource;
-
 class PostResource extends ModelResource
 {
     // ...
@@ -92,12 +77,6 @@ class PostResource extends ModelResource
 For multidimensional `Json`, which are formed through `fields()`, the search key should be specified as follows:
 
 ```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-namespace App\MoonShine\Resources;
-
-use MoonShine\Laravel\Resources\ModelResource;
-
 class PostResource extends ModelResource
 {
     // ...
@@ -115,12 +94,6 @@ class PostResource extends ModelResource
 You can perform a search on relations. For this, you need to specify which relation field to search by.
 
 ```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-namespace App\MoonShine\Resources;
-
-use MoonShine\Laravel\Resources\ModelResource;
-
 class PostResource extends ModelResource
 {
     // ...
@@ -162,9 +135,7 @@ php artisan vendor:publish --provider="MoonShine\Scout\Providers\ScoutServicePro
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:6]
-namespace App\Models;
-
+// [tl! collapse:4]
 use Laravel\Scout\Builder;
 use Laravel\Scout\Searchable;
 use MoonShine\Scout\HasGlobalSearch;

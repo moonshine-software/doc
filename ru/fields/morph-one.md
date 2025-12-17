@@ -8,8 +8,7 @@
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\ProfileResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\MorphOne;
 
 MorphOne::make(

@@ -213,8 +213,6 @@ icon(
 namespace App\MoonShine\Layouts;
 
 use MoonShine\Laravel\Layouts\AppLayout;
-use MoonShine\Laravel\Resources\MoonShineUserResource;
-use MoonShine\Laravel\Resources\MoonShineUserRoleResource;
 use MoonShine\MenuManager\MenuGroup;
 use MoonShine\MenuManager\MenuItem; // [tl! collapse:end]
 
@@ -275,7 +273,6 @@ onlyIcon(Closure|bool|null $condition = true)
 namespace App\MoonShine\Layouts;
 
 use MoonShine\Laravel\Layouts\AppLayout;
-use MoonShine\Laravel\Resources\MoonShineUserResource;
 use MoonShine\MenuManager\MenuItem; // [tl! collapse:end]
 
 final class MoonShineLayout extends AppLayout

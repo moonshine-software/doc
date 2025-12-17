@@ -41,13 +41,13 @@ BelongsToMany::make(
 
 > [!WARNING]
 > Наличие `ModelResource`, на который ссылается отношение, обязательно.
-> Ресурс также необходимо [зарегистрировать](/docs/{{version}}/model-resource/index#declaring-in-the-system) в сервис-провайдере `MoonShineServiceProvider` в методе `$core->resources()`.
+> Ресурс также необходимо [зарегистрировать](/docs/{{version}}/model-resource/index#declaring-in-the-system)
+> в сервис-провайдере `MoonShineServiceProvider` в методе `$core->resources()`.
 > В противном случае будет ошибка 500.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\CategoryResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 
 BelongsToMany::make(
@@ -122,8 +122,7 @@ columnLabel(string $label)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\CategoryResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 
 BelongsToMany::make('Categories', resource: CategoryResource::class)
@@ -141,8 +140,7 @@ fields(FieldsContract|Closure|iterable $fields)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-use App\MoonShine\Resources\ContactResource;
+// [tl! collapse:2]
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 use MoonShine\UI\Fields\Text;
 
@@ -165,8 +163,10 @@ BelongsToMany::make(
 <a name="deduplication"></a>
 ## Дедупликация
 
-По умолчанию `BelongsToMany` исключает дубли по ключу модели, чтобы один и тот же объект связи нельзя было выбрать несколько раз, даже если у него разные значения *pivot*.
-Для сценариев, когда требуется сохранить несколько строк с одинаковым ключом (например, одинаковая категория, но разные данные в промежуточной таблице), отключите проверку:
+По умолчанию `BelongsToMany` исключает дубли по ключу модели, чтобы один и тот же объект связи нельзя было выбрать несколько раз,
+даже если у него разные значения *pivot*.
+Для сценариев, когда требуется сохранить несколько строк с одинаковым ключом (например, одинаковая категория, но разные данные в промежуточной таблице),
+отключите проверку с помощью метода `deduplication()`.
 
 ```php
 deduplication(
@@ -199,8 +199,7 @@ creatable(
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\CategoryResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 
 BelongsToMany::make('Categories', resource: CategoryResource::class)
@@ -214,8 +213,7 @@ BelongsToMany::make('Categories', resource: CategoryResource::class)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-use App\MoonShine\Resources\CategoryResource;
+// [tl! collapse:2]
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 use MoonShine\UI\Components\ActionButton;
 
@@ -233,8 +231,7 @@ BelongsToMany::make('Categories', resource: CategoryResource::class)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\CategoryResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 
 BelongsToMany::make('Categories', resource: CategoryResource::class)
@@ -251,8 +248,7 @@ BelongsToMany::make('Categories', resource: CategoryResource::class)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\CategoryResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 
 BelongsToMany::make('Categories', resource: CategoryResource::class)
@@ -295,8 +291,7 @@ tree(string $parentColumn)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\CategoryResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 
 BelongsToMany::make('Categories', resource: CategoryResource::class)
@@ -325,8 +320,7 @@ horizontalMode(
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\CategoryResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 
 BelongsToMany::make('Categories', resource: CategoryResource::class)
@@ -377,8 +371,7 @@ inLine(string $separator = '', Closure|bool $badge = false, ?Closure $link = nul
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:4]
-use App\MoonShine\Resources\CategoryResource;
+// [tl! collapse:3]
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 use MoonShine\UI\Components\Badge;
 use MoonShine\UI\Components\Link;
@@ -416,8 +409,7 @@ relatedLink(?string $linkRelation = null, Closure|bool $condition = null)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\CategoryResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 
 BelongsToMany::make('Categories', resource: CategoryResource::class)
@@ -428,8 +420,7 @@ BelongsToMany::make('Categories', resource: CategoryResource::class)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-use App\MoonShine\Resources\CategoryResource;
+// [tl! collapse:2]
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 use MoonShine\UI\Fields\Field;
 
@@ -450,8 +441,7 @@ valuesQuery(Closure $callback)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:4]
-use App\MoonShine\Resources\CategoryResource;
+// [tl! collapse:3]
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 use MoonShine\UI\Fields\Field;
@@ -478,8 +468,7 @@ asyncSearch(
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\CategoryResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 
 BelongsToMany::make('Categories', 'categories', resource: CategoryResource::class)
@@ -501,8 +490,7 @@ BelongsToMany::make('Categories', 'categories', resource: CategoryResource::clas
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:5]
-use App\MoonShine\Resources\CountryResource;
+// [tl! collapse:4]
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
@@ -528,13 +516,12 @@ BelongsToMany::make('Countries', 'countries', resource: CountryResource::class)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:6]
-use App\MoonShine\Resources\CityResource;
+// [tl! collapse:start]
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 use MoonShine\UI\Fields\Field;
-use MoonShine\UI\Fields\Select;
+use MoonShine\UI\Fields\Select; // [tl! collapse:end]
 
 Select::make('Country', 'country_id'),
 
@@ -565,8 +552,7 @@ associatedWith(string $column, ?Closure $searchQuery = null)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\CityResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 
 BelongsToMany::make('Cities', 'cities', resource: CityResource::class)
@@ -595,8 +581,7 @@ withImage(
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\CityResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 
 BelongsToMany::make('Cities', resource: CityResource::class)
@@ -618,8 +603,7 @@ buttons(array $buttons)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-use App\MoonShine\Resources\CategoryResource;
+// [tl! collapse:2]
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 use MoonShine\UI\Components\ActionButton;
 
@@ -639,8 +623,7 @@ BelongsToMany::make('Categories', resource: CategoryResource::class)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\CategoryResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 
 BelongsToMany::make('Categories', resource: CategoryResource::class)

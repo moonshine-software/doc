@@ -117,8 +117,6 @@ class PostResource extends ModelResource
 // [tl! collapse:start]
 namespace App\Providers;
 
-use App\MoonShine\Resources\ArticleResource;
-
 use Illuminate\Support\ServiceProvider;
 use MoonShine\Contracts\Core\DependencyInjection\CoreContract;
 use MoonShine\Laravel\DependencyInjection\ConfiguratorContract;
@@ -162,8 +160,6 @@ class MoonShineServiceProvider extends ServiceProvider
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:start]
 namespace App\Providers;
-
-use App\MoonShine\Resources\ArticleResource;
 
 use Illuminate\Support\ServiceProvider;
 use MoonShine\Contracts\Core\DependencyInjection\CoreContract;
@@ -251,14 +247,9 @@ protected bool $isAsync = false;
 // [tl! collapse:start]
 namespace App\MoonShine\Layouts;
 
-use App\MoonShine\Resources\PostResource;
-
 use MoonShine\Laravel\Layouts\AppLayout;
-use MoonShine\Laravel\Resources\MoonShineUserResource;
-use MoonShine\Laravel\Resources\MoonShineUserRoleResource;
 use MoonShine\MenuManager\MenuGroup;
-use MoonShine\MenuManager\MenuItem;
-// [tl! collapse:end]
+use MoonShine\MenuManager\MenuItem; // [tl! collapse:end]
 
 final class MoonShineLayout extends AppLayout
 {
@@ -293,12 +284,6 @@ final class MoonShineLayout extends AppLayout
 Для того чтобы изменить `alias`, можно воспользоваться свойством ресурса `$alias` или методом `getAlias()`.
 
 ```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-namespace App\MoonShine\Resources;
-
-use MoonShine\Laravel\Resources\ModelResource;
-
 class PostResource extends ModelResource
 {
     protected ?string $alias = 'custom-alias';
@@ -326,7 +311,8 @@ class PostResource extends ModelResource
 <a name="current-element-model"></a>
 ## Текущий элемент/модель
 
-Если в `url` детальной страницы или страницы редактирования присутствует параметр `resourceItem`, то в ресурсе вы можете получить доступ к текущему элементу через метод `getItem()`.
+Если в `url` детальной страницы или страницы редактирования присутствует параметр `resourceItem`,
+то в ресурсе вы можете получить доступ к текущему элементу через метод `getItem()`.
 
 ```php
 $this->getItem();
@@ -344,12 +330,6 @@ $this->getModel();
 Вы можете добавлять, редактировать и просматривать записи прямо на странице со списком в модальном окне.
 
 ```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-namespace App\MoonShine\Resources;
-
-use MoonShine\Laravel\Resources\ModelResource;
-
 class PostResource extends ModelResource
 {
     protected bool $createInModal = true;
@@ -372,7 +352,7 @@ class PostResource extends ModelResource
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
+// [tl! collapse:1]
 use MoonShine\Contracts\UI\ModalContract;
 
 protected function modifyCreateModal(ModalContract $modal): ModalContract
@@ -387,7 +367,7 @@ protected function modifyCreateModal(ModalContract $modal): ModalContract
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
+// [tl! collapse:1]
 use MoonShine\Contracts\UI\ModalContract;
 
 protected function modifyEditModal(ModalContract $modal): ModalContract
@@ -402,7 +382,7 @@ protected function modifyEditModal(ModalContract $modal): ModalContract
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
+// [tl! collapse:1]
 use MoonShine\Contracts\UI\ModalContract;
 
 protected function modifyDetailModal(ModalContract $modal): ModalContract
@@ -447,7 +427,7 @@ protected function modifyMassDeleteModal(ModalContract $modal): ModalContract
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
+// [tl! collapse:1]
 use MoonShine\Contracts\UI\OffCanvasContract;
 
 protected function modifyFiltersOffCanvas(OffCanvasContract $offCanvas): OffCanvasContract
@@ -501,12 +481,9 @@ public function getRedirectAfterDelete(): string
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:5]
-namespace App\MoonShine\Resources;
-
-use MoonShine\Support\ListOf;
+// [tl! collapse:2]
 use MoonShine\Support\Enums\Action;
-use MoonShine\Laravel\Resources\ModelResource;
+use MoonShine\Support\ListOf;
 
 class PostResource extends ModelResource
 {
@@ -546,12 +523,6 @@ protected function activeActions(): ListOf
 Метод `onLoad()` дает возможность интегрироваться в момент когда ресурс загружен и в данный момент является активным.
 
 ```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-namespace App\MoonShine\Resources;
-
-use MoonShine\Laravel\Resources\ModelResource;
-
 class PostResource extends ModelResource
 {
     // ...
@@ -566,15 +537,13 @@ class PostResource extends ModelResource
 > [!TIP]
 > Рецепт: [Изменение breadcrumbs из ресурса](/docs/{{version}}/recipes/custom-breadcrumbs).
 
-Вы также можете подключить `trait` к ресурсу и внутри `trait` добавить метод согласно конвенции наименований - `load{TraitName}` и через трейт обратиться к `onLoad` ресурса.
+Вы также можете подключить `trait` к ресурсу и внутри `trait` добавить метод согласно конвенции наименований - `load{TraitName}`
+и через трейт обратиться к `onLoad()` ресурса.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:4]
-namespace App\MoonShine\Resources;
-
+// [tl! collapse:1]
 use App\Traits\WithPermissions;
-use MoonShine\Laravel\Resources\ModelResource;
 
 class PostResource extends ModelResource
 {
@@ -613,12 +582,6 @@ trait WithPermissions
 Метод `onBoot()` дает возможность интегрироваться в момент когда **MoonShine** создает экземпляр ресурса в системе.
 
 ```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-namespace App\MoonShine\Resources;
-
-use MoonShine\Laravel\Resources\ModelResource;
-
 class PostResource extends ModelResource
 {
     // ...
@@ -630,7 +593,8 @@ class PostResource extends ModelResource
 }
 ```
 
-Вы также можете подключить `trait` к ресурсу и внутри `trait` добавить метод согласно конвенции наименований - `boot{TraitName}` и через трейт обратиться к `onBoot()` ресурса.
+Вы также можете подключить `trait` к ресурсу и внутри `trait` добавить метод согласно конвенции наименований - `boot{TraitName}`
+и через трейт обратиться к `onBoot()` ресурса.
 
 <a name="assets"></a>
 ## Assets
@@ -684,7 +648,8 @@ public function modifyErrorResponse(Response $response, Throwable $exception): R
 <a name="crud-operations-handlers"></a>
 ## Обработчики CRUD-операций
 
-Вы можете изменить логику операций сохранения, удаления и массового удаления записей в `ModelResource` с помощью своих обработчиков и атрибутов `SaveHandler`, `DestroyHandler` и `MassDestroyHandler`.
+Вы можете изменить логику операций сохранения, удаления и массового удаления записей в `ModelResource`
+с помощью своих обработчиков и атрибутов `SaveHandler`, `DestroyHandler` и `MassDestroyHandler`.
 
 В обработчик операции сохранения прокидывается массив `$data`, который уже прошёл через метод `apply()` у полей формы.
 
@@ -692,18 +657,17 @@ public function modifyErrorResponse(Response $response, Throwable $exception): R
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:start]
-use MoonShine\Laravel\Resources\ModelResource;
+// [tl! collapse:3]
 use MoonShine\Crud\Attributes\DestroyHandler;
 use MoonShine\Crud\Attributes\MassDestroyHandler;
-use MoonShine\Crud\Attributes\SaveHandler; // [tl! collapse:end]
+use MoonShine\Crud\Attributes\SaveHandler;
 
 #[DestroyHandler(MoonShineUserRoleHandlers::class, 'destroy')]
 #[MassDestroyHandler(MoonShineUserRoleHandlers::class, 'massDestroy')]
 #[SaveHandler(MoonShineUserRoleHandlers::class, 'save')]
 class MoonShineUserRoleResource extends ModelResource
 {
-//...
+    // ...
 }
 ```
 
@@ -738,18 +702,17 @@ final readonly class MoonShineUserRoleHandlers
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:start]
-use MoonShine\Laravel\Resources\ModelResource;
+// [tl! collapse:3]
 use MoonShine\Crud\Attributes\DestroyHandler;
 use MoonShine\Crud\Attributes\MassDestroyHandler;
-use MoonShine\Crud\Attributes\SaveHandler; // [tl! collapse:end]
+use MoonShine\Crud\Attributes\SaveHandler;
 
 #[SaveHandler(MoonShineUserRoleSaveHandler::class)]
 #[DestroyHandler(MoonShineUserRoleDestroyHandler::class)]
 #[MassDestroyHandler(MoonShineUserRoleMassDestroyHandler::class)]
 class MoonShineUserRoleResource extends ModelResource
 {
-//..
+    // ...
 }
 ```
 

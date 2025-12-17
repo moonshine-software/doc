@@ -19,12 +19,12 @@ Tags were created for such situations.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:5]
+// [tl! collapse:start]
 namespace App\MoonShine\Resources\Post\Pages;
 
 use Illuminate\Database\Eloquent\Builder;
 use MoonShine\Laravel\QueryTags\QueryTag;
-use MoonShine\Laravel\Pages\Crud\IndexPage;
+use MoonShine\Laravel\Pages\Crud\IndexPage; // [tl! collapse:end]
 
 class PostIndexPage extends IndexPage
 {

@@ -28,7 +28,7 @@ video: https://youtu.be/bcFOkXuPSRk?si=RmlstXkRnan5r1K8&t=246
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:start]
-namespace App\MoonShine\Resources;
+namespace App\MoonShine\Resources\Post;
 
 use App\MoonShine\Resources\Post\Pages\PostIndexPage;
 use App\MoonShine\Resources\Post\Pages\PostFormPage;
@@ -291,8 +291,7 @@ PageType::DETAIL;
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use MoonShine\Laravel\Pages\Crud\IndexPage;
+// [tl! collapse:1]
 use MoonShine\UI\Components\Heading;
 
 class PostIndexPage extends IndexPage
@@ -390,7 +389,7 @@ function __invoke(
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:8]
+// [tl! collapse:start]
 use MoonShine\Contracts\Core\DependencyInjection\CoreContract;
 use MoonShine\Contracts\Core\DependencyInjection\FieldsContract;
 use MoonShine\Contracts\UI\ComponentContract;
@@ -398,7 +397,7 @@ use MoonShine\Contracts\UI\TableBuilderContract;
 use MoonShine\Core\Traits\WithCore;
 use MoonShine\Crud\Contracts\Page\IndexPageContract;
 use MoonShine\Crud\Contracts\PageComponents\DefaultListComponentContract;
-use MoonShine\UI\Components\Table\TableBuilder;
+use MoonShine\UI\Components\Table\TableBuilder; // [tl! collapse:end]
 
 final class ArticleListComponent implements DefaultListComponentContract
 {
@@ -477,13 +476,13 @@ function __invoke(
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:6]
+// [tl! collapse:start]
 use MoonShine\Contracts\Core\DependencyInjection\FieldsContract;
 use MoonShine\Contracts\Core\TypeCasts\DataWrapperContract;
 use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\Crud\Contracts\Page\DetailPageContract;
 use MoonShine\Crud\Contracts\PageComponents\DefaultDetailComponentContract;
-use MoonShine\UI\Components\Table\TableBuilder;
+use MoonShine\UI\Components\Table\TableBuilder; // [tl! collapse:end]
 
 final class ArticleDetailComponent implements DefaultDetailComponentContract
 {
@@ -531,7 +530,7 @@ function __invoke(
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:12]
+// [tl! collapse:start]
 use MoonShine\Contracts\Core\DependencyInjection\CoreContract;
 use MoonShine\Contracts\Core\DependencyInjection\FieldsContract;
 use MoonShine\Contracts\Core\TypeCasts\DataWrapperContract;
@@ -543,7 +542,7 @@ use MoonShine\Crud\Contracts\PageComponents\DefaultFormContract;
 use MoonShine\Support\AlpineJs;
 use MoonShine\Support\Enums\JsEvent;
 use MoonShine\UI\Components\FormBuilder;
-use MoonShine\UI\Fields\Hidden;
+use MoonShine\UI\Fields\Hidden; // [tl! collapse:end]
 
 final class ArticleFormComponent implements DefaultFormContract
 {

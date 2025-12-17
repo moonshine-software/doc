@@ -39,14 +39,14 @@ The `topLeftButtons()` and `topRightButtons()` methods in the index page class a
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:7]
+// [tl! collapse:start]
 namespace App\MoonShine\Resources\Post\Pages;
 
 use MoonShine\Support\AlpineJs;
 use MoonShine\Support\Enums\JsEvent;
 use MoonShine\Support\ListOf;
-use MoonShine\UI\Components\ActionButton;
 use MoonShine\Laravel\Pages\Crud\IndexPage;
+use MoonShine\UI\Components\ActionButton; // [tl! collapse:end]
 
 class PostIndexPage extends IndexPage
 {
@@ -129,8 +129,8 @@ To add/override buttons in the index table, use the `buttons()` method in the in
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:3]
 use Illuminate\Database\Eloquent\Model;
-use MoonShine\UI\Components\ActionButton;
 use MoonShine\Support\ListOf;
+use MoonShine\UI\Components\ActionButton;
 
 protected function buttons(): ListOf
 {
@@ -152,8 +152,8 @@ For mass actions with elements, you need to add the `bulk()` method.
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:2]
-use MoonShine\UI\Components\ActionButton;
 use MoonShine\Support\ListOf;
+use MoonShine\UI\Components\ActionButton;
 
 protected function buttons(): ListOf
 {
@@ -252,8 +252,8 @@ To add buttons to a form page, use the `buttons()` method in the form page class
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:2]
-use MoonShine\UI\Components\ActionButton;
 use MoonShine\Support\ListOf;
+use MoonShine\UI\Components\ActionButton;
 
 protected function buttons(): ListOf
 {
@@ -272,8 +272,8 @@ The `formButtons()` method allows you to add\override [buttons](/docs/{{version}
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:2]
-use MoonShine\UI\Components\ActionButton;
 use MoonShine\Support\ListOf;
+use MoonShine\UI\Components\ActionButton;
 
 protected function formButtons(): ListOf
 {
@@ -295,8 +295,8 @@ To add\override buttons on the detail page, use the `buttons()` method in the de
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:2]
-use MoonShine\UI\Components\ActionButton;
 use MoonShine\Support\ListOf;
+use MoonShine\UI\Components\ActionButton;
 
 protected function buttons(): ListOf
 {

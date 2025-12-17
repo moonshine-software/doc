@@ -41,13 +41,13 @@ BelongsToMany::make(
 
 > [!WARNING]
 > Having a `ModelResource` that the relationship refers to is mandatory.
-> The resource must also be [registered](/docs/{{version}}/model-resource/index#declaring-in-the-system) in the `MoonShineServiceProvider` service provider in the `$core->resources()` method.
+> The resource must also be [registered](/docs/{{version}}/model-resource/index#declaring-in-the-system)
+> in the `MoonShineServiceProvider` service provider in the `$core->resources()` method.
 > Otherwise, there will be a 500 error.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\CategoryResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 
 BelongsToMany::make(
@@ -122,8 +122,7 @@ columnLabel(string $label)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\CategoryResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 
 BelongsToMany::make('Categories', resource: CategoryResource::class)
@@ -141,8 +140,7 @@ fields(FieldsContract|Closure|iterable $fields)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-use App\MoonShine\Resources\ContactResource;
+// [tl! collapse:2]
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 use MoonShine\UI\Fields\Text;
 
@@ -165,8 +163,10 @@ BelongsToMany::make(
 <a name="deduplication"></a>
 ## Deduplication
 
-By default, `BelongsToMany` prevents duplicate selections by key so the same related model cannot be added twice, even if different *pivot* values are provided.
-For use cases where you need multiple rows with the same related key (for example, the same category paired with different pivot data), disable the check:
+By default, `BelongsToMany` prevents duplicate selections by key so the same related model cannot be added twice,
+even if different *pivot* values are provided.
+For use cases where you need multiple rows with the same related key (for example, the same category paired with different pivot data),
+disable check using the `deduplication()` method.
 
 ```php
 deduplication(
@@ -183,7 +183,7 @@ BelongsToMany::make('Categories')
 ```
 
 - The method accepts a `bool` or `Closure`, making it possible to toggle the behaviour dynamically.
-- With deduplication disabled, each row is saved separately and pivot data is applied in the order it was submitted.
+- With deduplication disabled, each row is saved separately and *pivot* data is applied in the order it was submitted.
 
 <a name="creatable"></a>
 ## Creating Relationship Object
@@ -199,8 +199,7 @@ creatable(
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\CategoryResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 
 BelongsToMany::make('Categories', resource: CategoryResource::class)
@@ -214,8 +213,7 @@ You can customize the creation button by passing the *button* parameter to the m
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-use App\MoonShine\Resources\CategoryResource;
+// [tl! collapse:2]
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 use MoonShine\UI\Components\ActionButton;
 
@@ -233,8 +231,7 @@ To do this, you need to use the `selectMode()` method.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\CategoryResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 
 BelongsToMany::make('Categories', resource: CategoryResource::class)
@@ -251,8 +248,7 @@ All select options are available for modification via *data attributes*:
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\CategoryResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 
 BelongsToMany::make('Categories', resource: CategoryResource::class)
@@ -295,8 +291,7 @@ tree(string $parentColumn)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\CategoryResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 
 BelongsToMany::make('Categories', resource: CategoryResource::class)
@@ -325,8 +320,7 @@ horizontalMode(
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\CategoryResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 
 BelongsToMany::make('Categories', resource: CategoryResource::class)
@@ -377,8 +371,7 @@ To change the color of the displayed `badge`, use a closure and return the `Badg
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:4]
-use App\MoonShine\Resources\CategoryResource;
+// [tl! collapse:3]
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 use MoonShine\UI\Components\Badge;
 use MoonShine\UI\Components\Link;
@@ -416,8 +409,7 @@ The `linkRelation` parameter allows you to create a link to the relationship wit
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\CategoryResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 
 BelongsToMany::make('Categories', resource: CategoryResource::class)
@@ -428,8 +420,7 @@ The `condition` parameter through a closure will allow changing the display meth
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-use App\MoonShine\Resources\CategoryResource;
+// [tl! collapse:2]
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 use MoonShine\UI\Fields\Field;
 
@@ -450,8 +441,7 @@ valuesQuery(Closure $callback)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:4]
-use App\MoonShine\Resources\CategoryResource;
+// [tl! collapse:3]
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 use MoonShine\UI\Fields\Field;
@@ -478,8 +468,7 @@ asyncSearch(
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\CategoryResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 
 BelongsToMany::make('Categories', 'categories', resource: CategoryResource::class)
@@ -501,8 +490,7 @@ You can pass parameters to the `asyncSearch()` method:
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:5]
-use App\MoonShine\Resources\CountryResource;
+// [tl! collapse:4]
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
@@ -528,13 +516,12 @@ BelongsToMany::make('Countries', 'countries', resource: CountryResource::class)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:6]
-use App\MoonShine\Resources\CityResource;
+// [tl! collapse:start]
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 use MoonShine\UI\Fields\Field;
-use MoonShine\UI\Fields\Select;
+use MoonShine\UI\Fields\Select; // [tl! collapse:end]
 
 Select::make('Country', 'country_id'),
 
@@ -565,8 +552,7 @@ associatedWith(string $column, ?Closure $searchQuery = null)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\CityResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 
 BelongsToMany::make('Cities', 'cities', resource: CityResource::class)
@@ -595,8 +581,7 @@ withImage(
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\CityResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 
 BelongsToMany::make('Cities', resource: CityResource::class)
@@ -618,8 +603,7 @@ buttons(array $buttons)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-use App\MoonShine\Resources\CategoryResource;
+// [tl! collapse:2]
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 use MoonShine\UI\Components\ActionButton;
 
@@ -639,8 +623,7 @@ The `withCheckAll()` method allows you to add a checkAll button to the `BelongsT
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\CategoryResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 
 BelongsToMany::make('Categories', resource: CategoryResource::class)

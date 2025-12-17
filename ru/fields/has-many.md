@@ -45,8 +45,7 @@ HasMany::make(
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\CommentResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\HasMany;
 
 HasMany::make(
@@ -104,8 +103,7 @@ fields(FieldsContract|Closure|iterable $fields)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:4]
-use App\MoonShine\Resources\CommentResource;
+// [tl! collapse:3]
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 use MoonShine\Laravel\Fields\Relationships\HasMany;
 use MoonShine\UI\Fields\Text;
@@ -134,8 +132,7 @@ creatable(
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\CommentResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\HasMany;
 
 HasMany::make('Comments', resource: CommentResource::class)
@@ -152,8 +149,7 @@ HasMany::make('Comments', resource: CommentResource::class)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-use App\MoonShine\Resources\CommentResource;
+// [tl! collapse:2]
 use MoonShine\Laravel\Fields\Relationships\HasMany;
 use MoonShine\UI\Components\ActionButton;
 
@@ -174,8 +170,7 @@ limit(int $limit)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\CommentResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\HasMany;
 
 HasMany::make('Comments', resource: CommentResource::class)
@@ -202,8 +197,7 @@ relatedLink(?string $linkRelation = null, Closure|bool $condition = null)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\CommentResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\HasMany;
 
 HasMany::make('Comments', resource: CommentResource::class)
@@ -216,8 +210,7 @@ HasMany::make('Comments', resource: CommentResource::class)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\CommentResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\HasMany;
 
 HasMany::make('Comments', resource: CommentResource::class)
@@ -228,8 +221,7 @@ HasMany::make('Comments', resource: CommentResource::class)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-use App\MoonShine\Resources\CommentResource;
+// [tl! collapse:2]
 use MoonShine\Laravel\Fields\Relationships\HasMany;
 use MoonShine\UI\Fields\Field;
 
@@ -288,8 +280,7 @@ $this->getParentId();
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-use App\MoonShine\Resources\CommentResource;
+// [tl! collapse:2]
 use MoonShine\Laravel\Fields\Relationships\HasMany;
 use MoonShine\UI\Components\ActionButton;
 
@@ -309,8 +300,7 @@ HasMany::make('Comments', 'comments', resource: CommentResource::class)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\CommentResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\HasMany;
 
 HasMany::make('Comments', 'comments', resource: CommentResource::class)
@@ -333,8 +323,7 @@ public function searchable(Closure|bool|null $condition = null): static
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\CommentResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\HasMany;
 
 HasMany::make('Comments', 'comments', resource: CommentResource::class)
@@ -354,8 +343,7 @@ modifyItemButtons(Closure $callback)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-use App\MoonShine\Resources\CommentResource;
+// [tl! collapse:2]
 use MoonShine\Laravel\Fields\Relationships\HasMany;
 use MoonShine\UI\Components\ActionButton;
 
@@ -371,8 +359,7 @@ HasMany::make('Comments', resource: CommentResource::class)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-use App\MoonShine\Resources\CommentResource;
+// [tl! collapse:2]
 use MoonShine\Laravel\Fields\Relationships\HasMany;
 use MoonShine\UI\Components\ActionButton;
 
@@ -391,8 +378,7 @@ HasMany::make('Comments', resource: CommentResource::class)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-use App\MoonShine\Resources\CommentResource;
+// [tl! collapse:2]
 use MoonShine\Laravel\Fields\Relationships\HasMany;
 use MoonShine\UI\Components\ActionButton;
 
@@ -412,8 +398,7 @@ HasMany::make('Comments', resource: CommentResource::class)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-use App\MoonShine\Resources\CommentResource;
+// [tl! collapse:2]
 use MoonShine\Laravel\Fields\Relationships\HasMany;
 use MoonShine\UI\Components\Table\TableBuilder;
 
@@ -431,8 +416,7 @@ HasMany::make('Comments', resource: CommentResource::class)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\CommentResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\HasMany;
 
 HasMany::make('Comments', resource: CommentResource::class)
@@ -445,8 +429,7 @@ HasMany::make('Comments', resource: CommentResource::class)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-use App\MoonShine\Resources\CommentResource;
+// [tl! collapse:2]
 use Illuminate\Database\Eloquent\Relations\Relation;
 use MoonShine\Laravel\Fields\Relationships\HasMany;
 
@@ -490,8 +473,7 @@ HasMany::make('Comments')
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\CommentResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\HasMany;
 
 HasMany::make('Comments', 'comments', resource: CommentResource::class)
@@ -506,8 +488,7 @@ HasMany::make('Comments', 'comments', resource: CommentResource::class)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-use App\MoonShine\Resources\CommentResource;
+// [tl! collapse:2]
 use MoonShine\Laravel\Fields\Relationships\HasMany;
 use MoonShine\UI\Components\ActionButton;
 

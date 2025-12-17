@@ -37,8 +37,7 @@ HasOne::make(
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\ProfileResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\HasOne;
 
 HasOne::make(
@@ -55,9 +54,8 @@ If you do not specify `$relationName`, the relationship name will be automatical
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:start]
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\HasOne;
-// [tl! collapse:end]
 
 HasOne::make('Profile', 'profile')
 ```
@@ -66,9 +64,8 @@ You can omit `$resource` if the `ModelResource` matches the name of the relation
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:start]
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\HasOne;
-// [tl! collapse:end]
 
 HasOne::make('Profile')
 ```
@@ -84,8 +81,7 @@ fields(FieldsContract|Closure|iterable $fields)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:4]
-use App\MoonShine\Resources\ProfileResource;
+// [tl! collapse:3]
 use MoonShine\UI\Fields\Relationships\HasOne;
 use MoonShine\UI\Fields\Phone;
 use MoonShine\UI\Fields\Text;
@@ -107,8 +103,7 @@ If the relationship has a resource, and you want to get the parent item's ID, yo
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use MoonShine\Laravel\Resources\ModelResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Traits\Resource\ResourceWithParent;
 
 class PostImageResource extends ModelResource
@@ -148,8 +143,7 @@ The `modifyTable()` method allows you to change the `TableBuilder` for the previ
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-use App\MoonShine\Resources\CommentResource;
+// [tl! collapse:2]
 use MoonShine\Laravel\Fields\Relationships\HasOne;
 use MoonShine\UI\Components\Table\TableBuilder;
 
@@ -165,8 +159,7 @@ The `modifyForm()` method allows you to change the `FormBuilder` for editing.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-use App\MoonShine\Resources\CommentResource;
+// [tl! collapse:2]
 use MoonShine\UI\Components\FormBuilder;
 use MoonShine\Laravel\Fields\Relationships\HasOne;
 
@@ -182,8 +175,7 @@ The `redirectAfter()` method allows for redirection after saving/adding/deleting
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\CommentResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\HasOne;
 
 HasOne::make('Comment', resource: CommentResource::class)
@@ -206,9 +198,8 @@ In the following example, a [Tabs](/docs/{{version}}/components/tabs) component 
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:start]
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\HasOne;
-// [tl! collapse:end]
 
 HasOne::make('Comment', 'comment', resource: CommentResource::class)
     ->tabMode(),
@@ -235,9 +226,8 @@ In this example, instead of a form, there will now be an [ActionButton](/docs/{{
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:start]
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\HasOne;
-// [tl! collapse:end]
 
 HasOne::make('Comment', 'comment', resource: CommentResource::class)
     ->modalMode(),
@@ -247,9 +237,8 @@ To modify the `ActionButton` and `Modal`, you can use the method parameters `$mo
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:start]
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\HasOne;
-// [tl! collapse:end]
 
 HasOne::make('Comment', 'comment', resource: CommentResource::class)
     ->modalMode(
