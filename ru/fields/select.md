@@ -695,6 +695,17 @@ Select::make('Type')
     );
 ```
 
+Также вы можете включить `withAllFields()` напрямую, используя метод `asyncWithFields()`.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\UI\Fields\Select;
+
+Select::make('Type')
+    ->asyncWithFields();
+```
+
 <a name="select-creatable"></a>
 ### Создание новых опций
 
