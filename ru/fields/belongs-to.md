@@ -37,13 +37,13 @@ BelongsTo::make(
 
 > [!WARNING]
 > Наличие `ModelResource`, на который ссылается отношение, обязательно.
-> Ресурс также необходимо [зарегистрировать](/docs/{{version}}/model-resource/index#declaring-in-the-system) в сервис-провайдере `MoonShineServiceProvider` в методе `$core->resources()`.
+> Ресурс также необходимо [зарегистрировать](/docs/{{version}}/model-resource/index#declaring-in-the-system)
+> в сервис-провайдере `MoonShineServiceProvider` в методе `$core->resources()`.
 > В противном случае будет ошибка 500.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\UserResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 
 BelongsTo::make(
@@ -110,8 +110,7 @@ BelongsTo::make(
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\CategoryResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 
 BelongsTo::make(
@@ -136,8 +135,7 @@ default(mixed $default)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\CategoryResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 
 BelongsTo::make('Country', resource: CategoryResource::class)
@@ -155,8 +153,7 @@ nullable(Closure|bool|null $condition = null)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\CategoryResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 
 BelongsTo::make('Country', resource: CategoryResource::class)
@@ -194,8 +191,7 @@ BelongsTo::make('Country', 'country')
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\CountryResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 
 BelongsTo::make('Country', 'country', resource: CountryResource::class)
@@ -226,8 +222,7 @@ BelongsTo::make('Author', resource: AuthorResource::class)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-use App\MoonShine\Resources\AuthorResource;
+// [tl! collapse:2]
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 use MoonShine\UI\Components\ActionButton;
 
@@ -248,8 +243,7 @@ valuesQuery(Closure $callback)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:4]
-use App\MoonShine\Resources\CategoryResource;
+// [tl! collapse:3]
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 use MoonShine\UI\Fields\Field;
@@ -276,8 +270,7 @@ asyncSearch(
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\CategoryResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 
 BelongsTo::make('Category', 'category', resource: CategoryResource::class)
@@ -325,13 +318,12 @@ BelongsTo::make('Category', 'category', resource: CategoryResource::class)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:6]
-use App\MoonShine\Resources\CityResource;
+// [tl! collapse:start]
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 use MoonShine\UI\Fields\Field;
-use MoonShine\UI\Fields\Select;
+use MoonShine\UI\Fields\Select; // [tl! collapse:end]
 
 Select::make('Country', 'country_id'),
 
@@ -358,8 +350,7 @@ associatedWith(string $column, ?Closure $searchQuery = null)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\CityResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 
 BelongsTo::make('City', 'city', resource: CityResource::class)
@@ -399,8 +390,7 @@ withImage(
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\CountryResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 
 BelongsTo::make('Country', resource: CountryResource::class)
@@ -417,8 +407,7 @@ BelongsTo::make('Country', resource: CountryResource::class)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\CountryResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 
 BelongsTo::make('Country', resource: CountryResource::class)
@@ -452,8 +441,7 @@ BelongsTo::make('Type')->native()
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\CategoryResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 
 BelongsTo::make(

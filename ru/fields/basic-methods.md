@@ -475,7 +475,8 @@ Text::make('Name')
 <a name="name-attribute"></a>
 ### Модифицирование атрибута "name"
 
-Так как атрибут `name` генерируется на основе вложенности и имеет сложную логику формирования, то для его изменения требуется воспользоваться методом `setNameAttribute()`.
+Так как атрибут `name` генерируется на основе вложенности и имеет сложную логику формирования,
+то для его изменения требуется воспользоваться методом `setNameAttribute()`.
 
 ```php
 Text::make('Name')
@@ -856,17 +857,17 @@ final class FileModelApply implements ApplyContract
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:10]
+// [tl! collapse:start]
+use App\MoonShine\Applies\FileModelApply;
 use Illuminate\Support\ServiceProvider;
+use MoonShine\Contracts\Core\DependencyInjection\AppliesRegisterContract;
 use MoonShine\Contracts\Core\DependencyInjection\CoreContract;
+use MoonShine\Laravel\DependencyInjection\ConfiguratorContract;
 use MoonShine\Laravel\DependencyInjection\MoonShine;
 use MoonShine\Laravel\DependencyInjection\MoonShineConfigurator;
-use MoonShine\Laravel\DependencyInjection\ConfiguratorContract;
-use MoonShine\Contracts\Core\DependencyInjection\AppliesRegisterContract;
-use MoonShine\UI\Applies\AppliesRegister;
-use App\MoonShine\Applies\FileModelApply;
-use MoonShine\UI\Fields\File;
 use MoonShine\Laravel\Resources\ModelResource;
+use MoonShine\UI\Applies\AppliesRegister;
+use MoonShine\UI\Fields\File; // [tl! collapse:end]
 
 class MoonShineServiceProvider extends ServiceProvider
 {
@@ -1136,7 +1137,8 @@ updateOnPreview(
  - `$events` - (опционально) вызываемые [AlpineJS события](/docs/{{version}}/frontend/js#events) после успешного запроса.
 
 > [!NOTE]
-> Параметры не являются обязательными, но должны быть заданы, если поле находится вне ресурса или же вы хотите указать полностью свой endpoint (тогда и ресурс не нужен).
+> Параметры не являются обязательными, но должны быть заданы, если поле находится вне ресурса
+> или же вы хотите указать полностью свой endpoint (тогда и ресурс не нужен).
 
 ```php
 Text::make('Name')->updateOnPreview()
@@ -1182,7 +1184,8 @@ Text::make('Name')
 ```
 
 > [!NOTE]
-> Методы `updateOnPreview()`, `withUpdateRow()` и `updateInPopover()` формируют нужные endpoints и передают методу `setUpdateOnPreviewUrl()`, который работает с [onChangeUrl()](#on-change).
+> Методы `updateOnPreview()`, `withUpdateRow()` и `updateInPopover()` формируют нужные endpoints и передают методу `setUpdateOnPreviewUrl()`,
+> который работает с [onChangeUrl()](#on-change).
 
 <a name="assets"></a>
 ## Ассеты
@@ -1375,7 +1378,8 @@ Text::make('Name')
 
 В этом примере поле "Name" будет отображаться только если значение поля "category_id" равно 1, 2 или 3.
 
-Когда на поле присутствует условие `showWhen`, то при скрытии этого поля, на его DOM элемент устанавливается значение `display:none` и удаляется атрибут name, чтобы значение этого скрытого поля не попадало в итоговый запрос.
+Когда на поле присутствует условие `showWhen`, то при скрытии этого поля, на его DOM элемент устанавливается значение `display: none`
+и удаляется атрибут name, чтобы значение этого скрытого поля не попадало в итоговый запрос.
 Если вы не хотите, чтобы атрибут `name` удалялся, необходимо в вашем ресурсе установить флаг `$submitShowWhen` в значение `true`.
 
 ```php
@@ -1391,7 +1395,8 @@ class ArticleResource extends ModelResource
 ### Метод showWhenDate
 
 Метод `showWhenDate()` позволяет задать условие отображения поля в зависимости от значения поля типа date.
-Логика для работы с датами была вынесена в отдельный метод из-за специфики конвертации и сравнения типа date и datetime на backend и frontent.
+Логика для работы с датами была вынесена в отдельный метод из-за специфики конвертации и сравнения
+типа date и datetime на backend и frontent.
 
 ```php
 showWhenDate(
@@ -1445,7 +1450,8 @@ Json::make('Attributes', 'attributes')->fields([
     ])
 ]),
 ```
-В данном примере весь столбец `Parts` внутри `attributes` и весь столбец `Width` внутри `attributes.[n].settings` будет отображаться только если значение поля `category_id` равно 3.
+В данном примере весь столбец `Parts` внутри `attributes` и весь столбец `Width` внутри `attributes.[n].settings`
+будет отображаться только если значение поля `category_id` равно 3.
 
 <a name="multiple-conditions"></a>
 ### Множественные условия
@@ -1458,7 +1464,8 @@ BelongsTo::make('Category', 'category', resource: CategoryResource::class)
     ->showWhenDate('created_at', '<', '2024-08-05 19:00')
 ```
 
-В этом примере поле "Category" будет отображаться только если значение поля "created_at" находится в диапазоне между '2024-08-05 10:00' и '2024-08-05 19:00'.
+В этом примере поле `category` будет отображаться только если значение поля `created_at` находится
+в диапазоне между '2024-08-05 10:00' и '2024-08-05 19:00'.
 
 > [!NOTE]
 > При использовании нескольких условий они объединяются логическим "И" (AND).

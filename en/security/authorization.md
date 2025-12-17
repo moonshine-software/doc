@@ -43,12 +43,12 @@ Available **Policy** methods:
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:5]
+// [tl! collapse:start]
 namespace App\Policies;
 
 use App\Models\Post;
 use Illuminate\Auth\Access\HandlesAuthorization;
-use MoonShine\Laravel\Models\MoonshineUser;
+use MoonShine\Laravel\Models\MoonshineUser; // [tl! collapse:end]
 
 class PostPolicy
 {

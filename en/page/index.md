@@ -48,7 +48,8 @@ By default, it is located in the `app/MoonShine/Pages` directory.
 
 > [!NOTE]
 > Pages are automatically registered in the system when the command is executed, but if you create a page manually,
-> it must be [registered](/docs/{{version}}/model-resource/index#declaring-in-the-system) in the `MoonShineServiceProvider` in the `$core->pages()` method.
+> it must be [registered](/docs/{{version}}/model-resource/index#declaring-in-the-system)
+> in the `MoonShineServiceProvider` in the `$core->pages()` method.
 
 <a name="title"></a>
 ## Title
@@ -104,35 +105,27 @@ To register the components of the page, the `components()` method is used.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:6]
-namespace App\MoonShine\Pages;
-
-use MoonShine\Laravel\Pages\Page;
+// [tl! collapse:3]
 use MoonShine\UI\Components\Layout\Box;
 use MoonShine\UI\Components\Layout\Column;
 use MoonShine\UI\Components\Layout\Grid;
 
-class CustomPage extends Page
+protected function components(): iterable
 {
-    // ...
-
-    protected function components(): iterable
-    {
-        return [
-            Grid::make([
-                Column::make([
-                    Box::make([
-                        // ...
-                    ])
-                ])->columnSpan(6),
-                Column::make([
-                    Box::make([
-                        // ...
-                    ])
-                ])->columnSpan(6),
-            ])
-        ];
-    }
+    return [
+        Grid::make([
+            Column::make([
+                Box::make([
+                    // ...
+                ])
+            ])->columnSpan(6),
+            Column::make([
+                Box::make([
+                    // ...
+                ])
+            ])->columnSpan(6),
+        ])
+    ];
 }
 ```
 
@@ -146,24 +139,16 @@ The `menu()` method allows you to define an additional menu for the page, which 
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:5]
-namespace App\MoonShine\Pages;
-
-use MoonShine\Laravel\Pages\Page;
+// [tl! collapse:1]
 use MoonShine\MenuManager\MenuItem;
 
-class CustomPage extends Page
+protected function menu(): array
 {
-    // ...
-
-    protected function menu(): array
-    {
-        return [
-            MenuItem::make('Section 1', '/section1'),
-            MenuItem::make('Section 2', '/section2'),
-            MenuItem::make('Section 3', '/section3'),
-        ];
-    }
+    return [
+        MenuItem::make('Section 1', '/section1'),
+        MenuItem::make('Section 2', '/section2'),
+        MenuItem::make('Section 3', '/section3'),
+    ];
 }
 ```
 
@@ -178,22 +163,11 @@ To display the menu, you need to enable `SecondBar` in your layout by setting th
 The `getBreadcrumbs()` method is responsible for generating the breadcrumbs.
 
 ```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-namespace App\MoonShine\Pages;
-
-use MoonShine\Laravel\Pages\Page;
-
-class CustomPage extends Page
+public function getBreadcrumbs(): array
 {
-    // ...
-
-    public function getBreadcrumbs(): array
-    {
-        return [
-            '#' => $this->getTitle()
-        ];
-    }
+    return [
+        '#' => $this->getTitle()
+    ];
 }
 ```
 
@@ -332,21 +306,12 @@ Fortify::loginView(static fn() => app(ProfilePage::class));
 The `prepareBeforeRender()` method allows you to execute actions before displaying the page.
 
 ```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-namespace App\MoonShine\Pages;
-
-use MoonShine\Laravel\Pages\Page;
-
-class CustomPage extends Page
+protected function prepareBeforeRender(): void
 {
-    protected function prepareBeforeRender(): void
-    {
-        parent::prepareBeforeRender();
+    parent::prepareBeforeRender();
 
-        if (auth()->user()->moonshine_user_role_id !== MoonshineUserRole::DEFAULT_ROLE_ID) {
-            abort(403);
-        }
+    if (auth()->user()->moonshine_user_role_id !== MoonshineUserRole::DEFAULT_ROLE_ID) {
+        abort(403);
     }
 }
 ```
@@ -390,22 +355,11 @@ allowing for complex request and response handling logic in the admin panel.
 The `onLoad()` method allows integration at the moment when the page is loaded and is currently active.
 
 ```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-namespace App\MoonShine\Pages;
-
-use MoonShine\Laravel\Pages\Page;
-
-class PostPage extends Page
+protected function onLoad(): void
 {
+    parent::onLoad();
+
     // ...
-
-    protected function onLoad(): void
-    {
-        parent::onLoad();
-
-        // ...
-    }
 }
 ```
 
@@ -415,22 +369,11 @@ class PostPage extends Page
 The `booted()` method allows integration at the moment when **MoonShine** creates an instance of the page in the system.
 
 ```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-namespace App\MoonShine\Pages;
-
-use MoonShine\Laravel\Pages\Page;
-
-class PostPage extends Page
+protected function booted(): void
 {
+    parent::booted();
+
     // ...
-
-    protected function booted(): void
-    {
-        parent::booted();
-
-        // ...
-    }
 }
 ```
 

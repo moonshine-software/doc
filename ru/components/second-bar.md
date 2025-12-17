@@ -76,11 +76,11 @@ SecondBar::make([
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:5]
+// [tl! collapse:start]
 namespace App\MoonShine\Pages;
 
 use MoonShine\Laravel\Pages\Page;
-use MoonShine\MenuManager\MenuItem;
+use MoonShine\MenuManager\MenuItem; // [tl! collapse:end]
 
 class CustomPage extends Page
 {
@@ -89,9 +89,9 @@ class CustomPage extends Page
     protected function menu(): array
     {
         return [
-            MenuItem::make('Раздел 1', '/section1'),
-            MenuItem::make('Раздел 2', '/section2'),
-            MenuItem::make('Раздел 3', '/section3'),
+            MenuItem::make('Section 1', '/section1'),
+            MenuItem::make('Section 2', '/section2'),
+            MenuItem::make('Section 3', '/section3'),
         ];
     }
 }
@@ -101,13 +101,13 @@ class CustomPage extends Page
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:7]
+// [tl! collapse:start]
 namespace App\MoonShine\Layouts;
 
 use MoonShine\Laravel\Layouts\AppLayout;
 use MoonShine\UI\Components\Layout\SecondBar;
 use MoonShine\UI\Components\Layout\Menu;
-use MoonShine\UI\Components\When;
+use MoonShine\UI\Components\When; // [tl! collapse:end]
 
 class CustomLayout extends AppLayout
 {
@@ -118,4 +118,6 @@ class CustomLayout extends AppLayout
 ```
 
 > [!TIP]
-> В базовом `AppLayout` уже реализована поддержка `SecondBar`. Достаточно установить свойство `$secondBar = true` в вашем кастомном лейауте, и `SecondBar` будет автоматически отображаться с меню из метода `menu()` текущей страницы.
+> В базовом `AppLayout` уже реализована поддержка `SecondBar`.
+> Достаточно установить свойство `$secondBar = true` в вашем кастомном лейауте,
+> и `SecondBar` будет автоматически отображаться с меню из метода `menu()` текущей страницы.

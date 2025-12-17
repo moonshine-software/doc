@@ -11,8 +11,7 @@
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\CommentResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\MorphMany;
 
 MorphMany::make(

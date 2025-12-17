@@ -48,7 +48,8 @@ php artisan moonshine:page
 
 > [!NOTE]
 > Страницы при выполнении команды автоматически регистрируются в системе, но если вы создаете страницу вручную,
-> то её необходимо самостоятельно [зарегистрировать](/docs/{{version}}/model-resource/index#declaring-in-the-system) в `MoonShineServiceProvider` в методе `$core->pages()`.
+> то её необходимо самостоятельно [зарегистрировать](/docs/{{version}}/model-resource/index#declaring-in-the-system)
+> в `MoonShineServiceProvider` в методе `$core->pages()`.
 
 <a name="title"></a>
 ## Заголовок
@@ -66,7 +67,7 @@ class CustomPage extends Page
 {
     protected string $title = 'CustomPage';
 
-    protected string $subtitle = 'Подзаголовок';
+    protected string $subtitle = 'Subtitle';
 
     // ...
 }
@@ -92,7 +93,7 @@ class CustomPage extends Page
 
     public function getSubtitle(): string
     {
-        return $this->subtitle ?: 'Подзаголовок';
+        return $this->subtitle ?: 'Subtitle';
     }
 }
 ```
@@ -104,35 +105,27 @@ class CustomPage extends Page
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:6]
-namespace App\MoonShine\Pages;
-
-use MoonShine\Laravel\Pages\Page;
+// [tl! collapse:3]
 use MoonShine\UI\Components\Layout\Box;
 use MoonShine\UI\Components\Layout\Column;
 use MoonShine\UI\Components\Layout\Grid;
 
-class CustomPage extends Page
+protected function components(): iterable
 {
-    // ...
-
-    protected function components(): iterable
-    {
-        return [
-            Grid::make([
-                Column::make([
-                    Box::make([
-                        // ...
-                    ])
-                ])->columnSpan(6),
-                Column::make([
-                    Box::make([
-                        // ...
-                    ])
-                ])->columnSpan(6),
-            ])
-        ];
-    }
+    return [
+        Grid::make([
+            Column::make([
+                Box::make([
+                    // ...
+                ])
+            ])->columnSpan(6),
+            Column::make([
+                Box::make([
+                    // ...
+                ])
+            ])->columnSpan(6),
+        ])
+    ];
 }
 ```
 
@@ -146,24 +139,16 @@ class CustomPage extends Page
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:5]
-namespace App\MoonShine\Pages;
-
-use MoonShine\Laravel\Pages\Page;
+// [tl! collapse:1]
 use MoonShine\MenuManager\MenuItem;
 
-class CustomPage extends Page
+protected function menu(): array
 {
-    // ...
-
-    protected function menu(): array
-    {
-        return [
-            MenuItem::make('Раздел 1', '/section1'),
-            MenuItem::make('Раздел 2', '/section2'),
-            MenuItem::make('Раздел 3', '/section3'),
-        ];
-    }
+    return [
+        MenuItem::make('Section 1', '/section1'),
+        MenuItem::make('Section 2', '/section2'),
+        MenuItem::make('Section 3', '/section3'),
+    ];
 }
 ```
 
@@ -178,22 +163,11 @@ class CustomPage extends Page
 За генерацию хлебных крошек отвечает метод `getBreadcrumbs()`.
 
 ```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-namespace App\MoonShine\Pages;
-
-use MoonShine\Laravel\Pages\Page;
-
-class CustomPage extends Page
+public function getBreadcrumbs(): array
 {
-    // ...
-
-    public function getBreadcrumbs(): array
-    {
-        return [
-            '#' => $this->getTitle()
-        ];
-    }
+    return [
+        '#' => $this->getTitle()
+    ];
 }
 ```
 
@@ -332,21 +306,12 @@ Fortify::loginView(static fn() => app(ProfilePage::class));
 Метод `prepareBeforeRender()` позволяет выполнить какие-либо действия перед отображением страницы.
 
 ```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-namespace App\MoonShine\Pages;
-
-use MoonShine\Laravel\Pages\Page;
-
-class CustomPage extends Page
+protected function prepareBeforeRender(): void
 {
-    protected function prepareBeforeRender(): void
-    {
-        parent::prepareBeforeRender();
+    parent::prepareBeforeRender();
 
-        if (auth()->user()->moonshine_user_role_id !== MoonshineUserRole::DEFAULT_ROLE_ID) {
-            abort(403);
-        }
+    if (auth()->user()->moonshine_user_role_id !== MoonshineUserRole::DEFAULT_ROLE_ID) {
+        abort(403);
     }
 }
 ```
@@ -390,22 +355,11 @@ protected function modifyResponse(): ?Response
 Метод `onLoad()` дает возможность интегрироваться в момент когда страница загружена и в данный момент является активной.
 
 ```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-namespace App\MoonShine\Pages;
-
-use MoonShine\Laravel\Pages\Page;
-
-class PostPage extends Page
+protected function onLoad(): void
 {
+    parent::onLoad();
+
     // ...
-
-    protected function onLoad(): void
-    {
-        parent::onLoad();
-
-        // ...
-    }
 }
 ```
 
@@ -415,22 +369,11 @@ class PostPage extends Page
 Метод `booted()` дает возможность интегрироваться в момент, когда **MoonShine** создает экземпляр страницы в системе.
 
 ```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-namespace App\MoonShine\Pages;
-
-use MoonShine\Laravel\Pages\Page;
-
-class PostPage extends Page
+protected function booted(): void
 {
+    parent::booted();
+
     // ...
-
-    protected function booted(): void
-    {
-        parent::booted();
-
-        // ...
-    }
 }
 ```
 

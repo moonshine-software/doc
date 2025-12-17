@@ -79,12 +79,12 @@ final class CustomViewController extends MoonShineController
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:5]
+// [tl! collapse:start]
 namespace App\MoonShine\Controllers;
 
 use MoonShine\Laravel\Http\Controllers\MoonShineController;
 use MoonShine\Support\Enums\ToastType;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Response; // [tl! collapse:end]
 
 final class CustomViewController extends MoonShineController
 {
@@ -124,12 +124,12 @@ final class CustomViewController extends MoonShineController
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:5]
+// [tl! collapse:start]
 namespace App\MoonShine\Controllers;
 
 use MoonShine\Contracts\Core\DependencyInjection\CrudRequestContract;
 use MoonShine\Laravel\Http\Controllers\MoonShineController;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Response; // [tl! collapse:end]
 
 final class CustomViewController extends MoonShineController
 {
@@ -146,11 +146,11 @@ final class CustomViewController extends MoonShineController
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:4]
+// [tl! collapse:start]
 namespace App\MoonShine\Controllers;
 
 use MoonShine\Laravel\Http\Controllers\MoonShineController;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Response; // [tl! collapse:end]
 
 final class CustomViewController extends MoonShineController
 {

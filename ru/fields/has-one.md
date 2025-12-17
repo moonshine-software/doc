@@ -37,8 +37,7 @@ HasOne::make(
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\ProfileResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\HasOne;
 
 HasOne::make(
@@ -55,9 +54,8 @@ HasOne::make(
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:start]
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\HasOne;
-// [tl! collapse:end]
 
 HasOne::make('Profile', 'profile')
 ```
@@ -66,9 +64,8 @@ HasOne::make('Profile', 'profile')
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:start]
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\HasOne;
-// [tl! collapse:end]
 
 HasOne::make('Profile')
 ```
@@ -84,8 +81,7 @@ fields(FieldsContract|Closure|iterable $fields)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:4]
-use App\MoonShine\Resources\ProfileResource;
+// [tl! collapse:3]
 use MoonShine\UI\Fields\Relationships\HasOne;
 use MoonShine\UI\Fields\Phone;
 use MoonShine\UI\Fields\Text;
@@ -107,8 +103,7 @@ HasOne::make('Profile', resource: ProfileResource::class)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use MoonShine\Laravel\Resources\ModelResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Traits\Resource\ResourceWithParent;
 
 class PostImageResource extends ModelResource
@@ -148,8 +143,7 @@ $this->getParentId();
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-use App\MoonShine\Resources\CommentResource;
+// [tl! collapse:2]
 use MoonShine\Laravel\Fields\Relationships\HasOne;
 use MoonShine\UI\Components\Table\TableBuilder;
 
@@ -165,8 +159,7 @@ HasOne::make('Comment', resource: CommentResource::class)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-use App\MoonShine\Resources\CommentResource;
+// [tl! collapse:2]
 use MoonShine\UI\Components\FormBuilder;
 use MoonShine\Laravel\Fields\Relationships\HasOne;
 
@@ -182,8 +175,7 @@ HasOne::make('Comment', resource: CommentResource::class)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use App\MoonShine\Resources\CommentResource;
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\HasOne;
 
 HasOne::make('Comment', resource: CommentResource::class)
@@ -206,9 +198,8 @@ tabMode(Closure|bool|null $condition = null)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:start]
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\HasOne;
-// [tl! collapse:end]
 
 HasOne::make('Comment', 'comment', resource: CommentResource::class)
     ->tabMode(),
@@ -235,9 +226,8 @@ public function modalMode(
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:start]
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\HasOne;
-// [tl! collapse:end]
 
 HasOne::make('Comment', 'comment', resource: CommentResource::class)
     ->modalMode(),
@@ -247,9 +237,8 @@ HasOne::make('Comment', 'comment', resource: CommentResource::class)
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:start]
+// [tl! collapse:1]
 use MoonShine\Laravel\Fields\Relationships\HasOne;
-// [tl! collapse:end]
 
 HasOne::make('Comment', 'comment', resource: CommentResource::class)
     ->modalMode(

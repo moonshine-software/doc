@@ -3,11 +3,11 @@
 - [Основы](#basics)
 - [Импорт](#import)
   - [Поля](#import-fields)
-  - [Настройка](#import-settings)
+  - [Настройки импорта](#import-settings)
   - [События](#import-events)
 - [Экспорт](#export)
   - [Поля](#export-fields)
-  - [Настройка](#export-settings)
+  - [Настройки экспорта](#export-settings)
 - [Общие методы](#methods)
 - [Кастомная реализация](#custom)
 
@@ -26,12 +26,11 @@ composer require moonshine/import-export
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:5]
+// [tl! collapse:start]
 namespace App\MoonShine\Resources;
 
 use MoonShine\ImportExport\Contracts\HasImportExportContract;
-use MoonShine\ImportExport\Traits\ImportExportConcern;
-use MoonShine\Laravel\Resources\ModelResource;
+use MoonShine\ImportExport\Traits\ImportExportConcern; // [tl! collapse:end]
 
 class CategoryResource extends ModelResource implements HasImportExportContract
 {
@@ -53,28 +52,16 @@ class CategoryResource extends ModelResource implements HasImportExportContract
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:7]
-namespace App\MoonShine\Resources;
-
-use MoonShine\ImportExport\Contracts\HasImportExportContract;
-use MoonShine\ImportExport\Traits\ImportExportConcern;
-use MoonShine\Laravel\Resources\ModelResource;
+// [tl! collapse:2]
 use MoonShine\UI\Fields\ID;
 use MoonShine\UI\Fields\Text;
 
-class CategoryResource extends ModelResource implements HasImportExportContract
+protected function importFields(): iterable
 {
-    use ImportExportConcern;
-
-    // ...
-
-    protected function importFields(): iterable
-    {
-        return [
-            ID::make(),
-            Text::make('Name'),
-        ];
-    }
+    return [
+        ID::make(),
+        Text::make('Name'),
+    ];
 }
 ```
 
@@ -85,75 +72,51 @@ class CategoryResource extends ModelResource implements HasImportExportContract
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:8]
-namespace App\MoonShine\Resources;
-
+// [tl! collapse:3]
 use App\Enums\StatusEnum;
-use MoonShine\ImportExport\Contracts\HasImportExportContract;
-use MoonShine\ImportExport\Traits\ImportExportConcern;
-use MoonShine\Laravel\Resources\ModelResource;
 use MoonShine\UI\Fields\Enum;
 use MoonShine\UI\Fields\ID;
 
-class CategoryResource extends ModelResource implements HasImportExportContract
+protected function importFields(): iterable
 {
-    use ImportExportConcern;
-
-    // ...
-
-    protected function importFields(): iterable
-    {
-        return [
-            ID::make(),
-            Enum::make('Status')
-                ->attach(StatusEnum::class)
-                ->fromRaw(static fn(string $raw, Enum $ctx) => StatusEnum::tryFrom($raw)),
-        ];
-    }
+    return [
+        ID::make(),
+        Enum::make('Status')
+            ->attach(StatusEnum::class)
+            ->fromRaw(static fn(string $raw, Enum $ctx) => StatusEnum::tryFrom($raw)),
+    ];
 }
 ```
 
 <a name="import-settings"></a>
-### Настройка
+### Настройки импорта
 
 Для настройки импорта доступны опциональные методы.
 Чтобы ими воспользоваться необходимо добавить метод `import()`, который возвращает `ImportHandler`.
 
+- `notifyUsers()` - указать id пользователей, которые получат уведомление об окончании операции,
+- `disk()` - выбор диска,
+- `dir()` - выбор директории для сохранения файла импорта,
+- `deleteAfter()` - Удалять файл после импорта,
+- `delimiter()` - разделитель для CSV,
+- `modifyButton()` - модификация кнопки.
+
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:8]
-namespace App\MoonShine\Resources;
-
-use MoonShine\ImportExport\Contracts\HasImportExportContract;
-use MoonShine\ImportExport\ImportHandler;
-use MoonShine\ImportExport\Traits\ImportExportConcern;
+// [tl! collapse:3]
 use MoonShine\Crud\Handlers\Handler;
-use MoonShine\Laravel\Resources\ModelResource;
+use MoonShine\ImportExport\ImportHandler;
 use MoonShine\UI\Components\ActionButton;
 
-class CategoryResource extends ModelResource implements HasImportExportContract
+protected function import(): ?Handler
 {
-    use ImportExportConcern;
-
-    // ...
-
-    protected function import(): ?Handler
-    {
-        return ImportHandler::make(__('moonshine::ui.import'))
-            // Указать id пользователей, которые получат уведомление об окончании операции
-            ->notifyUsers(fn(ImportHandler $ctx) => [auth()->id()])
-            // Выбор диска
-            ->disk('public')
-            // Выбор директории для сохранения файла импорта
-            ->dir('/imports')
-            // Удалять файл после импорта
-            ->deleteAfter()
-            // Разделитель для csv
-            ->delimiter(',')
-            // Модификация кнопки
-            ->modifyButton(fn(ActionButton $btn) => $btn->class('my-class'))
-        ;
-    }
+    return ImportHandler::make(__('moonshine::ui.import'))
+        ->notifyUsers(fn(ImportHandler $ctx) => [auth()->id()])
+        ->disk('public')
+        ->dir('/imports')
+        ->deleteAfter()
+        ->delimiter(',')
+        ->modifyButton(fn(ActionButton $btn) => $btn->class('my-class'));
 }
 ```
 
@@ -188,7 +151,7 @@ public function afterImported(mixed $item): mixed
 В админ-панели **MoonShine** можно реализовать экспорт всех данных с учетом текущей фильтрации и сортировки.
 
 > [!NOTE]
-> По умолчанию данные экспортируются в формате `xlsx`, но существует возможность изменить формат на `csv` через метод `csv()` класса `ExportHandler`.
+> По умолчанию данные экспортируются в формате XLSX, но существует возможность изменить формат на CSV через метод `csv()` класса `ExportHandler`.
 
 <a name="export-fields"></a>
 ### Поля
@@ -197,28 +160,16 @@ public function afterImported(mixed $item): mixed
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:7]
-namespace App\MoonShine\Resources;
-
-use MoonShine\ImportExport\Contracts\HasImportExportContract;
-use MoonShine\ImportExport\Traits\ImportExportConcern;
-use MoonShine\Laravel\Resources\ModelResource;
+// [tl! collapse:2]
 use MoonShine\UI\Fields\ID;
 use MoonShine\UI\Fields\Text;
 
-class CategoryResource extends ModelResource implements HasImportExportContract
+protected function exportFields(): iterable
 {
-    use ImportExportConcern;
-
-    // ...
-
-    protected function exportFields(): iterable
-    {
-        return [
-            ID::make(),
-            Text::make('Name'),
-        ];
-    }
+    return [
+        ID::make(),
+        Text::make('Name'),
+    ];
 }
 ```
 
@@ -226,79 +177,55 @@ class CategoryResource extends ModelResource implements HasImportExportContract
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:8]
-namespace App\MoonShine\Resources;
-
+// [tl! collapse:3]
 use App\Enums\StatusEnum;
-use MoonShine\ImportExport\Contracts\HasImportExportContract;
-use MoonShine\ImportExport\Traits\ImportExportConcern;
-use MoonShine\Laravel\Resources\ModelResource;
 use MoonShine\UI\Fields\Enum;
 use MoonShine\UI\Fields\ID;
 
-class CategoryResource extends ModelResource implements HasImportExportContract
+protected function exportFields(): iterable
 {
-    use ImportExportConcern;
-
-    // ...
-
-    protected function exportFields(): iterable
-    {
-        return [
-            ID::make(),
-            Enum::make('Status')
-                ->attach(StatusEnum::class)
-                ->modifyRawValue(static fn(StatusEnum $raw, Order $data, Enum $ctx) => $raw->value),
-        ];
-    }
+    return [
+        ID::make(),
+        Enum::make('Status')
+            ->attach(StatusEnum::class)
+            ->modifyRawValue(static fn(StatusEnum $raw, Order $data, Enum $ctx) => $raw->value),
+    ];
 }
 ```
 
 <a name="export-settings"></a>
-### Настройка
+### Настройки экспорта
 
 Для настройки экспорта доступны опциональные методы.
 Чтобы ими воспользоваться необходимо добавить метод `export()`, который возвращает `ExportHandler`.
 
+- `notifyUsers()` - указать id пользователей, которые получат уведомление об окончании операции,
+- `disk()` - выбор диска,
+- `filename()` - наименование файла,
+- `dir()` - выбор директории сохранения файла экспорта,
+- `csv()` - экспортировать в формате CSV (по умолчанию XLSX),
+- `delimiter()` - разделитель для CSV,
+- `withConfirm()` - экспорт с подтверждением,
+- `modifyButton()` - модификация кнопки.
+
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:8]
-namespace App\MoonShine\Resources;
-
-use MoonShine\ImportExport\Contracts\HasImportExportContract;
-use MoonShine\ImportExport\ExportHandler;
-use MoonShine\ImportExport\Traits\ImportExportConcern;
+// [tl! collapse:3]
 use MoonShine\Crud\Handlers\Handler;
-use MoonShine\Laravel\Resources\ModelResource;
+use MoonShine\ImportExport\ExportHandler;
 use MoonShine\UI\Components\ActionButton;
 
-class CategoryResource extends ModelResource implements HasImportExportContract
+protected function export(): ?Handler
 {
-    use ImportExportConcern;
-
-    // ...
-
-    protected function export(): ?Handler
-    {
-        return ExportHandler::make(__('moonshine::ui.export'))
-            // Указать id пользователей, которые получат уведомление об окончании операции
-            ->notifyUsers(fn() => [auth()->id()])
-            // Выбор диска
-            ->disk('public')
-            // Наименование файла
-            ->filename(sprintf('export_%s', date('Ymd-His')))
-            // Выбор директории сохранения файла экспорта
-            ->dir('/exports')
-            // Если необходимо экспортировать в формате csv
-            ->csv()
-            // Разделитель для csv
-            ->delimiter(',')
-            // Экспорт с подтверждением
-            ->withConfirm()
-            // Модификация кнопки
-            ->modifyButton(fn(ActionButton $btn) => $btn->class('my-class'))
-        ;
-    }
+    return ExportHandler::make(__('moonshine::ui.export'))
+        ->notifyUsers(fn() => [auth()->id()])
+        ->disk('public')
+        ->filename(sprintf('export_%s', date('Ymd-His')))
+        ->dir('/exports')
+        ->csv()
+        ->delimiter(',')
+        ->withConfirm()
+        ->modifyButton(fn(ActionButton $btn) => $btn->class('my-class'));
 }
 ```
 
@@ -308,7 +235,7 @@ class CategoryResource extends ModelResource implements HasImportExportContract
 <a name="methods"></a>
 ## Общие методы
 
-`ImportHandler` и `ExportHandler` расширяют базовый класс `Handler` который реализует дополнительные методы.
+`ImportHandler` и `ExportHandler` расширяют базовый класс `Handler`, который реализует дополнительные методы.
 
 ### icon
 
@@ -368,30 +295,18 @@ when(
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:7]
-namespace App\MoonShine\Resources;
-
-use MoonShine\ImportExport\Contracts\HasImportExportContract;
-use MoonShine\ImportExport\ImportHandler;
-use MoonShine\ImportExport\Traits\ImportExportConcern;
+// [tl! collapse:2]
 use MoonShine\Crud\Handlers\Handler;
-use MoonShine\Laravel\Resources\ModelResource;
+use MoonShine\ImportExport\ImportHandler;
 
-class CategoryResource extends ModelResource implements HasImportExportContract
+protected function import(): ?Handler
 {
-    use ImportExportConcern;
-
-    // ...
-
-    protected function import(): ?Handler
-    {
-        return ImportHandler::make('Import')
-            ->when(
-                true,
-                fn($handler) => $handler->delimiter(','),
-                fn($handler) => $handler->delimiter(';')
-            );
-    }
+    return ImportHandler::make('Import')
+        ->when(
+            true,
+            fn($handler) => $handler->delimiter(','),
+            fn($handler) => $handler->delimiter(';')
+        );
 }
 ```
 

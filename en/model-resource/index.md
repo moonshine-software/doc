@@ -117,8 +117,6 @@ However, if you create a section manually, you need to declare it in the system 
 // [tl! collapse:start]
 namespace App\Providers;
 
-use App\MoonShine\Resources\ArticleResource;
-
 use Illuminate\Support\ServiceProvider;
 use MoonShine\Contracts\Core\DependencyInjection\CoreContract;
 use MoonShine\Laravel\DependencyInjection\ConfiguratorContract;
@@ -162,8 +160,6 @@ It is disabled by default and to activate it you need to call the `autoload()` m
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:start]
 namespace App\Providers;
-
-use App\MoonShine\Resources\ArticleResource;
 
 use Illuminate\Support\ServiceProvider;
 use MoonShine\Contracts\Core\DependencyInjection\CoreContract;
@@ -251,14 +247,9 @@ To add a section to the menu, you need to declare it via the `menu()` method in 
 // [tl! collapse:start]
 namespace App\MoonShine\Layouts;
 
-use App\MoonShine\Resources\PostResource;
-
 use MoonShine\Laravel\Layouts\AppLayout;
-use MoonShine\Laravel\Resources\MoonShineUserResource;
-use MoonShine\Laravel\Resources\MoonShineUserRoleResource;
 use MoonShine\MenuManager\MenuGroup;
-use MoonShine\MenuManager\MenuItem;
-// [tl! collapse:end]
+use MoonShine\MenuManager\MenuItem; // [tl! collapse:end]
 
 final class MoonShineLayout extends AppLayout
 {
@@ -293,12 +284,6 @@ By default, the alias of the resource used in the `url` is generated based on th
 To change the `alias`, you can use the resource property `$alias` or the method `getAlias()`.
 
 ```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-namespace App\MoonShine\Resources;
-
-use MoonShine\Laravel\Resources\ModelResource;
-
 class PostResource extends ModelResource
 {
     protected ?string $alias = 'custom-alias';
@@ -326,7 +311,8 @@ class PostResource extends ModelResource
 <a name="current-element-model"></a>
 ## Current Element/Model
 
-If the `resourceItem` parameter is present in the `url` of the detail or editing page, you can access the current element in the resource using the `getItem()` method.
+If the `resourceItem` parameter is present in the `url` of the detail or editing page,
+you can access the current element in the resource using the `getItem()` method.
 
 ```php
 $this->getItem();
@@ -344,12 +330,6 @@ $this->getModel();
 You can add, edit, and view records directly on the listing page in a modal window.
 
 ```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-namespace App\MoonShine\Resources;
-
-use MoonShine\Laravel\Resources\ModelResource;
-
 class PostResource extends ModelResource
 {
     protected bool $createInModal = true;
@@ -372,7 +352,7 @@ The `modifyCreateModal()` method allows you to modify the create modal window.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
+// [tl! collapse:1]
 use MoonShine\Contracts\UI\ModalContract;
 
 protected function modifyCreateModal(ModalContract $modal): ModalContract
@@ -387,7 +367,7 @@ The `modifyEditModal()` method allows you to modify the edit modal window.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
+// [tl! collapse:1]
 use MoonShine\Contracts\UI\ModalContract;
 
 protected function modifyEditModal(ModalContract $modal): ModalContract
@@ -402,7 +382,7 @@ The `modifyDetailModal()` method allows you to modify the detail modal window.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
+// [tl! collapse:1]
 use MoonShine\Contracts\UI\ModalContract;
 
 protected function modifyDetailModal(ModalContract $modal): ModalContract
@@ -447,7 +427,7 @@ The `modifyFiltersOffCanvas()` method allows you to modify the filters off-canva
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
+// [tl! collapse:1]
 use MoonShine\Contracts\UI\OffCanvasContract;
 
 protected function modifyFiltersOffCanvas(OffCanvasContract $offCanvas): OffCanvasContract
@@ -501,12 +481,9 @@ This can be done easily through the `activeActions()` method in the resource.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:5]
-namespace App\MoonShine\Resources;
-
-use MoonShine\Support\ListOf;
+// [tl! collapse:2]
 use MoonShine\Support\Enums\Action;
-use MoonShine\Laravel\Resources\ModelResource;
+use MoonShine\Support\ListOf;
 
 class PostResource extends ModelResource
 {
@@ -546,12 +523,6 @@ protected function activeActions(): ListOf
 The `onLoad()` method allows integration at the moment when the resource is loaded and currently active.
 
 ```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-namespace App\MoonShine\Resources;
-
-use MoonShine\Laravel\Resources\ModelResource;
-
 class PostResource extends ModelResource
 {
     // ...
@@ -566,15 +537,13 @@ class PostResource extends ModelResource
 > [!TIP]
 > Recipe: [Changing breadcrumbs from a resource](/docs/{{version}}/recipes/custom-breadcrumbs).
 
-You can also attach a `trait` to the resource and within the `trait`, add a method according to the naming convention - `load{TraitName}` and use the trait to access the `onLoad` of the resource.
+You can also attach a `trait` to the resource and within the `trait`, add a method according to the naming convention - `load{TraitName}`
+and use the trait to access the `onLoad()` of the resource.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:4]
-namespace App\MoonShine\Resources;
-
+// [tl! collapse:1]
 use App\Traits\WithPermissions;
-use MoonShine\Laravel\Resources\ModelResource;
 
 class PostResource extends ModelResource
 {
@@ -613,12 +582,6 @@ trait WithPermissions
 The `onBoot()` method allows integration at the moment when **MoonShine** is creating an instance of the resource within the system.
 
 ```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:3]
-namespace App\MoonShine\Resources;
-
-use MoonShine\Laravel\Resources\ModelResource;
-
 class PostResource extends ModelResource
 {
     // ...
@@ -630,7 +593,8 @@ class PostResource extends ModelResource
 }
 ```
 
-You can also attach a `trait` to the resource and within the `trait`, add a method according to the naming convention - `boot{TraitName}` and use the trait to access the `onBoot()` of the resource.
+You can also attach a `trait` to the resource and within the `trait`, add a method according to the naming convention - `boot{TraitName}`
+and use the trait to access the `onBoot()` of the resource.
 
 <a name="assets"></a>
 ## Assets
@@ -684,7 +648,8 @@ public function modifyErrorResponse(Response $response, Throwable $exception): R
 <a name="crud-operations-handlers"></a>
 ## CRUD operation handlers
 
-You can change the logic of save, delete, and mass delete operations in `ModelResource` using `SaveHandler`, `DestroyHandler` and `MassDestroyHandler` attributes and your custom handlers.
+You can change the logic of save, delete, and mass delete operations in `ModelResource`
+using `SaveHandler`, `DestroyHandler` and `MassDestroyHandler` attributes and your custom handlers.
 
 The `$data` array, which has already passed through the `apply()` method of the form fields, is passed into the save operation handler.
 
@@ -692,18 +657,17 @@ Usage example:
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:start]
-use MoonShine\Laravel\Resources\ModelResource;
+// [tl! collapse:3]
 use MoonShine\Crud\Attributes\DestroyHandler;
 use MoonShine\Crud\Attributes\MassDestroyHandler;
-use MoonShine\Crud\Attributes\SaveHandler; // [tl! collapse:end]
+use MoonShine\Crud\Attributes\SaveHandler;
 
 #[DestroyHandler(MoonShineUserRoleHandlers::class, 'destroy')]
 #[MassDestroyHandler(MoonShineUserRoleHandlers::class, 'massDestroy')]
 #[SaveHandler(MoonShineUserRoleHandlers::class, 'save')]
 class MoonShineUserRoleResource extends ModelResource
 {
-//...
+    // ...
 }
 ```
 
@@ -738,18 +702,17 @@ You can also use handler classes instead of methods, in which case they must imp
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:start]
-use MoonShine\Laravel\Resources\ModelResource;
+// [tl! collapse:3]
 use MoonShine\Crud\Attributes\DestroyHandler;
 use MoonShine\Crud\Attributes\MassDestroyHandler;
-use MoonShine\Crud\Attributes\SaveHandler; // [tl! collapse:end]
+use MoonShine\Crud\Attributes\SaveHandler;
 
 #[SaveHandler(MoonShineUserRoleSaveHandler::class)]
 #[DestroyHandler(MoonShineUserRoleDestroyHandler::class)]
 #[MassDestroyHandler(MoonShineUserRoleMassDestroyHandler::class)]
 class MoonShineUserRoleResource extends ModelResource
 {
-//..
+    // ...
 }
 ```
 

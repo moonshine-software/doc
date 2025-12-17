@@ -475,7 +475,8 @@ Text::make('Name')
 <a name="name-attribute"></a>
 ### Modifying the "name" Attribute
 
-Since the attribute of `name` is generated on the basis of investment and has a complex logic of formation, it needs to be used to change the `setNameAttribute()` method.
+Since the attribute of `name` is generated on the basis of investment and has a complex logic of formation,
+it needs to be used to change the `setNameAttribute()` method.
 
 ```php
 Text::make('Name')
@@ -856,17 +857,17 @@ Then register it for the field:
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:10]
+// [tl! collapse:start]
+use App\MoonShine\Applies\FileModelApply;
 use Illuminate\Support\ServiceProvider;
+use MoonShine\Contracts\Core\DependencyInjection\AppliesRegisterContract;
 use MoonShine\Contracts\Core\DependencyInjection\CoreContract;
+use MoonShine\Laravel\DependencyInjection\ConfiguratorContract;
 use MoonShine\Laravel\DependencyInjection\MoonShine;
 use MoonShine\Laravel\DependencyInjection\MoonShineConfigurator;
-use MoonShine\Laravel\DependencyInjection\ConfiguratorContract;
-use MoonShine\Contracts\Core\DependencyInjection\AppliesRegisterContract;
-use MoonShine\UI\Applies\AppliesRegister;
-use App\MoonShine\Applies\FileModelApply;
-use MoonShine\UI\Fields\File;
 use MoonShine\Laravel\Resources\ModelResource;
+use MoonShine\UI\Applies\AppliesRegister;
+use MoonShine\UI\Fields\File; // [tl! collapse:end]
 
 class MoonShineServiceProvider extends ServiceProvider
 {
@@ -1136,7 +1137,8 @@ updateOnPreview(
  - `$events` - (optional) triggers [AlpineJS events](/docs/{{version}}/frontend/js#events) after a successful request.
 
 > [!NOTE]
-> Parameters are not mandatory but should be provided if the field is outside a resource or if you want to specify a completely custom endpoint (then the resource is not needed).
+> Parameters are not mandatory but should be provided if the field is outside a resource
+> or if you want to specify a completely custom endpoint (then the resource is not needed).
 
 ```php
 Text::make('Name')->updateOnPreview()
@@ -1182,7 +1184,8 @@ Text::make('Name')
 ```
 
 > [!NOTE]
-> The methods `updateOnPreview()`, `withUpdateRow()` and `updateInPopover()` create the necessary endpoints and pass them to the `setUpdateOnPreviewUrl()` method, which works with [onChangeUrl()](#on-change).
+> The methods `updateOnPreview()`, `withUpdateRow()` and `updateInPopover()` create the necessary endpoints and pass them to the `setUpdateOnPreviewUrl()` method,
+> which works with [onChangeUrl()](#on-change).
 
 <a name="assets"></a>
 ## Assets
@@ -1375,8 +1378,9 @@ Text::make('Name')
 
 In this example, the field "Name" will only be displayed if the value of the field "category_id" is equal to 1, 2, or 3.
 
-When the showWhen condition is present on a field, hiding this field sets its DOM element to display:none and removes the name attribute so that the value of this hidden field does not end up in the final request.
-If you do not want the name attribute to be removed, you need to set the $submitShowWhen flag to true in your resource.
+When the showWhen condition is present on a field, hiding this field sets its DOM element to `display: none`
+and removes the name attribute so that the value of this hidden field does not end up in the final request.
+If you do not want the name attribute to be removed, you need to set the `$submitShowWhen` flag to true in your resource.
 
 ```php
 class ArticleResource extends ModelResource
@@ -1391,7 +1395,8 @@ class ArticleResource extends ModelResource
 ### showWhenDate Method
 
 The `showWhenDate()` method allows setting a display condition for a field based on the value of a date-type field.
-The logic for working with dates has been separated into a specific method due to the specifics of converting and comparing date and datetime types on both the backend and frontend.
+The logic for working with dates was moved to a separate method due to the specifics of conversion and comparison
+of the date and datetime types on backend and frontent.
 
 ```php
 showWhenDate(
@@ -1445,7 +1450,8 @@ Json::make('Attributes', 'attributes')->fields([
     ])
 ]),
 ```
-In this example, the entire column `Parts` inside `attributes` and the entire column `Width` inside `attributes.[n].settings` will only be displayed if the value of the field `category_id` is equal to 3.
+In this example, the entire column `Parts` inside `attributes` and the entire column `Width` inside `attributes.[n].settings`
+will only be displayed if the value of the field `category_id` is equal to 3.
 
 <a name="multiple-conditions"></a>
 ### Multiple Conditions
@@ -1458,7 +1464,8 @@ BelongsTo::make('Category', 'category', resource: CategoryResource::class)
     ->showWhenDate('created_at', '<', '2024-08-05 19:00')
 ```
 
-In this example, the field "Category" will only be displayed if the value of the field "created_at" is within the range between '2024-08-05 10:00' and '2024-08-05 19:00'.
+In this example, the field `category` will only be displayed if the value of the field `created_at` is within
+the range between '2024-08-05 10:00' and '2024-08-05 19:00'.
 
 > [!NOTE]
 > When using multiple conditions, they are combined logically with "AND".
