@@ -1276,13 +1276,17 @@ reactive(
     bool $lazy = false,
     int $debounce = 0,
     int $throttle = 0,
+    bool|Closure $silent = false,
+    bool|Closure $silentSelf = false,
 )
 ```
 
 - `$callback` - callback function,
 - `$lazy` - delayed function call,
 - `$debounce` - time between function calls (ms.),
-- `$throttle` - function call interval (ms.).
+- `$throttle` - function call interval (ms.),
+- `$silent` - skip field re-rendering when changes are made,
+- `$silentSelf` - skip field re-rendering if the current field is being edited.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -1337,6 +1341,47 @@ Select::make('Category', 'category_id')
                 );
         );
     })
+```
+
+### Skipping Field Re-rendering
+
+The `silentSelf` parameter allows skipping field re-rendering when the current field is being edited.
+This is useful when you don't want the edited field to lose focus or reset the entered data.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\UI\Fields\Select;
+
+Select::make('Select 1')->reactive(silentSelf: true),
+```
+
+The `silent` parameter allows completely skipping field re-rendering when any changes are made.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\UI\Fields\Select;
+
+Select::make('Select 2')->reactive(silent: true),
+```
+
+Both parameters can also accept a callback function for conditional control:
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\UI\Fields\Select;
+
+// Skip self re-rendering for a specific value
+Select::make('Select 1')->reactive(
+    silentSelf: fn(string $value, array $values, Select $ctx): bool => $value === 'Option 2'
+),
+
+// Skip re-rendering based on another field's value
+Select::make('Select 2')->reactive(
+    silent: fn(string $value, array $values, Select $ctx): bool => $values['select1'] === 'Option 2'
+),
 ```
 
 <a name="dynamic-display"></a>
