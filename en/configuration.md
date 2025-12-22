@@ -12,6 +12,7 @@ video: https://youtu.be/kazEtUFIZKM?si=vDvqZHmD3KPVFOha&t=525
   - [Options](#options)
   - [Title](#title)
   - [Logo](#logo)
+  - [Favicons](#favicons)
   - [Middleware](#middleware)
   - [Routing](#routing)
   - [Authentication](#authentication)
@@ -234,6 +235,34 @@ $config
     ->logo('/assets/logo-small.png', small: true);
 ```
 ~~~
+
+<a name="favicons"></a>
+### Favicons
+
+You can configure paths to favicon icons through configuration.
+
+```php filename:config/moonshine.php
+'favicons' => [
+    'apple-touch' => '/vendor/moonshine/apple-touch-icon.png',
+    '32' => '/vendor/moonshine/favicon-32x32.png',
+    '16' => '/vendor/moonshine/favicon-16x16.png',
+    'safari-pinned-tab' => '/vendor/moonshine/safari-pinned-tab.svg',
+    'web-manifest' => '/vendor/moonshine/site.webmanifest',
+],
+```
+
+The assets array is as follows:
+- `apple-touch` - path to the Apple Touch Icon,
+- `32` - path to the 32x32px favicon,
+- `16` - path to the 16x16px favicon,
+- `safari-pinned-tab` - path to the SVG for Safari pinned tab,
+- `web-manifest` - path to the Web Manifest (leave empty to disable).
+
+> [!TIP]
+> If you need to disable `web-manifest`, set an empty string for the `web-manifest` key.
+
+> [!NOTE]
+> For more information about the component, see [Favicon](/docs/{{version}}/components/favicon).
 
 <a name="middleware"></a>
 ### Middleware

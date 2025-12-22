@@ -1,6 +1,7 @@
 # Favicon
 
 - [Основы](#basics)
+- [Конфигурация](#configuration)
 - [Кастомные favicons](#assets)
 - [Цвет закрепленной вкладки](#color)
 
@@ -30,6 +31,27 @@ tab: Blade
 
 > [!NOTE]
 > Родительский компонент: [head](/docs/{{version}}/components/head).
+
+<a name="configuration"></a>
+## Конфигурация
+
+Самый простой способ изменить favicons — через файл конфигурации `config/moonshine.php`.
+
+```php filename:config/moonshine.php
+'favicons' => [
+    'apple-touch' => '/images/apple-touch-icon.png',
+    '32' => '/images/favicon-32x32.png',
+    '16' => '/images/favicon-16x16.png',
+    'safari-pinned-tab' => '/images/safari-pinned-tab.svg',
+    'web-manifest' => '/images/site.webmanifest',
+],
+```
+
+> [!TIP]
+> Если вам необходимо отключить `web-manifest`, установите пустую строку для ключа `web-manifest`.
+
+> [!NOTE]
+> Подробнее о конфигурации смотрите в разделе [Конфигурация](/docs/{{version}}/configuration#favicons).
 
 <a name="assets"></a>
 ## Кастомные favicons
