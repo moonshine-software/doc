@@ -2,6 +2,7 @@
 
 - [Основы](#basics)
 - [Асинхронное взаимодействие](#async)
+- [Автообновление](#auto-update)
 
 ---
 
@@ -119,3 +120,32 @@ Fragment::make($components)
     ->name('fragment-name')
     ->withQueryParams(),
 ```
+
+<a name="auto-update"></a>
+## Автообновление
+
+Метод `autoUpdate()` позволяет автоматически обновлять содержимое фрагмента с заданным интервалом.
+
+```php
+autoUpdate(int $ms)
+```
+
+- `$ms` — интервал обновления в миллисекундах (должен быть больше 0).
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\Crud\Components\Fragment;
+use MoonShine\UI\Components\Metrics\ValueMetric;
+
+Fragment::make([
+    ValueMetric::make('Metric')
+        ->value(random_int(1, 1000))
+        ->columnSpan(6),
+])
+    ->name('fragment-metric')
+    ->withQueryParams()
+    ->autoUpdate(5000),
+```
+
+В данном примере фрагмент с метрикой будет автоматически обновляться каждые 5 секунд.

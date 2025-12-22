@@ -48,3 +48,7 @@ protected function fragmentMetrics(): ?Closure
     return static fn(array $components): Fragment => Fragment::make($components)->name('metrics');
 }
 ```
+
+> [!TIP]
+> Если вы хотите, чтобы метрики обновлялись автоматически, используйте метод `autoUpdate()`.
+> Подробнее в разделе [Fragment](/docs/{{version}}/components/fragment#auto-update).
