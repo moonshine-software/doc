@@ -1276,13 +1276,17 @@ reactive(
     bool $lazy = false,
     int $debounce = 0,
     int $throttle = 0,
+    bool|Closure $silent = false,
+    bool|Closure $silentSelf = false,
 )
 ```
 
 - `$callback` - callback функция,
 - `$lazy` - отложенный вызов функции,
 - `$debounce` - время между вызовами функций (ms.),
-- `$throttle` - интервал вызова функций (ms.).
+- `$throttle` - интервал вызова функций (ms.),
+- `$silent` - пропустить перерендеринг поля при изменениях,
+- `$silentSelf` - пропустить перерендеринг поля, если оно в данный момент редактируется.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
@@ -1337,6 +1341,47 @@ Select::make('Category', 'category_id')
                 );
         );
     })
+```
+
+### Пропуск перерендеринга поля
+
+Параметр `silentSelf` позволяет пропустить перерендеринг поля, если оно в данный момент редактируется.
+Это полезно, когда вы не хотите, чтобы редактируемое поле теряло фокус или сбрасывало введённые данные.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\UI\Fields\Select;
+
+Select::make('Select 1')->reactive(silentSelf: true),
+```
+
+Параметр `silent` позволяет полностью пропустить перерендеринг поля при любых изменениях.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\UI\Fields\Select;
+
+Select::make('Select 2')->reactive(silent: true),
+```
+
+Оба параметра также могут принимать callback-функцию для условного управления:
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\UI\Fields\Select;
+
+// Пропустить перерендеринг себя при определённом значении
+Select::make('Select 1')->reactive(
+    silentSelf: fn(string $value, array $values, Select $ctx): bool => $value === 'Option 2'
+),
+
+// Пропустить перерендеринг при определённом значении другого поля
+Select::make('Select 2')->reactive(
+    silent: fn(string $value, array $values, Select $ctx): bool => $values['select1'] === 'Option 2'
+),
 ```
 
 <a name="dynamic-display"></a>
