@@ -39,6 +39,7 @@
 - [Динамическое отображение](#dynamic-display)
   - [showWhen](#show-when)
   - [showWhenDate](#show-when-date)
+  - [showWhenRow](#show-when-row)
   - [Вложенные поля](#nested-fields)
   - [Множественные условия](#multiple-conditions)
   - [Поддерживаемые операторы](#supported-operators)
@@ -1422,6 +1423,50 @@ Text::make('Content')
 
 > [!NOTE]
 > Вы можете использовать любой формат даты, который может быть распознан функцией `strtotime()`.
+
+<a name="show-when-row"></a>
+### Метод showWhenRow
+
+> [!WARNING]
+> Экспериментальная функция.
+
+Метод `showWhenRow()` позволяет задать условие отображения поля внутри `Json` (табличный режим) в зависимости от значения другого поля в той же строке таблицы.
+
+```php
+showWhenRow(
+    string $column,
+    mixed $operator = null,
+    mixed $value = null
+)
+```
+
+- `$column` - имя поля в той же строке, от которого зависит отображение,
+- `$operator` - оператор сравнения (необязательный),
+- `$value` - значение для сравнения.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:3]
+use MoonShine\UI\Fields\Json;
+use MoonShine\UI\Fields\Select;
+use MoonShine\UI\Fields\Text;
+
+Json::make('Options')->fields([
+    Select::make('Type')->options([
+        1 => 'First',
+        2 => 'Second',
+    ]),
+    Text::make('Value')->showWhenRow('type', 1),
+])
+```
+
+В этом примере поле "Value" будет отображаться только в тех строках, где значение поля "Type" равно 1.
+
+> [!NOTE]
+> Если в функции `showWhenRow` передается только два параметра, то по умолчанию используется оператор `'='`.
+
+> [!NOTE]
+> Метод `showWhenRow()` работает только внутри поля `Json` в табличном режиме.
 
 <a name="nested-fields"></a>
 ### Вложенные поля

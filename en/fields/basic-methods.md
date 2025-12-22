@@ -39,6 +39,7 @@
 - [Dynamic Display](#dynamic-display)
   - [showWhen](#show-when)
   - [showWhenDate](#show-when-date)
+  - [showWhenRow](#show-when-row)
   - [Nested Fields](#nested-fields)
   - [Multiple Conditions](#multiple-conditions)
   - [Supported Operators](#supported-operators)
@@ -1422,6 +1423,50 @@ In this example, the field "Content" will only be displayed if the value of the 
 
 > [!NOTE]
 > You can use any date format that can be recognized by the `strtotime()` function.
+
+<a name="show-when-row"></a>
+### showWhenRow Method
+
+> [!WARNING]
+> Experimental feature.
+
+The `showWhenRow()` method allows setting a display condition for a field inside `Json` (table mode) based on the value of another field in the same table row.
+
+```php
+showWhenRow(
+    string $column,
+    mixed $operator = null,
+    mixed $value = null
+)
+```
+
+- `$column` - the name of the field in the same row on which the display depends,
+- `$operator` - comparison operator (optional),
+- `$value` - value for comparison.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:3]
+use MoonShine\UI\Fields\Json;
+use MoonShine\UI\Fields\Select;
+use MoonShine\UI\Fields\Text;
+
+Json::make('Options')->fields([
+    Select::make('Type')->options([
+        1 => 'First',
+        2 => 'Second',
+    ]),
+    Text::make('Value')->showWhenRow('type', 1),
+])
+```
+
+In this example, the field "Value" will only be displayed in rows where the value of the field "Type" is equal to 1.
+
+> [!NOTE]
+> If only two parameters are passed to the `showWhenRow` function, the `'='` operator is used by default.
+
+> [!NOTE]
+> The `showWhenRow()` method only works inside a `Json` field in table mode.
 
 <a name="nested-fields"></a>
 ### Nested Fields
