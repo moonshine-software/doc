@@ -1,6 +1,7 @@
 # Favicon
 
 - [Basics](#basics)
+- [Configuration](#configuration)
 - [Custom favicons](#assets)
 - [Pinned tab color](#color)
 
@@ -30,6 +31,27 @@ tab: Blade
 
 > [!NOTE]
 > Parent component: [head](/docs/{{version}}/components/head).
+
+<a name="configuration"></a>
+## Configuration
+
+The simplest way to change favicons is through the `config/moonshine.php` configuration file.
+
+```php filename:config/moonshine.php
+'favicons' => [
+    'apple-touch' => '/images/apple-touch-icon.png',
+    '32' => '/images/favicon-32x32.png',
+    '16' => '/images/favicon-16x16.png',
+    'safari-pinned-tab' => '/images/safari-pinned-tab.svg',
+    'web-manifest' => '/images/site.webmanifest',
+],
+```
+
+> [!TIP]
+> If you need to disable `web-manifest`, set an empty string for the `web-manifest` key.
+
+> [!NOTE]
+> For more information about configuration, see [Configuration](/docs/{{version}}/configuration#favicons).
 
 <a name="assets"></a>
 ## Custom favicons

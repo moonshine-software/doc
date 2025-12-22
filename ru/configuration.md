@@ -12,6 +12,7 @@ video: https://youtu.be/kC1KIdO_MZ4?si=H2JRdmEzn4F5XOM2&t=554
   - [Опции](#options)
   - [Заголовок](#title)
   - [Логотип](#logo)
+  - [Favicons](#favicons)
   - [Middleware](#middleware)
   - [Маршрутизация](#routing)
   - [Аутентификация](#authentication)
@@ -234,6 +235,34 @@ $config
     ->logo('/assets/logo-small.png', small: true);
 ```
 ~~~
+
+<a name="favicons"></a>
+### Favicons
+
+Вы можете настроить пути к favicon-иконкам через конфигурацию.
+
+```php filename:config/moonshine.php
+'favicons' => [
+    'apple-touch' => '/vendor/moonshine/apple-touch-icon.png',
+    '32' => '/vendor/moonshine/favicon-32x32.png',
+    '16' => '/vendor/moonshine/favicon-16x16.png',
+    'safari-pinned-tab' => '/vendor/moonshine/safari-pinned-tab.svg',
+    'web-manifest' => '/vendor/moonshine/site.webmanifest',
+],
+```
+
+Массив ассетов вида:
+- `apple-touch` - путь к Apple Touch Icon,
+- `32` - путь к favicon 32x32px,
+- `16` - путь к favicon 16x16px,
+- `safari-pinned-tab` - путь к SVG для закрепленной вкладки Safari,
+- `web-manifest` - путь к Web Manifest (оставьте пустым для отключения).
+
+> [!TIP]
+> Если вам необходимо отключить `web-manifest`, установите пустую строку для ключа `web-manifest`.
+
+> [!NOTE]
+> Подробнее о компоненте смотрите в разделе [Favicon](/docs/{{version}}/components/favicon).
 
 <a name="middleware"></a>
 ### Middleware
