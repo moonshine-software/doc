@@ -247,7 +247,6 @@ You can configure paths to favicon icons through configuration.
     '32' => '/vendor/moonshine/favicon-32x32.png',
     '16' => '/vendor/moonshine/favicon-16x16.png',
     'safari-pinned-tab' => '/vendor/moonshine/safari-pinned-tab.svg',
-    'web-manifest' => '/vendor/moonshine/site.webmanifest',
 ],
 ```
 
@@ -256,10 +255,6 @@ The assets array is as follows:
 - `32` - path to the 32x32px favicon,
 - `16` - path to the 16x16px favicon,
 - `safari-pinned-tab` - path to the SVG for Safari pinned tab,
-- `web-manifest` - path to the Web Manifest (leave empty to disable).
-
-> [!TIP]
-> If you need to disable `web-manifest`, set an empty string for the `web-manifest` key.
 
 > [!NOTE]
 > For more information about the component, see [Favicon](/docs/{{version}}/components/favicon).

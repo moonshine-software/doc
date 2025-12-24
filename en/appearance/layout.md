@@ -451,7 +451,6 @@ final class MyLayout extends AppLayout
             '32' => 'favicon_path',
             '16' => 'favicon_path',
             'safari-pinned-tab' => 'favicon_path',
-            'web-manifest' => 'favicon_path',
         ]);
     }
 }

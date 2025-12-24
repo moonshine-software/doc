@@ -43,12 +43,8 @@ The simplest way to change favicons is through the `config/moonshine.php` config
     '32' => '/images/favicon-32x32.png',
     '16' => '/images/favicon-16x16.png',
     'safari-pinned-tab' => '/images/safari-pinned-tab.svg',
-    'web-manifest' => '/images/site.webmanifest',
 ],
 ```
-
-> [!TIP]
-> If you need to disable `web-manifest`, set an empty string for the `web-manifest` key.
 
 > [!NOTE]
 > For more information about configuration, see [Configuration](/docs/{{version}}/configuration#favicons).
@@ -73,7 +69,6 @@ Favicon::make([
         '32' => Vite::asset('favicons/favicon-32x32.png'),
         '16' => Vite::asset('favicons/favicon-16x16.png'),
         'safari-pinned-tab' => Vite::asset('favicons/safari-pinned-tab.svg'),
-        'web-manifest' => Vite::asset('favicons/site.webmanifest'),
     ]);
 ```
 tab: Blade
@@ -83,7 +78,6 @@ tab: Blade
     '32' => asset('favicons/favicon-32x32.png'),
     '16' => asset('favicons/favicon-16x16.png'),
     'safari-pinned-tab' => asset('favicons/safari-pinned-tab.svg'),
-    'web-manifest' => asset('favicons/site.webmanifest'),
 ]" />
 ```
 ~~~
@@ -93,7 +87,6 @@ The assets array is as follows:
 - `32` - URL for the 32x32px favicon,
 - `16` - URL for the 16x16px favicon,
 - `safari-pinned-tab` - URL for the Safari pinned tab,
-- `web-manifest` - URL for the Web Manifest.
 
 <a name="color"></a>
 ## Pinned tab color

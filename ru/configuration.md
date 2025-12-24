@@ -247,7 +247,6 @@ $config
     '32' => '/vendor/moonshine/favicon-32x32.png',
     '16' => '/vendor/moonshine/favicon-16x16.png',
     'safari-pinned-tab' => '/vendor/moonshine/safari-pinned-tab.svg',
-    'web-manifest' => '/vendor/moonshine/site.webmanifest',
 ],
 ```
 
@@ -256,10 +255,6 @@ $config
 - `32` - путь к favicon 32x32px,
 - `16` - путь к favicon 16x16px,
 - `safari-pinned-tab` - путь к SVG для закрепленной вкладки Safari,
-- `web-manifest` - путь к Web Manifest (оставьте пустым для отключения).
-
-> [!TIP]
-> Если вам необходимо отключить `web-manifest`, установите пустую строку для ключа `web-manifest`.
 
 > [!NOTE]
 > Подробнее о компоненте смотрите в разделе [Favicon](/docs/{{version}}/components/favicon).

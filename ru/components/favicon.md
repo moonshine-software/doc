@@ -43,12 +43,8 @@ tab: Blade
     '32' => '/images/favicon-32x32.png',
     '16' => '/images/favicon-16x16.png',
     'safari-pinned-tab' => '/images/safari-pinned-tab.svg',
-    'web-manifest' => '/images/site.webmanifest',
 ],
 ```
-
-> [!TIP]
-> Если вам необходимо отключить `web-manifest`, установите пустую строку для ключа `web-manifest`.
 
 > [!NOTE]
 > Подробнее о конфигурации смотрите в разделе [Конфигурация](/docs/{{version}}/configuration#favicons).
@@ -73,7 +69,6 @@ Favicon::make([
         '32' => Vite::asset('favicons/favicon-32x32.png'),
         '16' => Vite::asset('favicons/favicon-16x16.png'),
         'safari-pinned-tab' => Vite::asset('favicons/safari-pinned-tab.svg'),
-        'web-manifest' => Vite::asset('favicons/site.webmanifest'),
     ]);
 ```
 tab: Blade
@@ -83,7 +78,6 @@ tab: Blade
     '32' => asset('favicons/favicon-32x32.png'),
     '16' => asset('favicons/favicon-16x16.png'),
     'safari-pinned-tab' => asset('favicons/safari-pinned-tab.svg'),
-    'web-manifest' => asset('favicons/site.webmanifest'),
 ]" />
 ```
 ~~~
@@ -93,7 +87,6 @@ tab: Blade
 - `32` - URL адрес для 32x32px favicon,
 - `16` - URL адрес для 16x16px favicon,
 - `safari-pinned-tab` - URL адрес для Safari закрепленной вкладки,
-- `web-manifest` - URL адрес для Web Manifest.
 
 <a name="color"></a>
 ## Цвет закрепленной вкладки
