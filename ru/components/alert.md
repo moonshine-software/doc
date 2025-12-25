@@ -27,6 +27,8 @@ tab: Blade
 ```
 ~~~
 
+@preview('alert')
+
 <a name="type"></a>
 ## Тип уведомления
 
