@@ -43,8 +43,7 @@ tab: Blade
 ```
 ~~~
 
-![mask](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/mask.png#light)
-![mask_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/mask_dark.png#dark)
+@preview('fields.text')
 
 <a name="basic-methods"></a>
 ## Основные методы

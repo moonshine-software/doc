@@ -54,8 +54,7 @@ tab: Blade
 ```
 ~~~
 
-![select](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/select.png#light)
-![select](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/select_dark.png#dark)
+@preview('fields.select')
 
 <a name="basic-methods"></a>
 ## Основные методы

@@ -48,6 +48,8 @@ tab: Blade
 ```
 ~~~
 
+@preview('profile')
+
 <a name="avatar-placeholder"></a>
 ## Аватар placeholder
 

@@ -18,3 +18,5 @@ tab: Blade
 <x-moonshine::boolean :value="false" />
 ```
 ~~~
+
+@preview('boolean')

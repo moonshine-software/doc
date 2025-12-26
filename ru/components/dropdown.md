@@ -59,6 +59,8 @@ tab: Blade
 ```
 ~~~
 
+@preview('dropdown')
+
 <a name="heading"></a>
 ## Заголовок
 

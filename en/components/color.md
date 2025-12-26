@@ -26,6 +26,8 @@ tab: Blade
 ```
 ~~~
 
+@preview('color')
+
 Available values in the enum `MoonShine\Support\Enums\Color`:
 
 ```php

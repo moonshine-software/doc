@@ -21,6 +21,8 @@ use MoonShine\UI\Fields\Textarea;
 Textarea::make('Text')
 ```
 
+@preview('fields.textarea')
+
 <a name="rows"></a>
 ## Field Height
 

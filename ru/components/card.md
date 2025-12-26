@@ -62,6 +62,8 @@ tab: Blade
 ```
 ~~~
 
+@preview('card')
+
 <a name="header"></a>
 ## Заголовок
 

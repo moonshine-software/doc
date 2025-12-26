@@ -30,6 +30,8 @@ tab: Blade
 ```
 ~~~
 
+@preview('img')
+
 <a name="additional-attributes"></a>
 ## Additional attributes
 

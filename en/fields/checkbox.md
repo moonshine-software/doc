@@ -37,6 +37,8 @@ tab: Blade
 ```
 ~~~
 
+@preview('fields.checkbox')
+
 <a name="on-off"></a>
 ## On/Off Values
 

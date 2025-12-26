@@ -35,6 +35,9 @@ tab: Blade
 ```
 ~~~
 
+
+@preview('metric')
+
 The `value()` method allows you to specify the value for the metric.
 
 ```php

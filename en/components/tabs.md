@@ -67,6 +67,8 @@ tab: Blade
 ```
 ~~~
 
+@preview('tabs')
+
 > [!WARNING]
 > Use `snake_case` for naming the tab key.
 

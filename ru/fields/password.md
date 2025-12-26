@@ -28,6 +28,8 @@ use MoonShine\UI\Fields\Password;
 Password::make('Password')
 ```
 
+@preview('fields.password')
+
 <a name="password-repeat"></a>
 ## PasswordRepeat
 

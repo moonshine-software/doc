@@ -38,6 +38,8 @@ tab: Blade
 ```
 ~~~
 
+@preview('menu')
+
 You can also initialize the menu through a primitive array.
 
 ```php

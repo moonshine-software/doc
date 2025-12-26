@@ -27,3 +27,6 @@ tab: Blade
 <x-moonshine::rating value="8" min="1" max="10" />
 ```
 ~~~
+
+
+@preview('rating')

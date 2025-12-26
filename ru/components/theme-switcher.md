@@ -18,3 +18,5 @@ tab: Blade
 <x-moonshine::layout.theme-switcher />
 ```
 ~~~
+
+@preview('theme-switcher')

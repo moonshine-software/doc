@@ -23,6 +23,8 @@ use MoonShine\UI\Fields\Url;
 Url::make('Link')
 ```
 
+@preview('fields.url')
+
 <a name="title"></a>
 ## Title
 

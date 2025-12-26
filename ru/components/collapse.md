@@ -48,6 +48,8 @@ tab: Blade
 ```
 ~~~
 
+@preview('collapse')
+
 <a name="icon"></a>
 ## Иконка
 

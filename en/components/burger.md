@@ -17,6 +17,8 @@ tab: Blade
 ```
 ~~~
 
+@preview('burger')
+
 By default, the burger button opens and closes the menu from the Sidebar.
 
 If you need the burger to control the menu from the Topbar, use the `topbar()` method:

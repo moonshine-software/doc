@@ -62,8 +62,7 @@ Json::make('Product Options', 'options')
     ])
 ```
 
-![json_fields](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/json_fields.png#light)
-![json_fields_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/json_fields_dark.png#dark)
+@preview('fields.json')
 
 <a name="key-value"></a>
 ## Key/Value Mode

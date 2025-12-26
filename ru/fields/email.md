@@ -13,3 +13,5 @@ use MoonShine\UI\Fields\Email;
 
 Email::make('Email')
 ```
+
+@preview('fields.email')

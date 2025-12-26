@@ -33,6 +33,8 @@ DateRange::make('Dates')
     ->fromTo('date_from', 'date_to')
 ```
 
+@preview('fields.date-range')
+
 <a name="date-and-time"></a>
 ## Дата и время
 

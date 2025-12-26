@@ -55,6 +55,8 @@ tab: Blade
 ```
 ~~~
 
+@preview('badge')
+
 <p class="colors">
 <span class="color color-primary">primary</span>
 <span class="color color-secondary">secondary</span>

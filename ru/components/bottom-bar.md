@@ -32,3 +32,5 @@ tab: Blade
 </x-moonshine::layout.bottom-bar>
 ```
 ~~~
+
+@preview('bottom-bar')

@@ -82,3 +82,5 @@ tab: Blade
 </x-moonshine::layout.grid>
 ```
 ~~~
+
+@preview('grid')

@@ -45,6 +45,8 @@ tab: Blade
 ```
 ~~~
 
+@preview('fields.number')
+
 <a name="basic-methods"></a>
 ## Basic Methods
 

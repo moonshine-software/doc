@@ -33,6 +33,8 @@ tab: Blade
 ```
 ~~~
 
+@preview('thumbnails')
+
 You can specify one thumbnail.
 
 ```blade

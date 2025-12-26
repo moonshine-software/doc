@@ -26,6 +26,8 @@ tab: Blade
 ```
 ~~~
 
+@preview('divider')
+
 <a name="label"></a>
 ## Label
 

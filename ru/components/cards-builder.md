@@ -62,6 +62,8 @@ tab: Blade
 ```
 ~~~
 
+@preview('cards-builder')
+
 - `$fields` - поля,
 - `$items` - значения полей.
 

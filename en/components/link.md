@@ -43,6 +43,8 @@ tab: Blade
 ```
 ~~~
 
+@preview('link')
+
 <a name="tooltip"></a>
 ## Tooltip
 

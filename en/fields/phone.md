@@ -22,6 +22,8 @@ use MoonShine\UI\Fields\Phone;
 Phone::make('Phone')
 ```
 
+@preview('fields.phone')
+
 <a name="mask"></a>
 ## Mask
 

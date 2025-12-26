@@ -40,6 +40,8 @@ Range::make('Age', 'age')
     ->fromTo('age_from', 'age_to')
 ```
 
+@preview('fields.range')
+
 <a name="attributes"></a>
 ## Attributes
 

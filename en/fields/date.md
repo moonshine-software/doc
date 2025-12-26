@@ -42,8 +42,7 @@ tab: Blade
 ```
 ~~~
 
-![Creation date](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/date.png#light)
-![Creation date](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/date_dark.png#dark)
+@preview('fields.date')
 
 <a name="basic-methods"></a>
 ## Basic Methods

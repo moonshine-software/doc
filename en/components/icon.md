@@ -43,6 +43,8 @@ tab: Blade
 ```
 ~~~
 
+@preview('icon')
+
 <a name="custom"></a>
 ## Custom Output
 

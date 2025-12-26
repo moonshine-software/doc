@@ -42,6 +42,8 @@ tab: Blade
 ```
 ~~~
 
+@preview('box')
+
 <a name="heading"></a>
 ## Заголовок
 

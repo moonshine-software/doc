@@ -40,6 +40,8 @@ tab: Blade
 ```
 ~~~
 
+@preview('heading')
+
 <a name="gradation"></a>
 ## Градация
 

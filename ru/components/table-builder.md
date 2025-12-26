@@ -118,6 +118,8 @@ tab: Blade
 ```
 ~~~
 
+@preview('table-builder')
+
 <a name="basic-usage"></a>
 ## Основное использование
 

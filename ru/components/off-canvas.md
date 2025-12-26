@@ -66,6 +66,8 @@ tab: Blade
 ```
 ~~~
 
+@preview('off-canvas')
+
 @include('_includes/modal-off-canvas-components', 'OffCanvas', 'OffCanvas', 'OffCanvas', 'OffCanvas')
 
 <a name="events"></a>

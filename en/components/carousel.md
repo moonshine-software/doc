@@ -43,6 +43,8 @@ tab: Blade
 ```
 ~~~
 
+@preview('carousel')
+
 <a name="items"></a>
 ## Items
 

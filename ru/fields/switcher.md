@@ -28,5 +28,4 @@ tab: Blade
 ```
 ~~~
 
-![switcher](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/switcher.png#light)
-![switcher_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/switcher_dark.png#dark)
+@preview('fields.switcher')

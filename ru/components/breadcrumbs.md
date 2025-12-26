@@ -30,3 +30,5 @@ tab: Blade
 />
 ```
 ~~~
+
+@preview('breadcrumbs')

@@ -45,6 +45,8 @@ tab: Blade
 ```
 ~~~
 
+@preview('popover')
+
 <a name="without"></a>
 ## Без использования компонента
 

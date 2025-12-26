@@ -27,6 +27,9 @@ RangeSlider::make('Age', 'age')
     ->fromTo('age_from', 'age_to')
 ```
 
+@preview('fields.range-slider')
+
+
 <a name="filter"></a>
 ## Filter
 

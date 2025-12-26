@@ -37,3 +37,5 @@ tab: Blade
 />
 ```
 ~~~
+
+@preview('files')

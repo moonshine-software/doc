@@ -28,3 +28,6 @@ tab: Blade
 </x-moonshine::title>
 ```
 ~~~
+
+
+@preview('title')

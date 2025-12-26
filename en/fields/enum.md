@@ -27,6 +27,8 @@ Enum::make('Status')
 > [!NOTE]
 > The model attributes require Enum Cast.
 
+@preview('fields.select')
+
 <a name="displaying-values"></a>
 ## Displaying Values
 
@@ -96,6 +98,3 @@ enum StatusEnum: string
     }
 }
 ```
-
-![enum](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/enum.png#light)
-![enum_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/enum_dark.png#dark)

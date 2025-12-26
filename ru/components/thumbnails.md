@@ -33,6 +33,8 @@ tab: Blade
 ```
 ~~~
 
+@preview('thumbnails')
+
 Вы можете указать одну миниатюру.
 
 ```blade

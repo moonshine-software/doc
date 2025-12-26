@@ -25,6 +25,8 @@ tab: Blade
 ```
 ~~~
 
+@preview('loader')
+
 <a name="change-view"></a>
 ## Смена view
 

@@ -52,6 +52,8 @@ ActionButton::make(
 )
 ```
 
+@preview('action-button')
+
 <a name="blank"></a>
 ## Open in new window
 

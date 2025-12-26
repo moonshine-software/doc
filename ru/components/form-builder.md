@@ -89,6 +89,8 @@ precognitive
 ```
 ~~~
 
+@preview('form-builder')
+
 <a name="basic-methods"></a>
 ## Основные методы
 

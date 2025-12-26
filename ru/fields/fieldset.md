@@ -44,6 +44,8 @@ Fieldset::make()
     ]),
 ```
 
+@preview('fields.fieldset')
+
 <a name="edit-view"></a>
 ## Изменение отображения
 

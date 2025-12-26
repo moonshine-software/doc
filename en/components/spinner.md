@@ -41,6 +41,8 @@ tab: Blade
 ```
 ~~~
 
+@preview('spinner')
+
 <a name="size"></a>
 ## Size
 

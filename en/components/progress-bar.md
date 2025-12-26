@@ -45,6 +45,8 @@ tab: Blade
 ```
 ~~~
 
+@preview('progress-bar')
+
 <a name="size"></a>
 ## Size
 

@@ -46,8 +46,7 @@ tab: Blade
 ```
 ~~~
 
-![File](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/file_light.png#light)
-![File](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/file_dark.png#dark)
+@preview('fields.file')
 
 > [!NOTE]
 > To correctly generate the file URL, you must set the environment variable `APP_URL` to match your application's URL.
