@@ -34,12 +34,12 @@ $resource->getFormPageUrl();
 // Edit page by int
 $resource->getFormPageUrl(1);
 // Edit page by Model
-$resource->getFormPageUrl($item);
+$resource->getFormPageUrl($item->getKey());
 
 // Detail page by int
 $resource->getDetailPageUrl(1);
 // Detail page by Model
-$resource->getDetailPageUrl($item);
+$resource->getDetailPageUrl($item->getKey());
 
 // ANY
 $resource->getAsyncMethodUrl('updateSomething');
