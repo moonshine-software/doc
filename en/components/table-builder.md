@@ -783,20 +783,6 @@ final class UndefinedPageController extends MoonShineController
 
 If you need to send a request to update the `TableBuilder` component immediately upon page load, you must add the `lazy()` method.
 
-#### Alpine.morph
-
-By default, when the table updates in `async()` or `lazy()` mode, the DOM content is completely replaced.
-This can cause the loss of Alpine.js component state inside the table (for example, modal windows or styled Select fields).
-
-The `withMorphLoad()` method enables DOM morphing mode (via `Alpine.morph`), which updates (only what has really changed) the table content while preserving the Alpine.js component state.
-
-```php
-TableBuilder::make()
-    ->name('my-table')
-    ->async()
-    ->withMorphLoad()
-```
-
 Additionally, the `lazy()` and `whenAsync()` methods in combination can solve the problem of lazy loading data or loading data from an external source.
 
 ```php
@@ -841,6 +827,20 @@ TableBuilder::make()
         )
     )
     ->withNotFound(),
+```
+
+#### Alpine.morph
+
+By default, when the table updates in `async()` or `lazy()` mode, the DOM content is completely replaced.
+This can cause the loss of Alpine.js component state inside the table (for example, modal windows or styled Select fields).
+
+The `withMorphLoad()` method enables DOM morphing mode (via `Alpine.morph`), which updates (only what has really changed) the table content while preserving the Alpine.js component state.
+
+```php
+TableBuilder::make()
+    ->name('my-table')
+    ->async()
+    ->withMorphLoad()
 ```
 
 <a name="type-cast"></a>
