@@ -13,6 +13,7 @@
 - [Редактирование в режиме preview](#update-on-preview)
 - [Значения с изображением](#with-image)
 - [Опции](#options)
+- [Атрибуты опций](#option-attributes)
 - [Нативный режим отображения](#native)
 - [Плагины](#plugins)
 - [Пользовательские настройки](#settings)
@@ -551,6 +552,97 @@ Select::make('Country', 'country_id')
 
 > [!TIP]
 > За более подробной информацией обратитесь к [документации Tom Select](https://tom-select.js.org/docs/).
+
+<a name="option-attributes"></a>
+## Атрибуты опций
+
+При использовании объекта `Option` вы можете задавать дополнительные HTML-атрибуты для каждой опции.
+
+### Создание через статический метод
+
+Объекты `Option` и `OptionGroup` поддерживают статический метод `make()` для удобного создания.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:3]
+use MoonShine\Support\DTOs\Select\Option;
+use MoonShine\Support\DTOs\Select\OptionGroup;
+use MoonShine\Support\DTOs\Select\Options;
+
+Option::make('Label', 'value')
+
+OptionGroup::make('Group', new Options([
+    Option::make('Option 1', '1'),
+    Option::make('Option 2', '2'),
+]))
+```
+
+### Отключение опции
+
+Метод `disabled()` позволяет отключить определённую опцию.
+
+```php
+disabled(Closure|bool|null $condition = null)
+```
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\Support\DTOs\Select\Option;
+use MoonShine\Support\DTOs\Select\Options;
+
+Select::make('Country')
+    ->options(
+        new Options([
+            Option::make('Active', 'active'),
+            Option::make('Disabled', 'disabled')->disabled(),
+            Option::make('Conditional', 'conditional')->disabled(fn() => true),
+        ])
+    )
+```
+
+### Пользовательские атрибуты
+
+Метод `customAttributes()` позволяет добавить произвольные HTML-атрибуты к опции.
+
+```php
+customAttributes(array $attributes)
+```
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\Support\DTOs\Select\Option;
+use MoonShine\Support\DTOs\Select\Options;
+
+Select::make('Country')
+    ->options(
+        new Options([
+            Option::make('Option 1', '1')->customAttributes(['data-info' => 'value']),
+            Option::make('Option 2', '2')->customAttributes(['class' => 'custom-class']),
+        ])
+    )
+```
+
+Для `OptionGroup` также доступен метод `customAttributes()`.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:3]
+use MoonShine\Support\DTOs\Select\Option;
+use MoonShine\Support\DTOs\Select\OptionGroup;
+use MoonShine\Support\DTOs\Select\Options;
+
+Select::make('City')
+    ->options(
+        new Options([
+            OptionGroup::make('Italy', new Options([
+                Option::make('Rome', '1'),
+                Option::make('Milan', '2'),
+            ]))->customAttributes(['data-country' => 'it']),
+        ])
+    )
+```
 
 <a name="native"></a>
 ## Нативный режим отображения
