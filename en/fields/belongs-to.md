@@ -232,6 +232,21 @@ BelongsTo::make('Author', resource: AuthorResource::class)
     )
 ```
 
+> [!WARNING]
+> If you use `creatable()` and display the field inside another relationship (e.g., in a `HasMany` create or edit modal),
+> you need to manually specify the URL for loading new values via the `fragmentUrl` parameter.
+
+```php
+BelongsTo::make('User')
+    ->creatable(
+        fragmentUrl: $this->getResource()->getFragmentLoadUrl(
+            'user',
+            page: $this,
+            key: $this->getItem()?->getKey()
+        )
+    )
+```
+
 <a name="values-query"></a>
 ## Query for Values
 

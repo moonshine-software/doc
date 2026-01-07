@@ -232,6 +232,21 @@ BelongsTo::make('Author', resource: AuthorResource::class)
     )
 ```
 
+> [!WARNING]
+> Если вы используете `creatable()` и выводите поле внутри другого отношения (например, в модалке создания или редактирования `HasMany`),
+> вам необходимо самостоятельно указать URL для подгрузки новых значений через параметр `fragmentUrl`.
+
+```php
+BelongsTo::make('User')
+    ->creatable(
+        fragmentUrl: $this->getResource()->getFragmentLoadUrl(
+            'user',
+            page: $this,
+            key: $this->getItem()?->getKey()
+        )
+    )
+```
+
 <a name="values-query"></a>
 ## Запрос для значений
 
