@@ -2,6 +2,7 @@
 
 - [Основы](#basics)
 - [Активная вкладка](#active)
+- [Активация через событие](#event-active)
 - [Вертикальный режим](#vertical)
 - [Атрибуты для заголовка](#label-attributes)
 
@@ -124,6 +125,48 @@ tab: Blade
 </x-moonshine::tabs>
 ```
 ~~~
+
+<a name="event-active"></a>
+## Активация через событие
+
+Для программной активации вкладки можно использовать JavaScript-событие `tab_active`.
+Это позволяет переключать вкладки из любого места приложения.
+
+Чтобы переключиться на нужную вкладку, необходимо задать ей имя через метод `name()`, а затем вызвать событие `JsEvent::TAB_ACTIVE`.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:5]
+use MoonShine\Support\AlpineJs;
+use MoonShine\Support\Enums\JsEvent;
+use MoonShine\UI\Components\ActionButton;
+use MoonShine\UI\Components\Tabs;
+use MoonShine\UI\Components\Tabs\Tab;
+
+Tabs::make([
+    Tab::make('Tab 1', [
+        // ...
+    ])->name('first-tab'),
+    Tab::make('Tab 2', [
+        // ...
+    ])->name('second-tab'),
+]),
+
+ActionButton::make('Перейти на Tab 2')
+    ->dispatchEvent(AlpineJs::event(JsEvent::TAB_ACTIVE, 'second-tab'))
+```
+
+Также можно вызвать событие из JavaScript:
+
+```js
+document.dispatchEvent(new CustomEvent('tab_active:second-tab'))
+```
+
+Или с использованием магического метода `$dispatch()` из **Alpine.js**:
+
+```js
+$dispatch('tab_active:second-tab')
+```
 
 <a name="vertical"></a>
 ## Вертикальный режим

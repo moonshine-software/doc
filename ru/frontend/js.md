@@ -93,6 +93,7 @@ document.addEventListener("alpine:init", () => {
 - `popover_toggled:{componentName}`(`JsEvent::POPOVER_TOGGLED`) - открытие / закрытие `OffCanvas`,
 - `toast:{componentName}`(`JsEvent::TOAST`) - вызов Toast,
 - `show_when_refresh:{componentName}`(`JsEvent::SHOW_WHEN_REFRESH`) - обновить состояния `showWhen`,
+- `tab_active:{componentName}`(`JsEvent::TAB_ACTIVE`) - активировать вкладку.
 
 <a name="#call-events"></a>
 ### Вызов событий

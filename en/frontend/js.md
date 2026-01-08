@@ -93,6 +93,7 @@ the names of which can be conveniently obtained through the Enum `JsEvent`, but 
 - `popover_toggled:{componentName}`(`JsEvent::POPOVER_TOGGLED`) - opening/closing `OffCanvas`,
 - `toast:{componentName}`(`JsEvent::TOAST`) - triggering Toast,
 - `show_when_refresh:{componentName}`(`JsEvent::SHOW_WHEN_REFRESH`) - refresh `showWhen` states,
+- `tab_active:{componentName}`(`JsEvent::TAB_ACTIVE`) - activate tab.
 
 <a name="#call-events"></a>
 ### Calling events
