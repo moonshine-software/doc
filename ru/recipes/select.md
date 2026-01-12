@@ -8,6 +8,11 @@
 Тем самым экономим время на создание контроллера и пишем реализацию прямо в ресурсе (или на странице):
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
+use MoonShine\Crud\JsonResponse;
+use MoonShine\Support\Attributes\AsyncMethod; // [tl! collapse:end]
+
 protected function formFields(): iterable
 {
     return [
@@ -17,6 +22,7 @@ protected function formFields(): iterable
     ]
 }
 
+#[AsyncMethod]
 public function selectOptions(): JsonResponse
 {
     $options = new Options([

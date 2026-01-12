@@ -8,6 +8,11 @@ The example demonstrates the `async()` method, but at the same time, we use the 
 Thus, we save time on creating a controller and write the implementation directly in the resource (or on the page):
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
+use MoonShine\Crud\JsonResponse;
+use MoonShine\Support\Attributes\AsyncMethod; // [tl! collapse:end]
+
 protected function formFields(): iterable
 {
     return [
@@ -17,6 +22,7 @@ protected function formFields(): iterable
     ]
 }
 
+#[AsyncMethod]
 public function selectOptions(): JsonResponse
 {
     $options = new Options([
