@@ -497,6 +497,10 @@ The `sticky()` method makes the table header fixed.
 The `columnSelection()` method adds the ability to select displayed columns.
 
 ```php
+columnSelection(null|string|Closure $prefix = null)
+```
+
+```php
 ->columnSelection()
 ```
 
@@ -515,6 +519,21 @@ TableBuilder::make()
 > [!WARNING]
 > When using `columnSelection`, the `name` parameter of the `TableBuilder` component must be unique across all pages.
 > This is because data is stored in `localStorage` based on the value of the component's `name`.
+
+#### Storage Prefix
+
+The `prefix` parameter allows you to add a prefix to the storage key in `localStorage`.
+This is useful when you need to save column selection settings individually for each user.
+
+```php
+->columnSelection(prefix: auth()->id())
+```
+
+You can also use a closure:
+
+```php
+->columnSelection(prefix: fn() => auth()->id())
+```
 
 <a name="search"></a>
 ### Search
