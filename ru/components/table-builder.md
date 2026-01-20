@@ -497,6 +497,10 @@ TableBuilder::make()
 Метод `columnSelection()` добавляет возможность выбора отображаемых колонок.
 
 ```php
+columnSelection(null|string|Closure $prefix = null)
+```
+
+```php
 ->columnSelection()
 ```
 
@@ -515,6 +519,21 @@ TableBuilder::make()
 > [!WARNING]
 > При использовании `columnSelection` параметр `name` компонента `TableBuilder` должен быть уникальным для всех страниц.
 > Это связано с тем, что данные сохраняются в `localStorage` на основе значения `name` компонента.
+
+#### Префикс для хранения
+
+Параметр `prefix` позволяет добавить префикс к ключу хранения в `localStorage`.
+Это полезно, когда необходимо сохранять настройки выбора колонок для каждого пользователя индивидуально.
+
+```php
+->columnSelection(prefix: auth()->id())
+```
+
+Также можно использовать замыкание:
+
+```php
+->columnSelection(prefix: fn() => auth()->id())
+```
 
 <a name="search"></a>
 ### Поиск
