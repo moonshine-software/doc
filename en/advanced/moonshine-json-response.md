@@ -2,6 +2,7 @@
 
 - [Basics](#basics)
 - [Methods](#methods)
+    - [Merge](#merge)
     - [Toast](#toast)
     - [Redirect](#redirect)
     - [Events](#events)
@@ -19,6 +20,26 @@ with the frontend part of the admin panel interface after processing a request.
 
 <a name="methods"></a>
 ## Methods
+
+<a name="merge"></a>
+### Merge
+
+The `merge()` method allows you to add additional data to the response.
+
+```php
+merge(array $data)
+```
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\Crud\JsonResponse;
+
+JsonResponse::make()
+    ->merge(['options' => $options, 'custom_key' => 'custom_value']);
+```
+
+This is useful, for example, in asynchronous search for [Select](/docs/{{version}}/fields/select#async) or [BelongsToMany](/docs/{{version}}/fields/belongs-to-many#async-search) fields, when you need to return options along with additional actions (notifications, events, etc.).
 
 <a name="toast"></a>
 ### Toast

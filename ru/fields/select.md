@@ -349,6 +349,39 @@ public function selectOptions(): JsonResponse
 }]
 ```
 
+Асинхронный поиск работает с [MoonShine JsonResponse](/docs/{{version}}/advanced/moonshine-json-response), что позволяет использовать дополнительные возможности, такие как показ уведомлений или вызов событий.
+Для этого передайте опции в ключе `options`:
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
+use MoonShine\Crud\JsonResponse;
+use MoonShine\Support\DTOs\Select\Option;
+use MoonShine\Support\DTOs\Select\OptionProperty;
+use MoonShine\Support\DTOs\Select\Options;
+use MoonShine\Support\Enums\ToastType; // [tl! collapse:end]
+
+public function selectOptions(): JsonResponse
+{
+    $options = new Options([
+        new Option(
+            label: 'Option 1',
+            value: '1',
+            properties: new OptionProperty('https://cutcode.dev/images/platforms/youtube.png'),
+        ),
+        new Option(
+            label: 'Option 2',
+            value: '2',
+            properties: new OptionProperty('https://cutcode.dev/images/platforms/youtube.png'),
+        ),
+    ]);
+
+    return JsonResponse::make()
+        ->merge(['options' => $options->toArray()])
+        ->toast('Результаты поиска загружены', ToastType::SUCCESS);
+}
+```
+
 ~~~tabs
 tab: Class
 ```php

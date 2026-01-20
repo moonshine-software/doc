@@ -2,6 +2,7 @@
 
 - [Основы](#basics)
 - [Методы](#methods)
+    - [Merge](#merge)
     - [Toast](#toast)
     - [Redirect](#redirect)
     - [Events](#events)
@@ -19,6 +20,26 @@
 
 <a name="methods"></a>
 ## Методы
+
+<a name="merge"></a>
+### Merge
+
+Метод `merge()` позволяет добавить дополнительные данные в ответ.
+
+```php
+merge(array $data)
+```
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\Crud\JsonResponse;
+
+JsonResponse::make()
+    ->merge(['options' => $options, 'custom_key' => 'custom_value']);
+```
+
+Это полезно, например, при асинхронном поиске в полях [Select](/docs/{{version}}/fields/select#async) или [BelongsToMany](/docs/{{version}}/fields/belongs-to-many#async-search), когда необходимо вернуть опции вместе с дополнительными действиями (уведомления, события и т.д.).
 
 <a name="toast"></a>
 ### Toast

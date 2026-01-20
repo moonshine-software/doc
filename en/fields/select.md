@@ -349,6 +349,39 @@ The response will be:
 }]
 ```
 
+Asynchronous search works with [MoonShine JsonResponse](/docs/{{version}}/advanced/moonshine-json-response), which allows you to use additional features such as displaying notifications or triggering events.
+To do this, pass the options in the `options` key:
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
+use MoonShine\Crud\JsonResponse;
+use MoonShine\Support\DTOs\Select\Option;
+use MoonShine\Support\DTOs\Select\OptionProperty;
+use MoonShine\Support\DTOs\Select\Options;
+use MoonShine\Support\Enums\ToastType; // [tl! collapse:end]
+
+public function selectOptions(): JsonResponse
+{
+    $options = new Options([
+        new Option(
+            label: 'Option 1',
+            value: '1',
+            properties: new OptionProperty('https://cutcode.dev/images/platforms/youtube.png'),
+        ),
+        new Option(
+            label: 'Option 2',
+            value: '2',
+            properties: new OptionProperty('https://cutcode.dev/images/platforms/youtube.png'),
+        ),
+    ]);
+
+    return JsonResponse::make()
+        ->merge(['options' => $options->toArray()])
+        ->toast('Search results loaded', ToastType::SUCCESS);
+}
+```
+
 ~~~tabs
 tab: Class
 ```php
