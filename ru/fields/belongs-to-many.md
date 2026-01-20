@@ -538,6 +538,28 @@ BelongsToMany::make('Cities', 'cities', resource: CityResource::class)
 > Запросы должны быть настроены с использованием метода `asyncSearch()`.
 > Не используйте `valuesQuery()`!
 
+Асинхронный поиск работает с [MoonShine JsonResponse](/docs/{{version}}/advanced/moonshine-json-response), что позволяет использовать дополнительные возможности, такие как показ уведомлений или вызов событий.
+При использовании собственного URL для обработки запроса, передайте результаты поиска в виде массива:
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
+use MoonShine\Crud\JsonResponse;
+use MoonShine\Support\Enums\ToastType; // [tl! collapse:end]
+
+public function asyncSearchOptions(): JsonResponse
+{
+    $results = [
+        ['value' => 1, 'label' => 'Option 1'],
+        ['value' => 2, 'label' => 'Option 2'],
+    ];
+
+    return JsonResponse::make()
+        ->merge($results)
+        ->toast('Результаты поиска загружены', ToastType::SUCCESS);
+}
+```
+
 <a name="associated"></a>
 ## Связанные поля
 

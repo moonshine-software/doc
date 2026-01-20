@@ -538,6 +538,28 @@ BelongsToMany::make('Cities', 'cities', resource: CityResource::class)
 > Queries should be set up using the `asyncSearch()` method.
 > Do not use `valuesQuery()`!
 
+Asynchronous search works with [MoonShine JsonResponse](/docs/{{version}}/advanced/moonshine-json-response), which allows you to use additional features such as displaying notifications or triggering events.
+When using a custom URL for request processing, pass the search results as an array:
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
+use MoonShine\Crud\JsonResponse;
+use MoonShine\Support\Enums\ToastType; // [tl! collapse:end]
+
+public function asyncSearchOptions(): JsonResponse
+{
+    $results = [
+        ['value' => 1, 'label' => 'Option 1'],
+        ['value' => 2, 'label' => 'Option 2'],
+    ];
+
+    return JsonResponse::make()
+        ->merge($results)
+        ->toast('Search results loaded', ToastType::SUCCESS);
+}
+```
+
 <a name="associated"></a>
 ## Associated Fields
 
