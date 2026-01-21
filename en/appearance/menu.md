@@ -282,7 +282,7 @@ final class MoonShineLayout extends AppLayout
     protected function menu(): array
     {
         return [
-            MenuItem::make('/', 'Dashboard', 'heroicons.home')
+            MenuItem::make('/', 'Dashboard', 'home')
                 ->onlyIcon(),
         ];
     }
@@ -414,7 +414,7 @@ use MoonShine\MenuManager\MenuItem;
 protected function menu(): array
 {
     return [
-        MenuItem::make('https://moonshine-laravel.com/docs', 'MoonShine Docs', 'heroicons.arrow-up', true),
+        MenuItem::make('https://moonshine-laravel.com/docs', 'MoonShine Docs', 'arrow-up', true),
         MenuItem::make('https://laravel.com/docs', 'Laravel Docs', blank: fn() => true),
     ];
 }
@@ -439,7 +439,7 @@ use MoonShine\MenuManager\MenuItem;
 protected function menu(): array
     {
         return [
-            MenuItem::make('https://moonshine-laravel.com/docs', 'MoonShine Docs', 'heroicons.arrow-up', true),
+            MenuItem::make('https://moonshine-laravel.com/docs', 'MoonShine Docs', 'arrow-up', true),
             MenuItem::make('https://laravel.com/docs', 'Laravel Docs')
                 ->blank(fn() => true),
         ];

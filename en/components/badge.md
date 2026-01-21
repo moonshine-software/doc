@@ -1,16 +1,26 @@
 # Badge
 
+- [Basics](#basics)
+- [Icon](#icon)
+
+---
+
+<a name="basics"></a>
+## Basics
+
 If you need to place a badge on the page, use `Badge` component.
 
 ```php
 make(
     string $value = '',
-    string|Color $color = Color::PURPLE
+    string|Color $color = Color::PURPLE,
+    ?string $icon = null
 )
 ```
 
 - `$value` - text displayed in the badge,
-- `$color` - color code (string or Enum).
+- `$color` - color code (string or Enum),
+- `$icon` - icon name.
 
 The following badges are available:
 
@@ -72,3 +82,31 @@ tab: Blade
 <span class="color color-red">red</span>
 <span class="color color-gray">gray</span>
 </p>
+
+<a name="icon"></a>
+## Icon
+
+The `icon` parameter allows you to add an icon to the badge.
+
+~~~tabs
+tab: Class
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\Support\Enums\Color;
+use MoonShine\UI\Components\Badge;
+
+Badge::make('Active', Color::SUCCESS, 'check');
+Badge::make('Pending', Color::WARNING, 'clock');
+Badge::make('Users', Color::PURPLE, 'users');
+```
+tab: Blade
+```blade
+<x-moonshine::badge color="success" :icon="'check'">Active</x-moonshine::badge>
+<x-moonshine::badge color="warning" :icon="'clock'">Pending</x-moonshine::badge>
+<x-moonshine::badge color="purple" :icon="'users'">Users</x-moonshine::badge>
+```
+~~~
+
+> [!TIP]
+> A list of all available icons can be found in the [Icons](/docs/{{version}}/appearance/icons) section.
