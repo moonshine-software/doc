@@ -194,8 +194,11 @@ Text::make('Link')
 Для отображения поля в режиме preview в виде badge, необходимо воспользоваться методом `badge()`.
 
 ```php
-badge(string|Color|Closure|null $color = null)
+badge(string|Color|Closure|null $color = null, string|Closure|null $icon = null)
 ```
+
+- `$color` - цвет значка,
+- `$icon` - иконка значка.
 
 Доступные цвета:
 
@@ -231,6 +234,24 @@ use MoonShine\UI\Fields\Field;
 
 Text::make('Title')
     ->badge(fn($status, Field $field) => 'green')
+```
+
+С иконкой:
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\Support\Enums\Color;
+
+Text::make('Status')
+    ->badge(Color::SUCCESS, 'check')
+```
+
+Также можно использовать замыкание для определения иконки:
+
+```php
+Text::make('Status')
+    ->badge(Color::SUCCESS, fn($value, Text $ctx) => 'users')
 ```
 
 <a name="horizontal"></a>

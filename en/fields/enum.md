@@ -3,6 +3,7 @@
 - [Basics](#basics)
 - [Displaying Values](#displaying-values)
 - [Color](#color)
+- [Icon](#icon)
 
 ---
 
@@ -98,3 +99,43 @@ enum StatusEnum: string
     }
 }
 ```
+
+<a name="icon"></a>
+## Icon
+
+If *Enum* implements the `getIcon()` method, an icon will be displayed next to the value in "preview" mode.
+
+> [!NOTE]
+> To display the icon, the `getColor()` method must also be implemented.
+
+```php
+namespace App\Enums;
+
+enum StatusEnum: string
+{
+    case NEW = 'new';
+    case DRAFT = 'draft';
+    case PUBLIC = 'public';
+
+    public function getColor(): ?string
+    {
+        return match ($this) {
+            self::NEW => 'info',
+            self::DRAFT => 'gray',
+            self::PUBLIC => 'success',
+        };
+    }
+
+    public function getIcon(): ?string
+    {
+        return match ($this) {
+            self::NEW => 'sparkles',
+            self::DRAFT => 'pencil',
+            self::PUBLIC => 'check-circle',
+        };
+    }
+}
+```
+
+> [!TIP]
+> A list of all available icons can be found in the [Icons](/docs/{{version}}/appearance/icons) section.
