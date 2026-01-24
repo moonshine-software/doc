@@ -1407,6 +1407,13 @@ showWhen(
 - `$operator` - comparison operator (optional),
 - `$value` - value for comparison.
 
+> [!NOTE]
+> The `$column` parameter is based on the field's `name` attribute in the DOM.
+> If the form adds prefixes to fields (e.g., in filters), the `name` will be like `filter[column]`,
+> and you should specify `'filter.column'` in `showWhen`.
+> For iterable elements with indexes (e.g., `name="attributes[0][column]"`),
+> the `$column` parameter should match the structure: `'attributes.0.column'`.
+
 ```php
 Text::make('Name')
     ->showWhen('category_id', 1)
