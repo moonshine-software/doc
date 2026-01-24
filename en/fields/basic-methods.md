@@ -194,8 +194,11 @@ Text::make('Link')
 To display the field in preview mode as a badge, you need to use the `badge()` method.
 
 ```php
-badge(string|Color|Closure|null $color = null)
+badge(string|Color|Closure|null $color = null, string|Closure|null $icon = null)
 ```
+
+- `$color` - badge color,
+- `$icon` - badge icon.
 
 Available colors:
 
@@ -231,6 +234,24 @@ use MoonShine\UI\Fields\Field;
 
 Text::make('Title')
     ->badge(fn($status, Field $field) => 'green')
+```
+
+With icon:
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\Support\Enums\Color;
+
+Text::make('Status')
+    ->badge(Color::SUCCESS, 'check')
+```
+
+You can also use a closure to determine the icon:
+
+```php
+Text::make('Status')
+    ->badge(Color::SUCCESS, fn($value, Text $ctx) => 'users')
 ```
 
 <a name="horizontal"></a>
