@@ -134,6 +134,7 @@
     - [Sidebar](/docs/{{version}}/components/sidebar)
     - [SecondBar](/docs/{{version}}/components/second-bar)
     - [Search](/docs/{{version}}/components/search)
+    - [Snippet](/docs/{{version}}/components/snippet)
     - [Spinner](/docs/{{version}}/components/spinner)
     - [Tabs](/docs/{{version}}/components/tabs)
     - [ThemeSwitcher](/docs/{{version}}/components/theme-switcher)
