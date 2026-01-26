@@ -8,6 +8,7 @@
 - [Кастомные поля пользователя и профиль](#custom-user-fields)
 - [Ограничение доступа по ролям](#role-based-access)
 - [Аутентификационные pipelines](#authentication-pipelines)
+- [Кастомизация ответа аутентификации](#authenticate-logout-using)
 - [Socialite](#socialite)
 - [Двухфакторная аутентификация](#2fa)
 - [JWT](#jwt)
@@ -240,6 +241,77 @@ class PhoneVerification
 
 Использование аутентификационных pipelines позволяет реализовать сложные сценарии аутентификации, сохраняя чистоту и модульность кода,
 и дает полный контроль над процессом входа пользователей в административную панель MoonShine.
+
+<a name="authenticate-logout-using"></a>
+## Кастомизация ответа аутентификации
+
+**MoonShine** позволяет полностью переопределить поведение при аутентификации и выходе из системы с помощью методов `authenticateUsing()` и `logoutUsing()`.
+Это полезно, когда вам нужно изменить редирект после входа или выхода, добавить дополнительную логику или вернуть кастомный ответ.
+
+### authenticateUsing
+
+Метод `authenticateUsing()` позволяет переопределить поведение после успешной аутентификации.
+
+```php filename:app/Providers/MoonShineServiceProvider.php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
+use Closure;
+use Symfony\Component\HttpFoundation\Response; // [tl! collapse:end]
+
+$config->authenticateUsing(function (Closure $default): Response {
+    // Кастомный редирект после входа
+    return redirect()->to('/dashboard');
+
+    // Или используйте стандартное поведение
+    // return $default();
+});
+```
+
+Callback-функция получает параметр `$default` — замыкание, которое выполняет стандартную логику аутентификации.
+Вы можете вызвать его для использования поведения по умолчанию или полностью заменить своей реализацией.
+
+### logoutUsing
+
+Метод `logoutUsing()` позволяет переопределить поведение при выходе из системы.
+
+```php filename:app/Providers/MoonShineServiceProvider.php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
+use Closure;
+use Symfony\Component\HttpFoundation\Response; // [tl! collapse:end]
+
+$config->logoutUsing(function (Closure $default): Response {
+    // Кастомный редирект после выхода
+    return redirect()->to('/');
+
+    // Или используйте стандартное поведение
+    // return $default();
+});
+```
+
+### Пример использования
+
+```php filename:app/Providers/MoonShineServiceProvider.php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
+use Closure;
+use Symfony\Component\HttpFoundation\Response; // [tl! collapse:end]
+
+$config->authenticateUsing(function (Closure $default): Response {
+    // Логирование успешного входа
+    logger()->info('User logged in', ['user' => auth()->id()]);
+
+    return $default();
+});
+
+$config->logoutUsing(function (Closure $default): Response {
+    // Логирование выхода
+    logger()->info('User logged out');
+
+    // Редирект на главную страницу сайта вместо страницы входа
+    return redirect()->to('/');
+});
+```
 
 <a name="socialite"></a>
 ## Socialite
