@@ -15,4 +15,4 @@ jobs:
           chmod 600 ~/.ssh/id_ed25519
           chmod 700 ~/.ssh
           ssh-keyscan -H "${{ secrets.DEPLOY_HOST }}" >> ~/.ssh/known_hosts
-          ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=yes ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} "cd www/moonshine-laravel.com/current && php artisan documentation:download --ver=4.x"
+          ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=yes ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} "cd www/moonshine-laravel.com/current && /opt/php82/bin/php artisan documentation:download --ver=4.x"
