@@ -293,6 +293,11 @@ final class MoonShineLayout extends AppLayout
 
 Вы можете применить режим только иконок ко всему меню при использовании автозагрузки, передав параметр `onlyIcons: true` в метод `autoloadMenu()`.
 
+> [!NOTE]
+> Чтобы использовать `autoloadMenu()` (включая режим `onlyIcons: true` для всего меню), **необходимо также включить автозагрузку ресурсов и страниц**.
+>
+> Подробнее см. раздел про [автозагрузку ресурсов и страниц](/docs/{{version}}/model-resource/index#autoloading).
+
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:3]

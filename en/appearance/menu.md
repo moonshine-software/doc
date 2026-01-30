@@ -293,6 +293,11 @@ final class MoonShineLayout extends AppLayout
 
 You can apply the icon-only mode to the entire menu when using autoload by passing the `onlyIcons: true` parameter to the `autoloadMenu()` method.
 
+> [!NOTE]
+> To use `autoloadMenu()` (including the `onlyIcons: true` mode), you **must also enable menu autoloading for resources and pages**.
+>
+> See the section on [autoloading resources and pages](/docs/{{version}}/model-resource/index#autoloading) for details.
+
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:3]
