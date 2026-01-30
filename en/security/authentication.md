@@ -8,6 +8,7 @@
 - [Custom user fields and profile](#custom-user-fields)
 - [Role-based access](#role-based-access)
 - [Authentication pipelines](#authentication-pipelines)
+- [Custom authentication response](#authenticate-logout-using)
 - [Socialite](#socialite)
 - [Two-factor authentication](#2fa)
 - [JWT](#jwt)
@@ -240,6 +241,77 @@ class PhoneVerification
 
 Using authentication pipelines allows for complex authentication scenarios while keeping the code clean and modular,
 and gives full control over the process of users logging into the **MoonShine** admin panel.
+
+<a name="authenticate-logout-using"></a>
+## Custom authentication response
+
+**MoonShine** allows you to completely override the behavior during authentication and logout using the `authenticateUsing()` and `logoutUsing()` methods.
+This is useful when you need to change the redirect after login or logout, add additional logic, or return a custom response.
+
+### authenticateUsing
+
+The `authenticateUsing()` method allows you to override the behavior after successful authentication.
+
+```php filename:app/Providers/MoonShineServiceProvider.php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
+use Closure;
+use Symfony\Component\HttpFoundation\Response; // [tl! collapse:end]
+
+$config->authenticateUsing(function (Closure $default): Response {
+    // Custom redirect after login
+    return redirect()->to('/dashboard');
+
+    // Or use the default behavior
+    // return $default();
+});
+```
+
+The callback function receives a `$default` parameter — a closure that executes the standard authentication logic.
+You can call it to use the default behavior or completely replace it with your own implementation.
+
+### logoutUsing
+
+The `logoutUsing()` method allows you to override the behavior during logout.
+
+```php filename:app/Providers/MoonShineServiceProvider.php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
+use Closure;
+use Symfony\Component\HttpFoundation\Response; // [tl! collapse:end]
+
+$config->logoutUsing(function (Closure $default): Response {
+    // Custom redirect after logout
+    return redirect()->to('/');
+
+    // Or use the default behavior
+    // return $default();
+});
+```
+
+### Usage example
+
+```php filename:app/Providers/MoonShineServiceProvider.php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:start]
+use Closure;
+use Symfony\Component\HttpFoundation\Response; // [tl! collapse:end]
+
+$config->authenticateUsing(function (Closure $default): Response {
+    // Log successful login
+    logger()->info('User logged in', ['user' => auth()->id()]);
+
+    return $default();
+});
+
+$config->logoutUsing(function (Closure $default): Response {
+    // Log logout
+    logger()->info('User logged out');
+
+    // Redirect to the main site page instead of the login page
+    return redirect()->to('/');
+});
+```
 
 <a name="socialite"></a>
 ## Socialite
