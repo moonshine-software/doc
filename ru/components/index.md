@@ -165,3 +165,23 @@ php artisan moonshine:component
 
 > [!NOTE]
 > О всех поддерживаемых опциях можно узнать в разделе [Команды](/docs/{{version}}/advanced/commands#component).
+
+<a name="console-output"></a>
+## Настройка вывода в консоль
+
+MoonShine предоставляет трейт `DisplayHelper` и перечисление `ConsoleTheme` для настройки вывода в консоль для команд.
+
+### DisplayHelper
+
+Трейт `DisplayHelper` предоставляет методы для отображения стилизованных заголовков, логотипов и сообщений в консоли.
+
+
+### ConsoleTheme
+
+Перечисление `ConsoleTheme` определяет цветовые темы для вывода в консоль.
+
+
+Доступные темы: `Purple`, `Golden`, `Twilight`, `Moonlight`, `Sunset`.
+
+> [!TIP]
+> Используйте эти инструменты для улучшения визуального отображения ваших консольных команд.

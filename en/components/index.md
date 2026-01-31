@@ -165,3 +165,23 @@ php artisan moonshine:component
 
 > [!NOTE]
 > You can learn about all supported options in the section [Commands](/docs/{{version}}/advanced/commands#component).
+
+<a name="console-output"></a>
+## Console Output Customization
+
+MoonShine provides a `DisplayHelper` trait and `ConsoleTheme` enum to customize console output for commands.
+
+### DisplayHelper
+
+The `DisplayHelper` trait provides methods to display styled headers, logos, and messages in the console.
+
+
+### ConsoleTheme
+
+The `ConsoleTheme` enum defines color themes for console output.
+
+
+Themes available: `Purple`, `Golden`, `Twilight`, `Moonlight`, `Sunset`.
+
+> [!TIP]
+> Use these tools to enhance the visual appearance of your console commands.

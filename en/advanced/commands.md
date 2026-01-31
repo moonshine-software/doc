@@ -350,3 +350,30 @@ The created class needs to be registered in the service provider.
 
 > [!NOTE]
 > For more details, refer to the [Fields](/docs/{{version}}/fields/basic-methods#apply) section.
+
+<a name="pages"></a>
+## Pages
+
+Command to list all registered MoonShine pages (excluding resource pages):
+
+
+Signature:
+
+Available options:
+
+- `--json` - Output the list in JSON format.
+
+<a name="resources"></a>
+## Resources
+
+Command to list all registered MoonShine resources:
+
+
+Signature:
+
+Available options:
+
+- `--json` - Output the list in JSON format.
+
+> [!NOTE]
+> These commands help you quickly view the registered pages and resources in your MoonShine application.
