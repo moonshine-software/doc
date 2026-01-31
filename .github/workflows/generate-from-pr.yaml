@@ -1,0 +1,55 @@
+name: Generate Documentation from MoonShine PR
+
+on:
+  repository_dispatch:
+    types: [moonshine_pr_merged]
+
+# Security: Restrict permissions to minimum required
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  generate-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout doc repo
+        uses: actions/checkout@v4
+        with:
+          ref: 4.x
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install openai
+
+      - name: Generate documentation with OpenAI
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          PR_URL: ${{ github.event.client_payload.pr_url }}
+          PR_NUMBER: ${{ github.event.client_payload.pr_number }}
+          PR_TITLE: ${{ github.event.client_payload.pr_title }}
+          PR_DIFF: ${{ github.event.client_payload.pr_diff }}
+        run: |
+          python .github/scripts/generate_docs.py
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: docs/auto-pr-${{ github.event.client_payload.pr_number }}
+          title: "docs: Generated from moonshine#${{ github.event.client_payload.pr_number }}"
+          body: |
+            Auto-generated documentation from merged PR: ${{ github.event.client_payload.pr_url }}
+
+            **Original PR:** ${{ github.event.client_payload.pr_title }}
+
+            - [ ] En
+            - [ ] Ru
+          commit-message: "docs: Generated from moonshine PR #${{ github.event.client_payload.pr_number }}"
+          base: 4.x
