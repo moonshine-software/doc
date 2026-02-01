@@ -160,3 +160,18 @@ final class CustomViewController extends MoonShineController
     }
 }
 ```
+
+<a name="belongs-to-many-pivot-controller"></a>
+## BelongsToManyPivotController
+
+The `BelongsToManyPivotController` is a new controller that handles the operations for the pivot modal mode in `BelongsToMany` fields. It provides endpoints for managing pivot records through a modal interface.
+
+### Endpoints
+
+- **Form Component**: Renders the form for creating or editing a pivot record.
+- **Store**: Handles the creation of a new pivot record.
+- **Update**: Handles updates to an existing pivot record.
+- **Destroy**: Deletes a pivot record.
+- **List Component**: Renders the list of pivot records.
+
+These endpoints are automatically registered and do not require manual setup.

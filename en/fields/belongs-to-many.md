@@ -651,3 +651,25 @@ use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 BelongsToMany::make('Categories', resource: CategoryResource::class)
     ->withCheckAll()
 ```
+
+<a name="pivot-modal-mode"></a>
+## Pivot Modal Mode
+
+The `BelongsToMany` field now supports a pivot modal mode, allowing you to manage pivot table records through a modal interface. This feature provides a more user-friendly way to add, edit, and delete related records in a `BelongsToMany` relationship.
+
+### Enabling Pivot Modal Mode
+
+To enable the pivot modal mode, use the `pivotModalMode()` method on your `BelongsToMany` field:
+
+
+### Features
+
+- **Create and Edit**: Add or update pivot records through a modal form.
+- **Delete**: Remove pivot records with confirmation.
+- **Customization**: Modify the create, edit, and delete buttons using closures.
+
+### Example
+
+
+> [!NOTE]
+> The pivot modal mode is not compatible with async search or reactivity features.
