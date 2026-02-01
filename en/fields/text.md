@@ -187,3 +187,14 @@ Text::make('Name')
     ->updateOnPreview()
     ->locked()
 ```
+
+## PrettyLimit Integration
+
+The `Text` field now supports the `PrettyLimit` feature, allowing you to display text with a character limit in a visually appealing manner.
+
+### Enabling PrettyLimit
+
+To enable `PrettyLimit` on a `Text` field, use the `prettyLimit()` method:
+
+
+This will apply the `PrettyLimit` component to the text field, truncating the text if it exceeds the specified limit and allowing it to expand on hover.
