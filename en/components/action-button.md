@@ -801,3 +801,17 @@ ActionButton::make('Button Label')
 
 > [!WARNING]
 > If you add hotkeys to a button in the iterated table, the event will trigger on all buttons at once!
+
+## Unique Modal and OffCanvas Names
+
+In the latest update, the `ActionButton` component has been enhanced to generate unique names for modal and off-canvas components by default. This is achieved by appending a random string to the component's identifier, ensuring that each instance has a unique name.
+
+### Usage
+
+When using the `inModal()` or `inOffCanvas()` methods, you no longer need to manually specify a unique name. The system will automatically generate a unique identifier using a random string combined with the component's data key.
+
+
+This change helps prevent conflicts when multiple modals or off-canvas components are used on the same page.
+
+> [!TIP]
+> For more information on using modals and off-canvas components, refer to the [Modal](/docs/{{version}}/components/modal) and [OffCanvas](/docs/{{version}}/components/off-canvas) sections.
