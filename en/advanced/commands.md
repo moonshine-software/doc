@@ -13,6 +13,8 @@
 - [Type Casting](#type_cast)
 - [Publishing](#publish)
 - [Apply](#apply)
+- [Resources List](#resources-list)
+- [Pages List](#pages-list)
 
 ---
 
@@ -350,3 +352,47 @@ The created class needs to be registered in the service provider.
 
 > [!NOTE]
 > For more details, refer to the [Fields](/docs/{{version}}/fields/basic-methods#apply) section.
+
+<a name="resources-list"></a>
+## Resources List
+
+Command to display a list of all registered **MoonShine** resources:
+
+```shell
+php artisan moonshine:resources
+```
+
+Signature:
+```
+moonshine:resources {--json}
+```
+
+Available options:
+
+- `--json` - output in JSON format.
+
+The command displays all registered resources along with their pages in a readable format, similar to the `route:list` output.
+
+When using the `--json` option, the output will be in JSON format, which is convenient for automation and integration with other tools.
+
+<a name="pages-list"></a>
+## Pages List
+
+Command to display a list of all registered standalone **MoonShine** pages (excluding pages belonging to resources):
+
+```shell
+php artisan moonshine:pages
+```
+
+Signature:
+```
+moonshine:pages {--json}
+```
+
+Available options:
+
+- `--json` - output in JSON format.
+
+The command displays only standalone pages that do not belong to resources. Resource pages are displayed in the `moonshine:resources` command.
+
+When using the `--json` option, the output will be in JSON format.
