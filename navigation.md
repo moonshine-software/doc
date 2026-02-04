@@ -128,6 +128,7 @@
     - [Notifications](/docs/{{version}}/components/notifications)
     - [OffCanvas](/docs/{{version}}/components/off-canvas)
     - [Popover](/docs/{{version}}/components/popover)
+    - [PrettyLimit](/docs/{{version}}/components/pretty-limit)
     - [Profile](/docs/{{version}}/components/profile)
     - [Progressbar](/docs/{{version}}/components/progress-bar)
     - [Rating](/docs/{{version}}/components/rating)

@@ -12,6 +12,7 @@
   - [Замок](#locked)
   - [Префикс](#prefix)
   - [Суффикс](#suffix)
+- [PrettyLimit](#pretty-limit)
 - [Редактирование в режиме preview](#preview-edit)
 
 ---
@@ -173,6 +174,40 @@ suffix(string $ext)
 Text::make('Domain', 'domain')
     ->suffix('.com')
 ```
+
+<a name="pretty-limit"></a>
+## PrettyLimit
+
+Метод `prettyLimit()` позволяет отображать значение поля в режиме preview с ограниченной шириной. Полный текст показывается при наведении курсора.
+
+```php
+prettyLimit(
+    null|Color|string|Closure $color = null,
+    null|string|Closure $label = null,
+    null|int|Closure $limit = null
+)
+```
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\Support\Enums\Color;
+use MoonShine\UI\Fields\Text;
+
+Text::make('Название', 'title')
+    ->prettyLimit(Color::PRIMARY);
+
+// с динамическими значениями
+Text::make('Статус', 'status')
+    ->prettyLimit(
+        color: fn($value, $field) => $value === 'active' ? Color::SUCCESS : Color::ERROR,
+        label: fn($value, $field) => $value === 'active' ? 'Активен' : 'Неактивен',
+        limit: 200
+    );
+```
+
+> [!TIP]
+> Подробнее о компоненте можно узнать в разделе [PrettyLimit](/docs/{{version}}/components/pretty-limit).
 
 <a name="preview-edit"></a>
 ## Редактирование в режиме preview

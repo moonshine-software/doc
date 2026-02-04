@@ -12,6 +12,7 @@
   - [Lock](#locked)
   - [Prefix](#prefix)
   - [Suffix](#suffix)
+- [PrettyLimit](#pretty-limit)
 - [Editing in preview mode](#preview-edit)
 
 ---
@@ -173,6 +174,40 @@ suffix(string $ext)
 Text::make('Domain', 'domain')
     ->suffix('.com')
 ```
+
+<a name="pretty-limit"></a>
+## PrettyLimit
+
+The `prettyLimit()` method allows displaying field value in preview mode with limited width. The full text is shown on hover.
+
+```php
+prettyLimit(
+    null|Color|string|Closure $color = null,
+    null|string|Closure $label = null,
+    null|int|Closure $limit = null
+)
+```
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\Support\Enums\Color;
+use MoonShine\UI\Fields\Text;
+
+Text::make('Title', 'title')
+    ->prettyLimit(Color::PRIMARY);
+
+// with dynamic values
+Text::make('Status', 'status')
+    ->prettyLimit(
+        color: fn($value, $field) => $value === 'active' ? Color::SUCCESS : Color::ERROR,
+        label: fn($value, $field) => $value === 'active' ? 'Active' : 'Inactive',
+        limit: 200
+    );
+```
+
+> [!TIP]
+> Learn more about the component in the [PrettyLimit](/docs/{{version}}/components/pretty-limit) section.
 
 <a name="preview-edit"></a>
 ## Editing in preview mode
