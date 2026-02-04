@@ -27,6 +27,16 @@ def read_navigation():
     return ""
 
 
+def read_component_example():
+    """Read an example component documentation for format reference."""
+    doc_root = Path(__file__).parent.parent.parent
+    # Use Rating component as a good example of formatting
+    example_path = doc_root / "en" / "components" / "rating.md"
+    if example_path.exists():
+        return example_path.read_text()
+    return ""
+
+
 def list_existing_docs():
     """List existing documentation files to help identify update targets."""
     doc_root = Path(__file__).parent.parent.parent
@@ -103,6 +113,7 @@ def generate_documentation(pr_url: str, pr_number: str, pr_title: str, pr_diff: 
 
     claude_md = read_claude_md()
     navigation = read_navigation()
+    component_example = read_component_example()
     existing_files = list_existing_docs()
     relevant_files = find_relevant_files(pr_diff, existing_files)
 
@@ -143,26 +154,59 @@ Here is the current navigation structure:
 4. Create BOTH English (en/) and Russian (ru/) versions
 5. Follow all formatting rules from CLAUDE.md
 
+**IMPORTANT: What to Document and What to Skip**
+
+Document ONLY:
+- New public components, fields, traits that users can use directly
+- New public methods added to existing classes that users interact with
+- New configuration options
+- Changes to public API that affect how users use the framework
+
+Do NOT document (these are internal implementation details):
+- Internal controller changes (changes inside system controllers)
+- Internal service/handler refactoring
+- CSS/styling implementation details (only document if there are new CSS variables users can customize)
+- Internal class restructuring
+- Private/protected method changes
+- Test file changes
+- Migration/database schema internals
+- Middleware internals unless they add new public configuration
+
+If a PR contains ONLY internal changes with no public API impact, output:
+NO_DOCS_NEEDED: Internal implementation changes only, no public API changes
+
 **IMPORTANT OUTPUT RULES:**
 
-Use ONE of these formats:
+Use these EXACT formats. CRITICAL RULES:
+- Write raw markdown content directly between markers (FILE:/APPEND: and FILE_END/APPEND_END)
+- Do NOT wrap file content in triple backticks
+- Code examples INSIDE the file content should use normal markdown code blocks
 
 1. **For NEW files** (topic doesn't exist in navigation):
-```
+
 FILE: path/to/new-file.md
-```markdown
-[complete new file content]
-```
+# Title
+
+Your markdown content here...
+
+```php
+// Code examples inside use normal markdown
 ```
 
+More content...
+FILE_END
+
 2. **For ADDING to existing files** (topic exists, need to add sections):
-```
+
 APPEND: path/to/existing-file.md
-```markdown
-[ONLY the new sections to add - will be appended to the end of the file]
-[Include navigation links update if adding new sections]
+## New Section
+
+Content to append with code examples:
+
+```php
+$example = 'code';
 ```
-```
+APPEND_END
 
 3. **For updating navigation links in existing file** (when adding sections):
 ```
@@ -171,8 +215,39 @@ NAV_UPDATE: path/to/existing-file.md
 - [New Section](#new-section)
 ```
 
+4. **For adding NEW entries to navigation.md** (REQUIRED when creating new files):
+```
+NAVIGATION_ADD: section_name
+    - [Component Name](/docs/{{{{version}}}}/path/to/file)
+```
+Where `section_name` is the exact section header (e.g., "Components", "Fields", "Advanced").
+This will insert the new entry alphabetically within the specified section.
+
+**IMPORTANT**: When you create a NEW file with `FILE:`, you MUST also include a `NAVIGATION_ADD:` block to add it to the main navigation!
+
 **Documentation Standards:**
 {claude_md}
+
+**IMPORTANT: Component Documentation Format Example**
+
+When documenting components, you MUST follow this exact format with tabs and Torchlight directives.
+Here is a real example from the Rating component:
+
+```
+{component_example}
+```
+
+Key formatting rules for component documentation:
+1. Use `~~~tabs` for PHP Class and Blade examples (NOT separate code blocks)
+2. Inside tabs use `tab: Class` and `tab: Blade`
+3. PHP examples MUST include Torchlight collapse directive for namespaces:
+   ```php
+   // torchlight! {{"summaryCollapsedIndicator": "namespaces"}}
+   // [tl! collapse:1]
+   use MoonShine\\UI\\Components\\ComponentName;
+   ```
+4. Blade components use `<x-moonshine::component-name />` format
+5. End tabs block with `~~~`
 
 If no documentation is needed (e.g., internal refactoring, tests only), output:
 NO_DOCS_NEEDED: [brief explanation why]
@@ -250,10 +325,11 @@ def parse_and_save_files(response: str):
 
     lines = response.split('\n')
     current_file = None
-    current_mode = None  # 'file', 'append', or 'nav_update'
+    current_mode = None  # 'file', 'append', 'nav_update', or 'navigation_add'
     current_content = []
     in_code_block = False
     nav_updates = {}  # filepath -> list of nav items
+    navigation_additions = {}  # section_name -> list of nav entries
 
     for line in lines:
         # Detect operation type and file path
@@ -268,12 +344,23 @@ def parse_and_save_files(response: str):
         elif line.startswith('NAV_UPDATE: ') or line.startswith('### NAV_UPDATE: '):
             file_match = line.replace('### NAV_UPDATE: ', '').replace('NAV_UPDATE: ', '').strip()
             mode = 'nav_update'
-        # Check for FILE: formats
-        elif line.startswith('FILE: ') or line.startswith('### FILE: '):
-            file_match = line.replace('### FILE: ', '').replace('FILE: ', '').strip()
+        # Check for NAVIGATION_ADD: format (for adding to main navigation.md)
+        elif line.startswith('NAVIGATION_ADD: ') or line.startswith('### NAVIGATION_ADD: '):
+            file_match = line.replace('### NAVIGATION_ADD: ', '').replace('NAVIGATION_ADD: ', '').strip()
+            mode = 'navigation_add'
+        # Check for FILE: formats (including variations like "New File:", "#### New File:", etc.)
+        elif line.startswith('FILE: ') or line.startswith('### FILE: ') or line.startswith('#### FILE: '):
+            file_match = line.replace('#### FILE: ', '').replace('### FILE: ', '').replace('FILE: ', '').strip()
             mode = 'file'
         elif line.startswith('**FILE:'):
             file_match = line.replace('**FILE:', '').replace('**', '').strip()
+            mode = 'file'
+        elif 'New File:' in line or 'New file:' in line or 'NEW FILE:' in line:
+            # Handle formats like "#### New File: path/to/file.md"
+            for marker in ['#### New File: ', '### New File: ', 'New File: ', '#### New file: ', '### New file: ', 'New file: ', '#### NEW FILE: ', 'NEW FILE: ']:
+                if marker in line:
+                    file_match = line.split(marker)[-1].strip()
+                    break
             mode = 'file'
 
         if file_match:
@@ -283,6 +370,8 @@ def parse_and_save_files(response: str):
                     append_to_file(current_file, '\n'.join(current_content))
                 elif current_mode == 'nav_update':
                     nav_updates[current_file] = current_content
+                elif current_mode == 'navigation_add':
+                    navigation_additions[current_file] = current_content
                 else:
                     save_file(current_file, '\n'.join(current_content))
 
@@ -293,17 +382,34 @@ def parse_and_save_files(response: str):
             in_code_block = False
 
         elif current_file:
-            # Check for code block markers
-            if line.strip().startswith('```'):
-                in_code_block = not in_code_block
+            stripped = line.strip()
+
+            # Check for end markers (new format with explicit end markers)
+            if current_mode == 'file' and stripped == 'FILE_END':
+                save_file(current_file, '\n'.join(current_content))
+                current_file = None
+                current_mode = None
+                current_content = []
+                in_code_block = False
+                continue
+            elif current_mode == 'append' and stripped == 'APPEND_END':
+                append_to_file(current_file, '\n'.join(current_content))
+                current_file = None
+                current_mode = None
+                current_content = []
+                in_code_block = False
                 continue
 
-            # Collect content
+            # Collect content based on mode
             if current_mode == 'nav_update':
-                # For nav_update, collect lines starting with -
-                if line.strip().startswith('- '):
-                    current_content.append(line.strip())
-            elif in_code_block:
+                if stripped.startswith('- '):
+                    current_content.append(stripped)
+            elif current_mode == 'navigation_add':
+                if stripped.startswith('- '):
+                    current_content.append(stripped)
+            elif current_mode in ('file', 'append'):
+                # For file/append modes, collect everything until FILE_END/APPEND_END
+                # The content should be raw markdown (not wrapped in ```)
                 current_content.append(line)
 
     # Save last file
@@ -312,17 +418,26 @@ def parse_and_save_files(response: str):
             append_to_file(current_file, '\n'.join(current_content))
         elif current_mode == 'nav_update':
             nav_updates[current_file] = current_content
+        elif current_mode == 'navigation_add':
+            navigation_additions[current_file] = current_content
         else:
             save_file(current_file, '\n'.join(current_content))
 
-    # Process navigation updates
+    # Process navigation updates (for in-file navigation)
     for filepath, nav_items in nav_updates.items():
         update_navigation(filepath, nav_items)
+
+    # Process navigation.md additions
+    for section_name, nav_entries in navigation_additions.items():
+        add_to_main_navigation(section_name, nav_entries)
 
 
 def append_to_file(filepath: str, content: str):
     """Append content to an existing file."""
     doc_root = Path(__file__).parent.parent.parent
+
+    # Remove outer code block wrapper if GPT added it
+    content = strip_outer_code_block(content)
 
     # Security: Ensure path is relative and safe
     filepath = filepath.lstrip('/')
@@ -382,8 +497,115 @@ def update_navigation(filepath: str, nav_items: list):
     print(f"\n✓ Updated navigation in: {filepath}")
 
 
+def add_to_main_navigation(section_name: str, nav_entries: list):
+    """Add new entries to navigation.md under the specified section."""
+    doc_root = Path(__file__).parent.parent.parent
+    nav_path = doc_root / "navigation.md"
+
+    if not nav_path.exists():
+        print(f"\n✗ navigation.md not found")
+        return
+
+    content = nav_path.read_text(encoding='utf-8')
+    lines = content.split('\n')
+
+    # Find the section header (e.g., "- ## Components")
+    section_header = f"- ## {section_name}"
+    section_idx = None
+
+    for i, line in enumerate(lines):
+        if line.strip() == section_header:
+            section_idx = i
+            break
+
+    if section_idx is None:
+        print(f"\n⚠ Section '{section_name}' not found in navigation.md")
+        return
+
+    # Find where to insert (collect existing entries in this section)
+    # Section entries start after section header and end at next section or EOF
+    insert_idx = section_idx + 1
+    section_entries = []
+
+    for i in range(section_idx + 1, len(lines)):
+        line = lines[i]
+        # Next section starts
+        if line.strip().startswith('- ## '):
+            break
+        # Collect existing entries for alphabetical sorting
+        if line.strip().startswith('- ['):
+            section_entries.append((i, line.strip()))
+        insert_idx = i + 1
+
+    # Extract names for alphabetical comparison
+    def extract_name(entry):
+        # Entry format: "- [Name](/docs/...)"
+        if entry.startswith('- ['):
+            return entry.split('](')[0].replace('- [', '').lower()
+        return entry.lower()
+
+    # Add new entries
+    entries_added = 0
+    for new_entry in nav_entries:
+        new_name = extract_name(new_entry)
+
+        # Check if entry already exists
+        existing_names = [extract_name(e[1]) for e in section_entries]
+        if new_name in existing_names:
+            print(f"\n⚠ Entry '{new_entry}' already exists in {section_name}")
+            continue
+
+        # Find alphabetical position
+        insert_position = None
+        for idx, (line_idx, existing_entry) in enumerate(section_entries):
+            if new_name < extract_name(existing_entry):
+                insert_position = line_idx
+                break
+
+        if insert_position is None:
+            # Add at end of section (before next section)
+            insert_position = insert_idx
+
+        # Insert with proper indentation (4 spaces)
+        formatted_entry = f"    {new_entry}"
+        lines.insert(insert_position, formatted_entry)
+
+        # Update indices for subsequent insertions
+        section_entries = [(li + 1 if li >= insert_position else li, e) for li, e in section_entries]
+        section_entries.append((insert_position, new_entry))
+        section_entries.sort(key=lambda x: extract_name(x[1]))
+        insert_idx += 1
+        entries_added += 1
+
+    if entries_added > 0:
+        new_content = '\n'.join(lines)
+        nav_path.write_text(new_content, encoding='utf-8')
+        print(f"\n✓ Added {entries_added} entries to navigation.md section '{section_name}'")
+
+
+def strip_outer_code_block(content: str) -> str:
+    """Remove outer ```markdown wrapper if present."""
+    lines = content.split('\n')
+
+    # Check if first line is ```markdown or ``` and last non-empty line is ```
+    if lines and lines[0].strip() in ('```markdown', '```'):
+        # Find last non-empty line
+        last_idx = len(lines) - 1
+        while last_idx > 0 and not lines[last_idx].strip():
+            last_idx -= 1
+
+        if lines[last_idx].strip() == '```':
+            # Remove first and last markers
+            return '\n'.join(lines[1:last_idx])
+
+    return content
+
+
 def save_file(filepath: str, content: str):
     """Save generated content to file."""
+
+    # Remove outer code block wrapper if GPT added it despite instructions
+    content = strip_outer_code_block(content)
 
     # Security: Ensure path is relative and safe
     filepath = filepath.lstrip('/')
