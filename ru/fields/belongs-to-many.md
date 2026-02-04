@@ -5,6 +5,7 @@
 - [Pivot](#pivot)
 - [Дедупликация](#deduplication)
 - [Создание объекта отношения](#creatable)
+- [Модальный режим pivot](#pivot-modal-mode)
 - [Выбор](#select)
 - [Опции](#options)
 - [Placeholder](#placeholder)
@@ -221,6 +222,101 @@ BelongsToMany::make('Categories', resource: CategoryResource::class)
     ->creatable(
         button: ActionButton::make('Custom button', '')
     )
+```
+
+<a name="pivot-modal-mode"></a>
+## Модальный режим pivot
+
+Метод `pivotModalMode()` позволяет редактировать и добавлять связи через модальные окна.
+В этом режиме данные pivot сохраняются отдельно через асинхронные запросы, что удобно для сложных форм с несколькими полями pivot.
+
+```php
+pivotModalMode(Closure|bool|null $condition = null)
+```
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
+use MoonShine\UI\Fields\Text;
+
+BelongsToMany::make('Categories', resource: CategoryResource::class)
+    ->fields([
+        Text::make('Subtitle'),
+    ])
+    ->pivotModalMode()
+    ->creatable()
+```
+
+> [!NOTE]
+> Для работы `pivotModalMode()` необходимо, чтобы основная запись уже была сохранена.
+> На форме создания поле будет скрыто, пока запись не будет создана.
+
+> [!WARNING]
+> Реактивность не поддерживается в режиме `pivotModalMode()`.
+
+### Режим карточек
+
+Метод `pivotCardsMode()` активирует `pivotModalMode()` и отображает связи в виде карточек вместо таблицы.
+Это полезно, когда нужно визуально выделить каждую связь, например, показать изображения из pivot-данных.
+
+```php
+pivotCardsMode(Closure|bool|null $condition = null)
+```
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:5]
+use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
+use MoonShine\UI\Components\CardsBuilder;
+use MoonShine\UI\Fields\Image;
+use MoonShine\UI\Fields\Text;
+use Illuminate\Support\Facades\Storage;
+
+BelongsToMany::make('Categories', formatted: fn(Category $category) => $category->name)
+    ->fields([
+        Text::make('Subtitle'),
+        Image::make('Image')->disk('public')->dir('categories_pivot'),
+    ])
+    ->pivotCardsMode()
+    ->creatable()
+    ->modifyTable(
+        fn(CardsBuilder $cards) => $cards
+            ->title('name')
+            ->subtitle('pivot.subtitle')
+            ->thumbnail(fn(Category $category): string => $category->pivot->image
+                ? Storage::disk('public')->url($category->pivot->image)
+                : ''
+            )
+    )
+```
+
+### Кастомизация кнопок
+
+Для настройки кнопок создания, редактирования и удаления в режиме `pivotModalMode()` используются методы:
+
+```php
+modifyCreateButton(Closure $callback)
+modifyEditButton(Closure $callback)
+modifyDeleteButton(Closure $callback)
+```
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:3]
+use MoonShine\Contracts\UI\ActionButtonContract;
+use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
+use MoonShine\UI\Fields\Text;
+
+BelongsToMany::make('Categories', resource: CategoryResource::class)
+    ->fields([
+        Text::make('Subtitle'),
+    ])
+    ->pivotModalMode()
+    ->creatable()
+    ->modifyCreateButton(fn(ActionButtonContract $btn) => $btn->success())
+    ->modifyEditButton(fn(ActionButtonContract $btn) => $btn->warning())
+    ->modifyDeleteButton(fn(ActionButtonContract $btn) => $btn->secondary())
 ```
 
 <a name="select"></a>

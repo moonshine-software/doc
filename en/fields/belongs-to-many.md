@@ -5,6 +5,7 @@
 - [Pivot](#pivot)
 - [Deduplication](#deduplication)
 - [Creating Relationship Object](#creatable)
+- [Pivot Modal Mode](#pivot-modal-mode)
 - [Select](#select)
 - [Options](#options)
 - [Placeholder](#placeholder)
@@ -221,6 +222,101 @@ BelongsToMany::make('Categories', resource: CategoryResource::class)
     ->creatable(
         button: ActionButton::make('Custom button', '')
     )
+```
+
+<a name="pivot-modal-mode"></a>
+## Pivot Modal Mode
+
+The `pivotModalMode()` method allows you to edit and add relationships through modal windows.
+In this mode, pivot data is saved separately via asynchronous requests, which is convenient for complex forms with multiple pivot fields.
+
+```php
+pivotModalMode(Closure|bool|null $condition = null)
+```
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
+use MoonShine\UI\Fields\Text;
+
+BelongsToMany::make('Categories', resource: CategoryResource::class)
+    ->fields([
+        Text::make('Subtitle'),
+    ])
+    ->pivotModalMode()
+    ->creatable()
+```
+
+> [!NOTE]
+> For `pivotModalMode()` to work, the main record must already be saved.
+> On the create form, the field will be hidden until the record is created.
+
+> [!WARNING]
+> Reactivity is not supported in `pivotModalMode()`.
+
+### Cards Mode
+
+The `pivotCardsMode()` method activates `pivotModalMode()` and displays relationships as cards instead of a table.
+This is useful when you need to visually highlight each relationship, for example, to show images from pivot data.
+
+```php
+pivotCardsMode(Closure|bool|null $condition = null)
+```
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:5]
+use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
+use MoonShine\UI\Components\CardsBuilder;
+use MoonShine\UI\Fields\Image;
+use MoonShine\UI\Fields\Text;
+use Illuminate\Support\Facades\Storage;
+
+BelongsToMany::make('Categories', formatted: fn(Category $category) => $category->name)
+    ->fields([
+        Text::make('Subtitle'),
+        Image::make('Image')->disk('public')->dir('categories_pivot'),
+    ])
+    ->pivotCardsMode()
+    ->creatable()
+    ->modifyTable(
+        fn(CardsBuilder $cards) => $cards
+            ->title('name')
+            ->subtitle('pivot.subtitle')
+            ->thumbnail(fn(Category $category): string => $category->pivot->image
+                ? Storage::disk('public')->url($category->pivot->image)
+                : ''
+            )
+    )
+```
+
+### Button Customization
+
+To customize the create, edit, and delete buttons in `pivotModalMode()`, use the following methods:
+
+```php
+modifyCreateButton(Closure $callback)
+modifyEditButton(Closure $callback)
+modifyDeleteButton(Closure $callback)
+```
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:3]
+use MoonShine\Contracts\UI\ActionButtonContract;
+use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
+use MoonShine\UI\Fields\Text;
+
+BelongsToMany::make('Categories', resource: CategoryResource::class)
+    ->fields([
+        Text::make('Subtitle'),
+    ])
+    ->pivotModalMode()
+    ->creatable()
+    ->modifyCreateButton(fn(ActionButtonContract $btn) => $btn->success())
+    ->modifyEditButton(fn(ActionButtonContract $btn) => $btn->warning())
+    ->modifyDeleteButton(fn(ActionButtonContract $btn) => $btn->secondary())
 ```
 
 <a name="select"></a>
