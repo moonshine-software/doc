@@ -26,6 +26,7 @@ make(
     protected Closure|Renderable|ActionButtonContract|string $outer = '',
     protected Closure|string|null $asyncUrl = null,
     iterable $components = [],
+    protected string|null $subTitle = null
 )
 ```
 
@@ -34,6 +35,7 @@ make(
 - `$outer` - external block with the trigger for the window,
 - `$asyncUrl` - URL for asynchronous content,
 - `$components` - components for the modal window.
+- `$subTitle` - subtitle of the modal window,
 
 ~~~tabs
 tab: Class
