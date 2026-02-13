@@ -25,8 +25,7 @@ make(
     protected Closure|Renderable|string $content = '',
     protected Closure|Renderable|ActionButtonContract|string $outer = '',
     protected Closure|string|null $asyncUrl = null,
-    iterable $components = [],
-    protected string|null $subTitle = null
+    iterable $components = []
 )
 ```
 
@@ -35,7 +34,6 @@ make(
 - `$outer` - внешний блок с обработчиком вызова окна,
 - `$asyncUrl` - url для асинхронного контента,
 - `$components` - компоненты для модального окна.
-- `$subTitle` - подзаголовок модального окна.
 
 ~~~tabs
 tab: Class
