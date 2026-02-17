@@ -385,3 +385,42 @@ The `moonshine::modal` component allows for loading content asynchronously.
     </x-slot>
 </x-moonshine::modal>
 ```
+
+## Subtitle in Modal
+
+The `Modal` component now supports an optional subtitle, allowing you to provide additional context or information in the modal header.
+
+### Usage
+
+To set a subtitle for a modal, use the `subtitle()` method on the `Modal` component.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\UI\Components\Modal;
+
+Modal::make('Title')
+    ->subtitle('This is a subtitle');
+```
+
+This will render a modal with both a title and a subtitle in the header.
+
+### Blade Example
+
+You can also set the subtitle directly in a Blade view:
+
+```blade
+<x-moonshine::modal title="Title" subtitle="This is a subtitle">
+    <!-- Modal content -->
+</x-moonshine::modal>
+```
+
+### Styling
+
+The subtitle uses the following CSS variables for styling, which can be customized:
+
+- `--ms-modal-subtitle-font-size`: Font size of the subtitle.
+- `--ms-modal-subtitle-font-weight`: Font weight of the subtitle.
+- `--ms-modal-subtitle-color`: Color of the subtitle text.
+
+These variables provide flexibility in styling the subtitle to match your application's design.

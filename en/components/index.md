@@ -8,6 +8,7 @@
 - [Macroable Trait](#macroable)
 - [Custom Component](#custom)
 
+- [Subtitle in Modal](#subtitle-in-modal)
 ---
 
 <a name="description"></a>
