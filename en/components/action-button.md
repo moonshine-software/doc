@@ -801,3 +801,28 @@ ActionButton::make('Button Label')
 
 > [!WARNING]
 > If you add hotkeys to a button in the iterated table, the event will trigger on all buttons at once!
+
+## Using Form Data with ActionButton
+
+The `ActionButton` component now supports attaching form data to the button's action. This can be useful when you want to submit additional form data along with the button's action.
+
+### Method: `withFormData()`
+
+```php
+withFormData(?string $selector = null): static
+```
+
+- `$selector` - A CSS selector to specify which form's data to include. If not provided, the closest form to the button will be used.
+
+### Example Usage
+
+Here's how you can use the `withFormData()` method in your `ActionButton`:
+
+```php
+use MoonShine\UI\Components\ActionButton;
+
+ActionButton::make('Submit')
+    ->withFormData('#myForm');
+```
+
+In this example, the form data from the form with the ID `myForm` will be included when the action button is clicked.
