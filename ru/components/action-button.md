@@ -202,6 +202,30 @@ ActionButton::make('Open modal window')
     ->toggleModal('my-modal'),
 ```
 
+Метод `toggleModal()` также поддерживает передачу `asyncUrl` вторым параметром.
+Это позволяет переиспользовать одну общую асинхронную модалку для нескольких кнопок с разным содержимым.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\UI\Components\ActionButton;
+use MoonShine\UI\Components\Modal;
+
+Modal::make('Title')
+    ->name('my-modal')
+    ->asyncUrl('/default-url'),
+
+ActionButton::make('Item 1')
+    ->toggleModal('my-modal', '/async-url-for-item-1'),
+
+ActionButton::make('Item 2')
+    ->toggleModal('my-modal', fn () => '/async-url-for-item-2'),
+```
+
+> [!TIP]
+> Параметр `asyncUrl` может быть строкой или `Closure`.
+> При открытии модалки URL из кнопки заменит текущий `asyncUrl` модалки и загрузит новый контент.
+
 ### Асинхронный режим
 
 Если вам нужно загрузить содержимое в модальное окно асинхронно, то включите асинхронный режим с помощью метода `async()` у `ActionButton`.
