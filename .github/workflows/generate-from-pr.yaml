@@ -38,7 +38,18 @@ jobs:
         run: |
           python .github/scripts/generate_docs.py
 
+      - name: Check if documentation changes were generated
+        id: check_changes
+        run: |
+          if [ -f .github/.no_docs_needed ]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "No documentation changes needed, skipping PR creation."
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Create Pull Request
+        if: steps.check_changes.outputs.skip != 'true'
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
