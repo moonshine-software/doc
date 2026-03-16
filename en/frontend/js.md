@@ -289,10 +289,16 @@ MoonShine.ui.toast('Hello world', 'success')
 
 ## Modal
 
-Open/Close Modal
+Open/Close Modal.
 
 ```js
 MoonShine.ui.toggleModal('modal-name')
+```
+
+Open Modal with `asyncUrl` to load new asynchronous content.
+
+```js
+MoonShine.ui.toggleModal('modal-name', '/async-endpoint')
 ```
 
 ## OffCanvas

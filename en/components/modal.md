@@ -142,6 +142,10 @@ Modal::make(
 ActionButton::make('Show Modal')
     ->toggleModal('my-modal')
 
+// with asyncUrl
+ActionButton::make('Show Modal')
+    ->toggleModal('my-modal', '/async-endpoint')
+
 // or asynchronously
 ActionButton::make(
     'Show Modal',
@@ -172,7 +176,13 @@ this.$dispatch('modal_toggled:my-modal')
 
 ```js
 MoonShine.ui.toggleModal('my-modal')
+
+// with asyncUrl
+MoonShine.ui.toggleModal('my-modal', '/async-endpoint')
 ```
+
+> [!NOTE]
+> When `asyncUrl` is passed, the modal will update its URL and load new content upon opening.
 
 > [!NOTE]
 > More detailed information can be found in the official Alpine.js documentation
