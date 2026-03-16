@@ -1,6 +1,7 @@
 # Modal
 
 - [Basics](#basics)
+- [Subtitle](#subtitle)
 - [Events](#events)
     - [Open/Close](#open-close)
 - [Default State](#open)
@@ -65,6 +66,40 @@ tab: Blade
 @preview('modal')
 
 @include('_includes/modal-off-canvas-components', 'Modal', 'Modal', 'Modal', 'Modal')
+
+<a name="subtitle"></a>
+## Subtitle
+
+The `subtitle()` method allows you to set a subtitle for the modal window. The subtitle is displayed below the main title in a smaller font.
+
+```php
+subtitle(string $subtitle)
+```
+
+~~~tabs
+tab: Class
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\UI\Components\Modal;
+
+Modal::make('Title')
+    ->subtitle('Modal subtitle'),
+```
+tab: Blade
+```blade
+<x-moonshine::modal title="Title" subtitle="Modal subtitle">
+    <div>
+        Content...
+    </div>
+    <x-slot name="outerHtml">
+        <x-moonshine::link-button @click.prevent="toggleModal">
+            Open modal
+        </x-moonshine::link-button>
+    </x-slot>
+</x-moonshine::modal>
+```
+~~~
 
 <a name="events"></a>
 ## Events
@@ -301,6 +336,24 @@ The `moonshine::modal` component is used to create modal windows.
 
 ```blade
 <x-moonshine::modal title="Title">
+    <div>
+        Content...
+    </div>
+    <x-slot name="outerHtml">
+        <x-moonshine::link-button @click.prevent="toggleModal">
+            Open modal
+        </x-moonshine::link-button>
+    </x-slot>
+</x-moonshine::modal>
+```
+
+<a name="blade-subtitle"></a>
+### Subtitle
+
+The `subtitle` parameter allows you to set a subtitle for the modal window.
+
+```blade
+<x-moonshine::modal title="Title" subtitle="Modal subtitle">
     <div>
         Content...
     </div>

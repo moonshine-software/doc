@@ -1,6 +1,7 @@
 # Modal
 
 - [Основы](#basics)
+- [Подзаголовок](#subtitle)
 - [События](#events)
     - [Открытие/Закрытие](#open-close)
 - [Состояние по умолчанию](#open)
@@ -65,6 +66,40 @@ tab: Blade
 @preview('modal')
 
 @include('_includes/modal-off-canvas-components', 'Modal', 'Modal', 'Modal', 'Modal')
+
+<a name="subtitle"></a>
+## Подзаголовок
+
+Метод `subtitle()` позволяет задать подзаголовок для модального окна. Подзаголовок отображается под основным заголовком меньшим шрифтом.
+
+```php
+subtitle(string $subtitle)
+```
+
+~~~tabs
+tab: Class
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\UI\Components\Modal;
+
+Modal::make('Title')
+    ->subtitle('Modal subtitle'),
+```
+tab: Blade
+```blade
+<x-moonshine::modal title="Title" subtitle="Modal subtitle">
+    <div>
+        Content...
+    </div>
+    <x-slot name="outerHtml">
+        <x-moonshine::link-button @click.prevent="toggleModal">
+            Open modal
+        </x-moonshine::link-button>
+    </x-slot>
+</x-moonshine::modal>
+```
+~~~
 
 <a name="events"></a>
 ## События
@@ -301,6 +336,24 @@ Modal::make('Title', 'Content...', ActionButton::make('Show Modal', '#'))
 
 ```blade
 <x-moonshine::modal title="Title">
+    <div>
+        Content...
+    </div>
+    <x-slot name="outerHtml">
+        <x-moonshine::link-button @click.prevent="toggleModal">
+            Open modal
+        </x-moonshine::link-button>
+    </x-slot>
+</x-moonshine::modal>
+```
+
+<a name="blade-subtitle"></a>
+### Подзаголовок
+
+Параметр `subtitle` позволяет задать подзаголовок для модального окна.
+
+```blade
+<x-moonshine::modal title="Title" subtitle="Modal subtitle">
     <div>
         Content...
     </div>
