@@ -822,6 +822,7 @@ withFormData(?string $selector = null): static
 use MoonShine\UI\Components\ActionButton;
 
 ActionButton::make('Отправить')
+    ->async()
     ->withFormData('#myForm');
 ```
 

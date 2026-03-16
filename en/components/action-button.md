@@ -822,6 +822,7 @@ Here's how you can use the `withFormData()` method in your `ActionButton`:
 use MoonShine\UI\Components\ActionButton;
 
 ActionButton::make('Submit')
+    ->async()
     ->withFormData('#myForm');
 ```
 
