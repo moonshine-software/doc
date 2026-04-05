@@ -203,3 +203,7 @@ There is also an [article](https://cutcode.dev/articles/softdeleting-v-moonshine
 Fields have a `badge()` method that can accept a closure that returns a color code: [fields/basic-methods#badge](/docs/{{version}}/fields/basic-methods#badge).
 
 Also see the [Enum](/docs/{{version}}/fields/enum#color) section.
+
+## How can I add custom elements to the detail page or modify it?
+
+[recipes/modified-detail-page](/docs/{{version}}/recipes/modified-detail-page)
