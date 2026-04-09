@@ -186,5 +186,6 @@
     - [Paginator](/docs/{{version}}/recipes/table-paginator)
     - [Soft deletes](/docs/{{version}}/recipes/soft-deletes)
     - [Reorderable resource](/docs/{{version}}/recipes/reorderable-resource)
+    - [How to modify your DetailPage](/docs/{{version}}/recipes/modified-detail-page)
 - ## FAQ
     - [FAQ](/docs/{{version}}/faq)

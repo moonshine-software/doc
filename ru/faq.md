@@ -39,7 +39,7 @@ public function formFields(): array
 
 Смотрите раздел поля [Json](/docs/{{version}}/fields/json).
 
-##  Как добавить стили или классы к полям или компонентам?
+## Как добавить стили или классы к полям или компонентам?
 
 [Добавление класса](/docs/{{version}}/components/attributes#class).
 
@@ -203,3 +203,7 @@ Hidden::make('Author')
 У полей есть метод `badge()`, который может принимать замыкание, возвращающее код цвета: [fields/basic-methods#badge](/docs/{{version}}/fields/basic-methods#badge).
 
 Так же смотрите раздел поля [Enum](/docs/{{version}}/fields/enum#color).
+
+## Как добавить свои элементы на детальную страницу или изменить её?
+
+[recipes/modified-detail-page](/docs/{{version}}/recipes/modified-detail-page)
