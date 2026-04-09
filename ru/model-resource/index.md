@@ -192,12 +192,12 @@ class MoonShineServiceProvider extends ServiceProvider
 ## Сортировка
 
 По умолчанию записи в таблице ресурса сортируются по полю `id` в порядке убывания.
-Вы можете изменить сортировку с помощью свойств `$sortColumn` и `$sortDirection`.
+Вы можете изменить сортировку с помощью свойств `$sortColumn` и `$rection`.
 
 ```php filename:PostResource.php
 protected string $sortColumn = 'created_at';
 
-protected string $sortDirection = 'DESC';
+protected SortDirection $sortDirection = SortDirection::DESC;
 ```
 
 <a name="pagination"></a>
