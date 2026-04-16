@@ -197,7 +197,7 @@ You can change the sorting using the `$sortColumn` and `$sortDirection` properti
 ```php filename:PostResource.php
 protected string $sortColumn = 'created_at';
 
-protected string $sortDirection = 'DESC';
+protected SortDirection $sortDirection = SortDirection::DESC;
 ```
 
 <a name="pagination"></a>
