@@ -197,7 +197,7 @@ class MoonShineServiceProvider extends ServiceProvider
 ```php filename:PostResource.php
 protected string $sortColumn = 'created_at';
 
-protected string $sortDirection = 'DESC';
+protected SortDirection $sortDirection = SortDirection::DESC;
 ```
 
 <a name="pagination"></a>
