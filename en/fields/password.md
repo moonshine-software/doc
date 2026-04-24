@@ -3,6 +3,7 @@
 - [Basics](#basics)
 - [PasswordRepeat](#password-repeat)
 
+- [Raw Mode](#raw-mode)
 ---
 
 <a name="basics"></a>
@@ -44,3 +45,23 @@ use MoonShine\UI\Fields\PasswordRepeat;
 Password::make('Password', 'password'),
 PasswordRepeat::make('Password repeat', 'password_repeat')
 ```
+
+## Raw Mode
+
+The `Password` field now supports a raw mode, allowing you to store passwords in plain text rather than hashed. This can be useful in scenarios where hashing is not required or when you need to handle the password in its raw form.
+
+### Usage
+
+To enable raw mode, use the `raw()` method on the `Password` field. You can pass a boolean or a closure to conditionally enable raw mode.
+
+```php
+Password::make('Password')->raw(true)
+```
+
+If you want to conditionally enable raw mode based on some logic, you can pass a closure:
+
+```php
+Password::make('Password')->raw(fn() => $someCondition)
+```
+
+By default, passwords are stored in a hashed format.
