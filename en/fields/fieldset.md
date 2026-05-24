@@ -29,7 +29,7 @@ Also, fields for grouping can be specified using the `fields()` method.
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:3]
 use MoonShine\UI\Fields\Fieldset;
-use MoonShine\UI\Fields\Slug;
+use MoonShine\Laravel\Fields\Slug;
 use MoonShine\UI\Fields\Text;
 
 Fieldset::make('Title', [

@@ -55,7 +55,7 @@ When working asynchronously, you can trigger the notification using [JsEvents](/
 use MoonShine\Support\AlpineJs;
 use MoonShine\Support\Enums\JsEvent;
 use MoonShine\Support\Enums\ToastType;
-use MoonShine\Support\ToastEventParams;
+use MoonShine\Support\EventParams\ToastEventParams;
 
 AlpineJs::event(
     JsEvent::TOAST,

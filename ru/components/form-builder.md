@@ -185,7 +185,7 @@ fillCast(
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:1]
-use MoonShine\TypeCasts\ModelCaster;
+use MoonShine\Laravel\TypeCasts\ModelCaster;
 
 FormBuilder::make('/crud/update')
     ->fields([
@@ -203,7 +203,7 @@ FormBuilder::make('/crud/update')
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:1]
-use MoonShine\TypeCasts\ModelCaster;
+use MoonShine\Laravel\TypeCasts\ModelCaster;
 
 FormBuilder::make('/crud/update')
     ->fields([

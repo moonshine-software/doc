@@ -109,7 +109,7 @@ setLabel(Closure|string $label)
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:2]
 use MoonShine\UI\Fields\Field;
-use MoonShine\UI\Fields\Slug;
+use MoonShine\Laravel\Fields\Slug;
 
 Slug::make('Slug')
     ->setLabel(
@@ -884,7 +884,7 @@ use App\MoonShine\Applies\FileModelApply;
 use Illuminate\Support\ServiceProvider;
 use MoonShine\Contracts\Core\DependencyInjection\AppliesRegisterContract;
 use MoonShine\Contracts\Core\DependencyInjection\CoreContract;
-use MoonShine\Laravel\DependencyInjection\ConfiguratorContract;
+use MoonShine\Contracts\Core\DependencyInjection\ConfiguratorContract;
 use MoonShine\Laravel\DependencyInjection\MoonShine;
 use MoonShine\Laravel\DependencyInjection\MoonShineConfigurator;
 use MoonShine\Laravel\Resources\ModelResource;

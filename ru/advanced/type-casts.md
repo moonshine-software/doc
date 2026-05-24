@@ -6,6 +6,11 @@
 `TypeCast` для моделей уже включен в **MoonShine**, но если вам нужно работать с другим типом данных, вам понадобится объект, реализующий интерфейс `MoonShine\Contracts\Core\TypeCasts\DataCasterContract`.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\Contracts\Core\Paginator\PaginatorContract;
+use MoonShine\Contracts\Core\TypeCasts\DataWrapperContract;
+
 interface DataCasterContract
 {
     public function cast(mixed $data): DataWrapperContract;
@@ -31,6 +36,15 @@ interface DataWrapperContract
 Давайте рассмотрим пример `TypeCast` для моделей.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:6]
+use Illuminate\Contracts\Pagination\CursorPaginator;
+use Illuminate\Contracts\Pagination\Paginator;
+use Illuminate\Database\Eloquent\Model;
+use MoonShine\Contracts\Core\Paginator\PaginatorContract;
+use MoonShine\Contracts\Core\TypeCasts\DataCasterContract;
+use MoonShine\Crud\TypeCasts\PaginatorCaster;
+
 final readonly class ModelCaster implements DataCasterContract
 {
     public function __construct(
@@ -75,6 +89,11 @@ final readonly class ModelCaster implements DataCasterContract
 `ModelDataWrapper` реализует `DataWrapperContract` и за счет методов модели `getKey` и `toArray` помогает определить ключ и трансформировать объект в массив.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use Illuminate\Database\Eloquent\Model;
+use MoonShine\Contracts\Core\TypeCasts\DataWrapperContract;
+
 final readonly class ModelDataWrapper implements DataWrapperContract
 {
     public function __construct(private Model $model)

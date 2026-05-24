@@ -136,7 +136,7 @@ autoUpdate(int $ms)
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:2]
 use MoonShine\Crud\Components\Fragment;
-use MoonShine\UI\Components\Metrics\ValueMetric;
+use MoonShine\UI\Components\Metrics\Wrapped\ValueMetric;
 
 Fragment::make([
     ValueMetric::make('Metric')

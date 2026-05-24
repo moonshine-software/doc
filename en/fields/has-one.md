@@ -82,7 +82,7 @@ fields(FieldsContract|Closure|iterable $fields)
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:3]
-use MoonShine\UI\Fields\Relationships\HasOne;
+use MoonShine\Laravel\Fields\Relationships\HasOne;
 use MoonShine\UI\Fields\Phone;
 use MoonShine\UI\Fields\Text;
 

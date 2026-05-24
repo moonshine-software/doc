@@ -151,8 +151,8 @@ The following classes and methods are deprecated and will be removed in version 
 | `MoonShine\Laravel\Notifications\NotificationButton`     | `MoonShine\Crud\Notifications\NotificationButton`      |
 | `MoonShine\Laravel\Http\Responses\MoonShineJsonResponse` | `MoonShine\Crud\JsonResponse`                          |
 | `MoonShine\Laravel\MoonShineUI`                          | Instead of `MoonShineUI::toast()` now helper `toast()` |
-| `MoonShine\Laravel\Handlers\Handlers`                    | `MoonShine\Crud\Handlers\BaseHandlers`                 |
-| `MoonShine\Laravel\Handlers\Handler`                     | `MoonShine\Crud\Handlers\BaseHandler`                  |
+| `MoonShine\Laravel\Handlers\Handlers`                    | `MoonShine\Crud\Handlers\Handlers`                     |
+| `MoonShine\Laravel\Handlers\Handler`                     | `MoonShine\Crud\Handlers\Handler`                      |
 
 ### Deprecated Methods in ModelResource
 
