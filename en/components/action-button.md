@@ -34,12 +34,16 @@ make(
     Closure|string $label,
     Closure|string $url = '#',
     ?DataWrapperContract $data = null,
+    ?bool $escapeLabel = null,
 )
 ```
 
 - `label` - button text,
 - `url` - button link URL,
-- `data` - optional button data, available in closures.
+- `data` - optional button data, available in closures,
+- `escapeLabel` - label escaping preference; `null` uses the global setting.
+
+The label is escaped by default. Use `unescapeLabel()` for trusted HTML or `escapeLabel()` to explicitly enable escaping. In Blade, pass `:escape-label="false"` or `:escape-label="true"`. See [Display Escaping](/docs/{{version}}/security/display-escaping).
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}

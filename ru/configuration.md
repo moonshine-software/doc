@@ -22,6 +22,7 @@ video: https://youtu.be/kC1KIdO_MZ4?si=H2JRdmEzn4F5XOM2&t=554
   - [Формы](#forms)
   - [Страницы](#pages)
   - [Главная страница](#home-url)
+- [Экранирование отображаемого текста](#display-escaping)
 - [Получение страниц и форм](#pages-forms)
 - [Выбор метода конфигурации](#choosing-configuration-method)
 
@@ -568,6 +569,24 @@ $config->homeRoute('moonshine.index');
 $config->homeUrl('/admin/page/some-page');
 ```
 ~~~
+
+<a name="display-escaping"></a>
+## Экранирование отображаемого текста
+
+Все шесть настроек экранирования отображаемого текста по умолчанию имеют значение `true`. Установите нужному параметру `false`, чтобы по умолчанию разрешить HTML в этом виде текста.
+
+```php filename:config/moonshine.php
+'escape_label' => true,
+'escape_hint' => true,
+'escape_prefix' => true,
+'escape_suffix' => true,
+'escape_before_render' => true,
+'escape_after_render' => true,
+```
+
+При настройке через `MoonShineServiceProvider` используйте соответствующие методы объекта `$config`: `escapeLabel()`, `escapeHint()`, `escapePrefix()`, `escapeSuffix()`, `escapeBeforeRender()` и `escapeAfterRender()`. Каждый принимает `bool $escape = true`; например, `$config->escapeHint(false)` глобально отключает экранирование подсказок.
+
+Явная [локальная настройка](/docs/{{version}}/security/display-escaping#local-settings) имеет приоритет, в том числе позволяет включить экранирование при отключённом глобальном значении. Эти параметры не управляют экранированием значений полей.
 
 <a name="pages-forms"></a>
 ## Получение страниц и форм

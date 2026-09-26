@@ -22,6 +22,7 @@ video: https://youtu.be/kazEtUFIZKM?si=vDvqZHmD3KPVFOha&t=525
   - [Forms](#forms)
   - [Pages](#pages)
   - [Home page](#home-url)
+- [Display Escaping](#display-escaping)
 - [Getting Pages and Forms](#pages-forms)
 - [Choosing Configuration Method](#choosing-configuration-method)
 
@@ -568,6 +569,24 @@ $config->homeRoute('moonshine.index');
 $config->homeUrl('/admin/page/some-page');
 ```
 ~~~
+
+<a name="display-escaping"></a>
+## Display Escaping
+
+All six display escaping settings default to `true`. Set the relevant option to `false` to allow HTML by default for that kind of display text.
+
+```php filename:config/moonshine.php
+'escape_label' => true,
+'escape_hint' => true,
+'escape_prefix' => true,
+'escape_suffix' => true,
+'escape_before_render' => true,
+'escape_after_render' => true,
+```
+
+When configuring through `MoonShineServiceProvider`, use the corresponding methods on `$config`: `escapeLabel()`, `escapeHint()`, `escapePrefix()`, `escapeSuffix()`, `escapeBeforeRender()`, and `escapeAfterRender()`. Each accepts `bool $escape = true`; for example, `$config->escapeHint(false)` disables hint escaping globally.
+
+An explicit [local setting](/docs/{{version}}/security/display-escaping#local-settings) takes precedence, including enabling escaping when the global default is disabled. These options do not control field value escaping.
 
 <a name="pages-forms"></a>
 ## Getting Pages and Forms

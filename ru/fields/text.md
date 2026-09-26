@@ -98,7 +98,7 @@ Text::make('Tags', 'tags')
 <a name="unescape"></a>
 ### Отключение экранирования
 
-Метод `unescape()` отключает экранирование HTML-тегов в значении поля.
+Метод `unescape()` отключает экранирование HTML-тегов в значении поля. Он не влияет на подписи, подсказки, префиксы и суффиксы; используйте их [отдельные методы](/docs/{{version}}/security/display-escaping#local-settings).
 
 ```php
 Text::make('HTML Content', 'content')
@@ -156,6 +156,8 @@ Text::make('Protected field', 'protected_field')
 prefix(string $ext)
 ```
 
+Строки префикса экранируются по умолчанию. Используйте `unescapePrefix()` для доверенного HTML или `escapePrefix()` для явного включения экранирования. Подробнее: [Экранирование отображаемого текста](/docs/{{version}}/security/display-escaping).
+
 ```php
 Text::make('Domain', 'domain')
     ->prefix('https://')
@@ -169,6 +171,8 @@ Text::make('Domain', 'domain')
 ```php
 suffix(string $ext)
 ```
+
+Строки суффикса экранируются по умолчанию. Используйте `unescapeSuffix()` для доверенного HTML или `escapeSuffix()` для явного включения экранирования. Подробнее: [Экранирование отображаемого текста](/docs/{{version}}/security/display-escaping).
 
 ```php
 Text::make('Domain', 'domain')
