@@ -18,6 +18,7 @@ video: https://youtu.be/kC1KIdO_MZ4?si=H2JRdmEzn4F5XOM2&t=554
   - [Аутентификация](#authentication)
   - [Локализация](#localization)
   - [Хранилище](#storage)
+    - [Допустимые расширения файлов](#allowed-extensions)
   - [Layout](#layout)
   - [Формы](#forms)
   - [Страницы](#pages)
@@ -462,6 +463,35 @@ $config
     ->userAvatarsDir('images/avatars');
 ```
 ~~~
+
+<a name="allowed-extensions"></a>
+#### Допустимые расширения файлов
+
+Задайте список допустимых расширений по умолчанию для полей [File](/docs/{{version}}/fields/file#allowed-extensions) и [Image](/docs/{{version}}/fields/image).
+Указывайте расширения без точки в начале.
+
+~~~tabs
+tab: config/moonshine.php
+```php
+'allowed_extensions' => ['png', 'jpg', 'pdf'],
+```
+tab: MoonShineServiceProvider
+```php
+$config->allowedExtensions(['png', 'jpg', 'pdf']);
+```
+~~~
+
+Значение по умолчанию `[]` разрешает все расширения. Для этого также можно использовать `'*'` или `['*']`.
+Настройка `allowedExtensions()` поля заменяет глобальный список, в том числе при явно заданном `[]`.
+
+Конфигуратор также принимает замыкание, которое выполняется при чтении настройки:
+
+```php
+$config->allowedExtensions(static fn (): array => ['png', 'jpg']);
+```
+
+Для получения глобального списка используйте `$config->getAllowedExtensions()`, а для итогового списка поля — `$field->getAllowedExtensions()`.
+Оба метода возвращают массив; строка `'*'` возвращается как `['*']`.
 
 #### Cache
 
