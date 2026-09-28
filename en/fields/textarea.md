@@ -3,6 +3,7 @@
 - [Basics](#basics)
 - [Field Height](#rows)
 - [Disabling Escaping](#unescape)
+- [Escaping on apply](#escape-on-apply)
 
 ---
 
@@ -44,3 +45,23 @@ The `unescape()` method disables the escaping of HTML tags in the field value.
 Textarea::make('HTML Content', 'content')
     ->unescape()
 ```
+
+The field inherits the global [`escape` and `escape_on_apply` settings](/docs/{{version}}/configuration#field-escaping), both `true` by default. `escape` controls both the preview and the value inside the textarea form control.
+Explicit `escape()` and `unescape()` calls override `escape`; they do not change escaping when applying submitted values.
+
+<a name="escape-on-apply"></a>
+## Escaping on Apply
+
+As with [Text](/docs/{{version}}/fields/text#escape-on-apply), `escapeOnApply()` overrides the global setting independently of display escaping:
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\UI\Fields\Textarea;
+
+Textarea::make('HTML Content', 'content')
+    ->escape()
+    ->escapeOnApply(fn (Textarea $field): bool => false)
+```
+
+This example stores the original string while escaping its display. To explicitly enable escaping on apply even when it is disabled globally, use `->escapeOnApply()` without an argument. The field method accepts a closure, not a boolean.

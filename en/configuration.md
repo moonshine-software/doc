@@ -19,6 +19,7 @@ video: https://youtu.be/kazEtUFIZKM?si=vDvqZHmD3KPVFOha&t=525
   - [Localization](#localization)
   - [Storage](#storage)
   - [Layout](#layout)
+  - [Field Value Escaping](#field-escaping)
   - [Forms](#forms)
   - [Pages](#pages)
   - [Home page](#home-url)
@@ -507,6 +508,42 @@ tab: MoonShineServiceProvider
 $config->set('palette', \App\MoonShine\Palettes\CorporatePalette::class);
 ```
 ~~~
+
+<a name="field-escaping"></a>
+### Field Value Escaping
+
+Field values have two independent settings, both enabled by default:
+
+- `escape` controls value escaping when displaying a preview,
+- `escape_on_apply` controls escaping of submitted strings before they are applied to data, including when saving a model.
+
+~~~tabs
+tab: config/moonshine.php
+```php
+'escape' => true,
+'escape_on_apply' => true,
+```
+tab: MoonShineServiceProvider
+```php
+$config
+    ->escape()
+    ->escapeOnApply();
+```
+~~~
+
+The configurator methods accept `bool|Closure $escape = true`. For example, to store the original string while keeping previews escaped:
+
+```php
+$config
+    ->escape(true)
+    ->escapeOnApply(false);
+```
+
+These defaults apply to `Text`, inherited text fields such as `Email`, and `Textarea`. `Textarea` also uses `escape` when preparing the value inside its form control. Relationship previews using `BelongsTo` or `MorphTo` respect `escape` as well. Password handling remains unchanged.
+
+Explicit field-level `escape()`, `unescape()`, and `escapeOnApply()` calls take precedence over the corresponding global setting in either direction. On a field, `escapeOnApply()` accepts an optional closure, not a boolean; calling it without an argument explicitly enables escaping even if `escape_on_apply` is `false`.
+
+See [Text: escaping](/docs/{{version}}/fields/text#unescape) and [escaping on apply](/docs/{{version}}/fields/text#escape-on-apply) for field-level examples. These settings affect values, not labels, hints, prefixes, or suffixes.
 
 <a name="forms"></a>
 ### Forms

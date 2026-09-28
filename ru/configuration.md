@@ -19,6 +19,7 @@ video: https://youtu.be/kC1KIdO_MZ4?si=H2JRdmEzn4F5XOM2&t=554
   - [Локализация](#localization)
   - [Хранилище](#storage)
   - [Layout](#layout)
+  - [Экранирование значений полей](#field-escaping)
   - [Формы](#forms)
   - [Страницы](#pages)
   - [Главная страница](#home-url)
@@ -507,6 +508,42 @@ tab: MoonShineServiceProvider
 $config->set('palette', \App\MoonShine\Palettes\CorporatePalette::class);
 ```
 ~~~
+
+<a name="field-escaping"></a>
+### Экранирование значений полей
+
+Для значений полей есть две независимые настройки, обе включены по умолчанию:
+
+- `escape` управляет экранированием значений при отображении preview,
+- `escape_on_apply` управляет экранированием переданных строк перед их применением к данным, в том числе при сохранении модели.
+
+~~~tabs
+tab: config/moonshine.php
+```php
+'escape' => true,
+'escape_on_apply' => true,
+```
+tab: MoonShineServiceProvider
+```php
+$config
+    ->escape()
+    ->escapeOnApply();
+```
+~~~
+
+Методы конфигуратора принимают `bool|Closure $escape = true`. Например, чтобы сохранять исходную строку, оставив экранирование preview включённым:
+
+```php
+$config
+    ->escape(true)
+    ->escapeOnApply(false);
+```
+
+Эти настройки применяются к `Text`, его наследникам, например `Email`, и `Textarea`. Поле `Textarea` также использует `escape` при подготовке значения внутри элемента формы. Preview связей `BelongsTo` и `MorphTo` тоже учитывает `escape`. Обработка паролей остаётся прежней.
+
+Явные вызовы `escape()`, `unescape()` и `escapeOnApply()` у поля имеют приоритет над соответствующей глобальной настройкой в обоих направлениях. У поля `escapeOnApply()` принимает необязательное замыкание, а не boolean; вызов без аргумента явно включает экранирование, даже если `escape_on_apply` равен `false`.
+
+Примеры локальных настроек приведены в разделах [Text: экранирование](/docs/{{version}}/fields/text#unescape) и [экранирование при применении](/docs/{{version}}/fields/text#escape-on-apply). Эти настройки влияют на значения, а не на подписи, подсказки, префиксы или суффиксы.
 
 <a name="forms"></a>
 ### Формы

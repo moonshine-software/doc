@@ -6,6 +6,7 @@
   - [Маска](#mask)
   - [Теги](#tags)
   - [Отключение экранирования](#unescape)
+  - [Экранирование при применении](#escape-on-apply)
 - [Расширения](#extensions)
   - [Копирование](#copy)
   - [Скрытие значения](#eye)
@@ -104,6 +105,47 @@ Text::make('Tags', 'tags')
 Text::make('HTML Content', 'content')
     ->unescape()
 ```
+
+Этот метод управляет только экранированием preview и не отключает экранирование при применении переданных значений. По умолчанию preview учитывает глобальную [настройку `escape`](/docs/{{version}}/configuration#field-escaping).
+Используйте `escape()`, чтобы явно включить экранирование preview у поля, даже если глобальная настройка отключена:
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\UI\Fields\Text;
+
+Text::make('Title')
+    ->escape()
+```
+
+<a name="escape-on-apply"></a>
+### Экранирование при применении
+
+По умолчанию переданные строки экранируются перед применением к данным. Чтобы сохранять исходную строку, отключите это поведение у поля с помощью замыкания:
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\UI\Fields\Text;
+
+Text::make('HTML Content', 'content')
+    ->escapeOnApply(fn (Text $field): bool => false)
+```
+
+Замыкание получает текущее поле и возвращает, нужно ли экранировать переданное значение. Эта настройка не зависит от экранирования preview: пример выше сохраняет исходную строку и оставляет preview экранированным, если не задано иное.
+
+Без локального переопределения поле учитывает глобальную [настройку `escape_on_apply`](/docs/{{version}}/configuration#field-escaping). Чтобы включить экранирование у одного поля, даже если оно отключено глобально, вызовите метод без аргумента:
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\UI\Fields\Text;
+
+Text::make('Title')
+    ->escapeOnApply()
+```
+
+В отличие от метода конфигуратора, метод поля принимает `?Closure $condition = null`, а не boolean.
 
 <a name="extensions"></a>
 ## Расширения
