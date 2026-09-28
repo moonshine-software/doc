@@ -18,6 +18,7 @@ video: https://youtu.be/kazEtUFIZKM?si=vDvqZHmD3KPVFOha&t=525
   - [Authentication](#authentication)
   - [Localization](#localization)
   - [Storage](#storage)
+    - [Allowed File Extensions](#allowed-extensions)
   - [Layout](#layout)
   - [Forms](#forms)
   - [Pages](#pages)
@@ -462,6 +463,35 @@ $config
     ->userAvatarsDir('images/avatars');
 ```
 ~~~
+
+<a name="allowed-extensions"></a>
+#### Allowed File Extensions
+
+Set a default list of allowed extensions for [File](/docs/{{version}}/fields/file#allowed-extensions) and [Image](/docs/{{version}}/fields/image) fields.
+Specify extensions without a leading dot.
+
+~~~tabs
+tab: config/moonshine.php
+```php
+'allowed_extensions' => ['png', 'jpg', 'pdf'],
+```
+tab: MoonShineServiceProvider
+```php
+$config->allowedExtensions(['png', 'jpg', 'pdf']);
+```
+~~~
+
+The default `[]` allows all extensions. You can also use `'*'` or `['*']` to allow all extensions.
+A field's `allowedExtensions()` setting replaces the global list, including when the field explicitly specifies `[]`.
+
+The configurator also accepts a closure, evaluated when the setting is read:
+
+```php
+$config->allowedExtensions(static fn (): array => ['png', 'jpg']);
+```
+
+Use `$config->getAllowedExtensions()` to read the global list or `$field->getAllowedExtensions()` to read a field's effective list.
+Both return an array; the string `'*'` is returned as `['*']`.
 
 #### Cache
 
