@@ -6,6 +6,7 @@
   - [Mask](#mask)
   - [Tags](#tags)
   - [Disable escaping](#unescape)
+  - [Escaping on apply](#escape-on-apply)
 - [Extensions](#extensions)
   - [Copy](#copy)
   - [Hide value](#eye)
@@ -104,6 +105,47 @@ The `unescape()` method disables HTML tag escaping in the field value.
 Text::make('HTML Content', 'content')
     ->unescape()
 ```
+
+This method controls preview escaping only; it does not disable escaping when applying submitted values. By default, previews follow the global [`escape` setting](/docs/{{version}}/configuration#field-escaping).
+Use `escape()` to explicitly enable preview escaping for a field, even when the global setting is disabled:
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\UI\Fields\Text;
+
+Text::make('Title')
+    ->escape()
+```
+
+<a name="escape-on-apply"></a>
+### Escaping on Apply
+
+Submitted strings are escaped before being applied to data by default. To store the original string, disable this behavior for the field with a closure:
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\UI\Fields\Text;
+
+Text::make('HTML Content', 'content')
+    ->escapeOnApply(fn (Text $field): bool => false)
+```
+
+The closure receives the current field and returns whether to escape its submitted value. This setting is independent of preview escaping: the example above stores the original string and keeps the preview escaped unless configured otherwise.
+
+Without a local override, the field follows the global [`escape_on_apply` setting](/docs/{{version}}/configuration#field-escaping). To enable escaping for one field even when it is disabled globally, call the method without an argument:
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\UI\Fields\Text;
+
+Text::make('Title')
+    ->escapeOnApply()
+```
+
+Unlike the configurator method, the field method accepts `?Closure $condition = null`, not a boolean.
 
 <a name="extensions"></a>
 ## Extensions
