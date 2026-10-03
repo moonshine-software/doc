@@ -576,12 +576,14 @@ $config->homeUrl('/admin/page/some-page');
 Все шесть настроек экранирования отображаемого текста по умолчанию имеют значение `true`. Установите нужному параметру `false`, чтобы по умолчанию разрешить HTML в этом виде текста.
 
 ```php filename:config/moonshine.php
-'escape_label' => true,
-'escape_hint' => true,
-'escape_prefix' => true,
-'escape_suffix' => true,
-'escape_before_render' => true,
-'escape_after_render' => true,
+'escapes' => [
+    'label' => true,
+    'hint' => true,
+    'prefix' => true,
+    'suffix' => true,
+    'before_render' => true,
+    'after_render' => true,
+],
 ```
 
 При настройке через `MoonShineServiceProvider` используйте соответствующие методы объекта `$config`: `escapeLabel()`, `escapeHint()`, `escapePrefix()`, `escapeSuffix()`, `escapeBeforeRender()` и `escapeAfterRender()`. Каждый принимает `bool $escape = true`; например, `$config->escapeHint(false)` глобально отключает экранирование подсказок.

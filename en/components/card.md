@@ -183,7 +183,7 @@ Card::make(
 <a name="value-labels"></a>
 ## Value Labels
 
-Keys in the values list are escaped according to the global `escape_label` setting, which is enabled by default. Use `escapeValueLabels()` to override escaping for individual keys. `false` allows HTML, while `true` enables escaping even when the global default is disabled.
+Keys in the values list are escaped according to the global `escapes.label` setting, which is enabled by default. Use `escapeValueLabels()` to override escaping for individual keys. `false` allows HTML, while `true` enables escaping even when the global default is disabled.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}

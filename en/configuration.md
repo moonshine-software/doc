@@ -576,12 +576,14 @@ $config->homeUrl('/admin/page/some-page');
 All six display escaping settings default to `true`. Set the relevant option to `false` to allow HTML by default for that kind of display text.
 
 ```php filename:config/moonshine.php
-'escape_label' => true,
-'escape_hint' => true,
-'escape_prefix' => true,
-'escape_suffix' => true,
-'escape_before_render' => true,
-'escape_after_render' => true,
+'escapes' => [
+    'label' => true,
+    'hint' => true,
+    'prefix' => true,
+    'suffix' => true,
+    'before_render' => true,
+    'after_render' => true,
+],
 ```
 
 When configuring through `MoonShineServiceProvider`, use the corresponding methods on `$config`: `escapeLabel()`, `escapeHint()`, `escapePrefix()`, `escapeSuffix()`, `escapeBeforeRender()`, and `escapeAfterRender()`. Each accepts `bool $escape = true`; for example, `$config->escapeHint(false)` disables hint escaping globally.

@@ -40,7 +40,7 @@ Use the method for the part of the field that should display HTML.
 Each `escape…()` method accepts `bool $escape = true`.
 Passing `false` is equivalent to calling the corresponding `unescape…()` method.
 An explicit local setting takes precedence over the global setting in either direction.
-For example, `escapeLabel()` enables escaping for one field even when `escape_label` is `false` globally.
+For example, `escapeLabel()` enables escaping for one field even when `escapes.label` is `false` globally.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
