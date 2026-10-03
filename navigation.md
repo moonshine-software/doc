@@ -151,6 +151,7 @@
 - ## Security
     - [Authorization](/docs/{{version}}/security/authorization)
     - [Authentication](/docs/{{version}}/security/authentication)
+    - [Display Escaping](/docs/{{version}}/security/display-escaping)
 - ## Advanced
     - [CrudResource](/docs/{{version}}/advanced/crud-resource)
     - [Routes](/docs/{{version}}/advanced/routes)

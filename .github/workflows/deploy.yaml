@@ -4,15 +4,18 @@ on:
   push:
     branches:
       - 4.x
+      - 5.x
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Setup SSH
+        env:
+          DOCUMENTATION_VERSION: ${{ github.ref_name }}
         run: |
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
           chmod 700 ~/.ssh
           ssh-keyscan -H "${{ secrets.DEPLOY_HOST }}" >> ~/.ssh/known_hosts
-          ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=yes ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} "cd www/moonshine-laravel.com/current && /opt/php82/bin/php artisan documentation:download --ver=4.x"
+          ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=yes ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} "cd www/moonshine-laravel.com/current && /opt/php82/bin/php artisan documentation:download --ver='${DOCUMENTATION_VERSION}'"

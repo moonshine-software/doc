@@ -1,6 +1,7 @@
 # Basics
 
 - [Description](#description)
+- [Label Escaping](#label-escaping)
 - [Conditional Methods](#conditional-methods)
 - [Custom View](#custom-view)
 - [On Before Render Hook](#on-before-render)
@@ -16,6 +17,15 @@
 
 Almost everything in **MoonShine** consists of components.
 The `MoonShineComponent` itself is a **Blade** component and contains additional convenient methods for interaction in the admin panel.
+
+<a name="label-escaping"></a>
+## Label Escaping
+
+Components with labels, such as `ActionButton`, `Link`, `Heading`, `Box`, `Collapse`, and `Tab`, escape their labels by default. Use `unescapeLabel()` for trusted HTML or `escapeLabel()` to explicitly enable escaping. A local preference takes precedence over the global default.
+
+When calling a component directly in Blade, pass `:escape-label="false"` to allow HTML or `:escape-label="true"` to enable escaping. Existing slots remain rendered HTML; use `{{ $value }}` for dynamic text inside a slot.
+
+See [Display Escaping](/docs/{{version}}/security/display-escaping) for examples and global settings.
 
 <a name="conditional-methods"></a>
 ## Conditional Methods

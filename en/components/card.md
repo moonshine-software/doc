@@ -7,6 +7,7 @@
 - [URL](#url)
 - [Thumbnails](#thumbnail)
 - [Values List](#values)
+- [Value Labels](#value-labels)
 
 ---
 
@@ -23,6 +24,8 @@ make(
     Closure|array $values = [],
     Closure|string|null $subtitle = null,
     bool $overlay = false,
+    array $escapeValueLabels = [],
+    ?bool $escapeLabel = null,
 )
 ```
 
@@ -31,7 +34,9 @@ make(
 - `$url` - link,
 - `$values` - list of values,
 - `$subtitle` - subtitle,
-- `$overlay` - the overlay mode allows placing the header and titles over the card image.
+- `$overlay` - the overlay mode allows placing the header and titles over the card image,
+- `$escapeValueLabels` - per-key escaping preferences for labels in the values list,
+- `$escapeLabel` - default escaping for value labels in this card; `null` uses the global setting.
 
 ~~~tabs
 tab: Class
@@ -174,3 +179,21 @@ Card::make(
         'Author' => fake()->name(),
     ])
 ```
+
+<a name="value-labels"></a>
+## Value Labels
+
+Keys in the values list are escaped according to the global `escapes.label` setting, which is enabled by default. Use `escapeValueLabels()` to override escaping for individual keys. `false` allows HTML, while `true` enables escaping even when the global default is disabled.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\UI\Components\Card;
+
+Card::make(values: ['<strong>Author</strong>' => 'Alice'])
+    ->escapeValueLabels(['<strong>Author</strong>' => false]);
+```
+
+The keys remain unchanged in the data. This setting controls the labels, not the values rendered next to them.
+
+You can also pass `escapeLabel: false` to `Card::make()` to allow HTML in all value labels in that card. Per-key `escapeValueLabels()` preferences take priority. In Blade, use `:escape-label` and `:escape-value-labels`. Overrides of `values`, `escapeLabel`, and `escapeValueLabels` supplied through `customView()` are also respected.

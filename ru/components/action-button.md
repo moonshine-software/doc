@@ -34,12 +34,16 @@ make(
     Closure|string $label,
     Closure|string $url = '#',
     ?DataWrapperContract $data = null,
+    ?bool $escapeLabel = null,
 )
 ```
 
 - `label` - текст кнопки,
 - `url` - URL ссылки кнопки,
-- `data` - опциональные данные кнопки, доступные в замыканиях.
+- `data` - опциональные данные кнопки, доступные в замыканиях,
+- `escapeLabel` - настройка экранирования подписи; `null` использует глобальную настройку.
+
+Подпись экранируется по умолчанию. Используйте `unescapeLabel()` для доверенного HTML или `escapeLabel()` для явного включения экранирования. В Blade передайте `:escape-label="false"` или `:escape-label="true"`. Подробнее: [Экранирование отображаемого текста](/docs/{{version}}/security/display-escaping).
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
