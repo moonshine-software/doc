@@ -2,6 +2,7 @@
 
 - [Основы](#basics)
 - [Асинхронное взаимодействие](#async)
+- [Обновление при загрузке страницы](#update-on-load)
 - [Автообновление](#auto-update)
 
 ---
@@ -120,6 +121,48 @@ Fragment::make($components)
     ->name('fragment-name')
     ->withQueryParams(),
 ```
+
+<a name="update-on-load"></a>
+## Обновление при загрузке страницы
+
+Метод `updateOnLoad()` отправляет один асинхронный запрос для обновления фрагмента после события `DOMContentLoaded` страницы.
+Он работает независимо от `autoUpdate()` и не включает периодическое обновление.
+
+```php
+updateOnLoad(Closure|bool $condition = true): static
+```
+
+Передайте `false`, чтобы отключить начальное обновление, или замыкание, которое получает текущий `Fragment` и возвращает `bool`.
+Замыкание вычисляется при рендеринге компонента.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\Crud\Components\Fragment;
+use MoonShine\UI\Components\Metrics\Wrapped\ValueMetric;
+
+Fragment::make([
+    ValueMetric::make('Metric')
+        ->value(random_int(1, 1000)),
+])
+    ->name('fragment-metric')
+    ->updateOnLoad(),
+```
+
+Чтобы включить начальное обновление по условию:
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\Crud\Components\Fragment;
+
+Fragment::make($components)
+    ->name('fragment-metric')
+    ->updateOnLoad(fn (Fragment $fragment): bool => $fragment->getName() === 'fragment-metric'),
+```
+
+Используйте `updateOnLoad()` вместе с `autoUpdate()`, чтобы обновить фрагмент один раз после загрузки страницы, а затем с заданным интервалом.
+Последующие асинхронные ответы фрагмента не вызывают повторного начального обновления.
 
 <a name="auto-update"></a>
 ## Автообновление
