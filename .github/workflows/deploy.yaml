@@ -4,15 +4,24 @@ on:
   push:
     branches:
       - 4.x
+      - 5.x
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Setup SSH
+        shell: bash
+        env:
+          DEPLOY_PATH: ${{ vars.DEPLOY_PATH }}
+          PHP_BINARY: ${{ vars.PHP_BINARY }}
+          DOCUMENTATION_VERSION: ${{ github.ref_name }}
         run: |
+          : "${DEPLOY_PATH:?Set the DEPLOY_PATH repository variable}"
+          : "${PHP_BINARY:?Set the PHP_BINARY repository variable}"
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
           chmod 700 ~/.ssh
           ssh-keyscan -H "${{ secrets.DEPLOY_HOST }}" >> ~/.ssh/known_hosts
-          ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=yes ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} "cd www/moonshine-laravel.com/current && /opt/php82/bin/php artisan documentation:download --ver=4.x"
+          printf -v deploy_command 'cd %q && %q artisan documentation:download --ver=%q' "$DEPLOY_PATH" "$PHP_BINARY" "$DOCUMENTATION_VERSION"
+          ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=yes ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} "$deploy_command"
