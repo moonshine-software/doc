@@ -2,6 +2,7 @@
 
 - [Basics](#basics)
 - [Asynchronous Interaction](#async)
+- [Update on Page Load](#update-on-load)
 - [Auto-update](#auto-update)
 
 ---
@@ -120,6 +121,48 @@ Fragment::make($components)
     ->name('fragment-name')
     ->withQueryParams(),
 ```
+
+<a name="update-on-load"></a>
+## Update on Page Load
+
+The `updateOnLoad()` method sends a single asynchronous request to update the fragment after the page's `DOMContentLoaded` event.
+It works independently of `autoUpdate()` and does not enable periodic updates.
+
+```php
+updateOnLoad(Closure|bool $condition = true): static
+```
+
+Pass `false` to disable the initial update, or a closure that receives the current `Fragment` and returns `bool`.
+The closure is evaluated when the component is rendered.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\Crud\Components\Fragment;
+use MoonShine\UI\Components\Metrics\Wrapped\ValueMetric;
+
+Fragment::make([
+    ValueMetric::make('Metric')
+        ->value(random_int(1, 1000)),
+])
+    ->name('fragment-metric')
+    ->updateOnLoad(),
+```
+
+To enable the initial update conditionally:
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\Crud\Components\Fragment;
+
+Fragment::make($components)
+    ->name('fragment-metric')
+    ->updateOnLoad(fn (Fragment $fragment): bool => $fragment->getName() === 'fragment-metric'),
+```
+
+Combine `updateOnLoad()` with `autoUpdate()` to update the fragment once after the page loads and then at the specified interval.
+Subsequent asynchronous fragment responses do not trigger another initial update.
 
 <a name="auto-update"></a>
 ## Auto-update
