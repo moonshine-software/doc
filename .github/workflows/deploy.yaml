@@ -5,6 +5,10 @@ on:
     branches:
       - 4.x
       - 5.x
+concurrency:
+  group: documentation-deploy
+  cancel-in-progress: false
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
