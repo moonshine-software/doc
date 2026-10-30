@@ -2,34 +2,41 @@
 title: Upgrade guide
 ---
 
-# MoonShine Upgrade Guide 3.x → 4.0
+# MoonShine Upgrade Guide 4.x → 5.0
 
-- [Auto Upgrade](#auto-upgrade)
+- [Requirements](#requirements)
 - [Updating Dependencies](#update-dependencies)
-- [Namespace Changes](#namespace-changes)
-- [Resource Structure Changes](#resource-changes)
-- [Field Changes](#field-changes)
-- [Layout Changes](#layout-changes)
-- [Deprecated Classes and Methods](#deprecated)
-- [Async Methods](#async-methods)
+- [Removed Classes](#removed-classes)
+- [Filters, Query Tags and Handlers](#index-page)
+- [Import and Export](#import-export)
+- [Display Escaping](#display-escaping)
+- [Link URLs](#link-urls)
 
 ---
 
-<a name="auto-upgrade"></a>
-## Auto Upgrade
+> [!NOTE]
+> This guide is in progress and will be extended before the 5.0 release.
+> For upgrading from 3.x, follow the [4.x upgrade guide](/docs/4.x/upgrade-guide) first.
 
-To simplify the migration process, you can use the [warete/moonshine-upgrade](https://github.com/warete/moonshine-upgrade) package,
-which will automatically make all the necessary changes to migrate to MoonShine 4.0.
+<a name="requirements"></a>
+## Requirements
+
+**MoonShine** 5.0 requires:
+
+- PHP 8.4 or newer,
+- Laravel 11, 12 or 13.
+
+Laravel 10 is no longer supported.
 
 <a name="update-dependencies"></a>
-## Package Update
+## Updating Dependencies
 
-Change the package version to composer.json and update dependencies.
+Change the package version in composer.json and update dependencies.
 
 ```json
 {
     "require": {
-        "moonshine/moonshine": "^4.0"
+        "moonshine/moonshine": "^5.0"
     }
 }
 ```
@@ -38,163 +45,166 @@ Change the package version to composer.json and update dependencies.
 composer update
 ```
 
-<a name="namespace-changes"></a>
-## Namespace Changes
+If you use [import and export](#import-export), update `moonshine/import-export` to version 3 as well.
+
+<a name="removed-classes"></a>
+## Removed Classes
+
+The classes deprecated in 4.x have been removed.
+
+| Class                                                                 | Replacement                                                        |
+|-----------------------------------------------------------------------|--------------------------------------------------------------------|
+| `MoonShine\Laravel\Handlers\Handler`                                  | `MoonShine\Crud\Handlers\Handler`                                  |
+| `MoonShine\Laravel\Handlers\Handlers`                                 | `MoonShine\Crud\Handlers\Handlers`                                 |
+| `MoonShine\Laravel\Notifications\NotificationButton`                  | `MoonShine\Crud\Notifications\NotificationButton`                  |
+| `MoonShine\Laravel\Http\Responses\MoonShineJsonResponse`              | `MoonShine\Crud\JsonResponse`                                      |
+| `MoonShine\Laravel\Http\Requests\Relations\AsyncSearchRequest`        | `MoonShine\Laravel\Http\Requests\Relations\RelationModelFieldRequest` |
+| `MoonShine\Laravel\MoonShineUI`                                       | The `toast()` helper instead of `MoonShineUI::toast()`             |
 
 ```php
-use MoonShine\Laravel\Forms\FiltersForm; // [tl! remove]
-use MoonShine\Crud\Forms\FiltersForm; // [tl! add]
-
-use MoonShine\Laravel\Forms\LoginForm; // [tl! remove]
-use MoonShine\Crud\Forms\LoginForm; // [tl! add]
+use MoonShine\Laravel\Handlers\Handler; // [tl! remove]
+use MoonShine\Crud\Handlers\Handler; // [tl! add]
 
 use MoonShine\Laravel\Http\Responses\MoonShineJsonResponse; // [tl! remove]
 use MoonShine\Crud\JsonResponse; // [tl! add]
 
-use MoonShine\Laravel\MoonShineRequest; // [tl! remove]
-use MoonShine\Contracts\Core\DependencyInjection\CrudRequestContract; // [tl! add]
-
-use MoonShine\Laravel\Enums\Action; // [tl! remove]
-use MoonShine\Support\Enums\Action; // [tl! add]
-
-use MoonShine\Laravel\Enums\Ability; // [tl! remove]
-use MoonShine\Support\Enums\Ability; // [tl! add]
-
-use MoonShine\Laravel\Traits\WithComponentsPusher; // [tl! remove]
-use MoonShine\Crud\Traits\WithComponentsPusher; // [tl! add]
+MoonShineUI::toast('Saved'); // [tl! remove]
+toast('Saved'); // [tl! add]
 ```
 
-<a name="resource-changes"></a>
-## Resource Structure Changes
+<a name="index-page"></a>
+## Filters, Query Tags and Handlers
 
-Many methods and properties have been moved from resources to the corresponding CRUD pages.
+The `HasFilters`, `HasQueryTags` and `HasHandlers` traits have been removed from `ModelResource`.
+Filters, query tags and handlers are configured only in `IndexPage`.
 
-The `rules()` and `modifyFormComponent()` methods have been moved to the form class.
+Move the following methods from the resource to its index page:
 
-The `metrics()`, `queryTags()`, `filters()`, `modifyListComponent()` methods have been moved to the index page class.
-
-The `modifyDetailComponent()` method has been moved to the detail page class.
-
-The `indexButtons()` method has been removed from the resource and the `buttons()` method should be used in the index page class instead.
-
-The `topButtons()` method has been removed from the resource, and the `topLeftButtons()` and `topRightButtons()` methods should be used instead in the index page class.
-
-The `formButtons()` method has been removed from the resource and the `buttons()` method should be used in the form page class instead.
-
-The `formBuilderButtons()` method has been removed from the resource and the `formButtons()` method should be used in the form page class instead.
-
-The properties `$clickAction`, `$stickyTable`, `$stickyButtons`, `$columnSelection` have been removed from the resource.
-Instead, you should override the `modifyListComponent()` method in the index page class.
-
-This is not a complete list of changes to the resource, but the process of transferring all relevant functionality from the resource to
-CRUD pages are quite intuitive and should not be difficult.
-
-<a name="field-changes"></a>
-## Field Changes
-
-Removed the `StackFields` field, the `Fieldset` field should be used instead.
+- `filters()`,
+- `queryTags()`,
+- `handlers()`,
+- `getIgnoredFields()`.
 
 ```php
-StackFields::make('Title', [ // [tl! remove]
-    Text::make('Field 1'), // [tl! remove]
-    Text::make('Field 2'), // [tl! remove]
-]) // [tl! remove]
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:5]
+namespace App\MoonShine\Resources\Post\Pages;
 
-Fieldset::make('Title', [ // [tl! add]
-    Text::make('Field 1'), // [tl! add]
-    Text::make('Field 2'), // [tl! add]
-]) // [tl! add]
-```
+use MoonShine\Laravel\Pages\Crud\IndexPage;
+use MoonShine\Laravel\QueryTags\QueryTag;
+use MoonShine\UI\Fields\Text;
 
-<a name="layout-changes"></a>
-## Layout Changes
-
-### CompactLayout Removed
-
-The `CompactLayout` has been removed. If you used this layout, go for the standard `AppLayout` extends.
-
-```php
-use MoonShine\Laravel\Layouts\CompactLayout; // [tl! remove]
-use MoonShine\Laravel\Layouts\AppLayout; // [tl! add]
-```
-
-### New Palettes
-
-A palette system has been introduced for managing color schemes. `PurplePalette` is used by default.
-
-For more information about working with palettes, see the [**Color Manager**](/docs/{{version}}/appearance/colors) section.
-
-### MenuItem Changes
-
-The parameters in the `MenuItem::make()` method have swapped places, now `$filler` comes first, then `$label`.
-
-The `$label` parameter is now optional, by default it is taken from the `getLabel()` method of the filler.
-
-```php
-MenuItem::make('Settings', SettingResource::class) // [tl! remove]
-MenuItem::make(SettingResource::class) // [tl! add]
-```
-
-### Component changes
-
-In the `Profile` component, the `$withBorder` parameter has been removed.
-
-<a name="deprecated"></a>
-## Deprecated Classes and Methods
-
-The following classes and methods are deprecated and will be removed in version 5.0.
-
-### Deprecated Classes
-
-| Class                                                    | Replacement                                            |
-|----------------------------------------------------------|--------------------------------------------------------|
-| `MoonShine\Laravel\Notifications\NotificationButton`     | `MoonShine\Crud\Notifications\NotificationButton`      |
-| `MoonShine\Laravel\Http\Responses\MoonShineJsonResponse` | `MoonShine\Crud\JsonResponse`                          |
-| `MoonShine\Laravel\MoonShineUI`                          | Instead of `MoonShineUI::toast()` now helper `toast()` |
-| `MoonShine\Laravel\Handlers\Handlers`                    | `MoonShine\Crud\Handlers\Handlers`                     |
-| `MoonShine\Laravel\Handlers\Handler`                     | `MoonShine\Crud\Handlers\Handler`                      |
-
-### Deprecated Methods in ModelResource
-
-| Method               | Replacement          |
-|----------------------|----------------------|
-| `getIgnoredFields()` | Moved to `IndexPage` |
-| `filters()`          | Moved to `IndexPage` |
-| `hasFilters()`       | Moved to `IndexPage` |
-| `queryTags()`        | Moved to `IndexPage` |
-| `hasQueryTags()`     | Moved to `IndexPage` |
-| `handlers()`         | Moved to `IndexPage` |
-| `hasHandlers()`      | Moved to `IndexPage` |
-| `getHandlers()`      | Moved to `IndexPage` |
-
-### Deprecated Traits
-
-| Trait          | Replacement          |
-|----------------|----------------------|
-| `HasFilters`   | Moved to `IndexPage` |
-| `HasQueryTags` | Moved to `IndexPage` |
-| `HasHandlers`  | Moved to `IndexPage` |
-
-> [!WARNING]
-> All listed classes and methods will be completely removed in version 5.0. It is recommended to migrate to new alternatives.
-
-<a name="async-methods"></a>
-## Async Methods
-
-All async methods need the `#[AsyncMethod]` attribute.
-
-Async methods now support "DI".
-
-```php
-use MoonShine\Crud\JsonResponse;
-use MoonShine\Support\Attributes\AsyncMethod;
-
-class MyPage extends Page
+class PostIndexPage extends IndexPage
 {
-    #[AsyncMethod]
-    public function someAsyncMethod(JsonResponse $response): JsonResponse
+    protected function filters(): iterable
     {
-        return $response->toast('Loaded successfully');
+        return [
+            Text::make('Title', 'title'),
+        ];
+    }
+
+    protected function queryTags(): array
+    {
+        return [
+            QueryTag::make(
+                'Published',
+                static fn ($query) => $query->where('is_published', true)
+            ),
+        ];
     }
 }
 ```
+
+The resource-level `hasFilters()`, `getFilters()`, `hasQueryTags()`, `getQueryTags()`, `hasHandlers()` and `getHandlers()` methods have been removed as well.
+Call them on the index page instead.
+
+```php
+$resource->getFilters(); // [tl! remove]
+$resource->getIndexPage()?->getFilters(); // [tl! add]
+```
+
+Filter values and the saved query state are still read from the resource, for example with `getFilterParams()`.
+
+See [Filters](/docs/{{version}}/model-resource/filters), [Query Tags](/docs/{{version}}/model-resource/query-tags) and [Handlers](/docs/{{version}}/advanced/handlers) for details.
+
+<a name="import-export"></a>
+## Import and Export
+
+**MoonShine** 5.0 works with `moonshine/import-export` 3.x.
+
+```json
+{
+    "require": {
+        "moonshine/import-export": "^3.0"
+    }
+}
+```
+
+The `ImportExportConcern` trait and the `HasImportExportContract` interface stay on the resource, together with the import and export fields.
+The buttons are now handlers of the index page, so add the `ImportExportHandlersConcern` trait to it.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:4]
+namespace App\MoonShine\Resources\Category\Pages;
+
+use MoonShine\ImportExport\Traits\ImportExportHandlersConcern;
+use MoonShine\Laravel\Pages\Crud\IndexPage;
+
+class CategoryIndexPage extends IndexPage
+{
+    use ImportExportHandlersConcern;
+}
+```
+
+Move overrides of the `import()`, `export()`, `isExportToCsv()` and `handlers()` methods from the resource to the index page.
+Inside the page, use `getResource()` to access the resource.
+
+<a name="display-escaping"></a>
+## Display Escaping
+
+Labels, hints, prefixes, suffixes and strings returned by the field `beforeRender()` and `afterRender()` callbacks are now escaped by default.
+A label such as `<strong>Name</strong>` is displayed as text.
+
+Add the matching `unescape…()` method where HTML is intended.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\UI\Fields\Text;
+
+Text::make('<strong>Name</strong>', 'name')
+    ->unescapeLabel() // [tl! add]
+    ->hint('<a href="/help">Help</a>')
+    ->unescapeHint(); // [tl! add]
+```
+
+The defaults can be changed in the `escapes` section of the configuration.
+
+```php filename:config/moonshine.php
+'escapes' => [
+    'label' => true,
+    'hint' => true,
+    'prefix' => true,
+    'suffix' => true,
+    'before_render' => true,
+    'after_render' => true,
+],
+```
+
+Field link names, related record labels and modal titles are escaped regardless of these settings.
+Use `unescapeLinkName()`, `unescapeOptionLabels()` and `unescapeTitle()` to allow HTML in them.
+
+Values implementing `Illuminate\Contracts\Support\Htmlable`, such as `HtmlString`, are output as prepared HTML.
+
+> [!WARNING]
+> Allow HTML only for content you trust. Disabling escaping does not sanitize the string.
+
+See [Display Escaping](/docs/{{version}}/security/display-escaping) for all settings.
+
+<a name="link-urls"></a>
+## Link URLs
+
+The `Link` component and the links of the `Url` field now allow only the `http`, `https`, `mailto` and `tel` schemes, as well as relative URLs and anchors.
+Links with other schemes, such as `javascript:` or `ftp:`, are rendered with `href="#"`.
+The link text is not changed.

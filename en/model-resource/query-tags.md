@@ -47,7 +47,7 @@ class PostIndexPage extends IndexPage
 ![query_tags_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/query_tags_dark.png#dark)
 
 > [!NOTE]
-> The `queryTags()` method is also available in the `ModelResource` class for backward compatibility, but it is recommended to define tags directly in `IndexPage`.
+> Since **MoonShine** 5.0, query tags are defined only in `IndexPage`. See the [upgrade guide](/docs/{{version}}/upgrade-guide#index-page) for moving them from a resource.
 
 <a name="icon"></a>
 ## Icon
