@@ -11,6 +11,10 @@ title: Upgrade guide
 - [Импорт и экспорт](#import-export)
 - [Экранирование отображаемого текста](#display-escaping)
 - [URL ссылок](#link-urls)
+- [Переопределенные представления](#views)
+- [Таблицы](#tables)
+- [Обертка запроса](#request)
+- [Выпадающие меню](#dropdowns)
 
 ---
 
@@ -208,3 +212,48 @@ Text::make('<strong>Name</strong>', 'name')
 Компонент `Link` и ссылки поля `Url` теперь допускают только схемы `http`, `https`, `mailto` и `tel`, а также относительные URL и якоря.
 Ссылки с другими схемами, например `javascript:` или `ftp:`, выводятся с `href="#"`.
 Текст ссылки не меняется.
+
+<a name="views"></a>
+## Переопределенные представления
+
+Несколько часто используемых представлений теперь выводят элементы напрямую, без вложенных Blade-компонентов.
+Их данные подготавливаются в PHP, например `$tagAttributes` и `$labelHtml` в представлении кнопки.
+
+- `moonshine::components.action-button`,
+- `moonshine::components.form.builder`,
+- `moonshine::components.icon`,
+- `moonshine::components.rating`,
+- `moonshine::fields.hidden`.
+
+Если в приложении эти представления опубликованы и изменены, сравните их с новыми версиями и обновите.
+
+Строки вертикальных таблиц по умолчанию, например на `DetailPage`, выводятся новым представлением `moonshine::components.table.vertical-field`.
+Представления `layout.grid`, `layout.column` и `layout.div` для них больше не используются, поэтому их переопределения на эти строки не влияют.
+Переопределяйте `moonshine::components.table.vertical-field`.
+Строки, настроенные через замыкания `title` или `value` метода `vertical()`, по-прежнему используют компоненты.
+
+<a name="tables"></a>
+## Таблицы
+
+Скелетон и спиннер выводятся только для асинхронных таблиц.
+Методы `skeleton()` и `loader()` не влияют на синхронные таблицы.
+
+<a name="request"></a>
+## Обертка запроса
+
+Свойство `$request` класса `MoonShine\Core\AbstractRequest` теперь имеет тип `ServerRequestInterface|Closure`.
+PSR-запрос создается лениво, при чтении данных запроса.
+
+Если ваш класс наследует `AbstractRequest` и читает `$this->request` напрямую, используйте метод `getRequest()`.
+
+```php
+$this->request->getQueryParams(); // [tl! remove]
+$this->getRequest()->getQueryParams(); // [tl! add]
+```
+
+<a name="dropdowns"></a>
+## Выпадающие меню
+
+Экземпляр Popper у выпадающего меню создается при первом открытии.
+До этого свойство `popperInstance` Alpine-компонента `dropdown` равно `null`.
+Проверяйте его перед вызовом методов из собственного JavaScript.

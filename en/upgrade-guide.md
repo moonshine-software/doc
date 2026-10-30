@@ -11,6 +11,10 @@ title: Upgrade guide
 - [Import and Export](#import-export)
 - [Display Escaping](#display-escaping)
 - [Link URLs](#link-urls)
+- [Overridden Views](#views)
+- [Tables](#tables)
+- [Request Wrapper](#request)
+- [Dropdowns](#dropdowns)
 
 ---
 
@@ -208,3 +212,48 @@ See [Display Escaping](/docs/{{version}}/security/display-escaping) for all sett
 The `Link` component and the links of the `Url` field now allow only the `http`, `https`, `mailto` and `tel` schemes, as well as relative URLs and anchors.
 Links with other schemes, such as `javascript:` or `ftp:`, are rendered with `href="#"`.
 The link text is not changed.
+
+<a name="views"></a>
+## Overridden Views
+
+Several frequently rendered views now output their elements directly instead of nesting other Blade components.
+Their data is prepared in PHP, for example `$tagAttributes` and `$labelHtml` in the action button view.
+
+- `moonshine::components.action-button`,
+- `moonshine::components.form.builder`,
+- `moonshine::components.icon`,
+- `moonshine::components.rating`,
+- `moonshine::fields.hidden`.
+
+If your application has published and changed these views, compare them with the new versions and update them.
+
+Default rows of vertical tables, such as on `DetailPage`, are rendered with the new `moonshine::components.table.vertical-field` view.
+They no longer use the `layout.grid`, `layout.column` and `layout.div` views, so overrides of those views do not affect them.
+Override `moonshine::components.table.vertical-field` instead.
+Rows customized with the `title` or `value` closures of `vertical()` still use the components.
+
+<a name="tables"></a>
+## Tables
+
+The skeleton and the loader are rendered only for asynchronous tables.
+The `skeleton()` and `loader()` methods have no effect on synchronous tables.
+
+<a name="request"></a>
+## Request Wrapper
+
+The `$request` property of `MoonShine\Core\AbstractRequest` is now `ServerRequestInterface|Closure`.
+The PSR request is created lazily when input is read.
+
+If your class extends `AbstractRequest` and reads `$this->request` directly, use the `getRequest()` method instead.
+
+```php
+$this->request->getQueryParams(); // [tl! remove]
+$this->getRequest()->getQueryParams(); // [tl! add]
+```
+
+<a name="dropdowns"></a>
+## Dropdowns
+
+The Popper instance of a dropdown is created when the dropdown is opened for the first time.
+Until then, the `popperInstance` property of the `dropdown` Alpine component is `null`.
+Check it before calling its methods from your own JavaScript.
