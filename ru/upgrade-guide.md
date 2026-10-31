@@ -2,58 +2,67 @@
 title: Upgrade guide
 ---
 
-# Руководство по обновлению MoonShine 4.x → 5.0
+# Руководство по обновлению
 
-- [Требования](#requirements)
+- [Обновление до 5.0 с 4.x](#upgrade-5-0)
+
+<a name="high-impact-changes"></a>
+## Изменения с высоким влиянием
+
 - [Обновление зависимостей](#update-dependencies)
-- [Значения конфигурации](#config-values)
-- [Удаленные классы](#removed-classes)
 - [Фильтры, теги запросов и обработчики](#index-page)
-- [Импорт и экспорт](#import-export)
 - [Экранирование отображаемого текста](#display-escaping)
+
+<a name="medium-impact-changes"></a>
+## Изменения со средним влиянием
+
+- [Удаленные классы](#removed-classes)
+- [Импорт и экспорт](#import-export)
+- [Переопределенные представления](#views)
+
+<a name="low-impact-changes"></a>
+## Изменения с низким влиянием
+
+- [Значения конфигурации](#config-values)
 - [Экранирование значений полей](#value-escaping)
 - [Расширения файлов](#file-extensions)
 - [URL ссылок](#link-urls)
-- [Переопределенные представления](#views)
-- [Таблицы](#tables)
+- [Скелетон и спиннер таблиц](#tables)
+- [Редактирование в popover](#popover)
 - [Обертка запроса](#request)
 - [Выпадающие меню](#dropdowns)
 - [Контракты](#contracts)
 
 ---
 
+<a name="upgrade-5-0"></a>
+## Обновление до 5.0 с 4.x
+
+#### Примерное время обновления: 30 минут
+
+Мы стараемся описать все возможные изменения, нарушающие обратную совместимость.
+Часть из них затрагивает редко используемые возможности **MoonShine**, поэтому на ваше приложение может повлиять лишь некоторая их доля.
+
 > [!NOTE]
 > Руководство дополняется и будет расширено до выхода версии 5.0.
 > Для обновления с 3.x сначала выполните [руководство по обновлению 4.x](/docs/4.x/upgrade-guide).
 
-<a name="requirements"></a>
-## Требования
+<a name="update-dependencies"></a>
+### Обновление зависимостей
 
-Для **MoonShine** 5.0 требуются:
+**Вероятность влияния: высокая**
 
-- PHP 8.4 или новее,
-- Laravel 11, 12 или 13.
-
+Для **MoonShine** 5.0 требуются PHP 8.4 или новее и Laravel 11, 12 или 13.
 Laravel 10 больше не поддерживается.
 
-<a name="update-dependencies"></a>
-## Обновление зависимостей
+Обновите следующие зависимости в `composer.json` вашего приложения:
 
-Измените версию пакета в composer.json и обновите зависимости.
-
-```json
-{
-    "require": {
-        "moonshine/moonshine": "^5.0"
-    }
-}
-```
+- `moonshine/moonshine` до `^5.0`,
+- `moonshine/import-export` до `^3.0`, если вы используете [импорт и экспорт](#import-export).
 
 ```shell
 composer update
 ```
-
-Если вы используете [импорт и экспорт](#import-export), обновите также `moonshine/import-export` до версии 3.
 
 Для **MoonShine** 5.0 требуются `symfony/http-foundation` и `symfony/psr-http-message-bridge` версии 7.4 или 8.1.
 Если Composer не может их установить из-за зафиксированных старых версий, обновите пакет вместе с зависимостями:
@@ -62,52 +71,13 @@ composer update
 composer update moonshine/moonshine -W
 ```
 
-<a name="config-values"></a>
-## Значения конфигурации
-
-Значения конфигурации теперь проверяются при чтении, а некорректное значение вызывает `TypeError`.
-
-- `middleware`, `auth.pipelines` и `pages` должны быть массивами строк, например имен классов.
-  Замыкания и объекты в `auth.pipelines` больше не поддерживаются, поэтому регистрируйте каждый pipeline как класс.
-- `pages` должен содержать классы страниц, `layout` должен наследовать `MoonShine\Crud\Layouts\AbstractLayout`,
-  а `palette` должен реализовывать `MoonShine\Contracts\ColorManager\PaletteContract`.
-
-```php filename:config/moonshine.php
-'auth' => [
-    'pipelines' => [
-        static fn ($request, $next) => $next($request), // [tl! remove]
-        \App\MoonShine\AuthPipelines\TwoFactorAuthentication::class, // [tl! add]
-    ],
-],
-```
-
-<a name="removed-classes"></a>
-## Удаленные классы
-
-Классы, помеченные устаревшими в 4.x, удалены.
-
-| Класс                                                                 | Замена                                                             |
-|-----------------------------------------------------------------------|--------------------------------------------------------------------|
-| `MoonShine\Laravel\Handlers\Handler`                                  | `MoonShine\Crud\Handlers\Handler`                                  |
-| `MoonShine\Laravel\Handlers\Handlers`                                 | `MoonShine\Crud\Handlers\Handlers`                                 |
-| `MoonShine\Laravel\Notifications\NotificationButton`                  | `MoonShine\Crud\Notifications\NotificationButton`                  |
-| `MoonShine\Laravel\Http\Responses\MoonShineJsonResponse`              | `MoonShine\Crud\JsonResponse`                                      |
-| `MoonShine\Laravel\Http\Requests\Relations\AsyncSearchRequest`        | `MoonShine\Laravel\Http\Requests\Relations\RelationModelFieldRequest` |
-| `MoonShine\Laravel\MoonShineUI`                                       | Хелпер `toast()` вместо `MoonShineUI::toast()`                     |
-
-```php
-use MoonShine\Laravel\Handlers\Handler; // [tl! remove]
-use MoonShine\Crud\Handlers\Handler; // [tl! add]
-
-use MoonShine\Laravel\Http\Responses\MoonShineJsonResponse; // [tl! remove]
-use MoonShine\Crud\JsonResponse; // [tl! add]
-
-MoonShineUI::toast('Saved'); // [tl! remove]
-toast('Saved'); // [tl! add]
-```
+<a name="resources"></a>
+### Ресурсы
 
 <a name="index-page"></a>
-## Фильтры, теги запросов и обработчики
+#### Фильтры, теги запросов и обработчики
+
+**Вероятность влияния: высокая**
 
 Трейты `HasFilters`, `HasQueryTags` и `HasHandlers` удалены из `ModelResource`.
 Фильтры, теги запросов и обработчики настраиваются только в `IndexPage`.
@@ -162,17 +132,11 @@ $resource->getIndexPage()?->getFilters(); // [tl! add]
 Подробнее в разделах [Фильтры](/docs/{{version}}/model-resource/filters), [Теги запросов](/docs/{{version}}/model-resource/query-tags) и [Обработчики](/docs/{{version}}/advanced/handlers).
 
 <a name="import-export"></a>
-## Импорт и экспорт
+#### Импорт и экспорт
+
+**Вероятность влияния: средняя**
 
 **MoonShine** 5.0 работает с `moonshine/import-export` 3.x.
-
-```json
-{
-    "require": {
-        "moonshine/import-export": "^3.0"
-    }
-}
-```
 
 Трейт `ImportExportConcern` и интерфейс `HasImportExportContract` остаются в ресурсе вместе с полями импорта и экспорта.
 Кнопки теперь являются обработчиками индексной страницы, поэтому добавьте в нее трейт `ImportExportHandlersConcern`.
@@ -194,8 +158,13 @@ class CategoryIndexPage extends IndexPage
 Перенесите переопределения методов `import()`, `export()`, `isExportToCsv()` и `handlers()` из ресурса на индексную страницу.
 Внутри страницы ресурс доступен через `getResource()`.
 
+<a name="escaping"></a>
+### Экранирование
+
 <a name="display-escaping"></a>
-## Экранирование отображаемого текста
+#### Экранирование отображаемого текста
+
+**Вероятность влияния: высокая**
 
 Метки, подсказки, префиксы, суффиксы и строки, возвращаемые callback-функциями полей `beforeRender()` и `afterRender()`, теперь экранируются по умолчанию.
 Метка вида `<strong>Name</strong>` отображается как текст.
@@ -237,7 +206,9 @@ Text::make('<strong>Name</strong>', 'name')
 Все настройки описаны в разделе [Экранирование отображаемого текста](/docs/{{version}}/security/display-escaping).
 
 <a name="value-escaping"></a>
-## Экранирование значений полей
+#### Экранирование значений полей
+
+**Вероятность влияния: низкая**
 
 Значения полей `Text`, `Textarea` и `BelongsTo` по-прежнему экранируются по умолчанию.
 Новые настройки `escapes.value` и `escapes.value_on_apply` меняют это поведение глобально, поэтому, если оставить их включенными, ничего менять не нужно.
@@ -261,40 +232,22 @@ protected ?bool $unescape = null; // [tl! add]
 Вызов `escapeOnApply()` без аргумента теперь всегда включает экранирование при применении, даже если `escapes.value_on_apply` выключен.
 Настройки отдельного поля описаны в разделе [Text](/docs/{{version}}/fields/text#unescape).
 
-<a name="file-extensions"></a>
-## Расширения файлов
+<a name="popover"></a>
+#### Редактирование в popover
 
-Поля `File` и `Image` наследуют новый глобальный список `allowed_extensions`, если у поля не вызван `allowedExtensions()`.
-Значение по умолчанию `[]` разрешает все расширения, поэтому в существующих приложениях ничего менять не нужно.
+**Вероятность влияния: очень низкая**
 
-Если ваш класс поля наследует `File` или `Image` и переобъявляет свойство `$allowedExtensions`, измените его тип на `?array`.
-`null` означает, что поле следует глобальному списку.
+Редактирование в popover через `updateOnPreview()` теперь экранирует значение, если поле не реализует `MoonShine\UI\Contracts\HasEscapedValueContract` или не вызывает `unescape()`.
+Встроенные поля `Text`, `Textarea` и `BelongsTo` реализуют этот контракт.
+Собственное поле с трейтом `WithEscapedValue` должно реализовать этот контракт, чтобы в popover сохранялись неэкранированные значения.
 
-```php
-protected array $allowedExtensions = ['pdf']; // [tl! remove]
-protected ?array $allowedExtensions = ['pdf']; // [tl! add]
-```
-
-Метод `allowedExtensions()` контракта `MoonShine\UI\Contracts\FileableContract` теперь принимает `array|string`.
-Обновите его сигнатуру в собственных реализациях и переопределениях.
-
-```php
-public function allowedExtensions(array $allowedExtensions): static // [tl! remove]
-public function allowedExtensions(array|string $allowedExtensions): static // [tl! add]
-```
-
-Атрибут `accept` по умолчанию теперь добавляется при рендере поля, поэтому до рендера `getAttribute('accept')` возвращает `null`, если у поля не вызывались `accept()` или `allowedExtensions()`.
-Подробнее в разделе [File](/docs/{{version}}/fields/file#allowed-extensions).
-
-<a name="link-urls"></a>
-## URL ссылок
-
-Компонент `Link` и ссылки поля `Url` теперь допускают только схемы `http`, `https`, `mailto` и `tel`, а также относительные URL и якоря.
-Ссылки с другими схемами, например `javascript:` или `ftp:`, выводятся с `href="#"`.
-Текст ссылки не меняется.
+<a name="fields-components"></a>
+### Поля и компоненты
 
 <a name="views"></a>
-## Переопределенные представления
+#### Переопределенные представления
+
+**Вероятность влияния: средняя**
 
 В версии 5.0 изменились многие представления компонентов. Если в приложении опубликованы и изменены какие-либо из представлений ниже, сравните их с новыми версиями и обновите.
 
@@ -324,14 +277,120 @@ public function allowedExtensions(array|string $allowedExtensions): static // [t
 Переопределяйте `moonshine::components.table.vertical-field`.
 Строки, настроенные через замыкания `title` или `value` метода `vertical()`, по-прежнему используют компоненты.
 
+<a name="file-extensions"></a>
+#### Расширения файлов
+
+**Вероятность влияния: низкая**
+
+Поля `File` и `Image` наследуют новый глобальный список `allowed_extensions`, если у поля не вызван `allowedExtensions()`.
+Значение по умолчанию `[]` разрешает все расширения, поэтому в существующих приложениях ничего менять не нужно.
+
+Если ваш класс поля наследует `File` или `Image` и переобъявляет свойство `$allowedExtensions`, измените его тип на `?array`.
+`null` означает, что поле следует глобальному списку.
+
+```php
+protected array $allowedExtensions = ['pdf']; // [tl! remove]
+protected ?array $allowedExtensions = ['pdf']; // [tl! add]
+```
+
+Метод `allowedExtensions()` контракта `MoonShine\UI\Contracts\FileableContract` теперь принимает `array|string`.
+Обновите его сигнатуру в собственных реализациях и переопределениях.
+
+```php
+public function allowedExtensions(array $allowedExtensions): static // [tl! remove]
+public function allowedExtensions(array|string $allowedExtensions): static // [tl! add]
+```
+
+Атрибут `accept` по умолчанию теперь добавляется при рендере поля, поэтому до рендера `getAttribute('accept')` возвращает `null`, если у поля не вызывались `accept()` или `allowedExtensions()`.
+Подробнее в разделе [File](/docs/{{version}}/fields/file#allowed-extensions).
+
+<a name="link-urls"></a>
+#### URL ссылок
+
+**Вероятность влияния: низкая**
+
+Компонент `Link` и ссылки поля `Url` теперь допускают только схемы `http`, `https`, `mailto` и `tel`, а также относительные URL и якоря.
+Ссылки с другими схемами, например `javascript:` или `ftp:`, выводятся с `href="#"`.
+Текст ссылки не меняется.
+
 <a name="tables"></a>
-## Таблицы
+#### Скелетон и спиннер таблиц
+
+**Вероятность влияния: низкая**
 
 Скелетон и спиннер выводятся только для асинхронных таблиц.
 Методы `skeleton()` и `loader()` не влияют на синхронные таблицы.
 
+<a name="dropdowns"></a>
+#### Выпадающие меню
+
+**Вероятность влияния: очень низкая**
+
+Экземпляр Popper у выпадающего меню создается при первом открытии.
+До этого свойство `popperInstance` Alpine-компонента `dropdown` равно `null`.
+Проверяйте его перед вызовом методов из собственного JavaScript.
+
+<a name="deprecated-apis"></a>
+### Устаревшие API
+
+<a name="removed-classes"></a>
+#### Удаленные классы
+
+**Вероятность влияния: средняя**
+
+Классы, помеченные устаревшими в 4.x, удалены.
+
+| Класс                                                                 | Замена                                                             |
+|-----------------------------------------------------------------------|--------------------------------------------------------------------|
+| `MoonShine\Laravel\Handlers\Handler`                                  | `MoonShine\Crud\Handlers\Handler`                                  |
+| `MoonShine\Laravel\Handlers\Handlers`                                 | `MoonShine\Crud\Handlers\Handlers`                                 |
+| `MoonShine\Laravel\Notifications\NotificationButton`                  | `MoonShine\Crud\Notifications\NotificationButton`                  |
+| `MoonShine\Laravel\Http\Responses\MoonShineJsonResponse`              | `MoonShine\Crud\JsonResponse`                                      |
+| `MoonShine\Laravel\Http\Requests\Relations\AsyncSearchRequest`        | `MoonShine\Laravel\Http\Requests\Relations\RelationModelFieldRequest` |
+| `MoonShine\Laravel\MoonShineUI`                                       | Хелпер `toast()` вместо `MoonShineUI::toast()`                     |
+
+```php
+use MoonShine\Laravel\Handlers\Handler; // [tl! remove]
+use MoonShine\Crud\Handlers\Handler; // [tl! add]
+
+use MoonShine\Laravel\Http\Responses\MoonShineJsonResponse; // [tl! remove]
+use MoonShine\Crud\JsonResponse; // [tl! add]
+
+MoonShineUI::toast('Saved'); // [tl! remove]
+toast('Saved'); // [tl! add]
+```
+
+<a name="configuration"></a>
+### Конфигурация
+
+<a name="config-values"></a>
+#### Значения конфигурации
+
+**Вероятность влияния: низкая**
+
+Значения конфигурации теперь проверяются при чтении, а некорректное значение вызывает `TypeError`.
+
+- `middleware`, `auth.pipelines` и `pages` должны быть массивами строк, например имен классов.
+  Замыкания и объекты в `auth.pipelines` больше не поддерживаются, поэтому регистрируйте каждый pipeline как класс.
+- `pages` должен содержать классы страниц, `layout` должен наследовать `MoonShine\Crud\Layouts\AbstractLayout`,
+  а `palette` должен реализовывать `MoonShine\Contracts\ColorManager\PaletteContract`.
+
+```php filename:config/moonshine.php
+'auth' => [
+    'pipelines' => [
+        static fn ($request, $next) => $next($request), // [tl! remove]
+        \App\MoonShine\AuthPipelines\TwoFactorAuthentication::class, // [tl! add]
+    ],
+],
+```
+
+<a name="extending"></a>
+### Расширение MoonShine
+
 <a name="request"></a>
-## Обертка запроса
+#### Обертка запроса
+
+**Вероятность влияния: очень низкая**
 
 Свойство `$request` класса `MoonShine\Core\AbstractRequest` теперь имеет тип `ServerRequestInterface|Closure`.
 PSR-запрос создается лениво, при чтении данных запроса.
@@ -343,15 +402,10 @@ $this->request->getQueryParams(); // [tl! remove]
 $this->getRequest()->getQueryParams(); // [tl! add]
 ```
 
-<a name="dropdowns"></a>
-## Выпадающие меню
-
-Экземпляр Popper у выпадающего меню создается при первом открытии.
-До этого свойство `popperInstance` Alpine-компонента `dropdown` равно `null`.
-Проверяйте его перед вызовом методов из собственного JavaScript.
-
 <a name="contracts"></a>
-## Контракты
+#### Контракты
+
+**Вероятность влияния: очень низкая**
 
 Если ваши классы реализуют контракты **MoonShine** напрямую, а не наследуют базовые классы, добавьте новые методы:
 
@@ -363,5 +417,3 @@ $this->getRequest()->getQueryParams(); // [tl! add]
 `RequestContract::getScalar()` теперь возвращает `string|int|float|bool|null` вместо `mixed`. Обновите тип возврата в собственных реализациях.
 
 Новые контракты экранирования, например `HasLabelEscapingContract` или `HasEscapedValueContract`, необязательны.
-Редактирование в popover через `updateOnPreview()` экранирует значение, если поле не реализует `MoonShine\UI\Contracts\HasEscapedValueContract` или не вызывает `unescape()`.
-Собственное поле с трейтом `WithEscapedValue` должно реализовать этот контракт, чтобы в popover сохранялись неэкранированные значения.
