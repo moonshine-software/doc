@@ -10,6 +10,8 @@ title: Upgrade guide
 - [Фильтры, теги запросов и обработчики](#index-page)
 - [Импорт и экспорт](#import-export)
 - [Экранирование отображаемого текста](#display-escaping)
+- [Экранирование значений полей](#value-escaping)
+- [Расширения файлов](#file-extensions)
 - [URL ссылок](#link-urls)
 - [Переопределенные представления](#views)
 - [Таблицы](#tables)
@@ -205,6 +207,56 @@ Text::make('<strong>Name</strong>', 'name')
 > Разрешайте HTML только для доверенного содержимого. Отключение экранирования не очищает строку.
 
 Все настройки описаны в разделе [Экранирование отображаемого текста](/docs/{{version}}/security/display-escaping).
+
+<a name="value-escaping"></a>
+## Экранирование значений полей
+
+Значения полей `Text`, `Textarea` и `BelongsTo` по-прежнему экранируются по умолчанию.
+Новые настройки `escapes.value` и `escapes.value_on_apply` меняют это поведение глобально, поэтому, если оставить их включенными, ничего менять не нужно.
+
+```php filename:config/moonshine.php
+'escapes' => [
+    // ...
+    'value' => true,
+    'value_on_apply' => true,
+],
+```
+
+Если ваше поле использует трейт `WithEscapedValue` и переобъявляет свойство `$unescape`, измените его тип на `?bool`.
+`null` означает, что поле следует глобальной настройке.
+
+```php
+protected bool $unescape = false; // [tl! remove]
+protected ?bool $unescape = null; // [tl! add]
+```
+
+Вызов `escapeOnApply()` без аргумента теперь всегда включает экранирование при применении, даже если `escapes.value_on_apply` выключен.
+Настройки отдельного поля описаны в разделе [Text](/docs/{{version}}/fields/text#unescape).
+
+<a name="file-extensions"></a>
+## Расширения файлов
+
+Поля `File` и `Image` наследуют новый глобальный список `allowed_extensions`, если у поля не вызван `allowedExtensions()`.
+Значение по умолчанию `[]` разрешает все расширения, поэтому в существующих приложениях ничего менять не нужно.
+
+Если ваш класс поля наследует `File` или `Image` и переобъявляет свойство `$allowedExtensions`, измените его тип на `?array`.
+`null` означает, что поле следует глобальному списку.
+
+```php
+protected array $allowedExtensions = ['pdf']; // [tl! remove]
+protected ?array $allowedExtensions = ['pdf']; // [tl! add]
+```
+
+Метод `allowedExtensions()` контракта `MoonShine\UI\Contracts\FileableContract` теперь принимает `array|string`.
+Обновите его сигнатуру в собственных реализациях и переопределениях.
+
+```php
+public function allowedExtensions(array $allowedExtensions): static // [tl! remove]
+public function allowedExtensions(array|string $allowedExtensions): static // [tl! add]
+```
+
+Атрибут `accept` по умолчанию теперь добавляется при рендере поля, поэтому до рендера `getAttribute('accept')` возвращает `null`, если у поля не вызывались `accept()` или `allowedExtensions()`.
+Подробнее в разделе [File](/docs/{{version}}/fields/file#allowed-extensions).
 
 <a name="link-urls"></a>
 ## URL ссылок

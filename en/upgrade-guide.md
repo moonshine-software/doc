@@ -10,6 +10,8 @@ title: Upgrade guide
 - [Filters, Query Tags and Handlers](#index-page)
 - [Import and Export](#import-export)
 - [Display Escaping](#display-escaping)
+- [Field Value Escaping](#value-escaping)
+- [File Extensions](#file-extensions)
 - [Link URLs](#link-urls)
 - [Overridden Views](#views)
 - [Tables](#tables)
@@ -205,6 +207,56 @@ Values implementing `Illuminate\Contracts\Support\Htmlable`, such as `HtmlString
 > Allow HTML only for content you trust. Disabling escaping does not sanitize the string.
 
 See [Display Escaping](/docs/{{version}}/security/display-escaping) for all settings.
+
+<a name="value-escaping"></a>
+## Field Value Escaping
+
+Field values of `Text`, `Textarea` and `BelongsTo` are still escaped by default.
+The new `escapes.value` and `escapes.value_on_apply` settings change this default globally, so no changes are needed if you keep them enabled.
+
+```php filename:config/moonshine.php
+'escapes' => [
+    // ...
+    'value' => true,
+    'value_on_apply' => true,
+],
+```
+
+If your field uses the `WithEscapedValue` trait and redeclares the `$unescape` property, change its type to `?bool`.
+`null` means that the field follows the global setting.
+
+```php
+protected bool $unescape = false; // [tl! remove]
+protected ?bool $unescape = null; // [tl! add]
+```
+
+Calling `escapeOnApply()` without an argument now always enables escaping on apply, even when `escapes.value_on_apply` is disabled.
+See [Text](/docs/{{version}}/fields/text#unescape) for field-level settings.
+
+<a name="file-extensions"></a>
+## File Extensions
+
+`File` and `Image` fields inherit the new global `allowed_extensions` list unless `allowedExtensions()` is called on the field.
+The default `[]` allows all extensions, so no changes are needed for existing applications.
+
+If your field class extends `File` or `Image` and redeclares the `$allowedExtensions` property, change its type to `?array`.
+`null` means that the field follows the global list.
+
+```php
+protected array $allowedExtensions = ['pdf']; // [tl! remove]
+protected ?array $allowedExtensions = ['pdf']; // [tl! add]
+```
+
+The `allowedExtensions()` method of `MoonShine\UI\Contracts\FileableContract` now accepts `array|string`.
+Update its signature in your own implementations and overrides.
+
+```php
+public function allowedExtensions(array $allowedExtensions): static // [tl! remove]
+public function allowedExtensions(array|string $allowedExtensions): static // [tl! add]
+```
+
+The default `accept` attribute is now added when the field is rendered, so `getAttribute('accept')` returns `null` before rendering unless `accept()` or `allowedExtensions()` was called on the field.
+See [File](/docs/{{version}}/fields/file#allowed-extensions) for details.
 
 <a name="link-urls"></a>
 ## Link URLs
