@@ -18,6 +18,7 @@ title: Upgrade guide
 - [Таблицы](#tables)
 - [Обертка запроса](#request)
 - [Выпадающие меню](#dropdowns)
+- [Контракты](#contracts)
 
 ---
 
@@ -295,16 +296,28 @@ public function allowedExtensions(array|string $allowedExtensions): static // [t
 <a name="views"></a>
 ## Переопределенные представления
 
+В версии 5.0 изменились многие представления компонентов. Если в приложении опубликованы и изменены какие-либо из представлений ниже, сравните их с новыми версиями и обновите.
+
+Представления, выводящие метки, подсказки и заголовки, теперь выводят подготовленные в PHP значения, например `$labelHtml`, `$hintHtml`, `$titleHtml` и `$valueHtml`, которые уже учитывают настройки [экранирования отображаемого текста](#display-escaping).
+Опубликованная копия с `{!! $label !!}` обходит экранирование, а копия с `{{ $label }}` игнорирует `unescapeLabel()`.
+
+- `moonshine::components.card`, `collapse`, `field-container`, `heading`, `modal`, `off-canvas`, `tabs`,
+- `moonshine::components.form.fieldset`, `form.hint`, `form.wrapper`, `form.input-extensions.ext`, `form.input-extensions.prefix`,
+- `moonshine::components.layout.box`, `layout.divider`, `layout.footer`,
+- `moonshine::components.link-button`, `link-native`,
+- `moonshine::components.menu.divider`, `menu.group`, `menu.item-link`,
+- `moonshine::components.metrics.value`, `metrics.wrapped.value`,
+- `moonshine::components.table.index`,
+- `moonshine::fields.fieldset`, `fields.relationships.belongs-to-many`.
+
 Несколько часто используемых представлений теперь выводят элементы напрямую, без вложенных Blade-компонентов.
-Их данные подготавливаются в PHP, например `$tagAttributes` и `$labelHtml` в представлении кнопки.
+Их данные тоже подготавливаются в PHP, например `$tagAttributes` и `$labelHtml` в представлении кнопки.
 
 - `moonshine::components.action-button`,
 - `moonshine::components.form.builder`,
 - `moonshine::components.icon`,
 - `moonshine::components.rating`,
 - `moonshine::fields.hidden`.
-
-Если в приложении эти представления опубликованы и изменены, сравните их с новыми версиями и обновите.
 
 Строки вертикальных таблиц по умолчанию, например на `DetailPage`, выводятся новым представлением `moonshine::components.table.vertical-field`.
 Представления `layout.grid`, `layout.column` и `layout.div` для них больше не используются, поэтому их переопределения на эти строки не влияют.
@@ -336,3 +349,19 @@ $this->getRequest()->getQueryParams(); // [tl! add]
 Экземпляр Popper у выпадающего меню создается при первом открытии.
 До этого свойство `popperInstance` Alpine-компонента `dropdown` равно `null`.
 Проверяйте его перед вызовом методов из собственного JavaScript.
+
+<a name="contracts"></a>
+## Контракты
+
+Если ваши классы реализуют контракты **MoonShine** напрямую, а не наследуют базовые классы, добавьте новые методы:
+
+- `MoonShine\Contracts\UI\ComponentContract`: `when()` и `unless()`, например через трейт `Illuminate\Support\Traits\Conditionable`,
+- `MoonShine\Contracts\Core\DependencyInjection\TranslatorContract`: `getString()`,
+- `MoonShine\Contracts\Core\HasResourceContract`: `getResourceOrFail()`, его реализует трейт `MoonShine\Core\Traits\HasResource`,
+- `MoonShine\Crud\Contracts\Notifications\NotificationButtonContract`: `toArray()`.
+
+`RequestContract::getScalar()` теперь возвращает `string|int|float|bool|null` вместо `mixed`. Обновите тип возврата в собственных реализациях.
+
+Новые контракты экранирования, например `HasLabelEscapingContract` или `HasEscapedValueContract`, необязательны.
+Редактирование в popover через `updateOnPreview()` экранирует значение, если поле не реализует `MoonShine\UI\Contracts\HasEscapedValueContract` или не вызывает `unescape()`.
+Собственное поле с трейтом `WithEscapedValue` должно реализовать этот контракт, чтобы в popover сохранялись неэкранированные значения.

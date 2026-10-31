@@ -18,6 +18,7 @@ title: Upgrade guide
 - [Tables](#tables)
 - [Request Wrapper](#request)
 - [Dropdowns](#dropdowns)
+- [Contracts](#contracts)
 
 ---
 
@@ -295,16 +296,28 @@ The link text is not changed.
 <a name="views"></a>
 ## Overridden Views
 
+Many component views changed in 5.0. If your application has published and changed any of the views below, compare them with the new versions and update them.
+
+Views that display labels, hints and titles now print values prepared in PHP, such as `$labelHtml`, `$hintHtml`, `$titleHtml` and `$valueHtml`, which already follow the [display escaping](#display-escaping) settings.
+A published copy that prints `{!! $label !!}` bypasses escaping, and a copy that prints `{{ $label }}` ignores `unescapeLabel()`.
+
+- `moonshine::components.card`, `collapse`, `field-container`, `heading`, `modal`, `off-canvas`, `tabs`,
+- `moonshine::components.form.fieldset`, `form.hint`, `form.wrapper`, `form.input-extensions.ext`, `form.input-extensions.prefix`,
+- `moonshine::components.layout.box`, `layout.divider`, `layout.footer`,
+- `moonshine::components.link-button`, `link-native`,
+- `moonshine::components.menu.divider`, `menu.group`, `menu.item-link`,
+- `moonshine::components.metrics.value`, `metrics.wrapped.value`,
+- `moonshine::components.table.index`,
+- `moonshine::fields.fieldset`, `fields.relationships.belongs-to-many`.
+
 Several frequently rendered views now output their elements directly instead of nesting other Blade components.
-Their data is prepared in PHP, for example `$tagAttributes` and `$labelHtml` in the action button view.
+Their data is also prepared in PHP, for example `$tagAttributes` and `$labelHtml` in the action button view.
 
 - `moonshine::components.action-button`,
 - `moonshine::components.form.builder`,
 - `moonshine::components.icon`,
 - `moonshine::components.rating`,
 - `moonshine::fields.hidden`.
-
-If your application has published and changed these views, compare them with the new versions and update them.
 
 Default rows of vertical tables, such as on `DetailPage`, are rendered with the new `moonshine::components.table.vertical-field` view.
 They no longer use the `layout.grid`, `layout.column` and `layout.div` views, so overrides of those views do not affect them.
@@ -336,3 +349,19 @@ $this->getRequest()->getQueryParams(); // [tl! add]
 The Popper instance of a dropdown is created when the dropdown is opened for the first time.
 Until then, the `popperInstance` property of the `dropdown` Alpine component is `null`.
 Check it before calling its methods from your own JavaScript.
+
+<a name="contracts"></a>
+## Contracts
+
+If your classes implement **MoonShine** contracts directly instead of extending the base classes, add the new methods:
+
+- `MoonShine\Contracts\UI\ComponentContract`: `when()` and `unless()`, for example with the `Illuminate\Support\Traits\Conditionable` trait,
+- `MoonShine\Contracts\Core\DependencyInjection\TranslatorContract`: `getString()`,
+- `MoonShine\Contracts\Core\HasResourceContract`: `getResourceOrFail()`, provided by the `MoonShine\Core\Traits\HasResource` trait,
+- `MoonShine\Crud\Contracts\Notifications\NotificationButtonContract`: `toArray()`.
+
+`RequestContract::getScalar()` now returns `string|int|float|bool|null` instead of `mixed`. Update the return type in your own implementations.
+
+New escaping contracts, such as `HasLabelEscapingContract` or `HasEscapedValueContract`, are optional.
+Popover editing with `updateOnPreview()` escapes the value unless the field implements `MoonShine\UI\Contracts\HasEscapedValueContract` and calls `unescape()`.
+A custom field that uses the `WithEscapedValue` trait should implement this contract to keep unescaped values in the popover.
