@@ -19,6 +19,7 @@ video: https://youtu.be/kazEtUFIZKM?si=vDvqZHmD3KPVFOha&t=525
   - [Localization](#localization)
   - [Storage](#storage)
   - [Layout](#layout)
+  - [Field Value Escaping](#field-escaping)
   - [Forms](#forms)
   - [Pages](#pages)
   - [Home page](#home-url)
@@ -508,6 +509,51 @@ tab: MoonShineServiceProvider
 $config->set('palette', \App\MoonShine\Palettes\CorporatePalette::class);
 ```
 ~~~
+
+<a name="field-escaping"></a>
+### Field Value Escaping
+
+Field values have two independent settings in the `escapes` section, both enabled by default:
+
+- `value` controls value escaping when displaying a preview,
+- `value_on_apply` controls escaping of submitted strings before they are applied to data, including when saving a model.
+
+~~~tabs
+tab: config/moonshine.php
+```php
+'escapes' => [
+    // ...
+    'value' => true,
+    'value_on_apply' => true,
+],
+```
+tab: MoonShineServiceProvider
+```php
+$config
+    ->escapeValue()
+    ->escapeValueOnApply();
+```
+~~~
+
+The configurator methods accept `bool $escape = true`. For example, to store the original string while keeping previews escaped:
+
+```php
+$config
+    ->escapeValue()
+    ->escapeValueOnApply(false);
+```
+
+The values are read like the other `escapes` settings: strings such as `'0'` or `'false'` from environment variables disable escaping, while an unset or empty value keeps it enabled.
+
+These defaults apply to `Text`, inherited text fields such as `Email` and `Url`, and `Textarea`. `Textarea` also uses `value` when preparing the value inside its form control. Relationship previews using `BelongsTo` or `MorphTo` respect `value` as well. Password handling remains unchanged.
+
+> [!WARNING]
+> With `value` disabled, stored values are output as HTML in all of these places, including related record titles and the content of the `textarea` form control.
+> Disable it only for data you trust: disabling escaping does not sanitize the string.
+
+Explicit field-level `escape()`, `unescape()`, and `escapeOnApply()` calls take precedence over the corresponding global setting in either direction. On a field, `escapeOnApply()` accepts an optional closure, not a boolean; calling it without an argument explicitly enables escaping even if `value_on_apply` is `false`.
+
+See [Text: escaping](/docs/{{version}}/fields/text#unescape) and [escaping on apply](/docs/{{version}}/fields/text#escape-on-apply) for field-level examples. These settings affect values only; labels, hints, prefixes, suffixes and render callbacks use the other keys of the `escapes` section.
 
 <a name="forms"></a>
 ### Forms
