@@ -71,7 +71,7 @@ make(
 - `$formatted` - замыкание для форматирования значения поля в режиме preview (для `BelongsTo` и `BelongsToMany` форматирует значения для выбора).
 
 > [!NOTE]
-> В `$label` можно добавлять html теги, они не будут экранироваться.
+> HTML в `$label` экранируется по умолчанию. Используйте `unescapeLabel()`, чтобы разрешить доверенный HTML. Подробнее: [Экранирование отображаемого текста](/docs/{{version}}/security/display-escaping).
 
 > [!NOTE]
 > Если не указать `$column`, то поле в базе данных будет определено автоматически на основе `$label` (только для английского языка).
@@ -98,6 +98,8 @@ Text::make(
 
 <a name="label"></a>
 ### Label
+
+Подписи экранируются по умолчанию, в том числе в заголовках таблицы, переключателях выбора столбцов и заголовках отношений. Используйте `unescapeLabel()` для вывода доверенного HTML или `escapeLabel()` для явного включения экранирования. Локальная настройка переопределяет [глобальную конфигурацию](/docs/{{version}}/configuration#display-escaping).
 
 Если необходимо изменить label после создания экземпляра поля, можно воспользоваться методом `setLabel()`.
 
@@ -159,6 +161,8 @@ Text::make('Name')->beforeLabel()
 ```php
 hint(string $hint)
 ```
+
+Строки подсказок экранируются по умолчанию. Используйте `unescapeHint()` для вывода доверенного HTML или `escapeHint()` для явного включения экранирования независимо от подписи и значения поля.
 
 ```php
 Number::make('Rating')
@@ -667,15 +671,19 @@ beforeRender(Closure $closure)
 afterRender(Closure $closure)
 ```
 
+Строковые результаты экранируются по умолчанию. Используйте `unescapeBeforeRender()` и `unescapeAfterRender()` для вывода доверенных HTML-строк. Соответствующие методы `escapeBeforeRender()` и `escapeAfterRender()` явно включают экранирование. Возвращаемые объекты `Renderable`, например представления, сохраняют своё поведение при рендеринге. Подробнее: [Экранирование отображаемого текста](/docs/{{version}}/security/display-escaping).
+
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:1]
+// [tl! collapse:2]
 use MoonShine\UI\Fields\Field;
+use MoonShine\UI\Fields\Text;
 
 Text::make('Title')
     ->beforeRender(function(Field $field) {
         return $field->preview();
     })
+    ->unescapeBeforeRender()
 ```
 
 <a name="conditional-methods"></a>

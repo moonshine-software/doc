@@ -71,7 +71,7 @@ If this field is a relationship, the name of the relationship is used (e.g.: cou
 - `$formatted` - a closure for formatting the field's value in preview mode (for `BelongsTo` and `BelongsToMany`, formats values for selection).
 
 > [!NOTE]
-> HTML tags can be added in `$label`, they will not be escaped.
+> HTML in `$label` is escaped by default. Use `unescapeLabel()` to allow trusted HTML. See [Display Escaping](/docs/{{version}}/security/display-escaping).
 
 > [!NOTE]
 > If `$column` is not specified, the database field will be automatically determined based on `$label` (only for English).
@@ -98,6 +98,8 @@ Text::make(
 
 <a name="label"></a>
 ### Label
+
+Labels are escaped by default, including table headers, column-selection toggles, and relationship headings. Use `unescapeLabel()` to render trusted HTML or `escapeLabel()` to explicitly enable escaping. The local preference overrides [global configuration](/docs/{{version}}/configuration#display-escaping).
 
 If you need to change the label after creating an instance of the field, you can use the `setLabel()` method.
 
@@ -159,6 +161,8 @@ A hint with a description can be created using the `hint()` method.
 ```php
 hint(string $hint)
 ```
+
+Hint strings are escaped by default. Use `unescapeHint()` to render trusted HTML or `escapeHint()` to explicitly enable escaping, independently of the label and field value.
 
 ```php
 Number::make('Rating')
@@ -667,15 +671,19 @@ beforeRender(Closure $closure)
 afterRender(Closure $closure)
 ```
 
+String results are escaped by default. Use `unescapeBeforeRender()` and `unescapeAfterRender()` to render trusted HTML strings. The corresponding `escapeBeforeRender()` and `escapeAfterRender()` methods enable escaping explicitly. Returned `Renderable` objects, such as views, keep their rendering behavior. See [Display Escaping](/docs/{{version}}/security/display-escaping).
+
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:1]
+// [tl! collapse:2]
 use MoonShine\UI\Fields\Field;
+use MoonShine\UI\Fields\Text;
 
 Text::make('Title')
     ->beforeRender(function(Field $field) {
         return $field->preview();
     })
+    ->unescapeBeforeRender()
 ```
 
 <a name="conditional-methods"></a>

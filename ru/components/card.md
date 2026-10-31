@@ -7,6 +7,7 @@
 - [Ссылка](#url)
 - [Миниатюры](#thumbnail)
 - [Список значений](#values)
+- [Подписи значений](#value-labels)
 
 ---
 
@@ -23,6 +24,8 @@ make(
     Closure|array $values = [],
     Closure|string|null $subtitle = null,
     bool $overlay = false,
+    array $escapeValueLabels = [],
+    ?bool $escapeLabel = null,
 )
 ```
 
@@ -31,7 +34,9 @@ make(
 - `$url` - ссылка,
 - `$values` - список значений,
 - `$subtitle` - подзаголовок,
-- `$overlay` - режим overlay позволяет разместить шапку и заголовки поверх изображения карточки.
+- `$overlay` - режим overlay позволяет разместить шапку и заголовки поверх изображения карточки,
+- `$escapeValueLabels` - настройки экранирования подписей отдельных ключей списка значений,
+- `$escapeLabel` - экранирование подписей значений по умолчанию для этой карточки; `null` использует глобальную настройку.
 
 ~~~tabs
 tab: Class
@@ -174,3 +179,21 @@ Card::make(
         'Author' => fake()->name(),
     ])
 ```
+
+<a name="value-labels"></a>
+## Подписи значений
+
+Ключи списка значений экранируются согласно глобальной настройке `escapes.label`, включённой по умолчанию. Используйте `escapeValueLabels()`, чтобы переопределить экранирование для отдельных ключей. `false` разрешает HTML, а `true` включает экранирование даже при отключённом глобальном значении.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\UI\Components\Card;
+
+Card::make(values: ['<strong>Author</strong>' => 'Alice'])
+    ->escapeValueLabels(['<strong>Author</strong>' => false]);
+```
+
+Ключи в данных остаются неизменными. Настройка управляет подписями, а не значениями, отображаемыми рядом с ними.
+
+Также можно передать `escapeLabel: false` в `Card::make()`, чтобы разрешить HTML во всех подписях значений этой карточки. Настройки отдельных ключей из `escapeValueLabels()` имеют приоритет. В Blade используйте `:escape-label` и `:escape-value-labels`. Переопределения `values`, `escapeLabel` и `escapeValueLabels`, переданные через `customView()`, также учитываются.

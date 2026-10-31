@@ -98,7 +98,7 @@ Text::make('Tags', 'tags')
 <a name="unescape"></a>
 ### Disable escaping
 
-The `unescape()` method disables HTML tag escaping in the field value.
+The `unescape()` method disables HTML tag escaping in the field value. It does not affect labels, hints, prefixes, or suffixes; use their [separate methods](/docs/{{version}}/security/display-escaping#local-settings).
 
 ```php
 Text::make('HTML Content', 'content')
@@ -156,6 +156,8 @@ The `prefix()` method adds a prefix to the input field.
 prefix(string $ext)
 ```
 
+Prefix strings are escaped by default. Use `unescapePrefix()` for trusted HTML or `escapePrefix()` to explicitly enable escaping. See [Display Escaping](/docs/{{version}}/security/display-escaping).
+
 ```php
 Text::make('Domain', 'domain')
     ->prefix('https://')
@@ -169,6 +171,8 @@ The `suffix()` method adds a suffix to the input field.
 ```php
 suffix(string $ext)
 ```
+
+Suffix strings are escaped by default. Use `unescapeSuffix()` for trusted HTML or `escapeSuffix()` to explicitly enable escaping. See [Display Escaping](/docs/{{version}}/security/display-escaping).
 
 ```php
 Text::make('Domain', 'domain')
