@@ -91,16 +91,49 @@ File::make('File')
 <a name="allowed-extensions"></a>
 ## Allowed Extensions
 
-Using the `allowedExtensions()` method, you can specify which files are available for upload.
+`File` and `Image` inherit the global `allowed_extensions` list from [configuration](/docs/{{version}}/configuration#allowed-extensions).
+By default, the list is empty (`[]`), so extensions are unrestricted.
+
+Use `allowedExtensions()` to replace the global list for an individual field. Specify extensions without a leading dot.
 
 ```php
-allowedExtensions(array $allowedExtensions)
+allowedExtensions(array|string $allowedExtensions)
 ```
 
 ```php
-File::make('File')
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\UI\Fields\File;
+
+File::make('Document')
     ->allowedExtensions(['pdf', 'doc', 'txt'])
 ```
+
+This field accepts its own list even if the global list only allows images. The lists are not merged.
+An explicit empty list (`[]`), the string `'*'`, or the array `['*']` allows all extensions and overrides any global restriction.
+
+```php
+File::make('Attachment')->allowedExtensions([]);
+File::make('Attachment')->allowedExtensions('*');
+File::make('Attachment')->allowedExtensions(['*']);
+```
+
+The effective list provides the default HTML `accept` attribute and is checked on the server during uploads.
+The server checks both the extension detected from the uploaded file's MIME type and the extension of the stored filename,
+including names supplied by `keepOriginalFileName()` or `customName()`.
+
+To customize only the browser's file picker, use `accept()` or an explicit `accept` attribute.
+This does not change the server-side allowed extensions.
+
+```php
+File::make('Document')
+    ->allowedExtensions(['pdf'])
+    ->accept('application/pdf')
+```
+
+> [!NOTE]
+> When using `<x-moonshine::form.file>` directly in Blade, set `accept` explicitly and validate uploads in your handler.
+> The global setting is applied by the PHP `File` and `Image` fields.
 
 <a name="multiple"></a>
 ## Multiple Upload

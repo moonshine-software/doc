@@ -6,6 +6,10 @@ Inherits from [File](/docs/{{version}}/fields/file).
 
 The `Image` field is an extension of `File` that allows previewing uploaded images.
 
+`Image` uses the same [allowed extension settings](/docs/{{version}}/fields/file#allowed-extensions) as `File`:
+it inherits the global `allowed_extensions` list unless `allowedExtensions()` is called on the field.
+It does not automatically restrict uploads to image formats. Set an image extension list globally or on the field when needed.
+
 ~~~tabs
 tab: Class
 ```php

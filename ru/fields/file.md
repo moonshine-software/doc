@@ -91,16 +91,49 @@ File::make('File')
 <a name="allowed-extensions"></a>
 ## Допустимые расширения
 
-Используя метод `allowedExtensions()`, вы можете указать, какие файлы будут доступны для загрузки.
+`File` и `Image` наследуют глобальный список `allowed_extensions` из [конфигурации](/docs/{{version}}/configuration#allowed-extensions).
+По умолчанию список пустой (`[]`), поэтому ограничений по расширениям нет.
+
+Используйте `allowedExtensions()`, чтобы заменить глобальный список для отдельного поля. Указывайте расширения без точки в начале.
 
 ```php
-allowedExtensions(array $allowedExtensions)
+allowedExtensions(array|string $allowedExtensions)
 ```
 
 ```php
-File::make('File')
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\UI\Fields\File;
+
+File::make('Document')
     ->allowedExtensions(['pdf', 'doc', 'txt'])
 ```
+
+Это поле принимает файлы из собственного списка, даже если глобально разрешены только изображения. Списки не объединяются.
+Явно заданный пустой список (`[]`), строка `'*'` или массив `['*']` разрешают все расширения и переопределяют глобальное ограничение.
+
+```php
+File::make('Attachment')->allowedExtensions([]);
+File::make('Attachment')->allowedExtensions('*');
+File::make('Attachment')->allowedExtensions(['*']);
+```
+
+Итоговый список задаёт значение HTML-атрибута `accept` по умолчанию и проверяется на сервере при загрузке.
+Сервер проверяет как расширение, определённое по MIME-типу загруженного файла, так и расширение сохраняемого имени,
+включая имена, заданные через `keepOriginalFileName()` или `customName()`.
+
+Чтобы настроить только выбор файлов в браузере, используйте `accept()` или явный атрибут `accept`.
+Это не меняет список допустимых расширений на сервере.
+
+```php
+File::make('Document')
+    ->allowedExtensions(['pdf'])
+    ->accept('application/pdf')
+```
+
+> [!NOTE]
+> При прямом использовании `<x-moonshine::form.file>` в Blade задавайте `accept` явно и проверяйте загрузки в своём обработчике.
+> Глобальная настройка применяется PHP-полями `File` и `Image`.
 
 <a name="multiple"></a>
 ## Множественная загрузка
