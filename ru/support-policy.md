@@ -7,4 +7,4 @@
 | 2.0     | 8.1 - 8.3 | 10 - 11 | November 1st, 2023  | November 1st, 2024    | November 1st, 2025          |
 | 3.0     | 8.2       | 10 - 12 | December 10th, 2024 | November 1st, 2026    | November 1st, 2026          |
 | 4.0     | 8.2       | 10 - 13 | November 11th, 2025 | November 1st, 2027    | November 1st, 2027          |
-| 5.0     | 8.4       | 11 - 13 | November 12th, 2026 | -                     | -                           |
+| 5.0     | 8.4       | 11 - 14+ | November 12th, 2026 | -                     | -                           |
