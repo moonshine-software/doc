@@ -277,6 +277,8 @@ $component->vertical(
 )
 ```
 
+Rows without `title` and `value` closures are rendered with the `moonshine::components.table.vertical-field` view. Override this view to change their markup.
+
 <a name="editable-table"></a>
 ### Editable Table
 
@@ -1072,7 +1074,7 @@ Available classes:
 <a name="#loading-mode"></a>
 ## Loading mode
 
-To enable and disable the skeleton mode in a table, use the `sceleton()` method.
+To enable and disable the skeleton mode in a table, use the `skeleton()` method.
 
 ```php
 ->skeleton(true|false);
@@ -1083,5 +1085,8 @@ To enable and disable the spinner mode in the table, use the `loader()` method.
 ```php
 ->loader(true|false);
 ```
+
+> [!NOTE]
+> The skeleton and the loader are rendered only for asynchronous tables. The `skeleton()` and `loader()` methods have no effect on synchronous tables.
 
 `TableBuilder` in **MoonShine** offers a wide range of capabilities for creating flexible and functional tables in the admin panel.

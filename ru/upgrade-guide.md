@@ -2,199 +2,418 @@
 title: Upgrade guide
 ---
 
-# Руководство по обновлению MoonShine 3.x → 4.0
+# Руководство по обновлению
 
-- [Автоматический апгрейд](#auto-upgrade)
+- [Обновление до 5.0 с 4.x](#upgrade-5-0)
+
+<a name="high-impact-changes"></a>
+## Изменения с высоким влиянием
+
 - [Обновление зависимостей](#update-dependencies)
-- [Изменения пространств имен](#namespace-changes)
-- [Изменения в структуре ресурсов](#resource-changes)
-- [Изменения в полях](#field-changes)
-- [Изменения в Layout](#layout-changes)
-- [Устаревшие классы и методы](#deprecated)
-- [Асинхронные методы](#async-methods)
+- [Фильтры, теги запросов и обработчики](#index-page)
+- [Экранирование отображаемого текста](#display-escaping)
+
+<a name="medium-impact-changes"></a>
+## Изменения со средним влиянием
+
+- [Удаленные классы](#removed-classes)
+- [Импорт и экспорт](#import-export)
+- [Переопределенные представления](#views)
+
+<a name="low-impact-changes"></a>
+## Изменения с низким влиянием
+
+- [Значения конфигурации](#config-values)
+- [Экранирование значений полей](#value-escaping)
+- [Расширения файлов](#file-extensions)
+- [URL ссылок](#link-urls)
+- [Скелетон и спиннер таблиц](#tables)
+- [Редактирование в popover](#popover)
+- [Обертка запроса](#request)
+- [Выпадающие меню](#dropdowns)
+- [Контракты](#contracts)
 
 ---
 
-<a name="auto-upgrade"></a>
-## Автоматический апгрейд
+<a name="upgrade-5-0"></a>
+## Обновление до 5.0 с 4.x
 
-Для упрощения процесса миграции вы можете воспользоваться пакетом [warete/moonshine-upgrade](https://github.com/warete/moonshine-upgrade),
-который автоматически выполнит все необходимые изменения для перехода на MoonShine 4.0.
+#### Примерное время обновления: 30 минут
+
+Мы стараемся описать все возможные изменения, нарушающие обратную совместимость.
+Часть из них затрагивает редко используемые возможности **MoonShine**, поэтому на ваше приложение может повлиять лишь некоторая их доля.
+
+> [!NOTE]
+> Руководство дополняется и будет расширено до выхода версии 5.0.
+> Для обновления с 3.x сначала выполните [руководство по обновлению 4.x](/docs/4.x/upgrade-guide).
 
 <a name="update-dependencies"></a>
-## Обновление пакета
+### Обновление зависимостей
 
-Измените версию пакета в composer.json и обновите зависимости.
+**Вероятность влияния: высокая**
 
-```json
-{
-    "require": {
-        "moonshine/moonshine": "^4.0"
-    }
-}
-```
+Для **MoonShine** 5.0 требуются PHP 8.4 или новее и Laravel 11, 12 или 13.
+Laravel 10 больше не поддерживается.
+
+Обновите следующие зависимости в `composer.json` вашего приложения:
+
+- `moonshine/moonshine` до `^5.0`,
+- `moonshine/import-export` до `^3.0`, если вы используете [импорт и экспорт](#import-export).
 
 ```shell
 composer update
 ```
 
-<a name="namespace-changes"></a>
-## Изменения пространств имен
+Для **MoonShine** 5.0 требуются `symfony/http-foundation` и `symfony/psr-http-message-bridge` версии 7.4 или 8.1.
+Если Composer не может их установить из-за зафиксированных старых версий, обновите пакет вместе с зависимостями:
+
+```shell
+composer update moonshine/moonshine -W
+```
+
+<a name="resources"></a>
+### Ресурсы
+
+<a name="index-page"></a>
+#### Фильтры, теги запросов и обработчики
+
+**Вероятность влияния: высокая**
+
+Трейты `HasFilters`, `HasQueryTags` и `HasHandlers` удалены из `ModelResource`.
+Фильтры, теги запросов и обработчики настраиваются только в `IndexPage`.
+
+Перенесите следующие методы из ресурса на его индексную страницу:
+
+- `filters()`,
+- `queryTags()`,
+- `handlers()`,
+- `getIgnoredFields()`.
 
 ```php
-use MoonShine\Laravel\Forms\FiltersForm; // [tl! remove]
-use MoonShine\Crud\Forms\FiltersForm; // [tl! add]
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:5]
+namespace App\MoonShine\Resources\Post\Pages;
 
-use MoonShine\Laravel\Forms\LoginForm; // [tl! remove]
-use MoonShine\Crud\Forms\LoginForm; // [tl! add]
+use MoonShine\Laravel\Pages\Crud\IndexPage;
+use MoonShine\Laravel\QueryTags\QueryTag;
+use MoonShine\UI\Fields\Text;
+
+class PostIndexPage extends IndexPage
+{
+    protected function filters(): iterable
+    {
+        return [
+            Text::make('Title', 'title'),
+        ];
+    }
+
+    protected function queryTags(): array
+    {
+        return [
+            QueryTag::make(
+                'Published',
+                static fn ($query) => $query->where('is_published', true)
+            ),
+        ];
+    }
+}
+```
+
+Методы ресурса `hasFilters()`, `getFilters()`, `hasQueryTags()`, `getQueryTags()`, `hasHandlers()` и `getHandlers()` также удалены.
+Вызывайте их у индексной страницы.
+
+```php
+$resource->getFilters(); // [tl! remove]
+$resource->getIndexPage()?->getFilters(); // [tl! add]
+```
+
+Значения фильтров и сохраненное состояние запроса по-прежнему читаются из ресурса, например через `getFilterParams()`.
+
+Подробнее в разделах [Фильтры](/docs/{{version}}/model-resource/filters), [Теги запросов](/docs/{{version}}/model-resource/query-tags) и [Обработчики](/docs/{{version}}/advanced/handlers).
+
+<a name="import-export"></a>
+#### Импорт и экспорт
+
+**Вероятность влияния: средняя**
+
+**MoonShine** 5.0 работает с `moonshine/import-export` 3.x.
+
+Трейт `ImportExportConcern` и интерфейс `HasImportExportContract` остаются в ресурсе вместе с полями импорта и экспорта.
+Кнопки теперь являются обработчиками индексной страницы, поэтому добавьте в нее трейт `ImportExportHandlersConcern`.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:4]
+namespace App\MoonShine\Resources\Category\Pages;
+
+use MoonShine\ImportExport\Traits\ImportExportHandlersConcern;
+use MoonShine\Laravel\Pages\Crud\IndexPage;
+
+class CategoryIndexPage extends IndexPage
+{
+    use ImportExportHandlersConcern;
+}
+```
+
+Перенесите переопределения методов `import()`, `export()`, `isExportToCsv()` и `handlers()` из ресурса на индексную страницу.
+Внутри страницы ресурс доступен через `getResource()`.
+
+<a name="escaping"></a>
+### Экранирование
+
+<a name="display-escaping"></a>
+#### Экранирование отображаемого текста
+
+**Вероятность влияния: высокая**
+
+Метки, подсказки, префиксы, суффиксы и строки, возвращаемые callback-функциями полей `beforeRender()` и `afterRender()`, теперь экранируются по умолчанию.
+Метка вида `<strong>Name</strong>` отображается как текст.
+
+Добавьте соответствующий метод `unescape…()` там, где нужен HTML.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:1]
+use MoonShine\UI\Fields\Text;
+
+Text::make('<strong>Name</strong>', 'name')
+    ->unescapeLabel() // [tl! add]
+    ->hint('<a href="/help">Help</a>')
+    ->unescapeHint(); // [tl! add]
+```
+
+Значения по умолчанию можно изменить в секции `escapes` конфигурации.
+
+```php filename:config/moonshine.php
+'escapes' => [
+    'label' => true,
+    'hint' => true,
+    'prefix' => true,
+    'suffix' => true,
+    'before_render' => true,
+    'after_render' => true,
+],
+```
+
+Названия ссылок полей, метки связанных записей и заголовки модальных окон экранируются независимо от этих настроек.
+Чтобы разрешить в них HTML, используйте `unescapeLinkName()`, `unescapeOptionLabels()` и `unescapeTitle()`.
+
+Значения, реализующие `Illuminate\Contracts\Support\Htmlable`, например `HtmlString`, выводятся как подготовленный HTML.
+
+> [!WARNING]
+> Разрешайте HTML только для доверенного содержимого. Отключение экранирования не очищает строку.
+
+Все настройки описаны в разделе [Экранирование отображаемого текста](/docs/{{version}}/security/display-escaping).
+
+<a name="value-escaping"></a>
+#### Экранирование значений полей
+
+**Вероятность влияния: низкая**
+
+Значения полей `Text`, `Textarea` и `BelongsTo` по-прежнему экранируются по умолчанию.
+Новые настройки `escapes.value` и `escapes.value_on_apply` меняют это поведение глобально, поэтому, если оставить их включенными, ничего менять не нужно.
+
+```php filename:config/moonshine.php
+'escapes' => [
+    // ...
+    'value' => true,
+    'value_on_apply' => true,
+],
+```
+
+Если ваше поле использует трейт `WithEscapedValue` и переобъявляет свойство `$unescape`, измените его тип на `?bool`.
+`null` означает, что поле следует глобальной настройке.
+
+```php
+protected bool $unescape = false; // [tl! remove]
+protected ?bool $unescape = null; // [tl! add]
+```
+
+Вызов `escapeOnApply()` без аргумента теперь всегда включает экранирование при применении, даже если `escapes.value_on_apply` выключен.
+Настройки отдельного поля описаны в разделе [Text](/docs/{{version}}/fields/text#unescape).
+
+<a name="popover"></a>
+#### Редактирование в popover
+
+**Вероятность влияния: очень низкая**
+
+Редактирование в popover через `updateOnPreview()` теперь экранирует значение, если поле не реализует `MoonShine\UI\Contracts\HasEscapedValueContract` или не вызывает `unescape()`.
+Встроенные поля `Text`, `Textarea` и `BelongsTo` реализуют этот контракт.
+Собственное поле с трейтом `WithEscapedValue` должно реализовать этот контракт, чтобы в popover сохранялись неэкранированные значения.
+
+<a name="fields-components"></a>
+### Поля и компоненты
+
+<a name="views"></a>
+#### Переопределенные представления
+
+**Вероятность влияния: средняя**
+
+В версии 5.0 изменились многие представления компонентов. Если в приложении опубликованы и изменены какие-либо из представлений ниже, сравните их с новыми версиями и обновите.
+
+Представления, выводящие метки, подсказки и заголовки, теперь выводят подготовленные в PHP значения, например `$labelHtml`, `$hintHtml`, `$titleHtml` и `$valueHtml`, которые уже учитывают настройки [экранирования отображаемого текста](#display-escaping).
+Опубликованная копия с `{!! $label !!}` обходит экранирование, а копия с `{{ $label }}` игнорирует `unescapeLabel()`.
+
+- `moonshine::components.card`, `collapse`, `field-container`, `heading`, `modal`, `off-canvas`, `tabs`,
+- `moonshine::components.form.fieldset`, `form.hint`, `form.wrapper`, `form.input-extensions.ext`, `form.input-extensions.prefix`,
+- `moonshine::components.layout.box`, `layout.divider`, `layout.footer`,
+- `moonshine::components.link-button`, `link-native`,
+- `moonshine::components.menu.divider`, `menu.group`, `menu.item-link`,
+- `moonshine::components.metrics.value`, `metrics.wrapped.value`,
+- `moonshine::components.table.index`,
+- `moonshine::fields.fieldset`, `fields.relationships.belongs-to-many`.
+
+Несколько часто используемых представлений теперь выводят элементы напрямую, без вложенных Blade-компонентов.
+Их данные тоже подготавливаются в PHP, например `$tagAttributes` и `$labelHtml` в представлении кнопки.
+
+- `moonshine::components.action-button`,
+- `moonshine::components.form.builder`,
+- `moonshine::components.icon`,
+- `moonshine::components.rating`,
+- `moonshine::fields.hidden`.
+
+Строки вертикальных таблиц по умолчанию, например на `DetailPage`, выводятся новым представлением `moonshine::components.table.vertical-field`.
+Представления `layout.grid`, `layout.column` и `layout.div` для них больше не используются, поэтому их переопределения на эти строки не влияют.
+Переопределяйте `moonshine::components.table.vertical-field`.
+Строки, настроенные через замыкания `title` или `value` метода `vertical()`, по-прежнему используют компоненты.
+
+<a name="file-extensions"></a>
+#### Расширения файлов
+
+**Вероятность влияния: низкая**
+
+Поля `File` и `Image` наследуют новый глобальный список `allowed_extensions`, если у поля не вызван `allowedExtensions()`.
+Значение по умолчанию `[]` разрешает все расширения, поэтому в существующих приложениях ничего менять не нужно.
+
+Если ваш класс поля наследует `File` или `Image` и переобъявляет свойство `$allowedExtensions`, измените его тип на `?array`.
+`null` означает, что поле следует глобальному списку.
+
+```php
+protected array $allowedExtensions = ['pdf']; // [tl! remove]
+protected ?array $allowedExtensions = ['pdf']; // [tl! add]
+```
+
+Метод `allowedExtensions()` контракта `MoonShine\UI\Contracts\FileableContract` теперь принимает `array|string`.
+Обновите его сигнатуру в собственных реализациях и переопределениях.
+
+```php
+public function allowedExtensions(array $allowedExtensions): static // [tl! remove]
+public function allowedExtensions(array|string $allowedExtensions): static // [tl! add]
+```
+
+Атрибут `accept` по умолчанию теперь добавляется при рендере поля, поэтому до рендера `getAttribute('accept')` возвращает `null`, если у поля не вызывались `accept()` или `allowedExtensions()`.
+Подробнее в разделе [File](/docs/{{version}}/fields/file#allowed-extensions).
+
+<a name="link-urls"></a>
+#### URL ссылок
+
+**Вероятность влияния: низкая**
+
+Компонент `Link` и ссылки поля `Url` теперь допускают только схемы `http`, `https`, `mailto` и `tel`, а также относительные URL и якоря.
+Ссылки с другими схемами, например `javascript:` или `ftp:`, выводятся с `href="#"`.
+Текст ссылки не меняется.
+
+<a name="tables"></a>
+#### Скелетон и спиннер таблиц
+
+**Вероятность влияния: низкая**
+
+Скелетон и спиннер выводятся только для асинхронных таблиц.
+Методы `skeleton()` и `loader()` не влияют на синхронные таблицы.
+
+<a name="dropdowns"></a>
+#### Выпадающие меню
+
+**Вероятность влияния: очень низкая**
+
+Экземпляр Popper у выпадающего меню создается при первом открытии.
+До этого свойство `popperInstance` Alpine-компонента `dropdown` равно `null`.
+Проверяйте его перед вызовом методов из собственного JavaScript.
+
+<a name="deprecated-apis"></a>
+### Устаревшие API
+
+<a name="removed-classes"></a>
+#### Удаленные классы
+
+**Вероятность влияния: средняя**
+
+Классы, помеченные устаревшими в 4.x, удалены.
+
+| Класс                                                                 | Замена                                                             |
+|-----------------------------------------------------------------------|--------------------------------------------------------------------|
+| `MoonShine\Laravel\Handlers\Handler`                                  | `MoonShine\Crud\Handlers\Handler`                                  |
+| `MoonShine\Laravel\Handlers\Handlers`                                 | `MoonShine\Crud\Handlers\Handlers`                                 |
+| `MoonShine\Laravel\Notifications\NotificationButton`                  | `MoonShine\Crud\Notifications\NotificationButton`                  |
+| `MoonShine\Laravel\Http\Responses\MoonShineJsonResponse`              | `MoonShine\Crud\JsonResponse`                                      |
+| `MoonShine\Laravel\Http\Requests\Relations\AsyncSearchRequest`        | `MoonShine\Laravel\Http\Requests\Relations\RelationModelFieldRequest` |
+| `MoonShine\Laravel\MoonShineUI`                                       | Хелпер `toast()` вместо `MoonShineUI::toast()`                     |
+
+```php
+use MoonShine\Laravel\Handlers\Handler; // [tl! remove]
+use MoonShine\Crud\Handlers\Handler; // [tl! add]
 
 use MoonShine\Laravel\Http\Responses\MoonShineJsonResponse; // [tl! remove]
 use MoonShine\Crud\JsonResponse; // [tl! add]
 
-use MoonShine\Laravel\MoonShineRequest; // [tl! remove]
-use MoonShine\Contracts\Core\DependencyInjection\CrudRequestContract; // [tl! add]
-
-use MoonShine\Laravel\Enums\Action; // [tl! remove]
-use MoonShine\Support\Enums\Action; // [tl! add]
-
-use MoonShine\Laravel\Enums\Ability; // [tl! remove]
-use MoonShine\Support\Enums\Ability; // [tl! add]
-
-use MoonShine\Laravel\Traits\WithComponentsPusher; // [tl! remove]
-use MoonShine\Crud\Traits\WithComponentsPusher; // [tl! add]
+MoonShineUI::toast('Saved'); // [tl! remove]
+toast('Saved'); // [tl! add]
 ```
 
-<a name="resource-changes"></a>
-## Изменения в структуре ресурсов
+<a name="configuration"></a>
+### Конфигурация
 
-Многие методы и свойства перенесены из ресурсов в соответствующие CRUD-страницы.
+<a name="config-values"></a>
+#### Значения конфигурации
 
-Методы `rules()`, `modifyFormComponent()` перенесены в класс формы.
+**Вероятность влияния: низкая**
 
-Методы `metrics()`, `queryTags()`, `filters()`, `modifyListComponent()` перенесены в класс индексной страницы.
+Значения конфигурации теперь проверяются при чтении, а некорректное значение вызывает `TypeError`.
 
-Метод `modifyDetailComponent()` перенесён в класс детальной страницы.
+- `middleware`, `auth.pipelines` и `pages` должны быть массивами строк, например имен классов.
+  Замыкания и объекты в `auth.pipelines` больше не поддерживаются, поэтому регистрируйте каждый pipeline как класс.
+- `pages` должен содержать классы страниц, `layout` должен наследовать `MoonShine\Crud\Layouts\AbstractLayout`,
+  а `palette` должен реализовывать `MoonShine\Contracts\ColorManager\PaletteContract`.
 
-Метод `indexButtons()` удален из ресурса, вместо него следует использовать метод `buttons()` в классе индексной страницы.
+```php filename:config/moonshine.php
+'auth' => [
+    'pipelines' => [
+        static fn ($request, $next) => $next($request), // [tl! remove]
+        \App\MoonShine\AuthPipelines\TwoFactorAuthentication::class, // [tl! add]
+    ],
+],
+```
 
-Метод `topButtons()` удален из ресурса, вместо него следует использовать методы `topLeftButtons()` и `topRightButtons()` в классе индексной страницы.
+<a name="extending"></a>
+### Расширение MoonShine
 
-Метод `formButtons()` удален из ресурса, вместо него следует использовать метод `buttons()` в классе страницы формы.
+<a name="request"></a>
+#### Обертка запроса
 
-Метод `formBuilderButtons()` удален из ресурса, вместо него следует использовать метод `formButtons()` в классе страницы формы.
+**Вероятность влияния: очень низкая**
 
-Свойства `$clickAction`, `$stickyTable`, `$stickyButtons`, `$columnSelection` удалены из ресурса.
-Вместо них следует переопределять метод `modifyListComponent()` в классе индексной страницы.
+Свойство `$request` класса `MoonShine\Core\AbstractRequest` теперь имеет тип `ServerRequestInterface|Closure`.
+PSR-запрос создается лениво, при чтении данных запроса.
 
-Это не полный список изменений в ресурсе, но процесс переноса всего соответствующего функционала из ресурса в
-CRUD-страницы довольно интуитивный и не должен составить труда.
-
-<a name="field-changes"></a>
-## Изменения в полях
-
-Удалено поле `StackFields`, вместо него следует использовать поле `Fieldset`.
+Если ваш класс наследует `AbstractRequest` и читает `$this->request` напрямую, используйте метод `getRequest()`.
 
 ```php
-StackFields::make('Title', [ // [tl! remove]
-    Text::make('Field 1'), // [tl! remove]
-    Text::make('Field 2'), // [tl! remove]
-]) // [tl! remove]
-
-Fieldset::make('Title', [ // [tl! add]
-    Text::make('Field 1'), // [tl! add]
-    Text::make('Field 2'), // [tl! add]
-]) // [tl! add]
+$this->request->getQueryParams(); // [tl! remove]
+$this->getRequest()->getQueryParams(); // [tl! add]
 ```
 
-<a name="layout-changes"></a>
-## Изменения в Layout
+<a name="contracts"></a>
+#### Контракты
 
-### Удален CompactLayout
+**Вероятность влияния: очень низкая**
 
-Шаблон `CompactLayout` был удален. Если вы использовали этот шаблон, перейдите на расширение стандартного `AppLayout`.
+Если ваши классы реализуют контракты **MoonShine** напрямую, а не наследуют базовые классы, добавьте новые методы:
 
-```php
-use MoonShine\Laravel\Layouts\CompactLayout; // [tl! remove]
-use MoonShine\Laravel\Layouts\AppLayout; // [tl! add]
-```
+- `MoonShine\Contracts\UI\ComponentContract`: `when()` и `unless()`, например через трейт `Illuminate\Support\Traits\Conditionable`,
+- `MoonShine\Contracts\Core\DependencyInjection\TranslatorContract`: `getString()`,
+- `MoonShine\Contracts\Core\HasResourceContract`: `getResourceOrFail()`, его реализует трейт `MoonShine\Core\Traits\HasResource`,
+- `MoonShine\Crud\Contracts\Notifications\NotificationButtonContract`: `toArray()`.
 
-### Новые палитры
+`RequestContract::getScalar()` теперь возвращает `string|int|float|bool|null` вместо `mixed`. Обновите тип возврата в собственных реализациях.
 
-Введена система палитр для управления цветовой схемой. По умолчанию используется `PurplePalette`.
-
-Подробнее о работе с палитрами смотрите в разделе [**Color Manager**](/docs/{{version}}/appearance/colors).
-
-### Изменения в MenuItem
-
-Параметры в методе `MenuItem::make()` поменялись местами, теперь первым идет `$filler`, затем `$label`.
-
-Параметр `$label` стал необязательным, по умолчанию он берется из метода `getLabel()` наполнителя.
-
-```php
-MenuItem::make('Settings', SettingResource::class) // [tl! remove]
-MenuItem::make(SettingResource::class) // [tl! add]
-```
-
-### Изменения в компонентах
-
-В компоненте `Profile` удален входной параметр `$withBorder`.
-
-<a name="deprecated"></a>
-## Устаревшие классы и методы
-
-Следующие классы и методы объявлены устаревшими и будут удалены в версии 5.0.
-
-### Устаревшие классы
-
-| Класс                                                    | Замена                                                |
-|----------------------------------------------------------|-------------------------------------------------------|
-| `MoonShine\Laravel\Notifications\NotificationButton`     | `MoonShine\Crud\Notifications\NotificationButton`     |
-| `MoonShine\Laravel\Http\Responses\MoonShineJsonResponse` | `MoonShine\Crud\JsonResponse`                         |
-| `MoonShine\Laravel\MoonShineUI`                          | Вместо `MoonShineUI::toast()` теперь хелпер `toast()` |
-| `MoonShine\Laravel\Handlers\Handlers`                    | `MoonShine\Crud\Handlers\Handlers`                    |
-| `MoonShine\Laravel\Handlers\Handler`                     | `MoonShine\Crud\Handlers\Handler`                     |
-
-### Устаревшие методы в ModelResource
-
-| Метод                | Замена                   |
-|----------------------|--------------------------|
-| `getIgnoredFields()` | Перенесено в `IndexPage` |
-| `filters()`          | Перенесено в `IndexPage` |
-| `hasFilters()`       | Перенесено в `IndexPage` |
-| `queryTags()`        | Перенесено в `IndexPage` |
-| `hasQueryTags()`     | Перенесено в `IndexPage` |
-| `handlers()`         | Перенесено в `IndexPage` |
-| `hasHandlers()`      | Перенесено в `IndexPage` |
-| `getHandlers()`      | Перенесено в `IndexPage` |
-
-### Устаревшие трейты
-
-| Трейт          | Замена                |
-|----------------|-----------------------|
-| `HasFilters`   | Перенос в `IndexPage` |
-| `HasQueryTags` | Перенос в `IndexPage` |
-| `HasHandlers`  | Перенос в `IndexPage` |
-
-> [!WARNING]
-> Все перечисленные классы и методы будут полностью удалены в версии 5.0. Рекомендуется перейти на новые альтернативы.
-
-<a name="async-methods"></a>
-## Асинхронные методы
-
-Всем асинхронным методам нужно добавить атрибут `#[AsyncMethod]`.
-
-Асинхронные методы теперь поддерживают "DI".
-
-```php
-use MoonShine\Crud\JsonResponse;
-use MoonShine\Support\Attributes\AsyncMethod;
-
-class MyPage extends Page
-{
-    #[AsyncMethod]
-    public function someAsyncMethod(JsonResponse $response): JsonResponse
-    {
-        return $response->toast('Loaded successfully');
-    }
-}
-```
+Новые контракты экранирования, например `HasLabelEscapingContract` или `HasEscapedValueContract`, необязательны.

@@ -53,7 +53,7 @@ class PostIndexPage extends IndexPage
 [Подробнее о полях](/docs/{{version}}/fields/index).
 
 > [!NOTE]
-> Метод `filters()` также доступен в классе `ModelResource` для обратной совместимости, но рекомендуется определять фильтры непосредственно в `IndexPage`.
+> Начиная с **MoonShine** 5.0, фильтры определяются только в `IndexPage`. Перенос из ресурса описан в [руководстве по обновлению](/docs/{{version}}/upgrade-guide#index-page).
 
 <a name="apply"></a>
 ## Apply
