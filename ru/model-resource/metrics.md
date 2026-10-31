@@ -30,8 +30,8 @@ class PostIndexPage extends IndexPage
     }
 }
 ```
-![metrics](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/metrics.png#light)
-![metrics_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/metrics_dark.png#dark)
+![metrics](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/metrics.png#light)
+![metrics_dark](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/metrics_dark.png#dark)
 
 > [!NOTE]
 > Для более подробной информации, обратитесь к разделам [Metrics](/docs/{{version}}/components/metrics).

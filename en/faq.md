@@ -71,7 +71,7 @@ See [ModelResource > Filters](/docs/{{version}}/model-resource/filters).
 **TableBuilder** component has [reorderable()](/docs/{{version}}/components/table-builder#drag-and-drop-sorting) method,
 which adds the ability to sort rows by dragging.
 
-Here is a [recipe](/docs/4.x/recipes/reorderable-resource) for implementing drag-and-drop sorting in a resource.
+Here is a [recipe](/docs/{{version}}/recipes/reorderable-resource) for implementing drag-and-drop sorting in a resource.
 
 ## How can I customize the appearance of the admin panel?
 

@@ -64,7 +64,7 @@
 <a name="main-branch"></a>
 ## Основная ветка
 
-На данный момент основная ветка `4.x`.
+Эта документация описывает ветку `5.x`.
 
 <a name="coding-style"></a>
 ## Стиль кодирования
@@ -89,7 +89,7 @@ cd packages && git clone git@github.com:moonshine-software/moonshine.git && cd m
 3. Вернитесь в директорию проекта и в `composer.json` измените зависимость moonshine/moonshine.
 
 ```
-"moonshine/moonshine": "4.*.*-dev",
+"moonshine/moonshine": "5.*.*-dev",
 ```
 
 4. Добавьте в `composer.json`.
@@ -101,7 +101,7 @@ cd packages && git clone git@github.com:moonshine-software/moonshine.git && cd m
         "url": "packages/moonshine",
         "options": {
             "versions": {
-                "moonshine/moonshine": "4.*.*-dev"
+                "moonshine/moonshine": "5.*.*-dev"
             },
             "symlink": true
         }

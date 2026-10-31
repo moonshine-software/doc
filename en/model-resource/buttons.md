@@ -65,8 +65,8 @@ class PostIndexPage extends IndexPage
 }
 ```
 
-![resource_buttons_actions](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_buttons_actions.png#light)
-![resource_buttons_actions_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_buttons_actions_dark.png#dark)
+![resource_buttons_actions](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/resource_buttons_actions.png#light)
+![resource_buttons_actions_dark](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/resource_buttons_actions_dark.png#dark)
 
 <a name="modify-create-button"></a>
 ### Modification of the create button
@@ -98,8 +98,8 @@ protected function modifyCreateButton(ActionButtonContract $button): ActionButto
 }
 ```
 
-![resource_button_create](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_button_create.png#light)
-![resource_button_create_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_button_create_dark.png#dark)
+![resource_button_create](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/resource_button_create.png#light)
+![resource_button_create_dark](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/resource_button_create_dark.png#dark)
 
 <a name="modify-filters-button"></a>
 ### Modification of the filter button
@@ -117,8 +117,8 @@ protected function modifyFiltersButton(ActionButtonContract $button): ActionButt
 }
 ```
 
-![resource_button_filters](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_button_filters.png#light)
-![resource_button_filters_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_button_filters_dark.png#dark)
+![resource_button_filters](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/resource_button_filters.png#light)
+![resource_button_filters_dark](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/resource_button_filters_dark.png#dark)
 
 <a name="index-table-buttons"></a>
 ## Index table buttons
@@ -144,8 +144,8 @@ protected function buttons(): ListOf
 }
 ```
 
-![resource_buttons_index](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_buttons_index.png#light)
-![resource_buttons_index_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_buttons_index_dark.png#dark)
+![resource_buttons_index](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/resource_buttons_index.png#light)
+![resource_buttons_index_dark](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/resource_buttons_index_dark.png#dark)
 
 For mass actions with elements, you need to add the `bulk()` method.
 
@@ -165,8 +165,8 @@ protected function buttons(): ListOf
 }
 ```
 
-![resource_buttons_bulk](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_buttons_bulk.png#light)
-![resource_buttons_bulk_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_buttons_bulk_dark.png#dark)
+![resource_buttons_bulk](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/resource_buttons_bulk.png#light)
+![resource_buttons_bulk_dark](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/resource_buttons_bulk_dark.png#dark)
 
 <a name="modify-detail-button"></a>
 ### Modification of the detailed view button
@@ -184,8 +184,8 @@ protected function modifyDetailButton(ActionButtonContract $button): ActionButto
 }
 ```
 
-![resource_button_detail](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_button_detail.png#light)
-![resource_button_detail_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_button_detail_dark.png#dark)
+![resource_button_detail](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/resource_button_detail.png#light)
+![resource_button_detail_dark](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/resource_button_detail_dark.png#dark)
 
 <a name="modify-edit-button"></a>
 ### Edit button modification
@@ -203,8 +203,8 @@ protected function modifyEditButton(ActionButtonContract $button): ActionButtonC
 }
 ```
 
-![resource_button_edit](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_button_edit.png#light)
-![resource_button_edit_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_button_edit_dark.png#dark)
+![resource_button_edit](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/resource_button_edit.png#light)
+![resource_button_edit_dark](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/resource_button_edit_dark.png#dark)
 
 <a name="modify-delete-button"></a>
 ### Modification of the delete button
@@ -222,8 +222,8 @@ protected function modifyDeleteButton(ActionButtonContract $button): ActionButto
 }
 ```
 
-![resource_button_delete](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_button_delete.png#light)
-![resource_button_delete_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_button_delete_dark.png#dark)
+![resource_button_delete](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/resource_button_delete.png#light)
+![resource_button_delete_dark](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/resource_button_delete_dark.png#dark)
 
 <a name="modify-mass-delete-button"></a>
 ### Modification of the mass delete button
@@ -241,8 +241,8 @@ protected function modifyMassDeleteButton(ActionButtonContract $button): ActionB
 }
 ```
 
-![resource_button_mass_delete](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_button_mass_delete.png#light)
-![resource_button_mass_delete](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_button_mass_delete_dark.png#dark)
+![resource_button_mass_delete](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/resource_button_mass_delete.png#light)
+![resource_button_mass_delete](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/resource_button_mass_delete_dark.png#dark)
 
 <a name="form-page-buttons"></a>
 ## Form page buttons
@@ -264,8 +264,8 @@ protected function buttons(): ListOf
 }
 ```
 
-![resource_buttons_form](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_buttons_form.png#light)
-![resource_buttons_form_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_buttons_form_dark.png#dark)
+![resource_buttons_form](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/resource_buttons_form.png#light)
+![resource_buttons_form_dark](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/resource_buttons_form_dark.png#dark)
 
 The `formButtons()` method allows you to add\override [buttons](/docs/{{version}}/components/action-button) directly to the create or edit form.
 
@@ -284,8 +284,8 @@ protected function formButtons(): ListOf
 }
 ```
 
-![resource_buttons_form_builder](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_buttons_form_builder.png#light)
-![resource_buttons_form_builder](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_buttons_form_builder_dark.png#dark)
+![resource_buttons_form_builder](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/resource_buttons_form_builder.png#light)
+![resource_buttons_form_builder](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/resource_buttons_form_builder_dark.png#dark)
 
 <a name="detail-page-buttons"></a>
 ## Detail page buttons
@@ -305,5 +305,5 @@ protected function buttons(): ListOf
 }
 ```
 
-![resource_buttons_detail](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_buttons_detail.png#light)
-![resource_buttons_detail_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_buttons_detail_dark.png#dark)
+![resource_buttons_detail](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/resource_buttons_detail.png#light)
+![resource_buttons_detail_dark](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/resource_buttons_detail_dark.png#dark)

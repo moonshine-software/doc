@@ -9,7 +9,7 @@
 - вывести связанные данные, таблицы, кнопки или любые дополнительные виджеты;
 - полностью адаптировать под сценарий конкретного ресурса.
 
-![Modified DetailPage](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/modified_detail_page.png)
+![Modified DetailPage](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/modified_detail_page.png)
 
 ```php
 class ExampleDetailPage extends DetailPage

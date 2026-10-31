@@ -45,8 +45,8 @@ class PostIndexPage extends IndexPage
 }
 ```
 
-![filters](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/filters.png#light)
-![filters_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/filters_dark.png#dark)
+![filters](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/filters.png#light)
+![filters_dark](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/filters_dark.png#dark)
 
 > [!NOTE]
 > Поля являются ключевым элементом в построении форм **Moonshine**.

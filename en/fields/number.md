@@ -93,7 +93,7 @@ Number::make('Rating')
     ->buttons()
 ```
 
-![number_buttons](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/number_buttons.png)
+![number_buttons](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/number_buttons.png)
 
 <a name="number-type-methods"></a>
 ## Methods for Working with Numerical Values
@@ -148,8 +148,8 @@ Number::make('Rating')
 
 Fields support various extensions for assistance and input control.
 
-![expansion](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/expansion.png#light)
-![expansion_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/expansion_dark.png#dark)
+![expansion](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/expansion.png#light)
+![expansion_dark](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/expansion_dark.png#dark)
 
 <a name="copy"></a>
 ### Copy

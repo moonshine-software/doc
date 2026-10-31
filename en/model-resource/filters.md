@@ -45,8 +45,8 @@ class PostIndexPage extends IndexPage
 }
 ```
 
-![filters](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/filters.png#light)
-![filters_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/filters_dark.png#dark)
+![filters](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/filters.png#light)
+![filters_dark](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/filters_dark.png#dark)
 
 > [!NOTE]
 > Fields are a key element in building forms in **Moonshine**.
