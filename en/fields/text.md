@@ -106,7 +106,7 @@ Text::make('HTML Content', 'content')
     ->unescape()
 ```
 
-This method controls preview escaping only; it does not disable escaping when applying submitted values. By default, previews follow the global [`escape` setting](/docs/{{version}}/configuration#field-escaping).
+This method controls preview escaping only; it does not disable escaping when applying submitted values. By default, previews follow the global [`escapes.value` setting](/docs/{{version}}/configuration#field-escaping).
 Use `escape()` to explicitly enable preview escaping for a field, even when the global setting is disabled:
 
 ```php
@@ -134,7 +134,7 @@ Text::make('HTML Content', 'content')
 
 The closure receives the current field and returns whether to escape its submitted value. This setting is independent of preview escaping: the example above stores the original string and keeps the preview escaped unless configured otherwise.
 
-Without a local override, the field follows the global [`escape_on_apply` setting](/docs/{{version}}/configuration#field-escaping). To enable escaping for one field even when it is disabled globally, call the method without an argument:
+Without a local override, the field follows the global [`escapes.value_on_apply` setting](/docs/{{version}}/configuration#field-escaping). To enable escaping for one field even when it is disabled globally, call the method without an argument:
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}

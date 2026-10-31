@@ -46,8 +46,8 @@ Textarea::make('HTML-контент', 'content')
     ->unescape()
 ```
 
-Поле наследует глобальные [настройки `escape` и `escape_on_apply`](/docs/{{version}}/configuration#field-escaping), обе по умолчанию равны `true`. Настройка `escape` управляет и preview, и значением внутри элемента формы textarea.
-Явные вызовы `escape()` и `unescape()` переопределяют `escape`; они не меняют экранирование при применении переданных значений.
+Поле наследует глобальные [настройки `escapes.value` и `escapes.value_on_apply`](/docs/{{version}}/configuration#field-escaping), обе по умолчанию равны `true`. Настройка `escapes.value` управляет и preview, и значением внутри элемента формы textarea.
+Явные вызовы `escape()` и `unescape()` переопределяют `escapes.value`; они не меняют экранирование при применении переданных значений.
 
 <a name="escape-on-apply"></a>
 ## Экранирование при применении

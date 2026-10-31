@@ -46,8 +46,8 @@ Textarea::make('HTML Content', 'content')
     ->unescape()
 ```
 
-The field inherits the global [`escape` and `escape_on_apply` settings](/docs/{{version}}/configuration#field-escaping), both `true` by default. `escape` controls both the preview and the value inside the textarea form control.
-Explicit `escape()` and `unescape()` calls override `escape`; they do not change escaping when applying submitted values.
+The field inherits the global [`escapes.value` and `escapes.value_on_apply` settings](/docs/{{version}}/configuration#field-escaping), both `true` by default. `escapes.value` controls both the preview and the value inside the textarea form control.
+Explicit `escape()` and `unescape()` calls override `escapes.value`; they do not change escaping when applying submitted values.
 
 <a name="escape-on-apply"></a>
 ## Escaping on Apply
