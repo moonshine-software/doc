@@ -6,6 +6,7 @@ title: Upgrade guide
 
 - [Requirements](#requirements)
 - [Updating Dependencies](#update-dependencies)
+- [Configuration Values](#config-values)
 - [Removed Classes](#removed-classes)
 - [Filters, Query Tags and Handlers](#index-page)
 - [Import and Export](#import-export)
@@ -52,6 +53,32 @@ composer update
 ```
 
 If you use [import and export](#import-export), update `moonshine/import-export` to version 3 as well.
+
+**MoonShine** 5.0 requires `symfony/http-foundation` and `symfony/psr-http-message-bridge` 7.4 or 8.1.
+If Composer cannot resolve them because older versions are locked, update with dependencies:
+
+```shell
+composer update moonshine/moonshine -W
+```
+
+<a name="config-values"></a>
+## Configuration Values
+
+Configuration values are now validated when they are read, and an invalid value raises a `TypeError`.
+
+- `middleware`, `auth.pipelines` and `pages` must be arrays of strings, such as class names.
+  Closures and objects in `auth.pipelines` are no longer accepted, so register each pipeline as a class.
+- `pages` must contain page classes, `layout` must extend `MoonShine\Crud\Layouts\AbstractLayout`,
+  and `palette` must implement `MoonShine\Contracts\ColorManager\PaletteContract`.
+
+```php filename:config/moonshine.php
+'auth' => [
+    'pipelines' => [
+        static fn ($request, $next) => $next($request), // [tl! remove]
+        \App\MoonShine\AuthPipelines\TwoFactorAuthentication::class, // [tl! add]
+    ],
+],
+```
 
 <a name="removed-classes"></a>
 ## Removed Classes
