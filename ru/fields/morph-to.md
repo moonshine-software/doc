@@ -16,8 +16,8 @@ MorphTo::make('Commentable')->types([
 ])
 ```
 
-![morph_to](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/morph_to.png#light)
-![morph_to_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/morph_to_dark.png#dark)
+![morph_to](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/morph_to.png#light)
+![morph_to_dark](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/morph_to_dark.png#dark)
 
 > [!NOTE]
 > Требуется метод `types()`, указывающий доступные классы.
@@ -41,8 +41,8 @@ MorphTo::make('Imageable')->types([
 ])
 ```
 
-![morph_to_array](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/morph_to_array.png#light)
-![morph_to_array_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/morph_to_array_dark.png#dark)
+![morph_to_array](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/morph_to_array.png#light)
+![morph_to_array_dark](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/morph_to_array_dark.png#dark)
 
 > [!WARNING]
 > При использовании поля в сторонних ресурсах обязательно указывайте resource,

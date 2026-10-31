@@ -64,7 +64,7 @@ If you are ready to participate in development, join - [MoonShine](https://t.me/
 <a name="main-branch"></a>
 ## Main branch
 
-Currently, the main branch is `4.x`.
+This documentation describes the `5.x` branch.
 
 <a name="coding-style"></a>
 ## Coding style
@@ -89,7 +89,7 @@ cd packages && git clone git@github.com:moonshine-software/moonshine.git && cd m
 3. Go back to the project directory and in `composer.json` change the dependency for moonshine/moonshine.
 
 ```
-"moonshine/moonshine": "4.*.*-dev",
+"moonshine/moonshine": "5.*.*-dev",
 ```
 
 4. Add the following to `composer.json`.
@@ -101,7 +101,7 @@ cd packages && git clone git@github.com:moonshine-software/moonshine.git && cd m
         "url": "packages/moonshine",
         "options": {
             "versions": {
-                "moonshine/moonshine": "4.*.*-dev"
+                "moonshine/moonshine": "5.*.*-dev"
             },
             "symlink": true
         }

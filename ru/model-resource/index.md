@@ -103,8 +103,8 @@ class PostResource extends ModelResource
 }
 ```
 
-![resource_paginate](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_paginate.png#light)
-![resource_paginate_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_paginate_dark.png#dark)
+![resource_paginate](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/resource_paginate.png#light)
+![resource_paginate_dark](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/resource_paginate_dark.png#dark)
 
 <a name="declaring-in-the-system"></a>
 ## Объявление в системе
@@ -177,12 +177,10 @@ class MoonShineServiceProvider extends ServiceProvider
 }
 ```
 
-При деплое проекта на продакшен в Laravel 11+ [рекомендуется](https://laravel.com/docs/11.x/packages#optimize-commands) вызывать консольную команду `php artisan optimize`.
+При деплое проекта на продакшен [рекомендуется](https://laravel.com/docs/11.x/packages#optimize-commands) вызывать консольную команду `php artisan optimize`.
 Помимо её основных функций, она также выполнит кэширование ресурсов **MoonShine**.
 
-При использовании Laravel 10 необходимо вручную вызывать консольную команду `php artisan moonshine:optimize` для оптимизации процесса инициализации админ панели.
-
-Очистить кэш панели можно как командой `php artisan optimize:clear` в Laravel 11,
+Очистить кэш панели можно как командой `php artisan optimize:clear`,
 так и прямым вызовом консольной команды `php artisan moonshine:optimize-clear`.
 
 > [!WARNING]

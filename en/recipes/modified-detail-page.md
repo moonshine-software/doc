@@ -9,7 +9,7 @@ This is useful when you need to:
 - display related data, tables, buttons, or other custom widgets;
 - fully adapt the page to a specific resource scenario.
 
-![Modified DetailPage](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/modified_detail_page.png)
+![Modified DetailPage](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/modified_detail_page.png)
 
 ```php
 class ExampleDetailPage extends DetailPage

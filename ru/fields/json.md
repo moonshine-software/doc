@@ -90,8 +90,8 @@ Json::make('Data')
     ->keyValue()
 ```
 
-![json_key_value](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/json_key_value.png#light)
-![json_key_value_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/json_key_value_dark.png#dark)
+![json_key_value](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/json_key_value.png#light)
+![json_key_value_dark](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/json_key_value_dark.png#dark)
 
 Пример с изменением типов полей:
 
@@ -132,8 +132,8 @@ Json::make('Data')
     ->onlyValue()
 ```
 
-![json_only_value](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/json_only_value.png#light)
-![json_only_value_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/json_only_value_dark.png#dark)
+![json_only_value](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/json_only_value.png#light)
+![json_only_value_dark](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/json_only_value_dark.png#dark)
 
 <a name="object-mode"></a>
 ## Режим "Объект"
@@ -276,8 +276,8 @@ Json::make('Data')
     ->removable()
 ```
 
-![json_removable](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/json_removable.png#light)
-![json_removable_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/json_removable_dark.png#dark)
+![json_removable](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/json_removable.png#light)
+![json_removable_dark](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/json_removable_dark.png#dark)
 
 ### Кастомизация кнопки добавления
 
@@ -319,8 +319,8 @@ Json::make('Data')
     ->vertical()
 ```
 
-![json_vertical](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/json_vertical.png#light)
-![json_vertical_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/json_vertical_dark.png#dark)
+![json_vertical](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/json_vertical.png#light)
+![json_vertical_dark](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/json_vertical_dark.png#dark)
 
 <a name="reorderable"></a>
 ## Сортировка перетаскиванием

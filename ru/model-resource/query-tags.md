@@ -43,8 +43,8 @@ class PostIndexPage extends IndexPage
 
 ```
 
-![query_tags](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/query_tags.png#light)
-![query_tags_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/query_tags_dark.png#dark)
+![query_tags](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/query_tags.png#light)
+![query_tags_dark](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/query_tags_dark.png#dark)
 
 > [!NOTE]
 > Начиная с **MoonShine** 5.0, теги запросов определяются только в `IndexPage`. Перенос из ресурса описан в [руководстве по обновлению](/docs/{{version}}/upgrade-guide#index-page).

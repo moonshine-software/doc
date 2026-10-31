@@ -103,8 +103,8 @@ class PostResource extends ModelResource
 }
 ```
 
-![resource_paginate](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_paginate.png#light)
-![resource_paginate_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/resource_paginate_dark.png#dark)
+![resource_paginate](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/resource_paginate.png#light)
+![resource_paginate_dark](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/resource_paginate_dark.png#dark)
 
 <a name="declaring-in-the-system"></a>
 ## Declaring in the System
@@ -177,12 +177,10 @@ class MoonShineServiceProvider extends ServiceProvider
 }
 ```
 
-When deploying a project to production in Laravel 11+ [it is recommended](https://laravel.com/docs/11.x/packages#optimize-commands) to call the `php artisan optimize` console command.
+When deploying a project to production, [it is recommended](https://laravel.com/docs/11.x/packages#optimize-commands) to call the `php artisan optimize` console command.
 In addition to its basic functions, it will also perform **MoonShine** resource caching.
 
-When using Laravel 10, you must manually call the `php artisan moonshine:optimize` console command to optimize the admin panel initialization process.
-
-You can clear the panel cache either with the `php artisan optimize:clear` command in Laravel 11
+You can clear the panel cache either with the `php artisan optimize:clear` command
 or by directly calling the `php artisan moonshine:optimize-clear` console command.
 
 > [!WARNING]

@@ -34,7 +34,7 @@ working as a "framework on framework" and extending the capabilities of **Larave
 - **Extensibility**: Ability to use `Blade` and `Livewire` components,
 - **Customization**: Convenient template builder, possibility to change colors and overall design.
 
-![ms_img](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/MS_img_300.jpg)
+![ms_img](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/MS_img_300.jpg)
 
 <a name="who-is-it-for"></a>
 ## Who is it for
@@ -66,5 +66,5 @@ mainly at night, initially for personal use and for friends.
 
 Your contribution is crucial for the project's development and improving the experience of using **MoonShine** for all developers.
 
-![main](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/main.png#light)
-![main_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/main_dark.png#dark)
+![main](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/main.png#light)
+![main_dark](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/main_dark.png#dark)

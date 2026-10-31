@@ -96,7 +96,7 @@ The documentation follows strict formatting rules defined in `README.md`. Key pr
 ### Images
 
 - Store in `/resources/screenshots/`.
-- Link format: `https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/filename.png`.
+- Link format: `https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/filename.png`.
 - Add `#light` or `#dark` for theme-specific images:
   ```markdown
   ![screenshot](url#light)
@@ -143,7 +143,7 @@ Always update both language versions when making documentation changes.
 
 ## Main Branch
 
-The current main branch is `4.x` (for MoonShine v4).
+This branch is `5.x` (for MoonShine v5).
 
 ## Development Environment
 
@@ -163,7 +163,7 @@ Documentation uses `{{version}}` as a placeholder in links:
 [Select](/docs/{{version}}/fields/select)
 ```
 
-This gets replaced with the actual version (e.g., `4.x`) during documentation rendering.
+This gets replaced with the actual version (e.g., `5.x`) during documentation rendering.
 
 ## Key Documentation Sections
 

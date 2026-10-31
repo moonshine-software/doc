@@ -11,7 +11,7 @@ video: https://youtu.be/kC1KIdO_MZ4?si=sPPVUjeEzjUI6krA&t=126
 
 #### Laravel
 
-Убедитесь, что у вас установлен **Laravel** `10.48+`. Подробнее в [документации Laravel](https://laravel.com/docs/installation).
+Убедитесь, что у вас установлены **Laravel** `11+` и PHP `8.4+`. Подробнее в [документации Laravel](https://laravel.com/docs/installation).
 
 ```shell
 composer global require laravel/installer
@@ -43,7 +43,7 @@ php artisan moonshine:install -Q
 
 Создайте первого администратора. Введите e-mail (логин), имя и пароль — эти данные будут использоваться для входа.
 
-![make-user](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/quick-start-user.png)
+![make-user](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/quick-start-user.png)
 
 ### 3. Запуск проекта
 
@@ -71,7 +71,7 @@ php artisan moonshine:resource User
 
 Также вы найдёте его в меню.
 
-![user-resource](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/user-resource.png)
+![user-resource](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/user-resource.png)
 
 ### 5. Настройка ресурса
 

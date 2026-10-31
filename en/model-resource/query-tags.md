@@ -43,8 +43,8 @@ class PostIndexPage extends IndexPage
 
 ```
 
-![query_tags](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/query_tags.png#light)
-![query_tags_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/query_tags_dark.png#dark)
+![query_tags](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/query_tags.png#light)
+![query_tags_dark](https://raw.githubusercontent.com/moonshine-software/doc/5.x/resources/screenshots/query_tags_dark.png#dark)
 
 > [!NOTE]
 > Since **MoonShine** 5.0, query tags are defined only in `IndexPage`. See the [upgrade guide](/docs/{{version}}/upgrade-guide#index-page) for moving them from a resource.
