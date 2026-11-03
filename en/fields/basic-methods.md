@@ -1020,6 +1020,12 @@ Switcher::make('Active')
 
 The `onChangeMethod()` method allows asynchronously calling a resource or page method when the field changes without the need to create additional controllers.
 
+> [!WARNING]
+> The `#[AsyncMethod]` attribute allows HTTP invocation of a method but does not authorize access to the resource, page or operation.
+> Authorization inside the method is the developer's responsibility: check access to the operation and the selected record before reading or changing data.
+> Enabling `$withPolicy` does not add these checks to a custom method automatically.
+> `canSee()` and hiding a button do not protect the method URL from direct requests.
+
 ```php
 onChangeMethod(
   string $method,

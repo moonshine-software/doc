@@ -568,6 +568,12 @@ ActionButton::make('ZIP')
 
 For security reasons, only methods marked with the `AsyncMethod` attribute will be available.
 
+> [!WARNING]
+> The `#[AsyncMethod]` attribute allows HTTP invocation of a method but does not authorize access to the resource, page or operation.
+> Authorization inside the method is the developer's responsibility: check access to the operation and the selected record before reading or changing data.
+> Enabling `$withPolicy` does not add these checks to a custom method automatically.
+> `canSee()` and hiding a button do not protect the method URL from direct requests.
+
 Examples of methods:
 
 ```php

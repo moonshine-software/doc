@@ -14,11 +14,16 @@ video: https://youtu.be/CQQLa-q2hwU?si=5vysCaXsqSOdXNMz&t=1644
 
 **MoonShine** does not deviate from **Laravel** concepts and also uses _Laravel policy_ for working with access rights.
 
-In **MoonShine** resource controllers, each method will be checked for permissions.
+In **MoonShine** resource controllers, standard CRUD operations are checked for permissions when authorization is enabled.
 If you encounter difficulties, refer to the official [Laravel](https://laravel.com/docs/authorization#creating-policies) documentation.
 
 By default, permission checks for resources are disabled.
 To enable it, you need to add the `$withPolicy` property.
+
+> [!WARNING]
+> Policy checks are not applied automatically to custom methods marked with `#[AsyncMethod]`, even with `$withPolicy = true`.
+> The developer must check access to the operation and the selected record inside the method before reading or changing data.
+> See [Calling methods](/docs/{{version}}/components/action-button#method).
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
