@@ -2,150 +2,244 @@
 
 - [Basics](#basics)
 - [Field Set](#fields)
+- [Vertical Mode](#vertical)
 - [Key/Value Mode](#key-value)
 - [Only Value Mode](#only-value)
-- [Object Mode](#object-mode)
+- [Object Mode](#object)
 - [Nested Json](#nested)
-- [Default Value](#default)
-- [Filtering Empty](#filtering-empty)
-- [Creatable/Removable](#creatable-removable)
-- [Vertical Mode](#vertical)
-- [Sorting with dragging](#reorderable)
-- [Applying in Filters](#filter)
+- [Table Preview](#table-preview)
+- [Adding/Removing](#creatable-removable)
 - [Buttons](#buttons)
 - [Modifiers](#modify)
+- [Drag-and-Drop Sorting](#reorderable)
+- [Empty Message](#empty-message)
+- [Using in Filters](#filter)
+- [Filtering "Empty" Values](#filter-empty)
+- [Default Value](#default)
+- [Blade Usage](#blade-usage)
 
 ---
 
 <a name="basics"></a>
+
 ## Basics
 
 Contains all [Basic methods](/docs/{{version}}/fields/basic-methods).
 
-The `Json` field is designed for convenient work with the json data type.
-In most cases, it is used with arrays of objects via `TableBuilder`, but it also supports a mode for working with a single object.
+The `Json` field is designed for columns that store an array of objects.
+The object schema is defined with the `fields()` method, and each UI row corresponds to one object in the array.
 
 @include('_includes/note-about-multiple-cast')
 
 <a name="fields"></a>
+
 ## Field Set
 
-Assume that the structure of your json looks like this:
-
-```json
-[{"title": "title", "value": "value", "active": true}]
-```
-
-This is a set of objects with fields "title", "value" and "active".
-To specify such a set of fields, the `fields()` method is used.
+The `fields()` method defines the fields that will be displayed in each `Json` row.
 
 ```php
-fields(FieldsContract|Closure|iterable $fields)
+fields(FieldsContract|Closure|iterable $fields, string $orientation = 'horizontal')
 ```
+
+- `$fields` - a set of fields.
+- `$orientation` - field layout inside the row: `horizontal` or `vertical`.
 
 Example:
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:4]
+// [tl! collapse:3]
 use MoonShine\UI\Fields\Json;
-use MoonShine\UI\Fields\Position;
-use MoonShine\UI\Fields\Switcher;
 use MoonShine\UI\Fields\Text;
 
 Json::make('Product Options', 'options')
     ->fields([
-        Position::make(),
         Text::make('Title'),
         Text::make('Value'),
-        Switcher::make('Active'),
     ])
 ```
 
-@preview('fields.json')
+For the field above, data is stored as an array of objects:
+
+```json
+[
+    {
+        "title": "Title 1",
+        "value": "Value 1"
+    },
+    {
+        "title": "Title 2",
+        "value": "Value 2"
+    }
+]
+```
+
+<a name="vertical"></a>
+
+## Vertical Mode
+
+Vertical mode changes the layout of fields inside each `Json` row: fields are displayed one below another instead of in one line.
+This is useful for long values, Textarea, Select with many options, and nested components.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:3]
+use MoonShine\UI\Fields\Json;
+use MoonShine\UI\Fields\Text;
+
+Json::make('Product Options', 'options')
+    ->fields([
+        Text::make('Title'),
+        Text::make('Value'),
+    ], orientation: 'vertical')
+```
+
+You can also use the `vertical()` method:
+
+```php
+vertical(bool $condition = true)
+```
+
+When called without arguments, the method enables vertical mode. If `false` is passed, the field returns to horizontal layout.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\UI\Fields\Json;
+
+Json::make('Product Options', 'options')
+    ->fields([
+        Text::make('Title'),
+        Text::make('Value'),
+    ])
+    ->vertical()
+```
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\UI\Fields\Json;
+
+Json::make('Product Options', 'options')
+    ->fields([
+        Text::make('Title'),
+        Text::make('Value'),
+    ], orientation: 'vertical')
+    ->vertical(false)
+```
 
 <a name="key-value"></a>
+
 ## Key/Value Mode
 
-When your data has a key/value structure, like in the following example `{"key": "value"}`, the `keyValue()` method is used.
+The `keyValue()` method is used for JSON objects where the key is stored as a property name and the value is stored as that property's value.
 
 ```php
 keyValue(
-    string $key = 'Key',
-    string $value = 'Value',
+    string|FieldContract $key = 'Key',
+    string|FieldContract $value = 'Value',
     ?FieldContract $keyField = null,
     ?FieldContract $valueField = null,
+    string $orientation = 'horizontal',
 )
 ```
 
-- `$key` — the label for the "key" field,
-- `$value` — the label for the "value" field,
-- `$keyField` — the option to replace the "key" field with your own (default is `Text`),
-- `$valueField` — the option to replace the "value" field with your own (default is `Text`).
+By default, text fields are created for the key and value:
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\UI\Fields\Json;
+
+Json::make('Contacts', 'contacts')
+    ->keyValue()
+```
+
+If you need to replace the key or value fields, pass your own fields:
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:4]
+use MoonShine\UI\Fields\Json;
+use MoonShine\UI\Fields\Select;
+use MoonShine\UI\Fields\Text;
+
+Json::make('Contacts', 'contacts')
+    ->keyValue(
+        keyField: Select::make('Key')
+            ->options([
+                'vk' => 'VK',
+                'email' => 'E-mail',
+            ]),
+        valueField: Text::make('Value'),
+    )
+```
+
+<a name="only-value"></a>
+
+## Only Value Mode
+
+The `onlyValue()` method is used for JSON arrays where each row is stored as a separate value without an object.
+
+```php
+onlyValue(string $value = 'Value', ?FieldContract $valueField = null)
+```
+
+- `$value` - the field label. Used for the default `Text` field.
+- `$valueField` - the value field, if you need to replace `Text` with another field.
 
 Example:
 
 ```php
-Json::make('Data')
-    ->keyValue()
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\UI\Fields\Json;
+
+Json::make('Tags', 'tags')
+    ->onlyValue()
 ```
 
-![json_key_value](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/json_key_value.png#light)
-![json_key_value_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/json_key_value_dark.png#dark)
+Data will be stored as a JSON array of values:
 
-Example with changing field types:
+```json
+[
+    "lorem",
+    "ipsum"
+]
+```
+
+If you need to replace the value field, pass `$valueField`:
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
 // [tl! collapse:3]
 use MoonShine\UI\Fields\Json;
 use MoonShine\UI\Fields\Select;
-use MoonShine\UI\Fields\Text;
 
-Json::make('Label', 'data')
-    ->keyValue(
-        keyField: Select::make('Key')
-            ->options(['vk' => 'VK', 'email' => 'E-mail']),
-        valueField: Text::make('Value'),
+Json::make('Contacts', 'contacts')
+    ->onlyValue(
+        valueField: Select::make('Type')
+            ->options([
+                'vk' => 'VK',
+                'email' => 'E-mail',
+            ]),
     )
 ```
 
-<a name="only-value"></a>
-## Only Value Mode
+<a name="object"></a>
 
-If you need to store only values, like in the example `["value_1", "value_2"]`, the `onlyValue()` method is used.
-
-```php
-onlyValue(
-    string $value = 'Value',
-    ?FieldContract $valueField = null,
-)
-```
-
-- `$value` - the label for the "value" field,
-- `$valueField` - the option to replace the "value" field with your own (default is `Text`).
-
-Example:
-
-```php
-Json::make('Data')
-    ->onlyValue()
-```
-
-![json_only_value](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/json_only_value.png#light)
-![json_only_value_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/json_only_value_dark.png#dark)
-
-<a name="object-mode"></a>
 ## Object Mode
 
-In most cases, the `Json` field works with an array of objects via `TableBuilder`.
-However, it is also possible to work with an object, for example, `{"title": "Title", "active": false}`.
-For this, the `object()` method is used.
-
-Example:
+By default, `Json` works with an array of objects. The `object()` method is used when the column should store a single JSON object, for example `{"title": "Title", "active": false}`.
 
 ```php
-Json::make('Product Options', 'options')
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:4]
+use MoonShine\UI\Fields\Json;
+use MoonShine\UI\Fields\Switcher;
+use MoonShine\UI\Fields\Text;
+
+Json::make('Settings', 'settings')
     ->fields([
         Text::make('Title'),
         Switcher::make('Active'),
@@ -153,14 +247,21 @@ Json::make('Product Options', 'options')
     ->object()
 ```
 
+When `object()` is used, rows cannot be added or removed. The UI displays only the values defined through `fields()`.
+
 <a name="nested"></a>
+
 ## Nested Json
 
-To create more complex structures, you may need to use the nested fields `Json` and **MoonShine** this allows.
-
-Example:
+You can use another `Json` field inside `Json` when you need to describe a more complex data structure.
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:4]
+use MoonShine\UI\Fields\Json;
+use MoonShine\UI\Fields\Number;
+use MoonShine\UI\Fields\Text;
+
 Json::make('Products', 'products')
     ->fields([
         Text::make('Name', 'name'),
@@ -173,7 +274,7 @@ Json::make('Products', 'products')
     ])
 ```
 
-Result:
+Data will be stored with a nested object:
 
 ```json
 [
@@ -187,103 +288,101 @@ Result:
 ]
 ```
 
-<a name="default"></a>
-## Default Value
+<a name="table-preview"></a>
 
-As in other fields, there is an option to specify a default value using the `default()` method.
-In this case, an array must be provided.
+## Table Preview
+
+By default, the `Json` field preview is displayed as a read-only list where each field label is shown next to its value.
+The `table()` method switches the field to `preview` mode and displays the value as a read-only table.
 
 ```php
-default(mixed $default)
+table(bool $condition = true)
 ```
 
 Example:
 
 ```php
-Json::make('Data')
-    ->keyValue('Key', 'Value')
-    ->default([
-        [
-            'key' => 'Default key',
-            'value' => 'Default value',
-        ]
-    ]),
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:3]
+use MoonShine\UI\Fields\Json;
+use MoonShine\UI\Fields\Text;
 
-Json::make('Product Options', 'options')
+Json::make('Products', 'products')
     ->fields([
-        Text::make('Title'),
-        Text::make('Value'),
-        Switcher::make('Active'),
+        Text::make('Name'),
+        Json::make('Links')
+            ->fields([
+                Text::make('Label'),
+                Text::make('Url'),
+            ]),
     ])
-    ->default([
-        [
-            'title' => 'Default title',
-            'value' => 'Default value',
-            'active' => true,
-        ]
-    ]),
-
-Json::make('Values')
-    ->onlyValue()
-    ->default([
-        ['value' => 'Default value']
-    ])
+    ->table()
 ```
 
-<a name="filtering-empty"></a>
-## Filtering Empty
+The field will be displayed as a table where `Name` and `Links` are table headers.
 
-By default, `Json` field filters all empty values, but this behavior can be disabled.
+You can also enable table preview only for a nested `Json` field:
 
 ```php
-Json::make('data')->stopFilteringEmpty()
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:3]
+use MoonShine\UI\Fields\Json;
+use MoonShine\UI\Fields\Text;
+
+Json::make('Products', 'products')
+    ->fields([
+        Text::make('Name'),
+        Json::make('Links')
+            ->fields([
+                Text::make('Label'),
+                Text::make('Url'),
+            ])
+            ->table(),
+    ])
 ```
 
 <a name="creatable-removable"></a>
-## Creatable/Removable
 
-By default, the `Json` field contains only one element.
-The `creatable()` method allows adding new elements, while `removable()` enables their removal.
+## Adding/Removing
+
+Rows can be added and removed by default.
+The `creatable()` method controls adding new rows, and `removable()` controls removing existing rows.
 
 ```php
 creatable(
     Closure|bool|null $condition = null,
     ?int $limit = null,
     ?ActionButtonContract $button = null,
+    bool $hideButton = false,
 )
 ```
 
-- `$condition` - condition under which the method should be applied,
-- `$limit` - limit on the number of possible elements,
-- `$button` - option to replace the add button with your own.
+- `$condition` - the condition under which adding rows is available.
+- `$limit` - the maximum number of rows.
+- `$button` - a custom add button.
+- `$hideButton` - hides the add button without disabling the ability to add rows at the field level.
 
-```php
-removable(
-    Closure|bool|null $condition = null,
-    array $attributes = [],
-)
-```
-
-- `$condition` - condition under which the method should be applied,
-- `$attributes` - HTML attributes for the remove button.
-
-Example:
-
-```php
-Json::make('Data')
-    ->keyValue()
-    ->creatable(limit: 6)
-    ->removable()
-```
-
-![json_removable](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/json_removable.png#light)
-![json_removable_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/json_removable_dark.png#dark)
-
-### Customizing the Add Button
+If `$limit` is specified, the add button remains visible but becomes disabled when the limit is reached.
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
+// [tl! collapse:3]
+use MoonShine\UI\Fields\Json;
+use MoonShine\UI\Fields\Text;
+
+Json::make('Product Options', 'options')
+    ->fields([
+        Text::make('Title'),
+        Text::make('Value'),
+    ])
+    ->creatable(limit: 6)
+```
+
+Customizing the add button:
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:3]
 use MoonShine\UI\Components\ActionButton;
 use MoonShine\UI\Fields\Json;
 
@@ -294,9 +393,54 @@ Json::make('Data')
     )
 ```
 
-### HTML Attributes for the Remove Button
+Hiding the add button:
 
 ```php
+Json::make('Data')
+    ->fields([
+        Text::make('Title'),
+        Text::make('Value'),
+    ])
+    ->creatable(hideButton: true)
+```
+
+The `removable()` method controls displaying the row remove button.
+
+```php
+removable(
+    Closure|bool|null $condition = null,
+    array $attributes = [],
+)
+```
+
+- `$condition` - the condition under which removing rows is available.
+- `$attributes` - HTML attributes for the remove button.
+
+With `removable(false)`, users can add new rows but cannot remove existing rows.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:3]
+use MoonShine\UI\Fields\Json;
+use MoonShine\UI\Fields\Text;
+
+Json::make('Product Options', 'options')
+    ->fields([
+        Text::make('Title'),
+        Text::make('Value'),
+    ])
+    ->removable(false)
+```
+
+HTML attributes for the remove button:
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:4]
+use MoonShine\UI\Fields\Image;
+use MoonShine\UI\Fields\Json;
+use MoonShine\UI\Fields\Text;
+
 Json::make('Data', 'data.content')
     ->fields([
         Text::make('Title'),
@@ -307,53 +451,11 @@ Json::make('Data', 'data.content')
     ->creatable()
 ```
 
-<a name="vertical"></a>
-## Vertical Mode
-
-The `vertical()` method allows changing the display of the table from horizontal mode to vertical.
-
-Example:
-
-```php
-Json::make('Data')
-    ->vertical()
-```
-
-![json_vertical](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/json_vertical.png#light)
-![json_vertical_dark](https://raw.githubusercontent.com/moonshine-software/doc/4.x/resources/screenshots/json_vertical_dark.png#dark)
-
-<a name="reorderable"></a>
-## Drag-and-Drop Sorting
-
-Allows you to drag and drop rows to change their sorting order.
-This mode is enabled by default. To disable it, call the `reorderable(false)` method:
-
-```php
-->reorderable(false)
-```
-
-> [!NOTE]
-> If you need to specify a custom handler (endpoint), use the `modifyTable` method and set `reorderable($url)` via the `TableBuilder`.
-
-<a name="filter"></a>
-## Application in Filters
-
-If the field is used in filters, the filtering mode must be enabled using the `filterMode()` method.
-This method adapts the field's behavior for filtering and disables the ability to add new elements.
-
-```php
-Json::make('Data')
-    ->fields([
-        Text::make('Title', 'title'),
-        Text::make('Value', 'value')
-    ])
-    ->filterMode()
-```
-
 <a name="buttons"></a>
+
 ## Buttons
 
-The `buttons()` method allows overriding the buttons used in the field.
+The `buttons()` method allows you to override the buttons used in field rows.
 By default, only the remove button is available.
 
 ```php
@@ -363,6 +465,13 @@ buttons(array $buttons)
 Example:
 
 ```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:5]
+use MoonShine\UI\Components\ActionButton;
+use MoonShine\UI\Fields\Image;
+use MoonShine\UI\Fields\Json;
+use MoonShine\UI\Fields\Text;
+
 Json::make('Data', 'data.content')
     ->fields([
         Text::make('Title'),
@@ -374,22 +483,52 @@ Json::make('Data', 'data.content')
             ->icon('trash')
             ->onClick(fn() => 'remove()', 'prevent')
             ->secondary()
-            ->showInLine()
+            ->showInLine(),
     ])
 ```
 
 <a name="modify"></a>
+
 ## Modifiers
 
-The `Json` field provides the ability to modify buttons or the table in "preview" or "default" modes, instead of completely replacing them.
+The `Json` field allows you to modify buttons in `preview` or `default` modes without replacing them completely.
+For table preview, a table modifier is also available.
 
-### Remove Button Modifier
+### Add Button Modifier
 
-The `modifyRemoveButton()` method allows changing the remove button.
+The `modifyCreateButton()` method allows you to modify the add button.
 
 ```php
 /**
- * @param  Closure(ActionButton $button, self $field): ActionButton  $callback
+ * @param Closure(ActionButton $button, self $field): ActionButton $callback
+ */
+modifyCreateButton(Closure $callback)
+```
+
+Example:
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:3]
+use MoonShine\UI\Components\ActionButton;
+use MoonShine\UI\Fields\Json;
+
+Json::make('Data')
+    ->creatable()
+    ->modifyCreateButton(
+        fn(ActionButton $button): ActionButton => $button->customAttributes([
+            'class' => 'btn-primary',
+        ])
+    )
+```
+
+### Remove Button Modifier
+
+The `modifyRemoveButton()` method allows you to modify the remove button.
+
+```php
+/**
+ * @param Closure(ActionButton $button, self $field): ActionButton $callback
  */
 modifyRemoveButton(Closure $callback)
 ```
@@ -398,51 +537,26 @@ Example:
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
+// [tl! collapse:3]
 use MoonShine\UI\Components\ActionButton;
 use MoonShine\UI\Fields\Json;
 
 Json::make('Data')
     ->modifyRemoveButton(
-        fn(ActionButton $button) => $button->customAttributes([
-            'class' => 'btn-secondary'
-        ])
-    )
-```
-
-### Create Button Modifier
-
-The `modifyCreateButton()` method allows changing the create button.
-
-```php
-/**
- * @param  Closure(ActionButton $button, self $field): ActionButton  $callback
- */
-modifyCreateButton(Closure $callback)
-```
-
-```php
-// torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
-use MoonShine\UI\Components\ActionButton;
-use MoonShine\UI\Fields\Json;
-
-Json::make('Data')
-    ->creatable()
-    ->modifyCreateButton(
-        fn(ActionButton $button) => $button->customAttributes([
-            'class' => 'btn-primary'
+        fn(ActionButton $button): ActionButton => $button->customAttributes([
+            'class' => 'btn-secondary',
         ])
     )
 ```
 
 ### Table Modifier
 
-The `modifyTable()` method allows modifying the table (`TableBuilder`) for all visual modes of the field.
+The `modifyTable()` method allows you to modify the `TableBuilder` table when the `Json` field is displayed in preview mode.
+The method is applied only for table preview, meaning when the field is rendered through `preview()` or `previewMode()` and the `table()` method is enabled.
 
 ```php
 /**
- * @param  Closure(TableBuilder $table, bool $preview): TableBuilder $callback
+ * @param Closure(TableBuilder $table, bool $preview): TableBuilder $callback
  */
 modifyTable(Closure $callback)
 ```
@@ -451,14 +565,275 @@ Example:
 
 ```php
 // torchlight! {"summaryCollapsedIndicator": "namespaces"}
-// [tl! collapse:2]
+// [tl! collapse:3]
 use MoonShine\UI\Components\Table\TableBuilder;
 use MoonShine\UI\Fields\Json;
 
 Json::make('Data')
+    ->table()
     ->modifyTable(
-        fn(TableBuilder $table, bool $preview) => $table->customAttributes([
-            'style' => 'width: 50%;'
+        fn(TableBuilder $table, bool $preview): TableBuilder => $table->customAttributes([
+            'style' => 'width: 20%;',
         ])
     )
+```
+
+You can also use compatible `TableBuilder` settings supported by the current table template:
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:3]
+use MoonShine\UI\Components\Table\TableBuilder;
+use MoonShine\UI\Fields\Json;
+
+Json::make('Data')
+    ->table()
+    ->modifyTable(
+        fn(TableBuilder $table): TableBuilder => $table
+            ->simple()
+            ->sticky()
+    )
+```
+
+`trAttributes()` and `tdAttributes()` are available for rows and cells:
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:3]
+use MoonShine\UI\Components\Table\TableBuilder;
+use MoonShine\UI\Fields\Json;
+
+Json::make('Data')
+    ->table()
+    ->modifyTable(
+        fn(TableBuilder $table): TableBuilder => $table
+            ->trAttributes(fn(): array => ['style' => 'background: red'])
+            ->tdAttributes(fn(): array => ['style' => 'background: blue'])
+    )
+```
+
+<a name="reorderable"></a>
+
+## Drag-and-Drop Sorting
+
+Drag-and-drop row sorting is disabled by default.
+
+The `reorderable()` method controls displaying the row drag handle.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:3]
+use MoonShine\UI\Fields\Json;
+use MoonShine\UI\Fields\Text;
+
+Json::make('Product Options', 'options')
+    ->fields([
+        Text::make('Title'),
+        Text::make('Value'),
+    ])
+    ->reorderable()
+```
+
+To explicitly disable drag-and-drop sorting, pass `false`:
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:3]
+use MoonShine\UI\Fields\Json;
+use MoonShine\UI\Fields\Text;
+
+Json::make('Product Options', 'options')
+    ->fields([
+        Text::make('Title'),
+        Text::make('Value'),
+    ])
+    ->reorderable(false)
+```
+
+<a name="empty-message"></a>
+
+## Empty Message
+
+When the `Json` field has no rows, an empty block is displayed in the interface.
+The `emptyMessage()` method controls the text inside this block.
+
+```php
+emptyMessage(string $message)
+```
+
+Example:
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:3]
+use MoonShine\UI\Fields\Json;
+use MoonShine\UI\Fields\Text;
+
+Json::make('Product Options', 'options')
+    ->fields([
+        Text::make('Title'),
+        Text::make('Value'),
+    ])
+    ->emptyMessage('No options added')
+```
+
+Nested `Json` fields can have a separate message:
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:3]
+use MoonShine\UI\Fields\Json;
+use MoonShine\UI\Fields\Text;
+
+Json::make('Products', 'products')
+    ->fields([
+        Text::make('Name'),
+        Json::make('Links')
+            ->fields([
+                Text::make('Label'),
+                Text::make('Url'),
+            ])
+            ->emptyMessage('No links added'),
+    ])
+```
+
+<a name="filter"></a>
+
+## Using in Filters
+
+If the field is used in filters, enable filter mode with the `filterMode()` method.
+It adapts the field behavior for filters and disables adding new rows.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:3]
+use MoonShine\UI\Fields\Json;
+use MoonShine\UI\Fields\Text;
+
+Json::make('Data')
+    ->fields([
+        Text::make('Title', 'title'),
+        Text::make('Value', 'value'),
+    ])
+    ->filterMode()
+```
+
+For nested `Json`, filter mode is set separately:
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:3]
+use MoonShine\UI\Fields\Json;
+use MoonShine\UI\Fields\Text;
+
+Json::make('Data')
+    ->fields([
+        Text::make('Title', 'title'),
+        Json::make('Links', 'links')
+            ->fields([
+                Text::make('Label', 'label'),
+                Text::make('Url', 'url'),
+            ])
+            ->filterMode(),
+    ])
+```
+
+<a name="filter-empty"></a>
+
+## Filtering "Empty" Values
+
+By default, the `Json` field filters all empty values, but this behavior can be disabled.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:2]
+use MoonShine\UI\Fields\Json;
+
+Json::make('Data', 'data')
+    ->stopFilteringEmpty()
+```
+
+<a name="default"></a>
+
+## Default Value
+
+As with other fields, the default value is set with the `default()` method.
+For `Json`, pass an array of objects.
+
+```php
+// torchlight! {"summaryCollapsedIndicator": "namespaces"}
+// [tl! collapse:3]
+use MoonShine\UI\Fields\Json;
+use MoonShine\UI\Fields\Text;
+
+Json::make('Product Options', 'options')
+    ->fields([
+        Text::make('Title'),
+        Text::make('Value'),
+    ])
+    ->default([
+        [
+            'title' => 'Default title',
+            'value' => 'Default value',
+        ],
+    ])
+```
+
+<a name="blade-usage"></a>
+
+## Blade Usage
+
+The field component can be used directly in Blade templates:
+
+```bladehtml
+<x-moonshine::json
+    input-name="options"
+    empty-message="No options added"
+    :rows="[
+        [
+            'title' => 'Title 1',
+            'value' => 'Value 1',
+        ],
+    ]"
+    :fields="[
+        [
+            'column' => 'title',
+            'label' => 'Title',
+            'type' => 'text',
+            'placeholder' => 'Title',
+        ],
+        [
+            'column' => 'value',
+            'label' => 'Value',
+            'type' => 'text',
+            'placeholder' => 'Value',
+        ],
+    ]"
+/>
+```
+
+Available attributes:
+
+```bladehtml
+<x-moonshine::json
+    :rows="$rows"
+    :fields="$fields"
+    :controls="$controls"
+    :input-name="$inputName"
+    :removable="$removable"
+    :creatable="$creatable"
+    :creatable-limit="$creatableLimit"
+    :hide-create-button="$hideCreateButton"
+    :create-button="$createButton"
+    :buttons="$buttons"
+    :remove-button="$removeButton"
+    :remove-button-attributes="$removeButtonAttributes"
+    :reorderable="$reorderable"
+    :orientation="$orientation"
+    :key-value="$keyValue"
+    :only-value="$onlyValue"
+    :object-mode="$objectMode"
+    :filter-empty="$filterEmpty"
+    :empty-message="$emptyMessage"
+/>
 ```
